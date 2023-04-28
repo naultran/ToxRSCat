@@ -1,0 +1,644 @@
+id: https://example.com/miate
+name: miate
+description: ''
+version: 1.0.0
+imports: 
+  - linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/miate
+  study:
+    name: study
+    is_a: dh_interface
+    slots:
+      - Organism
+      - Strain
+      - Organism supplier
+      - Cell line
+      - Sex
+      - Study start age
+      - Study end age
+      - Average Vivarium Temperature
+      - Average Vivarium Humidity
+      - Vivarium Light Cycle
+      - Cage Type
+      - Bedding Type
+      - Water Type
+      - Feed Name
+      - Feed description
+      - Feed source
+      - Feed catalog number
+      - Substance Name
+      - Substance
+      - Vehicle Substance
+      - Administration Interval
+      - Number of Administrations
+      - Administration Route
+      - Administration volume
+      - Dose
+      - Chemical Source
+      - Chemical Catalog Number
+      - Chemical Purity
+      - time point
+      - ad lib feeding
+      - Euthanasia method
+      - Incubation temperature
+      - Gas composition
+      - Humidity
+      - Humidity Unit
+      - Culture dish type
+    slot_usage:
+      Organism:
+        rank: 1
+        slot_group: animal details
+      Strain:
+        rank: 2
+        slot_group: animal details
+      Organism supplier:
+        rank: 3
+        slot_group: animal details
+      Cell line:
+        rank: 4
+        slot_group: animal details
+      Sex:
+        rank: 5
+        slot_group: animal details
+      Study start age:
+        rank: 6
+        slot_group: animal details
+      Study end age:
+        rank: 7
+        slot_group: animal details
+      Average Vivarium Temperature:
+        rank: 8
+        slot_group: housing conditions
+      Average Vivarium Humidity:
+        rank: 9
+        slot_group: housing conditions
+      Vivarium Light Cycle:
+        rank: 10
+        slot_group: housing conditions
+      Cage Type:
+        rank: 11
+        slot_group: housing conditions
+      Bedding Type:
+        rank: 12
+        slot_group: housing conditions
+      Water Type:
+        rank: 13
+        slot_group: housing conditions
+      Feed Name:
+        rank: 14
+        slot_group: diet exposure
+      Feed description:
+        rank: 15
+        slot_group: diet exposure
+      Feed source:
+        rank: 16
+        slot_group: diet exposure
+      Feed catalog number:
+        rank: 17
+        slot_group: diet exposure
+      Substance Name:
+        rank: 18
+        slot_group: substance exposure
+      Substance:
+        rank: 19
+        slot_group: substance exposure
+      Vehicle Substance:
+        rank: 20
+        slot_group: substance exposure
+      Administration Interval:
+        rank: 21
+        slot_group: substance exposure
+      Number of Administrations:
+        rank: 22
+        slot_group: substance exposure
+      Administration Route:
+        rank: 23
+        slot_group: substance exposure
+      Administration volume:
+        rank: 24
+        slot_group: substance exposure
+      Dose:
+        rank: 25
+        slot_group: substance exposure
+      Chemical Source:
+        rank: 26
+        slot_group: substance exposure
+      Chemical Catalog Number:
+        rank: 27
+        slot_group: substance exposure
+      Chemical Purity:
+        rank: 28
+        slot_group: substance exposure
+      time point:
+        rank: 29
+        slot_group: exposure details
+      ad lib feeding:
+        rank: 30
+        slot_group: termination conditions
+      Euthanasia method:
+        rank: 31
+        slot_group: termination conditions
+      Incubation temperature:
+        rank: 32
+        slot_group: cell culture conditions
+      Gas composition:
+        rank: 33
+        slot_group: cell culture conditions
+      Humidity:
+        rank: 34
+        slot_group: cell culture conditions
+      Humidity Unit:
+        rank: 35
+        slot_group: cell culture conditions
+      Culture dish type:
+        rank: 36
+        slot_group: cell culture conditions
+  investigation:
+    name: investigation
+    is_a: dh_interface
+    slots:
+    - Study Identifier
+    - Study Title
+    - Study Description
+    - Study Grant Number
+    - Study Funding Agency
+    - study design type
+    - Pubmed ID
+    - Publication DOI
+    - Author list
+    - Publication title
+    - Publication status
+    - Last name
+    - First name
+    - Middle Initials
+    - Email
+    - Phone
+    - Fax
+    - Address
+    - Affiliation
+    - Role
+    - ORCID
+    slot_usage:
+      Study Identifier:
+        rank: 1
+        slot_group: study description
+      Study Title:
+        rank: 2
+        slot_group: study description
+      Study Description:
+        rank: 3
+        slot_group: study description
+      Study Grant Number:
+        rank: 4
+        slot_group: study description
+      Study Funding Agency:
+        rank: 5
+        slot_group: study description
+      study design type:
+        rank: 6
+        slot_group: study description descriptor
+      Pubmed ID:
+        rank: 7
+        slot_group: study publications
+      Publication DOI:
+        rank: 8
+        slot_group: study publications
+      Author list:
+        rank: 9
+        slot_group: study publications
+      Publication title:
+        rank: 10
+        slot_group: study publications
+      Publication status:
+        rank: 11
+        slot_group: study publications
+      Last name:
+        rank: 12
+        slot_group: study contacts
+      First name:
+        rank: 13
+        slot_group: study contacts
+      Middle Initials:
+        rank: 14
+        slot_group: study contacts
+      Email:
+        rank: 15
+        slot_group: study contacts
+      Phone:
+        rank: 16
+        slot_group: study contacts
+      Fax:
+        rank: 17
+        slot_group: study contacts
+      Address:
+        rank: 18
+        slot_group: study contacts
+      Affiliation:
+        rank: 19
+        slot_group: study contacts
+      Role:
+        rank: 20
+        slot_group: study contacts
+      ORCID:
+        rank: 21
+        slot_group: study contacts
+slots:
+  Study Identifier:
+    name: Study Identifier
+    title: Study Identifier
+    range: Unique ID
+    description: ' '
+    required: true
+    slot_uri: a
+    comments: ' '
+  Study Title:
+    name: Study Title
+    title: Study Title
+    range: String
+    description: ' '
+    recommended: true
+    comments: ' '
+  Study Description:
+    name: Study Description
+    title: Study Description
+    range: String
+    description: ' '
+    comments: ' '
+  Study Grant Number:
+    name: Study Grant Number
+    title: Study Grant Number
+    range: String
+    description: ' '
+    comments: ' '
+  Study Funding Agency:
+    name: Study Funding Agency
+    title: Study Funding Agency
+    range: String
+    description: ' '
+    comments: ' '
+  study design type:
+    name: study design type
+    title: study design type
+    range: Ontology
+    description: ' '
+    comments: ' '
+  Pubmed ID:
+    name: Pubmed ID
+    title: Pubmed ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Publication DOI:
+    name: Publication DOI
+    title: Publication DOI
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Author list:
+    name: Author list
+    title: Author list
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Publication title:
+    name: Publication title
+    title: Publication title
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Publication status:
+    name: Publication status
+    title: Publication status
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Last name:
+    name: Last name
+    title: Last name
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  First name:
+    name: First name
+    title: First name
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Middle Initials:
+    name: Middle Initials
+    title: Middle Initials
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Email:
+    name: Email
+    title: Email
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Phone:
+    name: Phone
+    title: Phone
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Fax:
+    name: Fax
+    title: Fax
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Address:
+    name: Address
+    title: Address
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Affiliation:
+    name: Affiliation
+    title: Affiliation
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Role:
+    name: Role
+    title: Role
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  ORCID:
+    name: ORCID
+    title: ORCID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Organism:
+    name: Organism
+    title: Organism
+    range: Ontology
+    description: Provide taxonomic information associated to the source biological
+      material. This should be included as an NCBI_TAXON ID unless not found within
+      NCBI.
+    comments: ' '
+  Strain:
+    name: Strain
+    title: Strain
+    range: Ontology
+    description: Provide strain information associated to the source biological material.
+    comments: ' '
+  Organism supplier:
+    name: Organism supplier
+    title: Organism supplier
+    range: String
+    description: Provide the name of the vendor for the organism
+    comments: ' '
+  Cell line:
+    name: Cell line
+    title: Cell line
+    range: Ontology
+    description: ' '
+    comments: ' '
+  Sex:
+    name: Sex
+    title: Sex
+    range: Sex menu
+    description: 'Sex of the study organism. Must be one of the following: FEMALE, MALE'
+    comments: ' '
+  Study start age:
+    name: Study start age
+    title: Study start age
+    range: integer
+    description: Age of the organism at the time the first dose was administered.
+    comments: ' '
+  Study end age:
+    name: Study end age
+    title: Study end age
+    range: integer
+    description: Age of the organism when the terminal sample was collected.
+    comments: ' '
+  Average Vivarium Temperature:
+    name: Average Vivarium Temperature
+    title: Average Vivarium Temperature
+    range: float
+    description: ' '
+    comments: ' '
+  Average Vivarium Humidity:
+    name: Average Vivarium Humidity
+    title: Average Vivarium Humidity
+    range: float
+    description: ' '
+    comments: ' '
+  Vivarium Light Cycle:
+    name: Vivarium Light Cycle
+    title: Vivarium Light Cycle
+    range: String
+    description: ' '
+    comments: ' '
+  Cage Type:
+    name: Cage Type
+    title: Cage Type
+    range: String
+    description: ' '
+    comments: ' '
+  Bedding Type:
+    name: Bedding Type
+    title: Bedding Type
+    range: String
+    description: ' '
+    comments: ' '
+  Water Type:
+    name: Water Type
+    title: Water Type
+    range: String
+    description: ' '
+    comments: ' '
+  Feed Name:
+    name: Feed Name
+    title: Feed Name
+    range: String
+    description: ' '
+    comments: ' '
+  Feed description:
+    name: Feed description
+    title: Feed description
+    range: String
+    description: ' '
+    comments: ' '
+  Feed source:
+    name: Feed source
+    title: Feed source
+    range: String
+    description: ' '
+    comments: ' '
+  Feed catalog number:
+    name: Feed catalog number
+    title: Feed catalog number
+    range: String
+    description: ' '
+    comments: ' '
+  Substance Name:
+    name: Substance Name
+    title: Substance Name
+    range: String
+    description: ' '
+    comments: ' '
+  Substance:
+    name: Substance
+    title: Substance
+    range: Ontology
+    description: ' '
+    comments: ' '
+  Vehicle Substance:
+    name: Vehicle Substance
+    title: Vehicle Substance
+    range: Ontology
+    description: ' '
+    comments: ' '
+  Administration Interval:
+    name: Administration Interval
+    title: Administration Interval
+    range: float
+    description: ' '
+    comments: ' '
+  Number of Administrations:
+    name: Number of Administrations
+    title: Number of Administrations
+    range: integer
+    description: ' '
+    comments: ' '
+  Administration Route:
+    name: Administration Route
+    title: Administration Route
+    range: Administration Route menu
+    description: ' '
+    comments: ' '
+  Administration volume:
+    name: Administration volume
+    title: Administration volume
+    range: float
+    description: ' '
+    comments: ' '
+  Dose:
+    name: Dose
+    title: Dose
+    range: float
+    description: ' '
+    comments: ' '
+  Chemical Source:
+    name: Chemical Source
+    title: Chemical Source
+    range: String
+    description: ' '
+    comments: ' '
+  Chemical Catalog Number:
+    name: Chemical Catalog Number
+    title: Chemical Catalog Number
+    range: String
+    description: ' '
+    comments: ' '
+  Chemical Purity:
+    name: Chemical Purity
+    title: Chemical Purity
+    range: String
+    description: ' '
+    comments: ' '
+  time point:
+    name: time point
+    title: time point
+    range: String
+    description: ' '
+    comments: ' '
+  ad lib feeding:
+    name: ad lib feeding
+    title: ad lib feeding
+    range: ad lib feeding menu
+    description: ' '
+    comments: ' '
+  Euthanasia method:
+    name: Euthanasia method
+    title: Euthanasia method
+    range: String
+    description: ' '
+    comments: ' '
+  Incubation temperature:
+    name: Incubation temperature
+    title: Incubation temperature
+    range: float
+    description: ' '
+    comments: ' '
+  Gas composition:
+    name: Gas composition
+    title: Gas composition
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Humidity:
+    name: Humidity
+    title: Humidity
+    range: float
+    description: ' '
+    comments: ' '
+  Humidity Unit:
+    name: Humidity Unit
+    title: Humidity Unit
+    range: integer
+    description: ' '
+    comments: ' '
+  Culture dish type:
+    name: Culture dish type
+    title: Culture dish type
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+enums:
+  Sex menu:
+    name: Sex menu
+    permissible_values:
+      FEMALE:
+        text: FEMALE
+      MALE:
+        text: MALE
+  Administration Route menu:
+    name: Administration Route menu
+    permissible_values:
+      GAVAGE:
+        text: GAVAGE
+      INTRAPERITONEAL:
+        text: INTRAPERITONEAL
+      RETRO-ORBITAL:
+        text: RETRO-ORBITAL
+      TAIL VEIN INJECTION:
+        text: TAIL VEIN INJECTION
+      DIET:
+        text: DIET
+      WATER:
+        text: WATER
+      DOUGH PILL:
+        text: DOUGH PILL
+  ad lib feeding menu:
+    name: ad lib feeding menu
+    permissible_values:
+      'YES':
+        text: 'YES'
+      'NO':
+        text: 'NO'
+settings:
+  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
