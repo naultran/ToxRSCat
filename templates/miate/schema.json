@@ -1,0 +1,1961 @@
+{
+  "name": "miate",
+  "description": "",
+  "id": "https://example.com/miate",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/miate/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/miate",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/miate",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/miate",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/miate",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/miate",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/miate",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/miate",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/miate",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/miate",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/miate",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/miate",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "Sex menu": {
+      "name": "Sex menu",
+      "from_schema": "https://example.com/miate",
+      "permissible_values": {
+        "FEMALE": {
+          "text": "FEMALE"
+        },
+        "MALE": {
+          "text": "MALE"
+        }
+      }
+    },
+    "Administration Route menu": {
+      "name": "Administration Route menu",
+      "from_schema": "https://example.com/miate",
+      "permissible_values": {
+        "GAVAGE": {
+          "text": "GAVAGE"
+        },
+        "INTRAPERITONEAL": {
+          "text": "INTRAPERITONEAL"
+        },
+        "RETRO-ORBITAL": {
+          "text": "RETRO-ORBITAL"
+        },
+        "TAIL VEIN INJECTION": {
+          "text": "TAIL VEIN INJECTION"
+        },
+        "DIET": {
+          "text": "DIET"
+        },
+        "WATER": {
+          "text": "WATER"
+        },
+        "DOUGH PILL": {
+          "text": "DOUGH PILL"
+        }
+      }
+    },
+    "ad lib feeding menu": {
+      "name": "ad lib feeding menu",
+      "from_schema": "https://example.com/miate",
+      "permissible_values": {
+        "YES": {
+          "text": "YES"
+        },
+        "NO": {
+          "text": "NO"
+        }
+      }
+    }
+  },
+  "slots": {
+    "Study Identifier": {
+      "name": "Study Identifier",
+      "description": " ",
+      "title": "Study Identifier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "slot_uri": "a",
+      "range": "Unique ID",
+      "required": true
+    },
+    "Study Title": {
+      "name": "Study Title",
+      "description": " ",
+      "title": "Study Title",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String",
+      "recommended": true
+    },
+    "Study Description": {
+      "name": "Study Description",
+      "description": " ",
+      "title": "Study Description",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Study Grant Number": {
+      "name": "Study Grant Number",
+      "description": " ",
+      "title": "Study Grant Number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Study Funding Agency": {
+      "name": "Study Funding Agency",
+      "description": " ",
+      "title": "Study Funding Agency",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "study design type": {
+      "name": "study design type",
+      "description": " ",
+      "title": "study design type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Ontology"
+    },
+    "Pubmed ID": {
+      "name": "Pubmed ID",
+      "description": " ",
+      "title": "Pubmed ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Publication DOI": {
+      "name": "Publication DOI",
+      "description": " ",
+      "title": "Publication DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Author list": {
+      "name": "Author list",
+      "description": " ",
+      "title": "Author list",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Publication title": {
+      "name": "Publication title",
+      "description": " ",
+      "title": "Publication title",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Publication status": {
+      "name": "Publication status",
+      "description": " ",
+      "title": "Publication status",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Last name": {
+      "name": "Last name",
+      "description": " ",
+      "title": "Last name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "First name": {
+      "name": "First name",
+      "description": " ",
+      "title": "First name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Middle Initials": {
+      "name": "Middle Initials",
+      "description": " ",
+      "title": "Middle Initials",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Email": {
+      "name": "Email",
+      "description": " ",
+      "title": "Email",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Phone": {
+      "name": "Phone",
+      "description": " ",
+      "title": "Phone",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Fax": {
+      "name": "Fax",
+      "description": " ",
+      "title": "Fax",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Address": {
+      "name": "Address",
+      "description": " ",
+      "title": "Address",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Affiliation": {
+      "name": "Affiliation",
+      "description": " ",
+      "title": "Affiliation",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Role": {
+      "name": "Role",
+      "description": " ",
+      "title": "Role",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "ORCID": {
+      "name": "ORCID",
+      "description": " ",
+      "title": "ORCID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Organism": {
+      "name": "Organism",
+      "description": "Provide taxonomic information associated to the source biological material. This should be included as an NCBI_TAXON ID unless not found within NCBI.",
+      "title": "Organism",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Ontology"
+    },
+    "Strain": {
+      "name": "Strain",
+      "description": "Provide strain information associated to the source biological material.",
+      "title": "Strain",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Ontology"
+    },
+    "Organism supplier": {
+      "name": "Organism supplier",
+      "description": "Provide the name of the vendor for the organism",
+      "title": "Organism supplier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Cell line": {
+      "name": "Cell line",
+      "description": " ",
+      "title": "Cell line",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Ontology"
+    },
+    "Sex": {
+      "name": "Sex",
+      "description": "Sex of the study organism. Must be one of the following: FEMALE, MALE",
+      "title": "Sex",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Sex menu"
+    },
+    "Study start age": {
+      "name": "Study start age",
+      "description": "Age of the organism at the time the first dose was administered.",
+      "title": "Study start age",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "integer"
+    },
+    "Study end age": {
+      "name": "Study end age",
+      "description": "Age of the organism when the terminal sample was collected.",
+      "title": "Study end age",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "integer"
+    },
+    "Average Vivarium Temperature": {
+      "name": "Average Vivarium Temperature",
+      "description": " ",
+      "title": "Average Vivarium Temperature",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Average Vivarium Humidity": {
+      "name": "Average Vivarium Humidity",
+      "description": " ",
+      "title": "Average Vivarium Humidity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Vivarium Light Cycle": {
+      "name": "Vivarium Light Cycle",
+      "description": " ",
+      "title": "Vivarium Light Cycle",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Cage Type": {
+      "name": "Cage Type",
+      "description": " ",
+      "title": "Cage Type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Bedding Type": {
+      "name": "Bedding Type",
+      "description": " ",
+      "title": "Bedding Type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Water Type": {
+      "name": "Water Type",
+      "description": " ",
+      "title": "Water Type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Feed Name": {
+      "name": "Feed Name",
+      "description": " ",
+      "title": "Feed Name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Feed description": {
+      "name": "Feed description",
+      "description": " ",
+      "title": "Feed description",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Feed source": {
+      "name": "Feed source",
+      "description": " ",
+      "title": "Feed source",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Feed catalog number": {
+      "name": "Feed catalog number",
+      "description": " ",
+      "title": "Feed catalog number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Substance Name": {
+      "name": "Substance Name",
+      "description": " ",
+      "title": "Substance Name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Substance": {
+      "name": "Substance",
+      "description": " ",
+      "title": "Substance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Ontology"
+    },
+    "Vehicle Substance": {
+      "name": "Vehicle Substance",
+      "description": " ",
+      "title": "Vehicle Substance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Ontology"
+    },
+    "Administration Interval": {
+      "name": "Administration Interval",
+      "description": " ",
+      "title": "Administration Interval",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Number of Administrations": {
+      "name": "Number of Administrations",
+      "description": " ",
+      "title": "Number of Administrations",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "integer"
+    },
+    "Administration Route": {
+      "name": "Administration Route",
+      "description": " ",
+      "title": "Administration Route",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "Administration Route menu"
+    },
+    "Administration volume": {
+      "name": "Administration volume",
+      "description": " ",
+      "title": "Administration volume",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Dose": {
+      "name": "Dose",
+      "description": " ",
+      "title": "Dose",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Chemical Source": {
+      "name": "Chemical Source",
+      "description": " ",
+      "title": "Chemical Source",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Chemical Catalog Number": {
+      "name": "Chemical Catalog Number",
+      "description": " ",
+      "title": "Chemical Catalog Number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Chemical Purity": {
+      "name": "Chemical Purity",
+      "description": " ",
+      "title": "Chemical Purity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "time point": {
+      "name": "time point",
+      "description": " ",
+      "title": "time point",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "ad lib feeding": {
+      "name": "ad lib feeding",
+      "description": " ",
+      "title": "ad lib feeding",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "ad lib feeding menu"
+    },
+    "Euthanasia method": {
+      "name": "Euthanasia method",
+      "description": " ",
+      "title": "Euthanasia method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "String"
+    },
+    "Incubation temperature": {
+      "name": "Incubation temperature",
+      "description": " ",
+      "title": "Incubation temperature",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Gas composition": {
+      "name": "Gas composition",
+      "description": " ",
+      "title": "Gas composition",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Humidity": {
+      "name": "Humidity",
+      "description": " ",
+      "title": "Humidity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "float"
+    },
+    "Humidity Unit": {
+      "name": "Humidity Unit",
+      "description": " ",
+      "title": "Humidity Unit",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "integer"
+    },
+    "Culture dish type": {
+      "name": "Culture dish type",
+      "description": " ",
+      "title": "Culture dish type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miate",
+      "range": "WhitespaceMinimizedString"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/miate"
+    },
+    "study": {
+      "name": "study",
+      "from_schema": "https://example.com/miate",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "Organism": {
+          "name": "Organism",
+          "rank": 1,
+          "slot_group": "animal details"
+        },
+        "Strain": {
+          "name": "Strain",
+          "rank": 2,
+          "slot_group": "animal details"
+        },
+        "Organism supplier": {
+          "name": "Organism supplier",
+          "rank": 3,
+          "slot_group": "animal details"
+        },
+        "Cell line": {
+          "name": "Cell line",
+          "rank": 4,
+          "slot_group": "animal details"
+        },
+        "Sex": {
+          "name": "Sex",
+          "rank": 5,
+          "slot_group": "animal details"
+        },
+        "Study start age": {
+          "name": "Study start age",
+          "rank": 6,
+          "slot_group": "animal details"
+        },
+        "Study end age": {
+          "name": "Study end age",
+          "rank": 7,
+          "slot_group": "animal details"
+        },
+        "Average Vivarium Temperature": {
+          "name": "Average Vivarium Temperature",
+          "rank": 8,
+          "slot_group": "housing conditions"
+        },
+        "Average Vivarium Humidity": {
+          "name": "Average Vivarium Humidity",
+          "rank": 9,
+          "slot_group": "housing conditions"
+        },
+        "Vivarium Light Cycle": {
+          "name": "Vivarium Light Cycle",
+          "rank": 10,
+          "slot_group": "housing conditions"
+        },
+        "Cage Type": {
+          "name": "Cage Type",
+          "rank": 11,
+          "slot_group": "housing conditions"
+        },
+        "Bedding Type": {
+          "name": "Bedding Type",
+          "rank": 12,
+          "slot_group": "housing conditions"
+        },
+        "Water Type": {
+          "name": "Water Type",
+          "rank": 13,
+          "slot_group": "housing conditions"
+        },
+        "Feed Name": {
+          "name": "Feed Name",
+          "rank": 14,
+          "slot_group": "diet exposure"
+        },
+        "Feed description": {
+          "name": "Feed description",
+          "rank": 15,
+          "slot_group": "diet exposure"
+        },
+        "Feed source": {
+          "name": "Feed source",
+          "rank": 16,
+          "slot_group": "diet exposure"
+        },
+        "Feed catalog number": {
+          "name": "Feed catalog number",
+          "rank": 17,
+          "slot_group": "diet exposure"
+        },
+        "Substance Name": {
+          "name": "Substance Name",
+          "rank": 18,
+          "slot_group": "substance exposure"
+        },
+        "Substance": {
+          "name": "Substance",
+          "rank": 19,
+          "slot_group": "substance exposure"
+        },
+        "Vehicle Substance": {
+          "name": "Vehicle Substance",
+          "rank": 20,
+          "slot_group": "substance exposure"
+        },
+        "Administration Interval": {
+          "name": "Administration Interval",
+          "rank": 21,
+          "slot_group": "substance exposure"
+        },
+        "Number of Administrations": {
+          "name": "Number of Administrations",
+          "rank": 22,
+          "slot_group": "substance exposure"
+        },
+        "Administration Route": {
+          "name": "Administration Route",
+          "rank": 23,
+          "slot_group": "substance exposure"
+        },
+        "Administration volume": {
+          "name": "Administration volume",
+          "rank": 24,
+          "slot_group": "substance exposure"
+        },
+        "Dose": {
+          "name": "Dose",
+          "rank": 25,
+          "slot_group": "substance exposure"
+        },
+        "Chemical Source": {
+          "name": "Chemical Source",
+          "rank": 26,
+          "slot_group": "substance exposure"
+        },
+        "Chemical Catalog Number": {
+          "name": "Chemical Catalog Number",
+          "rank": 27,
+          "slot_group": "substance exposure"
+        },
+        "Chemical Purity": {
+          "name": "Chemical Purity",
+          "rank": 28,
+          "slot_group": "substance exposure"
+        },
+        "time point": {
+          "name": "time point",
+          "rank": 29,
+          "slot_group": "exposure details"
+        },
+        "ad lib feeding": {
+          "name": "ad lib feeding",
+          "rank": 30,
+          "slot_group": "termination conditions"
+        },
+        "Euthanasia method": {
+          "name": "Euthanasia method",
+          "rank": 31,
+          "slot_group": "termination conditions"
+        },
+        "Incubation temperature": {
+          "name": "Incubation temperature",
+          "rank": 32,
+          "slot_group": "cell culture conditions"
+        },
+        "Gas composition": {
+          "name": "Gas composition",
+          "rank": 33,
+          "slot_group": "cell culture conditions"
+        },
+        "Humidity": {
+          "name": "Humidity",
+          "rank": 34,
+          "slot_group": "cell culture conditions"
+        },
+        "Humidity Unit": {
+          "name": "Humidity Unit",
+          "rank": 35,
+          "slot_group": "cell culture conditions"
+        },
+        "Culture dish type": {
+          "name": "Culture dish type",
+          "rank": 36,
+          "slot_group": "cell culture conditions"
+        }
+      },
+      "attributes": {
+        "Organism": {
+          "name": "Organism",
+          "description": "Provide taxonomic information associated to the source biological material. This should be included as an NCBI_TAXON ID unless not found within NCBI.",
+          "title": "Organism",
+          "from_schema": "https://example.com/miate",
+          "rank": 1,
+          "alias": "Organism",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "Ontology"
+        },
+        "Strain": {
+          "name": "Strain",
+          "description": "Provide strain information associated to the source biological material.",
+          "title": "Strain",
+          "from_schema": "https://example.com/miate",
+          "rank": 2,
+          "alias": "Strain",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "Ontology"
+        },
+        "Organism supplier": {
+          "name": "Organism supplier",
+          "description": "Provide the name of the vendor for the organism",
+          "title": "Organism supplier",
+          "from_schema": "https://example.com/miate",
+          "rank": 3,
+          "alias": "Organism_supplier",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "String"
+        },
+        "Cell line": {
+          "name": "Cell line",
+          "description": " ",
+          "title": "Cell line",
+          "from_schema": "https://example.com/miate",
+          "rank": 4,
+          "alias": "Cell_line",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "Ontology"
+        },
+        "Sex": {
+          "name": "Sex",
+          "description": "Sex of the study organism. Must be one of the following: FEMALE, MALE",
+          "title": "Sex",
+          "from_schema": "https://example.com/miate",
+          "rank": 5,
+          "alias": "Sex",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "Sex menu"
+        },
+        "Study start age": {
+          "name": "Study start age",
+          "description": "Age of the organism at the time the first dose was administered.",
+          "title": "Study start age",
+          "from_schema": "https://example.com/miate",
+          "rank": 6,
+          "alias": "Study_start_age",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "integer"
+        },
+        "Study end age": {
+          "name": "Study end age",
+          "description": "Age of the organism when the terminal sample was collected.",
+          "title": "Study end age",
+          "from_schema": "https://example.com/miate",
+          "rank": 7,
+          "alias": "Study_end_age",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "animal details",
+          "range": "integer"
+        },
+        "Average Vivarium Temperature": {
+          "name": "Average Vivarium Temperature",
+          "description": " ",
+          "title": "Average Vivarium Temperature",
+          "from_schema": "https://example.com/miate",
+          "rank": 8,
+          "alias": "Average_Vivarium_Temperature",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "housing conditions",
+          "range": "float"
+        },
+        "Average Vivarium Humidity": {
+          "name": "Average Vivarium Humidity",
+          "description": " ",
+          "title": "Average Vivarium Humidity",
+          "from_schema": "https://example.com/miate",
+          "rank": 9,
+          "alias": "Average_Vivarium_Humidity",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "housing conditions",
+          "range": "float"
+        },
+        "Vivarium Light Cycle": {
+          "name": "Vivarium Light Cycle",
+          "description": " ",
+          "title": "Vivarium Light Cycle",
+          "from_schema": "https://example.com/miate",
+          "rank": 10,
+          "alias": "Vivarium_Light_Cycle",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "housing conditions",
+          "range": "String"
+        },
+        "Cage Type": {
+          "name": "Cage Type",
+          "description": " ",
+          "title": "Cage Type",
+          "from_schema": "https://example.com/miate",
+          "rank": 11,
+          "alias": "Cage_Type",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "housing conditions",
+          "range": "String"
+        },
+        "Bedding Type": {
+          "name": "Bedding Type",
+          "description": " ",
+          "title": "Bedding Type",
+          "from_schema": "https://example.com/miate",
+          "rank": 12,
+          "alias": "Bedding_Type",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "housing conditions",
+          "range": "String"
+        },
+        "Water Type": {
+          "name": "Water Type",
+          "description": " ",
+          "title": "Water Type",
+          "from_schema": "https://example.com/miate",
+          "rank": 13,
+          "alias": "Water_Type",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "housing conditions",
+          "range": "String"
+        },
+        "Feed Name": {
+          "name": "Feed Name",
+          "description": " ",
+          "title": "Feed Name",
+          "from_schema": "https://example.com/miate",
+          "rank": 14,
+          "alias": "Feed_Name",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "diet exposure",
+          "range": "String"
+        },
+        "Feed description": {
+          "name": "Feed description",
+          "description": " ",
+          "title": "Feed description",
+          "from_schema": "https://example.com/miate",
+          "rank": 15,
+          "alias": "Feed_description",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "diet exposure",
+          "range": "String"
+        },
+        "Feed source": {
+          "name": "Feed source",
+          "description": " ",
+          "title": "Feed source",
+          "from_schema": "https://example.com/miate",
+          "rank": 16,
+          "alias": "Feed_source",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "diet exposure",
+          "range": "String"
+        },
+        "Feed catalog number": {
+          "name": "Feed catalog number",
+          "description": " ",
+          "title": "Feed catalog number",
+          "from_schema": "https://example.com/miate",
+          "rank": 17,
+          "alias": "Feed_catalog_number",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "diet exposure",
+          "range": "String"
+        },
+        "Substance Name": {
+          "name": "Substance Name",
+          "description": " ",
+          "title": "Substance Name",
+          "from_schema": "https://example.com/miate",
+          "rank": 18,
+          "alias": "Substance_Name",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "String"
+        },
+        "Substance": {
+          "name": "Substance",
+          "description": " ",
+          "title": "Substance",
+          "from_schema": "https://example.com/miate",
+          "rank": 19,
+          "alias": "Substance",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "Ontology"
+        },
+        "Vehicle Substance": {
+          "name": "Vehicle Substance",
+          "description": " ",
+          "title": "Vehicle Substance",
+          "from_schema": "https://example.com/miate",
+          "rank": 20,
+          "alias": "Vehicle_Substance",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "Ontology"
+        },
+        "Administration Interval": {
+          "name": "Administration Interval",
+          "description": " ",
+          "title": "Administration Interval",
+          "from_schema": "https://example.com/miate",
+          "rank": 21,
+          "alias": "Administration_Interval",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "float"
+        },
+        "Number of Administrations": {
+          "name": "Number of Administrations",
+          "description": " ",
+          "title": "Number of Administrations",
+          "from_schema": "https://example.com/miate",
+          "rank": 22,
+          "alias": "Number_of_Administrations",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "integer"
+        },
+        "Administration Route": {
+          "name": "Administration Route",
+          "description": " ",
+          "title": "Administration Route",
+          "from_schema": "https://example.com/miate",
+          "rank": 23,
+          "alias": "Administration_Route",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "Administration Route menu"
+        },
+        "Administration volume": {
+          "name": "Administration volume",
+          "description": " ",
+          "title": "Administration volume",
+          "from_schema": "https://example.com/miate",
+          "rank": 24,
+          "alias": "Administration_volume",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "float"
+        },
+        "Dose": {
+          "name": "Dose",
+          "description": " ",
+          "title": "Dose",
+          "from_schema": "https://example.com/miate",
+          "rank": 25,
+          "alias": "Dose",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "float"
+        },
+        "Chemical Source": {
+          "name": "Chemical Source",
+          "description": " ",
+          "title": "Chemical Source",
+          "from_schema": "https://example.com/miate",
+          "rank": 26,
+          "alias": "Chemical_Source",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "String"
+        },
+        "Chemical Catalog Number": {
+          "name": "Chemical Catalog Number",
+          "description": " ",
+          "title": "Chemical Catalog Number",
+          "from_schema": "https://example.com/miate",
+          "rank": 27,
+          "alias": "Chemical_Catalog_Number",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "String"
+        },
+        "Chemical Purity": {
+          "name": "Chemical Purity",
+          "description": " ",
+          "title": "Chemical Purity",
+          "from_schema": "https://example.com/miate",
+          "rank": 28,
+          "alias": "Chemical_Purity",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "substance exposure",
+          "range": "String"
+        },
+        "time point": {
+          "name": "time point",
+          "description": " ",
+          "title": "time point",
+          "from_schema": "https://example.com/miate",
+          "rank": 29,
+          "alias": "time_point",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "exposure details",
+          "range": "String"
+        },
+        "ad lib feeding": {
+          "name": "ad lib feeding",
+          "description": " ",
+          "title": "ad lib feeding",
+          "from_schema": "https://example.com/miate",
+          "rank": 30,
+          "alias": "ad_lib_feeding",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "termination conditions",
+          "range": "ad lib feeding menu"
+        },
+        "Euthanasia method": {
+          "name": "Euthanasia method",
+          "description": " ",
+          "title": "Euthanasia method",
+          "from_schema": "https://example.com/miate",
+          "rank": 31,
+          "alias": "Euthanasia_method",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "termination conditions",
+          "range": "String"
+        },
+        "Incubation temperature": {
+          "name": "Incubation temperature",
+          "description": " ",
+          "title": "Incubation temperature",
+          "from_schema": "https://example.com/miate",
+          "rank": 32,
+          "alias": "Incubation_temperature",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "cell culture conditions",
+          "range": "float"
+        },
+        "Gas composition": {
+          "name": "Gas composition",
+          "description": " ",
+          "title": "Gas composition",
+          "from_schema": "https://example.com/miate",
+          "rank": 33,
+          "alias": "Gas_composition",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "cell culture conditions",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Humidity": {
+          "name": "Humidity",
+          "description": " ",
+          "title": "Humidity",
+          "from_schema": "https://example.com/miate",
+          "rank": 34,
+          "alias": "Humidity",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "cell culture conditions",
+          "range": "float"
+        },
+        "Humidity Unit": {
+          "name": "Humidity Unit",
+          "description": " ",
+          "title": "Humidity Unit",
+          "from_schema": "https://example.com/miate",
+          "rank": 35,
+          "alias": "Humidity_Unit",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "cell culture conditions",
+          "range": "integer"
+        },
+        "Culture dish type": {
+          "name": "Culture dish type",
+          "description": " ",
+          "title": "Culture dish type",
+          "from_schema": "https://example.com/miate",
+          "rank": 36,
+          "alias": "Culture_dish_type",
+          "owner": "study",
+          "domain_of": [
+            "study"
+          ],
+          "slot_group": "cell culture conditions",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    },
+    "investigation": {
+      "name": "investigation",
+      "from_schema": "https://example.com/miate",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "Study Identifier": {
+          "name": "Study Identifier",
+          "rank": 1,
+          "slot_group": "study description"
+        },
+        "Study Title": {
+          "name": "Study Title",
+          "rank": 2,
+          "slot_group": "study description"
+        },
+        "Study Description": {
+          "name": "Study Description",
+          "rank": 3,
+          "slot_group": "study description"
+        },
+        "Study Grant Number": {
+          "name": "Study Grant Number",
+          "rank": 4,
+          "slot_group": "study description"
+        },
+        "Study Funding Agency": {
+          "name": "Study Funding Agency",
+          "rank": 5,
+          "slot_group": "study description"
+        },
+        "study design type": {
+          "name": "study design type",
+          "rank": 6,
+          "slot_group": "study description descriptor"
+        },
+        "Pubmed ID": {
+          "name": "Pubmed ID",
+          "rank": 7,
+          "slot_group": "study publications"
+        },
+        "Publication DOI": {
+          "name": "Publication DOI",
+          "rank": 8,
+          "slot_group": "study publications"
+        },
+        "Author list": {
+          "name": "Author list",
+          "rank": 9,
+          "slot_group": "study publications"
+        },
+        "Publication title": {
+          "name": "Publication title",
+          "rank": 10,
+          "slot_group": "study publications"
+        },
+        "Publication status": {
+          "name": "Publication status",
+          "rank": 11,
+          "slot_group": "study publications"
+        },
+        "Last name": {
+          "name": "Last name",
+          "rank": 12,
+          "slot_group": "study contacts"
+        },
+        "First name": {
+          "name": "First name",
+          "rank": 13,
+          "slot_group": "study contacts"
+        },
+        "Middle Initials": {
+          "name": "Middle Initials",
+          "rank": 14,
+          "slot_group": "study contacts"
+        },
+        "Email": {
+          "name": "Email",
+          "rank": 15,
+          "slot_group": "study contacts"
+        },
+        "Phone": {
+          "name": "Phone",
+          "rank": 16,
+          "slot_group": "study contacts"
+        },
+        "Fax": {
+          "name": "Fax",
+          "rank": 17,
+          "slot_group": "study contacts"
+        },
+        "Address": {
+          "name": "Address",
+          "rank": 18,
+          "slot_group": "study contacts"
+        },
+        "Affiliation": {
+          "name": "Affiliation",
+          "rank": 19,
+          "slot_group": "study contacts"
+        },
+        "Role": {
+          "name": "Role",
+          "rank": 20,
+          "slot_group": "study contacts"
+        },
+        "ORCID": {
+          "name": "ORCID",
+          "rank": 21,
+          "slot_group": "study contacts"
+        }
+      },
+      "attributes": {
+        "Study Identifier": {
+          "name": "Study Identifier",
+          "description": " ",
+          "title": "Study Identifier",
+          "from_schema": "https://example.com/miate",
+          "rank": 1,
+          "slot_uri": "a",
+          "alias": "Study_Identifier",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study description",
+          "range": "Unique ID",
+          "required": true
+        },
+        "Study Title": {
+          "name": "Study Title",
+          "description": " ",
+          "title": "Study Title",
+          "from_schema": "https://example.com/miate",
+          "rank": 2,
+          "alias": "Study_Title",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study description",
+          "range": "String",
+          "recommended": true
+        },
+        "Study Description": {
+          "name": "Study Description",
+          "description": " ",
+          "title": "Study Description",
+          "from_schema": "https://example.com/miate",
+          "rank": 3,
+          "alias": "Study_Description",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study description",
+          "range": "String"
+        },
+        "Study Grant Number": {
+          "name": "Study Grant Number",
+          "description": " ",
+          "title": "Study Grant Number",
+          "from_schema": "https://example.com/miate",
+          "rank": 4,
+          "alias": "Study_Grant_Number",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study description",
+          "range": "String"
+        },
+        "Study Funding Agency": {
+          "name": "Study Funding Agency",
+          "description": " ",
+          "title": "Study Funding Agency",
+          "from_schema": "https://example.com/miate",
+          "rank": 5,
+          "alias": "Study_Funding_Agency",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study description",
+          "range": "String"
+        },
+        "study design type": {
+          "name": "study design type",
+          "description": " ",
+          "title": "study design type",
+          "from_schema": "https://example.com/miate",
+          "rank": 6,
+          "alias": "study_design_type",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study description descriptor",
+          "range": "Ontology"
+        },
+        "Pubmed ID": {
+          "name": "Pubmed ID",
+          "description": " ",
+          "title": "Pubmed ID",
+          "from_schema": "https://example.com/miate",
+          "rank": 7,
+          "alias": "Pubmed_ID",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study publications",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Publication DOI": {
+          "name": "Publication DOI",
+          "description": " ",
+          "title": "Publication DOI",
+          "from_schema": "https://example.com/miate",
+          "rank": 8,
+          "alias": "Publication_DOI",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study publications",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Author list": {
+          "name": "Author list",
+          "description": " ",
+          "title": "Author list",
+          "from_schema": "https://example.com/miate",
+          "rank": 9,
+          "alias": "Author_list",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study publications",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Publication title": {
+          "name": "Publication title",
+          "description": " ",
+          "title": "Publication title",
+          "from_schema": "https://example.com/miate",
+          "rank": 10,
+          "alias": "Publication_title",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study publications",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Publication status": {
+          "name": "Publication status",
+          "description": " ",
+          "title": "Publication status",
+          "from_schema": "https://example.com/miate",
+          "rank": 11,
+          "alias": "Publication_status",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study publications",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Last name": {
+          "name": "Last name",
+          "description": " ",
+          "title": "Last name",
+          "from_schema": "https://example.com/miate",
+          "rank": 12,
+          "alias": "Last_name",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "First name": {
+          "name": "First name",
+          "description": " ",
+          "title": "First name",
+          "from_schema": "https://example.com/miate",
+          "rank": 13,
+          "alias": "First_name",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Middle Initials": {
+          "name": "Middle Initials",
+          "description": " ",
+          "title": "Middle Initials",
+          "from_schema": "https://example.com/miate",
+          "rank": 14,
+          "alias": "Middle_Initials",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Email": {
+          "name": "Email",
+          "description": " ",
+          "title": "Email",
+          "from_schema": "https://example.com/miate",
+          "rank": 15,
+          "alias": "Email",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Phone": {
+          "name": "Phone",
+          "description": " ",
+          "title": "Phone",
+          "from_schema": "https://example.com/miate",
+          "rank": 16,
+          "alias": "Phone",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Fax": {
+          "name": "Fax",
+          "description": " ",
+          "title": "Fax",
+          "from_schema": "https://example.com/miate",
+          "rank": 17,
+          "alias": "Fax",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Address": {
+          "name": "Address",
+          "description": " ",
+          "title": "Address",
+          "from_schema": "https://example.com/miate",
+          "rank": 18,
+          "alias": "Address",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Affiliation": {
+          "name": "Affiliation",
+          "description": " ",
+          "title": "Affiliation",
+          "from_schema": "https://example.com/miate",
+          "rank": 19,
+          "alias": "Affiliation",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Role": {
+          "name": "Role",
+          "description": " ",
+          "title": "Role",
+          "from_schema": "https://example.com/miate",
+          "rank": 20,
+          "alias": "Role",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        },
+        "ORCID": {
+          "name": "ORCID",
+          "description": " ",
+          "title": "ORCID",
+          "from_schema": "https://example.com/miate",
+          "rank": 21,
+          "alias": "ORCID",
+          "owner": "investigation",
+          "domain_of": [
+            "investigation"
+          ],
+          "slot_group": "study contacts",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    }
+  },
+  "source_file": "/Users/apple/tox_Dataharmonier/web/templates/miate/schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

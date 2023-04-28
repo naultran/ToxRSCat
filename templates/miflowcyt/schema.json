@@ -1,0 +1,2218 @@
+{
+  "name": "miflowcyt",
+  "description": "",
+  "id": "https://example.com/miflowcyt",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "obo": {
+      "prefix_prefix": "obo",
+      "prefix_reference": "http://purl.obolibrary.org/obo/"
+    },
+    "bao": {
+      "prefix_prefix": "bao",
+      "prefix_reference": "http://www.bioassayontology.org/bao/"
+    },
+    "efo": {
+      "prefix_prefix": "efo",
+      "prefix_reference": "http://www.ebi.ac.uk/efo/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/miflowcyt/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/miflowcyt",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/miflowcyt",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/miflowcyt",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/miflowcyt",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/miflowcyt",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/miflowcyt",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/miflowcyt",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/miflowcyt",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "slots": {
+    "experimentOverview": {
+      "name": "experimentOverview",
+      "description": "An overview of the experiment",
+      "title": "experimentOverview",
+      "comments": [
+        "expected type: experiment_schema.json#"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000066",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flowSampleDetails": {
+      "name": "flowSampleDetails",
+      "description": "The flow sample details shall include a description of each sample material used in the experiment (2.1), (2.2), how they were treated (2.3) and what reagents were used (2.4) to fluorescently label the material. Relations between samples, aliquots, different treatments, and replicates shall be unambiguously described.",
+      "title": "flowSampleDetails",
+      "comments": [
+        "expected type: sample_schema.json#"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000747",
+      "range": "WhitespaceMinimizedString"
+    },
+    "instrumentDetails": {
+      "name": "instrumentDetails",
+      "description": "The following details shall be specified about instruments used to analyze samples. It is expected that this information will be automatically provided by flow cytometry instruments in instrumentation description files along with list-mode data files, such as FCS files [18]. For instrument components that are not user configurable and that are part of a standard model, the instrument manufacturer and model number shall be sufficient if this uniquely specifies the required information. For all other cases where the make and model number is not sufficient to specify the required information, the individual component description shall be specified as described below.",
+      "title": "instrumentDetails",
+      "comments": [
+        "expected type: instrument_schema.json#"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000968",
+      "range": "WhitespaceMinimizedString"
+    },
+    "dataAnalysis": {
+      "name": "dataAnalysis",
+      "description": "Information about the data analysis performed.",
+      "title": "dataAnalysis",
+      "comments": [
+        "expected type: data_analysis_schema.json#"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:ERO_0001309",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sampleDescription": {
+      "name": "sampleDescription",
+      "description": "A description of the biological sample shall be provided, including the sample type, if relevant (e.g., C57BL/6 spleen, purified CD4+ lymphocytes, BALB/c thymocyte DNA, control patient PBMCs, protein lysate from lung cancer biopsy, peripheral blood from patient with Type I diabetes, liver biopsy, etc.)",
+      "title": "sampleDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:sep_00196",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sourceDescription": {
+      "name": "sourceDescription",
+      "description": "The source of the biological sample shall be described (e.g., wild- type mouse, C57BL/6 spleen, C57BL/6 splenocytes). If the source is a cell line the description shall include its name, ATCC [17] (or equivalent) number, and cell type.",
+      "title": "sourceDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C93859",
+      "range": "WhitespaceMinimizedString"
+    },
+    "organism": {
+      "name": "organism",
+      "description": "The source organism for this biological sample",
+      "title": "organism",
+      "comments": [
+        "expected type: organism_schema.json#"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0100026",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other": {
+      "name": "other",
+      "description": "Additional information about the biological sample should be provided if relevant. This may include relevant information such as in vivo or in vitro treatment, stimulation, preparation / enrichment protocol, culture/growth protocol, collection time/date, whether the sample was frozen/banked/fixed, etc.",
+      "title": "other",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "listModeDataFile": {
+      "name": "listModeDataFile",
+      "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
+      "title": "listModeDataFile",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sampleDescription_environmental_sample": {
+      "name": "sampleDescription_environmental_sample",
+      "description": "A description about the environmental sample shall be provided. The description should include relevant details such as collection time/date, collection protocol, type of sample (e.g., seawater), etc.",
+      "title": "sampleDescription_environmental_sample",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:sep_00196",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sampleLocation": {
+      "name": "sampleLocation",
+      "description": "The location of the sample origin shall be specified. This should include longitude and latitude if relevant.",
+      "title": "sampleLocation",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C25341",
+      "range": "WhitespaceMinimizedString"
+    },
+    "purpose": {
+      "name": "purpose",
+      "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
+      "title": "purpose",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C25634",
+      "range": "WhitespaceMinimizedString"
+    },
+    "keywords": {
+      "name": "keywords",
+      "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment.",
+      "title": "keywords",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C43513",
+      "range": "WhitespaceMinimizedString"
+    },
+    "experimentVariables": {
+      "name": "experimentVariables",
+      "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples. If applicable, a brief description of the conditional and/or manipulated variables in the experiment shall be provided (e.g., smoker vs. nonsmoker, IL-2 treatment vs. no treatment, knockout versus wild-type, varying number of transplanted cells, varying treatment dosage, etc.). The number of instances per experimental group should also be stated.",
+      "title": "experimentVariables",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:STATO_0000258",
+      "range": "WhitespaceMinimizedString"
+    },
+    "organization": {
+      "name": "organization",
+      "description": "The organizations performing the experiment.",
+      "title": "organization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000245",
+      "range": "WhitespaceMinimizedString"
+    },
+    "primaryContact": {
+      "name": "primaryContact",
+      "description": "The individual who is the primary contact for this experiment.",
+      "title": "primaryContact",
+      "comments": [
+        "expected type: primary_contact_schema.json"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000202",
+      "range": "WhitespaceMinimizedString"
+    },
+    "date": {
+      "name": "date",
+      "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:STATO_0000093",
+      "range": "WhitespaceMinimizedString"
+    },
+    "conclusions": {
+      "name": "conclusions",
+      "description": "A brief summary of the interpretation of the results or outcome of the experiment shall be provided if available.",
+      "title": "conclusions",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:IAO_0000144",
+      "range": "WhitespaceMinimizedString"
+    },
+    "qualityControlMeasures": {
+      "name": "qualityControlMeasures",
+      "description": "A description of the quality control measures used such as replicates, calibrations, control assays, etc. shall be provided. If another experiment was performed for the purposes of establishing quality control standards, that experiment may be referenced.",
+      "title": "qualityControlMeasures",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:MSIO_0000085",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_experiment": {
+      "name": "other_experiment",
+      "description": "Additional information about the experiment should be provided if relevant. This may include funding announcements, related publications (which should be referenced by PMID), URIs, databases, etc.",
+      "title": "other_experiment",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flowCellType": {
+      "name": "flowCellType",
+      "description": "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided.",
+      "title": "flowCellType",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:CL_0000000",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_flow_cell": {
+      "name": "other_flow_cell",
+      "description": "Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).",
+      "title": "other_flow_cell",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "characteristicsBeingMeasured": {
+      "name": "characteristicsBeingMeasured",
+      "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used primarily for this measurement shall be indicated.",
+      "title": "characteristicsBeingMeasured",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:BFO_0000005",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyte": {
+      "name": "analyte",
+      "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
+      "title": "analyte",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000275",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyteDetector": {
+      "name": "analyteDetector",
+      "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
+      "title": "analyteDetector",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:CHMO_0002244",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyteReporter": {
+      "name": "analyteReporter",
+      "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
+      "title": "analyteReporter",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:CHEBI_35209",
+      "range": "WhitespaceMinimizedString"
+    },
+    "cloneNameOrNumber": {
+      "name": "cloneNameOrNumber",
+      "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
+      "title": "cloneNameOrNumber",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:SO_0000151",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reagentManufacturerName": {
+      "name": "reagentManufacturerName",
+      "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
+      "title": "reagentManufacturerName",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:IAO_0000590",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reagentCatalogueNumber": {
+      "name": "reagentCatalogueNumber",
+      "description": "The reagent catalogue number shall be specified.",
+      "title": "reagentCatalogueNumber",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C112406",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_fluorescence_reagent": {
+      "name": "other_fluorescence_reagent",
+      "description": "When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.",
+      "title": "other_fluorescence_reagent",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "manufacturer": {
+      "name": "manufacturer",
+      "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
+      "title": "manufacturer",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OBI_0000835",
+      "range": "WhitespaceMinimizedString"
+    },
+    "model": {
+      "name": "model",
+      "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
+      "title": "model",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:MS_1000031",
+      "range": "WhitespaceMinimizedString"
+    },
+    "configurationAndSettings": {
+      "name": "configurationAndSettings",
+      "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
+      "title": "configurationAndSettings",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:MS_1000740",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_instrument": {
+      "name": "other_instrument",
+      "description": "Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.",
+      "title": "other_instrument",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "type": {
+      "name": "type",
+      "description": "The type of the light source shall be provided (e.g., laser, diode laser, xenon lamp).",
+      "title": "type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:PRIDE_0000163",
+      "range": "WhitespaceMinimizedString"
+    },
+    "excitatoryWavelength": {
+      "name": "excitatoryWavelength",
+      "description": "The excitatory wavelength shall be provided (e.g., 488nm, 633 nm).",
+      "title": "excitatoryWavelength",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "bao:BAO_0000566",
+      "range": "WhitespaceMinimizedString"
+    },
+    "powerAtExcitatoryWavelength": {
+      "name": "powerAtExcitatoryWavelength",
+      "description": "The power of the light source shall be provided (e.g., 180 mW, 50 mW). If possible, this should be measured at the intersection of the light source beam with particles; see also 3.3.3.",
+      "title": "powerAtExcitatoryWavelength",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "bao:BAO_0000566",
+      "range": "WhitespaceMinimizedString"
+    },
+    "polarization": {
+      "name": "polarization",
+      "description": "Polarization shall be specified (e.g., linear, >100:1, in the direction of the sample flow). If possible, this should be specified at the intersection of the light source beam and particles; see also 3.3.3.",
+      "title": "polarization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:OMIT_0009913",
+      "range": "WhitespaceMinimizedString"
+    },
+    "beam": {
+      "name": "beam",
+      "description": "Light source beam dimensions and geometry shall be specified at the flow cell or at the intersection of the beam with particles (e.g., elliptical 22 x 66 μm).",
+      "title": "beam",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C70569",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_light_source_instrument": {
+      "name": "other_light_source_instrument",
+      "description": "Additional relevant light source details should be provided and may include light source manufacturer name (e.g., MIFlowCyt Lasers, Inc.), light source model name (e.g., 302C Krypton-Ion Laser), light source part number (e.g., I-326), noise (e.g., <1%), pointing and power stability (e.g., <1% over 1 hour), etc.",
+      "title": "other_light_source_instrument",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "name": {
+      "name": "name",
+      "description": "The optical detector name (e.g., FSC, SSC, FL1, FL2, FL3, FL4, etc.) shall be specified.",
+      "title": "name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "type_optical_detector": {
+      "name": "type_optical_detector",
+      "description": "The type of the optical detector shall be provided (e.g., photodiode, photomultiplier tube).",
+      "title": "type_optical_detector",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "voltage": {
+      "name": "voltage",
+      "description": "The optical detector voltage shall be specified (e.g., 300V, 700V).",
+      "title": "voltage",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "amplificationType": {
+      "name": "amplificationType",
+      "description": "The optical detector amplification type shall be specified (e.g., linear, log). For log amplification, the number of decades shall be provided (e.g., 4 decades). For a linear amplification, the linear gain shall be provided (e.g., linear gain of 2.0). Additional details including the actual amplifier profile may be provided.",
+      "title": "amplificationType",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_optical_detector": {
+      "name": "other_optical_detector",
+      "description": "Additional relevant optical detector details should be provided and may include the optical detector manufacturer name and model number (e.g., MIFlowCyt Photonics Inc., PMT #R9220), minimal, maximal, and peak wavelength sensitivity (e.g., 185 nm, 900 nm, and 650 nm), the internal gain (e.g., 107), or the rise time (e.g., 2.2ns).",
+      "title": "other_optical_detector",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "type_optical_filter": {
+      "name": "type_optical_filter",
+      "description": "The optical filter type shall be specified (e.g., band pass filter, long pass filter, dichroic long pass filters, short pass filter, dichroic short pass filter, polarizer excitation filter, grating, prism).",
+      "title": "type_optical_filter",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "transmittedWavelengths": {
+      "name": "transmittedWavelengths",
+      "description": "Light wavelengths transmitted by the filter shall be specified (e.g., 488/25 nm, >670 nm, <620 nm).",
+      "title": "transmittedWavelengths",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "installationDate": {
+      "name": "installationDate",
+      "description": "As optical filters of all types are subject to degradation, filter performance needs to be monitored at intervals to verify continued performance at an acceptable level [19]. The optical filter installation date shall be specified (e.g., January 15, 2007).",
+      "title": "installationDate",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_optical_filter": {
+      "name": "other_optical_filter",
+      "description": "Other relevant optical filter details should be provided.",
+      "title": "other_optical_filter",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "taxonomy": {
+      "name": "taxonomy",
+      "description": "The source organism shall be specified by genus and species (e.g., Mus musculus). The terms should come from an appropriate standard such as the NCBI taxonomy database [12]. Taxonomy information should also contain the type of subspecies and organism strain, if applicable. A standard taxonomy may be extended or a proprietary taxonomy may be used, especially if detailed identification is relevant and beyond the scope of standard taxonomies.",
+      "title": "taxonomy",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17469",
+      "range": "WhitespaceMinimizedString"
+    },
+    "age": {
+      "name": "age",
+      "description": "The age shall be provided if applicable for the particular organism (e.g., 6 weeks). It may also include the developmental state (e.g., Theiler stage 23).",
+      "title": "age",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:PATO_0000011",
+      "range": "WhitespaceMinimizedString"
+    },
+    "gender": {
+      "name": "gender",
+      "description": "The gender shall be provided if applicable for the particular organism.",
+      "title": "gender",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17357",
+      "range": "WhitespaceMinimizedString"
+    },
+    "phenotype": {
+      "name": "phenotype",
+      "description": "Appropriate phenotype characteristics such as disease state shall be described (e.g., increased tumorigenesis).",
+      "title": "phenotype",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C16977",
+      "range": "WhitespaceMinimizedString"
+    },
+    "genotype": {
+      "name": "genotype",
+      "description": "Appropriate genotype characteristics shall be described (e.g., p53-/-).",
+      "title": "genotype",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:SO_0001027",
+      "range": "WhitespaceMinimizedString"
+    },
+    "treatment": {
+      "name": "treatment",
+      "description": "All source organism treatments shall be described (e.g., treatment with cyclooxygenase-2 (COX-2) inhibitor).",
+      "title": "treatment",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "efo:EFO_0000727",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_organism": {
+      "name": "other_organism",
+      "description": "Additional information about the source organism should be provided if relevant. This may include anatomic location of the source, visit time/date, or additional details and comments.",
+      "title": "other_organism",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "name_organization": {
+      "name": "name_organization",
+      "description": "Name of the organization.",
+      "title": "name_organization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:IAO_0000590",
+      "range": "WhitespaceMinimizedString"
+    },
+    "address": {
+      "name": "address",
+      "description": "Address of the organization.",
+      "title": "address",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:IAO_0000422",
+      "range": "WhitespaceMinimizedString"
+    },
+    "name_primary_contact": {
+      "name": "name_primary_contact",
+      "description": "The primary contact's name",
+      "title": "name_primary_contact",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:IAO_0000590",
+      "range": "WhitespaceMinimizedString"
+    },
+    "emailAddress": {
+      "name": "emailAddress",
+      "description": "The primary contact's email address",
+      "title": "emailAddress",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:IAO_0000429",
+      "range": "WhitespaceMinimizedString"
+    },
+    "materialDescription": {
+      "name": "materialDescription",
+      "description": "Sample materials shall be described according to 2.1.1, 2.1.2, or 2.1.3, based on the type of the sample material. Each sample shall be distinguished from other samples within the same experiment.",
+      "title": "materialDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:NCIT_C93859",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sampleCharacteristics": {
+      "name": "sampleCharacteristics",
+      "description": "Key information about the possible and expected sample characteristics should be noted as they provide the rationale for the experimental design, including the choice of appropriate reagents. Sample characteristics description should include the expected and possible types of cells or other particles in the sample material.",
+      "title": "sampleCharacteristics",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:BFO_0000005",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sampleTreatmentsDescription": {
+      "name": "sampleTreatmentsDescription",
+      "description": "The description shall include details about treatment agents, which play the role of experiment variables, or shall specify that samples were untreated. For example, a sample treated with an agent might be compared to an untreated sample; when reproducing and interpreting such an experiment, having access to details on treatment agents and conditions is essential in order to query and retrieve samples for further analysis. The treatment description should also contain other relevant treatment details such as, but not limited to, time, temperature, and concentration.",
+      "title": "sampleTreatmentsDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "efo:EFO_0003809",
+      "range": "WhitespaceMinimizedString"
+    },
+    "fluorescentReagentsDescription": {
+      "name": "fluorescentReagentsDescription",
+      "description": "The expected and possible types of cells or other particles in the sample material, and their expected and possible measurable characteristics should be noted as these represent the key information for choosing appropriate reagents with respect to the experimental goal. The following information shall be provided about each fluorescence reagent used. Information about the characteristic(s) being measured, as well as details about what plays the role of analyte, analyte detector, and analyte reporter should be descriptive enough to allow for accurate interpretation of the experiment data. Table 1 lists some examples of reagent descriptions.",
+      "title": "fluorescentReagentsDescription",
+      "comments": [
+        "expected type: fluorescence_reagent_schema.json"
+      ],
+      "from_schema": "https://example.com/miflowcyt",
+      "slot_uri": "obo:ERO_0000006",
+      "range": "WhitespaceMinimizedString"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/miflowcyt"
+    },
+    "MIFLOWCYT": {
+      "name": "MIFLOWCYT",
+      "from_schema": "https://example.com/miflowcyt",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "experimentOverview": {
+          "name": "experimentOverview",
+          "rank": 1,
+          "slot_group": "miflowcyt"
+        },
+        "flowSampleDetails": {
+          "name": "flowSampleDetails",
+          "rank": 2,
+          "slot_group": "miflowcyt"
+        },
+        "instrumentDetails": {
+          "name": "instrumentDetails",
+          "rank": 3,
+          "slot_group": "miflowcyt"
+        },
+        "dataAnalysis": {
+          "name": "dataAnalysis",
+          "rank": 4,
+          "slot_group": "miflowcyt"
+        },
+        "sampleDescription": {
+          "name": "sampleDescription",
+          "rank": 5,
+          "slot_group": "biological_sample"
+        },
+        "sourceDescription": {
+          "name": "sourceDescription",
+          "rank": 6,
+          "slot_group": "biological_sample"
+        },
+        "organism": {
+          "name": "organism",
+          "rank": 7,
+          "slot_group": "biological_sample"
+        },
+        "other": {
+          "name": "other",
+          "rank": 8,
+          "slot_group": "biological_sample"
+        },
+        "listModeDataFile": {
+          "name": "listModeDataFile",
+          "rank": 9,
+          "slot_group": "data_analysis"
+        },
+        "sampleDescription_environmental_sample": {
+          "name": "sampleDescription_environmental_sample",
+          "rank": 10,
+          "slot_group": "environmental_sample"
+        },
+        "sampleLocation": {
+          "name": "sampleLocation",
+          "rank": 11,
+          "slot_group": "environmental_sample"
+        },
+        "purpose": {
+          "name": "purpose",
+          "rank": 12,
+          "slot_group": "experiment"
+        },
+        "keywords": {
+          "name": "keywords",
+          "rank": 13,
+          "slot_group": "experiment"
+        },
+        "experimentVariables": {
+          "name": "experimentVariables",
+          "rank": 14,
+          "slot_group": "experiment"
+        },
+        "organization": {
+          "name": "organization",
+          "rank": 15,
+          "slot_group": "experiment"
+        },
+        "primaryContact": {
+          "name": "primaryContact",
+          "rank": 16,
+          "slot_group": "experiment"
+        },
+        "date": {
+          "name": "date",
+          "rank": 17,
+          "slot_group": "experiment"
+        },
+        "conclusions": {
+          "name": "conclusions",
+          "rank": 18,
+          "slot_group": "experiment"
+        },
+        "qualityControlMeasures": {
+          "name": "qualityControlMeasures",
+          "rank": 19,
+          "slot_group": "experiment"
+        },
+        "other_experiment": {
+          "name": "other_experiment",
+          "rank": 20,
+          "slot_group": "experiment"
+        },
+        "flowCellType": {
+          "name": "flowCellType",
+          "rank": 21,
+          "slot_group": "flow_cell"
+        },
+        "other_flow_cell": {
+          "name": "other_flow_cell",
+          "rank": 22,
+          "slot_group": "flow_cell"
+        },
+        "characteristicsBeingMeasured": {
+          "name": "characteristicsBeingMeasured",
+          "rank": 23,
+          "slot_group": "fluorescence_reagent"
+        },
+        "analyte": {
+          "name": "analyte",
+          "rank": 24,
+          "slot_group": "fluorescence_reagent"
+        },
+        "analyteDetector": {
+          "name": "analyteDetector",
+          "rank": 25,
+          "slot_group": "fluorescence_reagent"
+        },
+        "analyteReporter": {
+          "name": "analyteReporter",
+          "rank": 26,
+          "slot_group": "fluorescence_reagent"
+        },
+        "cloneNameOrNumber": {
+          "name": "cloneNameOrNumber",
+          "rank": 27,
+          "slot_group": "fluorescence_reagent"
+        },
+        "reagentManufacturerName": {
+          "name": "reagentManufacturerName",
+          "rank": 28,
+          "slot_group": "fluorescence_reagent"
+        },
+        "reagentCatalogueNumber": {
+          "name": "reagentCatalogueNumber",
+          "rank": 29,
+          "slot_group": "fluorescence_reagent"
+        },
+        "other_fluorescence_reagent": {
+          "name": "other_fluorescence_reagent",
+          "rank": 30,
+          "slot_group": "fluorescence_reagent"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "rank": 31,
+          "slot_group": "instrument"
+        },
+        "model": {
+          "name": "model",
+          "rank": 32,
+          "slot_group": "instrument"
+        },
+        "configurationAndSettings": {
+          "name": "configurationAndSettings",
+          "rank": 33,
+          "slot_group": "instrument"
+        },
+        "other_instrument": {
+          "name": "other_instrument",
+          "rank": 34,
+          "slot_group": "instrument"
+        },
+        "type": {
+          "name": "type",
+          "rank": 35,
+          "slot_group": "light_source_instrument"
+        },
+        "excitatoryWavelength": {
+          "name": "excitatoryWavelength",
+          "rank": 36,
+          "slot_group": "light_source_instrument"
+        },
+        "powerAtExcitatoryWavelength": {
+          "name": "powerAtExcitatoryWavelength",
+          "rank": 37,
+          "slot_group": "light_source_instrument"
+        },
+        "polarization": {
+          "name": "polarization",
+          "rank": 38,
+          "slot_group": "light_source_instrument"
+        },
+        "beam": {
+          "name": "beam",
+          "rank": 39,
+          "slot_group": "light_source_instrument"
+        },
+        "other_light_source_instrument": {
+          "name": "other_light_source_instrument",
+          "rank": 40,
+          "slot_group": "light_source_instrument"
+        },
+        "name": {
+          "name": "name",
+          "rank": 41,
+          "slot_group": "optical_detector"
+        },
+        "type_optical_detector": {
+          "name": "type_optical_detector",
+          "rank": 42,
+          "slot_group": "optical_detector"
+        },
+        "voltage": {
+          "name": "voltage",
+          "rank": 43,
+          "slot_group": "optical_detector"
+        },
+        "amplificationType": {
+          "name": "amplificationType",
+          "rank": 44,
+          "slot_group": "optical_detector"
+        },
+        "other_optical_detector": {
+          "name": "other_optical_detector",
+          "rank": 45,
+          "slot_group": "optical_detector"
+        },
+        "type_optical_filter": {
+          "name": "type_optical_filter",
+          "rank": 46,
+          "slot_group": "optical_filter"
+        },
+        "transmittedWavelengths": {
+          "name": "transmittedWavelengths",
+          "rank": 47,
+          "slot_group": "optical_filter"
+        },
+        "installationDate": {
+          "name": "installationDate",
+          "rank": 48,
+          "slot_group": "optical_filter"
+        },
+        "other_optical_filter": {
+          "name": "other_optical_filter",
+          "rank": 49,
+          "slot_group": "optical_filter"
+        },
+        "taxonomy": {
+          "name": "taxonomy",
+          "rank": 50,
+          "slot_group": "organism"
+        },
+        "age": {
+          "name": "age",
+          "rank": 51,
+          "slot_group": "organism"
+        },
+        "gender": {
+          "name": "gender",
+          "rank": 52,
+          "slot_group": "organism"
+        },
+        "phenotype": {
+          "name": "phenotype",
+          "rank": 53,
+          "slot_group": "organism"
+        },
+        "genotype": {
+          "name": "genotype",
+          "rank": 54,
+          "slot_group": "organism"
+        },
+        "treatment": {
+          "name": "treatment",
+          "rank": 55,
+          "slot_group": "organism"
+        },
+        "other_organism": {
+          "name": "other_organism",
+          "rank": 56,
+          "slot_group": "organism"
+        },
+        "name_organization": {
+          "name": "name_organization",
+          "rank": 57,
+          "slot_group": "organization"
+        },
+        "address": {
+          "name": "address",
+          "rank": 58,
+          "slot_group": "organization"
+        },
+        "name_primary_contact": {
+          "name": "name_primary_contact",
+          "rank": 59,
+          "slot_group": "primary_contact"
+        },
+        "emailAddress": {
+          "name": "emailAddress",
+          "rank": 60,
+          "slot_group": "primary_contact"
+        },
+        "materialDescription": {
+          "name": "materialDescription",
+          "rank": 61,
+          "slot_group": "sample"
+        },
+        "sampleCharacteristics": {
+          "name": "sampleCharacteristics",
+          "rank": 62,
+          "slot_group": "sample"
+        },
+        "sampleTreatmentsDescription": {
+          "name": "sampleTreatmentsDescription",
+          "rank": 63,
+          "slot_group": "sample"
+        },
+        "fluorescentReagentsDescription": {
+          "name": "fluorescentReagentsDescription",
+          "rank": 64,
+          "slot_group": "sample"
+        }
+      },
+      "attributes": {
+        "experimentOverview": {
+          "name": "experimentOverview",
+          "description": "An overview of the experiment",
+          "title": "experimentOverview",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 1,
+          "slot_uri": "obo:OBI_0000066",
+          "alias": "experimentOverview",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "miflowcyt",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flowSampleDetails": {
+          "name": "flowSampleDetails",
+          "description": "The flow sample details shall include a description of each sample material used in the experiment (2.1), (2.2), how they were treated (2.3) and what reagents were used (2.4) to fluorescently label the material. Relations between samples, aliquots, different treatments, and replicates shall be unambiguously described.",
+          "title": "flowSampleDetails",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 2,
+          "slot_uri": "obo:OBI_0000747",
+          "alias": "flowSampleDetails",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "miflowcyt",
+          "range": "WhitespaceMinimizedString"
+        },
+        "instrumentDetails": {
+          "name": "instrumentDetails",
+          "description": "The following details shall be specified about instruments used to analyze samples. It is expected that this information will be automatically provided by flow cytometry instruments in instrumentation description files along with list-mode data files, such as FCS files [18]. For instrument components that are not user configurable and that are part of a standard model, the instrument manufacturer and model number shall be sufficient if this uniquely specifies the required information. For all other cases where the make and model number is not sufficient to specify the required information, the individual component description shall be specified as described below.",
+          "title": "instrumentDetails",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 3,
+          "slot_uri": "obo:OBI_0000968",
+          "alias": "instrumentDetails",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "miflowcyt",
+          "range": "WhitespaceMinimizedString"
+        },
+        "dataAnalysis": {
+          "name": "dataAnalysis",
+          "description": "Information about the data analysis performed.",
+          "title": "dataAnalysis",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 4,
+          "slot_uri": "obo:ERO_0001309",
+          "alias": "dataAnalysis",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "miflowcyt",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sampleDescription": {
+          "name": "sampleDescription",
+          "description": "A description of the biological sample shall be provided, including the sample type, if relevant (e.g., C57BL/6 spleen, purified CD4+ lymphocytes, BALB/c thymocyte DNA, control patient PBMCs, protein lysate from lung cancer biopsy, peripheral blood from patient with Type I diabetes, liver biopsy, etc.)",
+          "title": "sampleDescription",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 5,
+          "slot_uri": "obo:sep_00196",
+          "alias": "sampleDescription",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "biological_sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sourceDescription": {
+          "name": "sourceDescription",
+          "description": "The source of the biological sample shall be described (e.g., wild- type mouse, C57BL/6 spleen, C57BL/6 splenocytes). If the source is a cell line the description shall include its name, ATCC [17] (or equivalent) number, and cell type.",
+          "title": "sourceDescription",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 6,
+          "slot_uri": "obo:NCIT_C93859",
+          "alias": "sourceDescription",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "biological_sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "organism": {
+          "name": "organism",
+          "description": "The source organism for this biological sample",
+          "title": "organism",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 7,
+          "slot_uri": "obo:OBI_0100026",
+          "alias": "organism",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "biological_sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other": {
+          "name": "other",
+          "description": "Additional information about the biological sample should be provided if relevant. This may include relevant information such as in vivo or in vitro treatment, stimulation, preparation / enrichment protocol, culture/growth protocol, collection time/date, whether the sample was frozen/banked/fixed, etc.",
+          "title": "other",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 8,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "biological_sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "listModeDataFile": {
+          "name": "listModeDataFile",
+          "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
+          "title": "listModeDataFile",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 9,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "listModeDataFile",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sampleDescription_environmental_sample": {
+          "name": "sampleDescription_environmental_sample",
+          "description": "A description about the environmental sample shall be provided. The description should include relevant details such as collection time/date, collection protocol, type of sample (e.g., seawater), etc.",
+          "title": "sampleDescription_environmental_sample",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 10,
+          "slot_uri": "obo:sep_00196",
+          "alias": "sampleDescription_environmental_sample",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "environmental_sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sampleLocation": {
+          "name": "sampleLocation",
+          "description": "The location of the sample origin shall be specified. This should include longitude and latitude if relevant.",
+          "title": "sampleLocation",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 11,
+          "slot_uri": "obo:NCIT_C25341",
+          "alias": "sampleLocation",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "environmental_sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "purpose": {
+          "name": "purpose",
+          "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
+          "title": "purpose",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 12,
+          "slot_uri": "obo:NCIT_C25634",
+          "alias": "purpose",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "keywords": {
+          "name": "keywords",
+          "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment.",
+          "title": "keywords",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 13,
+          "slot_uri": "obo:NCIT_C43513",
+          "alias": "keywords",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "experimentVariables": {
+          "name": "experimentVariables",
+          "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples. If applicable, a brief description of the conditional and/or manipulated variables in the experiment shall be provided (e.g., smoker vs. nonsmoker, IL-2 treatment vs. no treatment, knockout versus wild-type, varying number of transplanted cells, varying treatment dosage, etc.). The number of instances per experimental group should also be stated.",
+          "title": "experimentVariables",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 14,
+          "slot_uri": "obo:STATO_0000258",
+          "alias": "experimentVariables",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "organization": {
+          "name": "organization",
+          "description": "The organizations performing the experiment.",
+          "title": "organization",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 15,
+          "slot_uri": "obo:OBI_0000245",
+          "alias": "organization",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "primaryContact": {
+          "name": "primaryContact",
+          "description": "The individual who is the primary contact for this experiment.",
+          "title": "primaryContact",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 16,
+          "slot_uri": "obo:OBI_0000202",
+          "alias": "primaryContact",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "date": {
+          "name": "date",
+          "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
+          "title": "date",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 17,
+          "slot_uri": "obo:STATO_0000093",
+          "alias": "date",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "conclusions": {
+          "name": "conclusions",
+          "description": "A brief summary of the interpretation of the results or outcome of the experiment shall be provided if available.",
+          "title": "conclusions",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 18,
+          "slot_uri": "obo:IAO_0000144",
+          "alias": "conclusions",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "qualityControlMeasures": {
+          "name": "qualityControlMeasures",
+          "description": "A description of the quality control measures used such as replicates, calibrations, control assays, etc. shall be provided. If another experiment was performed for the purposes of establishing quality control standards, that experiment may be referenced.",
+          "title": "qualityControlMeasures",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 19,
+          "slot_uri": "obo:MSIO_0000085",
+          "alias": "qualityControlMeasures",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_experiment": {
+          "name": "other_experiment",
+          "description": "Additional information about the experiment should be provided if relevant. This may include funding announcements, related publications (which should be referenced by PMID), URIs, databases, etc.",
+          "title": "other_experiment",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 20,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_experiment",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flowCellType": {
+          "name": "flowCellType",
+          "description": "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided.",
+          "title": "flowCellType",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 21,
+          "slot_uri": "obo:CL_0000000",
+          "alias": "flowCellType",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "flow_cell",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_flow_cell": {
+          "name": "other_flow_cell",
+          "description": "Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).",
+          "title": "other_flow_cell",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 22,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_flow_cell",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "flow_cell",
+          "range": "WhitespaceMinimizedString"
+        },
+        "characteristicsBeingMeasured": {
+          "name": "characteristicsBeingMeasured",
+          "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used primarily for this measurement shall be indicated.",
+          "title": "characteristicsBeingMeasured",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 23,
+          "slot_uri": "obo:BFO_0000005",
+          "alias": "characteristicsBeingMeasured",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyte": {
+          "name": "analyte",
+          "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
+          "title": "analyte",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 24,
+          "slot_uri": "obo:OBI_0000275",
+          "alias": "analyte",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyteDetector": {
+          "name": "analyteDetector",
+          "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
+          "title": "analyteDetector",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 25,
+          "slot_uri": "obo:CHMO_0002244",
+          "alias": "analyteDetector",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyteReporter": {
+          "name": "analyteReporter",
+          "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
+          "title": "analyteReporter",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 26,
+          "slot_uri": "obo:CHEBI_35209",
+          "alias": "analyteReporter",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "cloneNameOrNumber": {
+          "name": "cloneNameOrNumber",
+          "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
+          "title": "cloneNameOrNumber",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 27,
+          "slot_uri": "obo:SO_0000151",
+          "alias": "cloneNameOrNumber",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reagentManufacturerName": {
+          "name": "reagentManufacturerName",
+          "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
+          "title": "reagentManufacturerName",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 28,
+          "slot_uri": "obo:IAO_0000590",
+          "alias": "reagentManufacturerName",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reagentCatalogueNumber": {
+          "name": "reagentCatalogueNumber",
+          "description": "The reagent catalogue number shall be specified.",
+          "title": "reagentCatalogueNumber",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 29,
+          "slot_uri": "obo:NCIT_C112406",
+          "alias": "reagentCatalogueNumber",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_fluorescence_reagent": {
+          "name": "other_fluorescence_reagent",
+          "description": "When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.",
+          "title": "other_fluorescence_reagent",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 30,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_fluorescence_reagent",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "fluorescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
+          "title": "manufacturer",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 31,
+          "slot_uri": "obo:OBI_0000835",
+          "alias": "manufacturer",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "model": {
+          "name": "model",
+          "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
+          "title": "model",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 32,
+          "slot_uri": "obo:MS_1000031",
+          "alias": "model",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "configurationAndSettings": {
+          "name": "configurationAndSettings",
+          "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
+          "title": "configurationAndSettings",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 33,
+          "slot_uri": "obo:MS_1000740",
+          "alias": "configurationAndSettings",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_instrument": {
+          "name": "other_instrument",
+          "description": "Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.",
+          "title": "other_instrument",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 34,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_instrument",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "type": {
+          "name": "type",
+          "description": "The type of the light source shall be provided (e.g., laser, diode laser, xenon lamp).",
+          "title": "type",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 35,
+          "slot_uri": "obo:PRIDE_0000163",
+          "alias": "type",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "excitatoryWavelength": {
+          "name": "excitatoryWavelength",
+          "description": "The excitatory wavelength shall be provided (e.g., 488nm, 633 nm).",
+          "title": "excitatoryWavelength",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 36,
+          "slot_uri": "bao:BAO_0000566",
+          "alias": "excitatoryWavelength",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "powerAtExcitatoryWavelength": {
+          "name": "powerAtExcitatoryWavelength",
+          "description": "The power of the light source shall be provided (e.g., 180 mW, 50 mW). If possible, this should be measured at the intersection of the light source beam with particles; see also 3.3.3.",
+          "title": "powerAtExcitatoryWavelength",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 37,
+          "slot_uri": "bao:BAO_0000566",
+          "alias": "powerAtExcitatoryWavelength",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "polarization": {
+          "name": "polarization",
+          "description": "Polarization shall be specified (e.g., linear, >100:1, in the direction of the sample flow). If possible, this should be specified at the intersection of the light source beam and particles; see also 3.3.3.",
+          "title": "polarization",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 38,
+          "slot_uri": "obo:OMIT_0009913",
+          "alias": "polarization",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "beam": {
+          "name": "beam",
+          "description": "Light source beam dimensions and geometry shall be specified at the flow cell or at the intersection of the beam with particles (e.g., elliptical 22 x 66 μm).",
+          "title": "beam",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 39,
+          "slot_uri": "obo:NCIT_C70569",
+          "alias": "beam",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_light_source_instrument": {
+          "name": "other_light_source_instrument",
+          "description": "Additional relevant light source details should be provided and may include light source manufacturer name (e.g., MIFlowCyt Lasers, Inc.), light source model name (e.g., 302C Krypton-Ion Laser), light source part number (e.g., I-326), noise (e.g., <1%), pointing and power stability (e.g., <1% over 1 hour), etc.",
+          "title": "other_light_source_instrument",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 40,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_light_source_instrument",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "name": {
+          "name": "name",
+          "description": "The optical detector name (e.g., FSC, SSC, FL1, FL2, FL3, FL4, etc.) shall be specified.",
+          "title": "name",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 41,
+          "alias": "name",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "type_optical_detector": {
+          "name": "type_optical_detector",
+          "description": "The type of the optical detector shall be provided (e.g., photodiode, photomultiplier tube).",
+          "title": "type_optical_detector",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 42,
+          "alias": "type_optical_detector",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "voltage": {
+          "name": "voltage",
+          "description": "The optical detector voltage shall be specified (e.g., 300V, 700V).",
+          "title": "voltage",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 43,
+          "alias": "voltage",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "amplificationType": {
+          "name": "amplificationType",
+          "description": "The optical detector amplification type shall be specified (e.g., linear, log). For log amplification, the number of decades shall be provided (e.g., 4 decades). For a linear amplification, the linear gain shall be provided (e.g., linear gain of 2.0). Additional details including the actual amplifier profile may be provided.",
+          "title": "amplificationType",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 44,
+          "alias": "amplificationType",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_optical_detector": {
+          "name": "other_optical_detector",
+          "description": "Additional relevant optical detector details should be provided and may include the optical detector manufacturer name and model number (e.g., MIFlowCyt Photonics Inc., PMT #R9220), minimal, maximal, and peak wavelength sensitivity (e.g., 185 nm, 900 nm, and 650 nm), the internal gain (e.g., 107), or the rise time (e.g., 2.2ns).",
+          "title": "other_optical_detector",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 45,
+          "alias": "other_optical_detector",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "type_optical_filter": {
+          "name": "type_optical_filter",
+          "description": "The optical filter type shall be specified (e.g., band pass filter, long pass filter, dichroic long pass filters, short pass filter, dichroic short pass filter, polarizer excitation filter, grating, prism).",
+          "title": "type_optical_filter",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 46,
+          "alias": "type_optical_filter",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_filter",
+          "range": "WhitespaceMinimizedString"
+        },
+        "transmittedWavelengths": {
+          "name": "transmittedWavelengths",
+          "description": "Light wavelengths transmitted by the filter shall be specified (e.g., 488/25 nm, >670 nm, <620 nm).",
+          "title": "transmittedWavelengths",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 47,
+          "alias": "transmittedWavelengths",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_filter",
+          "range": "WhitespaceMinimizedString"
+        },
+        "installationDate": {
+          "name": "installationDate",
+          "description": "As optical filters of all types are subject to degradation, filter performance needs to be monitored at intervals to verify continued performance at an acceptable level [19]. The optical filter installation date shall be specified (e.g., January 15, 2007).",
+          "title": "installationDate",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 48,
+          "alias": "installationDate",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_filter",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_optical_filter": {
+          "name": "other_optical_filter",
+          "description": "Other relevant optical filter details should be provided.",
+          "title": "other_optical_filter",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 49,
+          "alias": "other_optical_filter",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "optical_filter",
+          "range": "WhitespaceMinimizedString"
+        },
+        "taxonomy": {
+          "name": "taxonomy",
+          "description": "The source organism shall be specified by genus and species (e.g., Mus musculus). The terms should come from an appropriate standard such as the NCBI taxonomy database [12]. Taxonomy information should also contain the type of subspecies and organism strain, if applicable. A standard taxonomy may be extended or a proprietary taxonomy may be used, especially if detailed identification is relevant and beyond the scope of standard taxonomies.",
+          "title": "taxonomy",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 50,
+          "slot_uri": "obo:NCIT_C17469",
+          "alias": "taxonomy",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "age": {
+          "name": "age",
+          "description": "The age shall be provided if applicable for the particular organism (e.g., 6 weeks). It may also include the developmental state (e.g., Theiler stage 23).",
+          "title": "age",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 51,
+          "slot_uri": "obo:PATO_0000011",
+          "alias": "age",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "gender": {
+          "name": "gender",
+          "description": "The gender shall be provided if applicable for the particular organism.",
+          "title": "gender",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 52,
+          "slot_uri": "obo:NCIT_C17357",
+          "alias": "gender",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "phenotype": {
+          "name": "phenotype",
+          "description": "Appropriate phenotype characteristics such as disease state shall be described (e.g., increased tumorigenesis).",
+          "title": "phenotype",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 53,
+          "slot_uri": "obo:NCIT_C16977",
+          "alias": "phenotype",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "genotype": {
+          "name": "genotype",
+          "description": "Appropriate genotype characteristics shall be described (e.g., p53-/-).",
+          "title": "genotype",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 54,
+          "slot_uri": "obo:SO_0001027",
+          "alias": "genotype",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "treatment": {
+          "name": "treatment",
+          "description": "All source organism treatments shall be described (e.g., treatment with cyclooxygenase-2 (COX-2) inhibitor).",
+          "title": "treatment",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 55,
+          "slot_uri": "efo:EFO_0000727",
+          "alias": "treatment",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_organism": {
+          "name": "other_organism",
+          "description": "Additional information about the source organism should be provided if relevant. This may include anatomic location of the source, visit time/date, or additional details and comments.",
+          "title": "other_organism",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 56,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_organism",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organism",
+          "range": "WhitespaceMinimizedString"
+        },
+        "name_organization": {
+          "name": "name_organization",
+          "description": "Name of the organization.",
+          "title": "name_organization",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 57,
+          "slot_uri": "obo:IAO_0000590",
+          "alias": "name_organization",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organization",
+          "range": "WhitespaceMinimizedString"
+        },
+        "address": {
+          "name": "address",
+          "description": "Address of the organization.",
+          "title": "address",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 58,
+          "slot_uri": "obo:IAO_0000422",
+          "alias": "address",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "organization",
+          "range": "WhitespaceMinimizedString"
+        },
+        "name_primary_contact": {
+          "name": "name_primary_contact",
+          "description": "The primary contact's name",
+          "title": "name_primary_contact",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 59,
+          "slot_uri": "obo:IAO_0000590",
+          "alias": "name_primary_contact",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "primary_contact",
+          "range": "WhitespaceMinimizedString"
+        },
+        "emailAddress": {
+          "name": "emailAddress",
+          "description": "The primary contact's email address",
+          "title": "emailAddress",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 60,
+          "slot_uri": "obo:IAO_0000429",
+          "alias": "emailAddress",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "primary_contact",
+          "range": "WhitespaceMinimizedString"
+        },
+        "materialDescription": {
+          "name": "materialDescription",
+          "description": "Sample materials shall be described according to 2.1.1, 2.1.2, or 2.1.3, based on the type of the sample material. Each sample shall be distinguished from other samples within the same experiment.",
+          "title": "materialDescription",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 61,
+          "slot_uri": "obo:NCIT_C93859",
+          "alias": "materialDescription",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sampleCharacteristics": {
+          "name": "sampleCharacteristics",
+          "description": "Key information about the possible and expected sample characteristics should be noted as they provide the rationale for the experimental design, including the choice of appropriate reagents. Sample characteristics description should include the expected and possible types of cells or other particles in the sample material.",
+          "title": "sampleCharacteristics",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 62,
+          "slot_uri": "obo:BFO_0000005",
+          "alias": "sampleCharacteristics",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sampleTreatmentsDescription": {
+          "name": "sampleTreatmentsDescription",
+          "description": "The description shall include details about treatment agents, which play the role of experiment variables, or shall specify that samples were untreated. For example, a sample treated with an agent might be compared to an untreated sample; when reproducing and interpreting such an experiment, having access to details on treatment agents and conditions is essential in order to query and retrieve samples for further analysis. The treatment description should also contain other relevant treatment details such as, but not limited to, time, temperature, and concentration.",
+          "title": "sampleTreatmentsDescription",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 63,
+          "slot_uri": "efo:EFO_0003809",
+          "alias": "sampleTreatmentsDescription",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "sample",
+          "range": "WhitespaceMinimizedString"
+        },
+        "fluorescentReagentsDescription": {
+          "name": "fluorescentReagentsDescription",
+          "description": "The expected and possible types of cells or other particles in the sample material, and their expected and possible measurable characteristics should be noted as these represent the key information for choosing appropriate reagents with respect to the experimental goal. The following information shall be provided about each fluorescence reagent used. Information about the characteristic(s) being measured, as well as details about what plays the role of analyte, analyte detector, and analyte reporter should be descriptive enough to allow for accurate interpretation of the experiment data. Table 1 lists some examples of reagent descriptions.",
+          "title": "fluorescentReagentsDescription",
+          "from_schema": "https://example.com/miflowcyt",
+          "rank": 64,
+          "slot_uri": "obo:ERO_0000006",
+          "alias": "fluorescentReagentsDescription",
+          "owner": "MIFLOWCYT",
+          "domain_of": [
+            "MIFLOWCYT"
+          ],
+          "slot_group": "sample",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    }
+  },
+  "source_file": "/Users/apple/tox_Dataharmonier/web/templates/miflowcyt/schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\W]\\w*?|[\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

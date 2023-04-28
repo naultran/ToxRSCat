@@ -1,0 +1,1 @@
+# MIATE Example Input Data

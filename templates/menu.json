@@ -1,0 +1,21 @@
+{
+  "miate": {
+    "investigation": {
+      "name": "investigation",
+      "status": "published",
+      "display": true
+    },
+    "study": {
+      "name": "study",
+      "status": "published",
+      "display": true
+    }
+  },
+  "miflowcyt": {
+    "MIFLOWCYT": {
+      "name": "MIFLOWCYT",
+      "status": "published",
+      "display": true
+    }
+  }
+}
