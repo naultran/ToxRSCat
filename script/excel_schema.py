@@ -138,13 +138,14 @@ dir["types"]["WhitespaceMinimizedString"]["uri"] = 'xsd:token'
 if df["enums"].notnull().any():
     having_enum = df.loc[df["enums"].notnull(), :]
     for i in having_enum.index:
-        dir["enums"][f"{df.iloc[i, 2]} menu"] = {}
-        dir["enums"][f"{df.iloc[i, 2]} menu"]["name"] = f"{df.iloc[i, 2]} menu"
-        dir["enums"][f"{df.iloc[i, 2]} menu"]["permissible_values"] = {}
-        choice_list = df.iloc[i, 4].split(',')
+        name_slot = df["slots"][i]
+        dir["enums"][f"{name_slot} menu"] = {}
+        dir["enums"][f"{name_slot} menu"]["name"] = f"{name_slot} menu"
+        dir["enums"][f"{name_slot} menu"]["permissible_values"] = {}
+        choice_list = df["enums"][i].split(',')
         for j in choice_list:
-            dir["enums"][f"{df.iloc[i, 2]} menu"]["permissible_values"][f'{j}'] = {}
-            dir["enums"][f"{df.iloc[i, 2]} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}'] = {}
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
 
 
 dir["settings"]["Title_Case"] = '(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)'
