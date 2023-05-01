@@ -1,12 +1,17 @@
 {
   "miate": {
-    "investigation": {
-      "name": "investigation",
+    "Investigation": {
+      "name": "Investigation",
       "status": "published",
       "display": true
     },
-    "study": {
-      "name": "study",
+    "Study": {
+      "name": "Study",
+      "status": "published",
+      "display": true
+    },
+    "Sample": {
+      "name": "Sample",
       "status": "published",
       "display": true
     }
