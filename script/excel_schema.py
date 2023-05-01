@@ -11,20 +11,31 @@
 #
 # > excel_schema.py -i MIFlowCyt_template.xlsx
 # > excel_schema.py -i https://raw.githubusercontent.com/.../master/MIATE_template.xlsx
-#
 
 import yaml
 import os
 import pandas as pd
 from collections import OrderedDict
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument("-i", "--input", help="input file path")
+
+args = parser.parse_args()
+
+if args.input:
+    # do something with the input file path
+    print(f"Input file path: {args.input}")
+else:
+    print("No input file path provided.")
+
 ## after converting to yaml, you should edit setting part and imports part manually
 #TODO: Remove the need to manually edit
 
-file_path = input("please enter the absolute path to the Excel file: ") #TODO: Can we use -i instead?
-df = pd.read_excel(file_path)
+ #TODO: Can we use -i instead?
+df = pd.read_excel(args.input)
 
-direc = os.path.dirname(file_path)
-name = os.path.splitext(os.path.basename(file_path))[0]
+direc = os.path.dirname(args.input)
+name = os.path.splitext(os.path.basename(args.input))[0]
 
 #TODO: Can we use multiple sheets in the excel document? One with the overall details and another with the individual info.
 #TODO: Add comments
@@ -135,8 +146,8 @@ if df["enums"].notnull().any():
             dir["enums"][f"{df.iloc[i, 2]} menu"]["permissible_values"][f'{j}'] = {}
             dir["enums"][f"{df.iloc[i, 2]} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
 
-#TODO: Fix special characters here. I can try to help.
-dir["settings"]["Title_Case"] = "(((?<=\b)[^a-z\W]\w*?|[\W])+)"
+
+dir["settings"]["Title_Case"] = '(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)'
 dir["settings"]["UPPER_CASE"] = '[A-Z\W\d_]*'
 dir["settings"]["lower_case"] = '[a-z\W\d_]*'
 

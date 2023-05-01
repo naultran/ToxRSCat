@@ -176,7 +176,7 @@ if df["enums"].notnull().any():
             dir["enums"][f"{df.iloc[i, 2]} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
 
 
-dir["settings"]["Title_Case"] = "(((?<=\b)[^a-z\W]\w*?|[\W])+)"
+dir["settings"]["Title_Case"] = '(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)'
 dir["settings"]["UPPER_CASE"] = '[A-Z\W\d_]*'
 dir["settings"]["lower_case"] = '[a-z\W\d_]*'
 
