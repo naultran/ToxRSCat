@@ -32,7 +32,7 @@ else:
 #TODO: Remove the need to manually edit
 
  #TODO: Can we use -i instead?
-df = pd.read_excel(args.input)
+df = pd.read_excel(args.input, sheet_name="LinkML_slots")
 
 direc = os.path.dirname(args.input)
 name = os.path.splitext(os.path.basename(args.input))[0]
@@ -52,7 +52,7 @@ dir["prefixes"]["linkml"] = "https://w3id.org/linkml/"
 if df["prefix_reference"].notnull().any():
     prefix =  list(df["prefix_reference"].value_counts().index)
     for i in prefix:
-        linkname = i.split('/')[-1]
+        linkname = i.split('/')[-2]
         dir["prefixes"][f'{linkname}'] = f'{i}'
 
 # Create empty dictionary slots to import schema details

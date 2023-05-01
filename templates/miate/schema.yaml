@@ -1,600 +1,707 @@
-id: https://example.com/miate
-name: miate
+id: https://example.com/MIATE_template
+name: MIATE_template
 description: ''
 version: 1.0.0
-imports: 
-  - linkml:types
+imports: linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
+  obo: http://purl.obolibrary.org/obo/
+  bao: http://www.bioassayontology.org/bao/
 classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/miate
-  study:
-    name: study
+    from_schema: https://example.com/MIATE_template
+  Study:
+    name: Study
     is_a: dh_interface
     slots:
-      - Organism
-      - Strain
-      - Organism supplier
-      - Cell line
-      - Sex
-      - Study start age
-      - Study end age
-      - Average Vivarium Temperature
-      - Average Vivarium Humidity
-      - Vivarium Light Cycle
-      - Cage Type
-      - Bedding Type
-      - Water Type
-      - Feed Name
-      - Feed description
-      - Feed source
-      - Feed catalog number
-      - Substance Name
-      - Substance
-      - Vehicle Substance
-      - Administration Interval
-      - Number of Administrations
-      - Administration Route
-      - Administration volume
-      - Dose
-      - Chemical Source
-      - Chemical Catalog Number
-      - Chemical Purity
-      - time point
-      - ad lib feeding
-      - Euthanasia method
-      - Incubation temperature
-      - Gas composition
-      - Humidity
-      - Humidity Unit
-      - Culture dish type
+    - investigation_identifier
+    - study_identifier
+    - study_design
+    - study_type
+    - experimental_setting
+    - Organism
+    - subject_identifier
+    - start_date
+    - start_date_age
+    - experiment_start_date
+    - experiment_start_zt
+    - sex
+    - strain
+    - strain_source
+    - euthanasia_date
+    - euthanasia_zt
+    - euthanasia_method
+    - date
+    - cage_id
+    - bedding_type
+    - cage_type
+    - vivarium_temperature
+    - vivarium_humidity
+    - vivarium light cycle
+    - date
+    - feed_catalog_number
+    - feed_description
+    - feed_name
+    - feed_source
+    - water_type
+    - feeding_paradigm
+    - date
+    - administration_volume
+    - dose_amount
+    - dose_amount_unit
+    - route
+    - test_article_administration_zt
+    - test_article_administration_duration
+    - test_article_name
+    - test_article_dtxsid
+    - vehicle_name
+    - vehicle_dtxsid
     slot_usage:
+      investigation_identifier:
+        rank: 1
+        slot_group: identifiers
+      study_identifier:
+        rank: 2
+        slot_group: identifiers
+      study_design:
+        rank: 3
+        slot_group: experiment
+      study_type:
+        rank: 4
+        slot_group: experiment
+      experimental_setting:
+        rank: 5
+        slot_group: experiment
       Organism:
-        rank: 1
-        slot_group: animal details
-      Strain:
-        rank: 2
-        slot_group: animal details
-      Organism supplier:
-        rank: 3
-        slot_group: animal details
-      Cell line:
-        rank: 4
-        slot_group: animal details
-      Sex:
-        rank: 5
-        slot_group: animal details
-      Study start age:
         rank: 6
-        slot_group: animal details
-      Study end age:
+        slot_group: experiment
+      subject_identifier:
         rank: 7
-        slot_group: animal details
-      Average Vivarium Temperature:
+        slot_group: subject
+      start_date:
         rank: 8
-        slot_group: housing conditions
-      Average Vivarium Humidity:
+        slot_group: subject
+      start_date_age:
         rank: 9
-        slot_group: housing conditions
-      Vivarium Light Cycle:
+        slot_group: subject
+      experiment_start_date:
         rank: 10
-        slot_group: housing conditions
-      Cage Type:
+        slot_group: subject
+      experiment_start_zt:
         rank: 11
-        slot_group: housing conditions
-      Bedding Type:
+        slot_group: subject
+      sex:
         rank: 12
-        slot_group: housing conditions
-      Water Type:
+        slot_group: subject
+      strain:
         rank: 13
-        slot_group: housing conditions
-      Feed Name:
+        slot_group: subject
+      strain_source:
         rank: 14
-        slot_group: diet exposure
-      Feed description:
+        slot_group: subject
+      euthanasia_date:
         rank: 15
-        slot_group: diet exposure
-      Feed source:
+        slot_group: subject
+      euthanasia_zt:
         rank: 16
-        slot_group: diet exposure
-      Feed catalog number:
+        slot_group: subject
+      euthanasia_method:
         rank: 17
-        slot_group: diet exposure
-      Substance Name:
-        rank: 18
-        slot_group: substance exposure
-      Substance:
-        rank: 19
-        slot_group: substance exposure
-      Vehicle Substance:
-        rank: 20
-        slot_group: substance exposure
-      Administration Interval:
-        rank: 21
-        slot_group: substance exposure
-      Number of Administrations:
-        rank: 22
-        slot_group: substance exposure
-      Administration Route:
-        rank: 23
-        slot_group: substance exposure
-      Administration volume:
-        rank: 24
-        slot_group: substance exposure
-      Dose:
-        rank: 25
-        slot_group: substance exposure
-      Chemical Source:
-        rank: 26
-        slot_group: substance exposure
-      Chemical Catalog Number:
-        rank: 27
-        slot_group: substance exposure
-      Chemical Purity:
-        rank: 28
-        slot_group: substance exposure
-      time point:
-        rank: 29
-        slot_group: exposure details
-      ad lib feeding:
-        rank: 30
-        slot_group: termination conditions
-      Euthanasia method:
-        rank: 31
-        slot_group: termination conditions
-      Incubation temperature:
+        slot_group: subject
+      date:
         rank: 32
-        slot_group: cell culture conditions
-      Gas composition:
+        slot_group: treatment
+      cage_id:
+        rank: 19
+        slot_group: housing
+      bedding_type:
+        rank: 20
+        slot_group: housing
+      cage_type:
+        rank: 21
+        slot_group: housing
+      vivarium_temperature:
+        rank: 22
+        slot_group: housing
+      vivarium_humidity:
+        rank: 23
+        slot_group: housing
+      vivarium light cycle:
+        rank: 24
+        slot_group: housing
+      feed_catalog_number:
+        rank: 26
+        slot_group: diet
+      feed_description:
+        rank: 27
+        slot_group: diet
+      feed_name:
+        rank: 28
+        slot_group: diet
+      feed_source:
+        rank: 29
+        slot_group: diet
+      water_type:
+        rank: 30
+        slot_group: diet
+      feeding_paradigm:
+        rank: 31
+        slot_group: diet
+      administration_volume:
         rank: 33
-        slot_group: cell culture conditions
-      Humidity:
+        slot_group: treatment
+      dose_amount:
         rank: 34
-        slot_group: cell culture conditions
-      Humidity Unit:
+        slot_group: treatment
+      dose_amount_unit:
         rank: 35
-        slot_group: cell culture conditions
-      Culture dish type:
+        slot_group: treatment
+      route:
         rank: 36
-        slot_group: cell culture conditions
-  investigation:
-    name: investigation
+        slot_group: treatment
+      test_article_administration_zt:
+        rank: 37
+        slot_group: treatment
+      test_article_administration_duration:
+        rank: 38
+        slot_group: treatment
+      test_article_name:
+        rank: 39
+        slot_group: treatment
+      test_article_dtxsid:
+        rank: 40
+        slot_group: treatment
+      vehicle_name:
+        rank: 41
+        slot_group: treatment
+      vehicle_dtxsid:
+        rank: 42
+        slot_group: treatment
+  Investigation:
+    name: Investigation
     is_a: dh_interface
     slots:
-    - Study Identifier
-    - Study Title
-    - Study Description
-    - Study Grant Number
-    - Study Funding Agency
-    - study design type
-    - Pubmed ID
-    - Publication DOI
-    - Author list
-    - Publication title
-    - Publication status
-    - Last name
-    - First name
-    - Middle Initials
-    - Email
-    - Phone
-    - Fax
-    - Address
-    - Affiliation
-    - Role
-    - ORCID
+    - name
+    - investigation_description
+    - data_submission_contact_name
+    - data_submission_contact_orcid
+    - data_submission_contact_email
+    - data_submission_contact_telephone
+    - data_submission_contact_department
+    - data_submission_contact_institution
+    - data_submission_contact_institution_postal_address
+    - data_submission_contact_institution_city
+    - data_submission_contact_state
+    - support_source
+    - support_id
+    - PMC_id
+    - DOI
+    - PMID
     slot_usage:
-      Study Identifier:
+      name:
         rank: 1
-        slot_group: study description
-      Study Title:
+        slot_group: Contact
+      investigation_description:
         rank: 2
-        slot_group: study description
-      Study Description:
+        slot_group: Contact
+      data_submission_contact_name:
         rank: 3
-        slot_group: study description
-      Study Grant Number:
+        slot_group: Contact
+      data_submission_contact_orcid:
         rank: 4
-        slot_group: study description
-      Study Funding Agency:
+        slot_group: Contact
+      data_submission_contact_email:
         rank: 5
-        slot_group: study description
-      study design type:
+        slot_group: Contact
+      data_submission_contact_telephone:
         rank: 6
-        slot_group: study description descriptor
-      Pubmed ID:
+        slot_group: Contact
+      data_submission_contact_department:
         rank: 7
-        slot_group: study publications
-      Publication DOI:
+        slot_group: Contact
+      data_submission_contact_institution:
         rank: 8
-        slot_group: study publications
-      Author list:
+        slot_group: Contact
+      data_submission_contact_institution_postal_address:
         rank: 9
-        slot_group: study publications
-      Publication title:
+        slot_group: Contact
+      data_submission_contact_institution_city:
         rank: 10
-        slot_group: study publications
-      Publication status:
+        slot_group: Contact
+      data_submission_contact_state:
         rank: 11
-        slot_group: study publications
-      Last name:
+        slot_group: Contact
+      support_source:
         rank: 12
-        slot_group: study contacts
-      First name:
+        slot_group: Funding
+      support_id:
         rank: 13
-        slot_group: study contacts
-      Middle Initials:
+        slot_group: Funding
+      PMC_id:
         rank: 14
-        slot_group: study contacts
-      Email:
+        slot_group: Publication
+      DOI:
         rank: 15
-        slot_group: study contacts
-      Phone:
+        slot_group: Publication
+      PMID:
         rank: 16
-        slot_group: study contacts
-      Fax:
-        rank: 17
-        slot_group: study contacts
-      Address:
-        rank: 18
-        slot_group: study contacts
-      Affiliation:
-        rank: 19
-        slot_group: study contacts
-      Role:
-        rank: 20
-        slot_group: study contacts
-      ORCID:
-        rank: 21
-        slot_group: study contacts
+        slot_group: Publication
+  Sample:
+    name: Sample
+    is_a: dh_interface
+    slots:
+    - study_identifier
+    - subject_identifier
+    - sample_identifier
+    - date
+    - biospecimen_anatomic_site
+    - method_of_sample_procurement
+    - preservation_method
+    - weight
+    - volume
+    slot_usage:
+      study_identifier:
+        rank: 1
+        slot_group: identifiers
+      subject_identifier:
+        rank: 2
+        slot_group: identifiers
+      sample_identifier:
+        rank: 3
+        slot_group: identifiers
+      date:
+        rank: 4
+        slot_group: sample_details
+      biospecimen_anatomic_site:
+        rank: 5
+        slot_group: sample_details
+      method_of_sample_procurement:
+        rank: 6
+        slot_group: sample_details
+      preservation_method:
+        rank: 7
+        slot_group: sample_details
+      weight:
+        rank: 8
+        slot_group: sample_details
+      volume:
+        rank: 9
+        slot_group: sample_details
 slots:
-  Study Identifier:
-    name: Study Identifier
-    title: Study Identifier
-    range: Unique ID
-    description: ' '
+  name:
+    name: name
+    title: name
+    range: WhitespaceMinimizedString
+    description: A textual entity that denotes an investigation.
     required: true
-    slot_uri: a
+    slot_uri: obo:OBI_0001622
+    comments: Zacharewski_Superfund
+  investigation_description:
+    name: investigation_description
+    title: investigation_description
+    range: WhitespaceMinimizedString
+    description: A textual entity that describes an investigation.
+    slot_uri: obo:OBI_0001615
     comments: ' '
-  Study Title:
-    name: Study Title
-    title: Study Title
-    range: String
+  data_submission_contact_name:
+    name: data_submission_contact_name
+    title: data_submission_contact_name
+    range: WhitespaceMinimizedString
+    description: The name of the person acting as a channel for communication between
+      groups or on behalf of a group.
+    recommended: true
+    slot_uri: obo:NCIT_C176230
+    comments: Rance Nault
+  data_submission_contact_orcid:
+    name: data_submission_contact_orcid
+    title: data_submission_contact_orcid
+    range: WhitespaceMinimizedString
+    description: A centrally registered identifier that is issued by ORCID (https://orcid.org/)
+      and used to persistantly identify oneself as a human researcher or contributor.
+    required: true
+    slot_uri: obo:IAO_0000708
+    comments: 0000-0002-6822-4962
+  data_submission_contact_email:
+    name: data_submission_contact_email
+    title: data_submission_contact_email
+    range: WhitespaceMinimizedString
+    description: email address of data submission contact
+    recommended: true
+    comments: naultran@msu.edu
+  data_submission_contact_telephone:
+    name: data_submission_contact_telephone
+    title: data_submission_contact_telephone
+    range: WhitespaceMinimizedString
+    description: telephone number of data submission contact
+    comments: '5178842054'
+  data_submission_contact_department:
+    name: data_submission_contact_department
+    title: data_submission_contact_department
+    range: WhitespaceMinimizedString
+    description: department of data submission contact
+    comments: Biochemistry & Molecular Biology
+  data_submission_contact_institution:
+    name: data_submission_contact_institution
+    title: data_submission_contact_institution
+    range: WhitespaceMinimizedString
+    description: institution of data submission contact
+    comments: Michigan State University
+  data_submission_contact_institution_postal_address:
+    name: data_submission_contact_institution_postal_address
+    title: data_submission_contact_institution_postal_address
+    range: WhitespaceMinimizedString
+    description: postal address of data submission contact
+    comments: '48824'
+  data_submission_contact_institution_city:
+    name: data_submission_contact_institution_city
+    title: data_submission_contact_institution_city
+    range: WhitespaceMinimizedString
+    description: city of data submission contact
+    comments: East Lansing
+  data_submission_contact_state:
+    name: data_submission_contact_state
+    title: data_submission_contact_state
+    range: data_submission_contact_state menu
+    description: state of data submission contact
+    comments: MI
+  support_source:
+    name: support_source
+    title: support_source
+    range: WhitespaceMinimizedString
     description: ' '
     recommended: true
-    comments: ' '
-  Study Description:
-    name: Study Description
-    title: Study Description
-    range: String
+    slot_uri: obo:NCIT_C19711
+    comments: NIEHS
+  support_id:
+    name: support_id
+    title: support_id
+    range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
-  Study Grant Number:
-    name: Study Grant Number
-    title: Study Grant Number
-    range: String
-    description: ' '
-    comments: ' '
-  Study Funding Agency:
-    name: Study Funding Agency
-    title: Study Funding Agency
-    range: String
-    description: ' '
-    comments: ' '
-  study design type:
-    name: study design type
-    title: study design type
-    range: Ontology
-    description: ' '
-    comments: ' '
-  Pubmed ID:
-    name: Pubmed ID
-    title: Pubmed ID
+    recommended: true
+    comments: P42ES004911
+  PMC_id:
+    name: PMC_id
+    title: PMC_id
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  Publication DOI:
-    name: Publication DOI
-    title: Publication DOI
+  DOI:
+    name: DOI
+    title: DOI
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  Author list:
-    name: Author list
-    title: Author list
+  PMID:
+    name: PMID
+    title: PMID
     range: WhitespaceMinimizedString
-    description: ' '
+    description: A globally unique identifier for a biomedical article, as assigned
+      by PubMed.
+    slot_uri: obo:NCIT_C127797
     comments: ' '
-  Publication title:
-    name: Publication title
-    title: Publication title
+  investigation_identifier:
+    name: investigation_identifier
+    title: investigation_identifier
     range: WhitespaceMinimizedString
     description: ' '
+    required: true
+    slot_uri: obo:NCIT_C46002
     comments: ' '
-  Publication status:
-    name: Publication status
-    title: Publication status
+  study_identifier:
+    name: study_identifier
+    title: study_identifier
     range: WhitespaceMinimizedString
     description: ' '
+    required: true
+    slot_uri: obo:NCIT_C46002
     comments: ' '
-  Last name:
-    name: Last name
-    title: Last name
-    range: WhitespaceMinimizedString
-    description: ' '
+  study_design:
+    name: study_design
+    title: study_design
+    range: study_design menu
+    description: A plan specification comprised of protocols (which may specify how
+      and what kinds of data will be gathered) that are executed as part of an investigation
+      and is realized during a study design execution.
+    slot_uri: obo:OBI_0500000
     comments: ' '
-  First name:
-    name: First name
-    title: First name
-    range: WhitespaceMinimizedString
-    description: ' '
+  study_type:
+    name: study_type
+    title: study_type
+    range: study_type menu
+    description: A categorical value specification that specifies the type of study
+      from a list of study types
     comments: ' '
-  Middle Initials:
-    name: Middle Initials
-    title: Middle Initials
-    range: WhitespaceMinimizedString
+  experimental_setting:
+    name: experimental_setting
+    title: experimental_setting
+    range: experimental_setting menu
     description: ' '
-    comments: ' '
-  Email:
-    name: Email
-    title: Email
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  Phone:
-    name: Phone
-    title: Phone
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  Fax:
-    name: Fax
-    title: Fax
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  Address:
-    name: Address
-    title: Address
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  Affiliation:
-    name: Affiliation
-    title: Affiliation
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  Role:
-    name: Role
-    title: Role
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  ORCID:
-    name: ORCID
-    title: ORCID
-    range: WhitespaceMinimizedString
-    description: ' '
+    slot_uri: bao:BAO_0020005
     comments: ' '
   Organism:
     name: Organism
     title: Organism
-    range: Ontology
-    description: Provide taxonomic information associated to the source biological
-      material. This should be included as an NCBI_TAXON ID unless not found within
-      NCBI.
+    range: Organism menu
+    description: ' '
+    required: true
+    slot_uri: obo:NCIT_C45293
     comments: ' '
-  Strain:
-    name: Strain
-    title: Strain
-    range: Ontology
-    description: Provide strain information associated to the source biological material.
+  subject_identifier:
+    name: subject_identifier
+    title: subject_identifier
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
     comments: ' '
-  Organism supplier:
-    name: Organism supplier
-    title: Organism supplier
-    range: String
-    description: Provide the name of the vendor for the organism
-    comments: ' '
-  Cell line:
-    name: Cell line
-    title: Cell line
-    range: Ontology
+  start_date:
+    name: start_date
+    title: start_date
+    range: date
     description: ' '
     comments: ' '
-  Sex:
-    name: Sex
-    title: Sex
-    range: Sex menu
-    description: 'Sex of the study organism. Must be one of the following: FEMALE, MALE'
-    comments: ' '
-  Study start age:
-    name: Study start age
-    title: Study start age
+  start_date_age:
+    name: start_date_age
+    title: start_date_age
     range: integer
-    description: Age of the organism at the time the first dose was administered.
+    description: Elapsed time since birth when subjects were assigned to a study.
+    slot_uri: obo:NCIT_C25150
     comments: ' '
-  Study end age:
-    name: Study end age
-    title: Study end age
-    range: integer
-    description: Age of the organism when the terminal sample was collected.
-    comments: ' '
-  Average Vivarium Temperature:
-    name: Average Vivarium Temperature
-    title: Average Vivarium Temperature
-    range: float
+  experiment_start_date:
+    name: experiment_start_date
+    title: experiment_start_date
+    range: date
     description: ' '
     comments: ' '
-  Average Vivarium Humidity:
-    name: Average Vivarium Humidity
-    title: Average Vivarium Humidity
-    range: float
-    description: ' '
-    comments: ' '
-  Vivarium Light Cycle:
-    name: Vivarium Light Cycle
-    title: Vivarium Light Cycle
-    range: String
-    description: ' '
-    comments: ' '
-  Cage Type:
-    name: Cage Type
-    title: Cage Type
-    range: String
-    description: ' '
-    comments: ' '
-  Bedding Type:
-    name: Bedding Type
-    title: Bedding Type
-    range: String
-    description: ' '
-    comments: ' '
-  Water Type:
-    name: Water Type
-    title: Water Type
-    range: String
-    description: ' '
-    comments: ' '
-  Feed Name:
-    name: Feed Name
-    title: Feed Name
-    range: String
-    description: ' '
-    comments: ' '
-  Feed description:
-    name: Feed description
-    title: Feed description
-    range: String
-    description: ' '
-    comments: ' '
-  Feed source:
-    name: Feed source
-    title: Feed source
-    range: String
-    description: ' '
-    comments: ' '
-  Feed catalog number:
-    name: Feed catalog number
-    title: Feed catalog number
-    range: String
-    description: ' '
-    comments: ' '
-  Substance Name:
-    name: Substance Name
-    title: Substance Name
-    range: String
-    description: ' '
-    comments: ' '
-  Substance:
-    name: Substance
-    title: Substance
-    range: Ontology
-    description: ' '
-    comments: ' '
-  Vehicle Substance:
-    name: Vehicle Substance
-    title: Vehicle Substance
-    range: Ontology
-    description: ' '
-    comments: ' '
-  Administration Interval:
-    name: Administration Interval
-    title: Administration Interval
-    range: float
-    description: ' '
-    comments: ' '
-  Number of Administrations:
-    name: Number of Administrations
-    title: Number of Administrations
-    range: integer
-    description: ' '
-    comments: ' '
-  Administration Route:
-    name: Administration Route
-    title: Administration Route
-    range: Administration Route menu
-    description: ' '
-    comments: ' '
-  Administration volume:
-    name: Administration volume
-    title: Administration volume
-    range: float
-    description: ' '
-    comments: ' '
-  Dose:
-    name: Dose
-    title: Dose
-    range: float
-    description: ' '
-    comments: ' '
-  Chemical Source:
-    name: Chemical Source
-    title: Chemical Source
-    range: String
-    description: ' '
-    comments: ' '
-  Chemical Catalog Number:
-    name: Chemical Catalog Number
-    title: Chemical Catalog Number
-    range: String
-    description: ' '
-    comments: ' '
-  Chemical Purity:
-    name: Chemical Purity
-    title: Chemical Purity
-    range: String
-    description: ' '
-    comments: ' '
-  time point:
-    name: time point
-    title: time point
-    range: String
-    description: ' '
-    comments: ' '
-  ad lib feeding:
-    name: ad lib feeding
-    title: ad lib feeding
-    range: ad lib feeding menu
-    description: ' '
-    comments: ' '
-  Euthanasia method:
-    name: Euthanasia method
-    title: Euthanasia method
-    range: String
-    description: ' '
-    comments: ' '
-  Incubation temperature:
-    name: Incubation temperature
-    title: Incubation temperature
-    range: float
-    description: ' '
-    comments: ' '
-  Gas composition:
-    name: Gas composition
-    title: Gas composition
+  experiment_start_zt:
+    name: experiment_start_zt
+    title: experiment_start_zt
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  Humidity:
-    name: Humidity
-    title: Humidity
+  sex:
+    name: sex
+    title: sex
+    range: sex menu
+    description: ' '
+    required: true
+    slot_uri: obo:PATO_0000047
+    comments: ' '
+  strain:
+    name: strain
+    title: strain
+    range: strain menu
+    description: ' '
+    required: true
+    slot_uri: obo:OBI_0001185
+    comments: ' '
+  strain_source:
+    name: strain_source
+    title: strain_source
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  euthanasia_date:
+    name: euthanasia_date
+    title: euthanasia_date
+    range: date
+    description: ' '
+    comments: ' '
+  euthanasia_zt:
+    name: euthanasia_zt
+    title: euthanasia_zt
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  euthanasia_method:
+    name: euthanasia_method
+    title: euthanasia_method
+    range: euthanasia_method menu
+    description: ' '
+    slot_uri: obo:OBI_0000919
+    comments: ' '
+  date:
+    name: date
+    title: date
+    range: date
+    description: ' '
+    comments: ' '
+  cage_id:
+    name: cage_id
+    title: cage_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  bedding_type:
+    name: bedding_type
+    title: bedding_type
+    range: bedding_type menu
+    description: ' '
+    slot_uri: obo:NCIT_C90366
+    comments: ' '
+  cage_type:
+    name: cage_type
+    title: cage_type
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  vivarium_temperature:
+    name: vivarium_temperature
+    title: vivarium_temperature
+    range: float
+    description: ' '
+    slot_uri: obo:PATO_0000146
+    comments: ' '
+  vivarium_humidity:
+    name: vivarium_humidity
+    title: vivarium_humidity
+    range: float
+    description: ' '
+    slot_uri: obo:NCIT_C88206
+    comments: ' '
+  vivarium light cycle:
+    name: vivarium light cycle
+    title: vivarium light cycle
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:XCO_0000459
+    comments: ' '
+  feed_catalog_number:
+    name: feed_catalog_number
+    title: feed_catalog_number
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  feed_description:
+    name: feed_description
+    title: feed_description
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  feed_name:
+    name: feed_name
+    title: feed_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:OBI_0000248
+    comments: ' '
+  feed_source:
+    name: feed_source
+    title: feed_source
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  water_type:
+    name: water_type
+    title: water_type
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:NCIT_C90377
+    comments: ' '
+  feeding_paradigm:
+    name: feeding_paradigm
+    title: feeding_paradigm
+    range: feeding_paradigm menu
+    description: ' '
+    slot_uri: obo:OBI_0000694
+    comments: ' '
+  administration_volume:
+    name: administration_volume
+    title: administration_volume
     range: float
     description: ' '
     comments: ' '
-  Humidity Unit:
-    name: Humidity Unit
-    title: Humidity Unit
+  dose_amount:
+    name: dose_amount
+    title: dose_amount
+    range: float
+    description: ' '
+    comments: ' '
+  dose_amount_unit:
+    name: dose_amount_unit
+    title: dose_amount_unit
+    range: dose_amount_unit menu
+    description: ' '
+    slot_uri: obo:NCIT_C44278
+    comments: ' '
+  route:
+    name: route
+    title: route
+    range: route menu
+    description: ' '
+    comments: ' '
+  test_article_administration_zt:
+    name: test_article_administration_zt
+    title: test_article_administration_zt
     range: integer
     description: ' '
     comments: ' '
-  Culture dish type:
-    name: Culture dish type
-    title: Culture dish type
+  test_article_administration_duration:
+    name: test_article_administration_duration
+    title: test_article_administration_duration
+    range: float
+    description: ' '
+    comments: ' '
+  test_article_name:
+    name: test_article_name
+    title: test_article_name
     range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  test_article_dtxsid:
+    name: test_article_dtxsid
+    title: test_article_dtxsid
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  vehicle_name:
+    name: vehicle_name
+    title: vehicle_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  vehicle_dtxsid:
+    name: vehicle_dtxsid
+    title: vehicle_dtxsid
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  sample_identifier:
+    name: sample_identifier
+    title: sample_identifier
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  biospecimen_anatomic_site:
+    name: biospecimen_anatomic_site
+    title: biospecimen_anatomic_site
+    range: biospecimen_anatomic_site menu
+    description: ' '
+    comments: ' '
+  method_of_sample_procurement:
+    name: method_of_sample_procurement
+    title: method_of_sample_procurement
+    range: method_of_sample_procurement menu
+    description: ' '
+    comments: ' '
+  preservation_method:
+    name: preservation_method
+    title: preservation_method
+    range: preservation_method menu
+    description: ' '
+    comments: ' '
+  weight:
+    name: weight
+    title: weight
+    range: float
+    description: ' '
+    comments: ' '
+  volume:
+    name: volume
+    title: volume
+    range: float
     description: ' '
     comments: ' '
 types:
@@ -607,38 +714,82 @@ types:
     base: str
     uri: xsd:token
 enums:
-  Sex menu:
-    name: Sex menu
+  data_submission_contact_state menu:
+    name: data_submission_contact_state menu
     permissible_values:
-      FEMALE:
-        text: FEMALE
-      MALE:
-        text: MALE
-  Administration Route menu:
-    name: Administration Route menu
+      enum:
+        text: enum
+  study_design menu:
+    name: study_design menu
     permissible_values:
-      GAVAGE:
-        text: GAVAGE
-      INTRAPERITONEAL:
-        text: INTRAPERITONEAL
-      RETRO-ORBITAL:
-        text: RETRO-ORBITAL
-      TAIL VEIN INJECTION:
-        text: TAIL VEIN INJECTION
-      DIET:
-        text: DIET
-      WATER:
-        text: WATER
-      DOUGH PILL:
-        text: DOUGH PILL
-  ad lib feeding menu:
-    name: ad lib feeding menu
+      enum:
+        text: enum
+  study_type menu:
+    name: study_type menu
     permissible_values:
-      'YES':
-        text: 'YES'
-      'NO':
-        text: 'NO'
+      enum:
+        text: enum
+  experimental_setting menu:
+    name: experimental_setting menu
+    permissible_values:
+      enum:
+        text: enum
+  Organism menu:
+    name: Organism menu
+    permissible_values:
+      enum:
+        text: enum
+  sex menu:
+    name: sex menu
+    permissible_values:
+      enum:
+        text: enum
+  strain menu:
+    name: strain menu
+    permissible_values:
+      enum:
+        text: enum
+  euthanasia_method menu:
+    name: euthanasia_method menu
+    permissible_values:
+      enum:
+        text: enum
+  bedding_type menu:
+    name: bedding_type menu
+    permissible_values:
+      enum:
+        text: enum
+  feeding_paradigm menu:
+    name: feeding_paradigm menu
+    permissible_values:
+      enum:
+        text: enum
+  dose_amount_unit menu:
+    name: dose_amount_unit menu
+    permissible_values:
+      enum:
+        text: enum
+  route menu:
+    name: route menu
+    permissible_values:
+      enum:
+        text: enum
+  biospecimen_anatomic_site menu:
+    name: biospecimen_anatomic_site menu
+    permissible_values:
+      enum:
+        text: enum
+  method_of_sample_procurement menu:
+    name: method_of_sample_procurement menu
+    permissible_values:
+      enum:
+        text: enum
+  preservation_method menu:
+    name: preservation_method menu
+    permissible_values:
+      enum:
+        text: enum
 settings:
-  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'
   lower_case: '[a-z\W\d_]*'
