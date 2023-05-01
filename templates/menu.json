@@ -17,8 +17,37 @@
     }
   },
   "miflowcyt": {
-    "MIFLOWCYT": {
-      "name": "MIFLOWCYT",
+    "Flow cytometry experiment": {
+      "name": "Flow cytometry experiment",
+      "status": "published",
+      "display": true
+    }
+  },
+  "miaca": {
+    "Study_cell": {
+      "name": "Study_cell",
+      "status": "published",
+      "display": true
+    },
+    "Investigation_cell": {
+      "name": "Investigation_cell",
+      "status": "published",
+      "display": true
+    },
+    "Sample_cell": {
+      "name": "Sample_cell",
+      "status": "published",
+      "display": true
+    }
+  },
+  "mass_spec_metabolomics": {
+    "metabolomics_experiment": {
+      "name": "metabolomics_experiment",
+      "status": "published",
+      "display": true
+    },
+    "metaboliteID": {
+      "name": "metaboliteID",
       "status": "published",
       "display": true
     }

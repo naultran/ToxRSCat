@@ -1,53 +1,36 @@
-id: https://example.com/miflowcyt
-name: miflowcyt
+id: https://example.com/MIFlowCyt_template
+name: MIFlowCyt_template
 description: ''
 version: 1.0.0
-imports: 
-  - linkml:types
+imports: linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
   obo: http://purl.obolibrary.org/obo/
-  bao: http://www.bioassayontology.org/bao#
-  efo: http://www.ebi.ac.uk/efo/
+  bao: http://www.bioassayontology.org/bao/
 classes:
   dh_interface:
     name: dh_interface
     description: A DataHarmonizer interface
-    from_schema: https://example.com/miflowcyt
-  MIFLOWCYT:
-    name: MIFLOWCYT
+    from_schema: https://example.com/MIFlowCyt_template
+  Flow cytometry experiment:
+    name: Flow cytometry experiment
     is_a: dh_interface
     slots:
-    - experimentOverview
-    - flowSampleDetails
-    - instrumentDetails
-    - dataAnalysis
-    - sampleDescription
-    - sourceDescription
-    - organism
-    - other
-    - listModeDataFile
-    - sampleDescription_environmental_sample
-    - sampleLocation
+    - investigation_identifier
+    - study_identifier
+    - sample_identifier
+    - flow_experimet_identifier
     - purpose
     - keywords
     - experimentVariables
-    - organization
     - primaryContact
     - date
     - conclusions
     - qualityControlMeasures
-    - other_experiment
+    - flow_cytometry_protocol
+    - flow_cytometry_protocol_DOI
     - flowCellType
     - other_flow_cell
-    - characteristicsBeingMeasured
-    - analyte
-    - analyteDetector
-    - analyteReporter
-    - cloneNameOrNumber
-    - reagentManufacturerName
-    - reagentCatalogueNumber
-    - other_fluorescence_reagent
     - manufacturer
     - model
     - configurationAndSettings
@@ -62,342 +45,260 @@ classes:
     - type_optical_detector
     - voltage
     - amplificationType
+    - amplificationFactor
     - other_optical_detector
     - type_optical_filter
     - transmittedWavelengths
     - installationDate
     - other_optical_filter
-    - taxonomy
-    - age
-    - gender
-    - phenotype
-    - genotype
-    - treatment
-    - other_organism
-    - name_organization
-    - address
-    - name_primary_contact
-    - emailAddress
-    - materialDescription
-    - sampleCharacteristics
-    - sampleTreatmentsDescription
-    - fluorescentReagentsDescription
+    - staining_protocol
+    - staining_protocol_DOI
+    - characteristicsBeingMeasured
+    - analyte
+    - analyteDetector
+    - analyteReporter
+    - cloneNameOrNumber
+    - reagentManufacturerName
+    - reagentCatalogueNumber
+    - stainingStatus
+    - other_fluorescence_reagent
+    - analysis_protocol
+    - analysis_protocol_DOI
+    - listModeDataFile
+    - CompensationDescription
+    - TransformationPurpose
+    - TransformationDescription
+    - GateDescription
+    - Gate Statistics
+    - GateBoundaries
+    - WorkspaceFile
     slot_usage:
-      experimentOverview:
+      investigation_identifier:
         rank: 1
-        slot_group: miflowcyt
-      flowSampleDetails:
+        slot_group: identifiers
+      study_identifier:
         rank: 2
-        slot_group: miflowcyt
-      instrumentDetails:
+        slot_group: identifiers
+      sample_identifier:
         rank: 3
-        slot_group: miflowcyt
-      dataAnalysis:
+        slot_group: identifiers
+      flow_experimet_identifier:
         rank: 4
-        slot_group: miflowcyt
-      sampleDescription:
-        rank: 5
-        slot_group: biological_sample
-      sourceDescription:
-        rank: 6
-        slot_group: biological_sample
-      organism:
-        rank: 7
-        slot_group: biological_sample
-      other:
-        rank: 8
-        slot_group: biological_sample
-      listModeDataFile:
-        rank: 9
-        slot_group: data_analysis
-      sampleDescription_environmental_sample:
-        rank: 10
-        slot_group: environmental_sample
-      sampleLocation:
-        rank: 11
-        slot_group: environmental_sample
+        slot_group: identifiers
       purpose:
-        rank: 12
+        rank: 5
         slot_group: experiment
       keywords:
-        rank: 13
+        rank: 6
         slot_group: experiment
       experimentVariables:
-        rank: 14
-        slot_group: experiment
-      organization:
-        rank: 15
+        rank: 7
         slot_group: experiment
       primaryContact:
-        rank: 16
+        rank: 8
         slot_group: experiment
       date:
-        rank: 17
+        rank: 9
         slot_group: experiment
       conclusions:
-        rank: 18
+        rank: 10
         slot_group: experiment
       qualityControlMeasures:
-        rank: 19
+        rank: 11
         slot_group: experiment
-      other_experiment:
-        rank: 20
+      flow_cytometry_protocol:
+        rank: 12
+        slot_group: experiment
+      flow_cytometry_protocol_DOI:
+        rank: 13
         slot_group: experiment
       flowCellType:
-        rank: 21
-        slot_group: flow_cell
+        rank: 14
+        slot_group: Instrument
       other_flow_cell:
-        rank: 22
-        slot_group: flow_cell
-      characteristicsBeingMeasured:
-        rank: 23
-        slot_group: fluorescence_reagent
-      analyte:
-        rank: 24
-        slot_group: fluorescence_reagent
-      analyteDetector:
-        rank: 25
-        slot_group: fluorescence_reagent
-      analyteReporter:
-        rank: 26
-        slot_group: fluorescence_reagent
-      cloneNameOrNumber:
-        rank: 27
-        slot_group: fluorescence_reagent
-      reagentManufacturerName:
-        rank: 28
-        slot_group: fluorescence_reagent
-      reagentCatalogueNumber:
-        rank: 29
-        slot_group: fluorescence_reagent
-      other_fluorescence_reagent:
-        rank: 30
-        slot_group: fluorescence_reagent
+        rank: 15
+        slot_group: Instrument
       manufacturer:
-        rank: 31
-        slot_group: instrument
+        rank: 16
+        slot_group: Instrument
       model:
-        rank: 32
-        slot_group: instrument
+        rank: 17
+        slot_group: Instrument
       configurationAndSettings:
-        rank: 33
-        slot_group: instrument
+        rank: 18
+        slot_group: Instrument
       other_instrument:
-        rank: 34
-        slot_group: instrument
+        rank: 19
+        slot_group: Instrument
       type:
-        rank: 35
+        rank: 20
         slot_group: light_source_instrument
       excitatoryWavelength:
-        rank: 36
+        rank: 21
         slot_group: light_source_instrument
       powerAtExcitatoryWavelength:
-        rank: 37
+        rank: 22
         slot_group: light_source_instrument
       polarization:
-        rank: 38
+        rank: 23
         slot_group: light_source_instrument
       beam:
-        rank: 39
+        rank: 24
         slot_group: light_source_instrument
       other_light_source_instrument:
-        rank: 40
+        rank: 25
         slot_group: light_source_instrument
       name:
-        rank: 41
+        rank: 26
         slot_group: optical_detector
       type_optical_detector:
-        rank: 42
+        rank: 27
         slot_group: optical_detector
       voltage:
-        rank: 43
+        rank: 28
         slot_group: optical_detector
       amplificationType:
-        rank: 44
+        rank: 29
+        slot_group: optical_detector
+      amplificationFactor:
+        rank: 30
         slot_group: optical_detector
       other_optical_detector:
-        rank: 45
+        rank: 31
         slot_group: optical_detector
       type_optical_filter:
-        rank: 46
+        rank: 32
         slot_group: optical_filter
       transmittedWavelengths:
-        rank: 47
+        rank: 33
         slot_group: optical_filter
       installationDate:
-        rank: 48
+        rank: 34
         slot_group: optical_filter
       other_optical_filter:
-        rank: 49
+        rank: 35
         slot_group: optical_filter
-      taxonomy:
+      staining_protocol:
+        rank: 36
+        slot_group: flourescence_reagent
+      staining_protocol_DOI:
+        rank: 37
+        slot_group: flourescence_reagent
+      characteristicsBeingMeasured:
+        rank: 38
+        slot_group: flourescence_reagent
+      analyte:
+        rank: 39
+        slot_group: flourescence_reagent
+      analyteDetector:
+        rank: 40
+        slot_group: flourescence_reagent
+      analyteReporter:
+        rank: 41
+        slot_group: flourescence_reagent
+      cloneNameOrNumber:
+        rank: 42
+        slot_group: flourescence_reagent
+      reagentManufacturerName:
+        rank: 43
+        slot_group: flourescence_reagent
+      reagentCatalogueNumber:
+        rank: 44
+        slot_group: flourescence_reagent
+      stainingStatus:
+        rank: 45
+        slot_group: flourescence_reagent
+      other_fluorescence_reagent:
+        rank: 46
+        slot_group: flourescence_reagent
+      analysis_protocol:
+        rank: 47
+        slot_group: data_analysis
+      analysis_protocol_DOI:
+        rank: 48
+        slot_group: data_analysis
+      listModeDataFile:
+        rank: 49
+        slot_group: data_analysis
+      CompensationDescription:
         rank: 50
-        slot_group: organism
-      age:
+        slot_group: data_analysis
+      TransformationPurpose:
         rank: 51
-        slot_group: organism
-      gender:
+        slot_group: data_analysis
+      TransformationDescription:
         rank: 52
-        slot_group: organism
-      phenotype:
+        slot_group: data_analysis
+      GateDescription:
         rank: 53
-        slot_group: organism
-      genotype:
+        slot_group: data_analysis
+      Gate Statistics:
         rank: 54
-        slot_group: organism
-      treatment:
+        slot_group: data_analysis
+      GateBoundaries:
         rank: 55
-        slot_group: organism
-      other_organism:
+        slot_group: data_analysis
+      WorkspaceFile:
         rank: 56
-        slot_group: organism
-      name_organization:
-        rank: 57
-        slot_group: organization
-      address:
-        rank: 58
-        slot_group: organization
-      name_primary_contact:
-        rank: 59
-        slot_group: primary_contact
-      emailAddress:
-        rank: 60
-        slot_group: primary_contact
-      materialDescription:
-        rank: 61
-        slot_group: sample
-      sampleCharacteristics:
-        rank: 62
-        slot_group: sample
-      sampleTreatmentsDescription:
-        rank: 63
-        slot_group: sample
-      fluorescentReagentsDescription:
-        rank: 64
-        slot_group: sample
+        slot_group: data_analysis
 slots:
-  experimentOverview:
-    name: experimentOverview
-    title: experimentOverview
+  investigation_identifier:
+    name: investigation_identifier
+    title: investigation_identifier
     range: WhitespaceMinimizedString
-    description: An overview of the experiment
+    description: The identifier for this investigation collected using the "investigation"
+      template. This is used to match the flow cytometry experiment to an investigation.
+    required: true
     slot_uri: obo:OBI_0000066
-    comments: 'expected type: experiment_schema.json#'
-  flowSampleDetails:
-    name: flowSampleDetails
-    title: flowSampleDetails
+    comments: i_Prj140
+  study_identifier:
+    name: study_identifier
+    title: study_identifier
     range: WhitespaceMinimizedString
-    description: The flow sample details shall include a description of each sample
-      material used in the experiment (2.1), (2.2), how they were treated (2.3) and
-      what reagents were used (2.4) to fluorescently label the material. Relations
-      between samples, aliquots, different treatments, and replicates shall be unambiguously
-      described.
-    slot_uri: obo:OBI_0000747
-    comments: 'expected type: sample_schema.json#'
-  instrumentDetails:
-    name: instrumentDetails
-    title: instrumentDetails
+    description: The identifier for this study collected using the template appropriate
+      for your study design (e.g., MIATE for animal experiments). This is used to
+      match the flow cytometry experiment to a study.
+    required: true
+    comments: s_Prj140
+  sample_identifier:
+    name: sample_identifier
+    title: sample_identifier
     range: WhitespaceMinimizedString
-    description: The following details shall be specified about instruments used to
-      analyze samples. It is expected that this information will be automatically
-      provided by flow cytometry instruments in instrumentation description files
-      along with list-mode data files, such as FCS files [18]. For instrument components
-      that are not user configurable and that are part of a standard model, the instrument
-      manufacturer and model number shall be sufficient if this uniquely specifies
-      the required information. For all other cases where the make and model number
-      is not sufficient to specify the required information, the individual component
-      description shall be specified as described below.
-    slot_uri: obo:OBI_0000968
-    comments: 'expected type: instrument_schema.json#'
-  dataAnalysis:
-    name: dataAnalysis
-    title: dataAnalysis
+    description: The identifier for this study collected using the template appropriate
+      for your study design (e.g., MIATE for animal experiments). This is used to
+      match the sample source to the data.
+    required: true
+    comments: Prj140_M001_Liver
+  flow_experimet_identifier:
+    name: flow_experimet_identifier
+    title: flow_experimet_identifier
     range: WhitespaceMinimizedString
-    description: Information about the data analysis performed.
-    slot_uri: obo:ERO_0001309
-    comments: 'expected type: data_analysis_schema.json#'
-  sampleDescription:
-    name: sampleDescription
-    title: sampleDescription
-    range: WhitespaceMinimizedString
-    description: A description of the biological sample shall be provided, including
-      the sample type, if relevant (e.g., C57BL/6 spleen, purified CD4+ lymphocytes,
-      BALB/c thymocyte DNA, control patient PBMCs, protein lysate from lung cancer
-      biopsy, peripheral blood from patient with Type I diabetes, liver biopsy, etc.)
-    slot_uri: obo:sep_00196
-    comments: ' '
-  sourceDescription:
-    name: sourceDescription
-    title: sourceDescription
-    range: WhitespaceMinimizedString
-    description: The source of the biological sample shall be described (e.g., wild-
-      type mouse, C57BL/6 spleen, C57BL/6 splenocytes). If the source is a cell line
-      the description shall include its name, ATCC [17] (or equivalent) number, and
-      cell type.
-    slot_uri: obo:NCIT_C93859
-    comments: ' '
-  organism:
-    name: organism
-    title: organism
-    range: WhitespaceMinimizedString
-    description: The source organism for this biological sample
-    slot_uri: obo:OBI_0100026
-    comments: 'expected type: organism_schema.json#'
-  other:
-    name: other
-    title: other
-    range: WhitespaceMinimizedString
-    description: Additional information about the biological sample should be provided
-      if relevant. This may include relevant information such as in vivo or in vitro
-      treatment, stimulation, preparation / enrichment protocol, culture/growth protocol,
-      collection time/date, whether the sample was frozen/banked/fixed, etc.
-    slot_uri: obo:NCIT_C17649
-    comments: ' '
-  listModeDataFile:
-    name: listModeDataFile
-    title: listModeDataFile
-    range: WhitespaceMinimizedString
-    description: The list-mode data files (e.g., FCS files [18]) shall be provided
-      directly or details on how they may be requested shall be stated.
-    slot_uri: obo:OBI:0000021
-    comments: ' '
-  sampleDescription_environmental_sample:
-    name: sampleDescription_environmental_sample
-    title: sampleDescription_environmental_sample
-    range: WhitespaceMinimizedString
-    description: A description about the environmental sample shall be provided. The
-      description should include relevant details such as collection time/date, collection
-      protocol, type of sample (e.g., seawater), etc.
-    slot_uri: obo:sep_00196
-    comments: ' '
-  sampleLocation:
-    name: sampleLocation
-    title: sampleLocation
-    range: WhitespaceMinimizedString
-    description: The location of the sample origin shall be specified. This should
-      include longitude and latitude if relevant.
-    slot_uri: obo:NCIT_C25341
-    comments: ' '
+    description: This is a unique ID assigned by the user to represent each individual
+      record in this flow cytometry experiment.
+    required: true
+    comments: ms_S001
   purpose:
     name: purpose
     title: purpose
     range: WhitespaceMinimizedString
     description: A brief description of the goal of the experiment. This should include
       the rationale and hypothesis.
+    recommended: true
     slot_uri: obo:NCIT_C25634
-    comments: ' '
+    comments: Quantify the proportion of CD5+ and CD5- B Cells in human PBMCs
   keywords:
     name: keywords
     title: keywords
     range: WhitespaceMinimizedString
     description: The keywords should include terms from an appropriate vocabulary
       (e.g. MeSH) to describe the experiment.
+    recommended: true
     slot_uri: obo:NCIT_C43513
-    comments: ' '
+    comments: PBMC, TCDD
   experimentVariables:
     name: experimentVariables
     title: experimentVariables
-    range: WhitespaceMinimizedString
+    range: experimentVariables menu
     description: Variables are attribute(s) that differ between samples within an
       experiment due to pre-existing differences in sample states or due to experimental
       manipulation of the samples. If applicable, a brief description of the conditional
@@ -405,29 +306,25 @@ slots:
       vs. nonsmoker, IL-2 treatment vs. no treatment, knockout versus wild-type, varying
       number of transplanted cells, varying treatment dosage, etc.). The number of
       instances per experimental group should also be stated.
+    required: true
     slot_uri: obo:STATO_0000258
-    comments: ' '
-  organization:
-    name: organization
-    title: organization
-    range: WhitespaceMinimizedString
-    description: The organizations performing the experiment.
-    slot_uri: obo:OBI_0000245
     comments: ' '
   primaryContact:
     name: primaryContact
     title: primaryContact
     range: WhitespaceMinimizedString
     description: The individual who is the primary contact for this experiment.
+    required: true
     slot_uri: obo:OBI_0000202
-    comments: 'expected type: primary_contact_schema.json'
+    comments: ' '
   date:
     name: date
     title: date
-    range: WhitespaceMinimizedString
+    range: date
     description: The date or time period during which the investigation was performed
       (i.e., from collecting and treating samples to performing data analysis) shall
       be stated.
+    recommended: true
     slot_uri: obo:STATO_0000093
     comments: ' '
   conclusions:
@@ -436,34 +333,51 @@ slots:
     range: WhitespaceMinimizedString
     description: A brief summary of the interpretation of the results or outcome of
       the experiment shall be provided if available.
+    recommended: true
     slot_uri: obo:IAO_0000144
     comments: ' '
   qualityControlMeasures:
     name: qualityControlMeasures
     title: qualityControlMeasures
-    range: WhitespaceMinimizedString
+    range: qualityControlMeasures menu
     description: A description of the quality control measures used such as replicates,
       calibrations, control assays, etc. shall be provided. If another experiment
       was performed for the purposes of establishing quality control standards, that
       experiment may be referenced.
+    recommended: true
+    required: true
     slot_uri: obo:MSIO_0000085
-    comments: ' '
-  other_experiment:
-    name: other_experiment
-    title: other_experiment
+    comments: The cell lines used in this experiment underwent STR profiling to confirm
+      their identity and sent for mycoplasma testing to ensure there is no contamination.
+      Additionally, cells used for xenograft injection were screened against a Rodent
+      Pathogen Panel to ensure no contamination prior to injection. The animals were
+      randomized prior to treatment. An isotype control antibody was used to confirm
+      the specificity of the HLA-A,B,C antibody. Additionally, no antibody and MV4;11
+      cells (as positive control) were used to ensure specificity. Additional detailed
+      experimental notes, data, and analysis are available on the Open Science Framework
+      (OSF) (https://osf.io/hcqqy/)
+  flow_cytometry_protocol:
+    name: flow_cytometry_protocol
+    title: flow_cytometry_protocol
     range: WhitespaceMinimizedString
-    description: Additional information about the experiment should be provided if
-      relevant. This may include funding announcements, related publications (which
-      should be referenced by PMID), URIs, databases, etc.
-    slot_uri: obo:NCIT_C17649
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: ' '
+  flow_cytometry_protocol_DOI:
+    name: flow_cytometry_protocol_DOI
+    title: flow_cytometry_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
     comments: ' '
   flowCellType:
     name: flowCellType
     title: flowCellType
-    range: WhitespaceMinimizedString
+    range: flowCellType menu
     description: The flow cell type (e.g., stream-in-air, cuvette) including the material
       shall be provided.
-    slot_uri: obo:CL_0000000
+    slot_uri: 'obo:OBI_0400043 '
     comments: ' '
   other_flow_cell:
     name: other_flow_cell
@@ -478,89 +392,10 @@ slots:
       7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).
     slot_uri: obo:NCIT_C17649
     comments: ' '
-  characteristicsBeingMeasured:
-    name: characteristicsBeingMeasured
-    title: characteristicsBeingMeasured
-    range: WhitespaceMinimizedString
-    description: The relative amount of molecules, properties, or processes being
-      evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative
-      burst). The characteristic(s) being measured shall be provided whenever there
-      is ambiguity about the analyte being measured, such as when sample processing
-      affects detection of the analyte (e.g., propidium iodide example in Table 1).
-      The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used
-      primarily for this measurement shall be indicated.
-    slot_uri: obo:BFO_0000005
-    comments: ' '
-  analyte:
-    name: analyte
-    title: analyte
-    range: WhitespaceMinimizedString
-    description: What plays the role of the analyte? Which substance or chemical constituent
-      is the subject of interest of the analytical procedure, what target is specifically
-      bound by the analyte detector (e.g., CD25)?
-    slot_uri: obo:OBI_0000275
-    comments: ' '
-  analyteDetector:
-    name: analyteDetector
-    title: analyteDetector
-    range: WhitespaceMinimizedString
-    description: What plays the role of analyte detector? Which component of the fluorescence
-      reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25
-      antibody)?
-    slot_uri: obo:CHMO_0002244
-    comments: ' '
-  analyteReporter:
-    name: analyteReporter
-    title: analyteReporter
-    range: WhitespaceMinimizedString
-    description: (Fluorochrome) What plays the role of analyte reporter? Which component
-      of the fluorescence reagent reports the presents of the analyte to the flow
-      cytometer? What substance (label) is used to generate the measured signal (e.g.,
-      FITC)?
-    slot_uri: obo:CHEBI_35209
-    comments: ' '
-  cloneNameOrNumber:
-    name: cloneNameOrNumber
-    title: cloneNameOrNumber
-    range: WhitespaceMinimizedString
-    description: If the probe is a monoclonal antibody, the clone name or number shall
-      be provided.
-    slot_uri: obo:SO_0000151
-    comments: ' '
-  reagentManufacturerName:
-    name: reagentManufacturerName
-    title: reagentManufacturerName
-    range: WhitespaceMinimizedString
-    description: The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent
-      Inc.).
-    slot_uri: obo:IAO_0000590
-    comments: ' '
-  reagentCatalogueNumber:
-    name: reagentCatalogueNumber
-    title: reagentCatalogueNumber
-    range: WhitespaceMinimizedString
-    description: The reagent catalogue number shall be specified.
-    slot_uri: obo:NCIT_C112406
-    comments: ' '
-  other_fluorescence_reagent:
-    name: other_fluorescence_reagent
-    title: other_fluorescence_reagent
-    range: WhitespaceMinimizedString
-    description: When secondary antibodies are used, the primary analyte (the analyte
-      bound by the primary antibody) and the reporter component of the secondary antibody
-      (the reporter that generates the measured signal) shall be clearly specified
-      as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary
-      antibodies shall be described individually (e.g., in the case that the use of
-      a secondary antibody significantly impacts the interpretation of results because
-      of nonspecific fluorescence, etc.). The description should also contain other
-      relevant details which may include lot number, concentration, label incorporation
-      method, separation technique, antibody staining procedures, and wash steps.
-    slot_uri: obo:NCIT_C17649
-    comments: ' '
   manufacturer:
     name: manufacturer
     title: manufacturer
-    range: WhitespaceMinimizedString
+    range: manufacturer menu
     description: The instrument manufacturer shall be specified by stating its name
       (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web
       pages may also be provided.
@@ -569,7 +404,7 @@ slots:
   model:
     name: model
     title: model
-    range: WhitespaceMinimizedString
+    range: model menu
     description: The instrument model shall be specified (e.g., CytMeter Elite-2000).
       It may include the instrument serial number.
     slot_uri: obo:MS_1000031
@@ -577,7 +412,7 @@ slots:
   configurationAndSettings:
     name: configurationAndSettings
     title: configurationAndSettings
-    range: WhitespaceMinimizedString
+    range: configurationAndSettings menu
     description: The system and its configurations have significant impact on experimental
       results and as such the following shall be provided
     slot_uri: obo:MS_1000740
@@ -596,10 +431,10 @@ slots:
   type:
     name: type
     title: type
-    range: WhitespaceMinimizedString
+    range: type menu
     description: The type of the light source shall be provided (e.g., laser, diode
       laser, xenon lamp).
-    slot_uri: obo:PRIDE_0000163
+    slot_uri: bao:BAO_0150029
     comments: ' '
   excitatoryWavelength:
     name: excitatoryWavelength
@@ -632,7 +467,7 @@ slots:
     range: WhitespaceMinimizedString
     description: "Light source beam dimensions and geometry shall be specified at\
       \ the flow cell or at the intersection of the beam with particles (e.g., elliptical\
-      \ 22 x 66 \u03BCm)."
+      \ 22 x 66 \xCE\xBCm)."
     slot_uri: obo:NCIT_C70569
     comments: ' '
   other_light_source_instrument:
@@ -656,14 +491,15 @@ slots:
   type_optical_detector:
     name: type_optical_detector
     title: type_optical_detector
-    range: WhitespaceMinimizedString
+    range: type_optical_detector menu
     description: The type of the optical detector shall be provided (e.g., photodiode,
       photomultiplier tube).
+    slot_uri: 'obo:FBbi_00000269 '
     comments: ' '
   voltage:
     name: voltage
     title: voltage
-    range: WhitespaceMinimizedString
+    range: float
     description: The optical detector voltage shall be specified (e.g., 300V, 700V).
     comments: ' '
   amplificationType:
@@ -671,10 +507,16 @@ slots:
     title: amplificationType
     range: WhitespaceMinimizedString
     description: The optical detector amplification type shall be specified (e.g.,
-      linear, log). For log amplification, the number of decades shall be provided
-      (e.g., 4 decades). For a linear amplification, the linear gain shall be provided
-      (e.g., linear gain of 2.0). Additional details including the actual amplifier
-      profile may be provided.
+      linear, log).  Additional details including the actual amplifier profile may
+      be provided.
+    comments: ' '
+  amplificationFactor:
+    name: amplificationFactor
+    title: amplificationFactor
+    range: float
+    description: For log amplification, the number of decades shall be provided (e.g.,
+      4 decades). For a linear amplification, the linear gain shall be provided (e.g.,
+      linear gain of 2.0).
     comments: ' '
   other_optical_detector:
     name: other_optical_detector
@@ -689,10 +531,8 @@ slots:
   type_optical_filter:
     name: type_optical_filter
     title: type_optical_filter
-    range: WhitespaceMinimizedString
-    description: The optical filter type shall be specified (e.g., band pass filter,
-      long pass filter, dichroic long pass filters, short pass filter, dichroic short
-      pass filter, polarizer excitation filter, grating, prism).
+    range: type_optical_filter menu
+    description: The optical filter type shall be specified.
     comments: ' '
   transmittedWavelengths:
     name: transmittedWavelengths
@@ -704,7 +544,7 @@ slots:
   installationDate:
     name: installationDate
     title: installationDate
-    range: WhitespaceMinimizedString
+    range: date
     description: As optical filters of all types are subject to degradation, filter
       performance needs to be monitored at intervals to verify continued performance
       at an acceptable level [19]. The optical filter installation date shall be specified
@@ -716,143 +556,208 @@ slots:
     range: WhitespaceMinimizedString
     description: Other relevant optical filter details should be provided.
     comments: ' '
-  taxonomy:
-    name: taxonomy
-    title: taxonomy
+  staining_protocol:
+    name: staining_protocol
+    title: staining_protocol
     range: WhitespaceMinimizedString
-    description: The source organism shall be specified by genus and species (e.g.,
-      Mus musculus). The terms should come from an appropriate standard such as the
-      NCBI taxonomy database [12]. Taxonomy information should also contain the type
-      of subspecies and organism strain, if applicable. A standard taxonomy may be
-      extended or a proprietary taxonomy may be used, especially if detailed identification
-      is relevant and beyond the scope of standard taxonomies.
-    slot_uri: obo:NCIT_C17469
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
     comments: ' '
-  age:
-    name: age
-    title: age
+  staining_protocol_DOI:
+    name: staining_protocol_DOI
+    title: staining_protocol_DOI
     range: WhitespaceMinimizedString
-    description: The age shall be provided if applicable for the particular organism
-      (e.g., 6 weeks). It may also include the developmental state (e.g., Theiler
-      stage 23).
-    slot_uri: obo:PATO_0000011
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
     comments: ' '
-  gender:
-    name: gender
-    title: gender
+  characteristicsBeingMeasured:
+    name: characteristicsBeingMeasured
+    title: characteristicsBeingMeasured
     range: WhitespaceMinimizedString
-    description: The gender shall be provided if applicable for the particular organism.
-    slot_uri: obo:NCIT_C17357
-    comments: ' '
-  phenotype:
-    name: phenotype
-    title: phenotype
-    range: WhitespaceMinimizedString
-    description: Appropriate phenotype characteristics such as disease state shall
-      be described (e.g., increased tumorigenesis).
-    slot_uri: obo:NCIT_C16977
-    comments: ' '
-  genotype:
-    name: genotype
-    title: genotype
-    range: WhitespaceMinimizedString
-    description: Appropriate genotype characteristics shall be described (e.g., p53-/-).
-    slot_uri: obo:SO_0001027
-    comments: ' '
-  treatment:
-    name: treatment
-    title: treatment
-    range: WhitespaceMinimizedString
-    description: All source organism treatments shall be described (e.g., treatment
-      with cyclooxygenase-2 (COX-2) inhibitor).
-    slot_uri: efo:EFO_0000727
-    comments: ' '
-  other_organism:
-    name: other_organism
-    title: other_organism
-    range: WhitespaceMinimizedString
-    description: Additional information about the source organism should be provided
-      if relevant. This may include anatomic location of the source, visit time/date,
-      or additional details and comments.
-    slot_uri: obo:NCIT_C17649
-    comments: ' '
-  name_organization:
-    name: name_organization
-    title: name_organization
-    range: WhitespaceMinimizedString
-    description: Name of the organization.
-    slot_uri: obo:IAO_0000590
-    comments: ' '
-  address:
-    name: address
-    title: address
-    range: WhitespaceMinimizedString
-    description: Address of the organization.
-    slot_uri: obo:IAO_0000422
-    comments: ' '
-  name_primary_contact:
-    name: name_primary_contact
-    title: name_primary_contact
-    range: WhitespaceMinimizedString
-    description: The primary contact's name
-    slot_uri: obo:IAO_0000590
-    comments: ' '
-  emailAddress:
-    name: emailAddress
-    title: emailAddress
-    range: WhitespaceMinimizedString
-    description: The primary contact's email address
-    slot_uri: obo:IAO_0000429
-    comments: ' '
-  materialDescription:
-    name: materialDescription
-    title: materialDescription
-    range: WhitespaceMinimizedString
-    description: Sample materials shall be described according to 2.1.1, 2.1.2, or
-      2.1.3, based on the type of the sample material. Each sample shall be distinguished
-      from other samples within the same experiment.
-    slot_uri: obo:NCIT_C93859
-    comments: ' '
-  sampleCharacteristics:
-    name: sampleCharacteristics
-    title: sampleCharacteristics
-    range: WhitespaceMinimizedString
-    description: Key information about the possible and expected sample characteristics
-      should be noted as they provide the rationale for the experimental design, including
-      the choice of appropriate reagents. Sample characteristics description should
-      include the expected and possible types of cells or other particles in the sample
-      material.
+    description: The relative amount of molecules, properties, or processes being
+      evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative
+      burst). The characteristic(s) being measured shall be provided whenever there
+      is ambiguity about the analyte being measured, such as when sample processing
+      affects detection of the analyte (e.g., propidium iodide example in Table 1).
+      The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used
+      primarily for this measurement shall be indicated.
+    recommended: true
     slot_uri: obo:BFO_0000005
     comments: ' '
-  sampleTreatmentsDescription:
-    name: sampleTreatmentsDescription
-    title: sampleTreatmentsDescription
+  analyte:
+    name: analyte
+    title: analyte
     range: WhitespaceMinimizedString
-    description: The description shall include details about treatment agents, which
-      play the role of experiment variables, or shall specify that samples were untreated.
-      For example, a sample treated with an agent might be compared to an untreated
-      sample; when reproducing and interpreting such an experiment, having access
-      to details on treatment agents and conditions is essential in order to query
-      and retrieve samples for further analysis. The treatment description should
-      also contain other relevant treatment details such as, but not limited to, time,
-      temperature, and concentration.
-    slot_uri: efo:EFO_0003809
+    description: What plays the role of the analyte? Which substance or chemical constituent
+      is the subject of interest of the analytical procedure, what target is specifically
+      bound by the analyte detector (e.g., CD25)?
+    required: true
+    slot_uri: obo:OBI_0000275
+    comments: CD25
+  analyteDetector:
+    name: analyteDetector
+    title: analyteDetector
+    range: WhitespaceMinimizedString
+    description: What plays the role of analyte detector? Which component of the fluorescence
+      reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25
+      antibody)?
+    required: true
+    slot_uri: obo:CHMO_0002244
     comments: ' '
-  fluorescentReagentsDescription:
-    name: fluorescentReagentsDescription
-    title: fluorescentReagentsDescription
+  analyteReporter:
+    name: analyteReporter
+    title: analyteReporter
     range: WhitespaceMinimizedString
-    description: The expected and possible types of cells or other particles in the
-      sample material, and their expected and possible measurable characteristics
-      should be noted as these represent the key information for choosing appropriate
-      reagents with respect to the experimental goal. The following information shall
-      be provided about each fluorescence reagent used. Information about the characteristic(s)
-      being measured, as well as details about what plays the role of analyte, analyte
-      detector, and analyte reporter should be descriptive enough to allow for accurate
-      interpretation of the experiment data. Table 1 lists some examples of reagent
-      descriptions.
-    slot_uri: obo:ERO_0000006
-    comments: 'expected type: fluorescence_reagent_schema.json'
+    description: (Fluorochrome) What plays the role of analyte reporter? Which component
+      of the fluorescence reagent reports the presents of the analyte to the flow
+      cytometer? What substance (label) is used to generate the measured signal (e.g.,
+      FITC)?
+    required: true
+    slot_uri: obo:CHEBI_35209
+    comments: ' '
+  cloneNameOrNumber:
+    name: cloneNameOrNumber
+    title: cloneNameOrNumber
+    range: WhitespaceMinimizedString
+    description: If the probe is a monoclonal antibody, the clone name or number shall
+      be provided.
+    slot_uri: obo:SO_0000151
+    comments: ' '
+  reagentManufacturerName:
+    name: reagentManufacturerName
+    title: reagentManufacturerName
+    range: WhitespaceMinimizedString
+    description: The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent
+      Inc.).
+    slot_uri: obo:IAO_0000590
+    comments: ' '
+  reagentCatalogueNumber:
+    name: reagentCatalogueNumber
+    title: reagentCatalogueNumber
+    range: WhitespaceMinimizedString
+    description: The reagent catalogue number shall be specified.
+    slot_uri: obo:NCIT_C112406
+    comments: ' '
+  stainingStatus:
+    name: stainingStatus
+    title: stainingStatus
+    range: stainingStatus menu
+    description: ' '
+    comments: ' '
+  other_fluorescence_reagent:
+    name: other_fluorescence_reagent
+    title: other_fluorescence_reagent
+    range: WhitespaceMinimizedString
+    description: When secondary antibodies are used, the primary analyte (the analyte
+      bound by the primary antibody) and the reporter component of the secondary antibody
+      (the reporter that generates the measured signal) shall be clearly specified
+      as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary
+      antibodies shall be described individually (e.g., in the case that the use of
+      a secondary antibody significantly impacts the interpretation of results because
+      of nonspecific fluorescence, etc.). The description should also contain other
+      relevant details which may include lot number, concentration, label incorporation
+      method, separation technique, antibody staining procedures, and wash steps.
+    slot_uri: obo:NCIT_C17649
+    comments: ' '
+  analysis_protocol:
+    name: analysis_protocol
+    title: analysis_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: ' '
+  analysis_protocol_DOI:
+    name: analysis_protocol_DOI
+    title: analysis_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
+    comments: ' '
+  listModeDataFile:
+    name: listModeDataFile
+    title: listModeDataFile
+    range: WhitespaceMinimizedString
+    description: The list-mode data files (e.g., FCS files [18]) shall be provided
+      directly or details on how they may be requested shall be stated.
+    slot_uri: obo:OBI:0000021
+    comments: FCS File name (must end in .FCS)
+  CompensationDescription:
+    name: CompensationDescription
+    title: CompensationDescription
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  TransformationPurpose:
+    name: TransformationPurpose
+    title: TransformationPurpose
+    range: WhitespaceMinimizedString
+    description: 'The purpose of each performed transformation shall be specified
+      (e.g.,
+
+      data visualization, background correction, statistical analysis, quantitative
+
+      flow cytometry, etc.).'
+    comments: ' '
+  TransformationDescription:
+    name: TransformationDescription
+    title: TransformationDescription
+    range: WhitespaceMinimizedString
+    description: 'Either the exact mathematical formulas/algorithms of each data
+
+      transformation shall be supplied using an open and freely available
+
+      specification, or a description of each transformation shall be provided.'
+    comments: ' '
+  GateDescription:
+    name: GateDescription
+    title: GateDescription
+    range: WhitespaceMinimizedString
+    description: "The subpopulation identified by the gate shall be briefly described\
+      \ (e.g.,\n\u201CIL-4 producing helper T cells of the CD3+CD4+ phenotype\u201D\
+      ). The gating\nstrategy or a reference to where it is described in detail (e.g.,\
+      \ a\nmanuscript) should be provided."
+    comments: ' '
+  Gate Statistics:
+    name: Gate Statistics
+    title: Gate Statistics
+    range: WhitespaceMinimizedString
+    description: 'Percentage of events within the gate shall be provided specifically
+      stating
+
+      the denominator. The denominator shall be either the total population of events
+      (e.g., percentage of lymphocytes based on the total number of
+
+      events) or another gate (e.g., percentage of CD4+ lymphocytes based on
+
+      all lymphocytes). When the denominator is another gate, this shall also be
+
+      exactly specified in recursive fashion so that the gating strategy can be
+
+      followed up to the original data set. The denominator may not necessarily
+
+      be a containing (superset) population for some statistics (e.g., the donor /
+
+      host blood cell ratio).'
+    comments: ' '
+  GateBoundaries:
+    name: GateBoundaries
+    title: GateBoundaries
+    range: WhitespaceMinimizedString
+    description: 'Either the exact mathematical descriptions of each gate boundary
+      shall be
+
+      provided using an open and freely available specification, or this
+
+      information shall be provided in the form of images. '
+    comments: ' '
+  WorkspaceFile:
+    name: WorkspaceFile
+    title: WorkspaceFile
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
 types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
@@ -862,7 +767,115 @@ types:
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
     base: str
     uri: xsd:token
+enums:
+  experimentVariables menu:
+    name: experimentVariables menu
+    permissible_values:
+      Condition:
+        text: Condition
+      ' Dose':
+        text: ' Dose'
+      ' Timepoint':
+        text: ' Timepoint'
+      ' Individual':
+        text: ' Individual'
+      ' Experimental variable sample type':
+        text: ' Experimental variable sample type'
+  qualityControlMeasures menu:
+    name: qualityControlMeasures menu
+    permissible_values:
+      STR profiling of source cells:
+        text: STR profiling of source cells
+      ' mycoplasma testing':
+        text: ' mycoplasma testing'
+      ' isotype control for antibody':
+        text: ' isotype control for antibody'
+      ' no antibody negative control':
+        text: ' no antibody negative control'
+      ' positive control cell type':
+        text: ' positive control cell type'
+  flowCellType menu:
+    name: flowCellType menu
+    permissible_values:
+      jet-in-air:
+        text: jet-in-air
+      ' quartz cuvette':
+        text: ' quartz cuvette'
+  manufacturer menu:
+    name: manufacturer menu
+    permissible_values:
+      BD Biosciences:
+        text: BD Biosciences
+  model menu:
+    name: model menu
+    permissible_values:
+      BD FACSAria:
+        text: BD FACSAria
+  configurationAndSettings menu:
+    name: configurationAndSettings menu
+    permissible_values:
+      The instrument has not been altered:
+        text: The instrument has not been altered
+  type menu:
+    name: type menu
+    permissible_values:
+      mercury-vapor lamp:
+        text: mercury-vapor lamp
+      ' xenon lamp':
+        text: ' xenon lamp'
+      ' diode laser':
+        text: ' diode laser'
+      ' dye laser':
+        text: ' dye laser'
+      ' gas laser':
+        text: ' gas laser'
+      ' solid state laser':
+        text: ' solid state laser'
+      ' light-emitting diode':
+        text: ' light-emitting diode'
+      ' tungsten halogen lamp':
+        text: ' tungsten halogen lamp'
+  type_optical_detector menu:
+    name: type_optical_detector menu
+    permissible_values:
+      photodiode:
+        text: photodiode
+      ' photomultiplier tube':
+        text: ' photomultiplier tube'
+  amplificationType menu:
+    name: amplificationType menu
+    permissible_values:
+      linear:
+        text: linear
+      ' log':
+        text: ' log'
+  type_optical_filter menu:
+    name: type_optical_filter menu
+    permissible_values:
+      band pass filter:
+        text: band pass filter
+      ' long pass filter':
+        text: ' long pass filter'
+      ' dichroic long pass filters':
+        text: ' dichroic long pass filters'
+      ' short pass filter':
+        text: ' short pass filter'
+      ' dichroic short pass filter':
+        text: ' dichroic short pass filter'
+      ' polarizer excitation filter':
+        text: ' polarizer excitation filter'
+      ' grating':
+        text: ' grating'
+      ' prism':
+        text: ' prism'
+  stainingStatus menu:
+    name: stainingStatus menu
+    permissible_values:
+      stained:
+        text: stained
+      ' unstained':
+        text: ' unstained'
 settings:
-  Title_Case: (((?<=\b)[^a-z\W]\w*?|[\W])+)
+  Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'
   lower_case: '[a-z\W\d_]*'
