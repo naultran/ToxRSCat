@@ -1,0 +1,551 @@
+id: https://example.com/CIMR
+name: mass_spec_metabolomics
+description: Based on CIMR
+version: 1.0.0
+imports: linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  obo: http://purl.obolibrary.org/obo/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/mass_spec_MS_template
+  metabolomics_experiment:
+    name: metabolomics_experiment
+    is_a: dh_interface
+    slots:
+    - investigation_identifier
+    - study_identifier
+    - sample_identifier
+    - metabolomic_experimet_dentifier
+    - purpose
+    - primary_contact
+    - date
+    - extraction_protocol
+    - extraction_protocol_DOI
+    - derivitization
+    - extract_preservation_method
+    - calibration_standard
+    - chromatography_protocol
+    - chromatography_protocol_DOI
+    - chromatography_column
+    - elution program
+    - flow_rate
+    - carrier_gas
+    - oven_temperature_program
+    - ms_protocol
+    - ms_protocol_DOI
+    - manufacturer
+    - model
+    - scan_polarity
+    - ionization_type
+    - detector_type
+    - mass_analyzer_type
+    - analysis_protocol
+    - analysis_protocol_DOI
+    - rawDataFile
+    - Normalization
+    - Transformation
+    - TransformationPurpose
+    - TransformationDescription
+    - processedDataFile
+    - unit
+    slot_usage:
+      investigation_identifier:
+        rank: 1
+        slot_group: identifiers
+      study_identifier:
+        rank: 2
+        slot_group: identifiers
+      sample_identifier:
+        rank: 3
+        slot_group: identifiers
+      metabolomic_experimet_dentifier:
+        rank: 4
+        slot_group: identifiers
+      purpose:
+        rank: 5
+        slot_group: experiment
+      primary_contact:
+        rank: 6
+        slot_group: experiment
+      date:
+        rank: 7
+        slot_group: experiment
+      extraction_protocol:
+        rank: 8
+        slot_group: exctraction
+      extraction_protocol_DOI:
+        rank: 9
+        slot_group: exctraction
+      derivitization:
+        rank: 10
+        slot_group: exctraction
+      extract_preservation_method:
+        rank: 11
+        slot_group: exctraction
+      calibration_standard:
+        rank: 12
+        slot_group: exctraction
+      chromatography_protocol:
+        rank: 13
+        slot_group: chromatography
+      chromatography_protocol_DOI:
+        rank: 14
+        slot_group: chromatography
+      chromatography_column:
+        rank: 15
+        slot_group: chromatography
+      elution program:
+        rank: 16
+        slot_group: LiquidChromatography
+      flow_rate:
+        rank: 17
+        slot_group: LiquidChromatography
+      carrier_gas:
+        rank: 18
+        slot_group: GasChromatography
+      oven_temperature_program:
+        rank: 19
+        slot_group: GasChromatography
+      ms_protocol:
+        rank: 20
+        slot_group: ms_method
+      ms_protocol_DOI:
+        rank: 21
+        slot_group: ms_method
+      manufacturer:
+        rank: 22
+        slot_group: Instrument
+      model:
+        rank: 23
+        slot_group: Instrument
+      scan_polarity:
+        rank: 24
+        slot_group: Instrument
+      ionization_type:
+        rank: 25
+        slot_group: Instrument
+      detector_type:
+        rank: 26
+        slot_group: Instrument
+      mass_analyzer_type:
+        rank: 27
+        slot_group: Instrument
+      analysis_protocol:
+        rank: 28
+        slot_group: data_analysis
+      analysis_protocol_DOI:
+        rank: 29
+        slot_group: data_analysis
+      rawDataFile:
+        rank: 30
+        slot_group: data_analysis
+      Normalization:
+        rank: 31
+        slot_group: data_analysis
+      Transformation:
+        rank: 32
+        slot_group: data_analysis
+      TransformationPurpose:
+        rank: 33
+        slot_group: data_analysis
+      TransformationDescription:
+        rank: 34
+        slot_group: data_analysis
+      processedDataFile:
+        rank: 35
+        slot_group: data_analysis
+      unit:
+        rank: 36
+        slot_group: data_analysis
+  metaboliteID:
+    name: metaboliteID
+    is_a: dh_interface
+    slots:
+    - metabolite_name
+    - refmet_name
+    - dtxsid
+    - inchikey
+    - mass
+    - elution_time
+    slot_usage:
+      metabolite_name:
+        rank: 1
+        slot_group: metabolite_identification
+      refmet_name:
+        rank: 2
+        slot_group: metabolite_identification
+      dtxsid:
+        rank: 3
+        slot_group: metabolite_identification
+      inchikey:
+        rank: 4
+        slot_group: metabolite_identification
+      mass:
+        rank: 5
+        slot_group: metabolite_identification
+      elution_time:
+        rank: 6
+        slot_group: metabolite_identification
+slots:
+  investigation_identifier:
+    name: investigation_identifier
+    title: investigation_identifier
+    range: WhitespaceMinimizedString
+    description: The identifier for this investigation collected using the investigation
+      template. This is used to match the flow cytometry experiment to an investigation.
+    required: true
+    slot_uri: obo:OBI_0000066
+    comments: i_Prj140
+  study_identifier:
+    name: study_identifier
+    title: study_identifier
+    range: WhitespaceMinimizedString
+    description: The identifier for this study collected using the template appropriate
+      for your study design (e.g., MIATE for animal experiments). This is used to
+      match the flow cytometry experiment to a study.
+    required: true
+    comments: s_Prj140
+  sample_identifier:
+    name: sample_identifier
+    title: sample_identifier
+    range: WhitespaceMinimizedString
+    description: The identifier for this study collected using the template appropriate
+      for your study design (e.g., MIATE for animal experiments). This is used to
+      match the sample source to the data.
+    required: true
+    comments: Prj140_M001_Liver
+  metabolomic_experimet_dentifier:
+    name: metabolomic_experimet_dentifier
+    title: metabolomic_experimet_dentifier
+    range: WhitespaceMinimizedString
+    description: This is a unique ID assigned by the user to represent each individual
+      record in this flow cytometry experiment.
+    required: true
+    comments: ms_S001
+  purpose:
+    name: purpose
+    title: purpose
+    range: WhitespaceMinimizedString
+    description: A brief description of the goal of the experiment. This should include
+      the rationale and hypothesis.
+    recommended: true
+    slot_uri: obo:NCIT_C25634
+    comments: TCDD is an environmental contaminant that elicits a number of hepatic
+      effects including fat accumulation, inflammation, and fibrosis that can progress
+      to hepatocellular carcinoma. RNA-Seq and targeted metabolomics were integrated
+      with complementary dioxin response element (DRE) location and aryl hydrocarbon
+      receptor (AhR) ChIP-Seq data to further investigate the hepatotoxicity of TCDD.
+      Our integrative analysis identified changes similar to the Warburg effect observed
+      in cancer cells, including pyruvate kinase isoform switching (PKM1 to PKM2),
+      and an increase in the glutaminase (GLS1) GAC:KGA isoform ratio. Consequently,
+      metabolites are redirected towards the pentose phosphate pathway, serine biosynthesis,
+      and glutaminolysis. We propose that the effects of TCDD on central carbon and
+      amino acid metabolism represents AhR-mediated hepatic metabolic reprogramming
+      in order to increase NADPH production as an oxidative stress counter-measure.
+  primary_contact:
+    name: primary_contact
+    title: primary_contact
+    range: WhitespaceMinimizedString
+    description: The individual who is the primary contact for this experiment.
+    required: true
+    inlined_as_list: true
+    slot_uri: obo:OBI_0000202
+    comments: Rance Nault
+  date:
+    name: date
+    title: date
+    range: date
+    description: The date or time period during which the investigation was performed
+      (i.e., from collecting and treating samples to performing data analysis) shall
+      be stated.
+    recommended: true
+    slot_uri: obo:STATO_0000093
+    comments: ' '
+  extraction_protocol:
+    name: extraction_protocol
+    title: extraction_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    required: true
+    comments: ' '
+  extraction_protocol_DOI:
+    name: extraction_protocol_DOI
+    title: extraction_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    recommended: true
+    comments: ' '
+  derivitization:
+    name: derivitization
+    title: derivitization
+    range: derivitization menu
+    description: ' '
+    comments: ' '
+  extract_preservation_method:
+    name: extract_preservation_method
+    title: extract_preservation_method
+    range: extract_preservation_method menu
+    description: The chemical agent used for the derivatization reaction
+    comments: ' '
+  calibration_standard:
+    name: calibration_standard
+    title: calibration_standard
+    range: WhitespaceMinimizedString
+    description: Indicate the name of the chemical compound used as calibration standard.
+    comments: ' '
+  chromatography_protocol:
+    name: chromatography_protocol
+    title: chromatography_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    required: true
+    comments: ' '
+  chromatography_protocol_DOI:
+    name: chromatography_protocol_DOI
+    title: chromatography_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    recommended: true
+    comments: ' '
+  chromatography_column:
+    name: chromatography_column
+    title: chromatography_column
+    range: WhitespaceMinimizedString
+    description: The name of the chromatography column.
+    required: true
+    comments: ' '
+  elution program:
+    name: elution program
+    title: elution program
+    range: WhitespaceMinimizedString
+    description: Description of the elution program using the following scheme
+    comments: Ramping from 90 % solvent A, 10 % solvent B to 100% solvant B in 30
+      min;100% solvent B, isocratic for 10 min
+  flow_rate:
+    name: flow_rate
+    title: flow_rate
+    range: WhitespaceMinimizedString
+    description: Report the flow rate of the elution buffer through column in amount
+      per minute.
+    comments: ' '
+  carrier_gas:
+    name: carrier_gas
+    title: carrier_gas
+    range: WhitespaceMinimizedString
+    description: The composition of the carrier gas (modile phase)
+    comments: ' '
+  oven_temperature_program:
+    name: oven_temperature_program
+    title: oven_temperature_program
+    range: WhitespaceMinimizedString
+    description: The description of the gas chromatography oven temperature program
+    comments: 40 degree C hold for 1 min.;10 degree C/min. to 300 degree C;300 degree
+      C hold for 10 min.
+  ms_protocol:
+    name: ms_protocol
+    title: ms_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    required: true
+    comments: ' '
+  ms_protocol_DOI:
+    name: ms_protocol_DOI
+    title: ms_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    recommended: true
+    comments: ' '
+  manufacturer:
+    name: manufacturer
+    title: manufacturer
+    range: manufacturer menu
+    description: The name of the mass spectrometry instrument manufacturer
+    comments: ' '
+  model:
+    name: model
+    title: model
+    range: model menu
+    description: The name of the mass spectrometry instrument
+    required: true
+    slot_uri: obo:MS_1000031
+    comments: ' '
+  scan_polarity:
+    name: scan_polarity
+    title: scan_polarity
+    range: scan_polarity menu
+    description: Relative orientation of the electromagnetic field during the selection
+      and detection of ions in the mass spectrometer.
+    slot_uri: obo:MS_1000465
+    comments: ' '
+  ionization_type:
+    name: ionization_type
+    title: ionization_type
+    range: WhitespaceMinimizedString
+    description: The method by which gas phase ions are generated from the sample.
+    slot_uri: obo:MS_1000008
+    comments: ' '
+  detector_type:
+    name: detector_type
+    title: detector_type
+    range: WhitespaceMinimizedString
+    description: Type of detector used in the mass spectrometer.
+    slot_uri: obo:MS_1000026
+    comments: ' '
+  mass_analyzer_type:
+    name: mass_analyzer_type
+    title: mass_analyzer_type
+    range: WhitespaceMinimizedString
+    description: Mass analyzer separates the ions according to their mass-to-charge
+      ratio.
+    slot_uri: obo:MS_1000443
+    comments: ' '
+  analysis_protocol:
+    name: analysis_protocol
+    title: analysis_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: ' '
+  analysis_protocol_DOI:
+    name: analysis_protocol_DOI
+    title: analysis_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
+    comments: ' '
+  rawDataFile:
+    name: rawDataFile
+    title: rawDataFile
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:OBI:0000021
+    comments: FCS File name (must end in .FCS)
+  Normalization:
+    name: Normalization
+    title: Normalization
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  Transformation:
+    name: Transformation
+    title: Transformation
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  TransformationPurpose:
+    name: TransformationPurpose
+    title: TransformationPurpose
+    range: WhitespaceMinimizedString
+    description: The purpose of each performed transformation shall be specified (e.g.,
+      data visualization, background correction, statistical analysis, etc.).
+    comments: ' '
+  TransformationDescription:
+    name: TransformationDescription
+    title: TransformationDescription
+    range: WhitespaceMinimizedString
+    description: Either the exact mathematical formulas/algorithms of each data transformation
+      shall be supplied using an open and freely available specification, or a description
+      of each transformation shall be provided.
+    comments: ' '
+  processedDataFile:
+    name: processedDataFile
+    title: processedDataFile
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  unit:
+    name: unit
+    title: unit
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  metabolite_name:
+    name: metabolite_name
+    title: metabolite_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  refmet_name:
+    name: refmet_name
+    title: refmet_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    recommended: true
+    comments: ' '
+  dtxsid:
+    name: dtxsid
+    title: dtxsid
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  inchikey:
+    name: inchikey
+    title: inchikey
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  mass:
+    name: mass
+    title: mass
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  elution_time:
+    name: elution_time
+    title: elution_time
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+enums:
+  derivitization menu:
+    name: derivitization menu
+    permissible_values:
+      ? "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),tri\uFB02\
+        uoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)tri\uFB02\
+        uoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium\
+        \ hydroxide"
+      : text: "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),tri\uFB02\
+          uoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)tri\uFB02\
+          uoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium\
+          \ hydroxide"
+  extract_preservation_method menu:
+    name: extract_preservation_method menu
+    permissible_values:
+      Room temperature, -20C, -80C:
+        text: Room temperature, -20C, -80C
+  manufacturer menu:
+    name: manufacturer menu
+    permissible_values:
+      Agilent, Waters:
+        text: Agilent, Waters
+  model menu:
+    name: model menu
+    permissible_values:
+      Xevo TQ-S:
+        text: Xevo TQ-S
+  scan_polarity menu:
+    name: scan_polarity menu
+    permissible_values:
+      negative scan, positive scan:
+        text: negative scan, positive scan
+settings:
+  Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'

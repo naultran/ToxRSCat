@@ -58,7 +58,7 @@ if df["prefix_reference"].notnull().any():
     for i in prefix:
         linkname = i.split('/')[-2]
         dir["prefixes"][f'{linkname}'] = f'{i}'
-
+linkname
 # Create empty dictionary slots to import schema details
 dir["classes"] ={}
 dir["slots"] = {}
