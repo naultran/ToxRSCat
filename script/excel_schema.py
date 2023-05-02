@@ -169,10 +169,7 @@ if df["enums"].notnull().any():
         dir["enums"][f"{name_slot} menu"] = {}
         dir["enums"][f"{name_slot} menu"]["name"] = f"{name_slot} menu"
         dir["enums"][f"{name_slot} menu"]["permissible_values"] = {}
-        choice_list_1 = df["enums"][i].split(',')
-        choice_list = []
-        for word in choice_list_1:
-            choice_list += word.split(";") 
+        choice_list = df["enums"][i].split(';') 
         for j in choice_list:
             dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}'] = {}
             dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
