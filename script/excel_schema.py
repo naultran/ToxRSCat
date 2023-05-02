@@ -17,6 +17,9 @@ import os
 import pandas as pd
 from collections import OrderedDict
 import argparse
+import numpy as np
+
+
 parser = argparse.ArgumentParser()
 parser.add_argument("-i", "--input", help="input file path")
 
@@ -33,6 +36,7 @@ else:
 
  #TODO: Can we use -i instead?
 df = pd.read_excel(args.input, sheet_name="LinkML_slots")
+df_descript = pd.read_excel(args.input, sheet_name="LinkML_description")
 
 direc = os.path.dirname(args.input)
 name = os.path.splitext(os.path.basename(args.input))[0]
@@ -42,10 +46,10 @@ name = os.path.splitext(os.path.basename(args.input))[0]
 dir = OrderedDict()
 
 # Import the high-level schema details 
-dir["id"] = f'https://example.com/{name}'
-dir["name"] = f'{name}'
-dir["description"] = '' # if you want to add some description about this template, add it here
-dir["version"] = '1.0.0'
+dir["id"] = df_descript["id"][0]
+dir["name"] = df_descript["name"][0]
+dir["description"] = df_descript["description"][0] # if you want to add some description about this template, add it here
+dir["version"] = df_descript["version"][0]
 dir["imports"] = "linkml:types" # Why not write imports the same way as prefix reference to avoid having to manually change it?
 dir["prefixes"] = {}
 dir["prefixes"]["linkml"] = "https://w3id.org/linkml/"
@@ -95,6 +99,7 @@ for i in df["slots"]:
     dir["slots"][f'{i}']['name'] = f'{i}'
     dir["slots"][f'{i}']['title'] = f'{i}'
     subset_df = df.loc[df["slots"] == i, :]
+    # range
     range = subset_df["range"].iloc[0]
     if range == "string": 
         dir["slots"][f'{i}']['range'] = 'WhitespaceMinimizedString'
@@ -103,6 +108,22 @@ for i in df["slots"]:
     else:
         dir["slots"][f'{i}']['range'] =f'{range}'
 
+    # regex
+    if (df.loc[df["slots"] == i, "regex"]).any():
+        regex = subset_df["regex"].iloc[0]
+        dir["slots"][f'{i}']["pattern"] = f'{regex}'
+
+    # max
+    if (df.loc[df["slots"] == i, "maximum"]).any():
+        maximum_value = subset_df["maximum"].iloc[0]
+        dir["slots"][f'{i}']["maximum_value"] = float(maximum_value)
+
+    if subset_df["minimum"].notna().any():
+        minimum_value = subset_df["minimum"].iloc[0]
+        dir["slots"][f'{i}']["minimum_value"] = float(minimum_value)
+
+    
+    # description
     if (df.loc[df["slots"] == i, "description"]).any():
         description = subset_df["description"].iloc[0]
         dir["slots"][f'{i}']['description']= f'{description}'
@@ -114,6 +135,12 @@ for i in df["slots"]:
 
     if (df.loc[df["slots"] == i, "required"]).any():
         dir["slots"][f'{i}']['required'] = True
+
+    if (df.loc[df["slots"] == i, "multivalued"]).any():
+        dir["slots"][f'{i}']['multivalued'] = True
+    
+    if (df.loc[df["slots"] == i, "inlined_as_list"]).any():
+        dir["slots"][f'{i}']['inlined_as_list'] = True
     
     if (df.loc[df["slots"] == i, "slot_uri(ontology)"]).any():
         slot_uri = subset_df["slot_uri(ontology)"].iloc[0]
@@ -142,7 +169,10 @@ if df["enums"].notnull().any():
         dir["enums"][f"{name_slot} menu"] = {}
         dir["enums"][f"{name_slot} menu"]["name"] = f"{name_slot} menu"
         dir["enums"][f"{name_slot} menu"]["permissible_values"] = {}
-        choice_list = df["enums"][i].split(',')
+        choice_list_1 = df["enums"][i].split(',')
+        choice_list = []
+        for word in choice_list_1:
+            choice_list += word.split(";") 
         for j in choice_list:
             dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}'] = {}
             dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
@@ -153,4 +183,4 @@ dir["settings"]["UPPER_CASE"] = '[A-Z\W\d_]*'
 dir["settings"]["lower_case"] = '[a-z\W\d_]*'
 
 with open(f"{direc}/schema.yaml", 'w') as f:
-    yaml.dump(dict(dir), f, sort_keys=False)
+    yaml.dump(dict(dir), f, sort_keys=False, default_flow_style=False)

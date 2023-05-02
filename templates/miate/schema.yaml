@@ -1,7 +1,9 @@
-id: https://example.com/MIATE_template
-name: MIATE_template
-description: ''
-version: 1.0.0
+id: https://example.com/MIATE
+name: animal_toxicology_experiment
+description: The Minimum Information about Animal Toxicology Experiments is a community-driven
+  set of metadata expectations for in vivo experiments capturing treatment with an
+  environmental contaminant, food contaminant, or chemical agent.
+version: 4.3.1
 imports: linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
@@ -312,59 +314,79 @@ slots:
     description: The name of the person acting as a channel for communication between
       groups or on behalf of a group.
     recommended: true
+    multivalued: true
+    inlined_as_list: true
     slot_uri: obo:NCIT_C176230
     comments: Rance Nault
   data_submission_contact_orcid:
     name: data_submission_contact_orcid
     title: data_submission_contact_orcid
     range: WhitespaceMinimizedString
+    pattern: ^\d{4}-\d{4}-\d{4}-\d{4}$
     description: A centrally registered identifier that is issued by ORCID (https://orcid.org/)
       and used to persistantly identify oneself as a human researcher or contributor.
     required: true
+    multivalued: true
+    inlined_as_list: true
     slot_uri: obo:IAO_0000708
     comments: 0000-0002-6822-4962
   data_submission_contact_email:
     name: data_submission_contact_email
     title: data_submission_contact_email
     range: WhitespaceMinimizedString
+    pattern: ^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$
     description: email address of data submission contact
     recommended: true
+    multivalued: true
+    inlined_as_list: true
     comments: naultran@msu.edu
   data_submission_contact_telephone:
     name: data_submission_contact_telephone
     title: data_submission_contact_telephone
     range: WhitespaceMinimizedString
     description: telephone number of data submission contact
+    multivalued: true
+    inlined_as_list: true
     comments: '5178842054'
   data_submission_contact_department:
     name: data_submission_contact_department
     title: data_submission_contact_department
     range: WhitespaceMinimizedString
     description: department of data submission contact
+    multivalued: true
+    inlined_as_list: true
     comments: Biochemistry & Molecular Biology
   data_submission_contact_institution:
     name: data_submission_contact_institution
     title: data_submission_contact_institution
     range: WhitespaceMinimizedString
     description: institution of data submission contact
+    multivalued: true
+    inlined_as_list: true
     comments: Michigan State University
   data_submission_contact_institution_postal_address:
     name: data_submission_contact_institution_postal_address
     title: data_submission_contact_institution_postal_address
     range: WhitespaceMinimizedString
     description: postal address of data submission contact
+    multivalued: true
+    inlined_as_list: true
     comments: '48824'
   data_submission_contact_institution_city:
     name: data_submission_contact_institution_city
     title: data_submission_contact_institution_city
     range: WhitespaceMinimizedString
     description: city of data submission contact
+    multivalued: true
+    inlined_as_list: true
     comments: East Lansing
   data_submission_contact_state:
     name: data_submission_contact_state
     title: data_submission_contact_state
     range: data_submission_contact_state menu
     description: state of data submission contact
+    multivalued: true
+    inlined_as_list: true
     comments: MI
   support_source:
     name: support_source
@@ -372,6 +394,8 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     recommended: true
+    multivalued: true
+    inlined_as_list: true
     slot_uri: obo:NCIT_C19711
     comments: NIEHS
   support_id:
@@ -380,18 +404,24 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     recommended: true
+    multivalued: true
+    inlined_as_list: true
     comments: P42ES004911
   PMC_id:
     name: PMC_id
     title: PMC_id
     range: WhitespaceMinimizedString
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   DOI:
     name: DOI
     title: DOI
     range: WhitespaceMinimizedString
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   PMID:
     name: PMID
@@ -399,6 +429,8 @@ slots:
     range: WhitespaceMinimizedString
     description: A globally unique identifier for a biomedical article, as assigned
       by PubMed.
+    multivalued: true
+    inlined_as_list: true
     slot_uri: obo:NCIT_C127797
     comments: ' '
   investigation_identifier:
@@ -415,6 +447,8 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
+    multivalued: true
+    inlined_as_list: true
     slot_uri: obo:NCIT_C46002
     comments: ' '
   study_design:
@@ -550,6 +584,8 @@ slots:
     name: vivarium_temperature
     title: vivarium_temperature
     range: float
+    maximum_value: 50.0
+    minimum_value: 0.0
     description: ' '
     slot_uri: obo:PATO_0000146
     comments: ' '
@@ -557,6 +593,8 @@ slots:
     name: vivarium_humidity
     title: vivarium_humidity
     range: float
+    maximum_value: 100.0
+    minimum_value: 0.0
     description: ' '
     slot_uri: obo:NCIT_C88206
     comments: ' '
@@ -564,6 +602,7 @@ slots:
     name: vivarium light cycle
     title: vivarium light cycle
     range: WhitespaceMinimizedString
+    pattern: ^\d{2}:\d{2}$
     description: ' '
     slot_uri: obo:XCO_0000459
     comments: ' '
@@ -617,6 +656,8 @@ slots:
     title: dose_amount
     range: float
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   dose_amount_unit:
     name: dose_amount_unit
@@ -635,6 +676,8 @@ slots:
     name: test_article_administration_zt
     title: test_article_administration_zt
     range: integer
+    maximum_value: 23.0
+    minimum_value: 0.0
     description: ' '
     comments: ' '
   test_article_administration_duration:
@@ -653,19 +696,27 @@ slots:
     name: test_article_dtxsid
     title: test_article_dtxsid
     range: WhitespaceMinimizedString
+    pattern: ^DTXSID\d{7}$
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   vehicle_name:
     name: vehicle_name
     title: vehicle_name
     range: WhitespaceMinimizedString
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   vehicle_dtxsid:
     name: vehicle_dtxsid
     title: vehicle_dtxsid
     range: WhitespaceMinimizedString
+    pattern: ^DTXSID\d{7}$
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   sample_identifier:
     name: sample_identifier
@@ -691,6 +742,8 @@ slots:
     title: preservation_method
     range: preservation_method menu
     description: ' '
+    multivalued: true
+    inlined_as_list: true
     comments: ' '
   weight:
     name: weight
@@ -1686,8 +1739,10 @@ enums:
         text: ' Left Hemicolectomy'
       ' Lobectomy':
         text: ' Lobectomy'
-      ' Local Resection (Exoresection; wall resection)':
-        text: ' Local Resection (Exoresection; wall resection)'
+      ' Local Resection (Exoresection':
+        text: ' Local Resection (Exoresection'
+      ' wall resection)':
+        text: ' wall resection)'
       ' Lumpectomy':
         text: ' Lumpectomy'
       ' Modified Radical Mastectomy':
