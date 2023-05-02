@@ -1,0 +1,1579 @@
+{
+  "name": "mass_spec_metabolomics",
+  "description": "Based on CIMR",
+  "id": "https://example.com/CIMR",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "obo": {
+      "prefix_prefix": "obo",
+      "prefix_reference": "http://purl.obolibrary.org/obo/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/CIMR/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/CIMR",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/CIMR",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/CIMR",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/CIMR",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/CIMR",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/CIMR",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/CIMR",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "derivitization menu": {
+      "name": "derivitization menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),triﬂuoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)triﬂuoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium hydroxide": {
+          "text": "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),triﬂuoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)triﬂuoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium hydroxide"
+        }
+      }
+    },
+    "extract_preservation_method menu": {
+      "name": "extract_preservation_method menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Room temperature, -20C, -80C": {
+          "text": "Room temperature, -20C, -80C"
+        }
+      }
+    },
+    "manufacturer menu": {
+      "name": "manufacturer menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Agilent, Waters": {
+          "text": "Agilent, Waters"
+        }
+      }
+    },
+    "model menu": {
+      "name": "model menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Xevo TQ-S": {
+          "text": "Xevo TQ-S"
+        }
+      }
+    },
+    "scan_polarity menu": {
+      "name": "scan_polarity menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "negative scan, positive scan": {
+          "text": "negative scan, positive scan"
+        }
+      }
+    }
+  },
+  "slots": {
+    "investigation_identifier": {
+      "name": "investigation_identifier",
+      "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
+      "title": "investigation_identifier",
+      "comments": [
+        "i_Prj140"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI_0000066",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "study_identifier": {
+      "name": "study_identifier",
+      "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
+      "title": "study_identifier",
+      "comments": [
+        "s_Prj140"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "sample_identifier": {
+      "name": "sample_identifier",
+      "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
+      "title": "sample_identifier",
+      "comments": [
+        "Prj140_M001_Liver"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "metabolomic_experimet_dentifier": {
+      "name": "metabolomic_experimet_dentifier",
+      "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+      "title": "metabolomic_experimet_dentifier",
+      "comments": [
+        "ms_S001"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "purpose": {
+      "name": "purpose",
+      "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
+      "title": "purpose",
+      "comments": [
+        "TCDD is an environmental contaminant that elicits a number of hepatic effects including fat accumulation, inflammation, and fibrosis that can progress to hepatocellular carcinoma. RNA-Seq and targeted metabolomics were integrated with complementary dioxin response element (DRE) location and aryl hydrocarbon receptor (AhR) ChIP-Seq data to further investigate the hepatotoxicity of TCDD. Our integrative analysis identified changes similar to the Warburg effect observed in cancer cells, including pyruvate kinase isoform switching (PKM1 to PKM2), and an increase in the glutaminase (GLS1) GAC:KGA isoform ratio. Consequently, metabolites are redirected towards the pentose phosphate pathway, serine biosynthesis, and glutaminolysis. We propose that the effects of TCDD on central carbon and amino acid metabolism represents AhR-mediated hepatic metabolic reprogramming in order to increase NADPH production as an oxidative stress counter-measure."
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:NCIT_C25634",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "primary_contact": {
+      "name": "primary_contact",
+      "description": "The individual who is the primary contact for this experiment.",
+      "title": "primary_contact",
+      "comments": [
+        "Rance Nault"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI_0000202",
+      "range": "WhitespaceMinimizedString",
+      "required": true,
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "date": {
+      "name": "date",
+      "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:STATO_0000093",
+      "range": "date",
+      "recommended": true
+    },
+    "extraction_protocol": {
+      "name": "extraction_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "extraction_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "extraction_protocol_DOI": {
+      "name": "extraction_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "extraction_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "derivitization": {
+      "name": "derivitization",
+      "description": " ",
+      "title": "derivitization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "derivitization menu"
+    },
+    "extract_preservation_method": {
+      "name": "extract_preservation_method",
+      "description": "The chemical agent used for the derivatization reaction",
+      "title": "extract_preservation_method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "extract_preservation_method menu"
+    },
+    "calibration_standard": {
+      "name": "calibration_standard",
+      "description": "Indicate the name of the chemical compound used as calibration standard.",
+      "title": "calibration_standard",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "chromatography_protocol": {
+      "name": "chromatography_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "chromatography_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "chromatography_protocol_DOI": {
+      "name": "chromatography_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "chromatography_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "chromatography_column": {
+      "name": "chromatography_column",
+      "description": "The name of the chromatography column.",
+      "title": "chromatography_column",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "elution program": {
+      "name": "elution program",
+      "description": "Description of the elution program using the following scheme",
+      "title": "elution program",
+      "comments": [
+        "Ramping from 90 % solvent A, 10 % solvent B to 100% solvant B in 30 min;100% solvent B, isocratic for 10 min"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_rate": {
+      "name": "flow_rate",
+      "description": "Report the flow rate of the elution buffer through column in amount per minute.",
+      "title": "flow_rate",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "carrier_gas": {
+      "name": "carrier_gas",
+      "description": "The composition of the carrier gas (modile phase)",
+      "title": "carrier_gas",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "oven_temperature_program": {
+      "name": "oven_temperature_program",
+      "description": "The description of the gas chromatography oven temperature program",
+      "title": "oven_temperature_program",
+      "comments": [
+        "40 degree C hold for 1 min.;10 degree C/min. to 300 degree C;300 degree C hold for 10 min."
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "ms_protocol": {
+      "name": "ms_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "ms_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "ms_protocol_DOI": {
+      "name": "ms_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "ms_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "manufacturer": {
+      "name": "manufacturer",
+      "description": "The name of the mass spectrometry instrument manufacturer",
+      "title": "manufacturer",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "manufacturer menu"
+    },
+    "model": {
+      "name": "model",
+      "description": "The name of the mass spectrometry instrument",
+      "title": "model",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000031",
+      "range": "model menu",
+      "required": true
+    },
+    "scan_polarity": {
+      "name": "scan_polarity",
+      "description": "Relative orientation of the electromagnetic field during the selection and detection of ions in the mass spectrometer.",
+      "title": "scan_polarity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000465",
+      "range": "scan_polarity menu"
+    },
+    "ionization_type": {
+      "name": "ionization_type",
+      "description": "The method by which gas phase ions are generated from the sample.",
+      "title": "ionization_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000008",
+      "range": "WhitespaceMinimizedString"
+    },
+    "detector_type": {
+      "name": "detector_type",
+      "description": "Type of detector used in the mass spectrometer.",
+      "title": "detector_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000026",
+      "range": "WhitespaceMinimizedString"
+    },
+    "mass_analyzer_type": {
+      "name": "mass_analyzer_type",
+      "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
+      "title": "mass_analyzer_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000443",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis_protocol": {
+      "name": "analysis_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "analysis_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:NCIT_C42651",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis_protocol_DOI": {
+      "name": "analysis_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "analysis_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI_0002110",
+      "range": "WhitespaceMinimizedString"
+    },
+    "rawDataFile": {
+      "name": "rawDataFile",
+      "description": " ",
+      "title": "rawDataFile",
+      "comments": [
+        "FCS File name (must end in .FCS)"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Normalization": {
+      "name": "Normalization",
+      "description": " ",
+      "title": "Normalization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Transformation": {
+      "name": "Transformation",
+      "description": " ",
+      "title": "Transformation",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "TransformationPurpose": {
+      "name": "TransformationPurpose",
+      "description": "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, etc.).",
+      "title": "TransformationPurpose",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "TransformationDescription": {
+      "name": "TransformationDescription",
+      "description": "Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.",
+      "title": "TransformationDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "processedDataFile": {
+      "name": "processedDataFile",
+      "description": " ",
+      "title": "processedDataFile",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "unit": {
+      "name": "unit",
+      "description": " ",
+      "title": "unit",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "metabolite_name": {
+      "name": "metabolite_name",
+      "description": " ",
+      "title": "metabolite_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "refmet_name": {
+      "name": "refmet_name",
+      "description": " ",
+      "title": "refmet_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "dtxsid": {
+      "name": "dtxsid",
+      "description": " ",
+      "title": "dtxsid",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "inchikey": {
+      "name": "inchikey",
+      "description": " ",
+      "title": "inchikey",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "mass": {
+      "name": "mass",
+      "description": " ",
+      "title": "mass",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "elution_time": {
+      "name": "elution_time",
+      "description": " ",
+      "title": "elution_time",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/CIMR"
+    },
+    "metabolomics_experiment": {
+      "name": "metabolomics_experiment",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "investigation_identifier": {
+          "name": "investigation_identifier",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "study_identifier": {
+          "name": "study_identifier",
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "sample_identifier": {
+          "name": "sample_identifier",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "metabolomic_experimet_dentifier": {
+          "name": "metabolomic_experimet_dentifier",
+          "rank": 4,
+          "slot_group": "identifiers"
+        },
+        "purpose": {
+          "name": "purpose",
+          "rank": 5,
+          "slot_group": "experiment"
+        },
+        "primary_contact": {
+          "name": "primary_contact",
+          "rank": 6,
+          "slot_group": "experiment"
+        },
+        "date": {
+          "name": "date",
+          "rank": 7,
+          "slot_group": "experiment"
+        },
+        "extraction_protocol": {
+          "name": "extraction_protocol",
+          "rank": 8,
+          "slot_group": "exctraction"
+        },
+        "extraction_protocol_DOI": {
+          "name": "extraction_protocol_DOI",
+          "rank": 9,
+          "slot_group": "exctraction"
+        },
+        "derivitization": {
+          "name": "derivitization",
+          "rank": 10,
+          "slot_group": "exctraction"
+        },
+        "extract_preservation_method": {
+          "name": "extract_preservation_method",
+          "rank": 11,
+          "slot_group": "exctraction"
+        },
+        "calibration_standard": {
+          "name": "calibration_standard",
+          "rank": 12,
+          "slot_group": "exctraction"
+        },
+        "chromatography_protocol": {
+          "name": "chromatography_protocol",
+          "rank": 13,
+          "slot_group": "chromatography"
+        },
+        "chromatography_protocol_DOI": {
+          "name": "chromatography_protocol_DOI",
+          "rank": 14,
+          "slot_group": "chromatography"
+        },
+        "chromatography_column": {
+          "name": "chromatography_column",
+          "rank": 15,
+          "slot_group": "chromatography"
+        },
+        "elution program": {
+          "name": "elution program",
+          "rank": 16,
+          "slot_group": "LiquidChromatography"
+        },
+        "flow_rate": {
+          "name": "flow_rate",
+          "rank": 17,
+          "slot_group": "LiquidChromatography"
+        },
+        "carrier_gas": {
+          "name": "carrier_gas",
+          "rank": 18,
+          "slot_group": "GasChromatography"
+        },
+        "oven_temperature_program": {
+          "name": "oven_temperature_program",
+          "rank": 19,
+          "slot_group": "GasChromatography"
+        },
+        "ms_protocol": {
+          "name": "ms_protocol",
+          "rank": 20,
+          "slot_group": "ms_method"
+        },
+        "ms_protocol_DOI": {
+          "name": "ms_protocol_DOI",
+          "rank": 21,
+          "slot_group": "ms_method"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "rank": 22,
+          "slot_group": "Instrument"
+        },
+        "model": {
+          "name": "model",
+          "rank": 23,
+          "slot_group": "Instrument"
+        },
+        "scan_polarity": {
+          "name": "scan_polarity",
+          "rank": 24,
+          "slot_group": "Instrument"
+        },
+        "ionization_type": {
+          "name": "ionization_type",
+          "rank": 25,
+          "slot_group": "Instrument"
+        },
+        "detector_type": {
+          "name": "detector_type",
+          "rank": 26,
+          "slot_group": "Instrument"
+        },
+        "mass_analyzer_type": {
+          "name": "mass_analyzer_type",
+          "rank": 27,
+          "slot_group": "Instrument"
+        },
+        "analysis_protocol": {
+          "name": "analysis_protocol",
+          "rank": 28,
+          "slot_group": "data_analysis"
+        },
+        "analysis_protocol_DOI": {
+          "name": "analysis_protocol_DOI",
+          "rank": 29,
+          "slot_group": "data_analysis"
+        },
+        "rawDataFile": {
+          "name": "rawDataFile",
+          "rank": 30,
+          "slot_group": "data_analysis"
+        },
+        "Normalization": {
+          "name": "Normalization",
+          "rank": 31,
+          "slot_group": "data_analysis"
+        },
+        "Transformation": {
+          "name": "Transformation",
+          "rank": 32,
+          "slot_group": "data_analysis"
+        },
+        "TransformationPurpose": {
+          "name": "TransformationPurpose",
+          "rank": 33,
+          "slot_group": "data_analysis"
+        },
+        "TransformationDescription": {
+          "name": "TransformationDescription",
+          "rank": 34,
+          "slot_group": "data_analysis"
+        },
+        "processedDataFile": {
+          "name": "processedDataFile",
+          "rank": 35,
+          "slot_group": "data_analysis"
+        },
+        "unit": {
+          "name": "unit",
+          "rank": 36,
+          "slot_group": "data_analysis"
+        }
+      },
+      "attributes": {
+        "investigation_identifier": {
+          "name": "investigation_identifier",
+          "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
+          "title": "investigation_identifier",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "slot_uri": "obo:OBI_0000066",
+          "alias": "investigation_identifier",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "study_identifier": {
+          "name": "study_identifier",
+          "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
+          "title": "study_identifier",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "study_identifier",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "sample_identifier": {
+          "name": "sample_identifier",
+          "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
+          "title": "sample_identifier",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "sample_identifier",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "metabolomic_experimet_dentifier": {
+          "name": "metabolomic_experimet_dentifier",
+          "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+          "title": "metabolomic_experimet_dentifier",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 4,
+          "alias": "metabolomic_experimet_dentifier",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "purpose": {
+          "name": "purpose",
+          "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
+          "title": "purpose",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 5,
+          "slot_uri": "obo:NCIT_C25634",
+          "alias": "purpose",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "primary_contact": {
+          "name": "primary_contact",
+          "description": "The individual who is the primary contact for this experiment.",
+          "title": "primary_contact",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 6,
+          "slot_uri": "obo:OBI_0000202",
+          "alias": "primary_contact",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString",
+          "required": true,
+          "inlined_as_list": true
+        },
+        "date": {
+          "name": "date",
+          "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
+          "title": "date",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 7,
+          "slot_uri": "obo:STATO_0000093",
+          "alias": "date",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "date",
+          "recommended": true
+        },
+        "extraction_protocol": {
+          "name": "extraction_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "extraction_protocol",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 8,
+          "alias": "extraction_protocol",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "exctraction",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "extraction_protocol_DOI": {
+          "name": "extraction_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "extraction_protocol_DOI",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 9,
+          "alias": "extraction_protocol_DOI",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "exctraction",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "derivitization": {
+          "name": "derivitization",
+          "description": " ",
+          "title": "derivitization",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 10,
+          "alias": "derivitization",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "exctraction",
+          "range": "derivitization menu"
+        },
+        "extract_preservation_method": {
+          "name": "extract_preservation_method",
+          "description": "The chemical agent used for the derivatization reaction",
+          "title": "extract_preservation_method",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 11,
+          "alias": "extract_preservation_method",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "exctraction",
+          "range": "extract_preservation_method menu"
+        },
+        "calibration_standard": {
+          "name": "calibration_standard",
+          "description": "Indicate the name of the chemical compound used as calibration standard.",
+          "title": "calibration_standard",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 12,
+          "alias": "calibration_standard",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "exctraction",
+          "range": "WhitespaceMinimizedString"
+        },
+        "chromatography_protocol": {
+          "name": "chromatography_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "chromatography_protocol",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 13,
+          "alias": "chromatography_protocol",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "chromatography_protocol_DOI": {
+          "name": "chromatography_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "chromatography_protocol_DOI",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 14,
+          "alias": "chromatography_protocol_DOI",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "chromatography_column": {
+          "name": "chromatography_column",
+          "description": "The name of the chromatography column.",
+          "title": "chromatography_column",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 15,
+          "alias": "chromatography_column",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "elution program": {
+          "name": "elution program",
+          "description": "Description of the elution program using the following scheme",
+          "title": "elution program",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 16,
+          "alias": "elution_program",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_rate": {
+          "name": "flow_rate",
+          "description": "Report the flow rate of the elution buffer through column in amount per minute.",
+          "title": "flow_rate",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 17,
+          "alias": "flow_rate",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "carrier_gas": {
+          "name": "carrier_gas",
+          "description": "The composition of the carrier gas (modile phase)",
+          "title": "carrier_gas",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 18,
+          "alias": "carrier_gas",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "GasChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "oven_temperature_program": {
+          "name": "oven_temperature_program",
+          "description": "The description of the gas chromatography oven temperature program",
+          "title": "oven_temperature_program",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 19,
+          "alias": "oven_temperature_program",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "GasChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "ms_protocol": {
+          "name": "ms_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "ms_protocol",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 20,
+          "alias": "ms_protocol",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "ms_method",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "ms_protocol_DOI": {
+          "name": "ms_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "ms_protocol_DOI",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 21,
+          "alias": "ms_protocol_DOI",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "ms_method",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "description": "The name of the mass spectrometry instrument manufacturer",
+          "title": "manufacturer",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 22,
+          "alias": "manufacturer",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "manufacturer menu"
+        },
+        "model": {
+          "name": "model",
+          "description": "The name of the mass spectrometry instrument",
+          "title": "model",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 23,
+          "slot_uri": "obo:MS_1000031",
+          "alias": "model",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "model menu",
+          "required": true
+        },
+        "scan_polarity": {
+          "name": "scan_polarity",
+          "description": "Relative orientation of the electromagnetic field during the selection and detection of ions in the mass spectrometer.",
+          "title": "scan_polarity",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 24,
+          "slot_uri": "obo:MS_1000465",
+          "alias": "scan_polarity",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "scan_polarity menu"
+        },
+        "ionization_type": {
+          "name": "ionization_type",
+          "description": "The method by which gas phase ions are generated from the sample.",
+          "title": "ionization_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 25,
+          "slot_uri": "obo:MS_1000008",
+          "alias": "ionization_type",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "detector_type": {
+          "name": "detector_type",
+          "description": "Type of detector used in the mass spectrometer.",
+          "title": "detector_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 26,
+          "slot_uri": "obo:MS_1000026",
+          "alias": "detector_type",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "mass_analyzer_type": {
+          "name": "mass_analyzer_type",
+          "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
+          "title": "mass_analyzer_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 27,
+          "slot_uri": "obo:MS_1000443",
+          "alias": "mass_analyzer_type",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis_protocol": {
+          "name": "analysis_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "analysis_protocol",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 28,
+          "slot_uri": "obo:NCIT_C42651",
+          "alias": "analysis_protocol",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis_protocol_DOI": {
+          "name": "analysis_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "analysis_protocol_DOI",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 29,
+          "slot_uri": "obo:OBI_0002110",
+          "alias": "analysis_protocol_DOI",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "rawDataFile": {
+          "name": "rawDataFile",
+          "description": " ",
+          "title": "rawDataFile",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 30,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "rawDataFile",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Normalization": {
+          "name": "Normalization",
+          "description": " ",
+          "title": "Normalization",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 31,
+          "alias": "Normalization",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Transformation": {
+          "name": "Transformation",
+          "description": " ",
+          "title": "Transformation",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 32,
+          "alias": "Transformation",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TransformationPurpose": {
+          "name": "TransformationPurpose",
+          "description": "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, etc.).",
+          "title": "TransformationPurpose",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 33,
+          "alias": "TransformationPurpose",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TransformationDescription": {
+          "name": "TransformationDescription",
+          "description": "Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.",
+          "title": "TransformationDescription",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 34,
+          "alias": "TransformationDescription",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "processedDataFile": {
+          "name": "processedDataFile",
+          "description": " ",
+          "title": "processedDataFile",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 35,
+          "alias": "processedDataFile",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "unit": {
+          "name": "unit",
+          "description": " ",
+          "title": "unit",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 36,
+          "alias": "unit",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    },
+    "metaboliteID": {
+      "name": "metaboliteID",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "metabolite_name": {
+          "name": "metabolite_name",
+          "rank": 1,
+          "slot_group": "metabolite_identification"
+        },
+        "refmet_name": {
+          "name": "refmet_name",
+          "rank": 2,
+          "slot_group": "metabolite_identification"
+        },
+        "dtxsid": {
+          "name": "dtxsid",
+          "rank": 3,
+          "slot_group": "metabolite_identification"
+        },
+        "inchikey": {
+          "name": "inchikey",
+          "rank": 4,
+          "slot_group": "metabolite_identification"
+        },
+        "mass": {
+          "name": "mass",
+          "rank": 5,
+          "slot_group": "metabolite_identification"
+        },
+        "elution_time": {
+          "name": "elution_time",
+          "rank": 6,
+          "slot_group": "metabolite_identification"
+        }
+      },
+      "attributes": {
+        "metabolite_name": {
+          "name": "metabolite_name",
+          "description": " ",
+          "title": "metabolite_name",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "alias": "metabolite_name",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "refmet_name": {
+          "name": "refmet_name",
+          "description": " ",
+          "title": "refmet_name",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "refmet_name",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dtxsid": {
+          "name": "dtxsid",
+          "description": " ",
+          "title": "dtxsid",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "dtxsid",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "inchikey": {
+          "name": "inchikey",
+          "description": " ",
+          "title": "inchikey",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 4,
+          "alias": "inchikey",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "mass": {
+          "name": "mass",
+          "description": " ",
+          "title": "mass",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 5,
+          "alias": "mass",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "elution_time": {
+          "name": "elution_time",
+          "description": " ",
+          "title": "elution_time",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 6,
+          "alias": "elution_time",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    }
+  },
+  "source_file": "/Users/apple/ToxRSCat/templates/mass_spec_metabolomics/schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}
