@@ -97,8 +97,13 @@ for i in df["slots"]:
     
     dir["slots"][f'{i}'] = {}
     dir["slots"][f'{i}']['name'] = f'{i}'
-    dir["slots"][f'{i}']['title'] = f'{i}'
     subset_df = df.loc[df["slots"] == i, :]
+
+    # title
+    if (df.loc[df["slots"] == i, "name"]).any():
+        dir["slots"][f'{i}']['title'] =subset_df["name"].iloc[0]
+    else: 
+        dir["slots"][f'{i}']['title'] = f'{i}'
     # range
     range = subset_df["range"].iloc[0]
     if range == "string": 
@@ -160,6 +165,13 @@ dir["types"]["WhitespaceMinimizedString"]["description"] ="A string that has all
 dir["types"]["WhitespaceMinimizedString"]["base"] = 'str'
 dir["types"]["WhitespaceMinimizedString"]["uri"] = 'xsd:token'
 
+dir["types"]["Provenance"] ={}
+dir["types"]["Provenance"]["name"] = "Provenance"
+dir["types"]["Provenance"]["typeof"] = "string"
+dir["types"]["Provenance"]["description"] ="A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data."
+dir["types"]["Provenance"]["base"] = 'str'
+dir["types"]["Provenance"]["uri"] = 'xsd:token'
+
 # Populate enumeration fields for dropdown menus
 #TODO: Enumerations should always also include GENEPIO:0001619 "Not Applicable", GENEPIO:0001618 "Missing", GENEPIO:0001620 "Not Collected", GENEPIO:0001668 "Not Provided", GENEPIO:0001810 "Restricted Access"
 if df["enums"].notnull().any():
@@ -169,6 +181,10 @@ if df["enums"].notnull().any():
         dir["enums"][f"{name_slot} menu"] = {}
         dir["enums"][f"{name_slot} menu"]["name"] = f"{name_slot} menu"
         dir["enums"][f"{name_slot} menu"]["permissible_values"] = {}
+        null_value = ["Not applicable", "Missing", "Not collected", "Not provided", "Restricted access"]
+        for z in null_value:
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{z}'] = {}
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{z}']['text'] = f'{z}'
         choice_list = df["enums"][i].split(';') 
         for j in choice_list:
             dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}'] = {}

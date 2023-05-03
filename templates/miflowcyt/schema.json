@@ -1,7 +1,7 @@
 {
   "name": "flow_cytometry_assay",
-  "description": "Template for the collection of minimally required information about flow cytometry experiments to be used in combination with Investigation and Study level templates. Minimum Information about a Flow Cytometry Experiment (MIFlowCyt) is detailed in \"Lee JA, Spidlen J, Boyce K, Cai J, Crosbie N, Dalphin M, Furlong J, Gasparetto M, Goldberg M, Goralczyk EM, Hyun B, Jansen K, Kollmann T, Kong M, Leif R, McWeeney S, Moloshok TD, Moore W, Nolan G, Nolan J, Nikolich-Zugich J, Parrish D, Purcell B, Qian Y, Selvaraj B, Smith C, Tchuvatkina O, Wertheimer A, Wilkinson P, Wilson C, Wood J, Zigon R; International Society for Advancement of Cytometry Data Standards Task Force; Scheuermann RH, Brinkman RR. MIFlowCyt: the minimum information about a Flow Cytometry Experiment. Cytometry A. 2008 Oct;73(10):926-30. doi: 10.1002/cyto.a.20623. PMID: 18752282; PMCID: PMC2773297.\"",
-  "id": "https://example.com/MIATE",
+  "description": "Template based on the expectactions from the FlowRepository (flowrepository.org) and the Minimum Information about Flow Cytometry Experiments (MIFlowCyt) developed by the International Society for Advancement of Cytometry (ISAC). More details can be found at https://doi.org/10.25504/FAIRsharing.kcnjj2. The LinkML Schema and template was developed by the Michigan State University Superfund Research Center Data Management and Analysis Core. ",
+  "id": "https://example.com/MIFlowCyt",
   "version": "1.0.0",
   "prefixes": {
     "linkml": {
@@ -29,12 +29,20 @@
       "prefix_reference": "http://schema.org/"
     }
   },
-  "default_prefix": "https://example.com/MIATE/",
+  "default_prefix": "https://example.com/MIFlowCyt/",
   "types": {
     "WhitespaceMinimizedString": {
       "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/MIFlowCyt",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -42,7 +50,7 @@
     "string": {
       "name": "string",
       "description": "A character string",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:Text"
       ],
@@ -52,7 +60,7 @@
     "integer": {
       "name": "integer",
       "description": "An integer",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:Integer"
       ],
@@ -62,7 +70,7 @@
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:Boolean"
       ],
@@ -73,7 +81,7 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:Float"
       ],
@@ -83,7 +91,7 @@
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "close_mappings": [
         "schema:Float"
       ],
@@ -93,7 +101,7 @@
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "broad_mappings": [
         "schema:Number"
       ],
@@ -106,7 +114,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:Time"
       ],
@@ -120,7 +128,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:Date"
       ],
@@ -131,7 +139,7 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "exact_mappings": [
         "schema:DateTime"
       ],
@@ -142,7 +150,7 @@
     "date_or_datetime": {
       "name": "date_or_datetime",
       "description": "Either a date or a datetime",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "base": "str",
       "uri": "linkml:DateOrDatetime",
       "repr": "str"
@@ -150,7 +158,7 @@
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "base": "URIorCURIE",
       "uri": "xsd:anyURI",
       "repr": "str"
@@ -163,7 +171,7 @@
         "in RDF serializations this MUST be expanded to a URI",
         "in non-RDF serializations MAY be serialized as the compact representation"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "base": "Curie",
       "uri": "xsd:string",
       "repr": "str"
@@ -175,7 +183,7 @@
       "comments": [
         "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "close_mappings": [
         "schema:URL"
       ],
@@ -186,7 +194,7 @@
     "ncname": {
       "name": "ncname",
       "description": "Prefix part of CURIE",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "base": "NCName",
       "uri": "xsd:string",
       "repr": "str"
@@ -197,7 +205,7 @@
       "comments": [
         "Used for inheritence and type checking"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "base": "ElementIdentifier",
       "uri": "shex:iri",
       "repr": "str"
@@ -205,7 +213,7 @@
     "nodeidentifier": {
       "name": "nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "base": "NodeIdentifier",
       "uri": "shex:nonLiteral",
       "repr": "str"
@@ -214,62 +222,128 @@
   "enums": {
     "experimentVariables menu": {
       "name": "experimentVariables menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Condition": {
           "text": "Condition"
         },
-        " Dose": {
-          "text": " Dose"
+        "Dose": {
+          "text": "Dose"
         },
-        " Timepoint": {
-          "text": " Timepoint"
+        "Timepoint": {
+          "text": "Timepoint"
         },
-        " Individual": {
-          "text": " Individual"
+        "Individual": {
+          "text": "Individual"
         },
-        " Experimental variable sample type": {
-          "text": " Experimental variable sample type"
+        "Experimental variable sample type": {
+          "text": "Experimental variable sample type"
         }
       }
     },
     "qualityControlMeasures menu": {
       "name": "qualityControlMeasures menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "STR profiling of source cells": {
           "text": "STR profiling of source cells"
         },
-        " mycoplasma testing": {
-          "text": " mycoplasma testing"
+        "mycoplasma testing": {
+          "text": "mycoplasma testing"
         },
-        " isotype control for antibody": {
-          "text": " isotype control for antibody"
+        "isotype control for antibody": {
+          "text": "isotype control for antibody"
         },
-        " no antibody negative control": {
-          "text": " no antibody negative control"
+        "no antibody negative control": {
+          "text": "no antibody negative control"
         },
-        " positive control cell type": {
-          "text": " positive control cell type"
+        "positive control cell type": {
+          "text": "positive control cell type"
+        },
+        "Live/Dead staining": {
+          "text": "Live/Dead staining"
+        },
+        "unstained controls": {
+          "text": "unstained controls"
         }
       }
     },
     "flowCellType menu": {
       "name": "flowCellType menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "jet-in-air": {
           "text": "jet-in-air"
         },
-        " quartz cuvette": {
-          "text": " quartz cuvette"
+        "quartz cuvette": {
+          "text": "quartz cuvette"
         }
       }
     },
     "manufacturer menu": {
       "name": "manufacturer menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "BD Biosciences": {
           "text": "BD Biosciences"
         }
@@ -277,8 +351,23 @@
     },
     "model menu": {
       "name": "model menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "BD FACSAria": {
           "text": "BD FACSAria"
         }
@@ -286,8 +375,23 @@
     },
     "configurationAndSettings menu": {
       "name": "configurationAndSettings menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "The instrument has not been altered": {
           "text": "The instrument has not been altered"
         }
@@ -295,8 +399,23 @@
     },
     "type menu": {
       "name": "type menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "mercury-vapor lamp": {
           "text": "mercury-vapor lamp"
         },
@@ -325,20 +444,50 @@
     },
     "type_optical_detector menu": {
       "name": "type_optical_detector menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "photodiode": {
           "text": "photodiode"
         },
-        " photomultiplier tube": {
-          "text": " photomultiplier tube"
+        "photomultiplier tube": {
+          "text": "photomultiplier tube"
         }
       }
     },
     "amplificationType menu": {
       "name": "amplificationType menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "linear": {
           "text": "linear"
         },
@@ -349,8 +498,23 @@
     },
     "type_optical_filter menu": {
       "name": "type_optical_filter menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "band pass filter": {
           "text": "band pass filter"
         },
@@ -376,8 +540,23 @@
     },
     "stainingStatus menu": {
       "name": "stainingStatus menu",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "stained": {
           "text": "stained"
         },
@@ -391,11 +570,11 @@
     "investigation_identifier": {
       "name": "investigation_identifier",
       "description": "The identifier for this investigation collected using the \"investigation\" template. This is used to match the flow cytometry experiment to an investigation.",
-      "title": "investigation_identifier",
+      "title": "Investigation_ID",
       "comments": [
-        "i_Prj140"
+        "SRP_PRJ1"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0000066",
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -403,33 +582,33 @@
     "study_identifier": {
       "name": "study_identifier",
       "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
-      "title": "study_identifier",
+      "title": "Study_ID",
       "comments": [
-        "s_Prj140"
+        "study_001"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString",
       "required": true
     },
     "sample_identifier": {
       "name": "sample_identifier",
       "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
-      "title": "sample_identifier",
+      "title": "Sample_ID",
       "comments": [
-        "Prj140_M001_Liver"
+        "HSA_001"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "flow_experimet_identifier": {
-      "name": "flow_experimet_identifier",
+    "flow_experiment_identifier": {
+      "name": "flow_experiment_identifier",
       "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-      "title": "flow_experimet_identifier",
+      "title": "Flow_experiment_ID",
       "comments": [
-        "ms_S001"
+        "flow_001-HSA_001"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -438,21 +617,21 @@
       "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
       "title": "purpose",
       "comments": [
-        "Quantify the proportion of CD5+ and CD5- B Cells in human PBMCs"
+        "Test the hypothesis that CD5+ innate-like B Cells (ILBs) are sensitive to AHR-mediated immunotoxicity."
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C25634",
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
     "keywords": {
       "name": "keywords",
-      "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment.",
+      "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment. Each keyword should be seperated by a \";\" with not spaces.",
       "title": "keywords",
       "comments": [
-        "PBMC, TCDD"
+        "Monocytes;2,3,7,8-Tetrachlorodibenzo-p-dioxin"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C43513",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
@@ -462,12 +641,12 @@
     },
     "experimentVariables": {
       "name": "experimentVariables",
-      "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples. If applicable, a brief description of the conditional and/or manipulated variables in the experiment shall be provided (e.g., smoker vs. nonsmoker, IL-2 treatment vs. no treatment, knockout versus wild-type, varying number of transplanted cells, varying treatment dosage, etc.). The number of instances per experimental group should also be stated.",
+      "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples.",
       "title": "experimentVariables",
       "comments": [
-        " "
+        "Dose;Timepoint;Individual"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:STATO_0000258",
       "multivalued": true,
       "range": "experimentVariables menu",
@@ -475,12 +654,12 @@
     },
     "primaryContact": {
       "name": "primaryContact",
-      "description": "The individual who is the primary contact for this experiment.",
+      "description": "The individual who is the primary contact for this experiment (last name,first name).",
       "title": "primaryContact",
       "comments": [
-        " "
+        "Blevins,Lance"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0000202",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
@@ -493,7 +672,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:STATO_0000093",
       "range": "date",
       "recommended": true
@@ -503,9 +682,9 @@
       "description": "A brief summary of the interpretation of the results or outcome of the experiment shall be provided if available.",
       "title": "conclusions",
       "comments": [
-        " "
+        "Levels of AHR-mediated suppression of the IgM response from individual donors strongly correlated with the percentage of the B cell pool that was CD5+, suggesting that CD5+ B cells are more sensitive to AHR-mediated impairment."
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:IAO_0000144",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -515,9 +694,9 @@
       "description": "A description of the quality control measures used such as replicates, calibrations, control assays, etc. shall be provided. If another experiment was performed for the purposes of establishing quality control standards, that experiment may be referenced.",
       "title": "qualityControlMeasures",
       "comments": [
-        "The cell lines used in this experiment underwent STR profiling to confirm their identity and sent for mycoplasma testing to ensure there is no contamination. Additionally, cells used for xenograft injection were screened against a Rodent Pathogen Panel to ensure no contamination prior to injection. The animals were randomized prior to treatment. An isotype control antibody was used to confirm the specificity of the HLA-A,B,C antibody. Additionally, no antibody and MV4;11 cells (as positive control) were used to ensure specificity. Additional detailed experimental notes, data, and analysis are available on the Open Science Framework (OSF) (https://osf.io/hcqqy/)"
+        "Live/Dead staining;unstained controls"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:MSIO_0000085",
       "multivalued": true,
       "range": "qualityControlMeasures menu",
@@ -529,9 +708,9 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "flow_cytometry_protocol",
       "comments": [
-        " "
+        "Cells were processed using a BD FACSCanto II using FACS Diva software (BD Bioscience) and analyzed using FloJo (Version 10, Treestar Software, Ashland OR)."
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C42651",
       "range": "WhitespaceMinimizedString"
     },
@@ -542,7 +721,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0002110",
       "range": "WhitespaceMinimizedString"
     },
@@ -553,7 +732,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0400043 ",
       "range": "flowCellType menu"
     },
@@ -564,7 +743,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C17649",
       "range": "WhitespaceMinimizedString"
     },
@@ -573,9 +752,9 @@
       "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
       "title": "manufacturer",
       "comments": [
-        " "
+        "BD Bioscience"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0000835",
       "range": "manufacturer menu"
     },
@@ -584,9 +763,9 @@
       "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
       "title": "model",
       "comments": [
-        " "
+        "BD FACSAria"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:MS_1000031",
       "range": "model menu"
     },
@@ -595,9 +774,9 @@
       "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
       "title": "configurationAndSettings",
       "comments": [
-        " "
+        "The instrument has not been altered"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:MS_1000740",
       "range": "configurationAndSettings menu"
     },
@@ -608,7 +787,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C17649",
       "range": "WhitespaceMinimizedString"
     },
@@ -619,7 +798,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "bao:BAO_0150029",
       "range": "type menu"
     },
@@ -630,7 +809,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "bao:BAO_0000566",
       "range": "WhitespaceMinimizedString"
     },
@@ -641,7 +820,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "bao:BAO_0000566",
       "range": "WhitespaceMinimizedString"
     },
@@ -652,7 +831,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OMIT_0009913",
       "range": "WhitespaceMinimizedString"
     },
@@ -663,7 +842,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C70569",
       "range": "WhitespaceMinimizedString"
     },
@@ -674,7 +853,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C17649",
       "range": "WhitespaceMinimizedString"
     },
@@ -685,7 +864,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "type_optical_detector": {
@@ -695,7 +874,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:FBbi_00000269 ",
       "range": "type_optical_detector menu"
     },
@@ -706,7 +885,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "float",
       "minimum_value": 0
     },
@@ -717,7 +896,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "amplificationFactor": {
@@ -727,7 +906,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "float"
     },
     "other_optical_detector": {
@@ -737,7 +916,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "type_optical_filter": {
@@ -747,7 +926,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "type_optical_filter menu"
     },
     "transmittedWavelengths": {
@@ -757,7 +936,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "installationDate": {
@@ -767,7 +946,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "date"
     },
     "other_optical_filter": {
@@ -777,7 +956,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "staining_protocol": {
@@ -785,9 +964,9 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "staining_protocol",
       "comments": [
-        " "
+        "~0.25x10^6 cells were stained with antibody."
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C42651",
       "range": "WhitespaceMinimizedString"
     },
@@ -798,7 +977,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0002110",
       "range": "WhitespaceMinimizedString"
     },
@@ -807,9 +986,9 @@
       "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used primarily for this measurement shall be indicated.",
       "title": "characteristicsBeingMeasured",
       "comments": [
-        " "
+        "CD5"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:BFO_0000005",
       "range": "WhitespaceMinimizedString",
       "recommended": true
@@ -819,9 +998,9 @@
       "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
       "title": "analyte",
       "comments": [
-        "CD25"
+        "CD5"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0000275",
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -831,9 +1010,9 @@
       "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
       "title": "analyteDetector",
       "comments": [
-        " "
+        "mouse anti-human CD5"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:CHMO_0002244",
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -843,9 +1022,9 @@
       "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
       "title": "analyteReporter",
       "comments": [
-        " "
+        "PE"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:CHEBI_35209",
       "range": "WhitespaceMinimizedString",
       "required": true
@@ -855,9 +1034,9 @@
       "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
       "title": "cloneNameOrNumber",
       "comments": [
-        " "
+        "UCHT2"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:SO_0000151",
       "range": "WhitespaceMinimizedString"
     },
@@ -866,9 +1045,9 @@
       "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
       "title": "reagentManufacturerName",
       "comments": [
-        " "
+        "BioLegend"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:IAO_0000590",
       "range": "WhitespaceMinimizedString"
     },
@@ -877,9 +1056,9 @@
       "description": "The reagent catalogue number shall be specified.",
       "title": "reagentCatalogueNumber",
       "comments": [
-        " "
+        "300607"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C112406",
       "range": "WhitespaceMinimizedString"
     },
@@ -888,9 +1067,9 @@
       "description": " ",
       "title": "stainingStatus",
       "comments": [
-        " "
+        "stained"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "stainingStatus menu"
     },
     "other_fluorescence_reagent": {
@@ -900,7 +1079,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C17649",
       "range": "WhitespaceMinimizedString"
     },
@@ -909,9 +1088,9 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "analysis_protocol",
       "comments": [
-        " "
+        "Positive gates were drawn using unstained and day 0 controls. "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:NCIT_C42651",
       "range": "WhitespaceMinimizedString"
     },
@@ -922,7 +1101,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI_0002110",
       "range": "WhitespaceMinimizedString"
     },
@@ -931,9 +1110,9 @@
       "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
       "title": "listModeDataFile",
       "comments": [
-        "FCS File name (must end in .FCS)"
+        "sample1.FCS"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "slot_uri": "obo:OBI:0000021",
       "range": "WhitespaceMinimizedString"
     },
@@ -944,7 +1123,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "TransformationPurpose": {
@@ -954,7 +1133,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "TransformationDescription": {
@@ -964,17 +1143,17 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "GateDescription": {
       "name": "GateDescription",
-      "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”). The gating\nstrategy or a reference to where it is described in detail (e.g., a\nmanuscript) should be provided.",
+      "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”).",
       "title": "GateDescription",
       "comments": [
-        " "
+        "ILBs of the CD5+ phenotype"
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "Gate Statistics": {
@@ -984,7 +1163,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "GateBoundaries": {
@@ -994,7 +1173,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "range": "WhitespaceMinimizedString"
     },
     "WorkspaceFile": {
@@ -1002,21 +1181,31 @@
       "description": " ",
       "title": "WorkspaceFile",
       "comments": [
+        "Analysis.wsp"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "template version": {
+      "name": "template version",
+      "description": " ",
+      "title": "template version",
+      "comments": [
         " "
       ],
-      "from_schema": "https://example.com/MIATE",
-      "range": "WhitespaceMinimizedString"
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "provenance"
     }
   },
   "classes": {
     "dh_interface": {
       "name": "dh_interface",
       "description": "A DataHarmonizer interface",
-      "from_schema": "https://example.com/MIATE"
+      "from_schema": "https://example.com/MIFlowCyt"
     },
     "Flow cytometry experiment": {
       "name": "Flow cytometry experiment",
-      "from_schema": "https://example.com/MIATE",
+      "from_schema": "https://example.com/MIFlowCyt",
       "is_a": "dh_interface",
       "slot_usage": {
         "investigation_identifier": {
@@ -1034,8 +1223,8 @@
           "rank": 3,
           "slot_group": "identifiers"
         },
-        "flow_experimet_identifier": {
-          "name": "flow_experimet_identifier",
+        "flow_experiment_identifier": {
+          "name": "flow_experiment_identifier",
           "rank": 4,
           "slot_group": "identifiers"
         },
@@ -1298,14 +1487,19 @@
           "name": "WorkspaceFile",
           "rank": 56,
           "slot_group": "data_analysis"
+        },
+        "template version": {
+          "name": "template version",
+          "rank": 57,
+          "slot_group": "provenance"
         }
       },
       "attributes": {
         "investigation_identifier": {
           "name": "investigation_identifier",
           "description": "The identifier for this investigation collected using the \"investigation\" template. This is used to match the flow cytometry experiment to an investigation.",
-          "title": "investigation_identifier",
-          "from_schema": "https://example.com/MIATE",
+          "title": "Investigation_ID",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 1,
           "slot_uri": "obo:OBI_0000066",
           "alias": "investigation_identifier",
@@ -1320,8 +1514,8 @@
         "study_identifier": {
           "name": "study_identifier",
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
-          "title": "study_identifier",
-          "from_schema": "https://example.com/MIATE",
+          "title": "Study_ID",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 2,
           "alias": "study_identifier",
           "owner": "Flow cytometry experiment",
@@ -1335,8 +1529,8 @@
         "sample_identifier": {
           "name": "sample_identifier",
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
-          "title": "sample_identifier",
-          "from_schema": "https://example.com/MIATE",
+          "title": "Sample_ID",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 3,
           "alias": "sample_identifier",
           "owner": "Flow cytometry experiment",
@@ -1347,13 +1541,13 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "flow_experimet_identifier": {
-          "name": "flow_experimet_identifier",
+        "flow_experiment_identifier": {
+          "name": "flow_experiment_identifier",
           "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-          "title": "flow_experimet_identifier",
-          "from_schema": "https://example.com/MIATE",
+          "title": "Flow_experiment_ID",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 4,
-          "alias": "flow_experimet_identifier",
+          "alias": "flow_experiment_identifier",
           "owner": "Flow cytometry experiment",
           "domain_of": [
             "Flow cytometry experiment"
@@ -1366,7 +1560,7 @@
           "name": "purpose",
           "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
           "title": "purpose",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 5,
           "slot_uri": "obo:NCIT_C25634",
           "alias": "purpose",
@@ -1380,9 +1574,9 @@
         },
         "keywords": {
           "name": "keywords",
-          "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment.",
+          "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment. Each keyword should be seperated by a \";\" with not spaces.",
           "title": "keywords",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 6,
           "slot_uri": "obo:NCIT_C43513",
           "multivalued": true,
@@ -1398,9 +1592,9 @@
         },
         "experimentVariables": {
           "name": "experimentVariables",
-          "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples. If applicable, a brief description of the conditional and/or manipulated variables in the experiment shall be provided (e.g., smoker vs. nonsmoker, IL-2 treatment vs. no treatment, knockout versus wild-type, varying number of transplanted cells, varying treatment dosage, etc.). The number of instances per experimental group should also be stated.",
+          "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples.",
           "title": "experimentVariables",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 7,
           "slot_uri": "obo:STATO_0000258",
           "multivalued": true,
@@ -1415,9 +1609,9 @@
         },
         "primaryContact": {
           "name": "primaryContact",
-          "description": "The individual who is the primary contact for this experiment.",
+          "description": "The individual who is the primary contact for this experiment (last name,first name).",
           "title": "primaryContact",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 8,
           "slot_uri": "obo:OBI_0000202",
           "multivalued": true,
@@ -1434,7 +1628,7 @@
           "name": "date",
           "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
           "title": "date",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 9,
           "slot_uri": "obo:STATO_0000093",
           "alias": "date",
@@ -1450,7 +1644,7 @@
           "name": "conclusions",
           "description": "A brief summary of the interpretation of the results or outcome of the experiment shall be provided if available.",
           "title": "conclusions",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 10,
           "slot_uri": "obo:IAO_0000144",
           "alias": "conclusions",
@@ -1466,7 +1660,7 @@
           "name": "qualityControlMeasures",
           "description": "A description of the quality control measures used such as replicates, calibrations, control assays, etc. shall be provided. If another experiment was performed for the purposes of establishing quality control standards, that experiment may be referenced.",
           "title": "qualityControlMeasures",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 11,
           "slot_uri": "obo:MSIO_0000085",
           "multivalued": true,
@@ -1484,7 +1678,7 @@
           "name": "flow_cytometry_protocol",
           "description": "A brief description of the flow cytometry protocol",
           "title": "flow_cytometry_protocol",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 12,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "flow_cytometry_protocol",
@@ -1499,7 +1693,7 @@
           "name": "flow_cytometry_protocol_DOI",
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "flow_cytometry_protocol_DOI",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 13,
           "slot_uri": "obo:OBI_0002110",
           "alias": "flow_cytometry_protocol_DOI",
@@ -1514,7 +1708,7 @@
           "name": "flowCellType",
           "description": "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided.",
           "title": "flowCellType",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 14,
           "slot_uri": "obo:OBI_0400043 ",
           "alias": "flowCellType",
@@ -1529,7 +1723,7 @@
           "name": "other_flow_cell",
           "description": "Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).",
           "title": "other_flow_cell",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 15,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_flow_cell",
@@ -1544,7 +1738,7 @@
           "name": "manufacturer",
           "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
           "title": "manufacturer",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 16,
           "slot_uri": "obo:OBI_0000835",
           "alias": "manufacturer",
@@ -1559,7 +1753,7 @@
           "name": "model",
           "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
           "title": "model",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 17,
           "slot_uri": "obo:MS_1000031",
           "alias": "model",
@@ -1574,7 +1768,7 @@
           "name": "configurationAndSettings",
           "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
           "title": "configurationAndSettings",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 18,
           "slot_uri": "obo:MS_1000740",
           "alias": "configurationAndSettings",
@@ -1589,7 +1783,7 @@
           "name": "other_instrument",
           "description": "Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.",
           "title": "other_instrument",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 19,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_instrument",
@@ -1604,7 +1798,7 @@
           "name": "type",
           "description": "The type of the light source shall be provided (e.g., laser, diode laser, xenon lamp).",
           "title": "type",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 20,
           "slot_uri": "bao:BAO_0150029",
           "alias": "type",
@@ -1619,7 +1813,7 @@
           "name": "excitatoryWavelength",
           "description": "The excitatory wavelength shall be provided (e.g., 488nm, 633 nm).",
           "title": "excitatoryWavelength",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 21,
           "slot_uri": "bao:BAO_0000566",
           "alias": "excitatoryWavelength",
@@ -1634,7 +1828,7 @@
           "name": "powerAtExcitatoryWavelength",
           "description": "The power of the light source shall be provided (e.g., 180 mW, 50 mW). If possible, this should be measured at the intersection of the light source beam with particles; see also 3.3.3.",
           "title": "powerAtExcitatoryWavelength",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 22,
           "slot_uri": "bao:BAO_0000566",
           "alias": "powerAtExcitatoryWavelength",
@@ -1649,7 +1843,7 @@
           "name": "polarization",
           "description": "Polarization shall be specified (e.g., linear, >100:1, in the direction of the sample flow). If possible, this should be specified at the intersection of the light source beam and particles; see also 3.3.3.",
           "title": "polarization",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 23,
           "slot_uri": "obo:OMIT_0009913",
           "alias": "polarization",
@@ -1664,7 +1858,7 @@
           "name": "beam",
           "description": "Light source beam dimensions and geometry shall be specified at the flow cell or at the intersection of the beam with particles (e.g., elliptical 22 x 66 Î¼m).",
           "title": "beam",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 24,
           "slot_uri": "obo:NCIT_C70569",
           "alias": "beam",
@@ -1679,7 +1873,7 @@
           "name": "other_light_source_instrument",
           "description": "Additional relevant light source details should be provided and may include light source manufacturer name (e.g., MIFlowCyt Lasers, Inc.), light source model name (e.g., 302C Krypton-Ion Laser), light source part number (e.g., I-326), noise (e.g., <1%), pointing and power stability (e.g., <1% over 1 hour), etc.",
           "title": "other_light_source_instrument",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 25,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_light_source_instrument",
@@ -1694,7 +1888,7 @@
           "name": "name",
           "description": "The optical detector name (e.g., FSC, SSC, FL1, FL2, FL3, FL4, etc.) shall be specified.",
           "title": "name",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 26,
           "alias": "name",
           "owner": "Flow cytometry experiment",
@@ -1708,7 +1902,7 @@
           "name": "type_optical_detector",
           "description": "The type of the optical detector shall be provided (e.g., photodiode, photomultiplier tube).",
           "title": "type_optical_detector",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 27,
           "slot_uri": "obo:FBbi_00000269 ",
           "alias": "type_optical_detector",
@@ -1723,7 +1917,7 @@
           "name": "voltage",
           "description": "The optical detector voltage shall be specified (e.g., 300V, 700V).",
           "title": "voltage",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 28,
           "alias": "voltage",
           "owner": "Flow cytometry experiment",
@@ -1738,7 +1932,7 @@
           "name": "amplificationType",
           "description": "The optical detector amplification type shall be specified (e.g., linear, log).  Additional details including the actual amplifier profile may be provided.",
           "title": "amplificationType",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 29,
           "alias": "amplificationType",
           "owner": "Flow cytometry experiment",
@@ -1752,7 +1946,7 @@
           "name": "amplificationFactor",
           "description": "For log amplification, the number of decades shall be provided (e.g., 4 decades). For a linear amplification, the linear gain shall be provided (e.g., linear gain of 2.0).",
           "title": "amplificationFactor",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 30,
           "alias": "amplificationFactor",
           "owner": "Flow cytometry experiment",
@@ -1766,7 +1960,7 @@
           "name": "other_optical_detector",
           "description": "Additional relevant optical detector details should be provided and may include the optical detector manufacturer name and model number (e.g., MIFlowCyt Photonics Inc., PMT #R9220), minimal, maximal, and peak wavelength sensitivity (e.g., 185 nm, 900 nm, and 650 nm), the internal gain (e.g., 107), or the rise time (e.g., 2.2ns).",
           "title": "other_optical_detector",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 31,
           "alias": "other_optical_detector",
           "owner": "Flow cytometry experiment",
@@ -1780,7 +1974,7 @@
           "name": "type_optical_filter",
           "description": "The optical filter type shall be specified.",
           "title": "type_optical_filter",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 32,
           "alias": "type_optical_filter",
           "owner": "Flow cytometry experiment",
@@ -1794,7 +1988,7 @@
           "name": "transmittedWavelengths",
           "description": "Light wavelengths transmitted by the filter shall be specified (e.g., 488/25 nm, >670 nm, <620 nm).",
           "title": "transmittedWavelengths",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 33,
           "alias": "transmittedWavelengths",
           "owner": "Flow cytometry experiment",
@@ -1808,7 +2002,7 @@
           "name": "installationDate",
           "description": "As optical filters of all types are subject to degradation, filter performance needs to be monitored at intervals to verify continued performance at an acceptable level [19]. The optical filter installation date shall be specified (e.g., January 15, 2007).",
           "title": "installationDate",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 34,
           "alias": "installationDate",
           "owner": "Flow cytometry experiment",
@@ -1822,7 +2016,7 @@
           "name": "other_optical_filter",
           "description": "Other relevant optical filter details should be provided.",
           "title": "other_optical_filter",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 35,
           "alias": "other_optical_filter",
           "owner": "Flow cytometry experiment",
@@ -1836,7 +2030,7 @@
           "name": "staining_protocol",
           "description": "A brief description of the flow cytometry protocol",
           "title": "staining_protocol",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 36,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "staining_protocol",
@@ -1851,7 +2045,7 @@
           "name": "staining_protocol_DOI",
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "staining_protocol_DOI",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 37,
           "slot_uri": "obo:OBI_0002110",
           "alias": "staining_protocol_DOI",
@@ -1866,7 +2060,7 @@
           "name": "characteristicsBeingMeasured",
           "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used primarily for this measurement shall be indicated.",
           "title": "characteristicsBeingMeasured",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 38,
           "slot_uri": "obo:BFO_0000005",
           "alias": "characteristicsBeingMeasured",
@@ -1882,7 +2076,7 @@
           "name": "analyte",
           "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
           "title": "analyte",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 39,
           "slot_uri": "obo:OBI_0000275",
           "alias": "analyte",
@@ -1898,7 +2092,7 @@
           "name": "analyteDetector",
           "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
           "title": "analyteDetector",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 40,
           "slot_uri": "obo:CHMO_0002244",
           "alias": "analyteDetector",
@@ -1914,7 +2108,7 @@
           "name": "analyteReporter",
           "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
           "title": "analyteReporter",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 41,
           "slot_uri": "obo:CHEBI_35209",
           "alias": "analyteReporter",
@@ -1930,7 +2124,7 @@
           "name": "cloneNameOrNumber",
           "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
           "title": "cloneNameOrNumber",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 42,
           "slot_uri": "obo:SO_0000151",
           "alias": "cloneNameOrNumber",
@@ -1945,7 +2139,7 @@
           "name": "reagentManufacturerName",
           "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
           "title": "reagentManufacturerName",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 43,
           "slot_uri": "obo:IAO_0000590",
           "alias": "reagentManufacturerName",
@@ -1960,7 +2154,7 @@
           "name": "reagentCatalogueNumber",
           "description": "The reagent catalogue number shall be specified.",
           "title": "reagentCatalogueNumber",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 44,
           "slot_uri": "obo:NCIT_C112406",
           "alias": "reagentCatalogueNumber",
@@ -1975,7 +2169,7 @@
           "name": "stainingStatus",
           "description": " ",
           "title": "stainingStatus",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 45,
           "alias": "stainingStatus",
           "owner": "Flow cytometry experiment",
@@ -1989,7 +2183,7 @@
           "name": "other_fluorescence_reagent",
           "description": "When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.",
           "title": "other_fluorescence_reagent",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 46,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_fluorescence_reagent",
@@ -2004,7 +2198,7 @@
           "name": "analysis_protocol",
           "description": "A brief description of the flow cytometry protocol",
           "title": "analysis_protocol",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 47,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "analysis_protocol",
@@ -2019,7 +2213,7 @@
           "name": "analysis_protocol_DOI",
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "analysis_protocol_DOI",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 48,
           "slot_uri": "obo:OBI_0002110",
           "alias": "analysis_protocol_DOI",
@@ -2034,7 +2228,7 @@
           "name": "listModeDataFile",
           "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
           "title": "listModeDataFile",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 49,
           "slot_uri": "obo:OBI:0000021",
           "alias": "listModeDataFile",
@@ -2049,7 +2243,7 @@
           "name": "CompensationDescription",
           "description": " ",
           "title": "CompensationDescription",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 50,
           "alias": "CompensationDescription",
           "owner": "Flow cytometry experiment",
@@ -2063,7 +2257,7 @@
           "name": "TransformationPurpose",
           "description": "The purpose of each performed transformation shall be specified (e.g.,\ndata visualization, background correction, statistical analysis, quantitative\nflow cytometry, etc.).",
           "title": "TransformationPurpose",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 51,
           "alias": "TransformationPurpose",
           "owner": "Flow cytometry experiment",
@@ -2077,7 +2271,7 @@
           "name": "TransformationDescription",
           "description": "Either the exact mathematical formulas/algorithms of each data\ntransformation shall be supplied using an open and freely available\nspecification, or a description of each transformation shall be provided.",
           "title": "TransformationDescription",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 52,
           "alias": "TransformationDescription",
           "owner": "Flow cytometry experiment",
@@ -2089,9 +2283,9 @@
         },
         "GateDescription": {
           "name": "GateDescription",
-          "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”). The gating\nstrategy or a reference to where it is described in detail (e.g., a\nmanuscript) should be provided.",
+          "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”).",
           "title": "GateDescription",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 53,
           "alias": "GateDescription",
           "owner": "Flow cytometry experiment",
@@ -2105,7 +2299,7 @@
           "name": "Gate Statistics",
           "description": "Percentage of events within the gate shall be provided specifically stating\nthe denominator. The denominator shall be either the total population of events (e.g., percentage of lymphocytes based on the total number of\nevents) or another gate (e.g., percentage of CD4+ lymphocytes based on\nall lymphocytes). When the denominator is another gate, this shall also be\nexactly specified in recursive fashion so that the gating strategy can be\nfollowed up to the original data set. The denominator may not necessarily\nbe a containing (superset) population for some statistics (e.g., the donor /\nhost blood cell ratio).",
           "title": "Gate Statistics",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 54,
           "alias": "Gate_Statistics",
           "owner": "Flow cytometry experiment",
@@ -2119,7 +2313,7 @@
           "name": "GateBoundaries",
           "description": "Either the exact mathematical descriptions of each gate boundary shall be\nprovided using an open and freely available specification, or this\ninformation shall be provided in the form of images. ",
           "title": "GateBoundaries",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 55,
           "alias": "GateBoundaries",
           "owner": "Flow cytometry experiment",
@@ -2133,7 +2327,7 @@
           "name": "WorkspaceFile",
           "description": " ",
           "title": "WorkspaceFile",
-          "from_schema": "https://example.com/MIATE",
+          "from_schema": "https://example.com/MIFlowCyt",
           "rank": 56,
           "alias": "WorkspaceFile",
           "owner": "Flow cytometry experiment",
@@ -2142,6 +2336,20 @@
           ],
           "slot_group": "data_analysis",
           "range": "WhitespaceMinimizedString"
+        },
+        "template version": {
+          "name": "template version",
+          "description": " ",
+          "title": "template version",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 57,
+          "alias": "template_version",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "provenance",
+          "range": "provenance"
         }
       }
     }
