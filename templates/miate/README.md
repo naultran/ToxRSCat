@@ -28,15 +28,15 @@ Templates will be implemented using [_DataHarmonizer_](https://github.com/cidgoh
 
 ---
 ### Table of Contents
-1. [Usage](#usage)
-	a. [Getting to know _DataHarmonizer_](#familiorize)
-	b. [Loading the MIATE templates](#starting)
-	c. [Before adding metadata](#before)
-	d. [Populating the templates](#populating)
-	e. [Missing metadata](#missing)
-	f. [MIATE organization](#structure)
-2. [FAQ](#faq)
-3. [Record of Changes](#changes)
+1. [Usage](#usage)<br>
+	a. [Getting to know _DataHarmonizer_](#familiorize)<br>
+	b. [Loading the MIATE templates](#starting)<br>
+	c. [Before adding metadata](#before)<br>
+	d. [Populating the templates](#populating)<br>
+	e. [Missing metadata](#missing)<br>
+	f. [MIATE organization](#structure)<br>
+2. [FAQ](#faq)<br>
+3. [Record of Changes](#changes)<br>
 
 ---
 ### Usage
@@ -56,7 +56,7 @@ Before beginning to collect your (meta)data it is strongly recommended that you 
 #### 2.  Loading the Minimum Information about Animal Toxicology Experiments (MIATE) template<br>
 
 Go to the [Superfund Research Center_DataHarmonizer site](http://52.90.28.252:8080/). It should look like the following screenshot.
-![image](test.png)
+![image](../../imgs/screenshot_helpmenu.png)
 
 The template section will present all catalogued EHS templates. MIATE contains 3 sub-templates: 
 - **Investigation (miate/Investigation):** Here you will enter the investigation level information which can include multiple studies (i.e., experiments) and samples. Please record the identifier used for later use.
