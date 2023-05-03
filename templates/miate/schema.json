@@ -39,6 +39,14 @@
       "base": "str",
       "uri": "xsd:token"
     },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/MIATE",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
     "string": {
       "name": "string",
       "description": "A character string",
@@ -216,164 +224,221 @@
       "name": "data_submission_contact_state menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "AL": {
           "text": "AL"
         },
-        " AK": {
-          "text": " AK"
+        "AK": {
+          "text": "AK"
         },
-        " AZ": {
-          "text": " AZ"
+        "AZ": {
+          "text": "AZ"
         },
-        " AR": {
-          "text": " AR"
+        "AR": {
+          "text": "AR"
         },
-        " CA": {
-          "text": " CA"
+        "CA": {
+          "text": "CA"
         },
-        " CO": {
-          "text": " CO"
+        "CO": {
+          "text": "CO"
         },
-        " CT": {
-          "text": " CT"
+        "CT": {
+          "text": "CT"
         },
-        " DE": {
-          "text": " DE"
+        "DE": {
+          "text": "DE"
         },
-        " DC": {
-          "text": " DC"
+        "DC": {
+          "text": "DC"
         },
-        " FL": {
-          "text": " FL"
+        "FL": {
+          "text": "FL"
         },
-        " GA": {
-          "text": " GA"
+        "GA": {
+          "text": "GA"
         },
-        " HI": {
-          "text": " HI"
+        "HI": {
+          "text": "HI"
         },
-        " ID": {
-          "text": " ID"
+        "ID": {
+          "text": "ID"
         },
-        " IL": {
-          "text": " IL"
+        "IL": {
+          "text": "IL"
         },
-        " IN": {
-          "text": " IN"
+        "IN": {
+          "text": "IN"
         },
-        " IA": {
-          "text": " IA"
+        "IA": {
+          "text": "IA"
         },
-        " KS": {
-          "text": " KS"
+        "KS": {
+          "text": "KS"
         },
-        " KY": {
-          "text": " KY"
+        "KY": {
+          "text": "KY"
         },
-        " LA": {
-          "text": " LA"
+        "LA": {
+          "text": "LA"
         },
-        " ME": {
-          "text": " ME"
+        "ME": {
+          "text": "ME"
         },
-        " MD": {
-          "text": " MD"
+        "MD": {
+          "text": "MD"
         },
-        " MA": {
-          "text": " MA"
+        "MA": {
+          "text": "MA"
         },
-        " MI": {
-          "text": " MI"
+        "MI": {
+          "text": "MI"
         },
-        " MN": {
-          "text": " MN"
+        "MN": {
+          "text": "MN"
         },
-        " MS": {
-          "text": " MS"
+        "MS": {
+          "text": "MS"
         },
-        " MO": {
-          "text": " MO"
+        "MO": {
+          "text": "MO"
         },
-        " MT": {
-          "text": " MT"
+        "MT": {
+          "text": "MT"
         },
-        " NB*": {
-          "text": " NB*"
+        "NB*": {
+          "text": "NB*"
         },
-        " *to NE in 1969": {
-          "text": " *to NE in 1969"
+        "*to NE in 1969": {
+          "text": "*to NE in 1969"
         },
-        " NV": {
-          "text": " NV"
+        "NV": {
+          "text": "NV"
         },
-        " NH": {
-          "text": " NH"
+        "NH": {
+          "text": "NH"
         },
-        " NJ": {
-          "text": " NJ"
+        "NJ": {
+          "text": "NJ"
         },
-        " NM": {
-          "text": " NM"
+        "NM": {
+          "text": "NM"
         },
-        " NY": {
-          "text": " NY"
+        "NY": {
+          "text": "NY"
         },
-        " NC": {
-          "text": " NC"
+        "NC": {
+          "text": "NC"
         },
-        " ND": {
-          "text": " ND"
+        "ND": {
+          "text": "ND"
         },
-        " OH": {
-          "text": " OH"
+        "OH": {
+          "text": "OH"
         },
-        " OK": {
-          "text": " OK"
+        "OK": {
+          "text": "OK"
         },
-        " OR": {
-          "text": " OR"
+        "OR": {
+          "text": "OR"
         },
-        " PA": {
-          "text": " PA"
+        "PA": {
+          "text": "PA"
         },
-        " PR": {
-          "text": " PR"
+        "PR": {
+          "text": "PR"
         },
-        " RI": {
-          "text": " RI"
+        "RI": {
+          "text": "RI"
         },
-        " SC": {
-          "text": " SC"
+        "SC": {
+          "text": "SC"
         },
-        " SD": {
-          "text": " SD"
+        "SD": {
+          "text": "SD"
         },
-        " TN": {
-          "text": " TN"
+        "TN": {
+          "text": "TN"
         },
-        " TX": {
-          "text": " TX"
+        "TX": {
+          "text": "TX"
         },
-        " UT": {
-          "text": " UT"
+        "UT": {
+          "text": "UT"
         },
-        " VT": {
-          "text": " VT"
+        "VT": {
+          "text": "VT"
         },
-        " VA": {
-          "text": " VA"
+        "VA": {
+          "text": "VA"
         },
-        " WA": {
-          "text": " WA"
+        "WA": {
+          "text": "WA"
         },
-        " WV": {
-          "text": " WV"
+        "WV": {
+          "text": "WV"
         },
-        " WI": {
-          "text": " WI"
+        "WI": {
+          "text": "WI"
         },
-        " WY": {
-          "text": " WY"
+        "WY": {
+          "text": "WY"
+        }
+      }
+    },
+    "support_source menu": {
+      "name": "support_source menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "NIEHS": {
+          "text": "NIEHS"
+        },
+        "NIDDK": {
+          "text": "NIDDK"
+        },
+        "NHGRI": {
+          "text": "NHGRI"
+        },
+        "NHLBI": {
+          "text": "NHLBI"
+        },
+        "NIAID": {
+          "text": "NIAID"
+        },
+        "NLM": {
+          "text": "NLM"
+        },
+        "Superfund Basic Research Program": {
+          "text": "Superfund Basic Research Program"
         }
       }
     },
@@ -381,20 +446,35 @@
       "name": "study_design menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "dose response design": {
           "text": "dose response design"
         },
-        " case control design\ncross sectional design": {
-          "text": " case control design\ncross sectional design"
+        "case control design\ncross sectional design": {
+          "text": "case control design\ncross sectional design"
         },
-        " genetic modification design": {
-          "text": " genetic modification design"
+        "genetic modification design": {
+          "text": "genetic modification design"
         },
-        " sex design": {
-          "text": " sex design"
+        "sex design": {
+          "text": "sex design"
         },
-        " time series design": {
-          "text": " time series design"
+        "time series design": {
+          "text": "time series design"
         }
       }
     },
@@ -402,6 +482,21 @@
       "name": "study_type menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Teratology": {
           "text": "Teratology"
         },
@@ -465,11 +560,26 @@
       "name": "experimental_setting menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "in vivo": {
           "text": "in vivo"
         },
-        " ex vivo": {
-          "text": " ex vivo"
+        "ex vivo": {
+          "text": "ex vivo"
         }
       }
     },
@@ -477,23 +587,38 @@
       "name": "Organism menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Homo sapiens": {
           "text": "Homo sapiens"
         },
-        " Mus musculus": {
-          "text": " Mus musculus"
+        "Mus musculus": {
+          "text": "Mus musculus"
         },
-        " Rattus norvegicus": {
-          "text": " Rattus norvegicus"
+        "Rattus norvegicus": {
+          "text": "Rattus norvegicus"
         },
-        " Drosophila melanogaster": {
-          "text": " Drosophila melanogaster"
+        "Drosophila melanogaster": {
+          "text": "Drosophila melanogaster"
         },
-        " Danio rerio": {
-          "text": " Danio rerio"
+        "Danio rerio": {
+          "text": "Danio rerio"
         },
-        " Xenopus laevis": {
-          "text": " Xenopus laevis"
+        "Xenopus laevis": {
+          "text": "Xenopus laevis"
         }
       }
     },
@@ -501,11 +626,26 @@
       "name": "sex menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "male": {
           "text": "male"
         },
-        " female": {
-          "text": " female"
+        "female": {
+          "text": "female"
         }
       }
     },
@@ -513,29 +653,44 @@
       "name": "strain menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "C57BL/6NCrl": {
           "text": "C57BL/6NCrl"
         },
-        " C57BL/6J": {
-          "text": " C57BL/6J"
+        "C57BL/6J": {
+          "text": "C57BL/6J"
         },
-        " 129/Sv": {
-          "text": " 129/Sv"
+        "129/Sv": {
+          "text": "129/Sv"
         },
-        " FVB/N": {
-          "text": " FVB/N"
+        "FVB/N": {
+          "text": "FVB/N"
         },
-        " BALB/cJ": {
-          "text": " BALB/cJ"
+        "BALB/cJ": {
+          "text": "BALB/cJ"
         },
-        " C3H/HeJ": {
-          "text": " C3H/HeJ"
+        "C3H/HeJ": {
+          "text": "C3H/HeJ"
         },
-        " Sprague-Dawley": {
-          "text": " Sprague-Dawley"
+        "Sprague-Dawley": {
+          "text": "Sprague-Dawley"
         },
-        " Dahl SS": {
-          "text": " Dahl SS"
+        "Dahl SS": {
+          "text": "Dahl SS"
         }
       }
     },
@@ -543,11 +698,26 @@
       "name": "euthanasia_method menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Carbon dioxide asphyxiation": {
           "text": "Carbon dioxide asphyxiation"
         },
-        " Cervical dislocation": {
-          "text": " Cervical dislocation"
+        "Cervical dislocation": {
+          "text": "Cervical dislocation"
         }
       }
     },
@@ -555,14 +725,29 @@
       "name": "bedding_type menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "ALPHA-dri": {
           "text": "ALPHA-dri"
         },
-        " corn cob": {
-          "text": " corn cob"
+        "corn cob": {
+          "text": "corn cob"
         },
-        " wood shavings": {
-          "text": " wood shavings"
+        "wood shavings": {
+          "text": "wood shavings"
         }
       }
     },
@@ -570,11 +755,26 @@
       "name": "feeding_paradigm menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "ad libitum": {
           "text": "ad libitum"
         },
-        " restricted": {
-          "text": " restricted"
+        "restricted": {
+          "text": "restricted"
         }
       }
     },
@@ -582,17 +782,32 @@
       "name": "dose_amount_unit menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "milligram per kilogram": {
           "text": "milligram per kilogram"
         },
-        " microgram per kilogram": {
-          "text": " microgram per kilogram"
+        "microgram per kilogram": {
+          "text": "microgram per kilogram"
         },
-        " milligram per kilogram per day": {
-          "text": " milligram per kilogram per day"
+        "milligram per kilogram per day": {
+          "text": "milligram per kilogram per day"
         },
-        " microgram per kilogram per day": {
-          "text": " microgram per kilogram per day"
+        "microgram per kilogram per day": {
+          "text": "microgram per kilogram per day"
         }
       }
     },
@@ -600,155 +815,170 @@
       "name": "route menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Administration via Cytapheresis": {
           "text": "Administration via Cytapheresis"
         },
-        " Administration via Fistula": {
-          "text": " Administration via Fistula"
+        "Administration via Fistula": {
+          "text": "Administration via Fistula"
         },
-        " Administration via Stoma": {
-          "text": " Administration via Stoma"
+        "Administration via Stoma": {
+          "text": "Administration via Stoma"
         },
-        " Auricular Route of Administration": {
-          "text": " Auricular Route of Administration"
+        "Auricular Route of Administration": {
+          "text": "Auricular Route of Administration"
         },
-        " Combination Route of Administration": {
-          "text": " Combination Route of Administration"
+        "Combination Route of Administration": {
+          "text": "Combination Route of Administration"
         },
-        " Concomitant Medication Route of Administration": {
-          "text": " Concomitant Medication Route of Administration"
+        "Concomitant Medication Route of Administration": {
+          "text": "Concomitant Medication Route of Administration"
         },
-        " Dental Route of Administration": {
-          "text": " Dental Route of Administration"
+        "Dental Route of Administration": {
+          "text": "Dental Route of Administration"
         },
-        " Dietary Route of Administration": {
-          "text": " Dietary Route of Administration"
+        "Dietary Route of Administration": {
+          "text": "Dietary Route of Administration"
         },
-        " Drop Instillation Route of Administration": {
-          "text": " Drop Instillation Route of Administration"
+        "Drop Instillation Route of Administration": {
+          "text": "Drop Instillation Route of Administration"
         },
-        " Electro-osmosis Route of Administration": {
-          "text": " Electro-osmosis Route of Administration"
+        "Electro-osmosis Route of Administration": {
+          "text": "Electro-osmosis Route of Administration"
         },
-        " Endotracheal Route of Administration": {
-          "text": " Endotracheal Route of Administration"
+        "Endotracheal Route of Administration": {
+          "text": "Endotracheal Route of Administration"
         },
-        " Enteral Route of Administration": {
-          "text": " Enteral Route of Administration"
+        "Enteral Route of Administration": {
+          "text": "Enteral Route of Administration"
         },
-        " Epilesional Route of Administration": {
-          "text": " Epilesional Route of Administration"
+        "Epilesional Route of Administration": {
+          "text": "Epilesional Route of Administration"
         },
-        " Exposure Route of Administration": {
-          "text": " Exposure Route of Administration"
+        "Exposure Route of Administration": {
+          "text": "Exposure Route of Administration"
         },
-        " Exposure as Collected Route of Administration": {
-          "text": " Exposure as Collected Route of Administration"
+        "Exposure as Collected Route of Administration": {
+          "text": "Exposure as Collected Route of Administration"
         },
-        " External Route of Administration": {
-          "text": " External Route of Administration"
+        "External Route of Administration": {
+          "text": "External Route of Administration"
         },
-        " Extracorporeal Circulation Route of Administration": {
-          "text": " Extracorporeal Circulation Route of Administration"
+        "Extracorporeal Circulation Route of Administration": {
+          "text": "Extracorporeal Circulation Route of Administration"
         },
-        " Genitourinary Route of Administration": {
-          "text": " Genitourinary Route of Administration"
+        "Genitourinary Route of Administration": {
+          "text": "Genitourinary Route of Administration"
         },
-        " Immersion Route of Exposure": {
-          "text": " Immersion Route of Exposure"
+        "Immersion Route of Exposure": {
+          "text": "Immersion Route of Exposure"
         },
-        " In Beehive Route of Administration": {
-          "text": " In Beehive Route of Administration"
+        "In Beehive Route of Administration": {
+          "text": "In Beehive Route of Administration"
         },
-        " In Vitro Route of Administration": {
-          "text": " In Vitro Route of Administration"
+        "In Vitro Route of Administration": {
+          "text": "In Vitro Route of Administration"
         },
-        " Inhalation Route of Administration": {
-          "text": " Inhalation Route of Administration"
+        "Inhalation Route of Administration": {
+          "text": "Inhalation Route of Administration"
         },
-        " Injection Route of Administration": {
-          "text": " Injection Route of Administration"
+        "Injection Route of Administration": {
+          "text": "Injection Route of Administration"
         },
-        " Intestinal Route of Administration": {
-          "text": " Intestinal Route of Administration"
+        "Intestinal Route of Administration": {
+          "text": "Intestinal Route of Administration"
         },
-        " Intracavernous Route of Administration": {
-          "text": " Intracavernous Route of Administration"
+        "Intracavernous Route of Administration": {
+          "text": "Intracavernous Route of Administration"
         },
-        " Intracavitary Route of Administration": {
-          "text": " Intracavitary Route of Administration"
+        "Intracavitary Route of Administration": {
+          "text": "Intracavitary Route of Administration"
         },
-        " Intracholangiopancreatic Route of Administration": {
-          "text": " Intracholangiopancreatic Route of Administration"
+        "Intracholangiopancreatic Route of Administration": {
+          "text": "Intracholangiopancreatic Route of Administration"
         },
-        " Intracochlear Route of Administration": {
-          "text": " Intracochlear Route of Administration"
+        "Intracochlear Route of Administration": {
+          "text": "Intracochlear Route of Administration"
         },
-        " Intraglandular Route of Administration": {
-          "text": " Intraglandular Route of Administration"
+        "Intraglandular Route of Administration": {
+          "text": "Intraglandular Route of Administration"
         },
-        " Intrajejunal Route of Administration": {
-          "text": " Intrajejunal Route of Administration"
+        "Intrajejunal Route of Administration": {
+          "text": "Intrajejunal Route of Administration"
         },
-        " Intralesional Route of Administration": {
-          "text": " Intralesional Route of Administration"
+        "Intralesional Route of Administration": {
+          "text": "Intralesional Route of Administration"
         },
-        " Intramandibular Route of Administration": {
-          "text": " Intramandibular Route of Administration"
+        "Intramandibular Route of Administration": {
+          "text": "Intramandibular Route of Administration"
         },
-        " Intrapalatal Route of Administration": {
-          "text": " Intrapalatal Route of Administration"
+        "Intrapalatal Route of Administration": {
+          "text": "Intrapalatal Route of Administration"
         },
-        " Intraparenchymal Route of Administration": {
-          "text": " Intraparenchymal Route of Administration"
+        "Intraparenchymal Route of Administration": {
+          "text": "Intraparenchymal Route of Administration"
         },
-        " Intrasurgical Site Route of Administration": {
-          "text": " Intrasurgical Site Route of Administration"
+        "Intrasurgical Site Route of Administration": {
+          "text": "Intrasurgical Site Route of Administration"
         },
-        " Intrathalamic Route of Administration": {
-          "text": " Intrathalamic Route of Administration"
+        "Intrathalamic Route of Administration": {
+          "text": "Intrathalamic Route of Administration"
         },
-        " Intraurethral Route of Administration": {
-          "text": " Intraurethral Route of Administration"
+        "Intraurethral Route of Administration": {
+          "text": "Intraurethral Route of Administration"
         },
-        " Intravaginal Route of Administration": {
-          "text": " Intravaginal Route of Administration"
+        "Intravaginal Route of Administration": {
+          "text": "Intravaginal Route of Administration"
         },
-        " Iontophoresis Route of Administration": {
-          "text": " Iontophoresis Route of Administration"
+        "Iontophoresis Route of Administration": {
+          "text": "Iontophoresis Route of Administration"
         },
-        " Laryngeal Route of Administration": {
-          "text": " Laryngeal Route of Administration"
+        "Laryngeal Route of Administration": {
+          "text": "Laryngeal Route of Administration"
         },
-        " Laryngotracheal Route of Administration": {
-          "text": " Laryngotracheal Route of Administration"
+        "Laryngotracheal Route of Administration": {
+          "text": "Laryngotracheal Route of Administration"
         },
-        " Microdialysis Route of Administration": {
-          "text": " Microdialysis Route of Administration"
+        "Microdialysis Route of Administration": {
+          "text": "Microdialysis Route of Administration"
         },
-        " Mucosal Route of Administration": {
-          "text": " Mucosal Route of Administration"
+        "Mucosal Route of Administration": {
+          "text": "Mucosal Route of Administration"
         },
-        " Nasal Route of Administration": {
-          "text": " Nasal Route of Administration"
+        "Nasal Route of Administration": {
+          "text": "Nasal Route of Administration"
         },
-        " Oculonasal Route of Administration": {
-          "text": " Oculonasal Route of Administration"
+        "Oculonasal Route of Administration": {
+          "text": "Oculonasal Route of Administration"
         },
-        " Ophthalmic Route of Administration": {
-          "text": " Ophthalmic Route of Administration"
+        "Ophthalmic Route of Administration": {
+          "text": "Ophthalmic Route of Administration"
         },
-        " Oral Gavage Route of Administration": {
-          "text": " Oral Gavage Route of Administration"
+        "Oral Gavage Route of Administration": {
+          "text": "Oral Gavage Route of Administration"
         },
-        " Oral Route of Administration": {
-          "text": " Oral Route of Administration"
+        "Oral Route of Administration": {
+          "text": "Oral Route of Administration"
         },
-        " Other Route of Administration": {
-          "text": " Other Route of Administration"
+        "Other Route of Administration": {
+          "text": "Other Route of Administration"
         },
-        " Parenteral Route of Administration": {
-          "text": " Parenteral Route of Administration"
+        "Parenteral Route of Administration": {
+          "text": "Parenteral Route of Administration"
         }
       }
     },
@@ -756,845 +986,860 @@
       "name": "biospecimen_anatomic_site menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Abdomen": {
           "text": "Abdomen"
         },
-        " Abdominal Wall": {
-          "text": " Abdominal Wall"
+        "Abdominal Wall": {
+          "text": "Abdominal Wall"
         },
-        " Acetabulum": {
-          "text": " Acetabulum"
+        "Acetabulum": {
+          "text": "Acetabulum"
         },
-        " Adenoid": {
-          "text": " Adenoid"
+        "Adenoid": {
+          "text": "Adenoid"
         },
-        " Adipose": {
-          "text": " Adipose"
+        "Adipose": {
+          "text": "Adipose"
         },
-        " Adrenal": {
-          "text": " Adrenal"
+        "Adrenal": {
+          "text": "Adrenal"
         },
-        " Alveolar Ridge": {
-          "text": " Alveolar Ridge"
+        "Alveolar Ridge": {
+          "text": "Alveolar Ridge"
         },
-        " Amniotic Fluid": {
-          "text": " Amniotic Fluid"
+        "Amniotic Fluid": {
+          "text": "Amniotic Fluid"
         },
-        " Ampulla Of Vater": {
-          "text": " Ampulla Of Vater"
+        "Ampulla Of Vater": {
+          "text": "Ampulla Of Vater"
         },
-        " Anal Sphincter": {
-          "text": " Anal Sphincter"
+        "Anal Sphincter": {
+          "text": "Anal Sphincter"
         },
-        " Ankle": {
-          "text": " Ankle"
+        "Ankle": {
+          "text": "Ankle"
         },
-        " Anorectum": {
-          "text": " Anorectum"
+        "Anorectum": {
+          "text": "Anorectum"
         },
-        " Antecubital Fossa": {
-          "text": " Antecubital Fossa"
+        "Antecubital Fossa": {
+          "text": "Antecubital Fossa"
         },
-        " Antrum": {
-          "text": " Antrum"
+        "Antrum": {
+          "text": "Antrum"
         },
-        " Anus": {
-          "text": " Anus"
+        "Anus": {
+          "text": "Anus"
         },
-        " Aorta": {
-          "text": " Aorta"
+        "Aorta": {
+          "text": "Aorta"
         },
-        " Aortic Body": {
-          "text": " Aortic Body"
+        "Aortic Body": {
+          "text": "Aortic Body"
         },
-        " Appendix": {
-          "text": " Appendix"
+        "Appendix": {
+          "text": "Appendix"
         },
-        " Aqueous Fluid": {
-          "text": " Aqueous Fluid"
+        "Aqueous Fluid": {
+          "text": "Aqueous Fluid"
         },
-        " Arm": {
-          "text": " Arm"
+        "Arm": {
+          "text": "Arm"
         },
-        " Artery": {
-          "text": " Artery"
+        "Artery": {
+          "text": "Artery"
         },
-        " Ascending Colon": {
-          "text": " Ascending Colon"
+        "Ascending Colon": {
+          "text": "Ascending Colon"
         },
-        " Ascending Colon Hepatic Flexure": {
-          "text": " Ascending Colon Hepatic Flexure"
+        "Ascending Colon Hepatic Flexure": {
+          "text": "Ascending Colon Hepatic Flexure"
         },
-        " Auditory Canal": {
-          "text": " Auditory Canal"
+        "Auditory Canal": {
+          "text": "Auditory Canal"
         },
-        " Autonomic Nervous System": {
-          "text": " Autonomic Nervous System"
+        "Autonomic Nervous System": {
+          "text": "Autonomic Nervous System"
         },
-        " Axilla": {
-          "text": " Axilla"
+        "Axilla": {
+          "text": "Axilla"
         },
-        " Back": {
-          "text": " Back"
+        "Back": {
+          "text": "Back"
         },
-        " Bile Duct": {
-          "text": " Bile Duct"
+        "Bile Duct": {
+          "text": "Bile Duct"
         },
-        " Bladder": {
-          "text": " Bladder"
+        "Bladder": {
+          "text": "Bladder"
         },
-        " Blood": {
-          "text": " Blood"
+        "Blood": {
+          "text": "Blood"
         },
-        " Blood Vessel": {
-          "text": " Blood Vessel"
+        "Blood Vessel": {
+          "text": "Blood Vessel"
         },
-        " Bone": {
-          "text": " Bone"
+        "Bone": {
+          "text": "Bone"
         },
-        " Bone Marrow": {
-          "text": " Bone Marrow"
+        "Bone Marrow": {
+          "text": "Bone Marrow"
         },
-        " Bowel": {
-          "text": " Bowel"
+        "Bowel": {
+          "text": "Bowel"
         },
-        " Brain": {
-          "text": " Brain"
+        "Brain": {
+          "text": "Brain"
         },
-        " Brain Stem": {
-          "text": " Brain Stem"
+        "Brain Stem": {
+          "text": "Brain Stem"
         },
-        " Breast": {
-          "text": " Breast"
+        "Breast": {
+          "text": "Breast"
         },
-        " Broad Ligament": {
-          "text": " Broad Ligament"
+        "Broad Ligament": {
+          "text": "Broad Ligament"
         },
-        " Bronchiole": {
-          "text": " Bronchiole"
+        "Bronchiole": {
+          "text": "Bronchiole"
         },
-        " Bronchus": {
-          "text": " Bronchus"
+        "Bronchus": {
+          "text": "Bronchus"
         },
-        " Brow": {
-          "text": " Brow"
+        "Brow": {
+          "text": "Brow"
         },
-        " Buccal Cavity": {
-          "text": " Buccal Cavity"
+        "Buccal Cavity": {
+          "text": "Buccal Cavity"
         },
-        " Buccal Mucosa": {
-          "text": " Buccal Mucosa"
+        "Buccal Mucosa": {
+          "text": "Buccal Mucosa"
         },
-        " Buttock": {
-          "text": " Buttock"
+        "Buttock": {
+          "text": "Buttock"
         },
-        " Calf": {
-          "text": " Calf"
+        "Calf": {
+          "text": "Calf"
         },
-        " Capillary": {
-          "text": " Capillary"
+        "Capillary": {
+          "text": "Capillary"
         },
-        " Cardia": {
-          "text": " Cardia"
+        "Cardia": {
+          "text": "Cardia"
         },
-        " Carina": {
-          "text": " Carina"
+        "Carina": {
+          "text": "Carina"
         },
-        " Carotid Artery": {
-          "text": " Carotid Artery"
+        "Carotid Artery": {
+          "text": "Carotid Artery"
         },
-        " Carotid Body": {
-          "text": " Carotid Body"
+        "Carotid Body": {
+          "text": "Carotid Body"
         },
-        " Cartilage": {
-          "text": " Cartilage"
+        "Cartilage": {
+          "text": "Cartilage"
         },
-        " Cecum": {
-          "text": " Cecum"
+        "Cecum": {
+          "text": "Cecum"
         },
-        " Cell-Line": {
-          "text": " Cell-Line"
+        "Cell-Line": {
+          "text": "Cell-Line"
         },
-        " Central Nervous System": {
-          "text": " Central Nervous System"
+        "Central Nervous System": {
+          "text": "Central Nervous System"
         },
-        " Cerebellum": {
-          "text": " Cerebellum"
+        "Cerebellum": {
+          "text": "Cerebellum"
         },
-        " Cerebral Cortex": {
-          "text": " Cerebral Cortex"
+        "Cerebral Cortex": {
+          "text": "Cerebral Cortex"
         },
-        " Cerebrospinal Fluid": {
-          "text": " Cerebrospinal Fluid"
+        "Cerebrospinal Fluid": {
+          "text": "Cerebrospinal Fluid"
         },
-        " Cerebrum": {
-          "text": " Cerebrum"
+        "Cerebrum": {
+          "text": "Cerebrum"
         },
-        " Cervical Spine": {
-          "text": " Cervical Spine"
+        "Cervical Spine": {
+          "text": "Cervical Spine"
         },
-        " Cervix": {
-          "text": " Cervix"
+        "Cervix": {
+          "text": "Cervix"
         },
-        " Chest": {
-          "text": " Chest"
+        "Chest": {
+          "text": "Chest"
         },
-        " Chest Wall": {
-          "text": " Chest Wall"
+        "Chest Wall": {
+          "text": "Chest Wall"
         },
-        " Chin": {
-          "text": " Chin"
+        "Chin": {
+          "text": "Chin"
         },
-        " Clavicle": {
-          "text": " Clavicle"
+        "Clavicle": {
+          "text": "Clavicle"
         },
-        " Clitoris": {
-          "text": " Clitoris"
+        "Clitoris": {
+          "text": "Clitoris"
         },
-        " Colon": {
-          "text": " Colon"
+        "Colon": {
+          "text": "Colon"
         },
-        " Colon - Mucosa Only": {
-          "text": " Colon - Mucosa Only"
+        "Colon - Mucosa Only": {
+          "text": "Colon - Mucosa Only"
         },
-        " Common Duct": {
-          "text": " Common Duct"
+        "Common Duct": {
+          "text": "Common Duct"
         },
-        " Conjunctiva": {
-          "text": " Conjunctiva"
+        "Conjunctiva": {
+          "text": "Conjunctiva"
         },
-        " Connective Tissue": {
-          "text": " Connective Tissue"
+        "Connective Tissue": {
+          "text": "Connective Tissue"
         },
-        " Dermal": {
-          "text": " Dermal"
+        "Dermal": {
+          "text": "Dermal"
         },
-        " Descending Colon": {
-          "text": " Descending Colon"
+        "Descending Colon": {
+          "text": "Descending Colon"
         },
-        " Diaphragm": {
-          "text": " Diaphragm"
+        "Diaphragm": {
+          "text": "Diaphragm"
         },
-        " Duodenum": {
-          "text": " Duodenum"
+        "Duodenum": {
+          "text": "Duodenum"
         },
-        " Ear": {
-          "text": " Ear"
+        "Ear": {
+          "text": "Ear"
         },
-        " Ear Canal": {
-          "text": " Ear Canal"
+        "Ear Canal": {
+          "text": "Ear Canal"
         },
-        " Pinna (External)": {
-          "text": " Pinna (External)"
+        "Pinna (External)": {
+          "text": "Pinna (External)"
         },
-        " Effusion": {
-          "text": " Effusion"
+        "Effusion": {
+          "text": "Effusion"
         },
-        " Elbow": {
-          "text": " Elbow"
+        "Elbow": {
+          "text": "Elbow"
         },
-        " Endocrine Gland": {
-          "text": " Endocrine Gland"
+        "Endocrine Gland": {
+          "text": "Endocrine Gland"
         },
-        " Epididymis": {
-          "text": " Epididymis"
+        "Epididymis": {
+          "text": "Epididymis"
         },
-        " Epidural Space": {
-          "text": " Epidural Space"
+        "Epidural Space": {
+          "text": "Epidural Space"
         },
-        " Esophagogastric Junction": {
-          "text": " Esophagogastric Junction"
+        "Esophagogastric Junction": {
+          "text": "Esophagogastric Junction"
         },
-        " Esophagus": {
-          "text": " Esophagus"
+        "Esophagus": {
+          "text": "Esophagus"
         },
-        " Esophagus - Mucosa Only": {
-          "text": " Esophagus - Mucosa Only"
+        "Esophagus - Mucosa Only": {
+          "text": "Esophagus - Mucosa Only"
         },
-        " Eye": {
-          "text": " Eye"
+        "Eye": {
+          "text": "Eye"
         },
-        " Fallopian Tube": {
-          "text": " Fallopian Tube"
+        "Fallopian Tube": {
+          "text": "Fallopian Tube"
         },
-        " Femoral Artery": {
-          "text": " Femoral Artery"
+        "Femoral Artery": {
+          "text": "Femoral Artery"
         },
-        " Femoral Vein": {
-          "text": " Femoral Vein"
+        "Femoral Vein": {
+          "text": "Femoral Vein"
         },
-        " Femur": {
-          "text": " Femur"
+        "Femur": {
+          "text": "Femur"
         },
-        " Fibroblasts": {
-          "text": " Fibroblasts"
+        "Fibroblasts": {
+          "text": "Fibroblasts"
         },
-        " Fibula": {
-          "text": " Fibula"
+        "Fibula": {
+          "text": "Fibula"
         },
-        " Finger": {
-          "text": " Finger"
+        "Finger": {
+          "text": "Finger"
         },
-        " Floor Of Mouth": {
-          "text": " Floor Of Mouth"
+        "Floor Of Mouth": {
+          "text": "Floor Of Mouth"
         },
-        " Fluid": {
-          "text": " Fluid"
+        "Fluid": {
+          "text": "Fluid"
         },
-        " Foot": {
-          "text": " Foot"
+        "Foot": {
+          "text": "Foot"
         },
-        " Forearm": {
-          "text": " Forearm"
+        "Forearm": {
+          "text": "Forearm"
         },
-        " Forehead": {
-          "text": " Forehead"
+        "Forehead": {
+          "text": "Forehead"
         },
-        " Foreskin": {
-          "text": " Foreskin"
+        "Foreskin": {
+          "text": "Foreskin"
         },
-        " Frontal Cortex": {
-          "text": " Frontal Cortex"
+        "Frontal Cortex": {
+          "text": "Frontal Cortex"
         },
-        " Frontal Lobe": {
-          "text": " Frontal Lobe"
+        "Frontal Lobe": {
+          "text": "Frontal Lobe"
         },
-        " Fundus Of Stomach": {
-          "text": " Fundus Of Stomach"
+        "Fundus Of Stomach": {
+          "text": "Fundus Of Stomach"
         },
-        " Gallbladder": {
-          "text": " Gallbladder"
+        "Gallbladder": {
+          "text": "Gallbladder"
         },
-        " Ganglia": {
-          "text": " Ganglia"
+        "Ganglia": {
+          "text": "Ganglia"
         },
-        " Gastroesophageal Junction": {
-          "text": " Gastroesophageal Junction"
+        "Gastroesophageal Junction": {
+          "text": "Gastroesophageal Junction"
         },
-        " Gastrointestinal Tract": {
-          "text": " Gastrointestinal Tract"
+        "Gastrointestinal Tract": {
+          "text": "Gastrointestinal Tract"
         },
-        " Groin": {
-          "text": " Groin"
+        "Groin": {
+          "text": "Groin"
         },
-        " Gum": {
-          "text": " Gum"
+        "Gum": {
+          "text": "Gum"
         },
-        " Hand": {
-          "text": " Hand"
+        "Hand": {
+          "text": "Hand"
         },
-        " Hard Palate": {
-          "text": " Hard Palate"
+        "Hard Palate": {
+          "text": "Hard Palate"
         },
-        " Head & Neck": {
-          "text": " Head & Neck"
+        "Head & Neck": {
+          "text": "Head & Neck"
         },
-        " Head - Face Or Neck": {
-          "text": " Head - Face Or Neck"
+        "Head - Face Or Neck": {
+          "text": "Head - Face Or Neck"
         },
-        " Nos": {
-          "text": " Nos"
+        "Nos": {
+          "text": "Nos"
         },
-        " Heart": {
-          "text": " Heart"
+        "Heart": {
+          "text": "Heart"
         },
-        " Hepatic": {
-          "text": " Hepatic"
+        "Hepatic": {
+          "text": "Hepatic"
         },
-        " Hepatic Duct": {
-          "text": " Hepatic Duct"
+        "Hepatic Duct": {
+          "text": "Hepatic Duct"
         },
-        " Hepatic Vein": {
-          "text": " Hepatic Vein"
+        "Hepatic Vein": {
+          "text": "Hepatic Vein"
         },
-        " Hip": {
-          "text": " Hip"
+        "Hip": {
+          "text": "Hip"
         },
-        " Hippocampus": {
-          "text": " Hippocampus"
+        "Hippocampus": {
+          "text": "Hippocampus"
         },
-        " Humerus": {
-          "text": " Humerus"
+        "Humerus": {
+          "text": "Humerus"
         },
-        " Hypopharynx": {
-          "text": " Hypopharynx"
+        "Hypopharynx": {
+          "text": "Hypopharynx"
         },
-        " Ileum": {
-          "text": " Ileum"
+        "Ileum": {
+          "text": "Ileum"
         },
-        " Ilium": {
-          "text": " Ilium"
+        "Ilium": {
+          "text": "Ilium"
         },
-        " Index Finger": {
-          "text": " Index Finger"
+        "Index Finger": {
+          "text": "Index Finger"
         },
-        " Ischium": {
-          "text": " Ischium"
+        "Ischium": {
+          "text": "Ischium"
         },
-        " Islet Cells": {
-          "text": " Islet Cells"
+        "Islet Cells": {
+          "text": "Islet Cells"
         },
-        " Jaw": {
-          "text": " Jaw"
+        "Jaw": {
+          "text": "Jaw"
         },
-        " Jejunum": {
-          "text": " Jejunum"
+        "Jejunum": {
+          "text": "Jejunum"
         },
-        " Joint": {
-          "text": " Joint"
+        "Joint": {
+          "text": "Joint"
         },
-        " Kidney": {
-          "text": " Kidney"
+        "Kidney": {
+          "text": "Kidney"
         },
-        " Knee": {
-          "text": " Knee"
+        "Knee": {
+          "text": "Knee"
         },
-        " Lacrimal Gland": {
-          "text": " Lacrimal Gland"
+        "Lacrimal Gland": {
+          "text": "Lacrimal Gland"
         },
-        " Large Bowel": {
-          "text": " Large Bowel"
+        "Large Bowel": {
+          "text": "Large Bowel"
         },
-        " Laryngopharynx": {
-          "text": " Laryngopharynx"
+        "Laryngopharynx": {
+          "text": "Laryngopharynx"
         },
-        " Larynx": {
-          "text": " Larynx"
+        "Larynx": {
+          "text": "Larynx"
         },
-        " Leg": {
-          "text": " Leg"
+        "Leg": {
+          "text": "Leg"
         },
-        " Leptomeninges": {
-          "text": " Leptomeninges"
+        "Leptomeninges": {
+          "text": "Leptomeninges"
         },
-        " Ligament": {
-          "text": " Ligament"
+        "Ligament": {
+          "text": "Ligament"
         },
-        " Lip": {
-          "text": " Lip"
+        "Lip": {
+          "text": "Lip"
         },
-        " Liver": {
-          "text": " Liver"
+        "Liver": {
+          "text": "Liver"
         },
-        " Lumbar Spine": {
-          "text": " Lumbar Spine"
+        "Lumbar Spine": {
+          "text": "Lumbar Spine"
         },
-        " Lung": {
-          "text": " Lung"
+        "Lung": {
+          "text": "Lung"
         },
-        " Lymph Node": {
-          "text": " Lymph Node"
+        "Lymph Node": {
+          "text": "Lymph Node"
         },
-        " Lymph Node(s) Axilla": {
-          "text": " Lymph Node(s) Axilla"
+        "Lymph Node(s) Axilla": {
+          "text": "Lymph Node(s) Axilla"
         },
-        " Lymph Node(s) Cervical": {
-          "text": " Lymph Node(s) Cervical"
+        "Lymph Node(s) Cervical": {
+          "text": "Lymph Node(s) Cervical"
         },
-        " Lymph Node(s) Distant": {
-          "text": " Lymph Node(s) Distant"
+        "Lymph Node(s) Distant": {
+          "text": "Lymph Node(s) Distant"
         },
-        " Lymph Node(s) Epitrochlear": {
-          "text": " Lymph Node(s) Epitrochlear"
+        "Lymph Node(s) Epitrochlear": {
+          "text": "Lymph Node(s) Epitrochlear"
         },
-        " Lymph Node(s) Femoral": {
-          "text": " Lymph Node(s) Femoral"
+        "Lymph Node(s) Femoral": {
+          "text": "Lymph Node(s) Femoral"
         },
-        " Lymph Node(s) Hilar": {
-          "text": " Lymph Node(s) Hilar"
+        "Lymph Node(s) Hilar": {
+          "text": "Lymph Node(s) Hilar"
         },
-        " Lymph Node(s) Iliac-Common": {
-          "text": " Lymph Node(s) Iliac-Common"
+        "Lymph Node(s) Iliac-Common": {
+          "text": "Lymph Node(s) Iliac-Common"
         },
-        " Lymph Node(s) Iliac-External": {
-          "text": " Lymph Node(s) Iliac-External"
+        "Lymph Node(s) Iliac-External": {
+          "text": "Lymph Node(s) Iliac-External"
         },
-        " Lymph Node(s) Inguinal": {
-          "text": " Lymph Node(s) Inguinal"
+        "Lymph Node(s) Inguinal": {
+          "text": "Lymph Node(s) Inguinal"
         },
-        " Lymph Node(s) Internal Mammary": {
-          "text": " Lymph Node(s) Internal Mammary"
+        "Lymph Node(s) Internal Mammary": {
+          "text": "Lymph Node(s) Internal Mammary"
         },
-        " Lymph Node(s) Mammary": {
-          "text": " Lymph Node(s) Mammary"
+        "Lymph Node(s) Mammary": {
+          "text": "Lymph Node(s) Mammary"
         },
-        " Lymph Node(s) Mesenteric": {
-          "text": " Lymph Node(s) Mesenteric"
+        "Lymph Node(s) Mesenteric": {
+          "text": "Lymph Node(s) Mesenteric"
         },
-        " Lymph Node(s) Occipital": {
-          "text": " Lymph Node(s) Occipital"
+        "Lymph Node(s) Occipital": {
+          "text": "Lymph Node(s) Occipital"
         },
-        " Lymph Node(s) Paraaortic": {
-          "text": " Lymph Node(s) Paraaortic"
+        "Lymph Node(s) Paraaortic": {
+          "text": "Lymph Node(s) Paraaortic"
         },
-        " Lymph Node(s) Parotid": {
-          "text": " Lymph Node(s) Parotid"
+        "Lymph Node(s) Parotid": {
+          "text": "Lymph Node(s) Parotid"
         },
-        " Lymph Node(s) Pelvic": {
-          "text": " Lymph Node(s) Pelvic"
+        "Lymph Node(s) Pelvic": {
+          "text": "Lymph Node(s) Pelvic"
         },
-        " Lymph Node(s) Popliteal": {
-          "text": " Lymph Node(s) Popliteal"
+        "Lymph Node(s) Popliteal": {
+          "text": "Lymph Node(s) Popliteal"
         },
-        " Lymph Node(s) Regional": {
-          "text": " Lymph Node(s) Regional"
+        "Lymph Node(s) Regional": {
+          "text": "Lymph Node(s) Regional"
         },
-        " Lymph Node(s) Retroperitoneal": {
-          "text": " Lymph Node(s) Retroperitoneal"
+        "Lymph Node(s) Retroperitoneal": {
+          "text": "Lymph Node(s) Retroperitoneal"
         },
-        " Lymph Node(s) Scalene": {
-          "text": " Lymph Node(s) Scalene"
+        "Lymph Node(s) Scalene": {
+          "text": "Lymph Node(s) Scalene"
         },
-        " Lymph Node(s) Splenic": {
-          "text": " Lymph Node(s) Splenic"
+        "Lymph Node(s) Splenic": {
+          "text": "Lymph Node(s) Splenic"
         },
-        " Lymph Node(s) Subclavicular": {
-          "text": " Lymph Node(s) Subclavicular"
+        "Lymph Node(s) Subclavicular": {
+          "text": "Lymph Node(s) Subclavicular"
         },
-        " Lymph Node(s) Submandibular": {
-          "text": " Lymph Node(s) Submandibular"
+        "Lymph Node(s) Submandibular": {
+          "text": "Lymph Node(s) Submandibular"
         },
-        " Lymph Node(s) Supraclavicular": {
-          "text": " Lymph Node(s) Supraclavicular"
+        "Lymph Node(s) Supraclavicular": {
+          "text": "Lymph Node(s) Supraclavicular"
         },
-        " Lymph Nodes(s) Mediastinal": {
-          "text": " Lymph Nodes(s) Mediastinal"
+        "Lymph Nodes(s) Mediastinal": {
+          "text": "Lymph Nodes(s) Mediastinal"
         },
-        " Mandible": {
-          "text": " Mandible"
+        "Mandible": {
+          "text": "Mandible"
         },
-        " Maxilla": {
-          "text": " Maxilla"
+        "Maxilla": {
+          "text": "Maxilla"
         },
-        " Mediastinal Soft Tissue": {
-          "text": " Mediastinal Soft Tissue"
+        "Mediastinal Soft Tissue": {
+          "text": "Mediastinal Soft Tissue"
         },
-        " Mediastinum": {
-          "text": " Mediastinum"
+        "Mediastinum": {
+          "text": "Mediastinum"
         },
-        " Mesentery": {
-          "text": " Mesentery"
+        "Mesentery": {
+          "text": "Mesentery"
         },
-        " Mesothelium": {
-          "text": " Mesothelium"
+        "Mesothelium": {
+          "text": "Mesothelium"
         },
-        " Middle Finger": {
-          "text": " Middle Finger"
+        "Middle Finger": {
+          "text": "Middle Finger"
         },
-        " Mitochondria": {
-          "text": " Mitochondria"
+        "Mitochondria": {
+          "text": "Mitochondria"
         },
-        " Muscle": {
-          "text": " Muscle"
+        "Muscle": {
+          "text": "Muscle"
         },
-        " Nails": {
-          "text": " Nails"
+        "Nails": {
+          "text": "Nails"
         },
-        " Nasal Cavity": {
-          "text": " Nasal Cavity"
+        "Nasal Cavity": {
+          "text": "Nasal Cavity"
         },
-        " Nasal Soft Tissue": {
-          "text": " Nasal Soft Tissue"
+        "Nasal Soft Tissue": {
+          "text": "Nasal Soft Tissue"
         },
-        " Nasopharynx": {
-          "text": " Nasopharynx"
+        "Nasopharynx": {
+          "text": "Nasopharynx"
         },
-        " Neck": {
-          "text": " Neck"
+        "Neck": {
+          "text": "Neck"
         },
-        " Nerve": {
-          "text": " Nerve"
+        "Nerve": {
+          "text": "Nerve"
         },
-        " Nerve(s) Cranial": {
-          "text": " Nerve(s) Cranial"
+        "Nerve(s) Cranial": {
+          "text": "Nerve(s) Cranial"
         },
-        " Occipital Cortex": {
-          "text": " Occipital Cortex"
+        "Occipital Cortex": {
+          "text": "Occipital Cortex"
         },
-        " Ocular Orbits": {
-          "text": " Ocular Orbits"
+        "Ocular Orbits": {
+          "text": "Ocular Orbits"
         },
-        " Omentum": {
-          "text": " Omentum"
+        "Omentum": {
+          "text": "Omentum"
         },
-        " Oral Cavity": {
-          "text": " Oral Cavity"
+        "Oral Cavity": {
+          "text": "Oral Cavity"
         },
-        " Oral Cavity - Mucosa Only": {
-          "text": " Oral Cavity - Mucosa Only"
+        "Oral Cavity - Mucosa Only": {
+          "text": "Oral Cavity - Mucosa Only"
         },
-        " Oropharynx": {
-          "text": " Oropharynx"
+        "Oropharynx": {
+          "text": "Oropharynx"
         },
-        " Other": {
-          "text": " Other"
+        "Other": {
+          "text": "Other"
         },
-        " Ovary": {
-          "text": " Ovary"
+        "Ovary": {
+          "text": "Ovary"
         },
-        " Palate": {
-          "text": " Palate"
+        "Palate": {
+          "text": "Palate"
         },
-        " Pancreas": {
-          "text": " Pancreas"
+        "Pancreas": {
+          "text": "Pancreas"
         },
-        " Paraspinal Ganglion": {
-          "text": " Paraspinal Ganglion"
+        "Paraspinal Ganglion": {
+          "text": "Paraspinal Ganglion"
         },
-        " Parathyroid": {
-          "text": " Parathyroid"
+        "Parathyroid": {
+          "text": "Parathyroid"
         },
-        " Parotid Gland": {
-          "text": " Parotid Gland"
+        "Parotid Gland": {
+          "text": "Parotid Gland"
         },
-        " Patella": {
-          "text": " Patella"
+        "Patella": {
+          "text": "Patella"
         },
-        " Pelvis": {
-          "text": " Pelvis"
+        "Pelvis": {
+          "text": "Pelvis"
         },
-        " Penis": {
-          "text": " Penis"
+        "Penis": {
+          "text": "Penis"
         },
-        " Pericardium": {
-          "text": " Pericardium"
+        "Pericardium": {
+          "text": "Pericardium"
         },
-        " Periorbital Soft Tissue": {
-          "text": " Periorbital Soft Tissue"
+        "Periorbital Soft Tissue": {
+          "text": "Periorbital Soft Tissue"
         },
-        " Peritoneal Cavity": {
-          "text": " Peritoneal Cavity"
+        "Peritoneal Cavity": {
+          "text": "Peritoneal Cavity"
         },
-        " Peritoneum": {
-          "text": " Peritoneum"
+        "Peritoneum": {
+          "text": "Peritoneum"
         },
-        " Pharynx": {
-          "text": " Pharynx"
+        "Pharynx": {
+          "text": "Pharynx"
         },
-        " Pineal": {
-          "text": " Pineal"
+        "Pineal": {
+          "text": "Pineal"
         },
-        " Pineal Gland": {
-          "text": " Pineal Gland"
+        "Pineal Gland": {
+          "text": "Pineal Gland"
         },
-        " Pituitary Gland": {
-          "text": " Pituitary Gland"
+        "Pituitary Gland": {
+          "text": "Pituitary Gland"
         },
-        " Placenta": {
-          "text": " Placenta"
+        "Placenta": {
+          "text": "Placenta"
         },
-        " Pleura": {
-          "text": " Pleura"
+        "Pleura": {
+          "text": "Pleura"
         },
-        " Popliteal Fossa": {
-          "text": " Popliteal Fossa"
+        "Popliteal Fossa": {
+          "text": "Popliteal Fossa"
         },
-        " Prostate": {
-          "text": " Prostate"
+        "Prostate": {
+          "text": "Prostate"
         },
-        " Pylorus": {
-          "text": " Pylorus"
+        "Pylorus": {
+          "text": "Pylorus"
         },
-        " Rectosigmoid Junction": {
-          "text": " Rectosigmoid Junction"
+        "Rectosigmoid Junction": {
+          "text": "Rectosigmoid Junction"
         },
-        " Rectum": {
-          "text": " Rectum"
+        "Rectum": {
+          "text": "Rectum"
         },
-        " Retina": {
-          "text": " Retina"
+        "Retina": {
+          "text": "Retina"
         },
-        " Retro-Orbital Region": {
-          "text": " Retro-Orbital Region"
+        "Retro-Orbital Region": {
+          "text": "Retro-Orbital Region"
         },
-        " Retroperitoneum": {
-          "text": " Retroperitoneum"
+        "Retroperitoneum": {
+          "text": "Retroperitoneum"
         },
-        " Rib": {
-          "text": " Rib"
+        "Rib": {
+          "text": "Rib"
         },
-        " Ring Finger": {
-          "text": " Ring Finger"
+        "Ring Finger": {
+          "text": "Ring Finger"
         },
-        " Round Ligament": {
-          "text": " Round Ligament"
+        "Round Ligament": {
+          "text": "Round Ligament"
         },
-        " Sacrum": {
-          "text": " Sacrum"
+        "Sacrum": {
+          "text": "Sacrum"
         },
-        " Salivary Gland": {
-          "text": " Salivary Gland"
+        "Salivary Gland": {
+          "text": "Salivary Gland"
         },
-        " Scalp": {
-          "text": " Scalp"
+        "Scalp": {
+          "text": "Scalp"
         },
-        " Scapula": {
-          "text": " Scapula"
+        "Scapula": {
+          "text": "Scapula"
         },
-        " Sciatic Nerve": {
-          "text": " Sciatic Nerve"
+        "Sciatic Nerve": {
+          "text": "Sciatic Nerve"
         },
-        " Scrotum": {
-          "text": " Scrotum"
+        "Scrotum": {
+          "text": "Scrotum"
         },
-        " Seminal Vesicle": {
-          "text": " Seminal Vesicle"
+        "Seminal Vesicle": {
+          "text": "Seminal Vesicle"
         },
-        " Shoulder": {
-          "text": " Shoulder"
+        "Shoulder": {
+          "text": "Shoulder"
         },
-        " Sigmoid Colon": {
-          "text": " Sigmoid Colon"
+        "Sigmoid Colon": {
+          "text": "Sigmoid Colon"
         },
-        " Sinus": {
-          "text": " Sinus"
+        "Sinus": {
+          "text": "Sinus"
         },
-        " Sinus(es)": {
-          "text": " Sinus(es)"
+        "Sinus(es)": {
+          "text": "Sinus(es)"
         },
-        " Maxillary": {
-          "text": " Maxillary"
+        "Maxillary": {
+          "text": "Maxillary"
         },
-        " Skeletal Muscle": {
-          "text": " Skeletal Muscle"
+        "Skeletal Muscle": {
+          "text": "Skeletal Muscle"
         },
-        " Skin": {
-          "text": " Skin"
+        "Skin": {
+          "text": "Skin"
         },
-        " Skull": {
-          "text": " Skull"
+        "Skull": {
+          "text": "Skull"
         },
-        " Small Bowel": {
-          "text": " Small Bowel"
+        "Small Bowel": {
+          "text": "Small Bowel"
         },
-        " Small Bowel - Mucosa Only": {
-          "text": " Small Bowel - Mucosa Only"
+        "Small Bowel - Mucosa Only": {
+          "text": "Small Bowel - Mucosa Only"
         },
-        " Small Finger": {
-          "text": " Small Finger"
+        "Small Finger": {
+          "text": "Small Finger"
         },
-        " Soft Tissue": {
-          "text": " Soft Tissue"
+        "Soft Tissue": {
+          "text": "Soft Tissue"
         },
-        " Spinal Column": {
-          "text": " Spinal Column"
+        "Spinal Column": {
+          "text": "Spinal Column"
         },
-        " Spinal Cord": {
-          "text": " Spinal Cord"
+        "Spinal Cord": {
+          "text": "Spinal Cord"
         },
-        " Spleen": {
-          "text": " Spleen"
+        "Spleen": {
+          "text": "Spleen"
         },
-        " Splenic Flexure": {
-          "text": " Splenic Flexure"
+        "Splenic Flexure": {
+          "text": "Splenic Flexure"
         },
-        " Sternum": {
-          "text": " Sternum"
+        "Sternum": {
+          "text": "Sternum"
         },
-        " Stomach": {
-          "text": " Stomach"
+        "Stomach": {
+          "text": "Stomach"
         },
-        " Stomach - Mucosa Only": {
-          "text": " Stomach - Mucosa Only"
+        "Stomach - Mucosa Only": {
+          "text": "Stomach - Mucosa Only"
         },
-        " Subcutaneous Tissue": {
-          "text": " Subcutaneous Tissue"
+        "Subcutaneous Tissue": {
+          "text": "Subcutaneous Tissue"
         },
-        " Synovium": {
-          "text": " Synovium"
+        "Synovium": {
+          "text": "Synovium"
         },
-        " Temporal Cortex": {
-          "text": " Temporal Cortex"
+        "Temporal Cortex": {
+          "text": "Temporal Cortex"
         },
-        " Tendon": {
-          "text": " Tendon"
+        "Tendon": {
+          "text": "Tendon"
         },
-        " Testis": {
-          "text": " Testis"
+        "Testis": {
+          "text": "Testis"
         },
-        " Thigh": {
-          "text": " Thigh"
+        "Thigh": {
+          "text": "Thigh"
         },
-        " Thoracic Spine": {
-          "text": " Thoracic Spine"
+        "Thoracic Spine": {
+          "text": "Thoracic Spine"
         },
-        " Thorax": {
-          "text": " Thorax"
+        "Thorax": {
+          "text": "Thorax"
         },
-        " Throat": {
-          "text": " Throat"
+        "Throat": {
+          "text": "Throat"
         },
-        " Thumb": {
-          "text": " Thumb"
+        "Thumb": {
+          "text": "Thumb"
         },
-        " Thymus": {
-          "text": " Thymus"
+        "Thymus": {
+          "text": "Thymus"
         },
-        " Thyroid": {
-          "text": " Thyroid"
+        "Thyroid": {
+          "text": "Thyroid"
         },
-        " Tibia": {
-          "text": " Tibia"
+        "Tibia": {
+          "text": "Tibia"
         },
-        " Tongue": {
-          "text": " Tongue"
+        "Tongue": {
+          "text": "Tongue"
         },
-        " Tonsil": {
-          "text": " Tonsil"
+        "Tonsil": {
+          "text": "Tonsil"
         },
-        " Tonsil (Pharyngeal)": {
-          "text": " Tonsil (Pharyngeal)"
+        "Tonsil (Pharyngeal)": {
+          "text": "Tonsil (Pharyngeal)"
         },
-        " Trachea / Major Bronchi": {
-          "text": " Trachea / Major Bronchi"
+        "Trachea / Major Bronchi": {
+          "text": "Trachea / Major Bronchi"
         },
-        " Transverse Colon": {
-          "text": " Transverse Colon"
+        "Transverse Colon": {
+          "text": "Transverse Colon"
         },
-        " Trunk": {
-          "text": " Trunk"
+        "Trunk": {
+          "text": "Trunk"
         },
-        " Umbilical Cord": {
-          "text": " Umbilical Cord"
+        "Umbilical Cord": {
+          "text": "Umbilical Cord"
         },
-        " Ureter": {
-          "text": " Ureter"
+        "Ureter": {
+          "text": "Ureter"
         },
-        " Urethra": {
-          "text": " Urethra"
+        "Urethra": {
+          "text": "Urethra"
         },
-        " Urinary Tract": {
-          "text": " Urinary Tract"
+        "Urinary Tract": {
+          "text": "Urinary Tract"
         },
-        " Uterus": {
-          "text": " Uterus"
+        "Uterus": {
+          "text": "Uterus"
         },
-        " Uvula": {
-          "text": " Uvula"
+        "Uvula": {
+          "text": "Uvula"
         },
-        " Vagina": {
-          "text": " Vagina"
+        "Vagina": {
+          "text": "Vagina"
         },
-        " Vas Deferens": {
-          "text": " Vas Deferens"
+        "Vas Deferens": {
+          "text": "Vas Deferens"
         },
-        " Vein": {
-          "text": " Vein"
+        "Vein": {
+          "text": "Vein"
         },
-        " Venous": {
-          "text": " Venous"
+        "Venous": {
+          "text": "Venous"
         },
-        " Vertebra": {
-          "text": " Vertebra"
+        "Vertebra": {
+          "text": "Vertebra"
         },
-        " Vulva": {
-          "text": " Vulva"
+        "Vulva": {
+          "text": "Vulva"
         },
-        " White Blood Cells": {
-          "text": " White Blood Cells"
+        "White Blood Cells": {
+          "text": "White Blood Cells"
         },
-        " Wrist": {
-          "text": " Wrist"
+        "Wrist": {
+          "text": "Wrist"
         }
       }
     },
@@ -1602,167 +1847,182 @@
       "name": "method_of_sample_procurement menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Abdomino-perineal Resection of Rectum": {
           "text": "Abdomino-perineal Resection of Rectum"
         },
-        " Anterior Resection of Rectum": {
-          "text": " Anterior Resection of Rectum"
+        "Anterior Resection of Rectum": {
+          "text": "Anterior Resection of Rectum"
         },
-        " Aspirate": {
-          "text": " Aspirate"
+        "Aspirate": {
+          "text": "Aspirate"
         },
-        " Biopsy": {
-          "text": " Biopsy"
+        "Biopsy": {
+          "text": "Biopsy"
         },
-        " Blood Draw": {
-          "text": " Blood Draw"
+        "Blood Draw": {
+          "text": "Blood Draw"
         },
-        " Bone Marrow Aspirate": {
-          "text": " Bone Marrow Aspirate"
+        "Bone Marrow Aspirate": {
+          "text": "Bone Marrow Aspirate"
         },
-        " Core Biopsy": {
-          "text": " Core Biopsy"
+        "Core Biopsy": {
+          "text": "Core Biopsy"
         },
-        " Cystectomy": {
-          "text": " Cystectomy"
+        "Cystectomy": {
+          "text": "Cystectomy"
         },
-        " Endo Rectal Tumor Resection": {
-          "text": " Endo Rectal Tumor Resection"
+        "Endo Rectal Tumor Resection": {
+          "text": "Endo Rectal Tumor Resection"
         },
-        " Endoscopic Biopsy": {
-          "text": " Endoscopic Biopsy"
+        "Endoscopic Biopsy": {
+          "text": "Endoscopic Biopsy"
         },
-        " Endoscopic Mucosal Resection (EMR)": {
-          "text": " Endoscopic Mucosal Resection (EMR)"
+        "Endoscopic Mucosal Resection (EMR)": {
+          "text": "Endoscopic Mucosal Resection (EMR)"
         },
-        " Enucleation": {
-          "text": " Enucleation"
+        "Enucleation": {
+          "text": "Enucleation"
         },
-        " Excisional Biopsy": {
-          "text": " Excisional Biopsy"
+        "Excisional Biopsy": {
+          "text": "Excisional Biopsy"
         },
-        " Fine Needle Aspiration": {
-          "text": " Fine Needle Aspiration"
+        "Fine Needle Aspiration": {
+          "text": "Fine Needle Aspiration"
         },
-        " Full Hysterectomy": {
-          "text": " Full Hysterectomy"
+        "Full Hysterectomy": {
+          "text": "Full Hysterectomy"
         },
-        " Gross Total Resection": {
-          "text": " Gross Total Resection"
+        "Gross Total Resection": {
+          "text": "Gross Total Resection"
         },
-        " Hand Assisted Laparoscopic Radical Nephrectomy": {
-          "text": " Hand Assisted Laparoscopic Radical Nephrectomy"
+        "Hand Assisted Laparoscopic Radical Nephrectomy": {
+          "text": "Hand Assisted Laparoscopic Radical Nephrectomy"
         },
-        " Hysterectomy NOS": {
-          "text": " Hysterectomy NOS"
+        "Hysterectomy NOS": {
+          "text": "Hysterectomy NOS"
         },
-        " Incisional Biopsy": {
-          "text": " Incisional Biopsy"
+        "Incisional Biopsy": {
+          "text": "Incisional Biopsy"
         },
-        " Indeterminant": {
-          "text": " Indeterminant"
+        "Indeterminant": {
+          "text": "Indeterminant"
         },
-        " Laparoscopic Biopsy": {
-          "text": " Laparoscopic Biopsy"
+        "Laparoscopic Biopsy": {
+          "text": "Laparoscopic Biopsy"
         },
-        " Laparoscopic Partial Nephrectomy": {
-          "text": " Laparoscopic Partial Nephrectomy"
+        "Laparoscopic Partial Nephrectomy": {
+          "text": "Laparoscopic Partial Nephrectomy"
         },
-        " Laparoscopic Radical Nephrectomy": {
-          "text": " Laparoscopic Radical Nephrectomy"
+        "Laparoscopic Radical Nephrectomy": {
+          "text": "Laparoscopic Radical Nephrectomy"
         },
-        " Laparoscopic Radical Prostatectomy with Robotics": {
-          "text": " Laparoscopic Radical Prostatectomy with Robotics"
+        "Laparoscopic Radical Prostatectomy with Robotics": {
+          "text": "Laparoscopic Radical Prostatectomy with Robotics"
         },
-        " Laparoscopic Radical Prostatectomy without Robotics": {
-          "text": " Laparoscopic Radical Prostatectomy without Robotics"
+        "Laparoscopic Radical Prostatectomy without Robotics": {
+          "text": "Laparoscopic Radical Prostatectomy without Robotics"
         },
-        " Left Hemicolectomy": {
-          "text": " Left Hemicolectomy"
+        "Left Hemicolectomy": {
+          "text": "Left Hemicolectomy"
         },
-        " Lobectomy": {
-          "text": " Lobectomy"
+        "Lobectomy": {
+          "text": "Lobectomy"
         },
-        " Local Resection (Exoresection": {
-          "text": " Local Resection (Exoresection"
+        "Local Resection (Exoresection": {
+          "text": "Local Resection (Exoresection"
         },
         " wall resection)": {
           "text": " wall resection)"
         },
-        " Lumpectomy": {
-          "text": " Lumpectomy"
+        "Lumpectomy": {
+          "text": "Lumpectomy"
         },
-        " Modified Radical Mastectomy": {
-          "text": " Modified Radical Mastectomy"
+        "Modified Radical Mastectomy": {
+          "text": "Modified Radical Mastectomy"
         },
-        " Needle Biopsy": {
-          "text": " Needle Biopsy"
+        "Needle Biopsy": {
+          "text": "Needle Biopsy"
         },
-        " Open Craniotomy": {
-          "text": " Open Craniotomy"
+        "Open Craniotomy": {
+          "text": "Open Craniotomy"
         },
-        " Open Partial Nephrectomy": {
-          "text": " Open Partial Nephrectomy"
+        "Open Partial Nephrectomy": {
+          "text": "Open Partial Nephrectomy"
         },
-        " Open Radical Nephrectomy": {
-          "text": " Open Radical Nephrectomy"
+        "Open Radical Nephrectomy": {
+          "text": "Open Radical Nephrectomy"
         },
-        " Open Radical Prostatectomy": {
-          "text": " Open Radical Prostatectomy"
+        "Open Radical Prostatectomy": {
+          "text": "Open Radical Prostatectomy"
         },
-        " Orchiectomy": {
-          "text": " Orchiectomy"
+        "Orchiectomy": {
+          "text": "Orchiectomy"
         },
-        " Other": {
-          "text": " Other"
+        "Other": {
+          "text": "Other"
         },
-        " Other Surgical Resection": {
-          "text": " Other Surgical Resection"
+        "Other Surgical Resection": {
+          "text": "Other Surgical Resection"
         },
-        " Pan-Procto Colectomy": {
-          "text": " Pan-Procto Colectomy"
+        "Pan-Procto Colectomy": {
+          "text": "Pan-Procto Colectomy"
         },
-        " Pneumonectomy": {
-          "text": " Pneumonectomy"
+        "Pneumonectomy": {
+          "text": "Pneumonectomy"
         },
-        " Right Hemicolectomy": {
-          "text": " Right Hemicolectomy"
+        "Right Hemicolectomy": {
+          "text": "Right Hemicolectomy"
         },
-        " Sigmoid Colectomy": {
-          "text": " Sigmoid Colectomy"
+        "Sigmoid Colectomy": {
+          "text": "Sigmoid Colectomy"
         },
-        " Simple Mastectomy": {
-          "text": " Simple Mastectomy"
+        "Simple Mastectomy": {
+          "text": "Simple Mastectomy"
         },
-        " Subtotal Resection": {
-          "text": " Subtotal Resection"
+        "Subtotal Resection": {
+          "text": "Subtotal Resection"
         },
-        " Surgical Resection": {
-          "text": " Surgical Resection"
+        "Surgical Resection": {
+          "text": "Surgical Resection"
         },
-        " Thoracoscopic Biopsy": {
-          "text": " Thoracoscopic Biopsy"
+        "Thoracoscopic Biopsy": {
+          "text": "Thoracoscopic Biopsy"
         },
-        " Total Colectomy": {
-          "text": " Total Colectomy"
+        "Total Colectomy": {
+          "text": "Total Colectomy"
         },
-        " Total Mastectomy": {
-          "text": " Total Mastectomy"
+        "Total Mastectomy": {
+          "text": "Total Mastectomy"
         },
-        " Transplant": {
-          "text": " Transplant"
+        "Transplant": {
+          "text": "Transplant"
         },
-        " Transurethral resection (TURBT)": {
-          "text": " Transurethral resection (TURBT)"
+        "Transurethral resection (TURBT)": {
+          "text": "Transurethral resection (TURBT)"
         },
-        " Transverse Colectomy": {
-          "text": " Transverse Colectomy"
+        "Transverse Colectomy": {
+          "text": "Transverse Colectomy"
         },
-        " Tumor Resection": {
-          "text": " Tumor Resection"
+        "Tumor Resection": {
+          "text": "Tumor Resection"
         },
-        " Wedge Resection": {
-          "text": " Wedge Resection"
+        "Wedge Resection": {
+          "text": "Wedge Resection"
         }
       }
     },
@@ -1770,23 +2030,38 @@
       "name": "preservation_method menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Cryopreserved": {
           "text": "Cryopreserved"
         },
-        " FFPE": {
-          "text": " FFPE"
+        "FFPE": {
+          "text": "FFPE"
         },
-        " Fresh": {
-          "text": " Fresh"
+        "Fresh": {
+          "text": "Fresh"
         },
-        " OCT": {
-          "text": " OCT"
+        "OCT": {
+          "text": "OCT"
         },
-        " Snap Frozen": {
-          "text": " Snap Frozen"
+        "Snap Frozen": {
+          "text": "Snap Frozen"
         },
-        " Frozen": {
-          "text": " Frozen"
+        "Frozen": {
+          "text": "Frozen"
         }
       }
     }
@@ -1795,7 +2070,7 @@
     "name": {
       "name": "name",
       "description": "A textual entity that denotes an investigation.",
-      "title": "name",
+      "title": "Title",
       "comments": [
         "Zacharewski_Superfund"
       ],
@@ -1807,7 +2082,7 @@
     "investigation_description": {
       "name": "investigation_description",
       "description": "A textual entity that describes an investigation.",
-      "title": "investigation_description",
+      "title": "Description",
       "comments": [
         " "
       ],
@@ -1818,7 +2093,7 @@
     "data_submission_contact_name": {
       "name": "data_submission_contact_name",
       "description": "The name of the person acting as a channel for communication between groups or on behalf of a group.",
-      "title": "data_submission_contact_name",
+      "title": "Contact name",
       "comments": [
         "Rance Nault"
       ],
@@ -1833,7 +2108,7 @@
     "data_submission_contact_orcid": {
       "name": "data_submission_contact_orcid",
       "description": "A centrally registered identifier that is issued by ORCID (https://orcid.org/) and used to persistantly identify oneself as a human researcher or contributor.",
-      "title": "data_submission_contact_orcid",
+      "title": "Contact ORCID",
       "comments": [
         "0000-0002-6822-4962"
       ],
@@ -1844,12 +2119,12 @@
       "required": true,
       "inlined": true,
       "inlined_as_list": true,
-      "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$"
+      "pattern": "^\\w{4}-\\w{4}-\\w{4}-\\w{4}$"
     },
     "data_submission_contact_email": {
       "name": "data_submission_contact_email",
       "description": "email address of data submission contact",
-      "title": "data_submission_contact_email",
+      "title": "Contact email",
       "comments": [
         "naultran@msu.edu"
       ],
@@ -1864,7 +2139,7 @@
     "data_submission_contact_telephone": {
       "name": "data_submission_contact_telephone",
       "description": "telephone number of data submission contact",
-      "title": "data_submission_contact_telephone",
+      "title": "Contact phone",
       "comments": [
         "5178842054"
       ],
@@ -1872,12 +2147,13 @@
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
       "inlined": true,
-      "inlined_as_list": true
+      "inlined_as_list": true,
+      "pattern": "^([+]?\\d{1,2}[-\\s]?|)\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$"
     },
     "data_submission_contact_department": {
       "name": "data_submission_contact_department",
       "description": "department of data submission contact",
-      "title": "data_submission_contact_department",
+      "title": "Contact department",
       "comments": [
         "Biochemistry & Molecular Biology"
       ],
@@ -1890,7 +2166,7 @@
     "data_submission_contact_institution": {
       "name": "data_submission_contact_institution",
       "description": "institution of data submission contact",
-      "title": "data_submission_contact_institution",
+      "title": "Contact institution",
       "comments": [
         "Michigan State University"
       ],
@@ -1903,7 +2179,7 @@
     "data_submission_contact_institution_postal_address": {
       "name": "data_submission_contact_institution_postal_address",
       "description": "postal address of data submission contact",
-      "title": "data_submission_contact_institution_postal_address",
+      "title": "Contact ZIP",
       "comments": [
         "48824"
       ],
@@ -1911,12 +2187,13 @@
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
       "inlined": true,
-      "inlined_as_list": true
+      "inlined_as_list": true,
+      "pattern": "\\d{5}(?:-?\\d{4})?"
     },
     "data_submission_contact_institution_city": {
       "name": "data_submission_contact_institution_city",
       "description": "city of data submission contact",
-      "title": "data_submission_contact_institution_city",
+      "title": "Contact city",
       "comments": [
         "East Lansing"
       ],
@@ -1929,7 +2206,7 @@
     "data_submission_contact_state": {
       "name": "data_submission_contact_state",
       "description": "state of data submission contact",
-      "title": "data_submission_contact_state",
+      "title": "Contact state",
       "comments": [
         "MI"
       ],
@@ -1942,14 +2219,14 @@
     "support_source": {
       "name": "support_source",
       "description": " ",
-      "title": "support_source",
+      "title": "Funding institution",
       "comments": [
         "NIEHS"
       ],
       "from_schema": "https://example.com/MIATE",
       "slot_uri": "obo:NCIT_C19711",
       "multivalued": true,
-      "range": "WhitespaceMinimizedString",
+      "range": "support_source menu",
       "recommended": true,
       "inlined": true,
       "inlined_as_list": true
@@ -1957,7 +2234,7 @@
     "support_id": {
       "name": "support_id",
       "description": " ",
-      "title": "support_id",
+      "title": "Funding identifier",
       "comments": [
         "P42ES004911"
       ],
@@ -1971,7 +2248,7 @@
     "PMC_id": {
       "name": "PMC_id",
       "description": " ",
-      "title": "PMC_id",
+      "title": "PMC ID",
       "comments": [
         " "
       ],
@@ -1979,7 +2256,8 @@
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
       "inlined": true,
-      "inlined_as_list": true
+      "inlined_as_list": true,
+      "pattern": "^\\d{5,20}"
     },
     "DOI": {
       "name": "DOI",
@@ -2006,7 +2284,8 @@
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
       "inlined": true,
-      "inlined_as_list": true
+      "inlined_as_list": true,
+      "pattern": "^\\d{5,20}"
     },
     "investigation_identifier": {
       "name": "investigation_identifier",
@@ -2038,7 +2317,7 @@
     "study_design": {
       "name": "study_design",
       "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
-      "title": "study_design",
+      "title": "Study design",
       "comments": [
         " "
       ],
@@ -2049,7 +2328,7 @@
     "study_type": {
       "name": "study_type",
       "description": "A categorical value specification that specifies the type of study from a list of study types",
-      "title": "study_type",
+      "title": "Study type",
       "comments": [
         " "
       ],
@@ -2059,7 +2338,7 @@
     "experimental_setting": {
       "name": "experimental_setting",
       "description": " ",
-      "title": "experimental_setting",
+      "title": "Experimental setting",
       "comments": [
         " "
       ],
@@ -2124,12 +2403,14 @@
     "experiment_start_zt": {
       "name": "experiment_start_zt",
       "description": " ",
-      "title": "experiment_start_zt",
+      "title": "Experiment start Zeitgeber",
       "comments": [
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "WhitespaceMinimizedString"
+      "range": "integer",
+      "minimum_value": 0,
+      "maximum_value": 23
     },
     "sex": {
       "name": "sex",
@@ -2196,10 +2477,10 @@
       "slot_uri": "obo:OBI_0000919",
       "range": "euthanasia_method menu"
     },
-    "date": {
-      "name": "date",
+    "housing_change_date": {
+      "name": "housing_change_date",
       "description": " ",
-      "title": "date",
+      "title": "housing_change_date",
       "comments": [
         " "
       ],
@@ -2209,7 +2490,7 @@
     "cage_id": {
       "name": "cage_id",
       "description": " ",
-      "title": "cage_id",
+      "title": "Cage identifier",
       "comments": [
         " "
       ],
@@ -2240,7 +2521,7 @@
     "vivarium_temperature": {
       "name": "vivarium_temperature",
       "description": " ",
-      "title": "vivarium_temperature",
+      "title": "Temperature (C)",
       "comments": [
         " "
       ],
@@ -2253,7 +2534,7 @@
     "vivarium_humidity": {
       "name": "vivarium_humidity",
       "description": " ",
-      "title": "vivarium_humidity",
+      "title": "Humidiity (%)",
       "comments": [
         " "
       ],
@@ -2274,6 +2555,16 @@
       "slot_uri": "obo:XCO_0000459",
       "range": "WhitespaceMinimizedString",
       "pattern": "^\\d{2}:\\d{2}$"
+    },
+    "date": {
+      "name": "date",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "date"
     },
     "feed_catalog_number": {
       "name": "feed_catalog_number",
@@ -2306,10 +2597,10 @@
       "slot_uri": "obo:OBI_0000248",
       "range": "WhitespaceMinimizedString"
     },
-    "feed_source": {
-      "name": "feed_source",
+    "feed_vendor": {
+      "name": "feed_vendor",
       "description": " ",
-      "title": "feed_source",
+      "title": "feed_vendor",
       "comments": [
         " "
       ],
@@ -2341,12 +2632,13 @@
     "administration_volume": {
       "name": "administration_volume",
       "description": " ",
-      "title": "administration_volume",
+      "title": "Administration volume (mL)",
       "comments": [
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "float"
+      "range": "float",
+      "minimum_value": 0
     },
     "dose_amount": {
       "name": "dose_amount",
@@ -2359,7 +2651,8 @@
       "multivalued": true,
       "range": "float",
       "inlined": true,
-      "inlined_as_list": true
+      "inlined_as_list": true,
+      "minimum_value": 0
     },
     "dose_amount_unit": {
       "name": "dose_amount_unit",
@@ -2426,7 +2719,7 @@
       "range": "WhitespaceMinimizedString",
       "inlined": true,
       "inlined_as_list": true,
-      "pattern": "^DTXSID\\d{7}$"
+      "pattern": "^DTXSID\\d{1,17}$"
     },
     "vehicle_name": {
       "name": "vehicle_name",
@@ -2453,7 +2746,7 @@
       "range": "WhitespaceMinimizedString",
       "inlined": true,
       "inlined_as_list": true,
-      "pattern": "^DTXSID\\d{7}$"
+      "pattern": "^DTXSID\\d{1,17}$"
     },
     "sample_identifier": {
       "name": "sample_identifier",
@@ -2502,7 +2795,7 @@
     "weight": {
       "name": "weight",
       "description": " ",
-      "title": "weight",
+      "title": "sample weight (mg)",
       "comments": [
         " "
       ],
@@ -2512,12 +2805,45 @@
     "volume": {
       "name": "volume",
       "description": " ",
-      "title": "volume",
+      "title": "sample volume (ml)",
       "comments": [
         " "
       ],
       "from_schema": "https://example.com/MIATE",
       "range": "float"
+    },
+    "investigation template version": {
+      "name": "investigation template version",
+      "description": " ",
+      "title": "investigation template version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "provenance",
+      "required": true
+    },
+    "study template version": {
+      "name": "study template version",
+      "description": " ",
+      "title": "study template version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "provenance",
+      "required": true
+    },
+    "sample template version": {
+      "name": "sample template version",
+      "description": " ",
+      "title": "sample template version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "provenance",
+      "required": true
     }
   },
   "classes": {
@@ -2616,10 +2942,10 @@
           "rank": 17,
           "slot_group": "subject"
         },
-        "date": {
-          "name": "date",
-          "rank": 32,
-          "slot_group": "treatment"
+        "housing_change_date": {
+          "name": "housing_change_date",
+          "rank": 18,
+          "slot_group": "housing"
         },
         "cage_id": {
           "name": "cage_id",
@@ -2651,6 +2977,11 @@
           "rank": 24,
           "slot_group": "housing"
         },
+        "date": {
+          "name": "date",
+          "rank": 32,
+          "slot_group": "treatment"
+        },
         "feed_catalog_number": {
           "name": "feed_catalog_number",
           "rank": 26,
@@ -2666,8 +2997,8 @@
           "rank": 28,
           "slot_group": "diet"
         },
-        "feed_source": {
-          "name": "feed_source",
+        "feed_vendor": {
+          "name": "feed_vendor",
           "rank": 29,
           "slot_group": "diet"
         },
@@ -2730,6 +3061,11 @@
           "name": "vehicle_dtxsid",
           "rank": 42,
           "slot_group": "treatment"
+        },
+        "study template version": {
+          "name": "study template version",
+          "rank": 43,
+          "slot_group": "provenance"
         }
       },
       "attributes": {
@@ -2771,7 +3107,7 @@
         "study_design": {
           "name": "study_design",
           "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
-          "title": "study_design",
+          "title": "Study design",
           "from_schema": "https://example.com/MIATE",
           "rank": 3,
           "slot_uri": "obo:OBI_0500000",
@@ -2786,7 +3122,7 @@
         "study_type": {
           "name": "study_type",
           "description": "A categorical value specification that specifies the type of study from a list of study types",
-          "title": "study_type",
+          "title": "Study type",
           "from_schema": "https://example.com/MIATE",
           "rank": 4,
           "alias": "study_type",
@@ -2800,7 +3136,7 @@
         "experimental_setting": {
           "name": "experimental_setting",
           "description": " ",
-          "title": "experimental_setting",
+          "title": "Experimental setting",
           "from_schema": "https://example.com/MIATE",
           "rank": 5,
           "slot_uri": "bao:BAO_0020005",
@@ -2890,7 +3226,7 @@
         "experiment_start_zt": {
           "name": "experiment_start_zt",
           "description": " ",
-          "title": "experiment_start_zt",
+          "title": "Experiment start Zeitgeber",
           "from_schema": "https://example.com/MIATE",
           "rank": 11,
           "alias": "experiment_start_zt",
@@ -2899,7 +3235,9 @@
             "Study"
           ],
           "slot_group": "subject",
-          "range": "WhitespaceMinimizedString"
+          "range": "integer",
+          "minimum_value": 0,
+          "maximum_value": 23
         },
         "sex": {
           "name": "sex",
@@ -2990,25 +3328,24 @@
           "slot_group": "subject",
           "range": "euthanasia_method menu"
         },
-        "date": {
-          "name": "date",
+        "housing_change_date": {
+          "name": "housing_change_date",
           "description": " ",
-          "title": "date",
+          "title": "housing_change_date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 32,
-          "alias": "date",
+          "rank": 18,
+          "alias": "housing_change_date",
           "owner": "Study",
           "domain_of": [
-            "Study",
-            "Sample"
+            "Study"
           ],
-          "slot_group": "treatment",
+          "slot_group": "housing",
           "range": "date"
         },
         "cage_id": {
           "name": "cage_id",
           "description": " ",
-          "title": "cage_id",
+          "title": "Cage identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 19,
           "alias": "cage_id",
@@ -3051,7 +3388,7 @@
         "vivarium_temperature": {
           "name": "vivarium_temperature",
           "description": " ",
-          "title": "vivarium_temperature",
+          "title": "Temperature (C)",
           "from_schema": "https://example.com/MIATE",
           "rank": 22,
           "slot_uri": "obo:PATO_0000146",
@@ -3068,7 +3405,7 @@
         "vivarium_humidity": {
           "name": "vivarium_humidity",
           "description": " ",
-          "title": "vivarium_humidity",
+          "title": "Humidiity (%)",
           "from_schema": "https://example.com/MIATE",
           "rank": 23,
           "slot_uri": "obo:NCIT_C88206",
@@ -3097,6 +3434,21 @@
           "slot_group": "housing",
           "range": "WhitespaceMinimizedString",
           "pattern": "^\\d{2}:\\d{2}$"
+        },
+        "date": {
+          "name": "date",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 32,
+          "alias": "date",
+          "owner": "Study",
+          "domain_of": [
+            "Study",
+            "Sample"
+          ],
+          "slot_group": "treatment",
+          "range": "date"
         },
         "feed_catalog_number": {
           "name": "feed_catalog_number",
@@ -3141,13 +3493,13 @@
           "slot_group": "diet",
           "range": "WhitespaceMinimizedString"
         },
-        "feed_source": {
-          "name": "feed_source",
+        "feed_vendor": {
+          "name": "feed_vendor",
           "description": " ",
-          "title": "feed_source",
+          "title": "feed_vendor",
           "from_schema": "https://example.com/MIATE",
           "rank": 29,
-          "alias": "feed_source",
+          "alias": "feed_vendor",
           "owner": "Study",
           "domain_of": [
             "Study"
@@ -3188,7 +3540,7 @@
         "administration_volume": {
           "name": "administration_volume",
           "description": " ",
-          "title": "administration_volume",
+          "title": "Administration volume (mL)",
           "from_schema": "https://example.com/MIATE",
           "rank": 33,
           "alias": "administration_volume",
@@ -3197,7 +3549,8 @@
             "Study"
           ],
           "slot_group": "treatment",
-          "range": "float"
+          "range": "float",
+          "minimum_value": 0
         },
         "dose_amount": {
           "name": "dose_amount",
@@ -3213,7 +3566,8 @@
           ],
           "slot_group": "treatment",
           "range": "float",
-          "inlined_as_list": true
+          "inlined_as_list": true,
+          "minimum_value": 0
         },
         "dose_amount_unit": {
           "name": "dose_amount_unit",
@@ -3303,7 +3657,7 @@
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString",
           "inlined_as_list": true,
-          "pattern": "^DTXSID\\d{7}$"
+          "pattern": "^DTXSID\\d{1,17}$"
         },
         "vehicle_name": {
           "name": "vehicle_name",
@@ -3336,7 +3690,22 @@
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString",
           "inlined_as_list": true,
-          "pattern": "^DTXSID\\d{7}$"
+          "pattern": "^DTXSID\\d{1,17}$"
+        },
+        "study template version": {
+          "name": "study template version",
+          "description": " ",
+          "title": "study template version",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 43,
+          "alias": "study_template_version",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "provenance",
+          "range": "provenance",
+          "required": true
         }
       }
     },
@@ -3424,13 +3793,18 @@
           "name": "PMID",
           "rank": 16,
           "slot_group": "Publication"
+        },
+        "investigation template version": {
+          "name": "investigation template version",
+          "rank": 17,
+          "slot_group": "provenance"
         }
       },
       "attributes": {
         "name": {
           "name": "name",
           "description": "A textual entity that denotes an investigation.",
-          "title": "name",
+          "title": "Title",
           "from_schema": "https://example.com/MIATE",
           "rank": 1,
           "slot_uri": "obo:OBI_0001622",
@@ -3446,7 +3820,7 @@
         "investigation_description": {
           "name": "investigation_description",
           "description": "A textual entity that describes an investigation.",
-          "title": "investigation_description",
+          "title": "Description",
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
           "slot_uri": "obo:OBI_0001615",
@@ -3461,7 +3835,7 @@
         "data_submission_contact_name": {
           "name": "data_submission_contact_name",
           "description": "The name of the person acting as a channel for communication between groups or on behalf of a group.",
-          "title": "data_submission_contact_name",
+          "title": "Contact name",
           "from_schema": "https://example.com/MIATE",
           "rank": 3,
           "slot_uri": "obo:NCIT_C176230",
@@ -3479,7 +3853,7 @@
         "data_submission_contact_orcid": {
           "name": "data_submission_contact_orcid",
           "description": "A centrally registered identifier that is issued by ORCID (https://orcid.org/) and used to persistantly identify oneself as a human researcher or contributor.",
-          "title": "data_submission_contact_orcid",
+          "title": "Contact ORCID",
           "from_schema": "https://example.com/MIATE",
           "rank": 4,
           "slot_uri": "obo:IAO_0000708",
@@ -3493,12 +3867,12 @@
           "range": "WhitespaceMinimizedString",
           "required": true,
           "inlined_as_list": true,
-          "pattern": "^\\d{4}-\\d{4}-\\d{4}-\\d{4}$"
+          "pattern": "^\\w{4}-\\w{4}-\\w{4}-\\w{4}$"
         },
         "data_submission_contact_email": {
           "name": "data_submission_contact_email",
           "description": "email address of data submission contact",
-          "title": "data_submission_contact_email",
+          "title": "Contact email",
           "from_schema": "https://example.com/MIATE",
           "rank": 5,
           "multivalued": true,
@@ -3516,7 +3890,7 @@
         "data_submission_contact_telephone": {
           "name": "data_submission_contact_telephone",
           "description": "telephone number of data submission contact",
-          "title": "data_submission_contact_telephone",
+          "title": "Contact phone",
           "from_schema": "https://example.com/MIATE",
           "rank": 6,
           "multivalued": true,
@@ -3527,12 +3901,13 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
-          "inlined_as_list": true
+          "inlined_as_list": true,
+          "pattern": "^([+]?\\d{1,2}[-\\s]?|)\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$"
         },
         "data_submission_contact_department": {
           "name": "data_submission_contact_department",
           "description": "department of data submission contact",
-          "title": "data_submission_contact_department",
+          "title": "Contact department",
           "from_schema": "https://example.com/MIATE",
           "rank": 7,
           "multivalued": true,
@@ -3548,7 +3923,7 @@
         "data_submission_contact_institution": {
           "name": "data_submission_contact_institution",
           "description": "institution of data submission contact",
-          "title": "data_submission_contact_institution",
+          "title": "Contact institution",
           "from_schema": "https://example.com/MIATE",
           "rank": 8,
           "multivalued": true,
@@ -3564,7 +3939,7 @@
         "data_submission_contact_institution_postal_address": {
           "name": "data_submission_contact_institution_postal_address",
           "description": "postal address of data submission contact",
-          "title": "data_submission_contact_institution_postal_address",
+          "title": "Contact ZIP",
           "from_schema": "https://example.com/MIATE",
           "rank": 9,
           "multivalued": true,
@@ -3575,12 +3950,13 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
-          "inlined_as_list": true
+          "inlined_as_list": true,
+          "pattern": "\\d{5}(?:-?\\d{4})?"
         },
         "data_submission_contact_institution_city": {
           "name": "data_submission_contact_institution_city",
           "description": "city of data submission contact",
-          "title": "data_submission_contact_institution_city",
+          "title": "Contact city",
           "from_schema": "https://example.com/MIATE",
           "rank": 10,
           "multivalued": true,
@@ -3596,7 +3972,7 @@
         "data_submission_contact_state": {
           "name": "data_submission_contact_state",
           "description": "state of data submission contact",
-          "title": "data_submission_contact_state",
+          "title": "Contact state",
           "from_schema": "https://example.com/MIATE",
           "rank": 11,
           "multivalued": true,
@@ -3612,7 +3988,7 @@
         "support_source": {
           "name": "support_source",
           "description": " ",
-          "title": "support_source",
+          "title": "Funding institution",
           "from_schema": "https://example.com/MIATE",
           "rank": 12,
           "slot_uri": "obo:NCIT_C19711",
@@ -3623,14 +3999,14 @@
             "Investigation"
           ],
           "slot_group": "Funding",
-          "range": "WhitespaceMinimizedString",
+          "range": "support_source menu",
           "recommended": true,
           "inlined_as_list": true
         },
         "support_id": {
           "name": "support_id",
           "description": " ",
-          "title": "support_id",
+          "title": "Funding identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 13,
           "multivalued": true,
@@ -3647,7 +4023,7 @@
         "PMC_id": {
           "name": "PMC_id",
           "description": " ",
-          "title": "PMC_id",
+          "title": "PMC ID",
           "from_schema": "https://example.com/MIATE",
           "rank": 14,
           "multivalued": true,
@@ -3658,7 +4034,8 @@
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
-          "inlined_as_list": true
+          "inlined_as_list": true,
+          "pattern": "^\\d{5,20}"
         },
         "DOI": {
           "name": "DOI",
@@ -3691,7 +4068,23 @@
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
-          "inlined_as_list": true
+          "inlined_as_list": true,
+          "pattern": "^\\d{5,20}"
+        },
+        "investigation template version": {
+          "name": "investigation template version",
+          "description": " ",
+          "title": "investigation template version",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 17,
+          "alias": "investigation_template_version",
+          "owner": "Investigation",
+          "domain_of": [
+            "Investigation"
+          ],
+          "slot_group": "provenance",
+          "range": "provenance",
+          "required": true
         }
       }
     },
@@ -3744,6 +4137,11 @@
           "name": "volume",
           "rank": 9,
           "slot_group": "sample_details"
+        },
+        "sample template version": {
+          "name": "sample template version",
+          "rank": 10,
+          "slot_group": "provenance"
         }
       },
       "attributes": {
@@ -3860,7 +4258,7 @@
         "weight": {
           "name": "weight",
           "description": " ",
-          "title": "weight",
+          "title": "sample weight (mg)",
           "from_schema": "https://example.com/MIATE",
           "rank": 8,
           "alias": "weight",
@@ -3874,7 +4272,7 @@
         "volume": {
           "name": "volume",
           "description": " ",
-          "title": "volume",
+          "title": "sample volume (ml)",
           "from_schema": "https://example.com/MIATE",
           "rank": 9,
           "alias": "volume",
@@ -3884,6 +4282,21 @@
           ],
           "slot_group": "sample_details",
           "range": "float"
+        },
+        "sample template version": {
+          "name": "sample template version",
+          "description": " ",
+          "title": "sample template version",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 10,
+          "alias": "sample_template_version",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "provenance",
+          "range": "provenance",
+          "required": true
         }
       }
     }

@@ -51,6 +51,7 @@ classes:
     - TransformationDescription
     - processedDataFile
     - unit
+    - experiement template version
     slot_usage:
       investigation_identifier:
         rank: 1
@@ -160,6 +161,9 @@ classes:
       unit:
         rank: 36
         slot_group: data_analysis
+      experiement template version:
+        rank: 37
+        slot_group: provenance
   metaboliteID:
     name: metaboliteID
     is_a: dh_interface
@@ -170,6 +174,7 @@ classes:
     - inchikey
     - mass
     - elution_time
+    - sample template version
     slot_usage:
       metabolite_name:
         rank: 1
@@ -189,6 +194,9 @@ classes:
       elution_time:
         rank: 6
         slot_group: metabolite_identification
+      sample template version:
+        rank: 7
+        slot_group: provenance
 slots:
   investigation_identifier:
     name: investigation_identifier
@@ -251,9 +259,8 @@ slots:
     range: WhitespaceMinimizedString
     description: The individual who is the primary contact for this experiment.
     required: true
-    inlined_as_list: true
     slot_uri: obo:OBI_0000202
-    comments: Rance Nault
+    comments: Nault,Rance
   date:
     name: date
     title: date
@@ -270,7 +277,11 @@ slots:
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     required: true
-    comments: ' '
+    comments: 'Frozen liver tissue was homegenized in 1000 ul h20:methanol (5:3) mixture5
+      ml and homegenized, 625 ul chloroform was added,vortexed and spun down at 15,000G.
+      800 ul of top layer was removed and blown down with nitrogen and reconstituted
+      in 400 l 10mM tetrabutylammonium (TBA)+10mM acetate (pH 5). A further 1:16 dilution
+      was performed for analysis of acetyl-CoA. '
   extraction_protocol_DOI:
     name: extraction_protocol_DOI
     title: extraction_protocol_DOI
@@ -278,7 +289,7 @@ slots:
     description: A DOI to a version controlled protocol, preferably available on a
       repository such as protocols.io
     recommended: true
-    comments: ' '
+    comments: dx.doi.org/10.17504/protocols.io.64hhgt6
   derivitization:
     name: derivitization
     title: derivitization
@@ -296,14 +307,16 @@ slots:
     title: calibration_standard
     range: WhitespaceMinimizedString
     description: Indicate the name of the chemical compound used as calibration standard.
-    comments: ' '
+    comments: Acetyl-1,2-13C2 Coenzyme A Sodium Salt
   chromatography_protocol:
     name: chromatography_protocol
     title: chromatography_protocol
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     required: true
-    comments: ' '
+    comments: "Ion-pairing reverse phase chromatography was performed on an Ascentis\
+      \ Express column (C18, 5\u2009cm\u2009\xD7\u20092.1\u2009mm, 2.7\u2009\xB5m,\
+      \ Sigma)."
   chromatography_protocol_DOI:
     name: chromatography_protocol_DOI
     title: chromatography_protocol_DOI
@@ -318,14 +331,24 @@ slots:
     range: WhitespaceMinimizedString
     description: The name of the chromatography column.
     required: true
-    comments: ' '
+    comments: 'Ascentis Express C18: 5cm x 2.1 mm, 2.7 um, Sigma-Aldrich'
   elution program:
     name: elution program
     title: elution program
     range: WhitespaceMinimizedString
     description: Description of the elution program using the following scheme
-    comments: Ramping from 90 % solvent A, 10 % solvent B to 100% solvant B in 30
-      min;100% solvent B, isocratic for 10 min
+    comments: "injection volume, 10\u2009\xB5l; column temperature, 30\u2009\xB0C;\
+      \ and flow rate, 400\u2009\xB5l/min. The LC solvents were solvent A: 10\u2009\
+      mM tributylamine and 15\u2009mM acetic acid in 97:3 water:methanol (pH 4.95)\
+      \ and solvent B: methanol. Elution from the column was performed over 11\u2009\
+      min with the following gradient: t\u2009=\u20090, 0% solvent B, flow rate 0.4\u2009\
+      ml/min; t\u2009=\u20091, 0% solvent B, flow rate 0.4\u2009ml/min; t\u2009=\u2009\
+      2, 20% solvent B, flow rate 0.3\u2009ml/min; t\u2009=\u20093, 20% solvent B,\
+      \ flow rate 0.25\u2009ml/min; t\u2009=\u20095, 55% solvent B, flow rate 0.15\u2009\
+      ml/min; t\u2009=\u20098, 95% solvent B, flow rate 0.15\u2009ml/min; t\u2009\
+      =\u20098.5, 95% solvent B, flow rate 0.15\u2009ml/min; t\u2009=\u20099, 0% solvent\
+      \ B, flow rate 0.4\u2009ml/min; t\u2009=\u200911, 0% solvent B, flow rate 0.4\u2009\
+      ml/min."
   flow_rate:
     name: flow_rate
     title: flow_rate
@@ -352,7 +375,12 @@ slots:
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     required: true
-    comments: ' '
+    comments: "Mass spectra were acquired using negative-mode electrospray ionization\
+      \ run in MSE continuum mode. The capillary voltage was 2,500\u2009V and cone\
+      \ voltage was 40\u2009V. Nitrogen was used as cone gas and desolvation gas,\
+      \ with flow rates of 50 and 600\u2009L/h, respectively. The source temperature\
+      \ was 100\u2009\xB0C, and desolvation temperature was 300\u2009\xB0C. Argon\
+      \ was used as collision gas."
   ms_protocol_DOI:
     name: ms_protocol_DOI
     title: ms_protocol_DOI
@@ -389,14 +417,14 @@ slots:
     range: WhitespaceMinimizedString
     description: The method by which gas phase ions are generated from the sample.
     slot_uri: obo:MS_1000008
-    comments: ' '
+    comments: electrospray ionization
   detector_type:
     name: detector_type
     title: detector_type
     range: WhitespaceMinimizedString
     description: Type of detector used in the mass spectrometer.
     slot_uri: obo:MS_1000026
-    comments: ' '
+    comments: electron multiplier
   mass_analyzer_type:
     name: mass_analyzer_type
     title: mass_analyzer_type
@@ -404,14 +432,16 @@ slots:
     description: Mass analyzer separates the ions according to their mass-to-charge
       ratio.
     slot_uri: obo:MS_1000443
-    comments: ' '
+    comments: quadrupole
   analysis_protocol:
     name: analysis_protocol
     title: analysis_protocol
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     slot_uri: obo:NCIT_C42651
-    comments: ' '
+    comments: 'Progenesis QI (Waters) was used for peak processing. Metabolites were
+      identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used
+      to measure area under the curve. '
   analysis_protocol_DOI:
     name: analysis_protocol_DOI
     title: analysis_protocol_DOI
@@ -426,13 +456,14 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     slot_uri: obo:OBI:0000021
-    comments: FCS File name (must end in .FCS)
+    comments: ' '
   Normalization:
     name: Normalization
     title: Normalization
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: Each sample was normalized to both liver weight and 13C-,15N-labelled
+      amino acid standards
   Transformation:
     name: Transformation
     title: Transformation
@@ -465,44 +496,58 @@ slots:
     title: unit
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: nmol/mg total protein
   metabolite_name:
     name: metabolite_name
     title: metabolite_name
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    comments: ' '
+    comments: Acetyl-CoA
   refmet_name:
     name: refmet_name
     title: refmet_name
     range: WhitespaceMinimizedString
     description: ' '
     recommended: true
-    comments: ' '
+    comments: Acetyl-CoA
   dtxsid:
     name: dtxsid
     title: dtxsid
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: DTXSID30992686
   inchikey:
     name: inchikey
     title: inchikey
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: ZSLZBFCDCINBPY-ZSJPKINUSA-N
   mass:
     name: mass
     title: mass
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: '809.125784'
   elution_time:
     name: elution_time
     title: elution_time
     range: WhitespaceMinimizedString
     description: ' '
+    comments: '1.23'
+  experiement template version:
+    name: experiement template version
+    title: experiement template version
+    range: provenance
+    description: ' '
+    required: true
+    comments: ' '
+  sample template version:
+    name: sample template version
+    title: sample template version
+    range: provenance
+    description: ' '
+    required: true
     comments: ' '
 types:
   WhitespaceMinimizedString:
@@ -513,38 +558,240 @@ types:
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
     base: str
     uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
 enums:
   derivitization menu:
     name: derivitization menu
     permissible_values:
-      ? "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),tri\uFB02\
-        uoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)tri\uFB02\
-        uoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium\
-        \ hydroxide"
-      : text: "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),tri\uFB02\
-          uoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)tri\uFB02\
-          uoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium\
-          \ hydroxide"
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      diazomethane:
+        text: diazomethane
+      hexamethyldisilazane:
+        text: hexamethyldisilazane
+      methyl iodide potassium:
+        text: methyl iodide potassium
+      N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide:
+        text: N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide
+      N-methyl-N-(trimethylsilyl):
+        text: N-methyl-N-(trimethylsilyl)
+      "tri\uFB02uoroacetamide":
+        text: "tri\uFB02uoroacetamide"
+      N-trimethylsilyl-imidazole:
+        text: N-trimethylsilyl-imidazole
+      N,N-dimethylformamidedimethylacetale:
+        text: N,N-dimethylformamidedimethylacetale
+      N,O-Bis-(Trimethylsilyl)acetamide:
+        text: N,O-Bis-(Trimethylsilyl)acetamide
+      "N,O-bis(trimethylsilyl)tri\uFB02uoroacetamide":
+        text: "N,O-bis(trimethylsilyl)tri\uFB02uoroacetamide"
+      pyridine:
+        text: pyridine
+      tert-Butyldimethylsilyl:
+        text: tert-Butyldimethylsilyl
+      trimethylchlorosilane:
+        text: trimethylchlorosilane
+      trimethylphenylammoniumhydroxide:
+        text: trimethylphenylammoniumhydroxide
+      Trimethylsilyldiethylamine:
+        text: Trimethylsilyldiethylamine
+      trimethylsulphonium hydroxide:
+        text: trimethylsulphonium hydroxide
   extract_preservation_method menu:
     name: extract_preservation_method menu
     permissible_values:
-      Room temperature, -20C, -80C:
-        text: Room temperature, -20C, -80C
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Room temperature:
+        text: Room temperature
+      -20C:
+        text: -20C
+      -80C:
+        text: -80C
   manufacturer menu:
     name: manufacturer menu
     permissible_values:
-      Agilent, Waters:
-        text: Agilent, Waters
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Agilent:
+        text: Agilent
+      Waters:
+        text: Waters
   model menu:
     name: model menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       Xevo TQ-S:
         text: Xevo TQ-S
   scan_polarity menu:
     name: scan_polarity menu
     permissible_values:
-      negative scan, positive scan:
-        text: negative scan, positive scan
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      negative scan:
+        text: negative scan
+      positive scan:
+        text: positive scan
+  detector_type menu:
+    name: detector_type menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      array detector:
+        text: array detector
+      microchannel plate detector:
+        text: microchannel plate detector
+      photodiode array detector:
+        text: photodiode array detector
+      channeltron:
+        text: channeltron
+      conversion dynode:
+        text: conversion dynode
+      conversion dynode electron multiplier:
+        text: conversion dynode electron multiplier
+      conversion dynode photomultiplier:
+        text: conversion dynode photomultiplier
+      daly detector:
+        text: daly detector
+      dynode:
+        text: dynode
+      electron multiplier:
+        text: electron multiplier
+      electron multiplier tube:
+        text: electron multiplier tube
+      faraday cup:
+        text: faraday cup
+      fluorescence detector:
+        text: fluorescence detector
+      Acquity UPLC FLR:
+        text: Acquity UPLC FLR
+      focal plane collector:
+        text: focal plane collector
+      focal plane array:
+        text: focal plane array
+      inductive detector:
+        text: inductive detector
+      ion-to-photon detector:
+        text: ion-to-photon detector
+      multi-collector:
+        text: multi-collector
+      photomultiplier:
+        text: photomultiplier
+      point collector:
+        text: point collector
+      postacceleration detector:
+        text: postacceleration detector
+  mass_analyzer_type menu:
+    name: mass_analyzer_type menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      cyclotron:
+        text: cyclotron
+      electrostatic energy analyzer:
+        text: electrostatic energy analyzer
+      fourier transform ion cyclotron resonance mass spectrometer:
+        text: fourier transform ion cyclotron resonance mass spectrometer
+      ion trap:
+        text: ion trap
+      linear ion trap:
+        text: linear ion trap
+      axial ejection linear ion trap:
+        text: axial ejection linear ion trap
+      radial ejection linear ion trap:
+        text: radial ejection linear ion trap
+      quadrupole ion trap:
+        text: quadrupole ion trap
+      magnetic sector:
+        text: magnetic sector
+      orbitrap:
+        text: orbitrap
+      quadrupole:
+        text: quadrupole
+      stored waveform inverse fourier transform:
+        text: stored waveform inverse fourier transform
+      time-of-flight:
+        text: time-of-flight
+  unit menu:
+    name: unit menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      AUC:
+        text: AUC
+      nmol/mg protein:
+        text: nmol/mg protein
 settings:
   Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'

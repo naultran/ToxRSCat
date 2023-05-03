@@ -1,16 +1,11 @@
-id: https://example.com/MIATE
+id: https://example.com/MIFlowCyt
 name: flow_cytometry_assay
-description: 'Template for the collection of minimally required information about
-  flow cytometry experiments to be used in combination with Investigation and Study
-  level templates. Minimum Information about a Flow Cytometry Experiment (MIFlowCyt)
-  is detailed in "Lee JA, Spidlen J, Boyce K, Cai J, Crosbie N, Dalphin M, Furlong
-  J, Gasparetto M, Goldberg M, Goralczyk EM, Hyun B, Jansen K, Kollmann T, Kong M,
-  Leif R, McWeeney S, Moloshok TD, Moore W, Nolan G, Nolan J, Nikolich-Zugich J, Parrish
-  D, Purcell B, Qian Y, Selvaraj B, Smith C, Tchuvatkina O, Wertheimer A, Wilkinson
-  P, Wilson C, Wood J, Zigon R; International Society for Advancement of Cytometry
-  Data Standards Task Force; Scheuermann RH, Brinkman RR. MIFlowCyt: the minimum information
-  about a Flow Cytometry Experiment. Cytometry A. 2008 Oct;73(10):926-30. doi: 10.1002/cyto.a.20623.
-  PMID: 18752282; PMCID: PMC2773297."'
+description: 'Template based on the expectactions from the FlowRepository (flowrepository.org)
+  and the Minimum Information about Flow Cytometry Experiments (MIFlowCyt) developed
+  by the International Society for Advancement of Cytometry (ISAC). More details can
+  be found at https://doi.org/10.25504/FAIRsharing.kcnjj2. The LinkML Schema and template
+  was developed by the Michigan State University Superfund Research Center Data Management
+  and Analysis Core. '
 version: 1.0.0
 imports: linkml:types
 prefixes:
@@ -29,7 +24,7 @@ classes:
     - investigation_identifier
     - study_identifier
     - sample_identifier
-    - flow_experimet_identifier
+    - flow_experiment_identifier
     - purpose
     - keywords
     - experimentVariables
@@ -82,6 +77,7 @@ classes:
     - Gate Statistics
     - GateBoundaries
     - WorkspaceFile
+    - template version
     slot_usage:
       investigation_identifier:
         rank: 1
@@ -92,7 +88,7 @@ classes:
       sample_identifier:
         rank: 3
         slot_group: identifiers
-      flow_experimet_identifier:
+      flow_experiment_identifier:
         rank: 4
         slot_group: identifiers
       purpose:
@@ -251,42 +247,45 @@ classes:
       WorkspaceFile:
         rank: 56
         slot_group: data_analysis
+      template version:
+        rank: 57
+        slot_group: provenance
 slots:
   investigation_identifier:
     name: investigation_identifier
-    title: investigation_identifier
+    title: Investigation_ID
     range: WhitespaceMinimizedString
     description: The identifier for this investigation collected using the "investigation"
       template. This is used to match the flow cytometry experiment to an investigation.
     required: true
     slot_uri: obo:OBI_0000066
-    comments: i_Prj140
+    comments: SRP_PRJ1
   study_identifier:
     name: study_identifier
-    title: study_identifier
+    title: Study_ID
     range: WhitespaceMinimizedString
     description: The identifier for this study collected using the template appropriate
       for your study design (e.g., MIATE for animal experiments). This is used to
       match the flow cytometry experiment to a study.
     required: true
-    comments: s_Prj140
+    comments: study_001
   sample_identifier:
     name: sample_identifier
-    title: sample_identifier
+    title: Sample_ID
     range: WhitespaceMinimizedString
     description: The identifier for this study collected using the template appropriate
       for your study design (e.g., MIATE for animal experiments). This is used to
       match the sample source to the data.
     required: true
-    comments: Prj140_M001_Liver
-  flow_experimet_identifier:
-    name: flow_experimet_identifier
-    title: flow_experimet_identifier
+    comments: HSA_001
+  flow_experiment_identifier:
+    name: flow_experiment_identifier
+    title: Flow_experiment_ID
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
     required: true
-    comments: ms_S001
+    comments: flow_001-HSA_001
   purpose:
     name: purpose
     title: purpose
@@ -295,42 +294,41 @@ slots:
       the rationale and hypothesis.
     recommended: true
     slot_uri: obo:NCIT_C25634
-    comments: Quantify the proportion of CD5+ and CD5- B Cells in human PBMCs
+    comments: Test the hypothesis that CD5+ innate-like B Cells (ILBs) are sensitive
+      to AHR-mediated immunotoxicity.
   keywords:
     name: keywords
     title: keywords
     range: WhitespaceMinimizedString
     description: The keywords should include terms from an appropriate vocabulary
-      (e.g. MeSH) to describe the experiment.
+      (e.g. MeSH) to describe the experiment. Each keyword should be seperated by
+      a ";" with not spaces.
     recommended: true
     multivalued: true
     inlined_as_list: true
     slot_uri: obo:NCIT_C43513
-    comments: PBMC, TCDD
+    comments: Monocytes;2,3,7,8-Tetrachlorodibenzo-p-dioxin
   experimentVariables:
     name: experimentVariables
     title: experimentVariables
     range: experimentVariables menu
     description: Variables are attribute(s) that differ between samples within an
       experiment due to pre-existing differences in sample states or due to experimental
-      manipulation of the samples. If applicable, a brief description of the conditional
-      and/or manipulated variables in the experiment shall be provided (e.g., smoker
-      vs. nonsmoker, IL-2 treatment vs. no treatment, knockout versus wild-type, varying
-      number of transplanted cells, varying treatment dosage, etc.). The number of
-      instances per experimental group should also be stated.
+      manipulation of the samples.
     required: true
     multivalued: true
     slot_uri: obo:STATO_0000258
-    comments: ' '
+    comments: Dose;Timepoint;Individual
   primaryContact:
     name: primaryContact
     title: primaryContact
     range: WhitespaceMinimizedString
-    description: The individual who is the primary contact for this experiment.
+    description: The individual who is the primary contact for this experiment (last
+      name,first name).
     required: true
     multivalued: true
     slot_uri: obo:OBI_0000202
-    comments: ' '
+    comments: Blevins,Lance
   date:
     name: date
     title: date
@@ -349,7 +347,9 @@ slots:
       the experiment shall be provided if available.
     recommended: true
     slot_uri: obo:IAO_0000144
-    comments: ' '
+    comments: Levels of AHR-mediated suppression of the IgM response from individual
+      donors strongly correlated with the percentage of the B cell pool that was CD5+,
+      suggesting that CD5+ B cells are more sensitive to AHR-mediated impairment.
   qualityControlMeasures:
     name: qualityControlMeasures
     title: qualityControlMeasures
@@ -362,22 +362,16 @@ slots:
     required: true
     multivalued: true
     slot_uri: obo:MSIO_0000085
-    comments: The cell lines used in this experiment underwent STR profiling to confirm
-      their identity and sent for mycoplasma testing to ensure there is no contamination.
-      Additionally, cells used for xenograft injection were screened against a Rodent
-      Pathogen Panel to ensure no contamination prior to injection. The animals were
-      randomized prior to treatment. An isotype control antibody was used to confirm
-      the specificity of the HLA-A,B,C antibody. Additionally, no antibody and MV4;11
-      cells (as positive control) were used to ensure specificity. Additional detailed
-      experimental notes, data, and analysis are available on the Open Science Framework
-      (OSF) (https://osf.io/hcqqy/)
+    comments: Live/Dead staining;unstained controls
   flow_cytometry_protocol:
     name: flow_cytometry_protocol
     title: flow_cytometry_protocol
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     slot_uri: obo:NCIT_C42651
-    comments: ' '
+    comments: Cells were processed using a BD FACSCanto II using FACS Diva software
+      (BD Bioscience) and analyzed using FloJo (Version 10, Treestar Software, Ashland
+      OR).
   flow_cytometry_protocol_DOI:
     name: flow_cytometry_protocol_DOI
     title: flow_cytometry_protocol_DOI
@@ -415,7 +409,7 @@ slots:
       (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web
       pages may also be provided.
     slot_uri: obo:OBI_0000835
-    comments: ' '
+    comments: BD Bioscience
   model:
     name: model
     title: model
@@ -423,7 +417,7 @@ slots:
     description: The instrument model shall be specified (e.g., CytMeter Elite-2000).
       It may include the instrument serial number.
     slot_uri: obo:MS_1000031
-    comments: ' '
+    comments: BD FACSAria
   configurationAndSettings:
     name: configurationAndSettings
     title: configurationAndSettings
@@ -431,7 +425,7 @@ slots:
     description: The system and its configurations have significant impact on experimental
       results and as such the following shall be provided
     slot_uri: obo:MS_1000740
-    comments: ' '
+    comments: The instrument has not been altered
   other_instrument:
     name: other_instrument
     title: other_instrument
@@ -578,7 +572,7 @@ slots:
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     slot_uri: obo:NCIT_C42651
-    comments: ' '
+    comments: ~0.25x10^6 cells were stained with antibody.
   staining_protocol_DOI:
     name: staining_protocol_DOI
     title: staining_protocol_DOI
@@ -600,7 +594,7 @@ slots:
       primarily for this measurement shall be indicated.
     recommended: true
     slot_uri: obo:BFO_0000005
-    comments: ' '
+    comments: CD5
   analyte:
     name: analyte
     title: analyte
@@ -610,7 +604,7 @@ slots:
       bound by the analyte detector (e.g., CD25)?
     required: true
     slot_uri: obo:OBI_0000275
-    comments: CD25
+    comments: CD5
   analyteDetector:
     name: analyteDetector
     title: analyteDetector
@@ -620,7 +614,7 @@ slots:
       antibody)?
     required: true
     slot_uri: obo:CHMO_0002244
-    comments: ' '
+    comments: mouse anti-human CD5
   analyteReporter:
     name: analyteReporter
     title: analyteReporter
@@ -631,7 +625,7 @@ slots:
       FITC)?
     required: true
     slot_uri: obo:CHEBI_35209
-    comments: ' '
+    comments: PE
   cloneNameOrNumber:
     name: cloneNameOrNumber
     title: cloneNameOrNumber
@@ -639,7 +633,7 @@ slots:
     description: If the probe is a monoclonal antibody, the clone name or number shall
       be provided.
     slot_uri: obo:SO_0000151
-    comments: ' '
+    comments: UCHT2
   reagentManufacturerName:
     name: reagentManufacturerName
     title: reagentManufacturerName
@@ -647,20 +641,20 @@ slots:
     description: The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent
       Inc.).
     slot_uri: obo:IAO_0000590
-    comments: ' '
+    comments: BioLegend
   reagentCatalogueNumber:
     name: reagentCatalogueNumber
     title: reagentCatalogueNumber
     range: WhitespaceMinimizedString
     description: The reagent catalogue number shall be specified.
     slot_uri: obo:NCIT_C112406
-    comments: ' '
+    comments: '300607'
   stainingStatus:
     name: stainingStatus
     title: stainingStatus
     range: stainingStatus menu
     description: ' '
-    comments: ' '
+    comments: stained
   other_fluorescence_reagent:
     name: other_fluorescence_reagent
     title: other_fluorescence_reagent
@@ -682,7 +676,7 @@ slots:
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     slot_uri: obo:NCIT_C42651
-    comments: ' '
+    comments: 'Positive gates were drawn using unstained and day 0 controls. '
   analysis_protocol_DOI:
     name: analysis_protocol_DOI
     title: analysis_protocol_DOI
@@ -698,7 +692,7 @@ slots:
     description: The list-mode data files (e.g., FCS files [18]) shall be provided
       directly or details on how they may be requested shall be stated.
     slot_uri: obo:OBI:0000021
-    comments: FCS File name (must end in .FCS)
+    comments: sample1.FCS
   CompensationDescription:
     name: CompensationDescription
     title: CompensationDescription
@@ -732,9 +726,8 @@ slots:
     range: WhitespaceMinimizedString
     description: "The subpopulation identified by the gate shall be briefly described\
       \ (e.g.,\n\u201CIL-4 producing helper T cells of the CD3+CD4+ phenotype\u201D\
-      ). The gating\nstrategy or a reference to where it is described in detail (e.g.,\
-      \ a\nmanuscript) should be provided."
-    comments: ' '
+      )."
+    comments: ILBs of the CD5+ phenotype
   Gate Statistics:
     name: Gate Statistics
     title: Gate Statistics
@@ -773,6 +766,12 @@ slots:
     title: WorkspaceFile
     range: WhitespaceMinimizedString
     description: ' '
+    comments: Analysis.wsp
+  template version:
+    name: template version
+    title: template version
+    range: provenance
+    description: ' '
     comments: ' '
 types:
   WhitespaceMinimizedString:
@@ -783,58 +782,139 @@ types:
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
     base: str
     uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
 enums:
   experimentVariables menu:
     name: experimentVariables menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       Condition:
         text: Condition
-      ' Dose':
-        text: ' Dose'
-      ' Timepoint':
-        text: ' Timepoint'
-      ' Individual':
-        text: ' Individual'
-      ' Experimental variable sample type':
-        text: ' Experimental variable sample type'
+      Dose:
+        text: Dose
+      Timepoint:
+        text: Timepoint
+      Individual:
+        text: Individual
+      Experimental variable sample type:
+        text: Experimental variable sample type
   qualityControlMeasures menu:
     name: qualityControlMeasures menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       STR profiling of source cells:
         text: STR profiling of source cells
-      ' mycoplasma testing':
-        text: ' mycoplasma testing'
-      ' isotype control for antibody':
-        text: ' isotype control for antibody'
-      ' no antibody negative control':
-        text: ' no antibody negative control'
-      ' positive control cell type':
-        text: ' positive control cell type'
+      mycoplasma testing:
+        text: mycoplasma testing
+      isotype control for antibody:
+        text: isotype control for antibody
+      no antibody negative control:
+        text: no antibody negative control
+      positive control cell type:
+        text: positive control cell type
+      Live/Dead staining:
+        text: Live/Dead staining
+      unstained controls:
+        text: unstained controls
   flowCellType menu:
     name: flowCellType menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       jet-in-air:
         text: jet-in-air
-      ' quartz cuvette':
-        text: ' quartz cuvette'
+      quartz cuvette:
+        text: quartz cuvette
   manufacturer menu:
     name: manufacturer menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       BD Biosciences:
         text: BD Biosciences
   model menu:
     name: model menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       BD FACSAria:
         text: BD FACSAria
   configurationAndSettings menu:
     name: configurationAndSettings menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       The instrument has not been altered:
         text: The instrument has not been altered
   type menu:
     name: type menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       mercury-vapor lamp:
         text: mercury-vapor lamp
       ' xenon lamp':
@@ -854,13 +934,33 @@ enums:
   type_optical_detector menu:
     name: type_optical_detector menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       photodiode:
         text: photodiode
-      ' photomultiplier tube':
-        text: ' photomultiplier tube'
+      photomultiplier tube:
+        text: photomultiplier tube
   amplificationType menu:
     name: amplificationType menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       linear:
         text: linear
       log:
@@ -868,6 +968,16 @@ enums:
   type_optical_filter menu:
     name: type_optical_filter menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       band pass filter:
         text: band pass filter
       long pass filter:
@@ -885,6 +995,16 @@ enums:
   stainingStatus menu:
     name: stainingStatus menu
     permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
       stained:
         text: stained
       unstained:

@@ -35,6 +35,14 @@
       "base": "str",
       "uri": "xsd:token"
     },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/CIMR",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
     "string": {
       "name": "string",
       "description": "A character string",
@@ -212,8 +220,68 @@
       "name": "derivitization menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),triﬂuoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)triﬂuoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium hydroxide": {
-          "text": "diazomethane,hexamethyldisilazane,methyl iodide potassium,N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide,N-methyl-N-(trimethylsilyl),triﬂuoroacetamide,N-trimethylsilyl-imidazole,N,N-dimethylformamidedimethylacetale,N,O-Bis-(Trimethylsilyl)acetamide,N,O-bis(trimethylsilyl)triﬂuoroacetamide,pyridine,tert-Butyldimethylsilyl,trimethylchlorosilane,trimethylphenylammoniumhydroxide,Trimethylsilyldiethylamine,trimethylsulphonium hydroxide"
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "diazomethane": {
+          "text": "diazomethane"
+        },
+        "hexamethyldisilazane": {
+          "text": "hexamethyldisilazane"
+        },
+        "methyl iodide potassium": {
+          "text": "methyl iodide potassium"
+        },
+        "N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide": {
+          "text": "N-methyl-(tert-butyldimethylsilyl)trifluoroacetamide"
+        },
+        "N-methyl-N-(trimethylsilyl)": {
+          "text": "N-methyl-N-(trimethylsilyl)"
+        },
+        "triﬂuoroacetamide": {
+          "text": "triﬂuoroacetamide"
+        },
+        "N-trimethylsilyl-imidazole": {
+          "text": "N-trimethylsilyl-imidazole"
+        },
+        "N,N-dimethylformamidedimethylacetale": {
+          "text": "N,N-dimethylformamidedimethylacetale"
+        },
+        "N,O-Bis-(Trimethylsilyl)acetamide": {
+          "text": "N,O-Bis-(Trimethylsilyl)acetamide"
+        },
+        "N,O-bis(trimethylsilyl)triﬂuoroacetamide": {
+          "text": "N,O-bis(trimethylsilyl)triﬂuoroacetamide"
+        },
+        "pyridine": {
+          "text": "pyridine"
+        },
+        "tert-Butyldimethylsilyl": {
+          "text": "tert-Butyldimethylsilyl"
+        },
+        "trimethylchlorosilane": {
+          "text": "trimethylchlorosilane"
+        },
+        "trimethylphenylammoniumhydroxide": {
+          "text": "trimethylphenylammoniumhydroxide"
+        },
+        "Trimethylsilyldiethylamine": {
+          "text": "Trimethylsilyldiethylamine"
+        },
+        "trimethylsulphonium hydroxide": {
+          "text": "trimethylsulphonium hydroxide"
         }
       }
     },
@@ -221,8 +289,29 @@
       "name": "extract_preservation_method menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "Room temperature, -20C, -80C": {
-          "text": "Room temperature, -20C, -80C"
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "Room temperature": {
+          "text": "Room temperature"
+        },
+        "-20C": {
+          "text": "-20C"
+        },
+        "-80C": {
+          "text": "-80C"
         }
       }
     },
@@ -230,8 +319,26 @@
       "name": "manufacturer menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "Agilent, Waters": {
-          "text": "Agilent, Waters"
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "Agilent": {
+          "text": "Agilent"
+        },
+        "Waters": {
+          "text": "Waters"
         }
       }
     },
@@ -239,6 +346,21 @@
       "name": "model menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
         "Xevo TQ-S": {
           "text": "Xevo TQ-S"
         }
@@ -248,8 +370,200 @@
       "name": "scan_polarity menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "negative scan, positive scan": {
-          "text": "negative scan, positive scan"
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "negative scan": {
+          "text": "negative scan"
+        },
+        "positive scan": {
+          "text": "positive scan"
+        }
+      }
+    },
+    "detector_type menu": {
+      "name": "detector_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "array detector": {
+          "text": "array detector"
+        },
+        "microchannel plate detector": {
+          "text": "microchannel plate detector"
+        },
+        "photodiode array detector": {
+          "text": "photodiode array detector"
+        },
+        "channeltron": {
+          "text": "channeltron"
+        },
+        "conversion dynode": {
+          "text": "conversion dynode"
+        },
+        "conversion dynode electron multiplier": {
+          "text": "conversion dynode electron multiplier"
+        },
+        "conversion dynode photomultiplier": {
+          "text": "conversion dynode photomultiplier"
+        },
+        "daly detector": {
+          "text": "daly detector"
+        },
+        "dynode": {
+          "text": "dynode"
+        },
+        "electron multiplier": {
+          "text": "electron multiplier"
+        },
+        "electron multiplier tube": {
+          "text": "electron multiplier tube"
+        },
+        "faraday cup": {
+          "text": "faraday cup"
+        },
+        "fluorescence detector": {
+          "text": "fluorescence detector"
+        },
+        "Acquity UPLC FLR": {
+          "text": "Acquity UPLC FLR"
+        },
+        "focal plane collector": {
+          "text": "focal plane collector"
+        },
+        "focal plane array": {
+          "text": "focal plane array"
+        },
+        "inductive detector": {
+          "text": "inductive detector"
+        },
+        "ion-to-photon detector": {
+          "text": "ion-to-photon detector"
+        },
+        "multi-collector": {
+          "text": "multi-collector"
+        },
+        "photomultiplier": {
+          "text": "photomultiplier"
+        },
+        "point collector": {
+          "text": "point collector"
+        },
+        "postacceleration detector": {
+          "text": "postacceleration detector"
+        }
+      }
+    },
+    "mass_analyzer_type menu": {
+      "name": "mass_analyzer_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "cyclotron": {
+          "text": "cyclotron"
+        },
+        "electrostatic energy analyzer": {
+          "text": "electrostatic energy analyzer"
+        },
+        "fourier transform ion cyclotron resonance mass spectrometer": {
+          "text": "fourier transform ion cyclotron resonance mass spectrometer"
+        },
+        "ion trap": {
+          "text": "ion trap"
+        },
+        "linear ion trap": {
+          "text": "linear ion trap"
+        },
+        "axial ejection linear ion trap": {
+          "text": "axial ejection linear ion trap"
+        },
+        "radial ejection linear ion trap": {
+          "text": "radial ejection linear ion trap"
+        },
+        "quadrupole ion trap": {
+          "text": "quadrupole ion trap"
+        },
+        "magnetic sector": {
+          "text": "magnetic sector"
+        },
+        "orbitrap": {
+          "text": "orbitrap"
+        },
+        "quadrupole": {
+          "text": "quadrupole"
+        },
+        "stored waveform inverse fourier transform": {
+          "text": "stored waveform inverse fourier transform"
+        },
+        "time-of-flight": {
+          "text": "time-of-flight"
+        }
+      }
+    },
+    "unit menu": {
+      "name": "unit menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        },
+        "AUC": {
+          "text": "AUC"
+        },
+        "nmol/mg protein": {
+          "text": "nmol/mg protein"
         }
       }
     }
@@ -317,14 +631,12 @@
       "description": "The individual who is the primary contact for this experiment.",
       "title": "primary_contact",
       "comments": [
-        "Rance Nault"
+        "Nault,Rance"
       ],
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:OBI_0000202",
       "range": "WhitespaceMinimizedString",
-      "required": true,
-      "inlined": true,
-      "inlined_as_list": true
+      "required": true
     },
     "date": {
       "name": "date",
@@ -343,7 +655,7 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "extraction_protocol",
       "comments": [
-        " "
+        "Frozen liver tissue was homegenized in 1000 ul h20:methanol (5:3) mixture5 ml and homegenized, 625 ul chloroform was added,vortexed and spun down at 15,000G. 800 ul of top layer was removed and blown down with nitrogen and reconstituted in 400 l 10mM tetrabutylammonium (TBA)+10mM acetate (pH 5). A further 1:16 dilution was performed for analysis of acetyl-CoA. "
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -354,7 +666,7 @@
       "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
       "title": "extraction_protocol_DOI",
       "comments": [
-        " "
+        "dx.doi.org/10.17504/protocols.io.64hhgt6"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -385,7 +697,7 @@
       "description": "Indicate the name of the chemical compound used as calibration standard.",
       "title": "calibration_standard",
       "comments": [
-        " "
+        "Acetyl-1,2-13C2 Coenzyme A Sodium Salt"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -395,7 +707,7 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "chromatography_protocol",
       "comments": [
-        " "
+        "Ion-pairing reverse phase chromatography was performed on an Ascentis Express column (C18, 5 cm × 2.1 mm, 2.7 µm, Sigma)."
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -417,7 +729,7 @@
       "description": "The name of the chromatography column.",
       "title": "chromatography_column",
       "comments": [
-        " "
+        "Ascentis Express C18: 5cm x 2.1 mm, 2.7 um, Sigma-Aldrich"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -428,7 +740,7 @@
       "description": "Description of the elution program using the following scheme",
       "title": "elution program",
       "comments": [
-        "Ramping from 90 % solvent A, 10 % solvent B to 100% solvant B in 30 min;100% solvent B, isocratic for 10 min"
+        "injection volume, 10 µl; column temperature, 30 °C; and flow rate, 400 µl/min. The LC solvents were solvent A: 10 mM tributylamine and 15 mM acetic acid in 97:3 water:methanol (pH 4.95) and solvent B: methanol. Elution from the column was performed over 11 min with the following gradient: t = 0, 0% solvent B, flow rate 0.4 ml/min; t = 1, 0% solvent B, flow rate 0.4 ml/min; t = 2, 20% solvent B, flow rate 0.3 ml/min; t = 3, 20% solvent B, flow rate 0.25 ml/min; t = 5, 55% solvent B, flow rate 0.15 ml/min; t = 8, 95% solvent B, flow rate 0.15 ml/min; t = 8.5, 95% solvent B, flow rate 0.15 ml/min; t = 9, 0% solvent B, flow rate 0.4 ml/min; t = 11, 0% solvent B, flow rate 0.4 ml/min."
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -468,7 +780,7 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "ms_protocol",
       "comments": [
-        " "
+        "Mass spectra were acquired using negative-mode electrospray ionization run in MSE continuum mode. The capillary voltage was 2,500 V and cone voltage was 40 V. Nitrogen was used as cone gas and desolvation gas, with flow rates of 50 and 600 L/h, respectively. The source temperature was 100 °C, and desolvation temperature was 300 °C. Argon was used as collision gas."
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -523,7 +835,7 @@
       "description": "The method by which gas phase ions are generated from the sample.",
       "title": "ionization_type",
       "comments": [
-        " "
+        "electrospray ionization"
       ],
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:MS_1000008",
@@ -534,7 +846,7 @@
       "description": "Type of detector used in the mass spectrometer.",
       "title": "detector_type",
       "comments": [
-        " "
+        "electron multiplier"
       ],
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:MS_1000026",
@@ -545,7 +857,7 @@
       "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
       "title": "mass_analyzer_type",
       "comments": [
-        " "
+        "quadrupole"
       ],
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:MS_1000443",
@@ -556,7 +868,7 @@
       "description": "A brief description of the flow cytometry protocol",
       "title": "analysis_protocol",
       "comments": [
-        " "
+        "Progenesis QI (Waters) was used for peak processing. Metabolites were identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used to measure area under the curve. "
       ],
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:NCIT_C42651",
@@ -578,7 +890,7 @@
       "description": " ",
       "title": "rawDataFile",
       "comments": [
-        "FCS File name (must end in .FCS)"
+        " "
       ],
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:OBI:0000021",
@@ -589,7 +901,7 @@
       "description": " ",
       "title": "Normalization",
       "comments": [
-        " "
+        "Each sample was normalized to both liver weight and 13C-,15N-labelled amino acid standards"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -639,7 +951,7 @@
       "description": " ",
       "title": "unit",
       "comments": [
-        " "
+        "nmol/mg total protein"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -649,7 +961,7 @@
       "description": " ",
       "title": "metabolite_name",
       "comments": [
-        " "
+        "Acetyl-CoA"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -660,7 +972,7 @@
       "description": " ",
       "title": "refmet_name",
       "comments": [
-        " "
+        "Acetyl-CoA"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString",
@@ -671,7 +983,7 @@
       "description": " ",
       "title": "dtxsid",
       "comments": [
-        " "
+        "DTXSID30992686"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -681,7 +993,7 @@
       "description": " ",
       "title": "inchikey",
       "comments": [
-        " "
+        "ZSLZBFCDCINBPY-ZSJPKINUSA-N"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -691,7 +1003,7 @@
       "description": " ",
       "title": "mass",
       "comments": [
-        " "
+        "809.125784"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -701,10 +1013,32 @@
       "description": " ",
       "title": "elution_time",
       "comments": [
-        " "
+        "1.23"
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
+    },
+    "experiement template version": {
+      "name": "experiement template version",
+      "description": " ",
+      "title": "experiement template version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "provenance",
+      "required": true
+    },
+    "sample template version": {
+      "name": "sample template version",
+      "description": " ",
+      "title": "sample template version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "provenance",
+      "required": true
     }
   },
   "classes": {
@@ -897,6 +1231,11 @@
           "name": "unit",
           "rank": 36,
           "slot_group": "data_analysis"
+        },
+        "experiement template version": {
+          "name": "experiement template version",
+          "rank": 37,
+          "slot_group": "provenance"
         }
       },
       "attributes": {
@@ -991,8 +1330,7 @@
           ],
           "slot_group": "experiment",
           "range": "WhitespaceMinimizedString",
-          "required": true,
-          "inlined_as_list": true
+          "required": true
         },
         "date": {
           "name": "date",
@@ -1431,6 +1769,21 @@
           ],
           "slot_group": "data_analysis",
           "range": "WhitespaceMinimizedString"
+        },
+        "experiement template version": {
+          "name": "experiement template version",
+          "description": " ",
+          "title": "experiement template version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 37,
+          "alias": "experiement_template_version",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "provenance",
+          "range": "provenance",
+          "required": true
         }
       }
     },
@@ -1468,6 +1821,11 @@
           "name": "elution_time",
           "rank": 6,
           "slot_group": "metabolite_identification"
+        },
+        "sample template version": {
+          "name": "sample template version",
+          "rank": 7,
+          "slot_group": "provenance"
         }
       },
       "attributes": {
@@ -1556,6 +1914,21 @@
           ],
           "slot_group": "metabolite_identification",
           "range": "WhitespaceMinimizedString"
+        },
+        "sample template version": {
+          "name": "sample template version",
+          "description": " ",
+          "title": "sample template version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 7,
+          "alias": "sample_template_version",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "provenance",
+          "range": "provenance",
+          "required": true
         }
       }
     }

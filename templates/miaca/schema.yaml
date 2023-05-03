@@ -19,11 +19,10 @@ classes:
     slots:
     - investigation_identifier
     - study_identifier
-    - application
+    - purpose
     - study_design
     - study_type
     - experimental_setting
-    - Organism
     - cell_type
     - organism
     - race
@@ -83,6 +82,7 @@ classes:
     - test_article_dtxsid
     - vehicle_name
     - vehicle_dtxsid
+    - study template version
     slot_usage:
       investigation_identifier:
         rank: 1
@@ -90,7 +90,7 @@ classes:
       study_identifier:
         rank: 2
         slot_group: identifiers
-      application:
+      purpose:
         rank: 3
         slot_group: experiment
       study_design:
@@ -102,177 +102,177 @@ classes:
       experimental_setting:
         rank: 6
         slot_group: experiment
-      Organism:
-        rank: 7
-        slot_group: experiment
       cell_type:
-        rank: 8
+        rank: 7
         slot_group: cell_identification
       organism:
-        rank: 9
+        rank: 8
         slot_group: cell_identification
       race:
-        rank: 10
+        rank: 9
         slot_group: cell_identification
       strain:
-        rank: 11
+        rank: 10
         slot_group: cell_identification
       sex:
-        rank: 12
+        rank: 11
         slot_group: cell_identification
       age:
-        rank: 13
+        rank: 12
         slot_group: cell_identification
       passage_number:
-        rank: 14
+        rank: 13
         slot_group: cell_identification
       lot_no:
-        rank: 15
+        rank: 14
         slot_group: cell_identification
       source_organ:
-        rank: 16
+        rank: 15
         slot_group: cell_identification
       lineage:
-        rank: 17
+        rank: 16
         slot_group: cell_identification
       karyotype:
-        rank: 18
+        rank: 17
         slot_group: cell_identification
       health_status:
-        rank: 19
+        rank: 18
         slot_group: cell_identification
       miate_subject_identifier:
-        rank: 20
+        rank: 19
         slot_group: cell_identification
       modifications:
-        rank: 21
+        rank: 20
         slot_group: cell_identification
       lineQC:
-        rank: 22
+        rank: 21
         slot_group: quality_control
       validation:
-        rank: 23
+        rank: 22
         slot_group: quality_control
       isolation_protocol:
-        rank: 24
+        rank: 23
         slot_group: primary_cell
       isolation_protocol_DOI:
-        rank: 25
+        rank: 24
         slot_group: primary_cell
       TBD:
-        rank: 27
+        rank: 26
         slot_group: cell_line
       date:
-        rank: 57
-        slot_group: treatment
-      nameType:
-        rank: 29
-        slot_group: culture_vessel
-      vendor:
-        rank: 30
-        slot_group: culture_vessel
-      dimension:
-        rank: 31
-        slot_group: culture_vessel
-      size:
-        rank: 32
-        slot_group: culture_vessel
-      surfaceArea:
-        rank: 33
-        slot_group: culture_vessel
-      coating_substrate:
-        rank: 34
-        slot_group: culture_vessel
-      culture_vessel_location:
-        rank: 35
-        slot_group: culture_vessel
-      seeding_cell_density:
-        rank: 36
-        slot_group: seeding_cell_density
-      seeding_cell_date:
-        rank: 37
-        slot_group: seeding_cell_date
-      ' cellDensity':
-        rank: 38
-        slot_group: cellDensity
-      incubator_vendor:
-        rank: 39
-        slot_group: incubation
-      incubator_model:
-        rank: 40
-        slot_group: incubation
-      co2_percent:
-        rank: 41
-        slot_group: incubation
-      o2_percent:
-        rank: 42
-        slot_group: incubation
-      temperature:
-        rank: 43
-        slot_group: incubation
-      humidity:
-        rank: 44
-        slot_group: incubation
-      protocol:
-        rank: 46
-        slot_group: medium
-      basal_medium:
-        rank: 47
-        slot_group: medium
-      basal_medium_vendor:
-        rank: 48
-        slot_group: medium
-      basal_medium_lot_no:
-        rank: 49
-        slot_group: medium
-      culture_additives:
-        rank: 50
-        slot_group: medium
-      culture_additives_concentration:
-        rank: 51
-        slot_group: medium
-      anitibiotic_name:
-        rank: 52
-        slot_group: medium
-      antibiotic_concentration:
-        rank: 53
-        slot_group: medium
-      subject_identifier:
-        rank: 54
-        slot_group: subject
-      ' treatment_protocol':
-        rank: 55
-        slot_group: treatment
-      ' treatment_protocol_DOI':
         rank: 56
         slot_group: treatment
+      nameType:
+        rank: 28
+        slot_group: culture_vessel
+      vendor:
+        rank: 29
+        slot_group: culture_vessel
+      dimension:
+        rank: 30
+        slot_group: culture_vessel
+      size:
+        rank: 31
+        slot_group: culture_vessel
+      surfaceArea:
+        rank: 32
+        slot_group: culture_vessel
+      coating_substrate:
+        rank: 33
+        slot_group: culture_vessel
+      culture_vessel_location:
+        rank: 34
+        slot_group: culture_vessel
+      seeding_cell_density:
+        rank: 35
+        slot_group: seeding_cell_density
+      seeding_cell_date:
+        rank: 36
+        slot_group: seeding_cell_date
+      ' cellDensity':
+        rank: 37
+        slot_group: cellDensity
+      incubator_vendor:
+        rank: 38
+        slot_group: incubation
+      incubator_model:
+        rank: 39
+        slot_group: incubation
+      co2_percent:
+        rank: 40
+        slot_group: incubation
+      o2_percent:
+        rank: 41
+        slot_group: incubation
+      temperature:
+        rank: 42
+        slot_group: incubation
+      humidity:
+        rank: 43
+        slot_group: incubation
+      protocol:
+        rank: 45
+        slot_group: medium
+      basal_medium:
+        rank: 46
+        slot_group: medium
+      basal_medium_vendor:
+        rank: 47
+        slot_group: medium
+      basal_medium_lot_no:
+        rank: 48
+        slot_group: medium
+      culture_additives:
+        rank: 49
+        slot_group: medium
+      culture_additives_concentration:
+        rank: 50
+        slot_group: medium
+      anitibiotic_name:
+        rank: 51
+        slot_group: medium
+      antibiotic_concentration:
+        rank: 52
+        slot_group: medium
+      subject_identifier:
+        rank: 53
+        slot_group: subject
+      ' treatment_protocol':
+        rank: 54
+        slot_group: treatment
+      ' treatment_protocol_DOI':
+        rank: 55
+        slot_group: treatment
       addition_volume:
-        rank: 58
+        rank: 57
         slot_group: treatment
       stock_concentration:
-        rank: 59
+        rank: 58
         slot_group: treatment
       final_concentration:
-        rank: 60
+        rank: 59
         slot_group: treatment
       concentration_unit:
-        rank: 61
+        rank: 60
         slot_group: treatment
       test_article_administration_duration:
-        rank: 62
+        rank: 61
         slot_group: treatment
       test_article_name:
-        rank: 63
+        rank: 62
         slot_group: treatment
       test_article_dtxsid:
-        rank: 64
+        rank: 63
         slot_group: treatment
       vehicle_name:
-        rank: 65
+        rank: 64
         slot_group: treatment
       vehicle_dtxsid:
-        rank: 66
+        rank: 65
         slot_group: treatment
+      study template version:
+        rank: 66
+        slot_group: provenance
   Investigation:
     name: Investigation
     is_a: dh_interface
@@ -293,6 +293,7 @@ classes:
     - PMC_id
     - DOI
     - PMID
+    - investigation template version
     slot_usage:
       name:
         rank: 1
@@ -342,6 +343,9 @@ classes:
       PMID:
         rank: 16
         slot_group: Publication
+      investigation template version:
+        rank: 17
+        slot_group: provenance
   Sample:
     name: Sample
     is_a: dh_interface
@@ -352,6 +356,7 @@ classes:
     - date
     - collection_protocol
     - preservation_method
+    - sample template version
     slot_usage:
       study_identifier:
         rank: 1
@@ -371,33 +376,36 @@ classes:
       preservation_method:
         rank: 6
         slot_group: sample_details
+      sample template version:
+        rank: 7
+        slot_group: provenance
 slots:
   name:
     name: name
-    title: name
+    title: Title
     range: WhitespaceMinimizedString
     description: A textual entity that denotes an study.
-    comments: Zacharewski_Superfund
+    comments: SRP_PRJ3
   investigation_description:
     name: investigation_description
-    title: investigation_description
+    title: Description
     range: WhitespaceMinimizedString
     description: A textual entity that describes an investigation.
     slot_uri: OBI_0001615
     comments: ' '
   data_submission_contact_name:
     name: data_submission_contact_name
-    title: data_submission_contact_name
+    title: Contact name
     range: WhitespaceMinimizedString
     description: the name of the person bearing the data submission contact representative
-      role
+      role (last name,first name)
     recommended: true
     multivalued: true
     inlined_as_list: true
-    comments: Rance Nault
+    comments: Nault,Rance
   data_submission_contact_orcid:
     name: data_submission_contact_orcid
-    title: data_submission_contact_orcid
+    title: Contact ORCID
     range: WhitespaceMinimizedString
     pattern: '"\b\d{4}-\d{4}-\d{4}-\d{3}[\dX]\b"'
     description: ' '
@@ -407,7 +415,7 @@ slots:
     comments: 0000-0002-6822-4962
   data_submission_contact_email:
     name: data_submission_contact_email
-    title: data_submission_contact_email
+    title: Contact email
     range: WhitespaceMinimizedString
     pattern: '"^\\S+@[\\S+\\.]+\\S+"'
     description: email address of data submission contact
@@ -417,16 +425,16 @@ slots:
     comments: naultran@msu.edu
   data_submission_contact_telephone:
     name: data_submission_contact_telephone
-    title: data_submission_contact_telephone
+    title: Contact phone
     range: WhitespaceMinimizedString
     pattern: '"^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"'
     description: telephone number of data submission contact
     multivalued: true
     inlined_as_list: true
-    comments: '5178842054'
+    comments: 517-884-2054
   data_submission_contact_department:
     name: data_submission_contact_department
-    title: data_submission_contact_department
+    title: Contact department
     range: data_submission_contact_department menu
     description: department of data submission contact
     multivalued: true
@@ -434,7 +442,7 @@ slots:
     comments: Biochemistry & Molecular Biology
   data_submission_contact_institution:
     name: data_submission_contact_institution
-    title: data_submission_contact_institution
+    title: Contact institution
     range: data_submission_contact_institution menu
     description: institution of data submission contact
     multivalued: true
@@ -442,7 +450,7 @@ slots:
     comments: Michigan State University
   data_submission_contact_institution_postal_address:
     name: data_submission_contact_institution_postal_address
-    title: data_submission_contact_institution_postal_address
+    title: Contact ZIP
     range: WhitespaceMinimizedString
     pattern: '"^[0-9]{5}(?:-[0-9]{4})?$"'
     description: postal address of data submission contact
@@ -451,7 +459,7 @@ slots:
     comments: '48824'
   data_submission_contact_institution_city:
     name: data_submission_contact_institution_city
-    title: data_submission_contact_institution_city
+    title: Contact city
     range: WhitespaceMinimizedString
     description: city of data submission contact
     multivalued: true
@@ -459,7 +467,7 @@ slots:
     comments: East Lansing
   data_submission_contact_state:
     name: data_submission_contact_state
-    title: data_submission_contact_state
+    title: Contact state
     range: WhitespaceMinimizedString
     description: state of publication contact
     multivalued: true
@@ -467,16 +475,16 @@ slots:
     comments: MI
   support_source:
     name: support_source
-    title: support_source
+    title: Funding institution
     range: support_source menu
     description: ' '
     recommended: true
     multivalued: true
     inlined_as_list: true
-    comments: NIEHS
+    comments: Superfund Basic Research Program
   support_id:
     name: support_id
-    title: support_id
+    title: Funding identifier
     range: WhitespaceMinimizedString
     description: ' '
     recommended: true
@@ -485,8 +493,9 @@ slots:
     comments: P42ES004911
   PMC_id:
     name: PMC_id
-    title: PMC_id
+    title: PMC ID
     range: WhitespaceMinimizedString
+    pattern: ^\d{5,20}
     description: ' '
     multivalued: true
     inlined_as_list: true
@@ -503,6 +512,7 @@ slots:
     name: PMID
     title: PMID
     range: WhitespaceMinimizedString
+    pattern: ^\d{5,20}
     description: ' '
     multivalued: true
     inlined_as_list: true
@@ -513,62 +523,56 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    comments: ' '
+    comments: SRP_PRJ3
   study_identifier:
     name: study_identifier
     title: study_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    comments: ' '
-  application:
-    name: application
-    title: application
+    comments: PRJ140
+  purpose:
+    name: purpose
+    title: purpose
     range: WhitespaceMinimizedString
     description: ' '
     slot_uri: obo:IAO_0000315
     comments: ' '
   study_design:
     name: study_design
-    title: study_design
+    title: Study design
     range: study_design menu
     description: A plan specification comprised of protocols (which may specify how
       and what kinds of data will be gathered) that are executed as part of an investigation
       and is realized during a study design execution.
     slot_uri: obo:OBI_0500000
-    comments: ' '
+    comments: dose response design
   study_type:
     name: study_type
-    title: study_type
+    title: Study type
     range: study_type menu
     description: A categorical value specification that specifies the type of study
       from a list of study types
-    comments: ' '
+    comments: Toxicogenomics
   experimental_setting:
     name: experimental_setting
-    title: experimental_setting
+    title: Experimental setting
     range: experimental_setting menu
     description: ' '
-    comments: ' '
-  Organism:
-    name: Organism
-    title: Organism
-    range: Organism menu
-    description: ' '
-    comments: ' '
+    comments: in vitro
   cell_type:
     name: cell_type
     title: cell_type
     range: cell_type menu
     description: ' '
     slot_uri: obo:CL_0000000
-    comments: ' '
+    comments: Hepatocyte
   organism:
     name: organism
     title: organism
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: Mus musculus
   race:
     name: race
     title: race
@@ -578,25 +582,29 @@ slots:
   strain:
     name: strain
     title: strain
-    range: WhitespaceMinimizedString
+    range: strain menu
     description: ' '
-    comments: ' '
+    comments: C57BL/6NCrl
   sex:
     name: sex
     title: sex
     range: sex menu
     description: ' '
-    comments: ' '
+    comments: male
   age:
     name: age
     title: age
     range: integer
+    maximum_value: 150.0
+    minimum_value: 0.0
     description: ' '
-    comments: ' '
+    comments: '32'
   passage_number:
     name: passage_number
     title: passage_number
     range: integer
+    maximum_value: 100.0
+    minimum_value: 0.0
     description: ' '
     comments: ' '
   lot_no:
@@ -608,9 +616,9 @@ slots:
   source_organ:
     name: source_organ
     title: source_organ
-    range: WhitespaceMinimizedString
+    range: source_organ menu
     description: ' '
-    comments: ' '
+    comments: Liver
   lineage:
     name: lineage
     title: lineage
@@ -621,20 +629,20 @@ slots:
     name: karyotype
     title: karyotype
     range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
+    description: The chromosomal morphology and number in somatic cells of an individual.
+    comments: normal
   health_status:
     name: health_status
     title: health_status
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: healthy
   miate_subject_identifier:
     name: miate_subject_identifier
     title: miate_subject_identifier
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: M001
   modifications:
     name: modifications
     title: modifications
@@ -728,13 +736,13 @@ slots:
     title: coating_substrate
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: Collagen
   culture_vessel_location:
     name: culture_vessel_location
     title: culture_vessel_location
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: A1
   seeding_cell_density:
     name: seeding_cell_density
     title: seeding_cell_density
@@ -774,7 +782,7 @@ slots:
     maximum_value: 100.0
     minimum_value: 0.0
     description: ' '
-    comments: ' '
+    comments: '5'
   o2_percent:
     name: o2_percent
     title: o2_percent
@@ -939,6 +947,24 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
+  investigation template version:
+    name: investigation template version
+    title: investigation template version
+    range: provenance
+    description: ' '
+    comments: ' '
+  study template version:
+    name: study template version
+    title: study template version
+    range: provenance
+    description: ' '
+    comments: ' '
+  sample template version:
+    name: sample template version
+    title: sample template version
+    range: provenance
+    description: ' '
+    comments: ' '
 types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
@@ -948,92 +974,1047 @@ types:
       #x9 (tab), #xA (linefeed), and #xD (carriage return).'
     base: str
     uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
 enums:
   data_submission_contact_department menu:
     name: data_submission_contact_department menu
     permissible_values:
-      ? Biochemistry and Molecular Biology, Pharmacology and toxicology, Institute
-        for Integrative toxicology, Physiology, Statistics
-      : text: Biochemistry and Molecular Biology, Pharmacology and toxicology, Institute
-          for Integrative toxicology, Physiology, Statistics
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Biochemistry and Molecular Biology:
+        text: Biochemistry and Molecular Biology
+      Pharmacology and toxicology:
+        text: Pharmacology and toxicology
+      Institute for Integrative toxicology:
+        text: Institute for Integrative toxicology
+      Physiology:
+        text: Physiology
+      Statistics:
+        text: Statistics
   data_submission_contact_institution menu:
     name: data_submission_contact_institution menu
     permissible_values:
-      'Michigan State University, Emory University, ':
-        text: 'Michigan State University, Emory University, '
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Michigan State University:
+        text: Michigan State University
+      Emory University:
+        text: Emory University
   data_submission_contact_state menu:
     name: data_submission_contact_state menu
     permissible_values:
-      ? AL, AK, AZ, AR, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, IN, IA, KS, KY, LA,
-        ME, MD, MA, MI, MN, MS, MO, MT, NB*, *to NE in 1969, NV, NH, NJ, NM, NY, NC,
-        ND, OH, OK, OR, PA, PR, RI, SC, SD, TN, TX, UT, VT, VA, WA, WV, WI, WY
-      : text: AL, AK, AZ, AR, CA, CO, CT, DE, DC, FL, GA, HI, ID, IL, IN, IA, KS,
-          KY, LA, ME, MD, MA, MI, MN, MS, MO, MT, NB*, *to NE in 1969, NV, NH, NJ,
-          NM, NY, NC, ND, OH, OK, OR, PA, PR, RI, SC, SD, TN, TX, UT, VT, VA, WA,
-          WV, WI, WY
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      AL:
+        text: AL
+      AK:
+        text: AK
+      AZ:
+        text: AZ
+      AR:
+        text: AR
+      CA:
+        text: CA
+      CO:
+        text: CO
+      CT:
+        text: CT
+      DE:
+        text: DE
+      DC:
+        text: DC
+      FL:
+        text: FL
+      GA:
+        text: GA
+      HI:
+        text: HI
+      ID:
+        text: ID
+      IL:
+        text: IL
+      IN:
+        text: IN
+      IA:
+        text: IA
+      KS:
+        text: KS
+      KY:
+        text: KY
+      LA:
+        text: LA
+      ME:
+        text: ME
+      MD:
+        text: MD
+      MA:
+        text: MA
+      MI:
+        text: MI
+      MN:
+        text: MN
+      MS:
+        text: MS
+      MO:
+        text: MO
+      MT:
+        text: MT
+      NB*:
+        text: NB*
+      '*to NE in 1969':
+        text: '*to NE in 1969'
+      NV:
+        text: NV
+      NH:
+        text: NH
+      NJ:
+        text: NJ
+      NM:
+        text: NM
+      NY:
+        text: NY
+      NC:
+        text: NC
+      ND:
+        text: ND
+      OH:
+        text: OH
+      OK:
+        text: OK
+      OR:
+        text: OR
+      PA:
+        text: PA
+      PR:
+        text: PR
+      RI:
+        text: RI
+      SC:
+        text: SC
+      SD:
+        text: SD
+      TN:
+        text: TN
+      TX:
+        text: TX
+      UT:
+        text: UT
+      VT:
+        text: VT
+      VA:
+        text: VA
+      WA:
+        text: WA
+      WV:
+        text: WV
+      WI:
+        text: WI
+      WY:
+        text: WY
   support_source menu:
     name: support_source menu
     permissible_values:
-      NIEHS, NIEHS SRP, NHGRI, NIGMS:
-        text: NIEHS, NIEHS SRP, NHGRI, NIGMS
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      NIEHS:
+        text: NIEHS
+      NIDDK:
+        text: NIDDK
+      NHGRI:
+        text: NHGRI
+      NHLBI:
+        text: NHLBI
+      NIAID:
+        text: NIAID
+      NLM:
+        text: NLM
+      Superfund Basic Research Program:
+        text: Superfund Basic Research Program
   study_design menu:
     name: study_design menu
     permissible_values:
-      ? 'dose response design, case control design
-
-        cross sectional design, genetic modification design, sex design, time series
-        design'
-      : text: 'dose response design, case control design
-
-          cross sectional design, genetic modification design, sex design, time series
-          design'
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      dose response design:
+        text: dose response design
+      case control design:
+        text: case control design
+      cross sectional design:
+        text: cross sectional design
+      genetic modification design:
+        text: genetic modification design
+      sex design:
+        text: sex design
+      time series design:
+        text: time series design
   study_type menu:
     name: study_type menu
     permissible_values:
-      ? Teratology,Short term,Long term,Bacterial mutagenicity,Drosophila germ cell
-        mutagenicity,In vitro micronucleus,In vivo alkaline comet assay,Mammalian
-        cell cytogenetics,Mammalian cell mutagenicity,Micronucleus,Rodent cytogenetics,ADME,Immunotoxicology,Nematode,RACB,Tox21
-        - Phase II,Toxicogenomics,Toxicokinetics,Zebrafish
-      : text: Teratology,Short term,Long term,Bacterial mutagenicity,Drosophila germ
-          cell mutagenicity,In vitro micronucleus,In vivo alkaline comet assay,Mammalian
-          cell cytogenetics,Mammalian cell mutagenicity,Micronucleus,Rodent cytogenetics,ADME,Immunotoxicology,Nematode,RACB,Tox21
-          - Phase II,Toxicogenomics,Toxicokinetics,Zebrafish
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Teratology:
+        text: Teratology
+      Short term:
+        text: Short term
+      Long term:
+        text: Long term
+      Bacterial mutagenicity:
+        text: Bacterial mutagenicity
+      Drosophila germ cell mutagenicity:
+        text: Drosophila germ cell mutagenicity
+      In vitro micronucleus:
+        text: In vitro micronucleus
+      In vivo alkaline comet assay:
+        text: In vivo alkaline comet assay
+      Mammalian cell cytogenetics:
+        text: Mammalian cell cytogenetics
+      Mammalian cell mutagenicity:
+        text: Mammalian cell mutagenicity
+      Micronucleus:
+        text: Micronucleus
+      Rodent cytogenetics:
+        text: Rodent cytogenetics
+      ADME:
+        text: ADME
+      Immunotoxicology:
+        text: Immunotoxicology
+      Nematode:
+        text: Nematode
+      RACB:
+        text: RACB
+      Tox21 - Phase II:
+        text: Tox21 - Phase II
+      Toxicogenomics:
+        text: Toxicogenomics
+      Toxicokinetics:
+        text: Toxicokinetics
+      Zebrafish:
+        text: Zebrafish
   experimental_setting menu:
     name: experimental_setting menu
     permissible_values:
-      in vitro, ex vivo:
-        text: in vitro, ex vivo
-  Organism menu:
-    name: Organism menu
-    permissible_values:
-      Homo sapiens, Mus musculus, Rattus norvegicus, Drosophila melanogaster, Danio rerio, Xenopus laevis:
-        text: Homo sapiens, Mus musculus, Rattus norvegicus, Drosophila melanogaster,
-          Danio rerio, Xenopus laevis
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      in vitro:
+        text: in vitro
+      ex vivo:
+        text: ex vivo
   cell_type menu:
     name: cell_type menu
     permissible_values:
-      Hepatocyte, Hep G2 cell, Hepa-RG cell:
-        text: Hepatocyte, Hep G2 cell, Hepa-RG cell
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Hepatocyte:
+        text: Hepatocyte
+      Hep G2 cell:
+        text: Hep G2 cell
+      Hepa-RG cell:
+        text: Hepa-RG cell
+  organism menu:
+    name: organism menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Homo sapiens:
+        text: Homo sapiens
+      Mus musculus:
+        text: Mus musculus
+      Rattus norvegicus:
+        text: Rattus norvegicus
+      Drosophila melanogaster:
+        text: Drosophila melanogaster
+      Danio rerio:
+        text: Danio rerio
+      Xenopus laevis:
+        text: Xenopus laevis
+  strain menu:
+    name: strain menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      C57BL/6NCrl:
+        text: C57BL/6NCrl
+      C57BL/6J:
+        text: C57BL/6J
+      129/Sv:
+        text: 129/Sv
+      FVB/N:
+        text: FVB/N
+      BALB/cJ:
+        text: BALB/cJ
+      C3H/HeJ:
+        text: C3H/HeJ
+      Sprague-Dawley:
+        text: Sprague-Dawley
+      Dahl SS:
+        text: Dahl SS
   sex menu:
     name: sex menu
     permissible_values:
-      female, male:
-        text: female, male
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      female:
+        text: female
+      male:
+        text: male
+  source_organ menu:
+    name: source_organ menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      Abdomen:
+        text: Abdomen
+      Abdominal Wall:
+        text: Abdominal Wall
+      Acetabulum:
+        text: Acetabulum
+      Adenoid:
+        text: Adenoid
+      Adipose:
+        text: Adipose
+      Adrenal:
+        text: Adrenal
+      Alveolar Ridge:
+        text: Alveolar Ridge
+      Amniotic Fluid:
+        text: Amniotic Fluid
+      Ampulla Of Vater:
+        text: Ampulla Of Vater
+      Anal Sphincter:
+        text: Anal Sphincter
+      Ankle:
+        text: Ankle
+      Anorectum:
+        text: Anorectum
+      Antecubital Fossa:
+        text: Antecubital Fossa
+      Antrum:
+        text: Antrum
+      Anus:
+        text: Anus
+      Aorta:
+        text: Aorta
+      Aortic Body:
+        text: Aortic Body
+      Appendix:
+        text: Appendix
+      Aqueous Fluid:
+        text: Aqueous Fluid
+      Arm:
+        text: Arm
+      Artery:
+        text: Artery
+      Ascending Colon:
+        text: Ascending Colon
+      Ascending Colon Hepatic Flexure:
+        text: Ascending Colon Hepatic Flexure
+      Auditory Canal:
+        text: Auditory Canal
+      Autonomic Nervous System:
+        text: Autonomic Nervous System
+      Axilla:
+        text: Axilla
+      Back:
+        text: Back
+      Bile Duct:
+        text: Bile Duct
+      Bladder:
+        text: Bladder
+      Blood:
+        text: Blood
+      Blood Vessel:
+        text: Blood Vessel
+      Bone:
+        text: Bone
+      Bone Marrow:
+        text: Bone Marrow
+      Bowel:
+        text: Bowel
+      Brain:
+        text: Brain
+      Brain Stem:
+        text: Brain Stem
+      Breast:
+        text: Breast
+      Broad Ligament:
+        text: Broad Ligament
+      Bronchiole:
+        text: Bronchiole
+      Bronchus:
+        text: Bronchus
+      Brow:
+        text: Brow
+      Buccal Cavity:
+        text: Buccal Cavity
+      Buccal Mucosa:
+        text: Buccal Mucosa
+      Buttock:
+        text: Buttock
+      Calf:
+        text: Calf
+      Capillary:
+        text: Capillary
+      Cardia:
+        text: Cardia
+      Carina:
+        text: Carina
+      Carotid Artery:
+        text: Carotid Artery
+      Carotid Body:
+        text: Carotid Body
+      Cartilage:
+        text: Cartilage
+      Cecum:
+        text: Cecum
+      Cell-Line:
+        text: Cell-Line
+      Central Nervous System:
+        text: Central Nervous System
+      Cerebellum:
+        text: Cerebellum
+      Cerebral Cortex:
+        text: Cerebral Cortex
+      Cerebrospinal Fluid:
+        text: Cerebrospinal Fluid
+      Cerebrum:
+        text: Cerebrum
+      Cervical Spine:
+        text: Cervical Spine
+      Cervix:
+        text: Cervix
+      Chest:
+        text: Chest
+      Chest Wall:
+        text: Chest Wall
+      Chin:
+        text: Chin
+      Clavicle:
+        text: Clavicle
+      Clitoris:
+        text: Clitoris
+      Colon:
+        text: Colon
+      Colon - Mucosa Only:
+        text: Colon - Mucosa Only
+      Common Duct:
+        text: Common Duct
+      Conjunctiva:
+        text: Conjunctiva
+      Connective Tissue:
+        text: Connective Tissue
+      Dermal:
+        text: Dermal
+      Descending Colon:
+        text: Descending Colon
+      Diaphragm:
+        text: Diaphragm
+      Duodenum:
+        text: Duodenum
+      Ear:
+        text: Ear
+      Ear Canal:
+        text: Ear Canal
+      Pinna (External):
+        text: Pinna (External)
+      Effusion:
+        text: Effusion
+      Elbow:
+        text: Elbow
+      Endocrine Gland:
+        text: Endocrine Gland
+      Epididymis:
+        text: Epididymis
+      Epidural Space:
+        text: Epidural Space
+      Esophagogastric Junction:
+        text: Esophagogastric Junction
+      Esophagus:
+        text: Esophagus
+      Esophagus - Mucosa Only:
+        text: Esophagus - Mucosa Only
+      Eye:
+        text: Eye
+      Fallopian Tube:
+        text: Fallopian Tube
+      Femoral Artery:
+        text: Femoral Artery
+      Femoral Vein:
+        text: Femoral Vein
+      Femur:
+        text: Femur
+      Fibroblasts:
+        text: Fibroblasts
+      Fibula:
+        text: Fibula
+      Finger:
+        text: Finger
+      Floor Of Mouth:
+        text: Floor Of Mouth
+      Fluid:
+        text: Fluid
+      Foot:
+        text: Foot
+      Forearm:
+        text: Forearm
+      Forehead:
+        text: Forehead
+      Foreskin:
+        text: Foreskin
+      Frontal Cortex:
+        text: Frontal Cortex
+      Frontal Lobe:
+        text: Frontal Lobe
+      Fundus Of Stomach:
+        text: Fundus Of Stomach
+      Gallbladder:
+        text: Gallbladder
+      Ganglia:
+        text: Ganglia
+      Gastroesophageal Junction:
+        text: Gastroesophageal Junction
+      Gastrointestinal Tract:
+        text: Gastrointestinal Tract
+      Groin:
+        text: Groin
+      Gum:
+        text: Gum
+      Hand:
+        text: Hand
+      Hard Palate:
+        text: Hard Palate
+      Head & Neck:
+        text: Head & Neck
+      Head - Face Or Neck:
+        text: Head - Face Or Neck
+      Nos:
+        text: Nos
+      Heart:
+        text: Heart
+      Hepatic:
+        text: Hepatic
+      Hepatic Duct:
+        text: Hepatic Duct
+      Hepatic Vein:
+        text: Hepatic Vein
+      Hip:
+        text: Hip
+      Hippocampus:
+        text: Hippocampus
+      Humerus:
+        text: Humerus
+      Hypopharynx:
+        text: Hypopharynx
+      Ileum:
+        text: Ileum
+      Ilium:
+        text: Ilium
+      Index Finger:
+        text: Index Finger
+      Ischium:
+        text: Ischium
+      Islet Cells:
+        text: Islet Cells
+      Jaw:
+        text: Jaw
+      Jejunum:
+        text: Jejunum
+      Joint:
+        text: Joint
+      Kidney:
+        text: Kidney
+      Knee:
+        text: Knee
+      Lacrimal Gland:
+        text: Lacrimal Gland
+      Large Bowel:
+        text: Large Bowel
+      Laryngopharynx:
+        text: Laryngopharynx
+      Larynx:
+        text: Larynx
+      Leg:
+        text: Leg
+      Leptomeninges:
+        text: Leptomeninges
+      Ligament:
+        text: Ligament
+      Lip:
+        text: Lip
+      Liver:
+        text: Liver
+      Lumbar Spine:
+        text: Lumbar Spine
+      Lung:
+        text: Lung
+      Lymph Node:
+        text: Lymph Node
+      Lymph Node(s) Axilla:
+        text: Lymph Node(s) Axilla
+      Lymph Node(s) Cervical:
+        text: Lymph Node(s) Cervical
+      Lymph Node(s) Distant:
+        text: Lymph Node(s) Distant
+      Lymph Node(s) Epitrochlear:
+        text: Lymph Node(s) Epitrochlear
+      Lymph Node(s) Femoral:
+        text: Lymph Node(s) Femoral
+      Lymph Node(s) Hilar:
+        text: Lymph Node(s) Hilar
+      Lymph Node(s) Iliac-Common:
+        text: Lymph Node(s) Iliac-Common
+      Lymph Node(s) Iliac-External:
+        text: Lymph Node(s) Iliac-External
+      Lymph Node(s) Inguinal:
+        text: Lymph Node(s) Inguinal
+      Lymph Node(s) Internal Mammary:
+        text: Lymph Node(s) Internal Mammary
+      Lymph Node(s) Mammary:
+        text: Lymph Node(s) Mammary
+      Lymph Node(s) Mesenteric:
+        text: Lymph Node(s) Mesenteric
+      Lymph Node(s) Occipital:
+        text: Lymph Node(s) Occipital
+      Lymph Node(s) Paraaortic:
+        text: Lymph Node(s) Paraaortic
+      Lymph Node(s) Parotid:
+        text: Lymph Node(s) Parotid
+      Lymph Node(s) Pelvic:
+        text: Lymph Node(s) Pelvic
+      Lymph Node(s) Popliteal:
+        text: Lymph Node(s) Popliteal
+      Lymph Node(s) Regional:
+        text: Lymph Node(s) Regional
+      Lymph Node(s) Retroperitoneal:
+        text: Lymph Node(s) Retroperitoneal
+      Lymph Node(s) Scalene:
+        text: Lymph Node(s) Scalene
+      Lymph Node(s) Splenic:
+        text: Lymph Node(s) Splenic
+      Lymph Node(s) Subclavicular:
+        text: Lymph Node(s) Subclavicular
+      Lymph Node(s) Submandibular:
+        text: Lymph Node(s) Submandibular
+      Lymph Node(s) Supraclavicular:
+        text: Lymph Node(s) Supraclavicular
+      Lymph Nodes(s) Mediastinal:
+        text: Lymph Nodes(s) Mediastinal
+      Mandible:
+        text: Mandible
+      Maxilla:
+        text: Maxilla
+      Mediastinal Soft Tissue:
+        text: Mediastinal Soft Tissue
+      Mediastinum:
+        text: Mediastinum
+      Mesentery:
+        text: Mesentery
+      Mesothelium:
+        text: Mesothelium
+      Middle Finger:
+        text: Middle Finger
+      Mitochondria:
+        text: Mitochondria
+      Muscle:
+        text: Muscle
+      Nails:
+        text: Nails
+      Nasal Cavity:
+        text: Nasal Cavity
+      Nasal Soft Tissue:
+        text: Nasal Soft Tissue
+      Nasopharynx:
+        text: Nasopharynx
+      Neck:
+        text: Neck
+      Nerve:
+        text: Nerve
+      Nerve(s) Cranial:
+        text: Nerve(s) Cranial
+      Occipital Cortex:
+        text: Occipital Cortex
+      Ocular Orbits:
+        text: Ocular Orbits
+      Omentum:
+        text: Omentum
+      Oral Cavity:
+        text: Oral Cavity
+      Oral Cavity - Mucosa Only:
+        text: Oral Cavity - Mucosa Only
+      Oropharynx:
+        text: Oropharynx
+      Other:
+        text: Other
+      Ovary:
+        text: Ovary
+      Palate:
+        text: Palate
+      Pancreas:
+        text: Pancreas
+      Paraspinal Ganglion:
+        text: Paraspinal Ganglion
+      Parathyroid:
+        text: Parathyroid
+      Parotid Gland:
+        text: Parotid Gland
+      Patella:
+        text: Patella
+      Pelvis:
+        text: Pelvis
+      Penis:
+        text: Penis
+      Pericardium:
+        text: Pericardium
+      Periorbital Soft Tissue:
+        text: Periorbital Soft Tissue
+      Peritoneal Cavity:
+        text: Peritoneal Cavity
+      Peritoneum:
+        text: Peritoneum
+      Pharynx:
+        text: Pharynx
+      Pineal:
+        text: Pineal
+      Pineal Gland:
+        text: Pineal Gland
+      Pituitary Gland:
+        text: Pituitary Gland
+      Placenta:
+        text: Placenta
+      Pleura:
+        text: Pleura
+      Popliteal Fossa:
+        text: Popliteal Fossa
+      Prostate:
+        text: Prostate
+      Pylorus:
+        text: Pylorus
+      Rectosigmoid Junction:
+        text: Rectosigmoid Junction
+      Rectum:
+        text: Rectum
+      Retina:
+        text: Retina
+      Retro-Orbital Region:
+        text: Retro-Orbital Region
+      Retroperitoneum:
+        text: Retroperitoneum
+      Rib:
+        text: Rib
+      Ring Finger:
+        text: Ring Finger
+      Round Ligament:
+        text: Round Ligament
+      Sacrum:
+        text: Sacrum
+      Salivary Gland:
+        text: Salivary Gland
+      Scalp:
+        text: Scalp
+      Scapula:
+        text: Scapula
+      Sciatic Nerve:
+        text: Sciatic Nerve
+      Scrotum:
+        text: Scrotum
+      Seminal Vesicle:
+        text: Seminal Vesicle
+      Shoulder:
+        text: Shoulder
+      Sigmoid Colon:
+        text: Sigmoid Colon
+      Sinus:
+        text: Sinus
+      Sinus(es):
+        text: Sinus(es)
+      Maxillary:
+        text: Maxillary
+      Skeletal Muscle:
+        text: Skeletal Muscle
+      Skin:
+        text: Skin
+      Skull:
+        text: Skull
+      Small Bowel:
+        text: Small Bowel
+      Small Bowel - Mucosa Only:
+        text: Small Bowel - Mucosa Only
+      Small Finger:
+        text: Small Finger
+      Soft Tissue:
+        text: Soft Tissue
+      Spinal Column:
+        text: Spinal Column
+      Spinal Cord:
+        text: Spinal Cord
+      Spleen:
+        text: Spleen
+      Splenic Flexure:
+        text: Splenic Flexure
+      Sternum:
+        text: Sternum
+      Stomach:
+        text: Stomach
+      Stomach - Mucosa Only:
+        text: Stomach - Mucosa Only
+      Subcutaneous Tissue:
+        text: Subcutaneous Tissue
+      Synovium:
+        text: Synovium
+      Temporal Cortex:
+        text: Temporal Cortex
+      Tendon:
+        text: Tendon
+      Testis:
+        text: Testis
+      Thigh:
+        text: Thigh
+      Thoracic Spine:
+        text: Thoracic Spine
+      Thorax:
+        text: Thorax
+      Throat:
+        text: Throat
+      Thumb:
+        text: Thumb
+      Thymus:
+        text: Thymus
+      Thyroid:
+        text: Thyroid
+      Tibia:
+        text: Tibia
+      Tongue:
+        text: Tongue
+      Tonsil:
+        text: Tonsil
+      Tonsil (Pharyngeal):
+        text: Tonsil (Pharyngeal)
+      Trachea / Major Bronchi:
+        text: Trachea / Major Bronchi
+      Transverse Colon:
+        text: Transverse Colon
+      Trunk:
+        text: Trunk
+      Umbilical Cord:
+        text: Umbilical Cord
+      Ureter:
+        text: Ureter
+      Urethra:
+        text: Urethra
+      Urinary Tract:
+        text: Urinary Tract
+      Uterus:
+        text: Uterus
+      Uvula:
+        text: Uvula
+      Vagina:
+        text: Vagina
+      Vas Deferens:
+        text: Vas Deferens
+      Vein:
+        text: Vein
+      Venous:
+        text: Venous
+      Vertebra:
+        text: Vertebra
+      Vulva:
+        text: Vulva
+      White Blood Cells:
+        text: White Blood Cells
+      Wrist:
+        text: Wrist
+  karyotype menu:
+    name: karyotype menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      normal:
+        text: normal
+      abnormal XYY:
+        text: abnormal XYY
+      Trisomy:
+        text: Trisomy
+      Aneuploidy:
+        text: Aneuploidy
+  health_status menu:
+    name: health_status menu
+    permissible_values:
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      healthy:
+        text: healthy
+      cancer:
+        text: cancer
   lineQC menu:
     name: lineQC menu
     permissible_values:
-      mycoplasma, virus:
-        text: mycoplasma, virus
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      mycoplasma:
+        text: mycoplasma
+      virus:
+        text: virus
   validation menu:
     name: validation menu
     permissible_values:
-      DNA fingerprinting, genotyping, morphology testing:
-        text: DNA fingerprinting, genotyping, morphology testing
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      DNA fingerprinting:
+        text: DNA fingerprinting
+      genotyping:
+        text: genotyping
+      morphology testing:
+        text: morphology testing
   nameType menu:
     name: nameType menu
     permissible_values:
-      4mm dish, 8mm dish:
-        text: 4mm dish, 8mm dish
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+      4mm dish:
+        text: 4mm dish
+      8mm dish:
+        text: 8mm dish
 settings:
   Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'
