@@ -46,7 +46,7 @@ Templates will be implemented using [_DataHarmonizer_](https://github.com/cidgoh
 
 Before beginning to collect your (meta)data it is strongly recommended that you familiarize yourself with [_DataHarmonizer_](https://github.com/cidgoh/DataHarmonizer#usage) created by the Centre for Infectious Disease Genomics and One Health (CIDGOH), at Simon Fraser University. We've prepared a brief video overview for your reference.
 
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUTUBE_VIDEO_ID_HERE)
+[![IMAGE ALT TEXT HERE](https://youtu.be/rdN2_Vhwb8E/0.jpg)](https://youtu.be/rdN2_Vhwb8E)
 
 ##### _Notes_:
 - DataHarmonizer will not save your progress. It is good practice to save your work and upload the output next time you want to work on (meta)data collection.
@@ -56,7 +56,7 @@ Before beginning to collect your (meta)data it is strongly recommended that you 
 #### 2.  Loading the Minimum Information about Animal Toxicology Experiments (MIATE) template<br>
 
 Go to the [Superfund Research Center_DataHarmonizer site](http://52.90.28.252:8080/). It should look like the following screenshot.
-![image](../../imgs/screenshot_helpmenu.png)
+![image](../../imgs/screenshot_helpmenu.png | width = 10)
 
 The template section will present all catalogued EHS templates. MIATE contains 3 sub-templates: 
 - **Investigation (miate/Investigation):** Here you will enter the investigation level information which can include multiple studies (i.e., experiments) and samples. Please record the identifier used for later use.
@@ -91,7 +91,7 @@ class G assay;
 #### 2.  Before adding metadata<br>
 Before you begin to add your metadata: 
 - Review the fields in the template of the Validator application. For a summary overview you can select the `Reference Guide` from the `Help` menu.
-![img](img)
+![help](../../imgs/screenshot_helpmenu.png | width = 50)
 - Review this protocol to make sure that you are using the template as intended.
 - Review your dataset. 
 
