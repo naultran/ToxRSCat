@@ -18,13 +18,13 @@ classes:
     name: Study
     is_a: dh_interface
     slots:
-    - investigation_identifier
-    - study_identifier
+    - Study.study_identifier
+    - Study.investigation_identifier
     - study_design
     - study_type
     - experimental_setting
     - Organism
-    - subject_identifier
+    - Study.subject_identifier
     - start_date
     - start_date_age
     - experiment_start_date
@@ -62,10 +62,10 @@ classes:
     - vehicle_dtxsid
     - study template version
     slot_usage:
-      investigation_identifier:
+      Study.study_identifier:
         rank: 1
         slot_group: identifiers
-      study_identifier:
+      Study.investigation_identifier:
         rank: 2
         slot_group: identifiers
       study_design:
@@ -80,7 +80,7 @@ classes:
       Organism:
         rank: 6
         slot_group: experiment
-      subject_identifier:
+      Study.subject_identifier:
         rank: 7
         slot_group: subject
       start_date:
@@ -192,6 +192,7 @@ classes:
     name: Investigation
     is_a: dh_interface
     slots:
+    - Investigation.investigation_identifier
     - name
     - investigation_description
     - data_submission_contact_name
@@ -210,64 +211,67 @@ classes:
     - PMID
     - investigation template version
     slot_usage:
-      name:
+      Investigation.investigation_identifier:
         rank: 1
-        slot_group: Contact
-      investigation_description:
+        slot_group: identifiers
+      name:
         rank: 2
         slot_group: Contact
-      data_submission_contact_name:
+      investigation_description:
         rank: 3
         slot_group: Contact
-      data_submission_contact_orcid:
+      data_submission_contact_name:
         rank: 4
         slot_group: Contact
-      data_submission_contact_email:
+      data_submission_contact_orcid:
         rank: 5
         slot_group: Contact
-      data_submission_contact_telephone:
+      data_submission_contact_email:
         rank: 6
         slot_group: Contact
-      data_submission_contact_department:
+      data_submission_contact_telephone:
         rank: 7
         slot_group: Contact
-      data_submission_contact_institution:
+      data_submission_contact_department:
         rank: 8
         slot_group: Contact
-      data_submission_contact_institution_postal_address:
+      data_submission_contact_institution:
         rank: 9
         slot_group: Contact
-      data_submission_contact_institution_city:
+      data_submission_contact_institution_postal_address:
         rank: 10
         slot_group: Contact
-      data_submission_contact_state:
+      data_submission_contact_institution_city:
         rank: 11
         slot_group: Contact
-      support_source:
+      data_submission_contact_state:
         rank: 12
-        slot_group: Funding
-      support_id:
+        slot_group: Contact
+      support_source:
         rank: 13
         slot_group: Funding
-      PMC_id:
+      support_id:
         rank: 14
-        slot_group: Publication
-      DOI:
+        slot_group: Funding
+      PMC_id:
         rank: 15
         slot_group: Publication
-      PMID:
+      DOI:
         rank: 16
         slot_group: Publication
-      investigation template version:
+      PMID:
         rank: 17
+        slot_group: Publication
+      investigation template version:
+        rank: 18
         slot_group: provenance
   Sample:
     name: Sample
     is_a: dh_interface
     slots:
-    - study_identifier
-    - subject_identifier
     - sample_identifier
+    - Sample.study_identifier
+    - Sample.subject_identifier
     - date
     - biospecimen_anatomic_site
     - method_of_sample_procurement
@@ -276,13 +280,13 @@ classes:
     - volume
     - sample template version
     slot_usage:
-      study_identifier:
+      sample_identifier:
         rank: 1
         slot_group: identifiers
-      subject_identifier:
+      Sample.study_identifier:
         rank: 2
         slot_group: identifiers
-      sample_identifier:
+      Sample.subject_identifier:
         rank: 3
         slot_group: identifiers
       date:
@@ -307,6 +311,15 @@ classes:
         rank: 10
         slot_group: provenance
 slots:
+  Investigation.investigation_identifier:
+    name: Investigation.investigation_identifier
+    title: investigation_identifier
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    identifier: true
+    slot_uri: obo:NCIT_C46002
+    comments: ' '
   name:
     name: name
     title: Title
@@ -452,22 +465,21 @@ slots:
     inlined_as_list: true
     slot_uri: obo:NCIT_C127797
     comments: ' '
-  investigation_identifier:
-    name: investigation_identifier
-    title: investigation_identifier
-    range: WhitespaceMinimizedString
-    description: ' '
-    required: true
-    slot_uri: obo:NCIT_C46002
-    comments: ' '
-  study_identifier:
-    name: study_identifier
+  Study.study_identifier:
+    name: Study.study_identifier
     title: study_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    multivalued: true
-    inlined_as_list: true
+    identifier: true
+    slot_uri: obo:NCIT_C46002
+    comments: ' '
+  Study.investigation_identifier:
+    name: Study.investigation_identifier
+    title: investigation_identifier
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
     slot_uri: obo:NCIT_C46002
     comments: ' '
   study_design:
@@ -501,8 +513,8 @@ slots:
     required: true
     slot_uri: obo:NCIT_C45293
     comments: ' '
-  subject_identifier:
-    name: subject_identifier
+  Study.subject_identifier:
+    name: Study.subject_identifier
     title: subject_identifier
     range: WhitespaceMinimizedString
     description: ' '
@@ -754,6 +766,20 @@ slots:
     description: ' '
     required: true
     identifier: true
+    comments: ' '
+  Sample.study_identifier:
+    name: Sample.study_identifier
+    title: study_identifier
+    range: WhitespaceMinimizedString
+    description: ' '
+    multivalued: true
+    inlined_as_list: true
+    comments: ' '
+  Sample.subject_identifier:
+    name: Sample.subject_identifier
+    title: subject_identifier
+    range: WhitespaceMinimizedString
+    description: ' '
     comments: ' '
   biospecimen_anatomic_site:
     name: biospecimen_anatomic_site

@@ -21,10 +21,10 @@ classes:
     name: Flow cytometry experiment
     is_a: dh_interface
     slots:
+    - flow_experiment_identifier
     - investigation_identifier
     - study_identifier
     - sample_identifier
-    - flow_experiment_identifier
     - purpose
     - keywords
     - experimentVariables
@@ -79,16 +79,16 @@ classes:
     - other_optical_filter
     - template version
     slot_usage:
-      investigation_identifier:
+      flow_experiment_identifier:
         rank: 1
         slot_group: identifiers
-      study_identifier:
+      investigation_identifier:
         rank: 2
         slot_group: identifiers
-      sample_identifier:
+      study_identifier:
         rank: 3
         slot_group: identifiers
-      flow_experiment_identifier:
+      sample_identifier:
         rank: 4
         slot_group: identifiers
       purpose:
@@ -251,6 +251,15 @@ classes:
         rank: 57
         slot_group: provenance
 slots:
+  flow_experiment_identifier:
+    name: flow_experiment_identifier
+    title: Flow_experiment_ID
+    range: WhitespaceMinimizedString
+    description: This is a unique ID assigned by the user to represent each individual
+      record in this flow cytometry experiment.
+    required: true
+    identifier: true
+    comments: flow_001-HSA_001
   investigation_identifier:
     name: investigation_identifier
     title: Investigation_ID
@@ -278,15 +287,6 @@ slots:
       match the sample source to the data.
     required: true
     comments: HSA_001
-  flow_experiment_identifier:
-    name: flow_experiment_identifier
-    title: Flow_experiment_ID
-    range: WhitespaceMinimizedString
-    description: This is a unique ID assigned by the user to represent each individual
-      record in this flow cytometry experiment.
-    required: true
-    identifier: true
-    comments: flow_001-HSA_001
   purpose:
     name: purpose
     title: purpose

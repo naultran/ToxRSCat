@@ -569,6 +569,18 @@
     }
   },
   "slots": {
+    "metabolomic_experiment_identifier": {
+      "name": "metabolomic_experiment_identifier",
+      "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+      "title": "metabolomic_experiment_identifier",
+      "comments": [
+        "ms_S001"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
     "investigation_identifier": {
       "name": "investigation_identifier",
       "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
@@ -600,18 +612,6 @@
         "Prj140_M001_Liver"
       ],
       "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString",
-      "required": true
-    },
-    "metabolomic_experiment_identifier": {
-      "name": "metabolomic_experiment_identifier",
-      "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-      "title": "metabolomic_experiment_identifier",
-      "comments": [
-        "ms_S001"
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -1054,23 +1054,23 @@
       "from_schema": "https://example.com/CIMR",
       "is_a": "dh_interface",
       "slot_usage": {
+        "metabolomic_experiment_identifier": {
+          "name": "metabolomic_experiment_identifier",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
         "investigation_identifier": {
           "name": "investigation_identifier",
-          "rank": 1,
+          "rank": 2,
           "slot_group": "identifiers"
         },
         "study_identifier": {
           "name": "study_identifier",
-          "rank": 2,
+          "rank": 3,
           "slot_group": "identifiers"
         },
         "sample_identifier": {
           "name": "sample_identifier",
-          "rank": 3,
-          "slot_group": "identifiers"
-        },
-        "metabolomic_experiment_identifier": {
-          "name": "metabolomic_experiment_identifier",
           "rank": 4,
           "slot_group": "identifiers"
         },
@@ -1241,12 +1241,28 @@
         }
       },
       "attributes": {
+        "metabolomic_experiment_identifier": {
+          "name": "metabolomic_experiment_identifier",
+          "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+          "title": "metabolomic_experiment_identifier",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "identifier": true,
+          "alias": "metabolomic_experiment_identifier",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "investigation_identifier": {
           "name": "investigation_identifier",
           "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
           "title": "investigation_identifier",
           "from_schema": "https://example.com/CIMR",
-          "rank": 1,
+          "rank": 2,
           "slot_uri": "obo:OBI_0000066",
           "alias": "investigation_identifier",
           "owner": "metabolomics_experiment",
@@ -1262,7 +1278,7 @@
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
           "title": "study_identifier",
           "from_schema": "https://example.com/CIMR",
-          "rank": 2,
+          "rank": 3,
           "alias": "study_identifier",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1277,24 +1293,8 @@
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
           "title": "sample_identifier",
           "from_schema": "https://example.com/CIMR",
-          "rank": 3,
-          "alias": "sample_identifier",
-          "owner": "metabolomics_experiment",
-          "domain_of": [
-            "metabolomics_experiment"
-          ],
-          "slot_group": "identifiers",
-          "range": "WhitespaceMinimizedString",
-          "required": true
-        },
-        "metabolomic_experiment_identifier": {
-          "name": "metabolomic_experiment_identifier",
-          "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-          "title": "metabolomic_experiment_identifier",
-          "from_schema": "https://example.com/CIMR",
           "rank": 4,
-          "identifier": true,
-          "alias": "metabolomic_experiment_identifier",
+          "alias": "sample_identifier",
           "owner": "metabolomics_experiment",
           "domain_of": [
             "metabolomics_experiment"

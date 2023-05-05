@@ -2067,6 +2067,19 @@
     }
   },
   "slots": {
+    "Investigation.investigation_identifier": {
+      "name": "Investigation.investigation_identifier",
+      "description": " ",
+      "title": "investigation_identifier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "slot_uri": "obo:NCIT_C46002",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
     "name": {
       "name": "name",
       "description": "A textual entity that denotes an investigation.",
@@ -2287,8 +2300,21 @@
       "inlined_as_list": true,
       "pattern": "^\\d{5,20}"
     },
-    "investigation_identifier": {
-      "name": "investigation_identifier",
+    "Study.study_identifier": {
+      "name": "Study.study_identifier",
+      "description": " ",
+      "title": "study_identifier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "slot_uri": "obo:NCIT_C46002",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "Study.investigation_identifier": {
+      "name": "Study.investigation_identifier",
       "description": " ",
       "title": "investigation_identifier",
       "comments": [
@@ -2298,21 +2324,6 @@
       "slot_uri": "obo:NCIT_C46002",
       "range": "WhitespaceMinimizedString",
       "required": true
-    },
-    "study_identifier": {
-      "name": "study_identifier",
-      "description": " ",
-      "title": "study_identifier",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/MIATE",
-      "slot_uri": "obo:NCIT_C46002",
-      "multivalued": true,
-      "range": "WhitespaceMinimizedString",
-      "required": true,
-      "inlined": true,
-      "inlined_as_list": true
     },
     "study_design": {
       "name": "study_design",
@@ -2358,8 +2369,8 @@
       "range": "Organism menu",
       "required": true
     },
-    "subject_identifier": {
-      "name": "subject_identifier",
+    "Study.subject_identifier": {
+      "name": "Study.subject_identifier",
       "description": " ",
       "title": "subject_identifier",
       "comments": [
@@ -2760,6 +2771,29 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
+    "Sample.study_identifier": {
+      "name": "Sample.study_identifier",
+      "description": " ",
+      "title": "study_identifier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "Sample.subject_identifier": {
+      "name": "Sample.subject_identifier",
+      "description": " ",
+      "title": "subject_identifier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
+    },
     "biospecimen_anatomic_site": {
       "name": "biospecimen_anatomic_site",
       "description": " ",
@@ -2858,13 +2892,13 @@
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
-        "investigation_identifier": {
-          "name": "investigation_identifier",
+        "Study.study_identifier": {
+          "name": "Study.study_identifier",
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "study_identifier": {
-          "name": "study_identifier",
+        "Study.investigation_identifier": {
+          "name": "Study.investigation_identifier",
           "rank": 2,
           "slot_group": "identifiers"
         },
@@ -2888,8 +2922,8 @@
           "rank": 6,
           "slot_group": "experiment"
         },
-        "subject_identifier": {
-          "name": "subject_identifier",
+        "Study.subject_identifier": {
+          "name": "Study.subject_identifier",
           "rank": 7,
           "slot_group": "subject"
         },
@@ -3070,14 +3104,15 @@
         }
       },
       "attributes": {
-        "investigation_identifier": {
-          "name": "investigation_identifier",
+        "Study.study_identifier": {
+          "name": "Study.study_identifier",
           "description": " ",
-          "title": "investigation_identifier",
+          "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
-          "alias": "investigation_identifier",
+          "identifier": true,
+          "alias": "Study.study_identifier",
           "owner": "Study",
           "domain_of": [
             "Study"
@@ -3086,24 +3121,21 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "study_identifier": {
-          "name": "study_identifier",
+        "Study.investigation_identifier": {
+          "name": "Study.investigation_identifier",
           "description": " ",
-          "title": "study_identifier",
+          "title": "investigation_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
           "slot_uri": "obo:NCIT_C46002",
-          "multivalued": true,
-          "alias": "study_identifier",
+          "alias": "Study.investigation_identifier",
           "owner": "Study",
           "domain_of": [
-            "Study",
-            "Sample"
+            "Study"
           ],
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString",
-          "required": true,
-          "inlined_as_list": true
+          "required": true
         },
         "study_design": {
           "name": "study_design",
@@ -3165,17 +3197,16 @@
           "range": "Organism menu",
           "required": true
         },
-        "subject_identifier": {
-          "name": "subject_identifier",
+        "Study.subject_identifier": {
+          "name": "Study.subject_identifier",
           "description": " ",
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 7,
-          "alias": "subject_identifier",
+          "alias": "Study.subject_identifier",
           "owner": "Study",
           "domain_of": [
-            "Study",
-            "Sample"
+            "Study"
           ],
           "slot_group": "subject",
           "range": "WhitespaceMinimizedString",
@@ -3715,99 +3746,121 @@
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
+        "Investigation.investigation_identifier": {
+          "name": "Investigation.investigation_identifier",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
         "name": {
           "name": "name",
-          "rank": 1,
+          "rank": 2,
           "slot_group": "Contact"
         },
         "investigation_description": {
           "name": "investigation_description",
-          "rank": 2,
+          "rank": 3,
           "slot_group": "Contact"
         },
         "data_submission_contact_name": {
           "name": "data_submission_contact_name",
-          "rank": 3,
+          "rank": 4,
           "slot_group": "Contact"
         },
         "data_submission_contact_orcid": {
           "name": "data_submission_contact_orcid",
-          "rank": 4,
+          "rank": 5,
           "slot_group": "Contact"
         },
         "data_submission_contact_email": {
           "name": "data_submission_contact_email",
-          "rank": 5,
+          "rank": 6,
           "slot_group": "Contact"
         },
         "data_submission_contact_telephone": {
           "name": "data_submission_contact_telephone",
-          "rank": 6,
+          "rank": 7,
           "slot_group": "Contact"
         },
         "data_submission_contact_department": {
           "name": "data_submission_contact_department",
-          "rank": 7,
+          "rank": 8,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution": {
           "name": "data_submission_contact_institution",
-          "rank": 8,
+          "rank": 9,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution_postal_address": {
           "name": "data_submission_contact_institution_postal_address",
-          "rank": 9,
+          "rank": 10,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution_city": {
           "name": "data_submission_contact_institution_city",
-          "rank": 10,
+          "rank": 11,
           "slot_group": "Contact"
         },
         "data_submission_contact_state": {
           "name": "data_submission_contact_state",
-          "rank": 11,
+          "rank": 12,
           "slot_group": "Contact"
         },
         "support_source": {
           "name": "support_source",
-          "rank": 12,
+          "rank": 13,
           "slot_group": "Funding"
         },
         "support_id": {
           "name": "support_id",
-          "rank": 13,
+          "rank": 14,
           "slot_group": "Funding"
         },
         "PMC_id": {
           "name": "PMC_id",
-          "rank": 14,
+          "rank": 15,
           "slot_group": "Publication"
         },
         "DOI": {
           "name": "DOI",
-          "rank": 15,
+          "rank": 16,
           "slot_group": "Publication"
         },
         "PMID": {
           "name": "PMID",
-          "rank": 16,
+          "rank": 17,
           "slot_group": "Publication"
         },
         "investigation template version": {
           "name": "investigation template version",
-          "rank": 17,
+          "rank": 18,
           "slot_group": "provenance"
         }
       },
       "attributes": {
+        "Investigation.investigation_identifier": {
+          "name": "Investigation.investigation_identifier",
+          "description": " ",
+          "title": "investigation_identifier",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 1,
+          "slot_uri": "obo:NCIT_C46002",
+          "identifier": true,
+          "alias": "Investigation.investigation_identifier",
+          "owner": "Investigation",
+          "domain_of": [
+            "Investigation"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "name": {
           "name": "name",
           "description": "A textual entity that denotes an investigation.",
           "title": "Title",
           "from_schema": "https://example.com/MIATE",
-          "rank": 1,
+          "rank": 2,
           "slot_uri": "obo:OBI_0001622",
           "alias": "name",
           "owner": "Investigation",
@@ -3823,7 +3876,7 @@
           "description": "A textual entity that describes an investigation.",
           "title": "Description",
           "from_schema": "https://example.com/MIATE",
-          "rank": 2,
+          "rank": 3,
           "slot_uri": "obo:OBI_0001615",
           "alias": "investigation_description",
           "owner": "Investigation",
@@ -3838,7 +3891,7 @@
           "description": "The name of the person acting as a channel for communication between groups or on behalf of a group.",
           "title": "Contact name",
           "from_schema": "https://example.com/MIATE",
-          "rank": 3,
+          "rank": 4,
           "slot_uri": "obo:NCIT_C176230",
           "multivalued": true,
           "alias": "data_submission_contact_name",
@@ -3856,7 +3909,7 @@
           "description": "A centrally registered identifier that is issued by ORCID (https://orcid.org/) and used to persistantly identify oneself as a human researcher or contributor.",
           "title": "Contact ORCID",
           "from_schema": "https://example.com/MIATE",
-          "rank": 4,
+          "rank": 5,
           "slot_uri": "obo:IAO_0000708",
           "multivalued": true,
           "alias": "data_submission_contact_orcid",
@@ -3875,7 +3928,7 @@
           "description": "email address of data submission contact",
           "title": "Contact email",
           "from_schema": "https://example.com/MIATE",
-          "rank": 5,
+          "rank": 6,
           "multivalued": true,
           "alias": "data_submission_contact_email",
           "owner": "Investigation",
@@ -3893,7 +3946,7 @@
           "description": "telephone number of data submission contact",
           "title": "Contact phone",
           "from_schema": "https://example.com/MIATE",
-          "rank": 6,
+          "rank": 7,
           "multivalued": true,
           "alias": "data_submission_contact_telephone",
           "owner": "Investigation",
@@ -3910,7 +3963,7 @@
           "description": "department of data submission contact",
           "title": "Contact department",
           "from_schema": "https://example.com/MIATE",
-          "rank": 7,
+          "rank": 8,
           "multivalued": true,
           "alias": "data_submission_contact_department",
           "owner": "Investigation",
@@ -3926,7 +3979,7 @@
           "description": "institution of data submission contact",
           "title": "Contact institution",
           "from_schema": "https://example.com/MIATE",
-          "rank": 8,
+          "rank": 9,
           "multivalued": true,
           "alias": "data_submission_contact_institution",
           "owner": "Investigation",
@@ -3942,7 +3995,7 @@
           "description": "postal address of data submission contact",
           "title": "Contact ZIP",
           "from_schema": "https://example.com/MIATE",
-          "rank": 9,
+          "rank": 10,
           "multivalued": true,
           "alias": "data_submission_contact_institution_postal_address",
           "owner": "Investigation",
@@ -3959,7 +4012,7 @@
           "description": "city of data submission contact",
           "title": "Contact city",
           "from_schema": "https://example.com/MIATE",
-          "rank": 10,
+          "rank": 11,
           "multivalued": true,
           "alias": "data_submission_contact_institution_city",
           "owner": "Investigation",
@@ -3975,7 +4028,7 @@
           "description": "state of data submission contact",
           "title": "Contact state",
           "from_schema": "https://example.com/MIATE",
-          "rank": 11,
+          "rank": 12,
           "multivalued": true,
           "alias": "data_submission_contact_state",
           "owner": "Investigation",
@@ -3991,7 +4044,7 @@
           "description": " ",
           "title": "Funding institution",
           "from_schema": "https://example.com/MIATE",
-          "rank": 12,
+          "rank": 13,
           "slot_uri": "obo:NCIT_C19711",
           "multivalued": true,
           "alias": "support_source",
@@ -4009,7 +4062,7 @@
           "description": " ",
           "title": "Funding identifier",
           "from_schema": "https://example.com/MIATE",
-          "rank": 13,
+          "rank": 14,
           "multivalued": true,
           "alias": "support_id",
           "owner": "Investigation",
@@ -4026,7 +4079,7 @@
           "description": " ",
           "title": "PMC ID",
           "from_schema": "https://example.com/MIATE",
-          "rank": 14,
+          "rank": 15,
           "multivalued": true,
           "alias": "PMC_id",
           "owner": "Investigation",
@@ -4043,7 +4096,7 @@
           "description": " ",
           "title": "DOI",
           "from_schema": "https://example.com/MIATE",
-          "rank": 15,
+          "rank": 16,
           "multivalued": true,
           "alias": "DOI",
           "owner": "Investigation",
@@ -4059,7 +4112,7 @@
           "description": "A globally unique identifier for a biomedical article, as assigned by PubMed.",
           "title": "PMID",
           "from_schema": "https://example.com/MIATE",
-          "rank": 16,
+          "rank": 17,
           "slot_uri": "obo:NCIT_C127797",
           "multivalued": true,
           "alias": "PMID",
@@ -4077,7 +4130,7 @@
           "description": " ",
           "title": "investigation template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 17,
+          "rank": 18,
           "alias": "investigation_template_version",
           "owner": "Investigation",
           "domain_of": [
@@ -4094,18 +4147,18 @@
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
-        "study_identifier": {
-          "name": "study_identifier",
+        "sample_identifier": {
+          "name": "sample_identifier",
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "subject_identifier": {
-          "name": "subject_identifier",
+        "Sample.study_identifier": {
+          "name": "Sample.study_identifier",
           "rank": 2,
           "slot_group": "identifiers"
         },
-        "sample_identifier": {
-          "name": "sample_identifier",
+        "Sample.subject_identifier": {
+          "name": "Sample.subject_identifier",
           "rank": 3,
           "slot_group": "identifiers"
         },
@@ -4146,48 +4199,12 @@
         }
       },
       "attributes": {
-        "study_identifier": {
-          "name": "study_identifier",
-          "description": " ",
-          "title": "study_identifier",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 1,
-          "slot_uri": "obo:NCIT_C46002",
-          "multivalued": true,
-          "alias": "study_identifier",
-          "owner": "Sample",
-          "domain_of": [
-            "Study",
-            "Sample"
-          ],
-          "slot_group": "identifiers",
-          "range": "WhitespaceMinimizedString",
-          "required": true,
-          "inlined": true,
-          "inlined_as_list": true
-        },
-        "subject_identifier": {
-          "name": "subject_identifier",
-          "description": " ",
-          "title": "subject_identifier",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 2,
-          "alias": "subject_identifier",
-          "owner": "Sample",
-          "domain_of": [
-            "Study",
-            "Sample"
-          ],
-          "slot_group": "identifiers",
-          "range": "WhitespaceMinimizedString",
-          "required": true
-        },
         "sample_identifier": {
           "name": "sample_identifier",
           "description": " ",
           "title": "sample_identifier",
           "from_schema": "https://example.com/MIATE",
-          "rank": 3,
+          "rank": 1,
           "identifier": true,
           "alias": "sample_identifier",
           "owner": "Sample",
@@ -4197,6 +4214,36 @@
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString",
           "required": true
+        },
+        "Sample.study_identifier": {
+          "name": "Sample.study_identifier",
+          "description": " ",
+          "title": "study_identifier",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 2,
+          "multivalued": true,
+          "alias": "Sample.study_identifier",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true
+        },
+        "Sample.subject_identifier": {
+          "name": "Sample.subject_identifier",
+          "description": " ",
+          "title": "subject_identifier",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 3,
+          "alias": "Sample.subject_identifier",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
         },
         "date": {
           "name": "date",
