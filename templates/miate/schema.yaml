@@ -790,6 +790,8 @@ slots:
     name: investigation template version
     title: investigation template version
     range: provenance
+    examples:
+    - value: DataHarmonizer, miate v1.0.0
     description: ' '
     required: true
     comments: ' '
@@ -797,6 +799,8 @@ slots:
     name: study template version
     title: study template version
     range: provenance
+    examples:
+    - value: DataHarmonizer, miate v1.0.0
     description: ' '
     required: true
     comments: ' '
@@ -818,7 +822,7 @@ types:
     uri: xsd:token
   Provenance:
     name: Provenance
-    typeof: Provenance
+    typeof: string
     description: A field containing a DataHarmonizer versioning marker. It is issued
       by DataHarmonizer when validation is applied to a given row of data.
     base: str
