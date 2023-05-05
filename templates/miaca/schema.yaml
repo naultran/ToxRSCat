@@ -530,7 +530,6 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    identifier: true
     comments: PRJ140
   purpose:
     name: purpose

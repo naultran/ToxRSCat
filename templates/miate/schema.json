@@ -2309,7 +2309,6 @@
       "from_schema": "https://example.com/MIATE",
       "slot_uri": "obo:NCIT_C46002",
       "multivalued": true,
-      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true,
       "inlined": true,
@@ -3095,7 +3094,6 @@
           "rank": 2,
           "slot_uri": "obo:NCIT_C46002",
           "multivalued": true,
-          "identifier": true,
           "alias": "study_identifier",
           "owner": "Study",
           "domain_of": [
@@ -4156,7 +4154,6 @@
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
           "multivalued": true,
-          "identifier": true,
           "alias": "study_identifier",
           "owner": "Sample",
           "domain_of": [
