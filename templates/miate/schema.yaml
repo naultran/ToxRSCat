@@ -818,7 +818,7 @@ types:
     uri: xsd:token
   Provenance:
     name: Provenance
-    typeof: string
+    typeof: Provenance
     description: A field containing a DataHarmonizer versioning marker. It is issued
       by DataHarmonizer when validation is applied to a given row of data.
     base: str
