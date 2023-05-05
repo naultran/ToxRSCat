@@ -144,6 +144,9 @@ for i in df["slots"]:
 
     if (df.loc[df["slots"] == i, "required"]).any():
         dir["slots"][f'{i}']['required'] = True
+    
+    if (df.loc[df["slots"] == i, "is_identifier"]).any():
+        dir["slots"][f'{i}']['identifier'] = True
 
     if (df.loc[df["slots"] == i, "multivalued"]).any():
         dir["slots"][f'{i}']['multivalued'] = True

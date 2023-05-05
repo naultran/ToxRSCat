@@ -530,12 +530,14 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
+    identifier: true
     comments: PRJ140
   purpose:
     name: purpose
     title: purpose
     range: WhitespaceMinimizedString
-    description: ' '
+    description: ' Description of the specific application of this project within
+      a larger context.'
     slot_uri: obo:IAO_0000315
     comments: ' '
   study_design:
@@ -932,8 +934,9 @@ slots:
     name: sample_identifier
     title: sample_identifier
     range: WhitespaceMinimizedString
-    description: 'True'
+    description: ' '
     recommended: true
+    identifier: true
     comments: ' '
   collection_protocol:
     name: collection_protocol

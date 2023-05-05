@@ -609,6 +609,7 @@
         "flow_001-HSA_001"
       ],
       "from_schema": "https://example.com/MIFlowCyt",
+      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -1547,6 +1548,7 @@
           "title": "Flow_experiment_ID",
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 4,
+          "identifier": true,
           "alias": "flow_experiment_identifier",
           "owner": "Flow cytometry experiment",
           "domain_of": [
