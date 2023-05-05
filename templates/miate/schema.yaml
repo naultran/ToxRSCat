@@ -466,6 +466,7 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
+    identifier: true
     multivalued: true
     inlined_as_list: true
     slot_uri: obo:NCIT_C46002
@@ -753,6 +754,7 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
+    identifier: true
     comments: ' '
   biospecimen_anatomic_site:
     name: biospecimen_anatomic_site

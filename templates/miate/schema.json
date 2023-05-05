@@ -2309,6 +2309,7 @@
       "from_schema": "https://example.com/MIATE",
       "slot_uri": "obo:NCIT_C46002",
       "multivalued": true,
+      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true,
       "inlined": true,
@@ -2756,6 +2757,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
+      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -3093,6 +3095,7 @@
           "rank": 2,
           "slot_uri": "obo:NCIT_C46002",
           "multivalued": true,
+          "identifier": true,
           "alias": "study_identifier",
           "owner": "Study",
           "domain_of": [
@@ -4153,6 +4156,7 @@
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
           "multivalued": true,
+          "identifier": true,
           "alias": "study_identifier",
           "owner": "Sample",
           "domain_of": [
@@ -4187,6 +4191,7 @@
           "title": "sample_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 3,
+          "identifier": true,
           "alias": "sample_identifier",
           "owner": "Sample",
           "domain_of": [

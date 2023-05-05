@@ -18,7 +18,7 @@ classes:
     - investigation_identifier
     - study_identifier
     - sample_identifier
-    - metabolomic_experimet_dentifier
+    - metabolomic_experiment_identifier
     - purpose
     - primary_contact
     - date
@@ -62,7 +62,7 @@ classes:
       sample_identifier:
         rank: 3
         slot_group: identifiers
-      metabolomic_experimet_dentifier:
+      metabolomic_experiment_identifier:
         rank: 4
         slot_group: identifiers
       purpose:
@@ -225,13 +225,14 @@ slots:
       match the sample source to the data.
     required: true
     comments: Prj140_M001_Liver
-  metabolomic_experimet_dentifier:
-    name: metabolomic_experimet_dentifier
-    title: metabolomic_experimet_dentifier
+  metabolomic_experiment_identifier:
+    name: metabolomic_experiment_identifier
+    title: metabolomic_experiment_identifier
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
     required: true
+    identifier: true
     comments: ms_S001
   purpose:
     name: purpose
@@ -503,6 +504,7 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
+    identifier: true
     comments: Acetyl-CoA
   refmet_name:
     name: refmet_name

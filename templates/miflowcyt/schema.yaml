@@ -285,6 +285,7 @@ slots:
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
     required: true
+    identifier: true
     comments: flow_001-HSA_001
   purpose:
     name: purpose

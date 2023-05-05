@@ -2026,12 +2026,13 @@
         "PRJ140"
       ],
       "from_schema": "https://example.com/MIATE",
+      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
     "purpose": {
       "name": "purpose",
-      "description": " ",
+      "description": " Description of the specific application of this project within a larger context.",
       "title": "purpose",
       "comments": [
         " "
@@ -2667,12 +2668,13 @@
     },
     "sample_identifier": {
       "name": "sample_identifier",
-      "description": "True",
+      "description": " ",
       "title": "sample_identifier",
       "comments": [
         " "
       ],
       "from_schema": "https://example.com/MIATE",
+      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "recommended": true
     },
@@ -3076,6 +3078,7 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
+          "identifier": true,
           "alias": "study_identifier",
           "owner": "Study",
           "domain_of": [
@@ -3088,7 +3091,7 @@
         },
         "purpose": {
           "name": "purpose",
-          "description": " ",
+          "description": " Description of the specific application of this project within a larger context.",
           "title": "purpose",
           "from_schema": "https://example.com/MIATE",
           "rank": 3,
@@ -4398,6 +4401,7 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 1,
+          "identifier": true,
           "alias": "study_identifier",
           "owner": "Sample",
           "domain_of": [
@@ -4426,10 +4430,11 @@
         },
         "sample_identifier": {
           "name": "sample_identifier",
-          "description": "True",
+          "description": " ",
           "title": "sample_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 3,
+          "identifier": true,
           "alias": "sample_identifier",
           "owner": "Sample",
           "domain_of": [
