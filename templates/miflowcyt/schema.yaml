@@ -770,7 +770,7 @@ slots:
   template version:
     name: template version
     title: template version
-    range: provenance
+    range: Provenance
     description: ' '
     comments: ' '
 types:

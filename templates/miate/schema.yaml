@@ -790,8 +790,6 @@ slots:
     name: investigation template version
     title: investigation template version
     range: Provenance
-    examples:
-    - value: DataHarmonizer, miate v1.0.0
     description: ' '
     required: true
     comments: ' '
@@ -799,8 +797,6 @@ slots:
     name: study template version
     title: study template version
     range: Provenance
-    examples:
-    - value: DataHarmonizer, miate v1.0.0
     description: ' '
     required: true
     comments: ' '

@@ -2820,7 +2820,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "provenance",
+      "range": "Provenance",
       "required": true
     },
     "study template version": {
@@ -2831,7 +2831,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "provenance",
+      "range": "Provenance",
       "required": true
     },
     "sample template version": {
@@ -2842,7 +2842,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "provenance",
+      "range": "Provenance",
       "required": true
     }
   },
@@ -3704,7 +3704,7 @@
             "Study"
           ],
           "slot_group": "provenance",
-          "range": "provenance",
+          "range": "Provenance",
           "required": true
         }
       }
@@ -4083,7 +4083,7 @@
             "Investigation"
           ],
           "slot_group": "provenance",
-          "range": "provenance",
+          "range": "Provenance",
           "required": true
         }
       }
@@ -4295,7 +4295,7 @@
             "Sample"
           ],
           "slot_group": "provenance",
-          "range": "provenance",
+          "range": "Provenance",
           "required": true
         }
       }

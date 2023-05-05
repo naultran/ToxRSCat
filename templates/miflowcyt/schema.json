@@ -1194,7 +1194,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIFlowCyt",
-      "range": "provenance"
+      "range": "Provenance"
     }
   },
   "classes": {
@@ -2349,7 +2349,7 @@
             "Flow cytometry experiment"
           ],
           "slot_group": "provenance",
-          "range": "provenance"
+          "range": "Provenance"
         }
       }
     }
