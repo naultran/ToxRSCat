@@ -538,47 +538,21 @@ slots:
   experiement template version:
     name: experiement template version
     title: experiement template version
-    range: provenance
+    range: Provenance
     description: ' '
     required: true
     comments: ' '
   sample template version:
     name: sample template version
     title: sample template version
-    range: provenance
+    range: Provenance
     description: ' '
     required: true
     comments: ' '
-types:
-  WhitespaceMinimizedString:
-    name: WhitespaceMinimizedString
-    typeof: string
-    description: 'A string that has all whitespace trimmed off of beginning and end,
-      and all internal whitespace segments reduced to single spaces. Whitespace includes
-      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
-    base: str
-    uri: xsd:token
-  Provenance:
-    name: Provenance
-    typeof: string
-    description: A field containing a DataHarmonizer versioning marker. It is issued
-      by DataHarmonizer when validation is applied to a given row of data.
-    base: str
-    uri: xsd:token
 enums:
   derivitization menu:
     name: derivitization menu
     permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
       diazomethane:
         text: diazomethane
       hexamethyldisilazane:
@@ -611,9 +585,6 @@ enums:
         text: Trimethylsilyldiethylamine
       trimethylsulphonium hydroxide:
         text: trimethylsulphonium hydroxide
-  extract_preservation_method menu:
-    name: extract_preservation_method menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -624,15 +595,15 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  extract_preservation_method menu:
+    name: extract_preservation_method menu
+    permissible_values:
       Room temperature:
         text: Room temperature
       -20C:
         text: -20C
       -80C:
         text: -80C
-  manufacturer menu:
-    name: manufacturer menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -643,13 +614,28 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  manufacturer menu:
+    name: manufacturer menu
+    permissible_values:
       Agilent:
         text: Agilent
       Waters:
         text: Waters
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
   model menu:
     name: model menu
     permissible_values:
+      Xevo TQ-S:
+        text: Xevo TQ-S
       Not applicable:
         text: Not applicable
       Missing:
@@ -660,28 +646,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
-      Xevo TQ-S:
-        text: Xevo TQ-S
   scan_polarity menu:
     name: scan_polarity menu
     permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
       negative scan:
         text: negative scan
       positive scan:
         text: positive scan
-  detector_type menu:
-    name: detector_type menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -692,6 +663,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  detector_type menu:
+    name: detector_type menu
+    permissible_values:
       array detector:
         text: array detector
       microchannel plate detector:
@@ -736,9 +710,6 @@ enums:
         text: point collector
       postacceleration detector:
         text: postacceleration detector
-  mass_analyzer_type menu:
-    name: mass_analyzer_type menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -749,6 +720,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  mass_analyzer_type menu:
+    name: mass_analyzer_type menu
+    permissible_values:
       cyclotron:
         text: cyclotron
       electrostatic energy analyzer:
@@ -775,9 +749,6 @@ enums:
         text: stored waveform inverse fourier transform
       time-of-flight:
         text: time-of-flight
-  unit menu:
-    name: unit menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -788,10 +759,39 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  unit menu:
+    name: unit menu
+    permissible_values:
       AUC:
         text: AUC
       nmol/mg protein:
         text: nmol/mg protein
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
 settings:
   Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'

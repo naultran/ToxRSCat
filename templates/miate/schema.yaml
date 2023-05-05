@@ -807,36 +807,10 @@ slots:
     description: ' '
     required: true
     comments: ' '
-types:
-  WhitespaceMinimizedString:
-    name: WhitespaceMinimizedString
-    typeof: string
-    description: 'A string that has all whitespace trimmed off of beginning and end,
-      and all internal whitespace segments reduced to single spaces. Whitespace includes
-      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
-    base: str
-    uri: xsd:token
-  Provenance:
-    name: Provenance
-    typeof: string
-    description: A field containing a DataHarmonizer versioning marker. It is issued
-      by DataHarmonizer when validation is applied to a given row of data.
-    base: str
-    uri: xsd:token
 enums:
   data_submission_contact_state menu:
     name: data_submission_contact_state menu
     permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
       AL:
         text: AL
       AK:
@@ -943,9 +917,6 @@ enums:
         text: WI
       WY:
         text: WY
-  support_source menu:
-    name: support_source menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -956,6 +927,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  support_source menu:
+    name: support_source menu
+    permissible_values:
       NIEHS:
         text: NIEHS
       NIDDK:
@@ -970,9 +944,6 @@ enums:
         text: NLM
       Superfund Basic Research Program:
         text: Superfund Basic Research Program
-  study_design menu:
-    name: study_design menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -983,6 +954,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  study_design menu:
+    name: study_design menu
+    permissible_values:
       dose response design:
         text: dose response design
       ? 'case control design
@@ -997,9 +971,6 @@ enums:
         text: sex design
       time series design:
         text: time series design
-  study_type menu:
-    name: study_type menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1010,6 +981,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  study_type menu:
+    name: study_type menu
+    permissible_values:
       Teratology:
         text: Teratology
       Short term:
@@ -1048,9 +1022,6 @@ enums:
         text: Toxicokinetics
       Zebrafish:
         text: Zebrafish
-  experimental_setting menu:
-    name: experimental_setting menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1061,13 +1032,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  experimental_setting menu:
+    name: experimental_setting menu
+    permissible_values:
       in vivo:
         text: in vivo
       ex vivo:
         text: ex vivo
-  Organism menu:
-    name: Organism menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1078,6 +1049,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  Organism menu:
+    name: Organism menu
+    permissible_values:
       Homo sapiens:
         text: Homo sapiens
       Mus musculus:
@@ -1090,9 +1064,6 @@ enums:
         text: Danio rerio
       Xenopus laevis:
         text: Xenopus laevis
-  sex menu:
-    name: sex menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1103,13 +1074,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  sex menu:
+    name: sex menu
+    permissible_values:
       male:
         text: male
       female:
         text: female
-  strain menu:
-    name: strain menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1120,6 +1091,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  strain menu:
+    name: strain menu
+    permissible_values:
       C57BL/6NCrl:
         text: C57BL/6NCrl
       C57BL/6J:
@@ -1136,9 +1110,6 @@ enums:
         text: Sprague-Dawley
       Dahl SS:
         text: Dahl SS
-  euthanasia_method menu:
-    name: euthanasia_method menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1149,13 +1120,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  euthanasia_method menu:
+    name: euthanasia_method menu
+    permissible_values:
       Carbon dioxide asphyxiation:
         text: Carbon dioxide asphyxiation
       Cervical dislocation:
         text: Cervical dislocation
-  bedding_type menu:
-    name: bedding_type menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1166,15 +1137,15 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  bedding_type menu:
+    name: bedding_type menu
+    permissible_values:
       ALPHA-dri:
         text: ALPHA-dri
       corn cob:
         text: corn cob
       wood shavings:
         text: wood shavings
-  feeding_paradigm menu:
-    name: feeding_paradigm menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1185,13 +1156,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  feeding_paradigm menu:
+    name: feeding_paradigm menu
+    permissible_values:
       ad libitum:
         text: ad libitum
       restricted:
         text: restricted
-  dose_amount_unit menu:
-    name: dose_amount_unit menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1202,6 +1173,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  dose_amount_unit menu:
+    name: dose_amount_unit menu
+    permissible_values:
       milligram per kilogram:
         text: milligram per kilogram
       microgram per kilogram:
@@ -1210,9 +1184,6 @@ enums:
         text: milligram per kilogram per day
       microgram per kilogram per day:
         text: microgram per kilogram per day
-  route menu:
-    name: route menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1223,6 +1194,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  route menu:
+    name: route menu
+    permissible_values:
       Administration via Cytapheresis:
         text: Administration via Cytapheresis
       Administration via Fistula:
@@ -1323,9 +1297,6 @@ enums:
         text: Other Route of Administration
       Parenteral Route of Administration:
         text: Parenteral Route of Administration
-  biospecimen_anatomic_site menu:
-    name: biospecimen_anatomic_site menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1336,6 +1307,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  biospecimen_anatomic_site menu:
+    name: biospecimen_anatomic_site menu
+    permissible_values:
       Abdomen:
         text: Abdomen
       Abdominal Wall:
@@ -1896,9 +1870,6 @@ enums:
         text: White Blood Cells
       Wrist:
         text: Wrist
-  method_of_sample_procurement menu:
-    name: method_of_sample_procurement menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1909,6 +1880,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  method_of_sample_procurement menu:
+    name: method_of_sample_procurement menu
+    permissible_values:
       Abdomino-perineal Resection of Rectum:
         text: Abdomino-perineal Resection of Rectum
       Anterior Resection of Rectum:
@@ -2017,9 +1991,6 @@ enums:
         text: Tumor Resection
       Wedge Resection:
         text: Wedge Resection
-  preservation_method menu:
-    name: preservation_method menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -2030,6 +2001,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  preservation_method menu:
+    name: preservation_method menu
+    permissible_values:
       Cryopreserved:
         text: Cryopreserved
       FFPE:
@@ -2042,6 +2016,32 @@ enums:
         text: Snap Frozen
       Frozen:
         text: Frozen
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
 settings:
   Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'

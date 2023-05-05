@@ -224,21 +224,6 @@
       "name": "data_submission_contact_state menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "AL": {
           "text": "AL"
         },
@@ -397,13 +382,7 @@
         },
         "WY": {
           "text": "WY"
-        }
-      }
-    },
-    "support_source menu": {
-      "name": "support_source menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -418,7 +397,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "support_source menu": {
+      "name": "support_source menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "NIEHS": {
           "text": "NIEHS"
         },
@@ -439,13 +424,7 @@
         },
         "Superfund Basic Research Program": {
           "text": "Superfund Basic Research Program"
-        }
-      }
-    },
-    "study_design menu": {
-      "name": "study_design menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -460,7 +439,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "study_design menu": {
+      "name": "study_design menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "dose response design": {
           "text": "dose response design"
         },
@@ -475,13 +460,7 @@
         },
         "time series design": {
           "text": "time series design"
-        }
-      }
-    },
-    "study_type menu": {
-      "name": "study_type menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -496,7 +475,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "study_type menu": {
+      "name": "study_type menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Teratology": {
           "text": "Teratology"
         },
@@ -553,6 +538,21 @@
         },
         "Zebrafish": {
           "text": "Zebrafish"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -560,6 +560,12 @@
       "name": "experimental_setting menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "in vivo": {
+          "text": "in vivo"
+        },
+        "ex vivo": {
+          "text": "ex vivo"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -574,12 +580,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "in vivo": {
-          "text": "in vivo"
-        },
-        "ex vivo": {
-          "text": "ex vivo"
         }
       }
     },
@@ -587,21 +587,6 @@
       "name": "Organism menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "Homo sapiens": {
           "text": "Homo sapiens"
         },
@@ -619,6 +604,21 @@
         },
         "Xenopus laevis": {
           "text": "Xenopus laevis"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -626,6 +626,12 @@
       "name": "sex menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "male": {
+          "text": "male"
+        },
+        "female": {
+          "text": "female"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -640,12 +646,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "male": {
-          "text": "male"
-        },
-        "female": {
-          "text": "female"
         }
       }
     },
@@ -653,21 +653,6 @@
       "name": "strain menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "C57BL/6NCrl": {
           "text": "C57BL/6NCrl"
         },
@@ -691,6 +676,21 @@
         },
         "Dahl SS": {
           "text": "Dahl SS"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -698,6 +698,12 @@
       "name": "euthanasia_method menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Carbon dioxide asphyxiation": {
+          "text": "Carbon dioxide asphyxiation"
+        },
+        "Cervical dislocation": {
+          "text": "Cervical dislocation"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -712,12 +718,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "Carbon dioxide asphyxiation": {
-          "text": "Carbon dioxide asphyxiation"
-        },
-        "Cervical dislocation": {
-          "text": "Cervical dislocation"
         }
       }
     },
@@ -725,21 +725,6 @@
       "name": "bedding_type menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "ALPHA-dri": {
           "text": "ALPHA-dri"
         },
@@ -748,6 +733,21 @@
         },
         "wood shavings": {
           "text": "wood shavings"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -755,6 +755,12 @@
       "name": "feeding_paradigm menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "ad libitum": {
+          "text": "ad libitum"
+        },
+        "restricted": {
+          "text": "restricted"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -769,12 +775,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "ad libitum": {
-          "text": "ad libitum"
-        },
-        "restricted": {
-          "text": "restricted"
         }
       }
     },
@@ -782,21 +782,6 @@
       "name": "dose_amount_unit menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "milligram per kilogram": {
           "text": "milligram per kilogram"
         },
@@ -808,13 +793,7 @@
         },
         "microgram per kilogram per day": {
           "text": "microgram per kilogram per day"
-        }
-      }
-    },
-    "route menu": {
-      "name": "route menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -829,7 +808,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "route menu": {
+      "name": "route menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Administration via Cytapheresis": {
           "text": "Administration via Cytapheresis"
         },
@@ -979,13 +964,7 @@
         },
         "Parenteral Route of Administration": {
           "text": "Parenteral Route of Administration"
-        }
-      }
-    },
-    "biospecimen_anatomic_site menu": {
-      "name": "biospecimen_anatomic_site menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -1000,7 +979,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "biospecimen_anatomic_site menu": {
+      "name": "biospecimen_anatomic_site menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Abdomen": {
           "text": "Abdomen"
         },
@@ -1840,13 +1825,7 @@
         },
         "Wrist": {
           "text": "Wrist"
-        }
-      }
-    },
-    "method_of_sample_procurement menu": {
-      "name": "method_of_sample_procurement menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -1861,7 +1840,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "method_of_sample_procurement menu": {
+      "name": "method_of_sample_procurement menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Abdomino-perineal Resection of Rectum": {
           "text": "Abdomino-perineal Resection of Rectum"
         },
@@ -2023,13 +2008,7 @@
         },
         "Wedge Resection": {
           "text": "Wedge Resection"
-        }
-      }
-    },
-    "preservation_method menu": {
-      "name": "preservation_method menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -2044,7 +2023,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "preservation_method menu": {
+      "name": "preservation_method menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Cryopreserved": {
           "text": "Cryopreserved"
         },
@@ -2062,6 +2047,21 @@
         },
         "Frozen": {
           "text": "Frozen"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     }

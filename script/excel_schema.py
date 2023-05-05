@@ -62,9 +62,11 @@ linkname
 # Create empty dictionary slots to import schema details
 dir["classes"] ={}
 dir["slots"] = {}
-dir["types"] ={}
+
 if df["enums"].notnull().any():
     dir["enums"] = {}
+    
+dir["types"] ={}
 dir["settings"] = {}
 
 # Build schema classes
@@ -110,6 +112,8 @@ for i in df["slots"]:
         dir["slots"][f'{i}']['range'] = 'WhitespaceMinimizedString'
     elif range == "enum":
         dir["slots"][f'{i}']['range'] =f'{i} menu'
+    elif range == "provenance":
+        dir["slots"][f'{i}']['range'] ='Provenance'
     else:
         dir["slots"][f'{i}']['range'] =f'{range}'
 
@@ -157,6 +161,26 @@ for i in df["slots"]:
     else:
         dir["slots"][f'{i}']['comments']= " "
     
+
+
+# Populate enumeration fields for dropdown menus
+#TODO: Enumerations should always also include GENEPIO:0001619 "Not Applicable", GENEPIO:0001618 "Missing", GENEPIO:0001620 "Not Collected", GENEPIO:0001668 "Not Provided", GENEPIO:0001810 "Restricted Access"
+if df["enums"].notnull().any():
+    having_enum = df.loc[df["enums"].notnull(), :]
+    for i in having_enum.index:
+        name_slot = df["slots"][i]
+        dir["enums"][f"{name_slot} menu"] = {}
+        dir["enums"][f"{name_slot} menu"]["name"] = f"{name_slot} menu"
+        dir["enums"][f"{name_slot} menu"]["permissible_values"] = {}
+        choice_list = df["enums"][i].split(';') 
+        for j in choice_list:
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}'] = {}
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
+        null_value = ["Not applicable", "Missing", "Not collected", "Not provided", "Restricted access"]
+        for z in null_value:
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{z}'] = {}
+            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{z}']['text'] = f'{z}'
+
 # List the potential data types #is this correct?#edit types part
 dir["types"]["WhitespaceMinimizedString"] ={}
 dir["types"]["WhitespaceMinimizedString"]["name"] = "WhitespaceMinimizedString"
@@ -171,25 +195,6 @@ dir["types"]["Provenance"]["typeof"] = "string"
 dir["types"]["Provenance"]["description"] ="A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data."
 dir["types"]["Provenance"]["base"] = 'str'
 dir["types"]["Provenance"]["uri"] = 'xsd:token'
-
-# Populate enumeration fields for dropdown menus
-#TODO: Enumerations should always also include GENEPIO:0001619 "Not Applicable", GENEPIO:0001618 "Missing", GENEPIO:0001620 "Not Collected", GENEPIO:0001668 "Not Provided", GENEPIO:0001810 "Restricted Access"
-if df["enums"].notnull().any():
-    having_enum = df.loc[df["enums"].notnull(), :]
-    for i in having_enum.index:
-        name_slot = df["slots"][i]
-        dir["enums"][f"{name_slot} menu"] = {}
-        dir["enums"][f"{name_slot} menu"]["name"] = f"{name_slot} menu"
-        dir["enums"][f"{name_slot} menu"]["permissible_values"] = {}
-        null_value = ["Not applicable", "Missing", "Not collected", "Not provided", "Restricted access"]
-        for z in null_value:
-            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{z}'] = {}
-            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{z}']['text'] = f'{z}'
-        choice_list = df["enums"][i].split(';') 
-        for j in choice_list:
-            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}'] = {}
-            dir["enums"][f"{name_slot} menu"]["permissible_values"][f'{j}']['text'] = f'{j}'
-
 
 dir["settings"]["Title_Case"] = '(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)'
 dir["settings"]["UPPER_CASE"] = '[A-Z\W\d_]*'
