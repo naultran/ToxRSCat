@@ -15,10 +15,10 @@ classes:
     name: metabolomics_experiment
     is_a: dh_interface
     slots:
+    - metabolomic_experiment_identifier
     - investigation_identifier
     - study_identifier
     - sample_identifier
-    - metabolomic_experiment_identifier
     - purpose
     - primary_contact
     - date
@@ -53,16 +53,16 @@ classes:
     - unit
     - experiement template version
     slot_usage:
-      investigation_identifier:
+      metabolomic_experiment_identifier:
         rank: 1
         slot_group: identifiers
-      study_identifier:
+      investigation_identifier:
         rank: 2
         slot_group: identifiers
-      sample_identifier:
+      study_identifier:
         rank: 3
         slot_group: identifiers
-      metabolomic_experiment_identifier:
+      sample_identifier:
         rank: 4
         slot_group: identifiers
       purpose:
@@ -198,6 +198,15 @@ classes:
         rank: 7
         slot_group: provenance
 slots:
+  metabolomic_experiment_identifier:
+    name: metabolomic_experiment_identifier
+    title: metabolomic_experiment_identifier
+    range: WhitespaceMinimizedString
+    description: This is a unique ID assigned by the user to represent each individual
+      record in this flow cytometry experiment.
+    required: true
+    identifier: true
+    comments: ms_S001
   investigation_identifier:
     name: investigation_identifier
     title: investigation_identifier
@@ -225,15 +234,6 @@ slots:
       match the sample source to the data.
     required: true
     comments: Prj140_M001_Liver
-  metabolomic_experiment_identifier:
-    name: metabolomic_experiment_identifier
-    title: metabolomic_experiment_identifier
-    range: WhitespaceMinimizedString
-    description: This is a unique ID assigned by the user to represent each individual
-      record in this flow cytometry experiment.
-    required: true
-    identifier: true
-    comments: ms_S001
   purpose:
     name: purpose
     title: purpose
