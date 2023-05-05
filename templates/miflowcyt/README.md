@@ -121,11 +121,11 @@ Before you begin to add your metadata:
 #####  <uL>4A. Direct entry:
 <ul><ul> The template can be used as a typical excel template with some limited function.  Simply type, copy & paste, or choose from dropdown menus to fill the relevant fields in the template. You can also copy from an excel document on your own computer. 
 
-<ul><ul> For more information about the columns `double click` on the column name. This will describe the column and provide some examples.
+For more information about the columns `double click` on the column name. This will describe the column and provide some examples.
 
-<ul><ul> To add multiple values (when allowed), seperate the values using the `;` character.
+To add multiple values (when allowed), seperate the values using the `;` character.
 
-<ul><ul> To delete an item from a dropdown menu, select it and hit the `delete` button on your keyboard.  
+To delete an item from a dropdown menu, select it and hit the `delete` button on your keyboard.  
 
 
 #####  <uL>4B. (Meta)data import:
