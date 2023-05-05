@@ -80,7 +80,7 @@ class G assay;
 
 The MIFlowCyt template is intended to collect __Assay__ level data and __must be complemented with study level data__. For study level data please see the [_Minimum information about animal toxicology experiments (MIATE)_](https://github.com/naultran/ToxRSCat/tree/main/templates/miate#readme) or [_Minimum information about cellular assays (MIACA)_](https://github.com/naultran/ToxRSCat/tree/main/templates/miate#readme) templates. This template will ask for identifiers which were assigned in these other templates as shown in the following image:
 
-<img src="../../imgs/MIFlowCyt_1_identifiers.png" height="123">
+<img src="../../imgs/MIFlowCyt_1_identifiers.png" height="350">
 
  <a id="starting"></a>
 #### 2.  Loading the Minimum Information about Flow Cytometry Experiments (MIFlowCyt) template<br>
@@ -95,7 +95,7 @@ This will load the template into the browser. The template is broken down into _
 
 > Here you can also choose to display only required, recommended, or required+recommended columns.
 
-The sections broadly capture the following. For more details see [_section 4_](#structure).
+The sections broadly capture the following. For more details see [_section 6_](#structure).
 - **Identifiers:** Here you will enter all the relevant identifiers to map the data to individual samples/subjects, funding source, project details, etc. You will also assign a unique identifier to each row.
 - **Experiment**: Here you will enter the general details about the experiment such as the purpose, contact person, QC procedures, and major conlusions. This is required for upload to [FLOWrepository](flowrepository.org)
 - **Instrument**: Here you will enter the general details about the  flow cytometer such as vendor, model, flow cell etc.
@@ -107,27 +107,36 @@ The sections broadly capture the following. For more details see [_section 4_](#
 - **Provenance**: _This is autopopulated, please do not fill_.
 
  <a id="before"></a>
-#### 2.  Before adding metadata<br>
+#### 3.  Before adding metadata<br>
 Before you begin to add your metadata: 
 - Review the fields in the template of the Validator application. For a summary overview you can select the `Reference Guide` from the `Help` menu.
  
-<img src="../../imgs/MIFlowCyt_3_RefGuide.png" width="20%">
+<img src="../../imgs/MIFlowCyt_4_RefGuide.png" width="20%">
 
 - Review this protocol to make sure that you are using the template as intended.
 - Review your dataset. 
 
  <a id="populating"></a>
-#### 3. Populating the template
-#####  <uL>3A. Direct entry:
-<ul><ul> The template can be used as a typical excel template with some limited function. 
+#### 4. Populating the template
+#####  <uL>4A. Direct entry:
+<ul><ul> The template can be used as a typical excel template with some limited function.  Simply type, copy & paste, or choose from dropdown menus to fill the relevant fields in the template. You can also copy from an excel document on your own computer. 
 
-#####  <uL>3B. (Meta)data import:
+<ul><ul> For more information about the columns `double click` on the column name. This will describe the column and provide some examples.
+
+<ul><ul> To add multiple values (when allowed), seperate the values using the `;` character.
+
+<ul><ul> To delete an item from a dropdown menu, select it and hit the `delete` button on your keyboard.  
+
+
+#####  <uL>4B. (Meta)data import:
 <ul><ul> Using the `Save As...` option in the `File` menu  you can export a template to use for populating. It will be missing some of the dropdown menus so you will have to confirm that your selections are valid. This can be done either by looking up the value or by uploading your template and choosing the `Validate` button. 
 
-#####  <uL>3C. Hybrid:
+#####  <uL>4C. Hybrid: 
+
+> In development
 
 <a id="missing" ></a>
-#### 3.  Unavailable or missing metadata
+#### 5.  Unavailable or missing metadata
 - Every __required field__ must have a value. If this information is missing then please select a null value from the dropdown menu indicating where it is:
 	- Not applicable 
 	- Missing
@@ -138,7 +147,7 @@ Before you begin to add your metadata:
 > __If a term is missing in either a dropdown menu as a column in the _DataHarmonizer_ template please submit a Github _issue_ or contact [Rance Nault](mailto:naultran@msu.edu)__ 
 
 <a id="structure" ></a>
-#### 4.  Template organization
+#### 6.  Template organization
 | Section  | Required fields |
 |----------|-----------------|
 | Indentifiers | investigation_id, study_id, sample_id, __flow_experiment_id__|           
