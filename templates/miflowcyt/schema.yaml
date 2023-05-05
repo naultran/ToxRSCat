@@ -34,6 +34,27 @@ classes:
     - qualityControlMeasures
     - flow_cytometry_protocol
     - flow_cytometry_protocol_DOI
+    - staining_protocol
+    - staining_protocol_DOI
+    - characteristicsBeingMeasured
+    - analyte
+    - analyteDetector
+    - analyteReporter
+    - cloneNameOrNumber
+    - reagentManufacturerName
+    - reagentCatalogueNumber
+    - stainingStatus
+    - other_fluorescence_reagent
+    - analysis_protocol
+    - analysis_protocol_DOI
+    - listModeDataFile
+    - CompensationDescription
+    - TransformationPurpose
+    - TransformationDescription
+    - GateDescription
+    - Gate Statistics
+    - GateBoundaries
+    - WorkspaceFile
     - flowCellType
     - other_flow_cell
     - manufacturer
@@ -56,27 +77,6 @@ classes:
     - transmittedWavelengths
     - installationDate
     - other_optical_filter
-    - staining_protocol
-    - staining_protocol_DOI
-    - characteristicsBeingMeasured
-    - analyte
-    - analyteDetector
-    - analyteReporter
-    - cloneNameOrNumber
-    - reagentManufacturerName
-    - reagentCatalogueNumber
-    - stainingStatus
-    - other_fluorescence_reagent
-    - analysis_protocol
-    - analysis_protocol_DOI
-    - listModeDataFile
-    - CompensationDescription
-    - TransformationPurpose
-    - TransformationDescription
-    - GateDescription
-    - Gate Statistics
-    - GateBoundaries
-    - WorkspaceFile
     - template version
     slot_usage:
       investigation_identifier:
@@ -118,135 +118,135 @@ classes:
       flow_cytometry_protocol_DOI:
         rank: 13
         slot_group: experiment
-      flowCellType:
-        rank: 14
-        slot_group: Instrument
-      other_flow_cell:
-        rank: 15
-        slot_group: Instrument
-      manufacturer:
-        rank: 16
-        slot_group: Instrument
-      model:
-        rank: 17
-        slot_group: Instrument
-      configurationAndSettings:
-        rank: 18
-        slot_group: Instrument
-      other_instrument:
-        rank: 19
-        slot_group: Instrument
-      type:
-        rank: 20
-        slot_group: light_source_instrument
-      excitatoryWavelength:
-        rank: 21
-        slot_group: light_source_instrument
-      powerAtExcitatoryWavelength:
-        rank: 22
-        slot_group: light_source_instrument
-      polarization:
-        rank: 23
-        slot_group: light_source_instrument
-      beam:
-        rank: 24
-        slot_group: light_source_instrument
-      other_light_source_instrument:
-        rank: 25
-        slot_group: light_source_instrument
-      name:
-        rank: 26
-        slot_group: optical_detector
-      type_optical_detector:
-        rank: 27
-        slot_group: optical_detector
-      voltage:
-        rank: 28
-        slot_group: optical_detector
-      amplificationType:
-        rank: 29
-        slot_group: optical_detector
-      amplificationFactor:
-        rank: 30
-        slot_group: optical_detector
-      other_optical_detector:
-        rank: 31
-        slot_group: optical_detector
-      type_optical_filter:
-        rank: 32
-        slot_group: optical_filter
-      transmittedWavelengths:
-        rank: 33
-        slot_group: optical_filter
-      installationDate:
-        rank: 34
-        slot_group: optical_filter
-      other_optical_filter:
-        rank: 35
-        slot_group: optical_filter
       staining_protocol:
-        rank: 36
+        rank: 14
         slot_group: flourescence_reagent
       staining_protocol_DOI:
-        rank: 37
+        rank: 15
         slot_group: flourescence_reagent
       characteristicsBeingMeasured:
-        rank: 38
+        rank: 16
         slot_group: flourescence_reagent
       analyte:
-        rank: 39
+        rank: 17
         slot_group: flourescence_reagent
       analyteDetector:
-        rank: 40
+        rank: 18
         slot_group: flourescence_reagent
       analyteReporter:
-        rank: 41
+        rank: 19
         slot_group: flourescence_reagent
       cloneNameOrNumber:
-        rank: 42
+        rank: 20
         slot_group: flourescence_reagent
       reagentManufacturerName:
-        rank: 43
+        rank: 21
         slot_group: flourescence_reagent
       reagentCatalogueNumber:
-        rank: 44
+        rank: 22
         slot_group: flourescence_reagent
       stainingStatus:
-        rank: 45
+        rank: 23
         slot_group: flourescence_reagent
       other_fluorescence_reagent:
-        rank: 46
+        rank: 24
         slot_group: flourescence_reagent
       analysis_protocol:
-        rank: 47
+        rank: 25
         slot_group: data_analysis
       analysis_protocol_DOI:
-        rank: 48
+        rank: 26
         slot_group: data_analysis
       listModeDataFile:
-        rank: 49
+        rank: 27
         slot_group: data_analysis
       CompensationDescription:
-        rank: 50
+        rank: 28
         slot_group: data_analysis
       TransformationPurpose:
-        rank: 51
+        rank: 29
         slot_group: data_analysis
       TransformationDescription:
-        rank: 52
+        rank: 30
         slot_group: data_analysis
       GateDescription:
-        rank: 53
+        rank: 31
         slot_group: data_analysis
       Gate Statistics:
-        rank: 54
+        rank: 32
         slot_group: data_analysis
       GateBoundaries:
-        rank: 55
+        rank: 33
         slot_group: data_analysis
       WorkspaceFile:
-        rank: 56
+        rank: 34
         slot_group: data_analysis
+      flowCellType:
+        rank: 35
+        slot_group: Instrument
+      other_flow_cell:
+        rank: 36
+        slot_group: Instrument
+      manufacturer:
+        rank: 37
+        slot_group: Instrument
+      model:
+        rank: 38
+        slot_group: Instrument
+      configurationAndSettings:
+        rank: 39
+        slot_group: Instrument
+      other_instrument:
+        rank: 40
+        slot_group: Instrument
+      type:
+        rank: 41
+        slot_group: light_source_instrument
+      excitatoryWavelength:
+        rank: 42
+        slot_group: light_source_instrument
+      powerAtExcitatoryWavelength:
+        rank: 43
+        slot_group: light_source_instrument
+      polarization:
+        rank: 44
+        slot_group: light_source_instrument
+      beam:
+        rank: 45
+        slot_group: light_source_instrument
+      other_light_source_instrument:
+        rank: 46
+        slot_group: light_source_instrument
+      name:
+        rank: 47
+        slot_group: optical_detector
+      type_optical_detector:
+        rank: 48
+        slot_group: optical_detector
+      voltage:
+        rank: 49
+        slot_group: optical_detector
+      amplificationType:
+        rank: 50
+        slot_group: optical_detector
+      amplificationFactor:
+        rank: 51
+        slot_group: optical_detector
+      other_optical_detector:
+        rank: 52
+        slot_group: optical_detector
+      type_optical_filter:
+        rank: 53
+        slot_group: optical_filter
+      transmittedWavelengths:
+        rank: 54
+        slot_group: optical_filter
+      installationDate:
+        rank: 55
+        slot_group: optical_filter
+      other_optical_filter:
+        rank: 56
+        slot_group: optical_filter
       template version:
         rank: 57
         slot_group: provenance
@@ -380,6 +380,207 @@ slots:
       repository such as protocols.io
     slot_uri: obo:OBI_0002110
     comments: ' '
+  staining_protocol:
+    name: staining_protocol
+    title: staining_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: ~0.25x10^6 cells were stained with antibody.
+  staining_protocol_DOI:
+    name: staining_protocol_DOI
+    title: staining_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
+    comments: ' '
+  characteristicsBeingMeasured:
+    name: characteristicsBeingMeasured
+    title: characteristicsBeingMeasured
+    range: WhitespaceMinimizedString
+    description: The relative amount of molecules, properties, or processes being
+      evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative
+      burst). The characteristic(s) being measured shall be provided whenever there
+      is ambiguity about the analyte being measured, such as when sample processing
+      affects detection of the analyte (e.g., propidium iodide example in Table 1).
+      The optical detector (e.g., FL1) or parameter (e.g., FL1-H) used primarily for
+      this measurement shall be indicated.
+    recommended: true
+    slot_uri: obo:BFO_0000005
+    comments: CD5
+  analyte:
+    name: analyte
+    title: analyte
+    range: WhitespaceMinimizedString
+    description: What plays the role of the analyte? Which substance or chemical constituent
+      is the subject of interest of the analytical procedure, what target is specifically
+      bound by the analyte detector (e.g., CD25)?
+    required: true
+    slot_uri: obo:OBI_0000275
+    comments: CD5
+  analyteDetector:
+    name: analyteDetector
+    title: analyteDetector
+    range: WhitespaceMinimizedString
+    description: What plays the role of analyte detector? Which component of the fluorescence
+      reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25
+      antibody)?
+    required: true
+    slot_uri: obo:CHMO_0002244
+    comments: mouse anti-human CD5
+  analyteReporter:
+    name: analyteReporter
+    title: analyteReporter
+    range: WhitespaceMinimizedString
+    description: (Fluorochrome) What plays the role of analyte reporter? Which component
+      of the fluorescence reagent reports the presents of the analyte to the flow
+      cytometer? What substance (label) is used to generate the measured signal (e.g.,
+      FITC)?
+    required: true
+    slot_uri: obo:CHEBI_35209
+    comments: PE
+  cloneNameOrNumber:
+    name: cloneNameOrNumber
+    title: cloneNameOrNumber
+    range: WhitespaceMinimizedString
+    description: If the probe is a monoclonal antibody, the clone name or number shall
+      be provided.
+    slot_uri: obo:SO_0000151
+    comments: UCHT2
+  reagentManufacturerName:
+    name: reagentManufacturerName
+    title: reagentManufacturerName
+    range: WhitespaceMinimizedString
+    description: The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent
+      Inc.).
+    slot_uri: obo:IAO_0000590
+    comments: BioLegend
+  reagentCatalogueNumber:
+    name: reagentCatalogueNumber
+    title: reagentCatalogueNumber
+    range: WhitespaceMinimizedString
+    description: The reagent catalogue number shall be specified.
+    slot_uri: obo:NCIT_C112406
+    comments: '300607'
+  stainingStatus:
+    name: stainingStatus
+    title: stainingStatus
+    range: stainingStatus menu
+    description: ' '
+    comments: stained
+  other_fluorescence_reagent:
+    name: other_fluorescence_reagent
+    title: other_fluorescence_reagent
+    range: WhitespaceMinimizedString
+    description: When secondary antibodies are used, the primary analyte (the analyte
+      bound by the primary antibody) and the reporter component of the secondary antibody
+      (the reporter that generates the measured signal) shall be clearly specified
+      as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary
+      antibodies shall be described individually (e.g., in the case that the use of
+      a secondary antibody significantly impacts the interpretation of results because
+      of nonspecific fluorescence, etc.). The description should also contain other
+      relevant details which may include lot number, concentration, label incorporation
+      method, separation technique, antibody staining procedures, and wash steps.
+    slot_uri: obo:NCIT_C17649
+    comments: ' '
+  analysis_protocol:
+    name: analysis_protocol
+    title: analysis_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: 'Positive gates were drawn using unstained and day 0 controls. '
+  analysis_protocol_DOI:
+    name: analysis_protocol_DOI
+    title: analysis_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
+    comments: ' '
+  listModeDataFile:
+    name: listModeDataFile
+    title: listModeDataFile
+    range: WhitespaceMinimizedString
+    description: The list-mode data files (e.g., FCS files [18]) shall be provided
+      directly or details on how they may be requested shall be stated.
+    slot_uri: obo:OBI:0000021
+    comments: sample1.FCS
+  CompensationDescription:
+    name: CompensationDescription
+    title: CompensationDescription
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  TransformationPurpose:
+    name: TransformationPurpose
+    title: TransformationPurpose
+    range: WhitespaceMinimizedString
+    description: 'The purpose of each performed transformation shall be specified
+      (e.g.,
+
+      data visualization, background correction, statistical analysis, quantitative
+
+      flow cytometry, etc.).'
+    comments: ' '
+  TransformationDescription:
+    name: TransformationDescription
+    title: TransformationDescription
+    range: WhitespaceMinimizedString
+    description: 'Either the exact mathematical formulas/algorithms of each data
+
+      transformation shall be supplied using an open and freely available
+
+      specification, or a description of each transformation shall be provided.'
+    comments: ' '
+  GateDescription:
+    name: GateDescription
+    title: GateDescription
+    range: WhitespaceMinimizedString
+    description: "The subpopulation identified by the gate shall be briefly described\
+      \ (e.g.,\n\u201CIL-4 producing helper T cells of the CD3+CD4+ phenotype\u201D\
+      )."
+    comments: ILBs of the CD5+ phenotype
+  Gate Statistics:
+    name: Gate Statistics
+    title: Gate Statistics
+    range: WhitespaceMinimizedString
+    description: 'Percentage of events within the gate shall be provided specifically
+      stating
+
+      the denominator. The denominator shall be either the total population of events
+      (e.g., percentage of lymphocytes based on the total number of
+
+      events) or another gate (e.g., percentage of CD4+ lymphocytes based on
+
+      all lymphocytes). When the denominator is another gate, this shall also be
+
+      exactly specified in recursive fashion so that the gating strategy can be
+
+      followed up to the original data set. The denominator may not necessarily
+
+      be a containing (superset) population for some statistics (e.g., the donor /
+
+      host blood cell ratio).'
+    comments: ' '
+  GateBoundaries:
+    name: GateBoundaries
+    title: GateBoundaries
+    range: WhitespaceMinimizedString
+    description: 'Either the exact mathematical descriptions of each gate boundary
+      shall be
+
+      provided using an open and freely available specification, or this
+
+      information shall be provided in the form of images. '
+    comments: ' '
+  WorkspaceFile:
+    name: WorkspaceFile
+    title: WorkspaceFile
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: Analysis.wsp
   flowCellType:
     name: flowCellType
     title: flowCellType
@@ -566,213 +767,232 @@ slots:
     range: WhitespaceMinimizedString
     description: Other relevant optical filter details should be provided.
     comments: ' '
-  staining_protocol:
-    name: staining_protocol
-    title: staining_protocol
-    range: WhitespaceMinimizedString
-    description: A brief description of the flow cytometry protocol
-    slot_uri: obo:NCIT_C42651
-    comments: ~0.25x10^6 cells were stained with antibody.
-  staining_protocol_DOI:
-    name: staining_protocol_DOI
-    title: staining_protocol_DOI
-    range: WhitespaceMinimizedString
-    description: A DOI to a version controlled protocol, preferably available on a
-      repository such as protocols.io
-    slot_uri: obo:OBI_0002110
-    comments: ' '
-  characteristicsBeingMeasured:
-    name: characteristicsBeingMeasured
-    title: characteristicsBeingMeasured
-    range: WhitespaceMinimizedString
-    description: The relative amount of molecules, properties, or processes being
-      evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative
-      burst). The characteristic(s) being measured shall be provided whenever there
-      is ambiguity about the analyte being measured, such as when sample processing
-      affects detection of the analyte (e.g., propidium iodide example in Table 1).
-      The optical detector (e.g., FL1) or parameter (e.g., FL1-H, see 3.3.6) used
-      primarily for this measurement shall be indicated.
-    recommended: true
-    slot_uri: obo:BFO_0000005
-    comments: CD5
-  analyte:
-    name: analyte
-    title: analyte
-    range: WhitespaceMinimizedString
-    description: What plays the role of the analyte? Which substance or chemical constituent
-      is the subject of interest of the analytical procedure, what target is specifically
-      bound by the analyte detector (e.g., CD25)?
-    required: true
-    slot_uri: obo:OBI_0000275
-    comments: CD5
-  analyteDetector:
-    name: analyteDetector
-    title: analyteDetector
-    range: WhitespaceMinimizedString
-    description: What plays the role of analyte detector? Which component of the fluorescence
-      reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25
-      antibody)?
-    required: true
-    slot_uri: obo:CHMO_0002244
-    comments: mouse anti-human CD5
-  analyteReporter:
-    name: analyteReporter
-    title: analyteReporter
-    range: WhitespaceMinimizedString
-    description: (Fluorochrome) What plays the role of analyte reporter? Which component
-      of the fluorescence reagent reports the presents of the analyte to the flow
-      cytometer? What substance (label) is used to generate the measured signal (e.g.,
-      FITC)?
-    required: true
-    slot_uri: obo:CHEBI_35209
-    comments: PE
-  cloneNameOrNumber:
-    name: cloneNameOrNumber
-    title: cloneNameOrNumber
-    range: WhitespaceMinimizedString
-    description: If the probe is a monoclonal antibody, the clone name or number shall
-      be provided.
-    slot_uri: obo:SO_0000151
-    comments: UCHT2
-  reagentManufacturerName:
-    name: reagentManufacturerName
-    title: reagentManufacturerName
-    range: WhitespaceMinimizedString
-    description: The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent
-      Inc.).
-    slot_uri: obo:IAO_0000590
-    comments: BioLegend
-  reagentCatalogueNumber:
-    name: reagentCatalogueNumber
-    title: reagentCatalogueNumber
-    range: WhitespaceMinimizedString
-    description: The reagent catalogue number shall be specified.
-    slot_uri: obo:NCIT_C112406
-    comments: '300607'
-  stainingStatus:
-    name: stainingStatus
-    title: stainingStatus
-    range: stainingStatus menu
-    description: ' '
-    comments: stained
-  other_fluorescence_reagent:
-    name: other_fluorescence_reagent
-    title: other_fluorescence_reagent
-    range: WhitespaceMinimizedString
-    description: When secondary antibodies are used, the primary analyte (the analyte
-      bound by the primary antibody) and the reporter component of the secondary antibody
-      (the reporter that generates the measured signal) shall be clearly specified
-      as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary
-      antibodies shall be described individually (e.g., in the case that the use of
-      a secondary antibody significantly impacts the interpretation of results because
-      of nonspecific fluorescence, etc.). The description should also contain other
-      relevant details which may include lot number, concentration, label incorporation
-      method, separation technique, antibody staining procedures, and wash steps.
-    slot_uri: obo:NCIT_C17649
-    comments: ' '
-  analysis_protocol:
-    name: analysis_protocol
-    title: analysis_protocol
-    range: WhitespaceMinimizedString
-    description: A brief description of the flow cytometry protocol
-    slot_uri: obo:NCIT_C42651
-    comments: 'Positive gates were drawn using unstained and day 0 controls. '
-  analysis_protocol_DOI:
-    name: analysis_protocol_DOI
-    title: analysis_protocol_DOI
-    range: WhitespaceMinimizedString
-    description: A DOI to a version controlled protocol, preferably available on a
-      repository such as protocols.io
-    slot_uri: obo:OBI_0002110
-    comments: ' '
-  listModeDataFile:
-    name: listModeDataFile
-    title: listModeDataFile
-    range: WhitespaceMinimizedString
-    description: The list-mode data files (e.g., FCS files [18]) shall be provided
-      directly or details on how they may be requested shall be stated.
-    slot_uri: obo:OBI:0000021
-    comments: sample1.FCS
-  CompensationDescription:
-    name: CompensationDescription
-    title: CompensationDescription
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  TransformationPurpose:
-    name: TransformationPurpose
-    title: TransformationPurpose
-    range: WhitespaceMinimizedString
-    description: 'The purpose of each performed transformation shall be specified
-      (e.g.,
-
-      data visualization, background correction, statistical analysis, quantitative
-
-      flow cytometry, etc.).'
-    comments: ' '
-  TransformationDescription:
-    name: TransformationDescription
-    title: TransformationDescription
-    range: WhitespaceMinimizedString
-    description: 'Either the exact mathematical formulas/algorithms of each data
-
-      transformation shall be supplied using an open and freely available
-
-      specification, or a description of each transformation shall be provided.'
-    comments: ' '
-  GateDescription:
-    name: GateDescription
-    title: GateDescription
-    range: WhitespaceMinimizedString
-    description: "The subpopulation identified by the gate shall be briefly described\
-      \ (e.g.,\n\u201CIL-4 producing helper T cells of the CD3+CD4+ phenotype\u201D\
-      )."
-    comments: ILBs of the CD5+ phenotype
-  Gate Statistics:
-    name: Gate Statistics
-    title: Gate Statistics
-    range: WhitespaceMinimizedString
-    description: 'Percentage of events within the gate shall be provided specifically
-      stating
-
-      the denominator. The denominator shall be either the total population of events
-      (e.g., percentage of lymphocytes based on the total number of
-
-      events) or another gate (e.g., percentage of CD4+ lymphocytes based on
-
-      all lymphocytes). When the denominator is another gate, this shall also be
-
-      exactly specified in recursive fashion so that the gating strategy can be
-
-      followed up to the original data set. The denominator may not necessarily
-
-      be a containing (superset) population for some statistics (e.g., the donor /
-
-      host blood cell ratio).'
-    comments: ' '
-  GateBoundaries:
-    name: GateBoundaries
-    title: GateBoundaries
-    range: WhitespaceMinimizedString
-    description: 'Either the exact mathematical descriptions of each gate boundary
-      shall be
-
-      provided using an open and freely available specification, or this
-
-      information shall be provided in the form of images. '
-    comments: ' '
-  WorkspaceFile:
-    name: WorkspaceFile
-    title: WorkspaceFile
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: Analysis.wsp
   template version:
     name: template version
     title: template version
     range: Provenance
     description: ' '
     comments: ' '
+enums:
+  experimentVariables menu:
+    name: experimentVariables menu
+    permissible_values:
+      Condition:
+        text: Condition
+      Dose:
+        text: Dose
+      Timepoint:
+        text: Timepoint
+      Individual:
+        text: Individual
+      Experimental variable sample type:
+        text: Experimental variable sample type
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  qualityControlMeasures menu:
+    name: qualityControlMeasures menu
+    permissible_values:
+      STR profiling of source cells:
+        text: STR profiling of source cells
+      mycoplasma testing:
+        text: mycoplasma testing
+      isotype control for antibody:
+        text: isotype control for antibody
+      no antibody negative control:
+        text: no antibody negative control
+      positive control cell type:
+        text: positive control cell type
+      Live/Dead staining:
+        text: Live/Dead staining
+      unstained controls:
+        text: unstained controls
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  stainingStatus menu:
+    name: stainingStatus menu
+    permissible_values:
+      stained:
+        text: stained
+      unstained:
+        text: unstained
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  flowCellType menu:
+    name: flowCellType menu
+    permissible_values:
+      jet-in-air:
+        text: jet-in-air
+      quartz cuvette:
+        text: quartz cuvette
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  manufacturer menu:
+    name: manufacturer menu
+    permissible_values:
+      BD Biosciences:
+        text: BD Biosciences
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  model menu:
+    name: model menu
+    permissible_values:
+      BD FACSAria:
+        text: BD FACSAria
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  configurationAndSettings menu:
+    name: configurationAndSettings menu
+    permissible_values:
+      The instrument has not been altered:
+        text: The instrument has not been altered
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  type menu:
+    name: type menu
+    permissible_values:
+      mercury-vapor lamp:
+        text: mercury-vapor lamp
+      xenon lamp:
+        text: xenon lamp
+      diode laser:
+        text: diode laser
+      dye laser:
+        text: dye laser
+      gas laser:
+        text: gas laser
+      solid state laser:
+        text: solid state laser
+      light-emitting diode:
+        text: light-emitting diode
+      tungsten halogen lamp:
+        text: tungsten halogen lamp
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  type_optical_detector menu:
+    name: type_optical_detector menu
+    permissible_values:
+      photodiode:
+        text: photodiode
+      photomultiplier tube:
+        text: photomultiplier tube
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  amplificationType menu:
+    name: amplificationType menu
+    permissible_values:
+      linear:
+        text: linear
+      log:
+        text: log
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  type_optical_filter menu:
+    name: type_optical_filter menu
+    permissible_values:
+      band pass filter:
+        text: band pass filter
+      long pass filter:
+        text: long pass filter
+      dichroic long pass filters:
+        text: dichroic long pass filters
+      short pass filter:
+        text: short pass filter
+      dichroic short pass filter:
+        text: dichroic short pass filter
+      polarizer excitation filter:
+        text: polarizer excitation filter
+      grating, prism:
+        text: grating, prism
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
 types:
   WhitespaceMinimizedString:
     name: WhitespaceMinimizedString
@@ -789,226 +1009,6 @@ types:
       by DataHarmonizer when validation is applied to a given row of data.
     base: str
     uri: xsd:token
-enums:
-  experimentVariables menu:
-    name: experimentVariables menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      Condition:
-        text: Condition
-      Dose:
-        text: Dose
-      Timepoint:
-        text: Timepoint
-      Individual:
-        text: Individual
-      Experimental variable sample type:
-        text: Experimental variable sample type
-  qualityControlMeasures menu:
-    name: qualityControlMeasures menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      STR profiling of source cells:
-        text: STR profiling of source cells
-      mycoplasma testing:
-        text: mycoplasma testing
-      isotype control for antibody:
-        text: isotype control for antibody
-      no antibody negative control:
-        text: no antibody negative control
-      positive control cell type:
-        text: positive control cell type
-      Live/Dead staining:
-        text: Live/Dead staining
-      unstained controls:
-        text: unstained controls
-  flowCellType menu:
-    name: flowCellType menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      jet-in-air:
-        text: jet-in-air
-      quartz cuvette:
-        text: quartz cuvette
-  manufacturer menu:
-    name: manufacturer menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      BD Biosciences:
-        text: BD Biosciences
-  model menu:
-    name: model menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      BD FACSAria:
-        text: BD FACSAria
-  configurationAndSettings menu:
-    name: configurationAndSettings menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      The instrument has not been altered:
-        text: The instrument has not been altered
-  type menu:
-    name: type menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      mercury-vapor lamp:
-        text: mercury-vapor lamp
-      ' xenon lamp':
-        text: ' xenon lamp'
-      diode laser:
-        text: diode laser
-      ' dye laser':
-        text: ' dye laser'
-      ' gas laser':
-        text: ' gas laser'
-      solid state laser:
-        text: solid state laser
-      light-emitting diode:
-        text: light-emitting diode
-      tungsten halogen lamp:
-        text: tungsten halogen lamp
-  type_optical_detector menu:
-    name: type_optical_detector menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      photodiode:
-        text: photodiode
-      photomultiplier tube:
-        text: photomultiplier tube
-  amplificationType menu:
-    name: amplificationType menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      linear:
-        text: linear
-      log:
-        text: log
-  type_optical_filter menu:
-    name: type_optical_filter menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      band pass filter:
-        text: band pass filter
-      long pass filter:
-        text: long pass filter
-      ' dichroic long pass filters':
-        text: ' dichroic long pass filters'
-      short pass filter:
-        text: short pass filter
-      dichroic short pass filter:
-        text: dichroic short pass filter
-      ' polarizer excitation filter':
-        text: ' polarizer excitation filter'
-      ' grating, prism':
-        text: ' grating, prism'
-  stainingStatus menu:
-    name: stainingStatus menu
-    permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
-      stained:
-        text: stained
-      unstained:
-        text: unstained
 settings:
   Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'

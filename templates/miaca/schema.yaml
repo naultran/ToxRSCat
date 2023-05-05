@@ -950,51 +950,25 @@ slots:
   investigation template version:
     name: investigation template version
     title: investigation template version
-    range: provenance
+    range: Provenance
     description: ' '
     comments: ' '
   study template version:
     name: study template version
     title: study template version
-    range: provenance
+    range: Provenance
     description: ' '
     comments: ' '
   sample template version:
     name: sample template version
     title: sample template version
-    range: provenance
+    range: Provenance
     description: ' '
     comments: ' '
-types:
-  WhitespaceMinimizedString:
-    name: WhitespaceMinimizedString
-    typeof: string
-    description: 'A string that has all whitespace trimmed off of beginning and end,
-      and all internal whitespace segments reduced to single spaces. Whitespace includes
-      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
-    base: str
-    uri: xsd:token
-  Provenance:
-    name: Provenance
-    typeof: string
-    description: A field containing a DataHarmonizer versioning marker. It is issued
-      by DataHarmonizer when validation is applied to a given row of data.
-    base: str
-    uri: xsd:token
 enums:
   data_submission_contact_department menu:
     name: data_submission_contact_department menu
     permissible_values:
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
       Biochemistry and Molecular Biology:
         text: Biochemistry and Molecular Biology
       Pharmacology and toxicology:
@@ -1005,9 +979,6 @@ enums:
         text: Physiology
       Statistics:
         text: Statistics
-  data_submission_contact_institution menu:
-    name: data_submission_contact_institution menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1018,13 +989,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  data_submission_contact_institution menu:
+    name: data_submission_contact_institution menu
+    permissible_values:
       Michigan State University:
         text: Michigan State University
       Emory University:
         text: Emory University
-  data_submission_contact_state menu:
-    name: data_submission_contact_state menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1035,6 +1006,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  data_submission_contact_state menu:
+    name: data_submission_contact_state menu
+    permissible_values:
       AL:
         text: AL
       AK:
@@ -1141,9 +1115,6 @@ enums:
         text: WI
       WY:
         text: WY
-  support_source menu:
-    name: support_source menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1154,6 +1125,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  support_source menu:
+    name: support_source menu
+    permissible_values:
       NIEHS:
         text: NIEHS
       NIDDK:
@@ -1168,9 +1142,6 @@ enums:
         text: NLM
       Superfund Basic Research Program:
         text: Superfund Basic Research Program
-  study_design menu:
-    name: study_design menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1181,6 +1152,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  study_design menu:
+    name: study_design menu
+    permissible_values:
       dose response design:
         text: dose response design
       case control design:
@@ -1193,9 +1167,6 @@ enums:
         text: sex design
       time series design:
         text: time series design
-  study_type menu:
-    name: study_type menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1206,6 +1177,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  study_type menu:
+    name: study_type menu
+    permissible_values:
       Teratology:
         text: Teratology
       Short term:
@@ -1244,9 +1218,6 @@ enums:
         text: Toxicokinetics
       Zebrafish:
         text: Zebrafish
-  experimental_setting menu:
-    name: experimental_setting menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1257,13 +1228,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  experimental_setting menu:
+    name: experimental_setting menu
+    permissible_values:
       in vitro:
         text: in vitro
       ex vivo:
         text: ex vivo
-  cell_type menu:
-    name: cell_type menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1274,15 +1245,15 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  cell_type menu:
+    name: cell_type menu
+    permissible_values:
       Hepatocyte:
         text: Hepatocyte
       Hep G2 cell:
         text: Hep G2 cell
       Hepa-RG cell:
         text: Hepa-RG cell
-  organism menu:
-    name: organism menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1293,6 +1264,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  organism menu:
+    name: organism menu
+    permissible_values:
       Homo sapiens:
         text: Homo sapiens
       Mus musculus:
@@ -1305,9 +1279,6 @@ enums:
         text: Danio rerio
       Xenopus laevis:
         text: Xenopus laevis
-  strain menu:
-    name: strain menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1318,6 +1289,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  strain menu:
+    name: strain menu
+    permissible_values:
       C57BL/6NCrl:
         text: C57BL/6NCrl
       C57BL/6J:
@@ -1334,9 +1308,6 @@ enums:
         text: Sprague-Dawley
       Dahl SS:
         text: Dahl SS
-  sex menu:
-    name: sex menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1347,13 +1318,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  sex menu:
+    name: sex menu
+    permissible_values:
       female:
         text: female
       male:
         text: male
-  source_organ menu:
-    name: source_organ menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1364,6 +1335,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  source_organ menu:
+    name: source_organ menu
+    permissible_values:
       Abdomen:
         text: Abdomen
       Abdominal Wall:
@@ -1924,9 +1898,6 @@ enums:
         text: White Blood Cells
       Wrist:
         text: Wrist
-  karyotype menu:
-    name: karyotype menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1937,6 +1908,9 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  karyotype menu:
+    name: karyotype menu
+    permissible_values:
       normal:
         text: normal
       abnormal XYY:
@@ -1945,9 +1919,6 @@ enums:
         text: Trisomy
       Aneuploidy:
         text: Aneuploidy
-  health_status menu:
-    name: health_status menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1958,13 +1929,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  health_status menu:
+    name: health_status menu
+    permissible_values:
       healthy:
         text: healthy
       cancer:
         text: cancer
-  lineQC menu:
-    name: lineQC menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1975,13 +1946,13 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  lineQC menu:
+    name: lineQC menu
+    permissible_values:
       mycoplasma:
         text: mycoplasma
       virus:
         text: virus
-  validation menu:
-    name: validation menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -1992,15 +1963,15 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  validation menu:
+    name: validation menu
+    permissible_values:
       DNA fingerprinting:
         text: DNA fingerprinting
       genotyping:
         text: genotyping
       morphology testing:
         text: morphology testing
-  nameType menu:
-    name: nameType menu
-    permissible_values:
       Not applicable:
         text: Not applicable
       Missing:
@@ -2011,10 +1982,39 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
+  nameType menu:
+    name: nameType menu
+    permissible_values:
       4mm dish:
         text: 4mm dish
       8mm dish:
         text: 8mm dish
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
 settings:
   Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
   UPPER_CASE: '[A-Z\W\d_]*'

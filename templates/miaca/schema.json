@@ -220,21 +220,6 @@
       "name": "data_submission_contact_department menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "Biochemistry and Molecular Biology": {
           "text": "Biochemistry and Molecular Biology"
         },
@@ -249,6 +234,21 @@
         },
         "Statistics": {
           "text": "Statistics"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -256,6 +256,12 @@
       "name": "data_submission_contact_institution menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "Michigan State University": {
+          "text": "Michigan State University"
+        },
+        "Emory University": {
+          "text": "Emory University"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -270,12 +276,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "Michigan State University": {
-          "text": "Michigan State University"
-        },
-        "Emory University": {
-          "text": "Emory University"
         }
       }
     },
@@ -283,21 +283,6 @@
       "name": "data_submission_contact_state menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "AL": {
           "text": "AL"
         },
@@ -456,13 +441,7 @@
         },
         "WY": {
           "text": "WY"
-        }
-      }
-    },
-    "support_source menu": {
-      "name": "support_source menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -477,7 +456,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "support_source menu": {
+      "name": "support_source menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "NIEHS": {
           "text": "NIEHS"
         },
@@ -498,13 +483,7 @@
         },
         "Superfund Basic Research Program": {
           "text": "Superfund Basic Research Program"
-        }
-      }
-    },
-    "study_design menu": {
-      "name": "study_design menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -519,7 +498,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "study_design menu": {
+      "name": "study_design menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "dose response design": {
           "text": "dose response design"
         },
@@ -537,13 +522,7 @@
         },
         "time series design": {
           "text": "time series design"
-        }
-      }
-    },
-    "study_type menu": {
-      "name": "study_type menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -558,7 +537,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "study_type menu": {
+      "name": "study_type menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Teratology": {
           "text": "Teratology"
         },
@@ -615,6 +600,21 @@
         },
         "Zebrafish": {
           "text": "Zebrafish"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -622,6 +622,12 @@
       "name": "experimental_setting menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "in vitro": {
+          "text": "in vitro"
+        },
+        "ex vivo": {
+          "text": "ex vivo"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -636,12 +642,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "in vitro": {
-          "text": "in vitro"
-        },
-        "ex vivo": {
-          "text": "ex vivo"
         }
       }
     },
@@ -649,21 +649,6 @@
       "name": "cell_type menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "Hepatocyte": {
           "text": "Hepatocyte"
         },
@@ -672,13 +657,7 @@
         },
         "Hepa-RG cell": {
           "text": "Hepa-RG cell"
-        }
-      }
-    },
-    "organism menu": {
-      "name": "organism menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -693,7 +672,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "organism menu": {
+      "name": "organism menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "Homo sapiens": {
           "text": "Homo sapiens"
         },
@@ -711,13 +696,7 @@
         },
         "Xenopus laevis": {
           "text": "Xenopus laevis"
-        }
-      }
-    },
-    "strain menu": {
-      "name": "strain menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -732,7 +711,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "strain menu": {
+      "name": "strain menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "C57BL/6NCrl": {
           "text": "C57BL/6NCrl"
         },
@@ -756,6 +741,21 @@
         },
         "Dahl SS": {
           "text": "Dahl SS"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -763,6 +763,12 @@
       "name": "sex menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "female": {
+          "text": "female"
+        },
+        "male": {
+          "text": "male"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -777,12 +783,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "female": {
-          "text": "female"
-        },
-        "male": {
-          "text": "male"
         }
       }
     },
@@ -790,21 +790,6 @@
       "name": "source_organ menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "Abdomen": {
           "text": "Abdomen"
         },
@@ -1644,13 +1629,7 @@
         },
         "Wrist": {
           "text": "Wrist"
-        }
-      }
-    },
-    "karyotype menu": {
-      "name": "karyotype menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -1665,7 +1644,13 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "karyotype menu": {
+      "name": "karyotype menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "normal": {
           "text": "normal"
         },
@@ -1677,6 +1662,21 @@
         },
         "Aneuploidy": {
           "text": "Aneuploidy"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     },
@@ -1684,6 +1684,12 @@
       "name": "health_status menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "healthy": {
+          "text": "healthy"
+        },
+        "cancer": {
+          "text": "cancer"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -1698,12 +1704,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "healthy": {
-          "text": "healthy"
-        },
-        "cancer": {
-          "text": "cancer"
         }
       }
     },
@@ -1711,6 +1711,12 @@
       "name": "lineQC menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
+        "mycoplasma": {
+          "text": "mycoplasma"
+        },
+        "virus": {
+          "text": "virus"
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -1725,12 +1731,6 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
-        "mycoplasma": {
-          "text": "mycoplasma"
-        },
-        "virus": {
-          "text": "virus"
         }
       }
     },
@@ -1738,21 +1738,6 @@
       "name": "validation menu",
       "from_schema": "https://example.com/MIATE",
       "permissible_values": {
-        "Not applicable": {
-          "text": "Not applicable"
-        },
-        "Missing": {
-          "text": "Missing"
-        },
-        "Not collected": {
-          "text": "Not collected"
-        },
-        "Not provided": {
-          "text": "Not provided"
-        },
-        "Restricted access": {
-          "text": "Restricted access"
-        },
         "DNA fingerprinting": {
           "text": "DNA fingerprinting"
         },
@@ -1761,13 +1746,7 @@
         },
         "morphology testing": {
           "text": "morphology testing"
-        }
-      }
-    },
-    "nameType menu": {
-      "name": "nameType menu",
-      "from_schema": "https://example.com/MIATE",
-      "permissible_values": {
+        },
         "Not applicable": {
           "text": "Not applicable"
         },
@@ -1782,12 +1761,33 @@
         },
         "Restricted access": {
           "text": "Restricted access"
-        },
+        }
+      }
+    },
+    "nameType menu": {
+      "name": "nameType menu",
+      "from_schema": "https://example.com/MIATE",
+      "permissible_values": {
         "4mm dish": {
           "text": "4mm dish"
         },
         "8mm dish": {
           "text": "8mm dish"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
         }
       }
     }
@@ -2704,7 +2704,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "provenance"
+      "range": "Provenance"
     },
     "study template version": {
       "name": "study template version",
@@ -2714,7 +2714,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "provenance"
+      "range": "Provenance"
     },
     "sample template version": {
       "name": "sample template version",
@@ -2724,7 +2724,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "range": "provenance"
+      "range": "Provenance"
     }
   },
   "classes": {
@@ -3974,7 +3974,7 @@
             "Study"
           ],
           "slot_group": "provenance",
-          "range": "provenance"
+          "range": "Provenance"
         }
       }
     },
@@ -4346,7 +4346,7 @@
             "Investigation"
           ],
           "slot_group": "provenance",
-          "range": "provenance"
+          "range": "Provenance"
         }
       }
     },
@@ -4494,7 +4494,7 @@
             "Sample"
           ],
           "slot_group": "provenance",
-          "range": "provenance"
+          "range": "Provenance"
         }
       }
     }
