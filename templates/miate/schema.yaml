@@ -466,7 +466,6 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    identifier: true
     multivalued: true
     inlined_as_list: true
     slot_uri: obo:NCIT_C46002

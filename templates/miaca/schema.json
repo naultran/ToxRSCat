@@ -2026,7 +2026,6 @@
         "PRJ140"
       ],
       "from_schema": "https://example.com/MIATE",
-      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -3078,7 +3077,6 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
-          "identifier": true,
           "alias": "study_identifier",
           "owner": "Study",
           "domain_of": [
@@ -4401,7 +4399,6 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 1,
-          "identifier": true,
           "alias": "study_identifier",
           "owner": "Sample",
           "domain_of": [
