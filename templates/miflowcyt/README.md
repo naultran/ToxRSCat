@@ -98,12 +98,12 @@ This will load the template into the browser. The template is broken down into _
 The sections broadly capture the following. For more details see [_section 6_](#structure).
 - **Identifiers:** Here you will enter all the relevant identifiers to map the data to individual samples/subjects, funding source, project details, etc. You will also assign a unique identifier to each row.
 - **Experiment**: Here you will enter the general details about the experiment such as the purpose, contact person, QC procedures, and major conlusions. This is required for upload to [FLOWrepository](flowrepository.org)
+- **Fluorescence reagent**: Enter details about the reagents used to detect the molecule or process of interest.
+- **Data analysis**: Here you will include analysis procedures including raw and procesed data file names.
 - **Instrument**: Here you will enter the general details about the  flow cytometer such as vendor, model, flow cell etc.
 - **Light source (instrument)**: Enter details about the flow cytometer light source.
 - **Optical detector (instrument)**: Enter details about the flow cytometer optical detector.
 - **Optical filter (instrument)**: Enter details about the flow cytometer optical filter.
-- **Fluorescence reagent**: Enter details about the reagents used to detect the molecule or process of interest.
-- **Data analysis**: Here you will include analysis procedures including raw and procesed data file names.
 - **Provenance**: _This is autopopulated, please do not fill_.
 
  <a id="before"></a>
@@ -150,14 +150,14 @@ To delete an item from a dropdown menu, select it and hit the `delete` button on
 #### 6.  Template organization
 | Section  | Required fields |
 |----------|-----------------|
-| Indentifiers | investigation_id, study_id, sample_id, __flow_experiment_id__|           
+| Indentifiers | __flow_experiment_id__, investigation_id, study_id, sample_id |           
 | Experiment | experimentVariables, primaryContact, qualityControlMeasures |
+| Fluorescence_reagent | analyte, detector, analyteReporter |
+| Data_analyis | |
 | Instrument| |
 | Light_source_instrument |  |
 | Optical_detector | |
 | Optical_filter | |
-| Fluorescence_reagent | analyte, detector, analyteReporter |
-| Data_analyis | |
 |  Provenance | |
 
 __bold__ indicates a unique identifier to be used as key for database records.
