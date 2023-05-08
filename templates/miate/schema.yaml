@@ -65,10 +65,6 @@ classes:
       Study.study_identifier:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-        - gen3_study_housing:studyID
-        - gen3_study_treatment:studyID
-        - gen3_study_diet:studyID
       Study.investigation_identifier:
         rank: 2
         slot_group: identifiers
