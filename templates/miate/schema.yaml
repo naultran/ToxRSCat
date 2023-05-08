@@ -100,9 +100,6 @@ classes:
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:subjectID
-        - gen3_study_housing:subjectID
-        - gen3_study_treatment:subjectID
-        - gen3_study_diet:subjectID
       start_date:
         rank: 8
         slot_group: subject
