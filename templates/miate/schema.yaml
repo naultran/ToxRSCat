@@ -65,57 +65,93 @@ classes:
       Study.study_identifier:
         rank: 1
         slot_group: identifiers
+        exact_mappings:
+        - gen3_submit_study:studyID
       Study.investigation_identifier:
         rank: 2
         slot_group: identifiers
+        exact_mappings:
+        - gen3_submit_study:investigationID
       study_design:
         rank: 3
         slot_group: experiment
+        exact_mappings:
+        - gen3_submit_study:study_design
       study_type:
         rank: 4
         slot_group: experiment
+        exact_mappings:
+        - gen3_submit_study:study_type
       experimental_setting:
         rank: 5
         slot_group: experiment
+        exact_mappings:
+        - gen3_submit_study:experimental_setting
       Organism:
         rank: 6
         slot_group: experiment
+        exact_mappings:
+        - gen3_submit_study:organism
       Study.subject_identifier:
         rank: 7
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:subjectID
       start_date:
         rank: 8
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:start_date
       start_date_age:
         rank: 9
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:start_date_age
       experiment_start_date:
         rank: 10
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:experiment_start_date
       experiment_start_zt:
         rank: 11
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:experiment_start_zt
       sex:
         rank: 12
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:sex
       strain:
         rank: 13
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:strain
       strain_source:
         rank: 14
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:strain_source
       euthanasia_date:
         rank: 15
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:euthanasia_date
       euthanasia_zt:
         rank: 16
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:euthanmasia_zt
       euthanasia_method:
         rank: 17
         slot_group: subject
+        exact_mappings:
+        - gen3_submit_study:euthanasia_method
       housing_change_date:
         rank: 18
         slot_group: housing
+        exact_mappings:
+        - gen3_submit_study:housing_change_date
       cage_id:
         rank: 19
         slot_group: housing
@@ -140,6 +176,8 @@ classes:
       feed_catalog_number:
         rank: 26
         slot_group: diet
+        exact_mappings:
+        - gen3_submit_study:feed_catalog_number
       feed_description:
         rank: 27
         slot_group: diet
@@ -158,6 +196,8 @@ classes:
       administration_volume:
         rank: 33
         slot_group: treatment
+        exact_mappings:
+        - gen3_submit_study:administration_volume
       dose_amount:
         rank: 34
         slot_group: treatment
@@ -214,18 +254,28 @@ classes:
       Investigation.investigation_identifier:
         rank: 1
         slot_group: identifiers
+        exact_mappings:
+        - gen3_submit_investigation:investigation.ID
       name:
         rank: 2
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:program.title
       investigation_description:
         rank: 3
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:investigation.description
       data_submission_contact_name:
         rank: 4
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:contact_name
       data_submission_contact_orcid:
         rank: 5
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:investigator_orcid
       data_submission_contact_email:
         rank: 6
         slot_group: Contact
@@ -235,18 +285,28 @@ classes:
       data_submission_contact_department:
         rank: 8
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:contact_department
       data_submission_contact_institution:
         rank: 9
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:contact_institution
       data_submission_contact_institution_postal_address:
         rank: 10
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:zip
       data_submission_contact_institution_city:
         rank: 11
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:city
       data_submission_contact_state:
         rank: 12
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:state
       support_source:
         rank: 13
         slot_group: Funding
@@ -283,18 +343,28 @@ classes:
       sample_identifier:
         rank: 1
         slot_group: identifiers
+        exact_mappings:
+        - gen3_submit_sample:sampleID
       Sample.study_identifier:
         rank: 2
         slot_group: identifiers
+        exact_mappings:
+        - gen3_submit_sample:studyID
       Sample.subject_identifier:
         rank: 3
         slot_group: identifiers
+        exact_mappings:
+        - gen3_submit_sample:subjectID
       date:
         rank: 4
         slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:date
       biospecimen_anatomic_site:
         rank: 5
         slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:biospecimen_anatomic_site
       method_of_sample_procurement:
         rank: 6
         slot_group: sample_details
