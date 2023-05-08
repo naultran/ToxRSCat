@@ -2946,10 +2946,7 @@
         "Study.subject_identifier": {
           "name": "Study.subject_identifier",
           "exact_mappings": [
-            "gen3_study_subject:subjectID",
-            "gen3_study_housing:subjectID",
-            "gen3_study_treatment:subjectID",
-            "gen3_study_diet:subjectID"
+            "gen3_study_subject:subjectID"
           ],
           "rank": 7,
           "slot_group": "subject"
@@ -3353,10 +3350,7 @@
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:subjectID",
-            "gen3_study_housing:subjectID",
-            "gen3_study_treatment:subjectID",
-            "gen3_study_diet:subjectID"
+            "gen3_study_subject:subjectID"
           ],
           "rank": 7,
           "alias": "Study.subject_identifier",

@@ -188,7 +188,6 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["subjectID", []],
                 ["housing_change_date", []],
                 ["cage_id", []],
                 ["bedding_type", []], 
@@ -223,22 +222,41 @@ export default {
                     if (headerName =="type"){
                         value = "study.housing";
                     }
+                    if (headerName == "submitter_id"){
+                        const investigation_id = dh.getMappedField(
+                            "investigation_identifier",
+                            inputRow,
+                            ["Study.investigation_identifier"],
+                            sourceFields,
+                            sourceFieldNameMap,
+                            ':',
+                            'gen3_study_housing'
+                          );
+                          const subject_id = dh.getMappedField(
+                            "subject_identifier",
+                            inputRow,
+                            ["Study.subject_identifier"],
+                            sourceFields,
+                            sourceFieldNameMap,
+                            ':',
+                            'gen3_study_housing'
+                          );
+                          value = `${investigation_id}.${subject_id}.H`;
+                    }
                     outputRow.push(value);
                 }
-                // remove duplicate rows
+                // Check if the output row already exists and skip adding it if it does
                 const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows.has(outputRowStr)) {
                     outputRows.add(outputRowStr);
-                    // add submitter_id
-                    const investigationId = dh.getCellValue('Study.investigation_identifier', inputRow);
-                    const subjectId = dh.getCellValue('Study.subject_identifier', inputRow);
-                    const rowIndex = outputRows.size;
-                    const housingIndex = rowIndex - 1;
-                    outputRow[1] = `${investigationId}.${subjectId}.H_${housingIndex}`;
                     outputMatrix.push(outputRow);
                 }
             }
-
+            // Add numbers to the end of submitter_id column) {
+            for (let i = 1; i <= outputMatrix.length - 1; i++) {
+                const submitterId = outputMatrix[i][1] + "_" + i.toString();
+                outputMatrix[i][1] = submitterId;
+            }
         return outputMatrix;
         }
     },
@@ -250,7 +268,6 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["subjectID", []],
                 ["date", []],
                 ["administration_volume(ml)", []],
                 ["dose_amount", []], 
@@ -289,25 +306,45 @@ export default {
                     if (headerName =="type"){
                         value = "study.treatment";
                     }
+                    if (headerName == "submitter_id"){
+                        const investigation_id = dh.getMappedField(
+                            "investigation_identifier",
+                            inputRow,
+                            ["Study.investigation_identifier"],
+                            sourceFields,
+                            sourceFieldNameMap,
+                            ':',
+                            'gen3_study_treatment'
+                          );
+                          const subject_id = dh.getMappedField(
+                            "subject_identifier",
+                            inputRow,
+                            ["Study.subject_identifier"],
+                            sourceFields,
+                            sourceFieldNameMap,
+                            ':',
+                            'gen3_study_treatment'
+                          );
+                          value = `${investigation_id}.${subject_id}.T`;
+                    }
                     outputRow.push(value);
                 }
-                // remove duplicate rows
+                // Check if the output row already exists and skip adding it if it does
                 const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows.has(outputRowStr)) {
                     outputRows.add(outputRowStr);
-                    // add submitter_id
-                    const investigationId = dh.getCellValue('Study.investigation_identifier', inputRow);
-                    const subjectId = dh.getCellValue('Study.subject_identifier', inputRow);
-                    const rowIndex = outputRows.size;
-                    const housingIndex = rowIndex - 1;
-                    outputRow[1] = `${investigationId}.${subjectId}.T_${housingIndex}`;
                     outputMatrix.push(outputRow);
                 }
             }
-
+            // Add numbers to the end of submitter_id column) {
+            for (let i = 1; i <= outputMatrix.length - 1; i++) {
+                const submitterId = outputMatrix[i][1] + "_" + i.toString();
+                outputMatrix[i][1] = submitterId;
+            }
         return outputMatrix;
         }
     },
+
     gen3_study_diet:{
         fileType: 'tsv',
         status: 'published',
@@ -315,7 +352,6 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["subjectID", []],
                 ["feed_catalog_number", []],
                 ["feed_description", []],
                 ["feed_name", []], 
@@ -349,27 +385,46 @@ export default {
                     if (headerName =="type"){
                         value = "study.diet";
                     }
+                    if (headerName == "submitter_id"){
+                        const investigation_id = dh.getMappedField(
+                            "investigation_identifier",
+                            inputRow,
+                            ["Study.investigation_identifier"],
+                            sourceFields,
+                            sourceFieldNameMap,
+                            ':',
+                            'gen3_study_diet'
+                          );
+                          const subject_id = dh.getMappedField(
+                            "subject_identifier",
+                            inputRow,
+                            ["Study.subject_identifier"],
+                            sourceFields,
+                            sourceFieldNameMap,
+                            ':',
+                            'gen3_study_diet'
+                          );
+                          value = `${investigation_id}.${subject_id}.D`;
+                    }
                     outputRow.push(value);
                 }
-                // remove duplicate rows
+                // Check if the output row already exists and skip adding it if it does
                 const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows.has(outputRowStr)) {
                     outputRows.add(outputRowStr);
-                    // add submitter_id
-                    const investigationId = dh.getCellValue('Study.investigation_identifier', inputRow);
-                    const subjectId = dh.getCellValue('Study.subject_identifier', inputRow);
-                    const rowIndex = outputRows.size;
-                    const housingIndex = rowIndex - 1;
-                    outputRow[1] = `${investigationId}.${subjectId}.D_${housingIndex}`;
                     outputMatrix.push(outputRow);
                 }
             }
-
+            // Add numbers to the end of submitter_id column) {
+            for (let i = 1; i <= outputMatrix.length - 1; i++) {
+                const submitterId = outputMatrix[i][1] + "_" + i.toString();
+                outputMatrix[i][1] = submitterId;
+            }
         return outputMatrix;
         }
     },
 
-    Gen3_Submit_Sample:{
+    gen3_submit_sample:{
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
@@ -389,89 +444,33 @@ export default {
             const sourceFields = dh.getFields(dh.table);
             const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
             // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_submit_study');
+            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_submit_sample');
 
             // Copy headers to 1st row of new export table
             const outputMatrix = [[...ExportHeaders.keys()]];
-            const numeric_datatypes = new Set([
-                'xs:nonNegativeInteger',
-                'xs:decimal',
-              ]);
 
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
-                var skip = false;
                 for (const [headerName, sources] of ExportHeaders) {
-                    // Skips a column because it has already been set in previous column action.
-                    if (skip === true) skip = false;
-                    else {
-                        // Otherwise apply source (many to one) to target field transform:
-                        var value = dh.getMappedField(
-                            headerName,
-                            inputRow,
-                            sources,
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_submit_study'
-                        );
-                    }
+                    // Otherwise apply source (many to one) to target field transform:
+                    var value = dh.getMappedField(
+                        headerName,
+                        inputRow,
+                        sources,
+                        sourceFields,
+                        sourceFieldNameMap,
+                        ':',
+                        'gen3_submit_sample'
+                    );
                     if (headerName =="type"){
-                        value = "study";
+                        value = "sample";
                     }
-
-                    // Some columns have an extra ' null reason' field for demultiplexing null value into.
-                    if (ExportHeaders.has(headerName + ' null reason')) {
-                    //headerName = source field name in this format case.
-                        if (sources.length > 0) {
-                        // field and its null reason field must be 1-1
-                            const sourceFieldIndex = sourceFieldNameMap[sources[0]];
-                            const field = sourceFields[sourceFieldIndex];
-                            if (field) {
-                                // Null reason recognition comes from dataStatus values, or generic nullOptionsMap.
-                                if (field.dataStatus && field.dataStatus.includes(value)) {
-                                    // Clears original value field of its null value and puts it in next column where null reason is.
-                                    outputRow.push('');
-                                    skip = true;
-                                }
-                                // Small gesture towards normalization: correct case
-                                else if (nullOptionsMap.has(value.toLowerCase())) {
-                                    value = nullOptionsMap.get(value.toLowerCase());
-                                    outputRow.push('');
-                                    skip = true;
-                                }
-                                // If a numeric field has text in it then push that over
-                                // to null reason field.  This is occuring at data export
-                                // stage, after validation so text is assumed to be
-                                // intentional
-                                else if (
-                                    numeric_datatypes.has(field.datatype) &&
-                                    isNaN(Number(value))
-                                ) {
-                                    outputRow.push('');
-                                    skip = true;
-                                }
-                            } else
-                            alert(
-                                'Template configuration error: "' +
-                                headerName +
-                                '" has misnamed source field.'
-                            );
-                        } else
-                        alert(
-                            'Template configuration error: "' +
-                            headerName +
-                            '" has no source mapped field.'
-                        );
-                    }
-  
+                    outputRow.push(value);
                 }
+            outputMatrix.push(outputRow);
             }
 
         return outputMatrix;
-
         }
-
-    }
+    },
 };
-
