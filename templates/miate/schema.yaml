@@ -66,165 +66,213 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-        - gen3_submit_study:studyID
+        - gen3_study_housing:studyID
+        - gen3_study_treatment:studyID
+        - gen3_study_diet:studyID
       Study.investigation_identifier:
         rank: 2
         slot_group: identifiers
         exact_mappings:
-        - gen3_submit_study:investigationID
+        - gen3_study_experiment:investigationID
+        - gen3_study_subject:investigationID
       study_design:
         rank: 3
         slot_group: experiment
         exact_mappings:
-        - gen3_submit_study:study_design
+        - gen3_study_experiment:study_design
       study_type:
         rank: 4
         slot_group: experiment
         exact_mappings:
-        - gen3_submit_study:study_type
+        - gen3_study_experiment:study_type
       experimental_setting:
         rank: 5
         slot_group: experiment
         exact_mappings:
-        - gen3_submit_study:experimental_setting
+        - gen3_study_experiment:experimental_setting
       Organism:
         rank: 6
         slot_group: experiment
         exact_mappings:
-        - gen3_submit_study:organism
+        - gen3_study_experimental:organism
       Study.subject_identifier:
         rank: 7
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:subjectID
+        - gen3_study_subject:subjectID
+        - gen3_study_housing:subjectID
+        - gen3_study_treatment:subjectID
+        - gen3_study_diet:subjectID
       start_date:
         rank: 8
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:start_date
+        - gen3_study_subject:start_date
       start_date_age:
         rank: 9
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:start_date_age
+        - gen3_study_subject:start_date_age
       experiment_start_date:
         rank: 10
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:experiment_start_date
+        - gen3_study_subject:experiment_start_date
       experiment_start_zt:
         rank: 11
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:experiment_start_zt
+        - gen3_study_subject:experiment_start_zt
       sex:
         rank: 12
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:sex
+        - gen3_study_subject:sex
       strain:
         rank: 13
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:strain
+        - gen3_study_subject:strain
       strain_source:
         rank: 14
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:strain_source
+        - gen3_study_subject:strain_source
       euthanasia_date:
         rank: 15
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:euthanasia_date
+        - gen3_study_subject:euthanasia_date
       euthanasia_zt:
         rank: 16
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:euthanmasia_zt
+        - gen3_study_subject:euthanmasia_zt
       euthanasia_method:
         rank: 17
         slot_group: subject
         exact_mappings:
-        - gen3_submit_study:euthanasia_method
+        - gen3_study_subject:euthanasia_method
       housing_change_date:
         rank: 18
         slot_group: housing
         exact_mappings:
-        - gen3_submit_study:housing_change_date
+        - gen3_study_housing:housing_change_date
       cage_id:
         rank: 19
         slot_group: housing
+        exact_mappings:
+        - gen3_study_housing:cage_id
       bedding_type:
         rank: 20
         slot_group: housing
+        exact_mappings:
+        - gen3_study_housing:bedding_type
       cage_type:
         rank: 21
         slot_group: housing
+        exact_mappings:
+        - gen3_study_housing:cage_type
       vivarium_temperature:
         rank: 22
         slot_group: housing
+        exact_mappings:
+        - gen3_study_housing:vivarium_temperature(C)
       vivarium_humidity:
         rank: 23
         slot_group: housing
+        exact_mappings:
+        - gen3_study_housing:vivarium_humidity(%)
       vivarium light cycle:
         rank: 24
         slot_group: housing
+        exact_mappings:
+        - gen3_study_housing:vivarium_light_cycle
       date:
         rank: 32
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:date
       feed_catalog_number:
         rank: 26
         slot_group: diet
         exact_mappings:
-        - gen3_submit_study:feed_catalog_number
+        - gen3_study_diet:feed_catalog_number
       feed_description:
         rank: 27
         slot_group: diet
+        exact_mappings:
+        - gen3_study_diet:feed_description
       feed_name:
         rank: 28
         slot_group: diet
+        exact_mappings:
+        - gen3_study_diet:feed_name
       feed_vendor:
         rank: 29
         slot_group: diet
+        exact_mappings:
+        - gen3_study_diet:feed_vendor
       water_type:
         rank: 30
         slot_group: diet
+        exact_mappings:
+        - gen3_study_diet:water_type
       feeding_paradigm:
         rank: 31
         slot_group: diet
+        exact_mappings:
+        - gen3_study_diet:feeding_paradigm
       administration_volume:
         rank: 33
         slot_group: treatment
         exact_mappings:
-        - gen3_submit_study:administration_volume
+        - gen3_study_treatment:administration_volume(ml)
       dose_amount:
         rank: 34
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:dose_amount
       dose_amount_unit:
         rank: 35
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:dose_amount_unit
       route:
         rank: 36
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:route
       test_article_administration_zt:
         rank: 37
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:test_article_administration_zt
       test_article_administration_duration:
         rank: 38
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:test_article_administration_duration
       test_article_name:
         rank: 39
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:test_article_name
       test_article_dtxsid:
         rank: 40
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:test_article_dtxsid
       vehicle_name:
         rank: 41
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:vehicle_name
       vehicle_dtxsid:
         rank: 42
         slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:vehicle_dtxsid
       study template version:
         rank: 43
         slot_group: provenance
@@ -255,12 +303,12 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-        - gen3_submit_investigation:investigation.ID
+        - gen3_submit_investigation:investigationID
       name:
         rank: 2
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:program.title
+        - gen3_submit_investigation:program_title
       investigation_description:
         rank: 3
         slot_group: Contact
@@ -279,9 +327,13 @@ classes:
       data_submission_contact_email:
         rank: 6
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:contact_email
       data_submission_contact_telephone:
         rank: 7
         slot_group: Contact
+        exact_mappings:
+        - gen3_submit_investigation:contact_telephone
       data_submission_contact_department:
         rank: 8
         slot_group: Contact
@@ -295,33 +347,37 @@ classes:
       data_submission_contact_institution_postal_address:
         rank: 10
         slot_group: Contact
-        exact_mappings:
-        - gen3_submit_investigation:zip
       data_submission_contact_institution_city:
         rank: 11
         slot_group: Contact
-        exact_mappings:
-        - gen3_submit_investigation:city
       data_submission_contact_state:
         rank: 12
         slot_group: Contact
-        exact_mappings:
-        - gen3_submit_investigation:state
       support_source:
         rank: 13
         slot_group: Funding
+        exact_mappings:
+        - gen3_submit_investigation:support_source
       support_id:
         rank: 14
         slot_group: Funding
+        exact_mappings:
+        - gen3_submit_investigation:support_id
       PMC_id:
         rank: 15
         slot_group: Publication
+        exact_mappings:
+        - gen3_submit_investigation:PMC_id
       DOI:
         rank: 16
         slot_group: Publication
+        exact_mappings:
+        - gen3_submit_investigation:DOI
       PMID:
         rank: 17
         slot_group: Publication
+        exact_mappings:
+        - gen3_submit_investigation:PMID
       investigation template version:
         rank: 18
         slot_group: provenance
@@ -368,15 +424,23 @@ classes:
       method_of_sample_procurement:
         rank: 6
         slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:method_of_sample_procurement
       preservation_method:
         rank: 7
         slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:preservation_method
       weight:
         rank: 8
         slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:weight
       volume:
         rank: 9
         slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:volume
       sample template version:
         rank: 10
         slot_group: provenance
