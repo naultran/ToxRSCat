@@ -2894,6 +2894,10 @@
       "slot_usage": {
         "Study.study_identifier": {
           "name": "Study.study_identifier",
+          "exact_mappings": [
+            "gen3_study_experiment:studyID",
+            "gen3_study_subject:studyID"
+          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
@@ -2941,7 +2945,9 @@
         "Study.subject_identifier": {
           "name": "Study.subject_identifier",
           "exact_mappings": [
-            "gen3_study_subject:subjectID"
+            "gen3_study_subject:subjectID",
+            "gen3_study_housing:subjectID",
+            "gen3_study_treatment:subjectID"
           ],
           "rank": 7,
           "slot_group": "subject"
@@ -3037,7 +3043,8 @@
         "cage_id": {
           "name": "cage_id",
           "exact_mappings": [
-            "gen3_study_housing:cage_id"
+            "gen3_study_housing:cage_id",
+            "gen3_study_diet:cage_id"
           ],
           "rank": 19,
           "slot_group": "housing"
@@ -3230,6 +3237,10 @@
           "description": " ",
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "gen3_study_experiment:studyID",
+            "gen3_study_subject:studyID"
+          ],
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
           "identifier": true,
@@ -3340,7 +3351,9 @@
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:subjectID"
+            "gen3_study_subject:subjectID",
+            "gen3_study_housing:subjectID",
+            "gen3_study_treatment:subjectID"
           ],
           "rank": 7,
           "alias": "Study.subject_identifier",
@@ -3553,7 +3566,8 @@
           "title": "Cage identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:cage_id"
+            "gen3_study_housing:cage_id",
+            "gen3_study_diet:cage_id"
           ],
           "rank": 19,
           "alias": "cage_id",

@@ -77,6 +77,7 @@ export default {
             // NOTE: NULL reason fields must follow immediately after column they are about.
             const ExportHeaders = new Map([
                 ["type", []],
+                ["studyID", []], 
                 ["investigationID", []],
                 ["study_design", []],
                 ["study_type", []],
@@ -127,6 +128,7 @@ export default {
             // NOTE: NULL reason fields must follow immediately after column they are about.
             const ExportHeaders = new Map([
                 ["type", []],
+                ["studyID", []],
                 ["investigationID", []],
                 ["subjectID", []],
                 ["start_date", []],
@@ -188,6 +190,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
+                ["subjectID", []],
                 ["housing_change_date", []],
                 ["cage_id", []],
                 ["bedding_type", []], 
@@ -268,6 +271,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
+                ["subjectID", []],
                 ["date", []],
                 ["administration_volume(ml)", []],
                 ["dose_amount", []], 
@@ -352,6 +356,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
+                ["cage_id", []],
                 ["feed_catalog_number", []],
                 ["feed_description", []],
                 ["feed_name", []], 
