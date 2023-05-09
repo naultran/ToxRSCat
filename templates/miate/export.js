@@ -93,6 +93,7 @@ export default {
 
             // Copy headers to 1st row of new export table
             const outputMatrix = [[...ExportHeaders.keys()]];
+            const outputRows = new Set();
 
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
@@ -112,7 +113,11 @@ export default {
                     }
                     outputRow.push(value);
                 }
-            outputMatrix.push(outputRow);
+                const outputRowStr = JSON.stringify(outputRow);
+                if (!outputRows.has(outputRowStr)) {
+                    outputRows.add(outputRowStr);
+                    outputMatrix.push(outputRow);
+                }
             }
 
         return outputMatrix;
