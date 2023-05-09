@@ -3018,7 +3018,7 @@
         "euthanasia_zt": {
           "name": "euthanasia_zt",
           "exact_mappings": [
-            "gen3_study_subject:euthanmasia_zt"
+            "gen3_study_subject:euthanasia_zt"
           ],
           "rank": 16,
           "slot_group": "subject"
@@ -3512,7 +3512,7 @@
           "title": "euthanasia_zt",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:euthanmasia_zt"
+            "gen3_study_subject:euthanasia_zt"
           ],
           "rank": 16,
           "alias": "euthanasia_zt",

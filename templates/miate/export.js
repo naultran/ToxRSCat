@@ -144,7 +144,7 @@ export default {
                 ["strain", []],
                 ["strain_source", []],
                 ["euthanasia_date", []],
-                ["euthanmasia_zt", []],
+                ["euthanasia_zt", []],
                 ["euthanasia_method", []],
                 ['provenance', ["study template version",],],
             ]);

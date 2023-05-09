@@ -145,7 +145,7 @@ classes:
         rank: 16
         slot_group: subject
         exact_mappings:
-        - gen3_study_subject:euthanmasia_zt
+        - gen3_study_subject:euthanasia_zt
       euthanasia_method:
         rank: 17
         slot_group: subject
