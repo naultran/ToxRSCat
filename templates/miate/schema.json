@@ -2309,7 +2309,6 @@
       ],
       "from_schema": "https://example.com/MIATE",
       "slot_uri": "obo:NCIT_C46002",
-      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -3243,7 +3242,6 @@
           ],
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
-          "identifier": true,
           "alias": "Study.study_identifier",
           "owner": "Study",
           "domain_of": [

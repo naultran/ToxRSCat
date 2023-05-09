@@ -604,7 +604,6 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    identifier: true
     slot_uri: obo:NCIT_C46002
     comments: ' '
   Study.investigation_identifier:
