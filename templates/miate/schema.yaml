@@ -67,12 +67,12 @@ classes:
         slot_group: identifiers
         exact_mappings:
         - gen3_study_experiment:studyID
-        - gen3_study_subject:studyID
+        - gen3_study_subject:projects
       Study.investigation_identifier:
         rank: 2
         slot_group: identifiers
         exact_mappings:
-        - gen3_study_experiment:investigationID
+        - gen3_study_experiment:programs
         - gen3_study_subject:investigationID
       study_design:
         rank: 3
@@ -99,8 +99,8 @@ classes:
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:subjectID
-        - gen3_study_housing:subjectID
-        - gen3_study_treatment:subjectID
+        - gen3_study_housing:subjects
+        - gen3_study_treatment:subjects
       start_date:
         rank: 8
         slot_group: subject
@@ -160,8 +160,8 @@ classes:
         rank: 19
         slot_group: housing
         exact_mappings:
-        - gen3_study_housing:cage_id
-        - gen3_study_diet:cage_id
+        - gen3_study_housing:submitter_id
+        - gen3_study_diet:housings
       bedding_type:
         rank: 20
         slot_group: housing
@@ -196,7 +196,7 @@ classes:
         rank: 26
         slot_group: diet
         exact_mappings:
-        - gen3_study_diet:feed_catalog_number
+        - gen3_study_diet:submitter_id
       feed_description:
         rank: 27
         slot_group: diet

@@ -78,7 +78,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["studyID", []], 
-                ["investigationID", []],
+                ["programs", []],
                 ["study_design", []],
                 ["study_type", []],
                 ["experimental_setting", []],
@@ -133,7 +133,7 @@ export default {
             // NOTE: NULL reason fields must follow immediately after column they are about.
             const ExportHeaders = new Map([
                 ["type", []],
-                ["studyID", []],
+                ["projects", []],
                 ["investigationID", []],
                 ["subjectID", []],
                 ["start_date", []],
@@ -195,9 +195,9 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["subjectID", []],
+                ["cageID", ["cage_id"]], 
+                ["subjects", []],
                 ["housing_change_date", []],
-                ["cage_id", []],
                 ["bedding_type", []], 
                 ["cage_type", []],
                 ["vivarium_temperature(C)", []],
@@ -230,27 +230,6 @@ export default {
                     if (headerName =="type"){
                         value = "study.housing";
                     }
-                    if (headerName == "submitter_id"){
-                        const investigation_id = dh.getMappedField(
-                            "investigation_identifier",
-                            inputRow,
-                            ["Study.investigation_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_housing'
-                          );
-                          const subject_id = dh.getMappedField(
-                            "subject_identifier",
-                            inputRow,
-                            ["Study.subject_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_housing'
-                          );
-                          value = `${investigation_id}.${subject_id}.H`;
-                    }
                     outputRow.push(value);
                 }
                 // Check if the output row already exists and skip adding it if it does
@@ -259,11 +238,6 @@ export default {
                     outputRows.add(outputRowStr);
                     outputMatrix.push(outputRow);
                 }
-            }
-            // Add numbers to the end of submitter_id column) {
-            for (let i = 1; i <= outputMatrix.length - 1; i++) {
-                const submitterId = outputMatrix[i][1] + "_" + i.toString();
-                outputMatrix[i][1] = submitterId;
             }
         return outputMatrix;
         }
@@ -276,7 +250,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["subjectID", []],
+                ["subjects", []],
                 ["date", []],
                 ["administration_volume(ml)", []],
                 ["dose_amount", []], 
@@ -361,8 +335,8 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["cage_id", []],
-                ["feed_catalog_number", []],
+                ["feed_catalog_number",["feed_catalog_number"]],
+                ["housings", []],
                 ["feed_description", []],
                 ["feed_name", []], 
                 ["feed_vendor", []],
@@ -395,27 +369,6 @@ export default {
                     if (headerName =="type"){
                         value = "study.diet";
                     }
-                    if (headerName == "submitter_id"){
-                        const investigation_id = dh.getMappedField(
-                            "investigation_identifier",
-                            inputRow,
-                            ["Study.investigation_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_diet'
-                          );
-                          const subject_id = dh.getMappedField(
-                            "subject_identifier",
-                            inputRow,
-                            ["Study.subject_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_diet'
-                          );
-                          value = `${investigation_id}.${subject_id}.D`;
-                    }
                     outputRow.push(value);
                 }
                 // Check if the output row already exists and skip adding it if it does
@@ -424,11 +377,7 @@ export default {
                     outputRows.add(outputRowStr);
                     outputMatrix.push(outputRow);
                 }
-            }
-            // Add numbers to the end of submitter_id column) {
-            for (let i = 1; i <= outputMatrix.length - 1; i++) {
-                const submitterId = outputMatrix[i][1] + "_" + i.toString();
-                outputMatrix[i][1] = submitterId;
+            
             }
         return outputMatrix;
         }
