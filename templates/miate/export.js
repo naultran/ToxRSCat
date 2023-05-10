@@ -439,6 +439,7 @@ export default {
         status: 'published',
         method: function (dh){
             const ExportHeaders = new Map([
+                ["type", []],
                 ["sampleID", []],
                 ["studyID", []],
                 ["subjectID", []],

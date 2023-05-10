@@ -449,8 +449,11 @@
         "dose response design": {
           "text": "dose response design"
         },
-        "case control design\ncross sectional design": {
-          "text": "case control design\ncross sectional design"
+        "case control design": {
+          "text": "case control design"
+        },
+        "cross sectional design": {
+          "text": "cross sectional design"
         },
         "genetic modification design": {
           "text": "genetic modification design"
@@ -1928,11 +1931,8 @@
         "Lobectomy": {
           "text": "Lobectomy"
         },
-        "Local Resection (Exoresection": {
-          "text": "Local Resection (Exoresection"
-        },
-        " wall resection)": {
-          "text": " wall resection)"
+        "Local Resection (Exoresection wall resection)": {
+          "text": "Local Resection (Exoresection wall resection)"
         },
         "Lumpectomy": {
           "text": "Lumpectomy"
