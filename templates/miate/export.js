@@ -1,4 +1,4 @@
-import JSZip from 'jszip';
+import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
 // A dictionary of possible export formats
 export default {
     /**
@@ -364,7 +364,7 @@ export default {
         }
     },
 
-    
+
 /*
     gen3_study_experiment:{
         fileType: 'tsv',
