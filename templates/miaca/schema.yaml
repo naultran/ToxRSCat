@@ -41,9 +41,9 @@ classes:
     - validation
     - isolation_protocol
     - isolation_protocol_DOI
-    - TBD
-    - TBD
-    - date
+    - TBD.stem_cell
+    - TBD.cell_line
+    - date.culture_vessel
     - nameType
     - vendor
     - dimension
@@ -53,14 +53,14 @@ classes:
     - culture_vessel_location
     - seeding_cell_density
     - seeding_cell_date
-    - ' cellDensity'
+    - cellDensity
     - incubator_vendor
     - incubator_model
     - co2_percent
     - o2_percent
     - temperature
     - humidity
-    - date
+    - date.medium
     - protocol
     - basal_medium
     - basal_medium_vendor
@@ -72,7 +72,7 @@ classes:
     - Study.subject_identifier
     - ' treatment_protocol'
     - ' treatment_protocol_DOI'
-    - date
+    - date.treatment
     - addition_volume
     - stock_concentration
     - final_concentration
@@ -156,12 +156,15 @@ classes:
       isolation_protocol_DOI:
         rank: 24
         slot_group: primary_cell
-      TBD:
+      TBD.stem_cell:
+        rank: 25
+        slot_group: stem_cell
+      TBD.cell_line:
         rank: 26
         slot_group: cell_line
-      date:
-        rank: 56
-        slot_group: treatment
+      date.culture_vessel:
+        rank: 27
+        slot_group: culture_vessel
       nameType:
         rank: 28
         slot_group: culture_vessel
@@ -189,7 +192,7 @@ classes:
       seeding_cell_date:
         rank: 36
         slot_group: seeding_cell_date
-      ' cellDensity':
+      cellDensity:
         rank: 37
         slot_group: cellDensity
       incubator_vendor:
@@ -210,6 +213,9 @@ classes:
       humidity:
         rank: 43
         slot_group: incubation
+      date.medium:
+        rank: 44
+        slot_group: medium
       protocol:
         rank: 45
         slot_group: medium
@@ -242,6 +248,9 @@ classes:
         slot_group: treatment
       ' treatment_protocol_DOI':
         rank: 55
+        slot_group: treatment
+      date.treatment:
+        rank: 56
         slot_group: treatment
       addition_volume:
         rank: 57
@@ -357,7 +366,7 @@ classes:
     - Sample.sample_identifier
     - Sample.study_identifier
     - Sample.subject_identifier
-    - date
+    - date.sample_details
     - collection_protocol
     - preservation_method
     - sample template version
@@ -371,7 +380,7 @@ classes:
       Sample.subject_identifier:
         rank: 3
         slot_group: identifiers
-      date:
+      date.sample_details:
         rank: 4
         slot_group: sample_details
       collection_protocol:
@@ -694,14 +703,20 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  TBD:
-    name: TBD
+  TBD.stem_cell:
+    name: TBD.stem_cell
     title: TBD
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  date:
-    name: date
+  TBD.cell_line:
+    name: TBD.cell_line
+    title: TBD
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  date.culture_vessel:
+    name: date.culture_vessel
     title: date
     range: date
     description: ' '
@@ -770,9 +785,9 @@ slots:
     range: date
     description: ' '
     comments: ' '
-  ' cellDensity':
-    name: ' cellDensity'
-    title: ' cellDensity'
+  cellDensity:
+    name: cellDensity
+    title: cellDensity
     range: WhitespaceMinimizedString
     description: ' '
     slot_uri: obo:NCIT_C120538
@@ -819,6 +834,12 @@ slots:
     range: WhitespaceMinimizedString
     maximum_value: 100.0
     minimum_value: 0.0
+    description: ' '
+    comments: ' '
+  date.medium:
+    name: date.medium
+    title: date
+    range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
   protocol:
@@ -885,6 +906,12 @@ slots:
   ' treatment_protocol_DOI':
     name: ' treatment_protocol_DOI'
     title: ' treatment_protocol_DOI'
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  date.treatment:
+    name: date.treatment
+    title: date
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -963,6 +990,12 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     required: true
+    comments: ' '
+  date.sample_details:
+    name: date.sample_details
+    title: date
+    range: WhitespaceMinimizedString
+    description: ' '
     comments: ' '
   collection_protocol:
     name: collection_protocol
