@@ -194,7 +194,7 @@ export default {
             const ExportHeaders_ws = new Map([
                 ["type", []], //WS
                 ["submitter_id", ["WorkspaceFile"]],
-                ["flourescence_reagents"], 
+                ["flourescence_reagents", []], 
                 ["file_name", []],
                 ["provenance", ["template version"]],
             ]);
