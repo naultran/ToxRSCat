@@ -266,7 +266,7 @@ export default {
                         value = value + ',' + outputMatrix_ws[j][2];
                     }
                 }
-                for(let z = i; z < outputMatrix_fcs.length; z++){
+                for(let z = i; z < outputMatrix_ws.length; z++){
                     if(outputMatrix_ws[z][1] == filename){
                         outputMatrix_ws[z][2] = value;
                     }
