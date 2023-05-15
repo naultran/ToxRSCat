@@ -78,7 +78,7 @@ export default {
                 ["gate_description", []],
                 ["gate_statistics", []],
                 ["gate_boundaries", []],
-                ["WS_file_name"],
+                ["WS_file_name", []],
                 ["provenance", ["template version"]],
             ]);
             // Fills in the above mapping (or just set manually above)
