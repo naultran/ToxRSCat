@@ -1125,7 +1125,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIFlowCyt",
-      "range": "WhitespaceMinimizedString"
+      "range": "amplificationType menu"
     },
     "amplificationFactor": {
       "name": "amplificationFactor",
@@ -1305,7 +1305,6 @@
           "name": "analyte",
           "exact_mappings": [
             "flourescence_reagent:submitter_id",
-            "data_analysis:flourescence_reagents",
             "FCS:flourescence_reagents",
             "WS:flourescence_reagents"
           ],
@@ -1388,7 +1387,7 @@
           "name": "listModeDataFile",
           "exact_mappings": [
             "data_analysis:FCS_file_name",
-            "FCS:name"
+            "FCS:file_name"
           ],
           "rank": 27,
           "slot_group": "data_analysis"
@@ -1445,7 +1444,7 @@
           "name": "WorkspaceFile",
           "exact_mappings": [
             "data_analysis:WS_file_name",
-            "WS:name"
+            "WS:file_name"
           ],
           "rank": 34,
           "slot_group": "data_analysis"
@@ -1912,7 +1911,6 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
             "flourescence_reagent:submitter_id",
-            "data_analysis:flourescence_reagents",
             "FCS:flourescence_reagents",
             "WS:flourescence_reagents"
           ],
@@ -2097,7 +2095,7 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
             "data_analysis:FCS_file_name",
-            "FCS:name"
+            "FCS:file_name"
           ],
           "rank": 27,
           "slot_uri": "obo:OBI:0000021",
@@ -2218,7 +2216,7 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
             "data_analysis:WS_file_name",
-            "WS:name"
+            "WS:file_name"
           ],
           "rank": 34,
           "alias": "WorkspaceFile",
@@ -2517,7 +2515,7 @@
             "Flow cytometry experiment"
           ],
           "slot_group": "optical_detector",
-          "range": "WhitespaceMinimizedString"
+          "range": "amplificationType menu"
         },
         "amplificationFactor": {
           "name": "amplificationFactor",

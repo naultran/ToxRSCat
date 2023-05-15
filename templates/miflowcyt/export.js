@@ -69,7 +69,6 @@ export default {
             const ExportHeaders_dataana = new Map([
                 ["type", []], // data_analysis
                 ["submitter_id", []], 
-                ["flourescence_reagents", []],
                 ["analysis_protocol", []],
                 ["analysis_protocol_DOI", []],
                 ["FCS_file_name", []],
@@ -107,15 +106,6 @@ export default {
                     }
                     ;
                     if (headerName =="submitter_id"){
-                        const flourescence_reagents = dh.getMappedField(
-                            "analyte",
-                            inputRow,
-                            ["analyte"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'data_analysis'
-                          );
                           const FCS_file_name = dh.getMappedField(
                             "listModeDataFile",
                             inputRow,
@@ -134,7 +124,7 @@ export default {
                             ':',
                             'data_analysis'
                           );
-                        value = `${flourescence_reagents}.${FCS_file_name}.${WS_file_name}`
+                        value = `FCS_${FCS_file_name}.WS_${WS_file_name}`
                     }
                     outputRow.push(value);
                 }
@@ -155,12 +145,12 @@ export default {
 
 
             // FCS
-            // submitter_id of FCS is auto-signed
+            // submitter_id of FCS is the name
             const ExportHeaders_fcs = new Map([
                 ["type", []], //FCS
-                ["submitter_id", []],
+                ["submitter_id", ["listModeDataFile"]],
                 ["flourescence_reagents", []], 
-                ["name", []],
+                ["file_name", []],
                 ["provenance", ["template version"]],
             ]);
             dh.getHeaderMap(ExportHeaders_fcs, sourceFields, 'FCS');
@@ -184,29 +174,8 @@ export default {
                     );
                     if (headerName =="type"){
                         value = "FCS";
-                    }
-                    ;
-                    if (headerName =="submitter_id"){
-                        const flourescence_reagents = dh.getMappedField(
-                            "analyte",
-                            inputRow,
-                            ["analyte"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'FCS'
-                          );
-                          const FCS_file_name = dh.getMappedField(
-                            "listModeDataFile",
-                            inputRow,
-                            ["listModeDataFile"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'FCS'
-                          );
-                        value = `${flourescence_reagents}.${FCS_file_name}`
-                    }
+                    };
+                    
                     outputRow.push(value);
                 }
                 const outputRowStr = JSON.stringify(outputRow);
@@ -216,20 +185,17 @@ export default {
                 }
 
 
-            } 
-            for (let i = 1; i <= outputMatrix_fcs.length - 1; i++) {
-                const submitterId = outputMatrix_fcs[i][1] + "_" + i.toString();
-                outputMatrix_fcs[i][1] = submitterId;
+            
             }
             logs.push(["FCS file is done"]);
 
             // WS
-            // submitter_id of WS is auto-signed
+            // submitter_id of WS is is the name
             const ExportHeaders_ws = new Map([
                 ["type", []], //WS
-                ["submitter_id", []],
+                ["submitter_id", ["WorkspaceFile"]],
                 ["flourescence_reagents"], 
-                ["name", []],
+                ["file_name", []],
                 ["provenance", ["template version"]],
             ]);
             dh.getHeaderMap(ExportHeaders_ws, sourceFields, 'FCS');
@@ -254,28 +220,7 @@ export default {
                     if (headerName =="type"){
                         value = "WS";
                     }
-                    ;
-                    if (headerName =="submitter_id"){
-                        const flourescence_reagents = dh.getMappedField(
-                            "analyte",
-                            inputRow,
-                            ["analyte"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'WS'
-                          );
-                          const WS_file_name = dh.getMappedField(
-                            "WorkspaceFile",
-                            inputRow,
-                            ["WorkspaceFile"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'WS'
-                          );
-                        value = `${flourescence_reagents}.${WS_file_name}`
-                    }
+                    
                     outputRow.push(value);
                 }
                 const outputRowStr = JSON.stringify(outputRow);
@@ -286,10 +231,7 @@ export default {
 
 
             } 
-            for (let i = 1; i <= outputMatrix_ws.length - 1; i++) {
-                const submitterId = outputMatrix_ws[i][1] + "_" + i.toString();
-                outputMatrix_ws[i][1] = submitterId;
-            }
+
             logs.push(["WS file is done"]);
 
             // Instrument

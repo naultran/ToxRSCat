@@ -140,7 +140,6 @@ classes:
         slot_group: flourescence_reagent
         exact_mappings:
         - flourescence_reagent:submitter_id
-        - data_analysis:flourescence_reagents
         - FCS:flourescence_reagents
         - WS:flourescence_reagents
       analyteDetector:
@@ -193,7 +192,7 @@ classes:
         slot_group: data_analysis
         exact_mappings:
         - data_analysis:FCS_file_name
-        - FCS:name
+        - FCS:file_name
       CompensationDescription:
         rank: 28
         slot_group: data_analysis
@@ -229,7 +228,7 @@ classes:
         slot_group: data_analysis
         exact_mappings:
         - data_analysis:WS_file_name
-        - WS:name
+        - WS:file_name
       flowCellType:
         rank: 35
         slot_group: Instrument
@@ -814,7 +813,7 @@ slots:
   amplificationType:
     name: amplificationType
     title: amplificationType
-    range: WhitespaceMinimizedString
+    range: amplificationType menu
     description: The optical detector amplification type shall be specified (e.g.,
       linear, log).  Additional details including the actual amplifier profile may
       be provided.
