@@ -211,7 +211,6 @@ export default {
                     uniqueOutputMatrix_fcs.push(outputRow);
                 }
             }
-            outputMatrix_fcs = uniqueOutputMatrix_fcs;
 
             logs.push(["FCS file is done"]);
 
@@ -283,7 +282,6 @@ export default {
                     uniqueOutputMatrix_ws.push(outputRow);
                 }
             }
-            outputMatrix_ws = uniqueOutputMatrix_ws;
 
             logs.push(["WS file is done"]);
 
@@ -538,9 +536,9 @@ export default {
                 await delay(2000);
                 exportFile(outputMatrix_dataana, "data_analysis", "tsv");
                 await delay(2000);
-                exportFile(outputMatrix_fcs, "FCS_file", "tsv");
+                exportFile(uniqueOutputMatrix_fcs, "FCS_file", "tsv");
                 await delay(2000);
-                exportFile(outputMatrix_ws, "WS_file", "tsv");
+                exportFile(uniqueOutputMatrix_ws, "WS_file", "tsv");
                 await delay(2000);
                 exportFile(outputMatrix_instrument, "instrument", "tsv");
                 await delay(2000);
