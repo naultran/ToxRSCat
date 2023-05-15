@@ -2895,7 +2895,7 @@
           "name": "Study.study_identifier",
           "exact_mappings": [
             "gen3_study_experiment:studyID",
-            "gen3_study_subject:studyID"
+            "gen3_study_subject:projects"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -2903,7 +2903,7 @@
         "Study.investigation_identifier": {
           "name": "Study.investigation_identifier",
           "exact_mappings": [
-            "gen3_study_experiment:investigationID",
+            "gen3_study_experiment:programs",
             "gen3_study_subject:investigationID"
           ],
           "rank": 2,
@@ -2945,8 +2945,8 @@
           "name": "Study.subject_identifier",
           "exact_mappings": [
             "gen3_study_subject:subjectID",
-            "gen3_study_housing:subjectID",
-            "gen3_study_treatment:subjectID"
+            "gen3_study_housing:subjects",
+            "gen3_study_treatment:subjects"
           ],
           "rank": 7,
           "slot_group": "subject"
@@ -3042,8 +3042,8 @@
         "cage_id": {
           "name": "cage_id",
           "exact_mappings": [
-            "gen3_study_housing:cage_id",
-            "gen3_study_diet:cage_id"
+            "gen3_study_housing:submitter_id",
+            "gen3_study_diet:housings"
           ],
           "rank": 19,
           "slot_group": "housing"
@@ -3099,7 +3099,7 @@
         "feed_catalog_number": {
           "name": "feed_catalog_number",
           "exact_mappings": [
-            "gen3_study_diet:feed_catalog_number"
+            "gen3_study_diet:submitter_id"
           ],
           "rank": 26,
           "slot_group": "diet"
@@ -3238,7 +3238,7 @@
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
             "gen3_study_experiment:studyID",
-            "gen3_study_subject:studyID"
+            "gen3_study_subject:projects"
           ],
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
@@ -3257,7 +3257,7 @@
           "title": "investigation_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_experiment:investigationID",
+            "gen3_study_experiment:programs",
             "gen3_study_subject:investigationID"
           ],
           "rank": 2,
@@ -3350,8 +3350,8 @@
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
             "gen3_study_subject:subjectID",
-            "gen3_study_housing:subjectID",
-            "gen3_study_treatment:subjectID"
+            "gen3_study_housing:subjects",
+            "gen3_study_treatment:subjects"
           ],
           "rank": 7,
           "alias": "Study.subject_identifier",
@@ -3564,8 +3564,8 @@
           "title": "Cage identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:cage_id",
-            "gen3_study_diet:cage_id"
+            "gen3_study_housing:submitter_id",
+            "gen3_study_diet:housings"
           ],
           "rank": 19,
           "alias": "cage_id",
@@ -3694,7 +3694,7 @@
           "title": "feed_catalog_number",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:feed_catalog_number"
+            "gen3_study_diet:submitter_id"
           ],
           "rank": 26,
           "alias": "feed_catalog_number",
