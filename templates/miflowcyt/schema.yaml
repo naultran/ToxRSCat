@@ -91,6 +91,8 @@ classes:
       sample_identifier:
         rank: 4
         slot_group: identifiers
+        exact_mappings:
+        - flourescence_reagent:samples
       purpose:
         rank: 5
         slot_group: experiment
@@ -121,132 +123,227 @@ classes:
       staining_protocol:
         rank: 14
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:staining_protocol
       staining_protocol_DOI:
         rank: 15
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:staining_protocol_DOI
       characteristicsBeingMeasured:
         rank: 16
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:characteristics_being_measured
       analyte:
         rank: 17
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:submitter_id
+        - data_analysis:flourescence_reagents
+        - FCS:flourescence_reagents
+        - WS:flourescence_reagents
       analyteDetector:
         rank: 18
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:analyte_detector
       analyteReporter:
         rank: 19
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:analyte_reporter
       cloneNameOrNumber:
         rank: 20
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:clone_name_or_number
       reagentManufacturerName:
         rank: 21
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:reagent_manufacturer_name
       reagentCatalogueNumber:
         rank: 22
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:reagent_catalogue_number
       stainingStatus:
         rank: 23
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:staining_status
       other_fluorescence_reagent:
         rank: 24
         slot_group: flourescence_reagent
+        exact_mappings:
+        - flourescence_reagent:other_fluorescence_reagent
       analysis_protocol:
         rank: 25
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:analysis_protocol
       analysis_protocol_DOI:
         rank: 26
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:analysis_protocol_DOI
       listModeDataFile:
         rank: 27
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:FCS_file_name
+        - FCS:name
       CompensationDescription:
         rank: 28
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:compensation_description
       TransformationPurpose:
         rank: 29
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:transformation_purpose
       TransformationDescription:
         rank: 30
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:transformation_description
       GateDescription:
         rank: 31
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:gate_description
       Gate Statistics:
         rank: 32
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:gate_statistics
       GateBoundaries:
         rank: 33
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:gate_boundaries
       WorkspaceFile:
         rank: 34
         slot_group: data_analysis
+        exact_mappings:
+        - data_analysis:WS_file_name
+        - WS:name
       flowCellType:
         rank: 35
         slot_group: Instrument
+        exact_mappings:
+        - instrument:flow_cell_type
       other_flow_cell:
         rank: 36
         slot_group: Instrument
+        exact_mappings:
+        - instrument:other_flow_cell
       manufacturer:
         rank: 37
         slot_group: Instrument
+        exact_mappings:
+        - instrument:manufacturer
       model:
         rank: 38
         slot_group: Instrument
+        exact_mappings:
+        - flourescence_reagent:instruments
+        - instrument:submitter_id
+        - light_source_instrument:instruments
+        - optical_filter:instruments
+        - optical_detector:instruments
       configurationAndSettings:
         rank: 39
         slot_group: Instrument
+        exact_mappings:
+        - instrument:configuration_settings
       other_instrument:
         rank: 40
         slot_group: Instrument
+        exact_mappings:
+        - instrument:other_instrument
       type:
         rank: 41
         slot_group: light_source_instrument
+        exact_mappings:
+        - light_source_instrument:light_source_type
       excitatoryWavelength:
         rank: 42
         slot_group: light_source_instrument
+        exact_mappings:
+        - light_source_instrument:excitatory_wave_length
       powerAtExcitatoryWavelength:
         rank: 43
         slot_group: light_source_instrument
+        exact_mappings:
+        - light_source_instrument:power_at_excitatory_wave_length
       polarization:
         rank: 44
         slot_group: light_source_instrument
+        exact_mappings:
+        - light_source_instrument:polarization
       beam:
         rank: 45
         slot_group: light_source_instrument
+        exact_mappings:
+        - light_source_instrument:beam
       other_light_source_instrument:
         rank: 46
         slot_group: light_source_instrument
+        exact_mappings:
+        - light_source_instrument:other_light_source_instrument
       name:
         rank: 47
         slot_group: optical_detector
+        exact_mappings:
+        - optical_detector:name
       type_optical_detector:
         rank: 48
         slot_group: optical_detector
+        exact_mappings:
+        - optical_detector:type_optical_detector
       voltage:
         rank: 49
         slot_group: optical_detector
+        exact_mappings:
+        - optical_detector:voltage
       amplificationType:
         rank: 50
         slot_group: optical_detector
+        exact_mappings:
+        - optical_detector:amplification_type
       amplificationFactor:
         rank: 51
         slot_group: optical_detector
+        exact_mappings:
+        - optical_detector:amplification_factor
       other_optical_detector:
         rank: 52
         slot_group: optical_detector
+        exact_mappings:
+        - optical_detector:other_optical_detector
       type_optical_filter:
         rank: 53
         slot_group: optical_filter
+        exact_mappings:
+        - optical_detector:type_optical_filter
       transmittedWavelengths:
         rank: 54
         slot_group: optical_filter
+        exact_mappings:
+        - optical_detector:transmitted_wave_lengths
       installationDate:
         rank: 55
         slot_group: optical_filter
+        exact_mappings:
+        - optical_detector:installation_date
       other_optical_filter:
         rank: 56
         slot_group: optical_filter
+        exact_mappings:
+        - optical_detector:other_optical_filter
       template version:
         rank: 57
         slot_group: provenance

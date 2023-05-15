@@ -1226,6 +1226,9 @@
         },
         "sample_identifier": {
           "name": "sample_identifier",
+          "exact_mappings": [
+            "flourescence_reagent:samples"
+          ],
           "rank": 4,
           "slot_group": "identifiers"
         },
@@ -1276,216 +1279,354 @@
         },
         "staining_protocol": {
           "name": "staining_protocol",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol"
+          ],
           "rank": 14,
           "slot_group": "flourescence_reagent"
         },
         "staining_protocol_DOI": {
           "name": "staining_protocol_DOI",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol_DOI"
+          ],
           "rank": 15,
           "slot_group": "flourescence_reagent"
         },
         "characteristicsBeingMeasured": {
           "name": "characteristicsBeingMeasured",
+          "exact_mappings": [
+            "flourescence_reagent:characteristics_being_measured"
+          ],
           "rank": 16,
           "slot_group": "flourescence_reagent"
         },
         "analyte": {
           "name": "analyte",
+          "exact_mappings": [
+            "flourescence_reagent:submitter_id",
+            "data_analysis:flourescence_reagents",
+            "FCS:flourescence_reagents",
+            "WS:flourescence_reagents"
+          ],
           "rank": 17,
           "slot_group": "flourescence_reagent"
         },
         "analyteDetector": {
           "name": "analyteDetector",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_detector"
+          ],
           "rank": 18,
           "slot_group": "flourescence_reagent"
         },
         "analyteReporter": {
           "name": "analyteReporter",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_reporter"
+          ],
           "rank": 19,
           "slot_group": "flourescence_reagent"
         },
         "cloneNameOrNumber": {
           "name": "cloneNameOrNumber",
+          "exact_mappings": [
+            "flourescence_reagent:clone_name_or_number"
+          ],
           "rank": 20,
           "slot_group": "flourescence_reagent"
         },
         "reagentManufacturerName": {
           "name": "reagentManufacturerName",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_manufacturer_name"
+          ],
           "rank": 21,
           "slot_group": "flourescence_reagent"
         },
         "reagentCatalogueNumber": {
           "name": "reagentCatalogueNumber",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_catalogue_number"
+          ],
           "rank": 22,
           "slot_group": "flourescence_reagent"
         },
         "stainingStatus": {
           "name": "stainingStatus",
+          "exact_mappings": [
+            "flourescence_reagent:staining_status"
+          ],
           "rank": 23,
           "slot_group": "flourescence_reagent"
         },
         "other_fluorescence_reagent": {
           "name": "other_fluorescence_reagent",
+          "exact_mappings": [
+            "flourescence_reagent:other_fluorescence_reagent"
+          ],
           "rank": 24,
           "slot_group": "flourescence_reagent"
         },
         "analysis_protocol": {
           "name": "analysis_protocol",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol"
+          ],
           "rank": 25,
           "slot_group": "data_analysis"
         },
         "analysis_protocol_DOI": {
           "name": "analysis_protocol_DOI",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol_DOI"
+          ],
           "rank": 26,
           "slot_group": "data_analysis"
         },
         "listModeDataFile": {
           "name": "listModeDataFile",
+          "exact_mappings": [
+            "data_analysis:FCS_file_name",
+            "FCS:name"
+          ],
           "rank": 27,
           "slot_group": "data_analysis"
         },
         "CompensationDescription": {
           "name": "CompensationDescription",
+          "exact_mappings": [
+            "data_analysis:compensation_description"
+          ],
           "rank": 28,
           "slot_group": "data_analysis"
         },
         "TransformationPurpose": {
           "name": "TransformationPurpose",
+          "exact_mappings": [
+            "data_analysis:transformation_purpose"
+          ],
           "rank": 29,
           "slot_group": "data_analysis"
         },
         "TransformationDescription": {
           "name": "TransformationDescription",
+          "exact_mappings": [
+            "data_analysis:transformation_description"
+          ],
           "rank": 30,
           "slot_group": "data_analysis"
         },
         "GateDescription": {
           "name": "GateDescription",
+          "exact_mappings": [
+            "data_analysis:gate_description"
+          ],
           "rank": 31,
           "slot_group": "data_analysis"
         },
         "Gate Statistics": {
           "name": "Gate Statistics",
+          "exact_mappings": [
+            "data_analysis:gate_statistics"
+          ],
           "rank": 32,
           "slot_group": "data_analysis"
         },
         "GateBoundaries": {
           "name": "GateBoundaries",
+          "exact_mappings": [
+            "data_analysis:gate_boundaries"
+          ],
           "rank": 33,
           "slot_group": "data_analysis"
         },
         "WorkspaceFile": {
           "name": "WorkspaceFile",
+          "exact_mappings": [
+            "data_analysis:WS_file_name",
+            "WS:name"
+          ],
           "rank": 34,
           "slot_group": "data_analysis"
         },
         "flowCellType": {
           "name": "flowCellType",
+          "exact_mappings": [
+            "instrument:flow_cell_type"
+          ],
           "rank": 35,
           "slot_group": "Instrument"
         },
         "other_flow_cell": {
           "name": "other_flow_cell",
+          "exact_mappings": [
+            "instrument:other_flow_cell"
+          ],
           "rank": 36,
           "slot_group": "Instrument"
         },
         "manufacturer": {
           "name": "manufacturer",
+          "exact_mappings": [
+            "instrument:manufacturer"
+          ],
           "rank": 37,
           "slot_group": "Instrument"
         },
         "model": {
           "name": "model",
+          "exact_mappings": [
+            "flourescence_reagent:instruments",
+            "instrument:submitter_id",
+            "light_source_instrument:instruments",
+            "optical_filter:instruments",
+            "optical_detector:instruments"
+          ],
           "rank": 38,
           "slot_group": "Instrument"
         },
         "configurationAndSettings": {
           "name": "configurationAndSettings",
+          "exact_mappings": [
+            "instrument:configuration_settings"
+          ],
           "rank": 39,
           "slot_group": "Instrument"
         },
         "other_instrument": {
           "name": "other_instrument",
+          "exact_mappings": [
+            "instrument:other_instrument"
+          ],
           "rank": 40,
           "slot_group": "Instrument"
         },
         "type": {
           "name": "type",
+          "exact_mappings": [
+            "light_source_instrument:light_source_type"
+          ],
           "rank": 41,
           "slot_group": "light_source_instrument"
         },
         "excitatoryWavelength": {
           "name": "excitatoryWavelength",
+          "exact_mappings": [
+            "light_source_instrument:excitatory_wave_length"
+          ],
           "rank": 42,
           "slot_group": "light_source_instrument"
         },
         "powerAtExcitatoryWavelength": {
           "name": "powerAtExcitatoryWavelength",
+          "exact_mappings": [
+            "light_source_instrument:power_at_excitatory_wave_length"
+          ],
           "rank": 43,
           "slot_group": "light_source_instrument"
         },
         "polarization": {
           "name": "polarization",
+          "exact_mappings": [
+            "light_source_instrument:polarization"
+          ],
           "rank": 44,
           "slot_group": "light_source_instrument"
         },
         "beam": {
           "name": "beam",
+          "exact_mappings": [
+            "light_source_instrument:beam"
+          ],
           "rank": 45,
           "slot_group": "light_source_instrument"
         },
         "other_light_source_instrument": {
           "name": "other_light_source_instrument",
+          "exact_mappings": [
+            "light_source_instrument:other_light_source_instrument"
+          ],
           "rank": 46,
           "slot_group": "light_source_instrument"
         },
         "name": {
           "name": "name",
+          "exact_mappings": [
+            "optical_detector:name"
+          ],
           "rank": 47,
           "slot_group": "optical_detector"
         },
         "type_optical_detector": {
           "name": "type_optical_detector",
+          "exact_mappings": [
+            "optical_detector:type_optical_detector"
+          ],
           "rank": 48,
           "slot_group": "optical_detector"
         },
         "voltage": {
           "name": "voltage",
+          "exact_mappings": [
+            "optical_detector:voltage"
+          ],
           "rank": 49,
           "slot_group": "optical_detector"
         },
         "amplificationType": {
           "name": "amplificationType",
+          "exact_mappings": [
+            "optical_detector:amplification_type"
+          ],
           "rank": 50,
           "slot_group": "optical_detector"
         },
         "amplificationFactor": {
           "name": "amplificationFactor",
+          "exact_mappings": [
+            "optical_detector:amplification_factor"
+          ],
           "rank": 51,
           "slot_group": "optical_detector"
         },
         "other_optical_detector": {
           "name": "other_optical_detector",
+          "exact_mappings": [
+            "optical_detector:other_optical_detector"
+          ],
           "rank": 52,
           "slot_group": "optical_detector"
         },
         "type_optical_filter": {
           "name": "type_optical_filter",
+          "exact_mappings": [
+            "optical_detector:type_optical_filter"
+          ],
           "rank": 53,
           "slot_group": "optical_filter"
         },
         "transmittedWavelengths": {
           "name": "transmittedWavelengths",
+          "exact_mappings": [
+            "optical_detector:transmitted_wave_lengths"
+          ],
           "rank": 54,
           "slot_group": "optical_filter"
         },
         "installationDate": {
           "name": "installationDate",
+          "exact_mappings": [
+            "optical_detector:installation_date"
+          ],
           "rank": 55,
           "slot_group": "optical_filter"
         },
         "other_optical_filter": {
           "name": "other_optical_filter",
+          "exact_mappings": [
+            "optical_detector:other_optical_filter"
+          ],
           "rank": 56,
           "slot_group": "optical_filter"
         },
@@ -1548,6 +1689,9 @@
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
           "title": "Sample_ID",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:samples"
+          ],
           "rank": 4,
           "alias": "sample_identifier",
           "owner": "Flow cytometry experiment",
@@ -1711,6 +1855,9 @@
           "description": "A brief description of the flow cytometry protocol",
           "title": "staining_protocol",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol"
+          ],
           "rank": 14,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "staining_protocol",
@@ -1726,6 +1873,9 @@
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "staining_protocol_DOI",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol_DOI"
+          ],
           "rank": 15,
           "slot_uri": "obo:OBI_0002110",
           "alias": "staining_protocol_DOI",
@@ -1741,6 +1891,9 @@
           "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H) used primarily for this measurement shall be indicated.",
           "title": "characteristicsBeingMeasured",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:characteristics_being_measured"
+          ],
           "rank": 16,
           "slot_uri": "obo:BFO_0000005",
           "alias": "characteristicsBeingMeasured",
@@ -1757,6 +1910,12 @@
           "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
           "title": "analyte",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:submitter_id",
+            "data_analysis:flourescence_reagents",
+            "FCS:flourescence_reagents",
+            "WS:flourescence_reagents"
+          ],
           "rank": 17,
           "slot_uri": "obo:OBI_0000275",
           "alias": "analyte",
@@ -1773,6 +1932,9 @@
           "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
           "title": "analyteDetector",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_detector"
+          ],
           "rank": 18,
           "slot_uri": "obo:CHMO_0002244",
           "alias": "analyteDetector",
@@ -1789,6 +1951,9 @@
           "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
           "title": "analyteReporter",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_reporter"
+          ],
           "rank": 19,
           "slot_uri": "obo:CHEBI_35209",
           "alias": "analyteReporter",
@@ -1805,6 +1970,9 @@
           "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
           "title": "cloneNameOrNumber",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:clone_name_or_number"
+          ],
           "rank": 20,
           "slot_uri": "obo:SO_0000151",
           "alias": "cloneNameOrNumber",
@@ -1820,6 +1988,9 @@
           "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
           "title": "reagentManufacturerName",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_manufacturer_name"
+          ],
           "rank": 21,
           "slot_uri": "obo:IAO_0000590",
           "alias": "reagentManufacturerName",
@@ -1835,6 +2006,9 @@
           "description": "The reagent catalogue number shall be specified.",
           "title": "reagentCatalogueNumber",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_catalogue_number"
+          ],
           "rank": 22,
           "slot_uri": "obo:NCIT_C112406",
           "alias": "reagentCatalogueNumber",
@@ -1850,6 +2024,9 @@
           "description": " ",
           "title": "stainingStatus",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:staining_status"
+          ],
           "rank": 23,
           "alias": "stainingStatus",
           "owner": "Flow cytometry experiment",
@@ -1864,6 +2041,9 @@
           "description": "When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.",
           "title": "other_fluorescence_reagent",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:other_fluorescence_reagent"
+          ],
           "rank": 24,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_fluorescence_reagent",
@@ -1879,6 +2059,9 @@
           "description": "A brief description of the flow cytometry protocol",
           "title": "analysis_protocol",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol"
+          ],
           "rank": 25,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "analysis_protocol",
@@ -1894,6 +2077,9 @@
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "analysis_protocol_DOI",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol_DOI"
+          ],
           "rank": 26,
           "slot_uri": "obo:OBI_0002110",
           "alias": "analysis_protocol_DOI",
@@ -1909,6 +2095,10 @@
           "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
           "title": "listModeDataFile",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:FCS_file_name",
+            "FCS:name"
+          ],
           "rank": 27,
           "slot_uri": "obo:OBI:0000021",
           "alias": "listModeDataFile",
@@ -1924,6 +2114,9 @@
           "description": " ",
           "title": "CompensationDescription",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:compensation_description"
+          ],
           "rank": 28,
           "alias": "CompensationDescription",
           "owner": "Flow cytometry experiment",
@@ -1938,6 +2131,9 @@
           "description": "The purpose of each performed transformation shall be specified (e.g.,\ndata visualization, background correction, statistical analysis, quantitative\nflow cytometry, etc.).",
           "title": "TransformationPurpose",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:transformation_purpose"
+          ],
           "rank": 29,
           "alias": "TransformationPurpose",
           "owner": "Flow cytometry experiment",
@@ -1952,6 +2148,9 @@
           "description": "Either the exact mathematical formulas/algorithms of each data\ntransformation shall be supplied using an open and freely available\nspecification, or a description of each transformation shall be provided.",
           "title": "TransformationDescription",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:transformation_description"
+          ],
           "rank": 30,
           "alias": "TransformationDescription",
           "owner": "Flow cytometry experiment",
@@ -1966,6 +2165,9 @@
           "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”).",
           "title": "GateDescription",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:gate_description"
+          ],
           "rank": 31,
           "alias": "GateDescription",
           "owner": "Flow cytometry experiment",
@@ -1980,6 +2182,9 @@
           "description": "Percentage of events within the gate shall be provided specifically stating\nthe denominator. The denominator shall be either the total population of events (e.g., percentage of lymphocytes based on the total number of\nevents) or another gate (e.g., percentage of CD4+ lymphocytes based on\nall lymphocytes). When the denominator is another gate, this shall also be\nexactly specified in recursive fashion so that the gating strategy can be\nfollowed up to the original data set. The denominator may not necessarily\nbe a containing (superset) population for some statistics (e.g., the donor /\nhost blood cell ratio).",
           "title": "Gate Statistics",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:gate_statistics"
+          ],
           "rank": 32,
           "alias": "Gate_Statistics",
           "owner": "Flow cytometry experiment",
@@ -1994,6 +2199,9 @@
           "description": "Either the exact mathematical descriptions of each gate boundary shall be\nprovided using an open and freely available specification, or this\ninformation shall be provided in the form of images. ",
           "title": "GateBoundaries",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:gate_boundaries"
+          ],
           "rank": 33,
           "alias": "GateBoundaries",
           "owner": "Flow cytometry experiment",
@@ -2008,6 +2216,10 @@
           "description": " ",
           "title": "WorkspaceFile",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:WS_file_name",
+            "WS:name"
+          ],
           "rank": 34,
           "alias": "WorkspaceFile",
           "owner": "Flow cytometry experiment",
@@ -2022,6 +2234,9 @@
           "description": "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided.",
           "title": "flowCellType",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:flow_cell_type"
+          ],
           "rank": 35,
           "slot_uri": "obo:OBI_0400043 ",
           "alias": "flowCellType",
@@ -2037,6 +2252,9 @@
           "description": "Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).",
           "title": "other_flow_cell",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:other_flow_cell"
+          ],
           "rank": 36,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_flow_cell",
@@ -2052,6 +2270,9 @@
           "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
           "title": "manufacturer",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:manufacturer"
+          ],
           "rank": 37,
           "slot_uri": "obo:OBI_0000835",
           "alias": "manufacturer",
@@ -2067,6 +2288,13 @@
           "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
           "title": "model",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:instruments",
+            "instrument:submitter_id",
+            "light_source_instrument:instruments",
+            "optical_filter:instruments",
+            "optical_detector:instruments"
+          ],
           "rank": 38,
           "slot_uri": "obo:MS_1000031",
           "alias": "model",
@@ -2082,6 +2310,9 @@
           "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
           "title": "configurationAndSettings",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:configuration_settings"
+          ],
           "rank": 39,
           "slot_uri": "obo:MS_1000740",
           "alias": "configurationAndSettings",
@@ -2097,6 +2328,9 @@
           "description": "Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.",
           "title": "other_instrument",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:other_instrument"
+          ],
           "rank": 40,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_instrument",
@@ -2112,6 +2346,9 @@
           "description": "The type of the light source shall be provided (e.g., laser, diode laser, xenon lamp).",
           "title": "type",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:light_source_type"
+          ],
           "rank": 41,
           "slot_uri": "bao:BAO_0150029",
           "alias": "type",
@@ -2127,6 +2364,9 @@
           "description": "The excitatory wavelength shall be provided (e.g., 488nm, 633 nm).",
           "title": "excitatoryWavelength",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:excitatory_wave_length"
+          ],
           "rank": 42,
           "slot_uri": "bao:BAO_0000566",
           "alias": "excitatoryWavelength",
@@ -2142,6 +2382,9 @@
           "description": "The power of the light source shall be provided (e.g., 180 mW, 50 mW). If possible, this should be measured at the intersection of the light source beam with particles; see also 3.3.3.",
           "title": "powerAtExcitatoryWavelength",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:power_at_excitatory_wave_length"
+          ],
           "rank": 43,
           "slot_uri": "bao:BAO_0000566",
           "alias": "powerAtExcitatoryWavelength",
@@ -2157,6 +2400,9 @@
           "description": "Polarization shall be specified (e.g., linear, >100:1, in the direction of the sample flow). If possible, this should be specified at the intersection of the light source beam and particles; see also 3.3.3.",
           "title": "polarization",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:polarization"
+          ],
           "rank": 44,
           "slot_uri": "obo:OMIT_0009913",
           "alias": "polarization",
@@ -2172,6 +2418,9 @@
           "description": "Light source beam dimensions and geometry shall be specified at the flow cell or at the intersection of the beam with particles (e.g., elliptical 22 x 66 Î¼m).",
           "title": "beam",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:beam"
+          ],
           "rank": 45,
           "slot_uri": "obo:NCIT_C70569",
           "alias": "beam",
@@ -2187,6 +2436,9 @@
           "description": "Additional relevant light source details should be provided and may include light source manufacturer name (e.g., MIFlowCyt Lasers, Inc.), light source model name (e.g., 302C Krypton-Ion Laser), light source part number (e.g., I-326), noise (e.g., <1%), pointing and power stability (e.g., <1% over 1 hour), etc.",
           "title": "other_light_source_instrument",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:other_light_source_instrument"
+          ],
           "rank": 46,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_light_source_instrument",
@@ -2202,6 +2454,9 @@
           "description": "The optical detector name (e.g., FSC, SSC, FL1, FL2, FL3, FL4, etc.) shall be specified.",
           "title": "name",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:name"
+          ],
           "rank": 47,
           "alias": "name",
           "owner": "Flow cytometry experiment",
@@ -2216,6 +2471,9 @@
           "description": "The type of the optical detector shall be provided (e.g., photodiode, photomultiplier tube).",
           "title": "type_optical_detector",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:type_optical_detector"
+          ],
           "rank": 48,
           "slot_uri": "obo:FBbi_00000269 ",
           "alias": "type_optical_detector",
@@ -2231,6 +2489,9 @@
           "description": "The optical detector voltage shall be specified (e.g., 300V, 700V).",
           "title": "voltage",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:voltage"
+          ],
           "rank": 49,
           "alias": "voltage",
           "owner": "Flow cytometry experiment",
@@ -2246,6 +2507,9 @@
           "description": "The optical detector amplification type shall be specified (e.g., linear, log).  Additional details including the actual amplifier profile may be provided.",
           "title": "amplificationType",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:amplification_type"
+          ],
           "rank": 50,
           "alias": "amplificationType",
           "owner": "Flow cytometry experiment",
@@ -2260,6 +2524,9 @@
           "description": "For log amplification, the number of decades shall be provided (e.g., 4 decades). For a linear amplification, the linear gain shall be provided (e.g., linear gain of 2.0).",
           "title": "amplificationFactor",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:amplification_factor"
+          ],
           "rank": 51,
           "alias": "amplificationFactor",
           "owner": "Flow cytometry experiment",
@@ -2274,6 +2541,9 @@
           "description": "Additional relevant optical detector details should be provided and may include the optical detector manufacturer name and model number (e.g., MIFlowCyt Photonics Inc., PMT #R9220), minimal, maximal, and peak wavelength sensitivity (e.g., 185 nm, 900 nm, and 650 nm), the internal gain (e.g., 107), or the rise time (e.g., 2.2ns).",
           "title": "other_optical_detector",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:other_optical_detector"
+          ],
           "rank": 52,
           "alias": "other_optical_detector",
           "owner": "Flow cytometry experiment",
@@ -2288,6 +2558,9 @@
           "description": "The optical filter type shall be specified.",
           "title": "type_optical_filter",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:type_optical_filter"
+          ],
           "rank": 53,
           "alias": "type_optical_filter",
           "owner": "Flow cytometry experiment",
@@ -2302,6 +2575,9 @@
           "description": "Light wavelengths transmitted by the filter shall be specified (e.g., 488/25 nm, >670 nm, <620 nm).",
           "title": "transmittedWavelengths",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:transmitted_wave_lengths"
+          ],
           "rank": 54,
           "alias": "transmittedWavelengths",
           "owner": "Flow cytometry experiment",
@@ -2316,6 +2592,9 @@
           "description": "As optical filters of all types are subject to degradation, filter performance needs to be monitored at intervals to verify continued performance at an acceptable level [19]. The optical filter installation date shall be specified (e.g., January 15, 2007).",
           "title": "installationDate",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:installation_date"
+          ],
           "rank": 55,
           "alias": "installationDate",
           "owner": "Flow cytometry experiment",
@@ -2330,6 +2609,9 @@
           "description": "Other relevant optical filter details should be provided.",
           "title": "other_optical_filter",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:other_optical_filter"
+          ],
           "rank": 56,
           "alias": "other_optical_filter",
           "owner": "Flow cytometry experiment",
