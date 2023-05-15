@@ -2278,8 +2278,8 @@
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString"
     },
-    "TBD": {
-      "name": "TBD",
+    "TBD.stem_cell": {
+      "name": "TBD.stem_cell",
       "description": " ",
       "title": "TBD",
       "comments": [
@@ -2288,8 +2288,18 @@
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString"
     },
-    "date": {
-      "name": "date",
+    "TBD.cell_line": {
+      "name": "TBD.cell_line",
+      "description": " ",
+      "title": "TBD",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
+    },
+    "date.culture_vessel": {
+      "name": "date.culture_vessel",
       "description": " ",
       "title": "date",
       "comments": [
@@ -2398,10 +2408,10 @@
       "from_schema": "https://example.com/MIATE",
       "range": "date"
     },
-    " cellDensity": {
-      "name": " cellDensity",
+    "cellDensity": {
+      "name": "cellDensity",
       "description": " ",
-      "title": " cellDensity",
+      "title": "cellDensity",
       "comments": [
         " "
       ],
@@ -2476,6 +2486,16 @@
       "range": "WhitespaceMinimizedString",
       "minimum_value": 0,
       "maximum_value": 100
+    },
+    "date.medium": {
+      "name": "date.medium",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
     },
     "protocol": {
       "name": "protocol",
@@ -2582,6 +2602,16 @@
       "name": " treatment_protocol_DOI",
       "description": " ",
       "title": " treatment_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
+    },
+    "date.treatment": {
+      "name": "date.treatment",
+      "description": " ",
+      "title": "date",
       "comments": [
         " "
       ],
@@ -2711,6 +2741,16 @@
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString",
       "required": true
+    },
+    "date.sample_details": {
+      "name": "date.sample_details",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
     },
     "collection_protocol": {
       "name": "collection_protocol",
@@ -2894,15 +2934,20 @@
           "rank": 24,
           "slot_group": "primary_cell"
         },
-        "TBD": {
-          "name": "TBD",
+        "TBD.stem_cell": {
+          "name": "TBD.stem_cell",
+          "rank": 25,
+          "slot_group": "stem_cell"
+        },
+        "TBD.cell_line": {
+          "name": "TBD.cell_line",
           "rank": 26,
           "slot_group": "cell_line"
         },
-        "date": {
-          "name": "date",
-          "rank": 56,
-          "slot_group": "treatment"
+        "date.culture_vessel": {
+          "name": "date.culture_vessel",
+          "rank": 27,
+          "slot_group": "culture_vessel"
         },
         "nameType": {
           "name": "nameType",
@@ -2949,8 +2994,8 @@
           "rank": 36,
           "slot_group": "seeding_cell_date"
         },
-        " cellDensity": {
-          "name": " cellDensity",
+        "cellDensity": {
+          "name": "cellDensity",
           "rank": 37,
           "slot_group": "cellDensity"
         },
@@ -2983,6 +3028,11 @@
           "name": "humidity",
           "rank": 43,
           "slot_group": "incubation"
+        },
+        "date.medium": {
+          "name": "date.medium",
+          "rank": 44,
+          "slot_group": "medium"
         },
         "protocol": {
           "name": "protocol",
@@ -3037,6 +3087,11 @@
         " treatment_protocol_DOI": {
           "name": " treatment_protocol_DOI",
           "rank": 55,
+          "slot_group": "treatment"
+        },
+        "date.treatment": {
+          "name": "date.treatment",
+          "rank": 56,
           "slot_group": "treatment"
         },
         "addition_volume": {
@@ -3444,13 +3499,27 @@
           "slot_group": "primary_cell",
           "range": "WhitespaceMinimizedString"
         },
-        "TBD": {
-          "name": "TBD",
+        "TBD.stem_cell": {
+          "name": "TBD.stem_cell",
+          "description": " ",
+          "title": "TBD",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 25,
+          "alias": "TBD.stem_cell",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "stem_cell",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TBD.cell_line": {
+          "name": "TBD.cell_line",
           "description": " ",
           "title": "TBD",
           "from_schema": "https://example.com/MIATE",
           "rank": 26,
-          "alias": "TBD",
+          "alias": "TBD.cell_line",
           "owner": "Study",
           "domain_of": [
             "Study"
@@ -3458,19 +3527,18 @@
           "slot_group": "cell_line",
           "range": "WhitespaceMinimizedString"
         },
-        "date": {
-          "name": "date",
+        "date.culture_vessel": {
+          "name": "date.culture_vessel",
           "description": " ",
           "title": "date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 56,
-          "alias": "date",
+          "rank": 27,
+          "alias": "date.culture_vessel",
           "owner": "Study",
           "domain_of": [
-            "Study",
-            "Sample"
+            "Study"
           ],
-          "slot_group": "treatment",
+          "slot_group": "culture_vessel",
           "range": "date"
         },
         "nameType": {
@@ -3609,10 +3677,10 @@
           "slot_group": "seeding_cell_date",
           "range": "date"
         },
-        " cellDensity": {
-          "name": " cellDensity",
+        "cellDensity": {
+          "name": "cellDensity",
           "description": " ",
-          "title": " cellDensity",
+          "title": "cellDensity",
           "from_schema": "https://example.com/MIATE",
           "rank": 37,
           "slot_uri": "obo:NCIT_C120538",
@@ -3715,6 +3783,20 @@
           "range": "WhitespaceMinimizedString",
           "minimum_value": 0,
           "maximum_value": 100
+        },
+        "date.medium": {
+          "name": "date.medium",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 44,
+          "alias": "date.medium",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
         },
         "protocol": {
           "name": "protocol",
@@ -3864,6 +3946,20 @@
           "from_schema": "https://example.com/MIATE",
           "rank": 55,
           "alias": "treatment_protocol_DOI",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "date.treatment": {
+          "name": "date.treatment",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 56,
+          "alias": "date.treatment",
           "owner": "Study",
           "domain_of": [
             "Study"
@@ -4426,8 +4522,8 @@
           "rank": 3,
           "slot_group": "identifiers"
         },
-        "date": {
-          "name": "date",
+        "date.sample_details": {
+          "name": "date.sample_details",
           "rank": 4,
           "slot_group": "sample_details"
         },
@@ -4494,20 +4590,19 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "date": {
-          "name": "date",
+        "date.sample_details": {
+          "name": "date.sample_details",
           "description": " ",
           "title": "date",
           "from_schema": "https://example.com/MIATE",
           "rank": 4,
-          "alias": "date",
+          "alias": "date.sample_details",
           "owner": "Sample",
           "domain_of": [
-            "Study",
             "Sample"
           ],
           "slot_group": "sample_details",
-          "range": "date"
+          "range": "WhitespaceMinimizedString"
         },
         "collection_protocol": {
           "name": "collection_protocol",
