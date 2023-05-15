@@ -189,14 +189,17 @@ export default {
             // combine the flourescence_reagents in the same file_name and remove duplicate
             for (let i = 1; i < outputMatrix_fcs.length; i++){
                 const filename = outputMatrix_fcs[i][1];
-                const value = outputMatrix_fcs[i][2]
+                const value = outputMatrix_fcs[i][2];
                 for(let j = i+1; j < outputMatrix_fcs.length; j++){
-                    if(outputMatrix_fcs[j][1] = filename && outputMatrix_fcs[j][2]!=value){
-                        value = `${value},${outputMatrix_fcs[j][2]}`
+                    if(outputMatrix_fcs[j][1] == filename && outputMatrix_fcs[j][2]!=value){
+                        value = value + ','+ outputMatrix_fcs[j][2];
                     }
                 }
                 for(let z = i; z < outputMatrix_fcs.length; z++){
-                    outputMatrix_fcs[z][2] = value
+                    if(outputMatrix_fcs[z][1] == filename){
+                        outputMatrix_fcs[z][2] = value;
+                    }
+                    
                 }
             }
             const uniqueOutputMatrix_fcs = [];
@@ -258,14 +261,17 @@ export default {
             // combine the flourescence_reagents in the same file_name and remove duplicate
             for (let i = 1; i < outputMatrix_ws.length; i++){
                 const filename = outputMatrix_ws[i][1];
-                const value = outputMatrix_ws[i][2]
+                const value = outputMatrix_ws[i][2];
                 for(let j = i+1; j < outputMatrix_ws.length; j++){
-                    if(outputMatrix_ws[j][1] = filename && outputMatrix_ws[j][2]!=value){
-                        value = `${value},${outputMatrix_ws[j][2]}`
+                    if(outputMatrix_ws[j][1] == filename && outputMatrix_ws[j][2]!=value){
+                        value = value + ',' + outputMatrix_ws[j][2];
                     }
                 }
-                for(let z = i; z < outputMatrix_ws.length; z++){
-                    outputMatrix_ws[z][2] = value
+                for(let z = i; z < outputMatrix_fcs.length; z++){
+                    if(outputMatrix_ws[z][1] == filename){
+                        outputMatrix_ws[z][2] = value;
+                    }
+                    
                 }
             }
             const uniqueOutputMatrix_ws = [];
