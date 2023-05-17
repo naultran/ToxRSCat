@@ -15,6 +15,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []],
                 ["investigationID", []],
+                ["dbgap_accession_number", ["Investigation.investigation_identifier"],],
                 ["program_title", []],
                 ["investigation_description", []],
                 ["contact_name", []],
