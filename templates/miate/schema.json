@@ -4019,7 +4019,7 @@
         "investigation_description": {
           "name": "investigation_description",
           "exact_mappings": [
-            "gen3_submit_investigation:investigation.description"
+            "gen3_submit_investigation:investigation_description"
           ],
           "rank": 3,
           "slot_group": "Contact"
@@ -4179,7 +4179,7 @@
           "title": "Description",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_submit_investigation:investigation.description"
+            "gen3_submit_investigation:investigation_description"
           ],
           "rank": 3,
           "slot_uri": "obo:OBI_0001615",

@@ -312,7 +312,7 @@ classes:
         rank: 3
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:investigation.description
+        - gen3_submit_investigation:investigation_description
       data_submission_contact_name:
         rank: 4
         slot_group: Contact

@@ -16,7 +16,7 @@ export default {
                 ["type", []],
                 ["investigationID", []],
                 ["program_title", []],
-                ["investigation.description", []],
+                ["investigation_description", []],
                 ["contact_name", []],
                 ["investigator_orcid", []],
                 ["contact_email", []],
