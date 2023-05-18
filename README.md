@@ -26,7 +26,7 @@ This code will generates a schema.yaml file which is a LinkML representation of 
 ## 2. Requirement for schema
 #### a. Always keep the first column in every dataframe to be the unique ID.
 
-#### b. if the multiple dataframes in one project have columns with the same name, please set the slots in the excel template to be <slot_group>.<name>, and set the name in the excel to be <name>.
+#### b. if the multiple dataframes in one project have columns with the same name, please set the slots in the excel template to be < slot_group >.< name >, and set the name in the excel to be < name >.
 For example:
 The __sample__ , __investigation__ and __study__ dataframes in __miate__ project all need __subject_identifier__. 
 
