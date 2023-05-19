@@ -27,6 +27,7 @@ classes:
     - derivitization
     - extract_preservation_method
     - calibration_standard
+    - chromatography.name
     - chromatography_protocol
     - chromatography_protocol_DOI
     - chromatography_column
@@ -34,6 +35,7 @@ classes:
     - flow_rate
     - carrier_gas
     - oven_temperature_program
+    - ms_method.name
     - ms_protocol
     - ms_protocol_DOI
     - manufacturer
@@ -42,6 +44,7 @@ classes:
     - ionization_type
     - detector_type
     - mass_analyzer_type
+    - data_analysis_id
     - analysis_protocol
     - analysis_protocol_DOI
     - rawDataFile
@@ -56,6 +59,12 @@ classes:
       metabolomic_experiment_identifier:
         rank: 1
         slot_group: identifiers
+        exact_mappings:
+        - extraction:submitter_id
+        - chromatography:extractions
+        - ms_method:extractions
+        - rawdata_file:extractions
+        - processeddata_file:extractions
       investigation_identifier:
         rank: 2
         slot_group: identifiers
@@ -65,6 +74,8 @@ classes:
       sample_identifier:
         rank: 4
         slot_group: identifiers
+        exact_mappings:
+        - extraction:samples
       purpose:
         rank: 5
         slot_group: experiment
@@ -77,98 +88,174 @@ classes:
       extraction_protocol:
         rank: 8
         slot_group: exctraction
+        exact_mappings:
+        - extraction:extraction_protocol
       extraction_protocol_DOI:
         rank: 9
         slot_group: exctraction
+        exact_mappings:
+        - extraction:extraction_protocol_DOI
       derivitization:
         rank: 10
         slot_group: exctraction
+        exact_mappings:
+        - extraction:derivitization
       extract_preservation_method:
         rank: 11
         slot_group: exctraction
+        exact_mappings:
+        - extraction:extract_preservation_method
       calibration_standard:
         rank: 12
         slot_group: exctraction
-      chromatography_protocol:
+        exact_mappings:
+        - extraction:calibration_standard
+      chromatography.name:
         rank: 13
         slot_group: chromatography
-      chromatography_protocol_DOI:
+        exact_mappings:
+        - chromatography:submitter_id
+      chromatography_protocol:
         rank: 14
         slot_group: chromatography
-      chromatography_column:
+        exact_mappings:
+        - chromatography:chromatography_protocol
+      chromatography_protocol_DOI:
         rank: 15
         slot_group: chromatography
-      elution program:
+        exact_mappings:
+        - chromatography:chromatography_protocol_DOI
+      chromatography_column:
         rank: 16
-        slot_group: LiquidChromatography
-      flow_rate:
+        slot_group: chromatography
+        exact_mappings:
+        - chromatography:chromatography_column
+      elution program:
         rank: 17
         slot_group: LiquidChromatography
-      carrier_gas:
+        exact_mappings:
+        - chromatography:elution_program
+      flow_rate:
         rank: 18
-        slot_group: GasChromatography
-      oven_temperature_program:
+        slot_group: LiquidChromatography
+        exact_mappings:
+        - chromatography:flow_rate
+      carrier_gas:
         rank: 19
         slot_group: GasChromatography
-      ms_protocol:
+        exact_mappings:
+        - chromatography:carrier_gas
+      oven_temperature_program:
         rank: 20
-        slot_group: ms_method
-      ms_protocol_DOI:
+        slot_group: GasChromatography
+        exact_mappings:
+        - chromatography:oven_temperature_program
+      ms_method.name:
         rank: 21
         slot_group: ms_method
-      manufacturer:
+        exact_mappings:
+        - ms_method:submitter_id
+      ms_protocol:
         rank: 22
-        slot_group: Instrument
-      model:
+        slot_group: ms_method
+        exact_mappings:
+        - ms_method:ms_protocol
+      ms_protocol_DOI:
         rank: 23
-        slot_group: Instrument
-      scan_polarity:
+        slot_group: ms_method
+        exact_mappings:
+        - ms_method:ms_protocol_DOI
+      manufacturer:
         rank: 24
         slot_group: Instrument
-      ionization_type:
+        exact_mappings:
+        - instrument:manufacturer
+      model:
         rank: 25
         slot_group: Instrument
-      detector_type:
+        exact_mappings:
+        - instrument:submitter_id
+      scan_polarity:
         rank: 26
         slot_group: Instrument
-      mass_analyzer_type:
+        exact_mappings:
+        - instrument:scan_polarity
+      ionization_type:
         rank: 27
         slot_group: Instrument
-      analysis_protocol:
+        exact_mappings:
+        - instrument:ionization_type
+      detector_type:
         rank: 28
-        slot_group: data_analysis
-      analysis_protocol_DOI:
+        slot_group: Instrument
+        exact_mappings:
+        - instrument:detector_type
+      mass_analyzer_type:
         rank: 29
-        slot_group: data_analysis
-      rawDataFile:
+        slot_group: Instrument
+        exact_mappings:
+        - instrument:mass_analyzer_type
+      data_analysis_id:
         rank: 30
         slot_group: data_analysis
-      Normalization:
+        exact_mappings:
+        - data_analysis_msm:submitter_id
+      analysis_protocol:
         rank: 31
         slot_group: data_analysis
-      Transformation:
+        exact_mappings:
+        - data_analysis_msm:analysis_protocol
+      analysis_protocol_DOI:
         rank: 32
         slot_group: data_analysis
-      TransformationPurpose:
+        exact_mappings:
+        - data_analysis_msm:analysis_protocol_DOI
+      rawDataFile:
         rank: 33
         slot_group: data_analysis
-      TransformationDescription:
+        exact_mappings:
+        - rawdata_file:submitter_id
+        - data_analysis_msm:rawDataFiles
+      Normalization:
         rank: 34
         slot_group: data_analysis
-      processedDataFile:
+        exact_mappings:
+        - data_analysis_msm:Normalization
+      Transformation:
         rank: 35
         slot_group: data_analysis
-      unit:
+        exact_mappings:
+        - data_analysis_msm:Transformation
+      TransformationPurpose:
         rank: 36
         slot_group: data_analysis
-      experiement template version:
+        exact_mappings:
+        - data_analysis_msm:TransformationPurpose
+      TransformationDescription:
         rank: 37
+        slot_group: data_analysis
+        exact_mappings:
+        - data_analysis_msm:TransformationDescription
+      processedDataFile:
+        rank: 38
+        slot_group: data_analysis
+        exact_mappings:
+        - processeddata_file:submitter_id
+        - data_analysis_msm:processedDataFiles
+      unit:
+        rank: 39
+        slot_group: data_analysis
+        exact_mappings:
+        - data_analysis_msm:unit
+      experiement template version:
+        rank: 40
         slot_group: provenance
   metaboliteID:
     name: metaboliteID
     is_a: dh_interface
     slots:
     - metabolite_name
+    - metabolite.data_analysis_id
     - refmet_name
     - dtxsid
     - inchikey
@@ -179,23 +266,40 @@ classes:
       metabolite_name:
         rank: 1
         slot_group: metabolite_identification
-      refmet_name:
+        exact_mappings:
+        - gen3_submit_metaboliteID:metabolite_name
+      metabolite.data_analysis_id:
         rank: 2
         slot_group: metabolite_identification
-      dtxsid:
+        exact_mappings:
+        - gen3_submit_metaboliteID:data_analysis_msmes
+      refmet_name:
         rank: 3
         slot_group: metabolite_identification
-      inchikey:
+        exact_mappings:
+        - gen3_submit_metaboliteID:refmet_name
+      dtxsid:
         rank: 4
         slot_group: metabolite_identification
-      mass:
+        exact_mappings:
+        - gen3_submit_metaboliteID:dtxsid
+      inchikey:
         rank: 5
         slot_group: metabolite_identification
-      elution_time:
+        exact_mappings:
+        - gen3_submit_metaboliteID:inchikey
+      mass:
         rank: 6
         slot_group: metabolite_identification
-      sample template version:
+        exact_mappings:
+        - gen3_submit_metaboliteID:mass
+      elution_time:
         rank: 7
+        slot_group: metabolite_identification
+        exact_mappings:
+        - gen3_submit_metaboliteID:elution_time
+      sample template version:
+        rank: 8
         slot_group: provenance
 slots:
   metabolomic_experiment_identifier:
@@ -205,7 +309,6 @@ slots:
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
     required: true
-    identifier: true
     comments: ms_S001
   investigation_identifier:
     name: investigation_identifier
@@ -309,6 +412,13 @@ slots:
     range: WhitespaceMinimizedString
     description: Indicate the name of the chemical compound used as calibration standard.
     comments: Acetyl-1,2-13C2 Coenzyme A Sodium Salt
+  chromatography.name:
+    name: chromatography.name
+    title: name
+    range: WhitespaceMinimizedString
+    description: name of chromatography
+    required: true
+    comments: ' '
   chromatography_protocol:
     name: chromatography_protocol
     title: chromatography_protocol
@@ -370,6 +480,13 @@ slots:
     description: The description of the gas chromatography oven temperature program
     comments: 40 degree C hold for 1 min.;10 degree C/min. to 300 degree C;300 degree
       C hold for 10 min.
+  ms_method.name:
+    name: ms_method.name
+    title: name
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: name of ms_method
   ms_protocol:
     name: ms_protocol
     title: ms_protocol
@@ -434,6 +551,13 @@ slots:
       ratio.
     slot_uri: obo:MS_1000443
     comments: quadrupole
+  data_analysis_id:
+    name: data_analysis_id
+    title: data_analysis_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
   analysis_protocol:
     name: analysis_protocol
     title: analysis_protocol
@@ -506,6 +630,13 @@ slots:
     required: true
     identifier: true
     comments: Acetyl-CoA
+  metabolite.data_analysis_id:
+    name: metabolite.data_analysis_id
+    title: data_analysis_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
   refmet_name:
     name: refmet_name
     title: refmet_name
@@ -547,7 +678,7 @@ slots:
   sample template version:
     name: sample template version
     title: sample template version
-    range: Provenance
+    range: WhitespaceMinimizedString
     description: ' '
     required: true
     comments: ' '

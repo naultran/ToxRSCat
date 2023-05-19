@@ -577,7 +577,6 @@
         "ms_S001"
       ],
       "from_schema": "https://example.com/CIMR",
-      "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -703,6 +702,17 @@
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
     },
+    "chromatography.name": {
+      "name": "chromatography.name",
+      "description": "name of chromatography",
+      "title": "name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
     "chromatography_protocol": {
       "name": "chromatography_protocol",
       "description": "A brief description of the flow cytometry protocol",
@@ -775,6 +785,17 @@
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
+    },
+    "ms_method.name": {
+      "name": "ms_method.name",
+      "description": " ",
+      "title": "name",
+      "comments": [
+        "name of ms_method"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "ms_protocol": {
       "name": "ms_protocol",
@@ -863,6 +884,17 @@
       "from_schema": "https://example.com/CIMR",
       "slot_uri": "obo:MS_1000443",
       "range": "WhitespaceMinimizedString"
+    },
+    "data_analysis_id": {
+      "name": "data_analysis_id",
+      "description": " ",
+      "title": "data_analysis_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
     },
     "analysis_protocol": {
       "name": "analysis_protocol",
@@ -969,6 +1001,17 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
+    "metabolite.data_analysis_id": {
+      "name": "metabolite.data_analysis_id",
+      "description": " ",
+      "title": "data_analysis_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
     "refmet_name": {
       "name": "refmet_name",
       "description": " ",
@@ -1039,7 +1082,7 @@
         " "
       ],
       "from_schema": "https://example.com/CIMR",
-      "range": "Provenance",
+      "range": "WhitespaceMinimizedString",
       "required": true
     }
   },
@@ -1056,6 +1099,13 @@
       "slot_usage": {
         "metabolomic_experiment_identifier": {
           "name": "metabolomic_experiment_identifier",
+          "exact_mappings": [
+            "extraction:submitter_id",
+            "chromatography:extractions",
+            "ms_method:extractions",
+            "rawdata_file:extractions",
+            "processeddata_file:extractions"
+          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
@@ -1071,6 +1121,9 @@
         },
         "sample_identifier": {
           "name": "sample_identifier",
+          "exact_mappings": [
+            "extraction:samples"
+          ],
           "rank": 4,
           "slot_group": "identifiers"
         },
@@ -1091,152 +1144,265 @@
         },
         "extraction_protocol": {
           "name": "extraction_protocol",
+          "exact_mappings": [
+            "extraction:extraction_protocol"
+          ],
           "rank": 8,
           "slot_group": "exctraction"
         },
         "extraction_protocol_DOI": {
           "name": "extraction_protocol_DOI",
+          "exact_mappings": [
+            "extraction:extraction_protocol_DOI"
+          ],
           "rank": 9,
           "slot_group": "exctraction"
         },
         "derivitization": {
           "name": "derivitization",
+          "exact_mappings": [
+            "extraction:derivitization"
+          ],
           "rank": 10,
           "slot_group": "exctraction"
         },
         "extract_preservation_method": {
           "name": "extract_preservation_method",
+          "exact_mappings": [
+            "extraction:extract_preservation_method"
+          ],
           "rank": 11,
           "slot_group": "exctraction"
         },
         "calibration_standard": {
           "name": "calibration_standard",
+          "exact_mappings": [
+            "extraction:calibration_standard"
+          ],
           "rank": 12,
           "slot_group": "exctraction"
         },
+        "chromatography.name": {
+          "name": "chromatography.name",
+          "exact_mappings": [
+            "chromatography:submitter_id"
+          ],
+          "rank": 13,
+          "slot_group": "chromatography"
+        },
         "chromatography_protocol": {
           "name": "chromatography_protocol",
-          "rank": 13,
+          "exact_mappings": [
+            "chromatography:chromatography_protocol"
+          ],
+          "rank": 14,
           "slot_group": "chromatography"
         },
         "chromatography_protocol_DOI": {
           "name": "chromatography_protocol_DOI",
-          "rank": 14,
+          "exact_mappings": [
+            "chromatography:chromatography_protocol_DOI"
+          ],
+          "rank": 15,
           "slot_group": "chromatography"
         },
         "chromatography_column": {
           "name": "chromatography_column",
-          "rank": 15,
+          "exact_mappings": [
+            "chromatography:chromatography_column"
+          ],
+          "rank": 16,
           "slot_group": "chromatography"
         },
         "elution program": {
           "name": "elution program",
-          "rank": 16,
+          "exact_mappings": [
+            "chromatography:elution_program"
+          ],
+          "rank": 17,
           "slot_group": "LiquidChromatography"
         },
         "flow_rate": {
           "name": "flow_rate",
-          "rank": 17,
+          "exact_mappings": [
+            "chromatography:flow_rate"
+          ],
+          "rank": 18,
           "slot_group": "LiquidChromatography"
         },
         "carrier_gas": {
           "name": "carrier_gas",
-          "rank": 18,
+          "exact_mappings": [
+            "chromatography:carrier_gas"
+          ],
+          "rank": 19,
           "slot_group": "GasChromatography"
         },
         "oven_temperature_program": {
           "name": "oven_temperature_program",
-          "rank": 19,
+          "exact_mappings": [
+            "chromatography:oven_temperature_program"
+          ],
+          "rank": 20,
           "slot_group": "GasChromatography"
+        },
+        "ms_method.name": {
+          "name": "ms_method.name",
+          "exact_mappings": [
+            "ms_method:submitter_id"
+          ],
+          "rank": 21,
+          "slot_group": "ms_method"
         },
         "ms_protocol": {
           "name": "ms_protocol",
-          "rank": 20,
+          "exact_mappings": [
+            "ms_method:ms_protocol"
+          ],
+          "rank": 22,
           "slot_group": "ms_method"
         },
         "ms_protocol_DOI": {
           "name": "ms_protocol_DOI",
-          "rank": 21,
+          "exact_mappings": [
+            "ms_method:ms_protocol_DOI"
+          ],
+          "rank": 23,
           "slot_group": "ms_method"
         },
         "manufacturer": {
           "name": "manufacturer",
-          "rank": 22,
+          "exact_mappings": [
+            "instrument:manufacturer"
+          ],
+          "rank": 24,
           "slot_group": "Instrument"
         },
         "model": {
           "name": "model",
-          "rank": 23,
+          "exact_mappings": [
+            "instrument:submitter_id"
+          ],
+          "rank": 25,
           "slot_group": "Instrument"
         },
         "scan_polarity": {
           "name": "scan_polarity",
-          "rank": 24,
+          "exact_mappings": [
+            "instrument:scan_polarity"
+          ],
+          "rank": 26,
           "slot_group": "Instrument"
         },
         "ionization_type": {
           "name": "ionization_type",
-          "rank": 25,
+          "exact_mappings": [
+            "instrument:ionization_type"
+          ],
+          "rank": 27,
           "slot_group": "Instrument"
         },
         "detector_type": {
           "name": "detector_type",
-          "rank": 26,
+          "exact_mappings": [
+            "instrument:detector_type"
+          ],
+          "rank": 28,
           "slot_group": "Instrument"
         },
         "mass_analyzer_type": {
           "name": "mass_analyzer_type",
-          "rank": 27,
+          "exact_mappings": [
+            "instrument:mass_analyzer_type"
+          ],
+          "rank": 29,
           "slot_group": "Instrument"
+        },
+        "data_analysis_id": {
+          "name": "data_analysis_id",
+          "exact_mappings": [
+            "data_analysis_msm:submitter_id"
+          ],
+          "rank": 30,
+          "slot_group": "data_analysis"
         },
         "analysis_protocol": {
           "name": "analysis_protocol",
-          "rank": 28,
+          "exact_mappings": [
+            "data_analysis_msm:analysis_protocol"
+          ],
+          "rank": 31,
           "slot_group": "data_analysis"
         },
         "analysis_protocol_DOI": {
           "name": "analysis_protocol_DOI",
-          "rank": 29,
+          "exact_mappings": [
+            "data_analysis_msm:analysis_protocol_DOI"
+          ],
+          "rank": 32,
           "slot_group": "data_analysis"
         },
         "rawDataFile": {
           "name": "rawDataFile",
-          "rank": 30,
+          "exact_mappings": [
+            "rawdata_file:submitter_id",
+            "data_analysis_msm:rawDataFiles"
+          ],
+          "rank": 33,
           "slot_group": "data_analysis"
         },
         "Normalization": {
           "name": "Normalization",
-          "rank": 31,
+          "exact_mappings": [
+            "data_analysis_msm:Normalization"
+          ],
+          "rank": 34,
           "slot_group": "data_analysis"
         },
         "Transformation": {
           "name": "Transformation",
-          "rank": 32,
+          "exact_mappings": [
+            "data_analysis_msm:Transformation"
+          ],
+          "rank": 35,
           "slot_group": "data_analysis"
         },
         "TransformationPurpose": {
           "name": "TransformationPurpose",
-          "rank": 33,
+          "exact_mappings": [
+            "data_analysis_msm:TransformationPurpose"
+          ],
+          "rank": 36,
           "slot_group": "data_analysis"
         },
         "TransformationDescription": {
           "name": "TransformationDescription",
-          "rank": 34,
+          "exact_mappings": [
+            "data_analysis_msm:TransformationDescription"
+          ],
+          "rank": 37,
           "slot_group": "data_analysis"
         },
         "processedDataFile": {
           "name": "processedDataFile",
-          "rank": 35,
+          "exact_mappings": [
+            "processeddata_file:submitter_id",
+            "data_analysis_msm:processedDataFiles"
+          ],
+          "rank": 38,
           "slot_group": "data_analysis"
         },
         "unit": {
           "name": "unit",
-          "rank": 36,
+          "exact_mappings": [
+            "data_analysis_msm:unit"
+          ],
+          "rank": 39,
           "slot_group": "data_analysis"
         },
         "experiement template version": {
           "name": "experiement template version",
-          "rank": 37,
+          "rank": 40,
           "slot_group": "provenance"
         }
       },
@@ -1246,8 +1412,14 @@
           "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
           "title": "metabolomic_experiment_identifier",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:submitter_id",
+            "chromatography:extractions",
+            "ms_method:extractions",
+            "rawdata_file:extractions",
+            "processeddata_file:extractions"
+          ],
           "rank": 1,
-          "identifier": true,
           "alias": "metabolomic_experiment_identifier",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1293,6 +1465,9 @@
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
           "title": "sample_identifier",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:samples"
+          ],
           "rank": 4,
           "alias": "sample_identifier",
           "owner": "metabolomics_experiment",
@@ -1356,6 +1531,9 @@
           "description": "A brief description of the flow cytometry protocol",
           "title": "extraction_protocol",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:extraction_protocol"
+          ],
           "rank": 8,
           "alias": "extraction_protocol",
           "owner": "metabolomics_experiment",
@@ -1371,6 +1549,9 @@
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "extraction_protocol_DOI",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:extraction_protocol_DOI"
+          ],
           "rank": 9,
           "alias": "extraction_protocol_DOI",
           "owner": "metabolomics_experiment",
@@ -1386,6 +1567,9 @@
           "description": " ",
           "title": "derivitization",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:derivitization"
+          ],
           "rank": 10,
           "alias": "derivitization",
           "owner": "metabolomics_experiment",
@@ -1400,6 +1584,9 @@
           "description": "The chemical agent used for the derivatization reaction",
           "title": "extract_preservation_method",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:extract_preservation_method"
+          ],
           "rank": 11,
           "alias": "extract_preservation_method",
           "owner": "metabolomics_experiment",
@@ -1414,6 +1601,9 @@
           "description": "Indicate the name of the chemical compound used as calibration standard.",
           "title": "calibration_standard",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "extraction:calibration_standard"
+          ],
           "rank": 12,
           "alias": "calibration_standard",
           "owner": "metabolomics_experiment",
@@ -1423,12 +1613,33 @@
           "slot_group": "exctraction",
           "range": "WhitespaceMinimizedString"
         },
+        "chromatography.name": {
+          "name": "chromatography.name",
+          "description": "name of chromatography",
+          "title": "name",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "chromatography:submitter_id"
+          ],
+          "rank": 13,
+          "alias": "chromatography.name",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "chromatography_protocol": {
           "name": "chromatography_protocol",
           "description": "A brief description of the flow cytometry protocol",
           "title": "chromatography_protocol",
           "from_schema": "https://example.com/CIMR",
-          "rank": 13,
+          "exact_mappings": [
+            "chromatography:chromatography_protocol"
+          ],
+          "rank": 14,
           "alias": "chromatography_protocol",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1443,7 +1654,10 @@
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "chromatography_protocol_DOI",
           "from_schema": "https://example.com/CIMR",
-          "rank": 14,
+          "exact_mappings": [
+            "chromatography:chromatography_protocol_DOI"
+          ],
+          "rank": 15,
           "alias": "chromatography_protocol_DOI",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1458,7 +1672,10 @@
           "description": "The name of the chromatography column.",
           "title": "chromatography_column",
           "from_schema": "https://example.com/CIMR",
-          "rank": 15,
+          "exact_mappings": [
+            "chromatography:chromatography_column"
+          ],
+          "rank": 16,
           "alias": "chromatography_column",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1473,7 +1690,10 @@
           "description": "Description of the elution program using the following scheme",
           "title": "elution program",
           "from_schema": "https://example.com/CIMR",
-          "rank": 16,
+          "exact_mappings": [
+            "chromatography:elution_program"
+          ],
+          "rank": 17,
           "alias": "elution_program",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1487,7 +1707,10 @@
           "description": "Report the flow rate of the elution buffer through column in amount per minute.",
           "title": "flow_rate",
           "from_schema": "https://example.com/CIMR",
-          "rank": 17,
+          "exact_mappings": [
+            "chromatography:flow_rate"
+          ],
+          "rank": 18,
           "alias": "flow_rate",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1501,7 +1724,10 @@
           "description": "The composition of the carrier gas (modile phase)",
           "title": "carrier_gas",
           "from_schema": "https://example.com/CIMR",
-          "rank": 18,
+          "exact_mappings": [
+            "chromatography:carrier_gas"
+          ],
+          "rank": 19,
           "alias": "carrier_gas",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1515,7 +1741,10 @@
           "description": "The description of the gas chromatography oven temperature program",
           "title": "oven_temperature_program",
           "from_schema": "https://example.com/CIMR",
-          "rank": 19,
+          "exact_mappings": [
+            "chromatography:oven_temperature_program"
+          ],
+          "rank": 20,
           "alias": "oven_temperature_program",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1524,12 +1753,33 @@
           "slot_group": "GasChromatography",
           "range": "WhitespaceMinimizedString"
         },
+        "ms_method.name": {
+          "name": "ms_method.name",
+          "description": " ",
+          "title": "name",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_method:submitter_id"
+          ],
+          "rank": 21,
+          "alias": "ms_method.name",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "ms_method",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "ms_protocol": {
           "name": "ms_protocol",
           "description": "A brief description of the flow cytometry protocol",
           "title": "ms_protocol",
           "from_schema": "https://example.com/CIMR",
-          "rank": 20,
+          "exact_mappings": [
+            "ms_method:ms_protocol"
+          ],
+          "rank": 22,
           "alias": "ms_protocol",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1544,7 +1794,10 @@
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "ms_protocol_DOI",
           "from_schema": "https://example.com/CIMR",
-          "rank": 21,
+          "exact_mappings": [
+            "ms_method:ms_protocol_DOI"
+          ],
+          "rank": 23,
           "alias": "ms_protocol_DOI",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1559,7 +1812,10 @@
           "description": "The name of the mass spectrometry instrument manufacturer",
           "title": "manufacturer",
           "from_schema": "https://example.com/CIMR",
-          "rank": 22,
+          "exact_mappings": [
+            "instrument:manufacturer"
+          ],
+          "rank": 24,
           "alias": "manufacturer",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1573,7 +1829,10 @@
           "description": "The name of the mass spectrometry instrument",
           "title": "model",
           "from_schema": "https://example.com/CIMR",
-          "rank": 23,
+          "exact_mappings": [
+            "instrument:submitter_id"
+          ],
+          "rank": 25,
           "slot_uri": "obo:MS_1000031",
           "alias": "model",
           "owner": "metabolomics_experiment",
@@ -1589,7 +1848,10 @@
           "description": "Relative orientation of the electromagnetic field during the selection and detection of ions in the mass spectrometer.",
           "title": "scan_polarity",
           "from_schema": "https://example.com/CIMR",
-          "rank": 24,
+          "exact_mappings": [
+            "instrument:scan_polarity"
+          ],
+          "rank": 26,
           "slot_uri": "obo:MS_1000465",
           "alias": "scan_polarity",
           "owner": "metabolomics_experiment",
@@ -1604,7 +1866,10 @@
           "description": "The method by which gas phase ions are generated from the sample.",
           "title": "ionization_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 25,
+          "exact_mappings": [
+            "instrument:ionization_type"
+          ],
+          "rank": 27,
           "slot_uri": "obo:MS_1000008",
           "alias": "ionization_type",
           "owner": "metabolomics_experiment",
@@ -1619,7 +1884,10 @@
           "description": "Type of detector used in the mass spectrometer.",
           "title": "detector_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 26,
+          "exact_mappings": [
+            "instrument:detector_type"
+          ],
+          "rank": 28,
           "slot_uri": "obo:MS_1000026",
           "alias": "detector_type",
           "owner": "metabolomics_experiment",
@@ -1634,7 +1902,10 @@
           "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
           "title": "mass_analyzer_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 27,
+          "exact_mappings": [
+            "instrument:mass_analyzer_type"
+          ],
+          "rank": 29,
           "slot_uri": "obo:MS_1000443",
           "alias": "mass_analyzer_type",
           "owner": "metabolomics_experiment",
@@ -1644,12 +1915,33 @@
           "slot_group": "Instrument",
           "range": "WhitespaceMinimizedString"
         },
+        "data_analysis_id": {
+          "name": "data_analysis_id",
+          "description": " ",
+          "title": "data_analysis_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "data_analysis_msm:submitter_id"
+          ],
+          "rank": 30,
+          "alias": "data_analysis_id",
+          "owner": "metabolomics_experiment",
+          "domain_of": [
+            "metabolomics_experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "analysis_protocol": {
           "name": "analysis_protocol",
           "description": "A brief description of the flow cytometry protocol",
           "title": "analysis_protocol",
           "from_schema": "https://example.com/CIMR",
-          "rank": 28,
+          "exact_mappings": [
+            "data_analysis_msm:analysis_protocol"
+          ],
+          "rank": 31,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "analysis_protocol",
           "owner": "metabolomics_experiment",
@@ -1664,7 +1956,10 @@
           "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
           "title": "analysis_protocol_DOI",
           "from_schema": "https://example.com/CIMR",
-          "rank": 29,
+          "exact_mappings": [
+            "data_analysis_msm:analysis_protocol_DOI"
+          ],
+          "rank": 32,
           "slot_uri": "obo:OBI_0002110",
           "alias": "analysis_protocol_DOI",
           "owner": "metabolomics_experiment",
@@ -1679,7 +1974,11 @@
           "description": " ",
           "title": "rawDataFile",
           "from_schema": "https://example.com/CIMR",
-          "rank": 30,
+          "exact_mappings": [
+            "rawdata_file:submitter_id",
+            "data_analysis_msm:rawDataFiles"
+          ],
+          "rank": 33,
           "slot_uri": "obo:OBI:0000021",
           "alias": "rawDataFile",
           "owner": "metabolomics_experiment",
@@ -1694,7 +1993,10 @@
           "description": " ",
           "title": "Normalization",
           "from_schema": "https://example.com/CIMR",
-          "rank": 31,
+          "exact_mappings": [
+            "data_analysis_msm:Normalization"
+          ],
+          "rank": 34,
           "alias": "Normalization",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1708,7 +2010,10 @@
           "description": " ",
           "title": "Transformation",
           "from_schema": "https://example.com/CIMR",
-          "rank": 32,
+          "exact_mappings": [
+            "data_analysis_msm:Transformation"
+          ],
+          "rank": 35,
           "alias": "Transformation",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1722,7 +2027,10 @@
           "description": "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, etc.).",
           "title": "TransformationPurpose",
           "from_schema": "https://example.com/CIMR",
-          "rank": 33,
+          "exact_mappings": [
+            "data_analysis_msm:TransformationPurpose"
+          ],
+          "rank": 36,
           "alias": "TransformationPurpose",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1736,7 +2044,10 @@
           "description": "Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.",
           "title": "TransformationDescription",
           "from_schema": "https://example.com/CIMR",
-          "rank": 34,
+          "exact_mappings": [
+            "data_analysis_msm:TransformationDescription"
+          ],
+          "rank": 37,
           "alias": "TransformationDescription",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1750,7 +2061,11 @@
           "description": " ",
           "title": "processedDataFile",
           "from_schema": "https://example.com/CIMR",
-          "rank": 35,
+          "exact_mappings": [
+            "processeddata_file:submitter_id",
+            "data_analysis_msm:processedDataFiles"
+          ],
+          "rank": 38,
           "alias": "processedDataFile",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1764,7 +2079,10 @@
           "description": " ",
           "title": "unit",
           "from_schema": "https://example.com/CIMR",
-          "rank": 36,
+          "exact_mappings": [
+            "data_analysis_msm:unit"
+          ],
+          "rank": 39,
           "alias": "unit",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1778,7 +2096,7 @@
           "description": " ",
           "title": "experiement template version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 37,
+          "rank": 40,
           "alias": "experiement_template_version",
           "owner": "metabolomics_experiment",
           "domain_of": [
@@ -1797,37 +2115,63 @@
       "slot_usage": {
         "metabolite_name": {
           "name": "metabolite_name",
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:metabolite_name"
+          ],
           "rank": 1,
+          "slot_group": "metabolite_identification"
+        },
+        "metabolite.data_analysis_id": {
+          "name": "metabolite.data_analysis_id",
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:data_analysis_msmes"
+          ],
+          "rank": 2,
           "slot_group": "metabolite_identification"
         },
         "refmet_name": {
           "name": "refmet_name",
-          "rank": 2,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:refmet_name"
+          ],
+          "rank": 3,
           "slot_group": "metabolite_identification"
         },
         "dtxsid": {
           "name": "dtxsid",
-          "rank": 3,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:dtxsid"
+          ],
+          "rank": 4,
           "slot_group": "metabolite_identification"
         },
         "inchikey": {
           "name": "inchikey",
-          "rank": 4,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:inchikey"
+          ],
+          "rank": 5,
           "slot_group": "metabolite_identification"
         },
         "mass": {
           "name": "mass",
-          "rank": 5,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:mass"
+          ],
+          "rank": 6,
           "slot_group": "metabolite_identification"
         },
         "elution_time": {
           "name": "elution_time",
-          "rank": 6,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:elution_time"
+          ],
+          "rank": 7,
           "slot_group": "metabolite_identification"
         },
         "sample template version": {
           "name": "sample template version",
-          "rank": 7,
+          "rank": 8,
           "slot_group": "provenance"
         }
       },
@@ -1837,9 +2181,30 @@
           "description": " ",
           "title": "metabolite_name",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:metabolite_name"
+          ],
           "rank": 1,
           "identifier": true,
           "alias": "metabolite_name",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "metabolite.data_analysis_id": {
+          "name": "metabolite.data_analysis_id",
+          "description": " ",
+          "title": "data_analysis_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:data_analysis_msmes"
+          ],
+          "rank": 2,
+          "alias": "metabolite.data_analysis_id",
           "owner": "metaboliteID",
           "domain_of": [
             "metaboliteID"
@@ -1853,7 +2218,10 @@
           "description": " ",
           "title": "refmet_name",
           "from_schema": "https://example.com/CIMR",
-          "rank": 2,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:refmet_name"
+          ],
+          "rank": 3,
           "alias": "refmet_name",
           "owner": "metaboliteID",
           "domain_of": [
@@ -1868,7 +2236,10 @@
           "description": " ",
           "title": "dtxsid",
           "from_schema": "https://example.com/CIMR",
-          "rank": 3,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:dtxsid"
+          ],
+          "rank": 4,
           "alias": "dtxsid",
           "owner": "metaboliteID",
           "domain_of": [
@@ -1882,7 +2253,10 @@
           "description": " ",
           "title": "inchikey",
           "from_schema": "https://example.com/CIMR",
-          "rank": 4,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:inchikey"
+          ],
+          "rank": 5,
           "alias": "inchikey",
           "owner": "metaboliteID",
           "domain_of": [
@@ -1896,7 +2270,10 @@
           "description": " ",
           "title": "mass",
           "from_schema": "https://example.com/CIMR",
-          "rank": 5,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:mass"
+          ],
+          "rank": 6,
           "alias": "mass",
           "owner": "metaboliteID",
           "domain_of": [
@@ -1910,7 +2287,10 @@
           "description": " ",
           "title": "elution_time",
           "from_schema": "https://example.com/CIMR",
-          "rank": 6,
+          "exact_mappings": [
+            "gen3_submit_metaboliteID:elution_time"
+          ],
+          "rank": 7,
           "alias": "elution_time",
           "owner": "metaboliteID",
           "domain_of": [
@@ -1924,14 +2304,14 @@
           "description": " ",
           "title": "sample template version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 7,
+          "rank": 8,
           "alias": "sample_template_version",
           "owner": "metaboliteID",
           "domain_of": [
             "metaboliteID"
           ],
           "slot_group": "provenance",
-          "range": "Provenance",
+          "range": "WhitespaceMinimizedString",
           "required": true
         }
       }
