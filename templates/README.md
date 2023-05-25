@@ -16,6 +16,8 @@ Describe who, how, and when. The purpose of ToxRSCat and what is 'appropriate' a
 
 > It is strongly recommeded that templates be based off of established reporting standards when one is available. Please lookup your data or study type at [FAIRsharing](fairsharing.org) or any other relevant resource to determine if a standard already exists. 
 
+[![Follow with Scribe!](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdUqJ1SOT61DFucDfT4OI73WvSGOoUWdpcNg&usqp=CAU =100x30)](https://scribehow.com/shared/DATAHARMONIZER_MIATE_INVESTIGATION__3SprorK6Qaig_QP4KbYpDg)
+
 1. Download the excel template from [here](https://github.com/naultran/ToxRSCat/blob/main/script/LinkML_template.xlsx). 
 2. dfd
 3. dfd
