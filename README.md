@@ -25,7 +25,6 @@ python_version == 3.9.*
 pandas 
 linkml
 ```
-....
 
 <a id="ma"></a>
 ## Machine-actionable metadata models
