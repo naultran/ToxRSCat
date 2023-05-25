@@ -19,7 +19,6 @@ classes:
     is_a: dh_interface
     slots:
     - Study.project_identifier
-    - study_design
     - Study.subject_identifier
     - start_date
     - start_date_age
@@ -270,6 +269,7 @@ classes:
     - PMC_id
     - DOI
     - PMID
+    - study_design
     - study_type
     - experimental_setting
     - Organism
