@@ -1,7 +1,7 @@
 {
   "miate": {
-    "Investigation": {
-      "name": "Investigation",
+    "Project": {
+      "name": "Project",
       "status": "published",
       "display": true
     },
@@ -24,13 +24,13 @@
     }
   },
   "miaca":{
-    "Study":{
-      "name": "Study",
+    "Investigation":{
+      "name": "Investigation",
       "status": "published",
       "display": true
     },
-    "Investigation":{
-      "name": "Investigation",
+    "Study":{
+      "name": "Study",
       "status": "published",
       "display": true
     },

@@ -13,7 +13,7 @@ export default {
             const ExportHeaders_extraction = new Map([
                 ["type", []], //extraction
                 ["submitter_id", []], //metabolomic_experiment_identifier
-                ["samples", []],
+                ["samples.submitter_id", []],
                 ["extraction_protocol", []],
                 ["extraction_protocol_DOI", []],
                 ["derivitization", []],
@@ -62,7 +62,7 @@ export default {
             const ExportHeaders_chromatography = new Map([
                 ["type", []], //chromatography
                 ["submitter_id", []], //
-                ["extractions", []], 
+                ["extractions.submitter_id", []], 
                 ["name", ["chromatography.name"],],
                 ["chromatography_protocol", []],
                 ["chromatography_protocol_DOI", []],
@@ -110,7 +110,7 @@ export default {
             const ExportHeaders_ms_method = new Map([
                 ["type", []], //ms_method
                 ["submitter_id", []], //
-                ["extractions", []], 
+                ["extractions.submitter_id", []], 
                 ["name", ["ms_method.name"],],
                 ["ms_protocol", []],
                 ["ms_protocol_DOI", []],
@@ -153,7 +153,7 @@ export default {
             const ExportHeaders_rawdata_file = new Map([
                 ["type", []], //rawdata_file
                 ["submitter_id", []],
-                ["extractions", []],
+                ["extractions.submitter_id", []],
                 ["file_name", ["rawDataFile"]],
                 ["provenance", ["experiement template version"],],
             ]);
@@ -221,7 +221,7 @@ export default {
             const ExportHeaders_processeddata_file = new Map([
                 ["type", []], //processeddata_file
                 ["submitter_id", []],
-                ["extractions", []],
+                ["extractions.submitter_id", []],
                 ["file_name", ["processedDataFile"]],
                 ["provenance", ["experiement template version"],],
             ]);
@@ -292,12 +292,12 @@ export default {
                 ["data_analysis_id", ["data_analysis_id"],],
                 ["analysis_protocol", []],
                 ["analysis_protocol_DOI", []],
-                ["rawDataFiles", []],
+                ["rawdata_files.submitter_id", []],
                 ["Normalization", []],
                 ["Transformation", []],
                 ["TransformationPurpose", []],
                 ["TransformationDescription", []],
-                ["processedDataFiles", []],
+                ["processeddata_files.submitter_id", []],
                 ["unit", []],
                 ["provenance", ["experiement template version"],],
             ]);
@@ -410,7 +410,7 @@ export default {
             const ExportHeaders = new Map([
                 ["type", []], //metaboliteID
                 ["submitter_id", ["metabolite_name"], ],
-                ["data_analysis_msmes", []],
+                ["data_analysis_msmes.submitter_id", []],
                 ["metabolite_name", []],
                 ["refmet_name", []],
                 ["dtxsid", []],

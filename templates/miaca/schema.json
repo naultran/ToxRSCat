@@ -1793,10 +1793,10 @@
     }
   },
   "slots": {
-    "Investigation.investigation_identifier": {
-      "name": "Investigation.investigation_identifier",
+    "Project.project_identifier": {
+      "name": "Project.project_identifier",
       "description": " ",
-      "title": "investigation_identifier",
+      "title": "Project_identifier",
       "comments": [
         "SRP_PRJ3"
       ],
@@ -1815,8 +1815,8 @@
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString"
     },
-    "investigation_description": {
-      "name": "investigation_description",
+    "project_description": {
+      "name": "project_description",
       "description": "A textual entity that describes an investigation.",
       "title": "Description",
       "comments": [
@@ -2019,29 +2019,6 @@
       "inlined_as_list": true,
       "pattern": "^\\d{5,20}"
     },
-    "Study.study_identifier": {
-      "name": "Study.study_identifier",
-      "description": " ",
-      "title": "study_identifier",
-      "comments": [
-        "PRJ140"
-      ],
-      "from_schema": "https://example.com/MIATE",
-      "identifier": true,
-      "range": "WhitespaceMinimizedString",
-      "required": true
-    },
-    "Study.investigation_identifier": {
-      "name": "Study.investigation_identifier",
-      "description": " ",
-      "title": "investigation_identifier",
-      "comments": [
-        "SRP_PRJ3"
-      ],
-      "from_schema": "https://example.com/MIATE",
-      "range": "WhitespaceMinimizedString",
-      "required": true
-    },
     "purpose": {
       "name": "purpose",
       "description": " Description of the specific application of this project within a larger context.",
@@ -2083,6 +2060,29 @@
       ],
       "from_schema": "https://example.com/MIATE",
       "range": "experimental_setting menu"
+    },
+    "Study.project_identifier": {
+      "name": "Study.project_identifier",
+      "description": " ",
+      "title": "project_identifier",
+      "comments": [
+        "PRJ140"
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "Study.subject_identifier": {
+      "name": "Study.subject_identifier",
+      "description": " ",
+      "title": "subject_identifier",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
     },
     "cell_type": {
       "name": "cell_type",
@@ -2577,17 +2577,6 @@
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString"
     },
-    "Study.subject_identifier": {
-      "name": "Study.subject_identifier",
-      "description": " ",
-      "title": "subject_identifier",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/MIATE",
-      "range": "WhitespaceMinimizedString",
-      "recommended": true
-    },
     " treatment_protocol": {
       "name": " treatment_protocol",
       "description": "Description of the conditions that are applied to CellLine during",
@@ -2720,17 +2709,6 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "Sample.study_identifier": {
-      "name": "Sample.study_identifier",
-      "description": " ",
-      "title": "study_identifier",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/MIATE",
-      "range": "WhitespaceMinimizedString",
-      "recommended": true
-    },
     "Sample.subject_identifier": {
       "name": "Sample.subject_identifier",
       "description": " ",
@@ -2814,346 +2792,321 @@
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
-        "Study.study_identifier": {
-          "name": "Study.study_identifier",
+        "Study.project_identifier": {
+          "name": "Study.project_identifier",
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "Study.investigation_identifier": {
-          "name": "Study.investigation_identifier",
+        "Study.subject_identifier": {
+          "name": "Study.subject_identifier",
           "rank": 2,
-          "slot_group": "identifiers"
-        },
-        "purpose": {
-          "name": "purpose",
-          "rank": 3,
-          "slot_group": "experiment"
-        },
-        "study_design": {
-          "name": "study_design",
-          "rank": 4,
-          "slot_group": "experiment"
-        },
-        "study_type": {
-          "name": "study_type",
-          "rank": 5,
-          "slot_group": "experiment"
-        },
-        "experimental_setting": {
-          "name": "experimental_setting",
-          "rank": 6,
-          "slot_group": "experiment"
+          "slot_group": "subject"
         },
         "cell_type": {
           "name": "cell_type",
-          "rank": 7,
+          "rank": 3,
           "slot_group": "cell_identification"
         },
         "organism": {
           "name": "organism",
-          "rank": 8,
+          "rank": 4,
           "slot_group": "cell_identification"
         },
         "race": {
           "name": "race",
-          "rank": 9,
+          "rank": 5,
           "slot_group": "cell_identification"
         },
         "strain": {
           "name": "strain",
-          "rank": 10,
+          "rank": 6,
           "slot_group": "cell_identification"
         },
         "sex": {
           "name": "sex",
-          "rank": 11,
+          "rank": 7,
           "slot_group": "cell_identification"
         },
         "age": {
           "name": "age",
-          "rank": 12,
+          "rank": 8,
           "slot_group": "cell_identification"
         },
         "passage_number": {
           "name": "passage_number",
-          "rank": 13,
+          "rank": 9,
           "slot_group": "cell_identification"
         },
         "lot_no": {
           "name": "lot_no",
-          "rank": 14,
+          "rank": 10,
           "slot_group": "cell_identification"
         },
         "source_organ": {
           "name": "source_organ",
-          "rank": 15,
+          "rank": 11,
           "slot_group": "cell_identification"
         },
         "lineage": {
           "name": "lineage",
-          "rank": 16,
+          "rank": 12,
           "slot_group": "cell_identification"
         },
         "karyotype": {
           "name": "karyotype",
-          "rank": 17,
+          "rank": 13,
           "slot_group": "cell_identification"
         },
         "health_status": {
           "name": "health_status",
-          "rank": 18,
+          "rank": 14,
           "slot_group": "cell_identification"
         },
         "miate_subject_identifier": {
           "name": "miate_subject_identifier",
-          "rank": 19,
+          "rank": 15,
           "slot_group": "cell_identification"
         },
         "modifications": {
           "name": "modifications",
-          "rank": 20,
+          "rank": 16,
           "slot_group": "cell_identification"
         },
         "lineQC": {
           "name": "lineQC",
-          "rank": 21,
+          "rank": 17,
           "slot_group": "quality_control"
         },
         "validation": {
           "name": "validation",
-          "rank": 22,
+          "rank": 18,
           "slot_group": "quality_control"
         },
         "isolation_protocol": {
           "name": "isolation_protocol",
-          "rank": 23,
+          "rank": 19,
           "slot_group": "primary_cell"
         },
         "isolation_protocol_DOI": {
           "name": "isolation_protocol_DOI",
-          "rank": 24,
+          "rank": 20,
           "slot_group": "primary_cell"
         },
         "TBD.stem_cell": {
           "name": "TBD.stem_cell",
-          "rank": 25,
+          "rank": 21,
           "slot_group": "stem_cell"
         },
         "TBD.cell_line": {
           "name": "TBD.cell_line",
-          "rank": 26,
+          "rank": 22,
           "slot_group": "cell_line"
         },
         "date.culture_vessel": {
           "name": "date.culture_vessel",
-          "rank": 27,
+          "rank": 23,
           "slot_group": "culture_vessel"
         },
         "nameType": {
           "name": "nameType",
-          "rank": 28,
+          "rank": 24,
           "slot_group": "culture_vessel"
         },
         "vendor": {
           "name": "vendor",
-          "rank": 29,
+          "rank": 25,
           "slot_group": "culture_vessel"
         },
         "dimension": {
           "name": "dimension",
-          "rank": 30,
+          "rank": 26,
           "slot_group": "culture_vessel"
         },
         "size": {
           "name": "size",
-          "rank": 31,
+          "rank": 27,
           "slot_group": "culture_vessel"
         },
         "surfaceArea": {
           "name": "surfaceArea",
-          "rank": 32,
+          "rank": 28,
           "slot_group": "culture_vessel"
         },
         "coating_substrate": {
           "name": "coating_substrate",
-          "rank": 33,
+          "rank": 29,
           "slot_group": "culture_vessel"
         },
         "culture_vessel_location": {
           "name": "culture_vessel_location",
-          "rank": 34,
+          "rank": 30,
           "slot_group": "culture_vessel"
         },
         "seeding_cell_density": {
           "name": "seeding_cell_density",
-          "rank": 35,
+          "rank": 31,
           "slot_group": "seeding_cell_density"
         },
         "seeding_cell_date": {
           "name": "seeding_cell_date",
-          "rank": 36,
+          "rank": 32,
           "slot_group": "seeding_cell_date"
         },
         "cellDensity": {
           "name": "cellDensity",
-          "rank": 37,
+          "rank": 33,
           "slot_group": "cellDensity"
         },
         "incubator_vendor": {
           "name": "incubator_vendor",
-          "rank": 38,
+          "rank": 34,
           "slot_group": "incubation"
         },
         "incubator_model": {
           "name": "incubator_model",
-          "rank": 39,
+          "rank": 35,
           "slot_group": "incubation"
         },
         "co2_percent": {
           "name": "co2_percent",
-          "rank": 40,
+          "rank": 36,
           "slot_group": "incubation"
         },
         "o2_percent": {
           "name": "o2_percent",
-          "rank": 41,
+          "rank": 37,
           "slot_group": "incubation"
         },
         "temperature": {
           "name": "temperature",
-          "rank": 42,
+          "rank": 38,
           "slot_group": "incubation"
         },
         "humidity": {
           "name": "humidity",
-          "rank": 43,
+          "rank": 39,
           "slot_group": "incubation"
         },
         "date.medium": {
           "name": "date.medium",
-          "rank": 44,
+          "rank": 40,
           "slot_group": "medium"
         },
         "protocol": {
           "name": "protocol",
-          "rank": 45,
+          "rank": 41,
           "slot_group": "medium"
         },
         "basal_medium": {
           "name": "basal_medium",
-          "rank": 46,
+          "rank": 42,
           "slot_group": "medium"
         },
         "basal_medium_vendor": {
           "name": "basal_medium_vendor",
-          "rank": 47,
+          "rank": 43,
           "slot_group": "medium"
         },
         "basal_medium_lot_no": {
           "name": "basal_medium_lot_no",
-          "rank": 48,
+          "rank": 44,
           "slot_group": "medium"
         },
         "culture_additives": {
           "name": "culture_additives",
-          "rank": 49,
+          "rank": 45,
           "slot_group": "medium"
         },
         "culture_additives_concentration": {
           "name": "culture_additives_concentration",
-          "rank": 50,
+          "rank": 46,
           "slot_group": "medium"
         },
         "anitibiotic_name": {
           "name": "anitibiotic_name",
-          "rank": 51,
+          "rank": 47,
           "slot_group": "medium"
         },
         "antibiotic_concentration": {
           "name": "antibiotic_concentration",
-          "rank": 52,
+          "rank": 48,
           "slot_group": "medium"
-        },
-        "Study.subject_identifier": {
-          "name": "Study.subject_identifier",
-          "rank": 53,
-          "slot_group": "subject"
         },
         " treatment_protocol": {
           "name": " treatment_protocol",
-          "rank": 54,
+          "rank": 49,
           "slot_group": "treatment"
         },
         " treatment_protocol_DOI": {
           "name": " treatment_protocol_DOI",
-          "rank": 55,
+          "rank": 50,
           "slot_group": "treatment"
         },
         "date.treatment": {
           "name": "date.treatment",
-          "rank": 56,
+          "rank": 51,
           "slot_group": "treatment"
         },
         "addition_volume": {
           "name": "addition_volume",
-          "rank": 57,
+          "rank": 52,
           "slot_group": "treatment"
         },
         "stock_concentration": {
           "name": "stock_concentration",
-          "rank": 58,
+          "rank": 53,
           "slot_group": "treatment"
         },
         "final_concentration": {
           "name": "final_concentration",
-          "rank": 59,
+          "rank": 54,
           "slot_group": "treatment"
         },
         "concentration_unit": {
           "name": "concentration_unit",
-          "rank": 60,
+          "rank": 55,
           "slot_group": "treatment"
         },
         "test_article_administration_duration": {
           "name": "test_article_administration_duration",
-          "rank": 61,
+          "rank": 56,
           "slot_group": "treatment"
         },
         "test_article_name": {
           "name": "test_article_name",
-          "rank": 62,
+          "rank": 57,
           "slot_group": "treatment"
         },
         "test_article_dtxsid": {
           "name": "test_article_dtxsid",
-          "rank": 63,
+          "rank": 58,
           "slot_group": "treatment"
         },
         "vehicle_name": {
           "name": "vehicle_name",
-          "rank": 64,
+          "rank": 59,
           "slot_group": "treatment"
         },
         "vehicle_dtxsid": {
           "name": "vehicle_dtxsid",
-          "rank": 65,
+          "rank": 60,
           "slot_group": "treatment"
         },
         "study template version": {
           "name": "study template version",
-          "rank": 66,
+          "rank": 61,
           "slot_group": "provenance"
         }
       },
       "attributes": {
-        "Study.study_identifier": {
-          "name": "Study.study_identifier",
+        "Study.project_identifier": {
+          "name": "Study.project_identifier",
           "description": " ",
-          "title": "study_identifier",
+          "title": "project_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 1,
           "identifier": true,
-          "alias": "Study.study_identifier",
+          "alias": "Study.project_identifier",
           "owner": "Study",
           "domain_of": [
             "Study"
@@ -3162,85 +3115,27 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "Study.investigation_identifier": {
-          "name": "Study.investigation_identifier",
+        "Study.subject_identifier": {
+          "name": "Study.subject_identifier",
           "description": " ",
-          "title": "investigation_identifier",
+          "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
-          "alias": "Study.investigation_identifier",
+          "alias": "Study.subject_identifier",
           "owner": "Study",
           "domain_of": [
             "Study"
           ],
-          "slot_group": "identifiers",
+          "slot_group": "subject",
           "range": "WhitespaceMinimizedString",
-          "required": true
-        },
-        "purpose": {
-          "name": "purpose",
-          "description": " Description of the specific application of this project within a larger context.",
-          "title": "purpose",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 3,
-          "slot_uri": "obo:IAO_0000315",
-          "alias": "purpose",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "slot_group": "experiment",
-          "range": "WhitespaceMinimizedString"
-        },
-        "study_design": {
-          "name": "study_design",
-          "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
-          "title": "Study design",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 4,
-          "slot_uri": "obo:OBI_0500000",
-          "alias": "study_design",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "slot_group": "experiment",
-          "range": "study_design menu"
-        },
-        "study_type": {
-          "name": "study_type",
-          "description": "A categorical value specification that specifies the type of study from a list of study types",
-          "title": "Study type",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 5,
-          "alias": "study_type",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "slot_group": "experiment",
-          "range": "study_type menu"
-        },
-        "experimental_setting": {
-          "name": "experimental_setting",
-          "description": " ",
-          "title": "Experimental setting",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 6,
-          "alias": "experimental_setting",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "slot_group": "experiment",
-          "range": "experimental_setting menu"
+          "recommended": true
         },
         "cell_type": {
           "name": "cell_type",
           "description": " ",
           "title": "cell_type",
           "from_schema": "https://example.com/MIATE",
-          "rank": 7,
+          "rank": 3,
           "slot_uri": "obo:CL_0000000",
           "alias": "cell_type",
           "owner": "Study",
@@ -3255,7 +3150,7 @@
           "description": " ",
           "title": "organism",
           "from_schema": "https://example.com/MIATE",
-          "rank": 8,
+          "rank": 4,
           "alias": "organism",
           "owner": "Study",
           "domain_of": [
@@ -3269,7 +3164,7 @@
           "description": " ",
           "title": "race",
           "from_schema": "https://example.com/MIATE",
-          "rank": 9,
+          "rank": 5,
           "alias": "race",
           "owner": "Study",
           "domain_of": [
@@ -3283,7 +3178,7 @@
           "description": " ",
           "title": "strain",
           "from_schema": "https://example.com/MIATE",
-          "rank": 10,
+          "rank": 6,
           "alias": "strain",
           "owner": "Study",
           "domain_of": [
@@ -3297,7 +3192,7 @@
           "description": " ",
           "title": "sex",
           "from_schema": "https://example.com/MIATE",
-          "rank": 11,
+          "rank": 7,
           "alias": "sex",
           "owner": "Study",
           "domain_of": [
@@ -3311,7 +3206,7 @@
           "description": " ",
           "title": "age",
           "from_schema": "https://example.com/MIATE",
-          "rank": 12,
+          "rank": 8,
           "alias": "age",
           "owner": "Study",
           "domain_of": [
@@ -3327,7 +3222,7 @@
           "description": " ",
           "title": "passage_number",
           "from_schema": "https://example.com/MIATE",
-          "rank": 13,
+          "rank": 9,
           "alias": "passage_number",
           "owner": "Study",
           "domain_of": [
@@ -3343,7 +3238,7 @@
           "description": " ",
           "title": "lot_no",
           "from_schema": "https://example.com/MIATE",
-          "rank": 14,
+          "rank": 10,
           "alias": "lot_no",
           "owner": "Study",
           "domain_of": [
@@ -3357,7 +3252,7 @@
           "description": " ",
           "title": "source_organ",
           "from_schema": "https://example.com/MIATE",
-          "rank": 15,
+          "rank": 11,
           "alias": "source_organ",
           "owner": "Study",
           "domain_of": [
@@ -3371,7 +3266,7 @@
           "description": " ",
           "title": "lineage",
           "from_schema": "https://example.com/MIATE",
-          "rank": 16,
+          "rank": 12,
           "alias": "lineage",
           "owner": "Study",
           "domain_of": [
@@ -3385,7 +3280,7 @@
           "description": "The chromosomal morphology and number in somatic cells of an individual.",
           "title": "karyotype",
           "from_schema": "https://example.com/MIATE",
-          "rank": 17,
+          "rank": 13,
           "alias": "karyotype",
           "owner": "Study",
           "domain_of": [
@@ -3399,7 +3294,7 @@
           "description": " ",
           "title": "health_status",
           "from_schema": "https://example.com/MIATE",
-          "rank": 18,
+          "rank": 14,
           "alias": "health_status",
           "owner": "Study",
           "domain_of": [
@@ -3413,7 +3308,7 @@
           "description": " ",
           "title": "miate_subject_identifier",
           "from_schema": "https://example.com/MIATE",
-          "rank": 19,
+          "rank": 15,
           "alias": "miate_subject_identifier",
           "owner": "Study",
           "domain_of": [
@@ -3427,7 +3322,7 @@
           "description": " transgene/genetic manipulations, e.g. stably transfected, induced",
           "title": "modifications",
           "from_schema": "https://example.com/MIATE",
-          "rank": 20,
+          "rank": 16,
           "slot_uri": "obo:CLO_0000004",
           "alias": "modifications",
           "owner": "Study",
@@ -3442,7 +3337,7 @@
           "description": " Mycoplasma test (Y/N) and other measures for quality control, e.g.",
           "title": "lineQC",
           "from_schema": "https://example.com/MIATE",
-          "rank": 21,
+          "rank": 17,
           "slot_uri": "obo:ERO_0001219",
           "multivalued": true,
           "alias": "lineQC",
@@ -3459,7 +3354,7 @@
           "description": " measures undertaken to validate cell line, e.g. DNA fingerprinting,",
           "title": "validation",
           "from_schema": "https://example.com/MIATE",
-          "rank": 22,
+          "rank": 18,
           "slot_uri": "obo:ERO_0002025",
           "multivalued": true,
           "alias": "validation",
@@ -3476,7 +3371,7 @@
           "description": " ",
           "title": "isolation_protocol",
           "from_schema": "https://example.com/MIATE",
-          "rank": 23,
+          "rank": 19,
           "alias": "isolation_protocol",
           "owner": "Study",
           "domain_of": [
@@ -3490,7 +3385,7 @@
           "description": " ",
           "title": "isolation_protocol_DOI",
           "from_schema": "https://example.com/MIATE",
-          "rank": 24,
+          "rank": 20,
           "alias": "isolation_protocol_DOI",
           "owner": "Study",
           "domain_of": [
@@ -3504,7 +3399,7 @@
           "description": " ",
           "title": "TBD",
           "from_schema": "https://example.com/MIATE",
-          "rank": 25,
+          "rank": 21,
           "alias": "TBD.stem_cell",
           "owner": "Study",
           "domain_of": [
@@ -3518,7 +3413,7 @@
           "description": " ",
           "title": "TBD",
           "from_schema": "https://example.com/MIATE",
-          "rank": 26,
+          "rank": 22,
           "alias": "TBD.cell_line",
           "owner": "Study",
           "domain_of": [
@@ -3532,7 +3427,7 @@
           "description": " ",
           "title": "date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 27,
+          "rank": 23,
           "alias": "date.culture_vessel",
           "owner": "Study",
           "domain_of": [
@@ -3546,7 +3441,7 @@
           "description": "Type of vessel used",
           "title": "nameType",
           "from_schema": "https://example.com/MIATE",
-          "rank": 28,
+          "rank": 24,
           "slot_uri": "obo:OBI_0000967",
           "alias": "nameType",
           "owner": "Study",
@@ -3561,7 +3456,7 @@
           "description": " ",
           "title": "vendor",
           "from_schema": "https://example.com/MIATE",
-          "rank": 29,
+          "rank": 25,
           "slot_uri": "obo:NCIT_C68608",
           "alias": "vendor",
           "owner": "Study",
@@ -3576,7 +3471,7 @@
           "description": "Number of wells in the culture vessel",
           "title": "dimension",
           "from_schema": "https://example.com/MIATE",
-          "rank": 30,
+          "rank": 26,
           "slot_uri": "obo:NCIT_C25483",
           "alias": "dimension",
           "owner": "Study",
@@ -3593,7 +3488,7 @@
           "description": "Volume of the reaction vessel.",
           "title": "size",
           "from_schema": "https://example.com/MIATE",
-          "rank": 31,
+          "rank": 27,
           "slot_uri": "obo:PATO_0000117",
           "alias": "size",
           "owner": "Study",
@@ -3609,7 +3504,7 @@
           "description": " surface area in mm^2",
           "title": "surfaceArea",
           "from_schema": "https://example.com/MIATE",
-          "rank": 32,
+          "rank": 28,
           "slot_uri": "obo:GENEPIO_0001885",
           "alias": "surfaceArea",
           "owner": "Study",
@@ -3625,7 +3520,7 @@
           "description": " ",
           "title": "coating_substrate",
           "from_schema": "https://example.com/MIATE",
-          "rank": 33,
+          "rank": 29,
           "alias": "coating_substrate",
           "owner": "Study",
           "domain_of": [
@@ -3639,7 +3534,7 @@
           "description": " ",
           "title": "culture_vessel_location",
           "from_schema": "https://example.com/MIATE",
-          "rank": 34,
+          "rank": 30,
           "alias": "culture_vessel_location",
           "owner": "Study",
           "domain_of": [
@@ -3653,7 +3548,7 @@
           "description": " ",
           "title": "seeding_cell_density",
           "from_schema": "https://example.com/MIATE",
-          "rank": 35,
+          "rank": 31,
           "alias": "seeding_cell_density",
           "owner": "Study",
           "domain_of": [
@@ -3668,7 +3563,7 @@
           "description": " ",
           "title": "seeding_cell_date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 36,
+          "rank": 32,
           "alias": "seeding_cell_date",
           "owner": "Study",
           "domain_of": [
@@ -3682,7 +3577,7 @@
           "description": " ",
           "title": "cellDensity",
           "from_schema": "https://example.com/MIATE",
-          "rank": 37,
+          "rank": 33,
           "slot_uri": "obo:NCIT_C120538",
           "alias": "cellDensity",
           "owner": "Study",
@@ -3697,7 +3592,7 @@
           "description": " ",
           "title": "incubator_vendor",
           "from_schema": "https://example.com/MIATE",
-          "rank": 38,
+          "rank": 34,
           "alias": "incubator_vendor",
           "owner": "Study",
           "domain_of": [
@@ -3711,7 +3606,7 @@
           "description": " ",
           "title": "incubator_model",
           "from_schema": "https://example.com/MIATE",
-          "rank": 39,
+          "rank": 35,
           "alias": "incubator_model",
           "owner": "Study",
           "domain_of": [
@@ -3725,7 +3620,7 @@
           "description": " ",
           "title": "co2_percent",
           "from_schema": "https://example.com/MIATE",
-          "rank": 40,
+          "rank": 36,
           "alias": "co2_percent",
           "owner": "Study",
           "domain_of": [
@@ -3741,7 +3636,7 @@
           "description": " ",
           "title": "o2_percent",
           "from_schema": "https://example.com/MIATE",
-          "rank": 41,
+          "rank": 37,
           "alias": "o2_percent",
           "owner": "Study",
           "domain_of": [
@@ -3757,7 +3652,7 @@
           "description": " ",
           "title": "temperature",
           "from_schema": "https://example.com/MIATE",
-          "rank": 42,
+          "rank": 38,
           "alias": "temperature",
           "owner": "Study",
           "domain_of": [
@@ -3773,7 +3668,7 @@
           "description": " ",
           "title": "humidity",
           "from_schema": "https://example.com/MIATE",
-          "rank": 43,
+          "rank": 39,
           "alias": "humidity",
           "owner": "Study",
           "domain_of": [
@@ -3789,7 +3684,7 @@
           "description": " ",
           "title": "date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 44,
+          "rank": 40,
           "alias": "date.medium",
           "owner": "Study",
           "domain_of": [
@@ -3803,7 +3698,7 @@
           "description": " ",
           "title": "protocol",
           "from_schema": "https://example.com/MIATE",
-          "rank": 45,
+          "rank": 41,
           "alias": "protocol",
           "owner": "Study",
           "domain_of": [
@@ -3817,7 +3712,7 @@
           "description": " ",
           "title": "basal_medium",
           "from_schema": "https://example.com/MIATE",
-          "rank": 46,
+          "rank": 42,
           "alias": "basal_medium",
           "owner": "Study",
           "domain_of": [
@@ -3831,7 +3726,7 @@
           "description": " ",
           "title": "basal_medium_vendor",
           "from_schema": "https://example.com/MIATE",
-          "rank": 47,
+          "rank": 43,
           "alias": "basal_medium_vendor",
           "owner": "Study",
           "domain_of": [
@@ -3845,7 +3740,7 @@
           "description": " ",
           "title": "basal_medium_lot_no",
           "from_schema": "https://example.com/MIATE",
-          "rank": 48,
+          "rank": 44,
           "alias": "basal_medium_lot_no",
           "owner": "Study",
           "domain_of": [
@@ -3859,7 +3754,7 @@
           "description": " ",
           "title": "culture_additives",
           "from_schema": "https://example.com/MIATE",
-          "rank": 49,
+          "rank": 45,
           "alias": "culture_additives",
           "owner": "Study",
           "domain_of": [
@@ -3873,7 +3768,7 @@
           "description": " ",
           "title": "culture_additives_concentration",
           "from_schema": "https://example.com/MIATE",
-          "rank": 50,
+          "rank": 46,
           "alias": "culture_additives_concentration",
           "owner": "Study",
           "domain_of": [
@@ -3887,7 +3782,7 @@
           "description": " ",
           "title": "anitibiotic_name",
           "from_schema": "https://example.com/MIATE",
-          "rank": 51,
+          "rank": 47,
           "alias": "anitibiotic_name",
           "owner": "Study",
           "domain_of": [
@@ -3901,7 +3796,7 @@
           "description": " ",
           "title": "antibiotic_concentration",
           "from_schema": "https://example.com/MIATE",
-          "rank": 52,
+          "rank": 48,
           "alias": "antibiotic_concentration",
           "owner": "Study",
           "domain_of": [
@@ -3910,27 +3805,12 @@
           "slot_group": "medium",
           "range": "WhitespaceMinimizedString"
         },
-        "Study.subject_identifier": {
-          "name": "Study.subject_identifier",
-          "description": " ",
-          "title": "subject_identifier",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 53,
-          "alias": "Study.subject_identifier",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "slot_group": "subject",
-          "range": "WhitespaceMinimizedString",
-          "recommended": true
-        },
         " treatment_protocol": {
           "name": " treatment_protocol",
           "description": "Description of the conditions that are applied to CellLine during",
           "title": " treatment_protocol",
           "from_schema": "https://example.com/MIATE",
-          "rank": 54,
+          "rank": 49,
           "alias": "treatment_protocol",
           "owner": "Study",
           "domain_of": [
@@ -3944,7 +3824,7 @@
           "description": " ",
           "title": " treatment_protocol_DOI",
           "from_schema": "https://example.com/MIATE",
-          "rank": 55,
+          "rank": 50,
           "alias": "treatment_protocol_DOI",
           "owner": "Study",
           "domain_of": [
@@ -3958,7 +3838,7 @@
           "description": " ",
           "title": "date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 56,
+          "rank": 51,
           "alias": "date.treatment",
           "owner": "Study",
           "domain_of": [
@@ -3972,7 +3852,7 @@
           "description": " ",
           "title": "addition_volume",
           "from_schema": "https://example.com/MIATE",
-          "rank": 57,
+          "rank": 52,
           "alias": "addition_volume",
           "owner": "Study",
           "domain_of": [
@@ -3986,7 +3866,7 @@
           "description": " ",
           "title": "stock_concentration",
           "from_schema": "https://example.com/MIATE",
-          "rank": 58,
+          "rank": 53,
           "alias": "stock_concentration",
           "owner": "Study",
           "domain_of": [
@@ -4000,7 +3880,7 @@
           "description": " ",
           "title": "final_concentration",
           "from_schema": "https://example.com/MIATE",
-          "rank": 59,
+          "rank": 54,
           "alias": "final_concentration",
           "owner": "Study",
           "domain_of": [
@@ -4014,7 +3894,7 @@
           "description": " ",
           "title": "concentration_unit",
           "from_schema": "https://example.com/MIATE",
-          "rank": 60,
+          "rank": 55,
           "alias": "concentration_unit",
           "owner": "Study",
           "domain_of": [
@@ -4028,7 +3908,7 @@
           "description": " ",
           "title": "test_article_administration_duration",
           "from_schema": "https://example.com/MIATE",
-          "rank": 61,
+          "rank": 56,
           "alias": "test_article_administration_duration",
           "owner": "Study",
           "domain_of": [
@@ -4042,7 +3922,7 @@
           "description": " ",
           "title": "test_article_name",
           "from_schema": "https://example.com/MIATE",
-          "rank": 62,
+          "rank": 57,
           "alias": "test_article_name",
           "owner": "Study",
           "domain_of": [
@@ -4056,7 +3936,7 @@
           "description": " ",
           "title": "test_article_dtxsid",
           "from_schema": "https://example.com/MIATE",
-          "rank": 63,
+          "rank": 58,
           "alias": "test_article_dtxsid",
           "owner": "Study",
           "domain_of": [
@@ -4070,7 +3950,7 @@
           "description": " ",
           "title": "vehicle_name",
           "from_schema": "https://example.com/MIATE",
-          "rank": 64,
+          "rank": 59,
           "alias": "vehicle_name",
           "owner": "Study",
           "domain_of": [
@@ -4084,7 +3964,7 @@
           "description": " ",
           "title": "vehicle_dtxsid",
           "from_schema": "https://example.com/MIATE",
-          "rank": 65,
+          "rank": 60,
           "alias": "vehicle_dtxsid",
           "owner": "Study",
           "domain_of": [
@@ -4098,7 +3978,7 @@
           "description": " ",
           "title": "study template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 66,
+          "rank": 61,
           "alias": "study_template_version",
           "owner": "Study",
           "domain_of": [
@@ -4109,13 +3989,13 @@
         }
       }
     },
-    "Investigation": {
-      "name": "Investigation",
+    "Project": {
+      "name": "Project",
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
-        "Investigation.investigation_identifier": {
-          "name": "Investigation.investigation_identifier",
+        "Project.project_identifier": {
+          "name": "Project.project_identifier",
           "rank": 1,
           "slot_group": "identifiers"
         },
@@ -4124,8 +4004,8 @@
           "rank": 2,
           "slot_group": "Contact"
         },
-        "investigation_description": {
-          "name": "investigation_description",
+        "project_description": {
+          "name": "project_description",
           "rank": 3,
           "slot_group": "Contact"
         },
@@ -4199,24 +4079,44 @@
           "rank": 17,
           "slot_group": "Publication"
         },
+        "purpose": {
+          "name": "purpose",
+          "rank": 18,
+          "slot_group": "experiment"
+        },
+        "study_design": {
+          "name": "study_design",
+          "rank": 19,
+          "slot_group": "experiment"
+        },
+        "study_type": {
+          "name": "study_type",
+          "rank": 20,
+          "slot_group": "experiment"
+        },
+        "experimental_setting": {
+          "name": "experimental_setting",
+          "rank": 21,
+          "slot_group": "experiment"
+        },
         "investigation template version": {
           "name": "investigation template version",
-          "rank": 18,
+          "rank": 22,
           "slot_group": "provenance"
         }
       },
       "attributes": {
-        "Investigation.investigation_identifier": {
-          "name": "Investigation.investigation_identifier",
+        "Project.project_identifier": {
+          "name": "Project.project_identifier",
           "description": " ",
-          "title": "investigation_identifier",
+          "title": "Project_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 1,
           "identifier": true,
-          "alias": "Investigation.investigation_identifier",
-          "owner": "Investigation",
+          "alias": "Project.project_identifier",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4229,24 +4129,24 @@
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
           "alias": "name",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString"
         },
-        "investigation_description": {
-          "name": "investigation_description",
+        "project_description": {
+          "name": "project_description",
           "description": "A textual entity that describes an investigation.",
           "title": "Description",
           "from_schema": "https://example.com/MIATE",
           "rank": 3,
           "slot_uri": "OBI_0001615",
-          "alias": "investigation_description",
-          "owner": "Investigation",
+          "alias": "project_description",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString"
@@ -4259,9 +4159,9 @@
           "rank": 4,
           "multivalued": true,
           "alias": "data_submission_contact_name",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4276,9 +4176,9 @@
           "rank": 5,
           "multivalued": true,
           "alias": "data_submission_contact_orcid",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4294,9 +4194,9 @@
           "rank": 6,
           "multivalued": true,
           "alias": "data_submission_contact_email",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4312,9 +4212,9 @@
           "rank": 7,
           "multivalued": true,
           "alias": "data_submission_contact_telephone",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4329,9 +4229,9 @@
           "rank": 8,
           "multivalued": true,
           "alias": "data_submission_contact_department",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "data_submission_contact_department menu",
@@ -4345,9 +4245,9 @@
           "rank": 9,
           "multivalued": true,
           "alias": "data_submission_contact_institution",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "data_submission_contact_institution menu",
@@ -4361,9 +4261,9 @@
           "rank": 10,
           "multivalued": true,
           "alias": "data_submission_contact_institution_postal_address",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4378,9 +4278,9 @@
           "rank": 11,
           "multivalued": true,
           "alias": "data_submission_contact_institution_city",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4394,9 +4294,9 @@
           "rank": 12,
           "multivalued": true,
           "alias": "data_submission_contact_state",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4410,9 +4310,9 @@
           "rank": 13,
           "multivalued": true,
           "alias": "support_source",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Funding",
           "range": "support_source menu",
@@ -4427,9 +4327,9 @@
           "rank": 14,
           "multivalued": true,
           "alias": "support_id",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Funding",
           "range": "WhitespaceMinimizedString",
@@ -4444,9 +4344,9 @@
           "rank": 15,
           "multivalued": true,
           "alias": "PMC_id",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
@@ -4461,9 +4361,9 @@
           "rank": 16,
           "multivalued": true,
           "alias": "DOI",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
@@ -4477,25 +4377,83 @@
           "rank": 17,
           "multivalued": true,
           "alias": "PMID",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
           "inlined_as_list": true,
           "pattern": "^\\d{5,20}"
         },
+        "purpose": {
+          "name": "purpose",
+          "description": " Description of the specific application of this project within a larger context.",
+          "title": "purpose",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 18,
+          "slot_uri": "obo:IAO_0000315",
+          "alias": "purpose",
+          "owner": "Project",
+          "domain_of": [
+            "Project"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "study_design": {
+          "name": "study_design",
+          "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
+          "title": "Study design",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 19,
+          "slot_uri": "obo:OBI_0500000",
+          "alias": "study_design",
+          "owner": "Project",
+          "domain_of": [
+            "Project"
+          ],
+          "slot_group": "experiment",
+          "range": "study_design menu"
+        },
+        "study_type": {
+          "name": "study_type",
+          "description": "A categorical value specification that specifies the type of study from a list of study types",
+          "title": "Study type",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 20,
+          "alias": "study_type",
+          "owner": "Project",
+          "domain_of": [
+            "Project"
+          ],
+          "slot_group": "experiment",
+          "range": "study_type menu"
+        },
+        "experimental_setting": {
+          "name": "experimental_setting",
+          "description": " ",
+          "title": "Experimental setting",
+          "from_schema": "https://example.com/MIATE",
+          "rank": 21,
+          "alias": "experimental_setting",
+          "owner": "Project",
+          "domain_of": [
+            "Project"
+          ],
+          "slot_group": "experiment",
+          "range": "experimental_setting menu"
+        },
         "investigation template version": {
           "name": "investigation template version",
           "description": " ",
           "title": "investigation template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 18,
+          "rank": 22,
           "alias": "investigation_template_version",
-          "owner": "Investigation",
+          "owner": "Project",
           "domain_of": [
-            "Investigation"
+            "Project"
           ],
           "slot_group": "provenance",
           "range": "Provenance"
@@ -4512,34 +4470,29 @@
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "Sample.study_identifier": {
-          "name": "Sample.study_identifier",
-          "rank": 2,
-          "slot_group": "identifiers"
-        },
         "Sample.subject_identifier": {
           "name": "Sample.subject_identifier",
-          "rank": 3,
+          "rank": 2,
           "slot_group": "identifiers"
         },
         "date.sample_details": {
           "name": "date.sample_details",
-          "rank": 4,
+          "rank": 3,
           "slot_group": "sample_details"
         },
         "collection_protocol": {
           "name": "collection_protocol",
-          "rank": 5,
+          "rank": 4,
           "slot_group": "sample_details"
         },
         "preservation_method": {
           "name": "preservation_method",
-          "rank": 6,
+          "rank": 5,
           "slot_group": "sample_details"
         },
         "sample template version": {
           "name": "sample template version",
-          "rank": 7,
+          "rank": 6,
           "slot_group": "provenance"
         }
       },
@@ -4560,27 +4513,12 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "Sample.study_identifier": {
-          "name": "Sample.study_identifier",
-          "description": " ",
-          "title": "study_identifier",
-          "from_schema": "https://example.com/MIATE",
-          "rank": 2,
-          "alias": "Sample.study_identifier",
-          "owner": "Sample",
-          "domain_of": [
-            "Sample"
-          ],
-          "slot_group": "identifiers",
-          "range": "WhitespaceMinimizedString",
-          "recommended": true
-        },
         "Sample.subject_identifier": {
           "name": "Sample.subject_identifier",
           "description": " ",
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
-          "rank": 3,
+          "rank": 2,
           "alias": "Sample.subject_identifier",
           "owner": "Sample",
           "domain_of": [
@@ -4595,7 +4533,7 @@
           "description": " ",
           "title": "date",
           "from_schema": "https://example.com/MIATE",
-          "rank": 4,
+          "rank": 3,
           "alias": "date.sample_details",
           "owner": "Sample",
           "domain_of": [
@@ -4609,7 +4547,7 @@
           "description": "Description of the conditions, i.e. lysis, fixation, staining, antibody",
           "title": "collection_protocol",
           "from_schema": "https://example.com/MIATE",
-          "rank": 5,
+          "rank": 4,
           "alias": "collection_protocol",
           "owner": "Sample",
           "domain_of": [
@@ -4623,7 +4561,7 @@
           "description": " ",
           "title": "preservation_method",
           "from_schema": "https://example.com/MIATE",
-          "rank": 6,
+          "rank": 5,
           "alias": "preservation_method",
           "owner": "Sample",
           "domain_of": [
@@ -4637,7 +4575,7 @@
           "description": " ",
           "title": "sample template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 7,
+          "rank": 6,
           "alias": "sample_template_version",
           "owner": "Sample",
           "domain_of": [

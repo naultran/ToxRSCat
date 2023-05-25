@@ -92,7 +92,7 @@ classes:
         rank: 4
         slot_group: identifiers
         exact_mappings:
-        - flourescence_reagent:samples
+        - flourescence_reagent:samples.submitter_id
       purpose:
         rank: 5
         slot_group: experiment
@@ -140,8 +140,8 @@ classes:
         slot_group: flourescence_reagent
         exact_mappings:
         - flourescence_reagent:submitter_id
-        - FCS:flourescence_reagents
-        - WS:flourescence_reagents
+        - FCS:flourescence_reagents.submitter_id
+        - WS:flourescence_reagents.submitter_id
       analyteDetector:
         rank: 18
         slot_group: flourescence_reagent
@@ -191,7 +191,7 @@ classes:
         rank: 27
         slot_group: data_analysis
         exact_mappings:
-        - data_analysis:FCS_file_name
+        - data_analysis:FCS_files.submitter_id
         - FCS:file_name
       CompensationDescription:
         rank: 28
@@ -227,7 +227,7 @@ classes:
         rank: 34
         slot_group: data_analysis
         exact_mappings:
-        - data_analysis:WS_file_name
+        - data_analysis:WS_files.submitter_id
         - WS:file_name
       flowCellType:
         rank: 35
@@ -248,11 +248,11 @@ classes:
         rank: 38
         slot_group: Instrument
         exact_mappings:
-        - flourescence_reagent:instruments
+        - flourescence_reagent:instruments.submitter_id
         - instrument:submitter_id
-        - light_source_instrument:instruments
-        - optical_filter:instruments
-        - optical_detector:instruments
+        - light_source_instrument:instruments.submitter_id
+        - optical_filter:instruments.submitter_id
+        - optical_detector:instruments.submitter_id
       configurationAndSettings:
         rank: 39
         slot_group: Instrument

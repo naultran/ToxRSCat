@@ -5,17 +5,64 @@ export default {
    * Download secondary headers and grid data.
    * @param {Object} dh DataHarmonizer instance.
    */
-    gen3_submit_investigation:{
+    gen3_project_all:{
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
             // Create an export table with template's headers (2nd row) and remaining rows of data
 
             // NOTE: NULL reason fields must follow immediately after column they are about.
-            const ExportHeaders = new Map([
+            const logs = [[]];
+            // project
+            const ExportHeaders_project = new Map([
                 ["type", []],
-                ["investigationID", []],
-                ["dbgap_accession_number", ["Investigation.investigation_identifier"],],
+                ["availability_type", []],
+                ["programs.name", []],
+                ["code", []],
+                ["dbgap_accession_number", ["Project.project_identifier",],],
+                ["project_title", []],
+                ["project_description", []],
+                ["study_design", []],
+                ["study_type", []],
+                ["experimental_setting", []],
+                ["organism", []],
+                ['provenance', ["investigation template version",],],
+            ]);
+            const sourceFields = dh.getFields(dh.table);
+            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+            dh.getHeaderMap(ExportHeaders_project, sourceFields, 'gem3_submit_project');
+
+            // Copy headers to 1st row of new export table
+            const outputMatrix_project = [[...ExportHeaders_project.keys()]];
+
+            for (const inputRow of dh.getTrimmedData(dh.hot)) {
+                const outputRow = [];
+                for (const [headerName, sources] of ExportHeaders_project) {
+                    // Otherwise apply source (many to one) to target field transform:
+                    var value = dh.getMappedField(
+                        headerName,
+                        inputRow,
+                        sources,
+                        sourceFields,
+                        sourceFieldNameMap,
+                        ':',
+                        'gem3_submit_project'
+                    );
+                    if (headerName =="type"){
+                        value = "project";
+                    }
+                    if (headerName =="availability_type"){
+                        value = "open";
+                    }
+                    outputRow.push(value);
+                }
+                outputMatrix_project.push(outputRow);
+            }
+            logs.push(["project is done"]);
+            //contact information
+            const ExportHeaders_contact = new Map([
+                ["type", []],
+                ["projects.code", []],
                 ["program_title", []],
                 ["investigation_description", []],
                 ["contact_name", []],
@@ -28,25 +75,17 @@ export default {
                     'location', 
                     ["data_submission_contact_institution_postal_address", "data_submission_contact_institution_city", "gen3_submit_investigation",],
                 ],
-                ["support_source", []],
-                ["support_id", []],
-                ["PMC_id", []],
-                ["DOI", []],
-                ["PMID", []],
                 ['provenance', ["investigation template version",],],
             ]);
-
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
             // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_submit_investigation');
+            dh.getHeaderMap(ExportHeaders_contact, sourceFields, 'contact');
 
             // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
+            const outputMatrix_contact = [[...ExportHeaders_contact.keys()]];
 
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
+                for (const [headerName, sources] of ExportHeaders_contact) {
                     // Otherwise apply source (many to one) to target field transform:
                     var value = dh.getMappedField(
                         headerName,
@@ -55,17 +94,102 @@ export default {
                         sourceFields,
                         sourceFieldNameMap,
                         ':',
-                        'gen3_submit_investigation'
+                        'contact'
                     );
                     if (headerName =="type"){
-                        value = "investigation";
+                        value = "contact";
                     }
                     outputRow.push(value);
                 }
-            outputMatrix.push(outputRow);
+                outputMatrix_contact.push(outputRow);
             }
+            logs.push(["contact information is done"]);
+            // funding
+            const ExportHeaders_funding = new Map([
+                ["type", []],
+                ["projects.code", []],             
+                ["support_source", []],
+                ["support_id", []],
+                ['provenance', ["investigation template version",],],
+            ]);
+            // Fills in the above mapping (or just set manually above)
+            dh.getHeaderMap(ExportHeaders_funding, sourceFields, 'gen3_submit_funding');
 
-        return outputMatrix;
+            // Copy headers to 1st row of new export table
+            const outputMatrix_funding = [[...ExportHeaders_funding.keys()]];
+
+            for (const inputRow of dh.getTrimmedData(dh.hot)) {
+                const outputRow = [];
+                for (const [headerName, sources] of ExportHeaders_funding) {
+                    // Otherwise apply source (many to one) to target field transform:
+                    var value = dh.getMappedField(
+                        headerName,
+                        inputRow,
+                        sources,
+                        sourceFields,
+                        sourceFieldNameMap,
+                        ':',
+                        'gen3_submit_funding'
+                    );
+                    if (headerName =="type"){
+                        value = "funding";
+                    }
+                    outputRow.push(value);
+                }
+                outputMatrix_funding.push(outputRow);
+            }
+            logs.push(["funding information is done"]);
+            //publication
+            const ExportHeaders_publication = new Map([
+                ["type", []],
+                ["projects.code", []],
+                ["PMC_id", []],
+                ["DOI", []],
+                ["PMID", []],
+                ['provenance', ["investigation template version",],],
+            ]);
+            // Fills in the above mapping (or just set manually above)
+            dh.getHeaderMap(ExportHeaders_publication, sourceFields, 'gen3_submit_Publication');
+
+            // Copy headers to 1st row of new export table
+            const outputMatrix_publication = [[...ExportHeaders_publication.keys()]];
+
+            for (const inputRow of dh.getTrimmedData(dh.hot)) {
+                const outputRow = [];
+                for (const [headerName, sources] of ExportHeaders_publication) {
+                    // Otherwise apply source (many to one) to target field transform:
+                    var value = dh.getMappedField(
+                        headerName,
+                        inputRow,
+                        sources,
+                        sourceFields,
+                        sourceFieldNameMap,
+                        ':',
+                        'gen3_submit_Publication'
+                    );
+                    if (headerName =="type"){
+                        value = "publication";
+                    }
+                    outputRow.push(value);
+                }
+                outputMatrix_publication.push(outputRow);
+            }
+            logs.push(["publication is done"]);
+
+            function delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+              }
+              async function myFunction() {
+                exportFile(outputMatrix_project, "project", "tsv");
+                await delay(1000);
+                exportFile(outputMatrix_contact, "contact", "tsv");
+                await delay(1000);
+                exportFile(outputMatrix_funding, "funding", "tsv");
+                await delay(1000);
+                exportFile(outputMatrix_publication, "publication", "tsv");
+              }
+              myFunction();
+            return logs;
         }
     },
 
@@ -73,59 +197,10 @@ export default {
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
-            const ExportHeaders_experiment = new Map([
-                ["type", []],
-                ["studyID", []], 
-                ["programs", []],
-                ["study_design", []],
-                ["study_type", []],
-                ["experimental_setting", []],
-                ["organism", []],
-                ['provenance', ["study template version",],],
-            ]);
-
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders_experiment, sourceFields, 'gen3_study_experiment');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix_experiment = [[...ExportHeaders_experiment.keys()]];
-            const outputRows_experirment = new Set();
-            const logs = [[]];
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders_experiment) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_study_experiment'
-                    );
-                    if (headerName =="type"){
-                        value = "study.experiment";
-                    }
-                    outputRow.push(value);
-                }
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows_experirment.has(outputRowStr)) {
-                    outputRows_experirment.add(outputRowStr);
-                    outputMatrix_experiment.push(outputRow);
-                }
-
-            } 
-            logs.push(["experiment is done"]);
-
             const ExportHeaders_subject = new Map([
                 ["type", []],
-                ["projects", []],
-                ["investigationID", []],
-                ["subjectID", []],
+                ["projects.code", []],
+                ["submitter_id", []],
                 ["start_date", []],
                 ["start_date_age", []],
                 ["experiment_start_date", []],
@@ -138,6 +213,8 @@ export default {
                 ["euthanasia_method", []],
                 ['provenance', ["study template version",],],
             ]);
+            const sourceFields = dh.getFields(dh.table);
+            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
             // Fills in the above mapping (or just set manually above)
             dh.getHeaderMap(ExportHeaders_subject, sourceFields, 'gen3_study_subject');
 
@@ -159,7 +236,7 @@ export default {
                         'gen3_study_subject'
                     );
                     if (headerName =="type"){
-                        value = "study.subject";
+                        value = "subject";
                     }
                     outputRow.push(value);
                 }
@@ -176,12 +253,12 @@ export default {
                 ["type", []],
                 ["submitter_id", []],
                 ["cageID", ["cage_id"]], 
-                ["subjects", []],
+                ["subjects.submitter_id", []],
                 ["housing_change_date", []],
                 ["bedding_type", []], 
                 ["cage_type", []],
-                ["vivarium_temperature(C)", []],
-                ["vivarium_humidity(%)", []],
+                ["vivarium_temperature_C", []],
+                ["vivarium_humidity_percentage", []],
                 ["vivarium_light_cycle", []],
                 ['provenance', ["study template version",],],
             ]); 
@@ -206,7 +283,7 @@ export default {
                         'gen3_study_housing'
                     );
                     if (headerName =="type"){
-                        value = "study.housing";
+                        value = "housing";
                     }
                     outputRow.push(value);
                 }
@@ -221,7 +298,7 @@ export default {
             const ExportHeaders_treatment = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["subjects", []],
+                ["subjects.submitter_id", []],
                 ["date", []],
                 ["administration_volume(ml)", []],
                 ["dose_amount", []], 
@@ -256,13 +333,13 @@ export default {
                         'gen3_study_treatment'
                     );
                     if (headerName =="type"){
-                        value = "study.treatment";
+                        value = "treatment";
                     }
                     if (headerName == "submitter_id"){
-                        const investigation_id = dh.getMappedField(
-                            "investigation_identifier",
+                        const project_id = dh.getMappedField(
+                            "project_identifier",
                             inputRow,
-                            ["Study.investigation_identifier"],
+                            ["Study.project_identifier"],
                             sourceFields,
                             sourceFieldNameMap,
                             ':',
@@ -277,7 +354,7 @@ export default {
                             ':',
                             'gen3_study_treatment'
                           );
-                          value = `${investigation_id}.${subject_id}.T`;
+                          value = `${project_id}.${subject_id}.T`;
                     }
                     outputRow.push(value);
                 }
@@ -288,13 +365,19 @@ export default {
                     outputMatrix_treatment.push(outputRow);
                 }
             }
+            // Add numbers to the end of submitter_id column in treatment) {
+            for (let i = 1; i <= outputMatrix_treatment.length - 1; i++) {
+                const submitterId = outputMatrix_treatment[i][1] + "_" + i.toString();
+                outputMatrix_treatment[i][1] = submitterId;
+            }
             logs.push(["treatment is done"]);
 
             const ExportHeaders_diet = new Map([
                 ["type", []],
                 ["submitter_id", []],
+                ["date", []],
                 ["feed_catalog_number",["feed_catalog_number"]],
-                ["housings", []],
+                ["housings.submitter_id", []],
                 ["feed_description", []],
                 ["feed_name", []], 
                 ["feed_vendor", []],
@@ -323,7 +406,7 @@ export default {
                         'gen3_study_diet'
                     );
                     if (headerName =="type"){
-                        value = "study.diet";
+                        value = "diet";
                     }
                     outputRow.push(value);
                 }
@@ -336,19 +419,10 @@ export default {
             
             }
             logs.push(["diet is done"]);
-
-            // Add numbers to the end of submitter_id column in treatment) {
-            for (let i = 1; i <= outputMatrix_treatment.length - 1; i++) {
-                const submitterId = outputMatrix_treatment[i][1] + "_" + i.toString();
-                outputMatrix_treatment[i][1] = submitterId;
-            }
-
             function delay(ms) {
                 return new Promise(resolve => setTimeout(resolve, ms));
               }
               async function myFunction() {
-                exportFile(outputMatrix_experiment, "experiment", "tsv");
-                await delay(5000);
                 exportFile(outputMatrix_subject, "subject", "tsv");
                 await delay(5000);
                 exportFile(outputMatrix_housing, "housing", "tsv");
@@ -365,332 +439,14 @@ export default {
         }
     },
 
-
-/*
-    gen3_study_experiment:{
-        fileType: 'tsv',
-        status: 'published',
-        method: function (dh){
-            // Create an export table with template's headers (2nd row) and remaining rows of data
-
-            // NOTE: NULL reason fields must follow immediately after column they are about.
-            const ExportHeaders = new Map([
-                ["type", []],
-                ["studyID", []], 
-                ["programs", []],
-                ["study_design", []],
-                ["study_type", []],
-                ["experimental_setting", []],
-                ["organism", []],
-                ['provenance', ["study template version",],],
-            ]);
-
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_study_experiment');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
-            const outputRows = new Set();
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_study_experiment'
-                    );
-                    if (headerName =="type"){
-                        value = "study.experiment";
-                    }
-                    outputRow.push(value);
-                }
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows.has(outputRowStr)) {
-                    outputRows.add(outputRowStr);
-                    outputMatrix.push(outputRow);
-                }
-            }
-
-        return outputMatrix;
-        }
-    },
-
-    gen3_study_subject:{
-        fileType: 'tsv',
-        status: 'published',
-        method: function (dh){
-            // Create an export table with template's headers (2nd row) and remaining rows of data
-
-            // NOTE: NULL reason fields must follow immediately after column they are about.
-            const ExportHeaders = new Map([
-                ["type", []],
-                ["projects", []],
-                ["investigationID", []],
-                ["subjectID", []],
-                ["start_date", []],
-                ["start_date_age", []],
-                ["experiment_start_date", []],
-                ["experiment_start_zt", []],
-                ["sex", []],
-                ["strain", []],
-                ["strain_source", []],
-                ["euthanasia_date", []],
-                ["euthanasia_zt", []],
-                ["euthanasia_method", []],
-                ['provenance', ["study template version",],],
-            ]);
-
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_study_subject');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
-            const outputRows = new Set();
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_study_subject'
-                    );
-                    if (headerName =="type"){
-                        value = "study.subject";
-                    }
-                    outputRow.push(value);
-                }
-                // remove duplicate rows
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows.has(outputRowStr)) {
-                    outputRows.add(outputRowStr);
-                    outputMatrix.push(outputRow);
-                }
-            }
-
-        return outputMatrix;
-        }
-    },
-
-    gen3_study_housing:{
-        fileType: 'tsv',
-        status: 'published',
-        method: function (dh){
-            const ExportHeaders = new Map([
-                ["type", []],
-                ["submitter_id", []],
-                ["cageID", ["cage_id"]], 
-                ["subjects", []],
-                ["housing_change_date", []],
-                ["bedding_type", []], 
-                ["cage_type", []],
-                ["vivarium_temperature(C)", []],
-                ["vivarium_humidity(%)", []],
-                ["vivarium_light_cycle", []],
-                ['provenance', ["study template version",],],
-            ]); 
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_study_housing');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
-            const outputRows = new Set();
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_study_housing'
-                    );
-                    if (headerName =="type"){
-                        value = "study.housing";
-                    }
-                    outputRow.push(value);
-                }
-                // Check if the output row already exists and skip adding it if it does
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows.has(outputRowStr)) {
-                    outputRows.add(outputRowStr);
-                    outputMatrix.push(outputRow);
-                }
-            }
-        return outputMatrix;
-        }
-    },
-
-    gen3_study_treatment:{
-        fileType: 'tsv',
-        status: 'published',
-        method: function (dh){
-            const ExportHeaders = new Map([
-                ["type", []],
-                ["submitter_id", []],
-                ["subjects", []],
-                ["date", []],
-                ["administration_volume(ml)", []],
-                ["dose_amount", []], 
-                ["dose_amount_unit", []],
-                ["route", []],
-                ["test_article_administration_zt", []],
-                ["test_article_administration_duration", []],
-                ["test_article_name", []],
-                ["test_article_dtxsid", []],
-                ["vehicle_name", []],
-                ["vehicle_dtxsid", []],
-                ['provenance', ["study template version",],],
-            ]); 
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_study_treatment');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
-            const outputRows = new Set();
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_study_treatment'
-                    );
-                    if (headerName =="type"){
-                        value = "study.treatment";
-                    }
-                    if (headerName == "submitter_id"){
-                        const investigation_id = dh.getMappedField(
-                            "investigation_identifier",
-                            inputRow,
-                            ["Study.investigation_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_treatment'
-                          );
-                          const subject_id = dh.getMappedField(
-                            "subject_identifier",
-                            inputRow,
-                            ["Study.subject_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_treatment'
-                          );
-                          value = `${investigation_id}.${subject_id}.T`;
-                    }
-                    outputRow.push(value);
-                }
-                // Check if the output row already exists and skip adding it if it does
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows.has(outputRowStr)) {
-                    outputRows.add(outputRowStr);
-                    outputMatrix.push(outputRow);
-                }
-            }
-            // Add numbers to the end of submitter_id column) {
-            for (let i = 1; i <= outputMatrix.length - 1; i++) {
-                const submitterId = outputMatrix[i][1] + "_" + i.toString();
-                outputMatrix[i][1] = submitterId;
-            }
-        return outputMatrix;
-        }
-    },
-
-    gen3_study_diet:{
-        fileType: 'tsv',
-        status: 'published',
-        method: function (dh){
-            const ExportHeaders = new Map([
-                ["type", []],
-                ["submitter_id", []],
-                ["feed_catalog_number",["feed_catalog_number"]],
-                ["housings", []],
-                ["feed_description", []],
-                ["feed_name", []], 
-                ["feed_vendor", []],
-                ["water_type", []],
-                ["feeding_paradigm", []],
-                ['provenance', ["study template version",],],
-            ]); 
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_study_diet');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
-            const outputRows = new Set();
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_study_diet'
-                    );
-                    if (headerName =="type"){
-                        value = "study.diet";
-                    }
-                    outputRow.push(value);
-                }
-                // Check if the output row already exists and skip adding it if it does
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows.has(outputRowStr)) {
-                    outputRows.add(outputRowStr);
-                    outputMatrix.push(outputRow);
-                }
-            
-            }
-        return outputMatrix;
-        }
-    },
-*/
     gen3_submit_sample:{
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
             const ExportHeaders = new Map([
                 ["type", []],
-                ["sampleID", []],
-                ["studyID", []],
-                ["subjectID", []],
+                ["submitter_id", []],
+                ["subjects.submitter_id", []],
                 ["date", []],
                 ["biospecimen_anatomic_site", []],
                 ["method_of_sample_procurement", []],

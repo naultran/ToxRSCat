@@ -18,12 +18,8 @@ classes:
     name: Study
     is_a: dh_interface
     slots:
-    - Study.study_identifier
-    - Study.investigation_identifier
+    - Study.project_identifier
     - study_design
-    - study_type
-    - experimental_setting
-    - Organism
     - Study.subject_identifier
     - start_date
     - start_date_age
@@ -42,14 +38,14 @@ classes:
     - vivarium_temperature
     - vivarium_humidity
     - vivarium light cycle
-    - date
+    - diet_date
     - feed_catalog_number
     - feed_description
     - feed_name
     - feed_vendor
     - water_type
     - feeding_paradigm
-    - date
+    - treatment_date
     - administration_volume
     - dose_amount
     - dose_amount_unit
@@ -62,224 +58,202 @@ classes:
     - vehicle_dtxsid
     - study template version
     slot_usage:
-      Study.study_identifier:
+      Study.project_identifier:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-        - gen3_study_experiment:studyID
-        - gen3_study_subject:projects
-      Study.investigation_identifier:
-        rank: 2
-        slot_group: identifiers
-        exact_mappings:
-        - gen3_study_experiment:programs
-        - gen3_study_subject:investigationID
-      study_design:
-        rank: 3
-        slot_group: experiment
-        exact_mappings:
-        - gen3_study_experiment:study_design
-      study_type:
-        rank: 4
-        slot_group: experiment
-        exact_mappings:
-        - gen3_study_experiment:study_type
-      experimental_setting:
-        rank: 5
-        slot_group: experiment
-        exact_mappings:
-        - gen3_study_experiment:experimental_setting
-      Organism:
-        rank: 6
-        slot_group: experiment
-        exact_mappings:
-        - gen3_study_experimental:organism
+        - gen3_study_subject:projects.code
       Study.subject_identifier:
-        rank: 7
+        rank: 2
         slot_group: subject
         exact_mappings:
-        - gen3_study_subject:subjectID
-        - gen3_study_housing:subjects
-        - gen3_study_treatment:subjects
+        - gen3_study_subject:submitter_id
+        - gen3_study_housing:subjects.submitter_id
+        - gen3_study_treatment:subjects.submitter_id
       start_date:
-        rank: 8
+        rank: 3
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:start_date
       start_date_age:
-        rank: 9
+        rank: 4
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:start_date_age
       experiment_start_date:
-        rank: 10
+        rank: 5
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:experiment_start_date
       experiment_start_zt:
-        rank: 11
+        rank: 6
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:experiment_start_zt
       sex:
-        rank: 12
+        rank: 7
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:sex
       strain:
-        rank: 13
+        rank: 8
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:strain
       strain_source:
-        rank: 14
+        rank: 9
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:strain_source
       euthanasia_date:
-        rank: 15
+        rank: 10
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:euthanasia_date
       euthanasia_zt:
-        rank: 16
+        rank: 11
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:euthanasia_zt
       euthanasia_method:
-        rank: 17
+        rank: 12
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:euthanasia_method
       housing_change_date:
-        rank: 18
+        rank: 13
         slot_group: housing
         exact_mappings:
         - gen3_study_housing:housing_change_date
       cage_id:
-        rank: 19
+        rank: 14
         slot_group: housing
         exact_mappings:
         - gen3_study_housing:submitter_id
-        - gen3_study_diet:housings
+        - gen3_study_diet:housings.submitter_id
       bedding_type:
-        rank: 20
+        rank: 15
         slot_group: housing
         exact_mappings:
         - gen3_study_housing:bedding_type
       cage_type:
-        rank: 21
+        rank: 16
         slot_group: housing
         exact_mappings:
         - gen3_study_housing:cage_type
       vivarium_temperature:
-        rank: 22
+        rank: 17
         slot_group: housing
         exact_mappings:
-        - gen3_study_housing:vivarium_temperature(C)
+        - gen3_study_housing:vivarium_temperature_C
       vivarium_humidity:
-        rank: 23
+        rank: 18
         slot_group: housing
         exact_mappings:
-        - gen3_study_housing:vivarium_humidity(%)
+        - gen3_study_housing:vivarium_humidity_percentage
       vivarium light cycle:
-        rank: 24
+        rank: 19
         slot_group: housing
         exact_mappings:
         - gen3_study_housing:vivarium_light_cycle
-      date:
-        rank: 32
-        slot_group: treatment
+      diet_date:
+        rank: 20
+        slot_group: diet
         exact_mappings:
-        - gen3_study_treatment:date
+        - gen3_study_diet:date
       feed_catalog_number:
-        rank: 26
+        rank: 21
         slot_group: diet
         exact_mappings:
         - gen3_study_diet:submitter_id
       feed_description:
-        rank: 27
+        rank: 22
         slot_group: diet
         exact_mappings:
         - gen3_study_diet:feed_description
       feed_name:
-        rank: 28
+        rank: 23
         slot_group: diet
         exact_mappings:
         - gen3_study_diet:feed_name
       feed_vendor:
-        rank: 29
+        rank: 24
         slot_group: diet
         exact_mappings:
         - gen3_study_diet:feed_vendor
       water_type:
-        rank: 30
+        rank: 25
         slot_group: diet
         exact_mappings:
         - gen3_study_diet:water_type
       feeding_paradigm:
-        rank: 31
+        rank: 26
         slot_group: diet
         exact_mappings:
         - gen3_study_diet:feeding_paradigm
+      treatment_date:
+        rank: 27
+        slot_group: treatment
+        exact_mappings:
+        - gen3_study_treatment:date
       administration_volume:
-        rank: 33
+        rank: 28
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:administration_volume(ml)
       dose_amount:
-        rank: 34
+        rank: 29
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:dose_amount
       dose_amount_unit:
-        rank: 35
+        rank: 30
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:dose_amount_unit
       route:
-        rank: 36
+        rank: 31
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:route
       test_article_administration_zt:
-        rank: 37
+        rank: 32
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:test_article_administration_zt
       test_article_administration_duration:
-        rank: 38
+        rank: 33
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:test_article_administration_duration
       test_article_name:
-        rank: 39
+        rank: 34
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:test_article_name
       test_article_dtxsid:
-        rank: 40
+        rank: 35
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:test_article_dtxsid
       vehicle_name:
-        rank: 41
+        rank: 36
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:vehicle_name
       vehicle_dtxsid:
-        rank: 42
+        rank: 37
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:vehicle_dtxsid
       study template version:
-        rank: 43
+        rank: 38
         slot_group: provenance
-  Investigation:
-    name: Investigation
+  Project:
+    name: Project
     is_a: dh_interface
     slots:
-    - Investigation.investigation_identifier
+    - Project.project_identifier
     - name
     - investigation_description
     - data_submission_contact_name
@@ -296,53 +270,59 @@ classes:
     - PMC_id
     - DOI
     - PMID
-    - investigation template version
+    - study_type
+    - experimental_setting
+    - Organism
+    - project template version
     slot_usage:
-      Investigation.investigation_identifier:
+      Project.project_identifier:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-        - gen3_submit_investigation:investigationID
+        - gem3_submit_project:code
+        - gen3_submit_funding:projects.code
+        - gen3_submit_Publication:projects.code
+        - contact:projects.code
       name:
         rank: 2
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:program_title
+        - gem3_submit_project:project_title
       investigation_description:
         rank: 3
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:investigation_description
+        - gem3_submit_project:project_description
       data_submission_contact_name:
         rank: 4
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:contact_name
+        - contact:contact_name
       data_submission_contact_orcid:
         rank: 5
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:investigator_orcid
+        - contact:investigator_orcid
       data_submission_contact_email:
         rank: 6
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:contact_email
+        - contact:contact_email
       data_submission_contact_telephone:
         rank: 7
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:contact_telephone
+        - contact:contact_telephone
       data_submission_contact_department:
         rank: 8
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:contact_department
+        - contact:contact_department
       data_submission_contact_institution:
         rank: 9
         slot_group: Contact
         exact_mappings:
-        - gen3_submit_investigation:contact_institution
+        - contact:contact_institution
       data_submission_contact_institution_postal_address:
         rank: 10
         slot_group: Contact
@@ -356,36 +336,56 @@ classes:
         rank: 13
         slot_group: Funding
         exact_mappings:
-        - gen3_submit_investigation:support_source
+        - gen3_submit_funding:support_source
       support_id:
         rank: 14
         slot_group: Funding
         exact_mappings:
-        - gen3_submit_investigation:support_id
+        - gen3_submit_funding:support_id
       PMC_id:
         rank: 15
         slot_group: Publication
         exact_mappings:
-        - gen3_submit_investigation:PMC_id
+        - gen3_submit_Publication:PMC_id
       DOI:
         rank: 16
         slot_group: Publication
         exact_mappings:
-        - gen3_submit_investigation:DOI
+        - gen3_submit_Publication:DOI
       PMID:
         rank: 17
         slot_group: Publication
         exact_mappings:
-        - gen3_submit_investigation:PMID
-      investigation template version:
+        - gen3_submit_Publication:PMID
+      study_design:
         rank: 18
+        slot_group: experiment
+        exact_mappings:
+        - gem3_submit_project:study_design
+      study_type:
+        rank: 19
+        slot_group: experiment
+        exact_mappings:
+        - gem3_submit_project:study_type
+      experimental_setting:
+        rank: 20
+        slot_group: experiment
+        exact_mappings:
+        - gem3_submit_project:experimental_setting
+      Organism:
+        rank: 21
+        slot_group: experiment
+        exact_mappings:
+        - gem3_submit_project:organism
+      project template version:
+        rank: 12
         slot_group: provenance
   Sample:
     name: Sample
     is_a: dh_interface
     slots:
     - sample_identifier
-    - Sample.study_identifier
+    - Sample.project_identifier
     - Sample.subject_identifier
     - date
     - biospecimen_anatomic_site
@@ -399,17 +399,15 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-        - gen3_submit_sample:sampleID
-      Sample.study_identifier:
+        - gen3_submit_sample:submitter_id
+      Sample.project_identifier:
         rank: 2
         slot_group: identifiers
-        exact_mappings:
-        - gen3_submit_sample:studyID
       Sample.subject_identifier:
         rank: 3
         slot_group: identifiers
         exact_mappings:
-        - gen3_submit_sample:subjectID
+        - gen3_submit_sample:subjects.submitter_id
       date:
         rank: 4
         slot_group: sample_details
@@ -444,9 +442,9 @@ classes:
         rank: 10
         slot_group: provenance
 slots:
-  Investigation.investigation_identifier:
-    name: Investigation.investigation_identifier
-    title: investigation_identifier
+  Project.project_identifier:
+    name: Project.project_identifier
+    title: project_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -598,17 +596,9 @@ slots:
     inlined_as_list: true
     slot_uri: obo:NCIT_C127797
     comments: ' '
-  Study.study_identifier:
-    name: Study.study_identifier
-    title: study_identifier
-    range: WhitespaceMinimizedString
-    description: ' '
-    required: true
-    slot_uri: obo:NCIT_C46002
-    comments: ' '
-  Study.investigation_identifier:
-    name: Study.investigation_identifier
-    title: investigation_identifier
+  Study.project_identifier:
+    name: Study.project_identifier
+    title: project_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -771,8 +761,8 @@ slots:
     description: ' '
     slot_uri: obo:XCO_0000459
     comments: ' '
-  date:
-    name: date
+  diet_date:
+    name: diet_date
     title: date
     range: date
     description: ' '
@@ -815,6 +805,12 @@ slots:
     range: feeding_paradigm menu
     description: ' '
     slot_uri: obo:OBI_0000694
+    comments: ' '
+  treatment_date:
+    name: treatment_date
+    title: date
+    range: date
+    description: ' '
     comments: ' '
   administration_volume:
     name: administration_volume
@@ -899,9 +895,9 @@ slots:
     required: true
     identifier: true
     comments: ' '
-  Sample.study_identifier:
-    name: Sample.study_identifier
-    title: study_identifier
+  Sample.project_identifier:
+    name: Sample.project_identifier
+    title: project_identifier
     range: WhitespaceMinimizedString
     description: ' '
     multivalued: true
@@ -911,6 +907,12 @@ slots:
     name: Sample.subject_identifier
     title: subject_identifier
     range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  date:
+    name: date
+    title: date
+    range: date
     description: ' '
     comments: ' '
   biospecimen_anatomic_site:
@@ -945,9 +947,9 @@ slots:
     range: float
     description: ' '
     comments: ' '
-  investigation template version:
-    name: investigation template version
-    title: investigation template version
+  project template version:
+    name: project template version
+    title: project template version
     range: Provenance
     description: ' '
     required: true

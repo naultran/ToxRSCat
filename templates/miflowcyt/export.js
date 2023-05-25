@@ -14,8 +14,8 @@ export default {
             const ExportHeaders_fr = new Map([
                 ["type", []], //flourescence_reagent
                 ["submitter_id", []],
-                ["samples", []],
-                ["instruments", []], 
+                ["samples.submitter_id", []],
+                ["instruments.submitter_id", []], 
                 ["staining_protocol", []],
                 ["staining_protocol_DOI", []],
                 ["characteristics_being_measured", []],
@@ -72,14 +72,14 @@ export default {
                 ["submitter_id", []], 
                 ["analysis_protocol", []],
                 ["analysis_protocol_DOI", []],
-                ["FCS_file_name", []],
+                ["FCS_files.submitter_id", []],
                 ["compensation_description", []],
                 ["transformation_purpose", []],
                 ["transformation_description", []],
                 ["gate_description", []],
                 ["gate_statistics", []],
                 ["gate_boundaries", []],
-                ["WS_file_name", []],
+                ["WS_files.submitter_id", []],
                 ["provenance", ["template version"]],
             ]);
             // Fills in the above mapping (or just set manually above)
@@ -103,7 +103,7 @@ export default {
                         'data_analysis'
                     );
                     if (headerName =="type"){
-                        value = "data_analysis";
+                        value = "data_analysis_miflowcyt";
                     }
                     ;
                     if (headerName =="submitter_id"){
@@ -150,7 +150,7 @@ export default {
             const ExportHeaders_fcs = new Map([
                 ["type", []], //FCS
                 ["submitter_id", ["listModeDataFile"]],
-                ["flourescence_reagents", []], 
+                ["flourescence_reagents.submitter_id", []], 
                 ["file_name", []],
                 ["provenance", ["template version"]],
             ]);
@@ -174,7 +174,7 @@ export default {
                         'FCS'
                     );
                     if (headerName =="type"){
-                        value = "FCS";
+                        value = "FCS_file";
                     };
                     
                     outputRow.push(value);
@@ -219,7 +219,7 @@ export default {
             const ExportHeaders_ws = new Map([
                 ["type", []], //WS
                 ["submitter_id", ["WorkspaceFile"]],
-                ["flourescence_reagents", []], 
+                ["flourescence_reagents.submitter_id", []], 
                 ["file_name", []],
                 ["provenance", ["template version"]],
             ]);
@@ -243,7 +243,7 @@ export default {
                         'WS'
                     );
                     if (headerName =="type"){
-                        value = "WS";
+                        value = "WS_file";
                     }
                     
                     outputRow.push(value);
@@ -336,7 +336,7 @@ export default {
             const ExportHeaders_lsi = new Map([
                 ["type", []], //light_source_instrument
                 ["submitter_id", []],
-                ["instruments", []],
+                ["instruments.submitter_id", []],
                 ["light_source_type", []],
                 ["excitatory_wave_length", []],
                 ["power_at_excitatory_wave_length", []],
@@ -403,7 +403,7 @@ export default {
             const ExportHeaders_of = new Map([
                 ["type", []], //light_source_instrument
                 ["submitter_id", []],
-                ["instruments", []],
+                ["instruments.submitter_id", []],
                 ["type_optical_filter", []],
                 ["transmitted_wave_lengths", []],
                 ["installation_date", []],
@@ -467,7 +467,7 @@ export default {
             const ExportHeaders_od = new Map([
                 ["type", []], //light_source_instrument
                 ["submitter_id", []],
-                ["instruments", []],
+                ["instruments.submitter_id", []],
                 ["name", []],
                 ["type_optical_detector", []],
                 ["voltage", []],

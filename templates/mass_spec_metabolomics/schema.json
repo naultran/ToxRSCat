@@ -580,10 +580,10 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "investigation_identifier": {
-      "name": "investigation_identifier",
+    "program.name": {
+      "name": "program.name",
       "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
-      "title": "investigation_identifier",
+      "title": "program.name",
       "comments": [
         "i_Prj140"
       ],
@@ -592,10 +592,10 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "study_identifier": {
-      "name": "study_identifier",
+    "project.code": {
+      "name": "project.code",
       "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
-      "title": "study_identifier",
+      "title": "project.code",
       "comments": [
         "s_Prj140"
       ],
@@ -1101,28 +1101,28 @@
           "name": "metabolomic_experiment_identifier",
           "exact_mappings": [
             "extraction:submitter_id",
-            "chromatography:extractions",
-            "ms_method:extractions",
-            "rawdata_file:extractions",
-            "processeddata_file:extractions"
+            "chromatography:extractions.submitter_id",
+            "ms_method:extractions.submitter_id",
+            "rawdata_file:extractions.submitter_id",
+            "processeddata_file:extractions.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "investigation_identifier": {
-          "name": "investigation_identifier",
+        "program.name": {
+          "name": "program.name",
           "rank": 2,
           "slot_group": "identifiers"
         },
-        "study_identifier": {
-          "name": "study_identifier",
+        "project.code": {
+          "name": "project.code",
           "rank": 3,
           "slot_group": "identifiers"
         },
         "sample_identifier": {
           "name": "sample_identifier",
           "exact_mappings": [
-            "extraction:samples"
+            "extraction:samples.submitter_id"
           ],
           "rank": 4,
           "slot_group": "identifiers"
@@ -1346,7 +1346,7 @@
           "name": "rawDataFile",
           "exact_mappings": [
             "rawdata_file:submitter_id",
-            "data_analysis_msm:rawDataFiles"
+            "data_analysis_msm:rawdata_files.submitter_id"
           ],
           "rank": 33,
           "slot_group": "data_analysis"
@@ -1387,7 +1387,7 @@
           "name": "processedDataFile",
           "exact_mappings": [
             "processeddata_file:submitter_id",
-            "data_analysis_msm:processedDataFiles"
+            "data_analysis_msm:processeddata_files.submitter_id"
           ],
           "rank": 38,
           "slot_group": "data_analysis"
@@ -1414,10 +1414,10 @@
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "extraction:submitter_id",
-            "chromatography:extractions",
-            "ms_method:extractions",
-            "rawdata_file:extractions",
-            "processeddata_file:extractions"
+            "chromatography:extractions.submitter_id",
+            "ms_method:extractions.submitter_id",
+            "rawdata_file:extractions.submitter_id",
+            "processeddata_file:extractions.submitter_id"
           ],
           "rank": 1,
           "alias": "metabolomic_experiment_identifier",
@@ -1429,14 +1429,14 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "investigation_identifier": {
-          "name": "investigation_identifier",
+        "program.name": {
+          "name": "program.name",
           "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
-          "title": "investigation_identifier",
+          "title": "program.name",
           "from_schema": "https://example.com/CIMR",
           "rank": 2,
           "slot_uri": "obo:OBI_0000066",
-          "alias": "investigation_identifier",
+          "alias": "program.name",
           "owner": "metabolomics_experiment",
           "domain_of": [
             "metabolomics_experiment"
@@ -1445,13 +1445,13 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "study_identifier": {
-          "name": "study_identifier",
+        "project.code": {
+          "name": "project.code",
           "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
-          "title": "study_identifier",
+          "title": "project.code",
           "from_schema": "https://example.com/CIMR",
           "rank": 3,
-          "alias": "study_identifier",
+          "alias": "project.code",
           "owner": "metabolomics_experiment",
           "domain_of": [
             "metabolomics_experiment"
@@ -1466,7 +1466,7 @@
           "title": "sample_identifier",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "extraction:samples"
+            "extraction:samples.submitter_id"
           ],
           "rank": 4,
           "alias": "sample_identifier",
@@ -1976,7 +1976,7 @@
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "rawdata_file:submitter_id",
-            "data_analysis_msm:rawDataFiles"
+            "data_analysis_msm:rawdata_files.submitter_id"
           ],
           "rank": 33,
           "slot_uri": "obo:OBI:0000021",
@@ -2063,7 +2063,7 @@
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "processeddata_file:submitter_id",
-            "data_analysis_msm:processedDataFiles"
+            "data_analysis_msm:processeddata_files.submitter_id"
           ],
           "rank": 38,
           "alias": "processedDataFile",
@@ -2124,7 +2124,7 @@
         "metabolite.data_analysis_id": {
           "name": "metabolite.data_analysis_id",
           "exact_mappings": [
-            "gen3_submit_metaboliteID:data_analysis_msmes"
+            "gen3_submit_metaboliteID:data_analysis_msmes.submitter_id"
           ],
           "rank": 2,
           "slot_group": "metabolite_identification"
@@ -2201,7 +2201,7 @@
           "title": "data_analysis_id",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "gen3_submit_metaboliteID:data_analysis_msmes"
+            "gen3_submit_metaboliteID:data_analysis_msmes.submitter_id"
           ],
           "rank": 2,
           "alias": "metabolite.data_analysis_id",
