@@ -24,8 +24,8 @@
     }
   },
   "miaca":{
-    "Investigation":{
-      "name": "Investigation",
+    "Project":{
+      "name": "Project",
       "status": "published",
       "display": true
     },

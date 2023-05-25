@@ -65,8 +65,8 @@ classes:
     - culture_additives_concentration
     - anitibiotic_name
     - antibiotic_concentration
-    - ' treatment_protocol'
-    - ' treatment_protocol_DOI'
+    - treatment_protocol
+    - treatment_protocol_DOI
     - date.treatment
     - addition_volume
     - stock_concentration
@@ -223,10 +223,10 @@ classes:
       antibiotic_concentration:
         rank: 48
         slot_group: medium
-      ' treatment_protocol':
+      treatment_protocol:
         rank: 49
         slot_group: treatment
-      ' treatment_protocol_DOI':
+      treatment_protocol_DOI:
         rank: 50
         slot_group: treatment
       date.treatment:
@@ -831,7 +831,7 @@ slots:
   date.medium:
     name: date.medium
     title: date
-    range: WhitespaceMinimizedString
+    range: date
     description: ' '
     comments: ' '
   protocol:
@@ -882,22 +882,22 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  ' treatment_protocol':
-    name: ' treatment_protocol'
-    title: ' treatment_protocol'
+  treatment_protocol:
+    name: treatment_protocol
+    title: treatment_protocol
     range: WhitespaceMinimizedString
     description: Description of the conditions that are applied to CellLine during
     comments: ' '
-  ' treatment_protocol_DOI':
-    name: ' treatment_protocol_DOI'
-    title: ' treatment_protocol_DOI'
+  treatment_protocol_DOI:
+    name: treatment_protocol_DOI
+    title: treatment_protocol_DOI
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
   date.treatment:
     name: date.treatment
     title: date
-    range: WhitespaceMinimizedString
+    range: date
     description: ' '
     comments: ' '
   addition_volume:
@@ -972,7 +972,7 @@ slots:
   date.sample_details:
     name: date.sample_details
     title: date
-    range: WhitespaceMinimizedString
+    range: date
     description: ' '
     comments: ' '
   collection_protocol:
