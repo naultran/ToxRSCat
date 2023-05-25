@@ -22,8 +22,8 @@ classes:
     is_a: dh_interface
     slots:
     - flow_experiment_identifier
-    - investigation_identifier
-    - study_identifier
+    - program.name
+    - project.code
     - sample_identifier
     - purpose
     - keywords
@@ -82,10 +82,10 @@ classes:
       flow_experiment_identifier:
         rank: 1
         slot_group: identifiers
-      investigation_identifier:
+      program.name:
         rank: 2
         slot_group: identifiers
-      study_identifier:
+      project.code:
         rank: 3
         slot_group: identifiers
       sample_identifier:
@@ -356,22 +356,19 @@ slots:
     required: true
     identifier: true
     comments: flow_001-HSA_001
-  investigation_identifier:
-    name: investigation_identifier
-    title: Investigation_ID
+  program.name:
+    name: program.name
+    title: program.name
     range: WhitespaceMinimizedString
-    description: The identifier for this investigation collected using the "investigation"
-      template. This is used to match the flow cytometry experiment to an investigation.
+    description: programs'identifier
     required: true
     slot_uri: obo:OBI_0000066
     comments: SRP_PRJ1
-  study_identifier:
-    name: study_identifier
-    title: Study_ID
+  project.code:
+    name: project.code
+    title: project.code
     range: WhitespaceMinimizedString
-    description: The identifier for this study collected using the template appropriate
-      for your study design (e.g., MIATE for animal experiments). This is used to
-      match the flow cytometry experiment to a study.
+    description: project's identifier
     required: true
     comments: study_001
   sample_identifier:
