@@ -1227,7 +1227,7 @@
         "sample_identifier": {
           "name": "sample_identifier",
           "exact_mappings": [
-            "flourescence_reagent:samples"
+            "flourescence_reagent:samples.submitter_id"
           ],
           "rank": 4,
           "slot_group": "identifiers"
@@ -1305,8 +1305,8 @@
           "name": "analyte",
           "exact_mappings": [
             "flourescence_reagent:submitter_id",
-            "FCS:flourescence_reagents",
-            "WS:flourescence_reagents"
+            "FCS:flourescence_reagents.submitter_id",
+            "WS:flourescence_reagents.submitter_id"
           ],
           "rank": 17,
           "slot_group": "flourescence_reagent"
@@ -1386,7 +1386,7 @@
         "listModeDataFile": {
           "name": "listModeDataFile",
           "exact_mappings": [
-            "data_analysis:FCS_file_name",
+            "data_analysis:FCS_files.submitter_id",
             "FCS:file_name"
           ],
           "rank": 27,
@@ -1443,7 +1443,7 @@
         "WorkspaceFile": {
           "name": "WorkspaceFile",
           "exact_mappings": [
-            "data_analysis:WS_file_name",
+            "data_analysis:WS_files.submitter_id",
             "WS:file_name"
           ],
           "rank": 34,
@@ -1476,11 +1476,11 @@
         "model": {
           "name": "model",
           "exact_mappings": [
-            "flourescence_reagent:instruments",
+            "flourescence_reagent:instruments.submitter_id",
             "instrument:submitter_id",
-            "light_source_instrument:instruments",
-            "optical_filter:instruments",
-            "optical_detector:instruments"
+            "light_source_instrument:instruments.submitter_id",
+            "optical_filter:instruments.submitter_id",
+            "optical_detector:instruments.submitter_id"
           ],
           "rank": 38,
           "slot_group": "Instrument"
@@ -1689,7 +1689,7 @@
           "title": "Sample_ID",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "flourescence_reagent:samples"
+            "flourescence_reagent:samples.submitter_id"
           ],
           "rank": 4,
           "alias": "sample_identifier",
@@ -1911,8 +1911,8 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
             "flourescence_reagent:submitter_id",
-            "FCS:flourescence_reagents",
-            "WS:flourescence_reagents"
+            "FCS:flourescence_reagents.submitter_id",
+            "WS:flourescence_reagents.submitter_id"
           ],
           "rank": 17,
           "slot_uri": "obo:OBI_0000275",
@@ -2094,7 +2094,7 @@
           "title": "listModeDataFile",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "data_analysis:FCS_file_name",
+            "data_analysis:FCS_files.submitter_id",
             "FCS:file_name"
           ],
           "rank": 27,
@@ -2215,7 +2215,7 @@
           "title": "WorkspaceFile",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "data_analysis:WS_file_name",
+            "data_analysis:WS_files.submitter_id",
             "WS:file_name"
           ],
           "rank": 34,
@@ -2287,11 +2287,11 @@
           "title": "model",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "flourescence_reagent:instruments",
+            "flourescence_reagent:instruments.submitter_id",
             "instrument:submitter_id",
-            "light_source_instrument:instruments",
-            "optical_filter:instruments",
-            "optical_detector:instruments"
+            "light_source_instrument:instruments.submitter_id",
+            "optical_filter:instruments.submitter_id",
+            "optical_detector:instruments.submitter_id"
           ],
           "rank": 38,
           "slot_uri": "obo:MS_1000031",
