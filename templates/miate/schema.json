@@ -3224,22 +3224,6 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "study_design": {
-          "name": "study_design",
-          "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
-          "title": "Study design",
-          "comments": [
-            " "
-          ],
-          "from_schema": "https://example.com/MIATE",
-          "slot_uri": "obo:OBI_0500000",
-          "alias": "study_design",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "range": "study_design menu"
-        },
         "Study.subject_identifier": {
           "name": "Study.subject_identifier",
           "description": " ",
@@ -4413,6 +4397,24 @@
           "range": "WhitespaceMinimizedString",
           "inlined_as_list": true,
           "pattern": "^\\d{5,20}"
+        },
+        "study_design": {
+          "name": "study_design",
+          "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
+          "title": "Study design",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "gem3_submit_project:study_design"
+          ],
+          "rank": 18,
+          "slot_uri": "obo:OBI_0500000",
+          "alias": "study_design",
+          "owner": "Project",
+          "domain_of": [
+            "Project"
+          ],
+          "slot_group": "experiment",
+          "range": "study_design menu"
         },
         "study_type": {
           "name": "study_type",
