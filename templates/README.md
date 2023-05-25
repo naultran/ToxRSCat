@@ -6,7 +6,7 @@ Describe who, how, and when. The purpose of ToxRSCat and what is 'appropriate' a
 1. [Creating from a new reporting standard](#newRS)<br>
 2. [Updating a reporting standard](#updateRS)<br>
 3. [Changing terms and output](#changeRS)<br>
-4. [Integrating with ToxDataCommons](#TDC)
+4. [Integrating with ToxDataCommons](#TDC)<br>
 	a. [Updating data **export.js**](#familiorize)<br>
 	b. [Testing](#starting)<br>
 	
