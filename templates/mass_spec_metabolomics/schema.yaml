@@ -314,8 +314,7 @@ slots:
     name: program.name
     title: program.name
     range: WhitespaceMinimizedString
-    description: The identifier for this investigation collected using the investigation
-      template. This is used to match the flow cytometry experiment to an investigation.
+    description: identifier of program
     required: true
     slot_uri: obo:OBI_0000066
     comments: i_Prj140
@@ -323,9 +322,7 @@ slots:
     name: project.code
     title: project.code
     range: WhitespaceMinimizedString
-    description: The identifier for this study collected using the template appropriate
-      for your study design (e.g., MIATE for animal experiments). This is used to
-      match the flow cytometry experiment to a study.
+    description: identifier of project
     required: true
     comments: s_Prj140
   sample_identifier:

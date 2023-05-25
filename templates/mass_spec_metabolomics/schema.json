@@ -582,7 +582,7 @@
     },
     "program.name": {
       "name": "program.name",
-      "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
+      "description": "identifier of program",
       "title": "program.name",
       "comments": [
         "i_Prj140"
@@ -594,7 +594,7 @@
     },
     "project.code": {
       "name": "project.code",
-      "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
+      "description": "identifier of project",
       "title": "project.code",
       "comments": [
         "s_Prj140"
@@ -1431,7 +1431,7 @@
         },
         "program.name": {
           "name": "program.name",
-          "description": "The identifier for this investigation collected using the investigation template. This is used to match the flow cytometry experiment to an investigation.",
+          "description": "identifier of program",
           "title": "program.name",
           "from_schema": "https://example.com/CIMR",
           "rank": 2,
@@ -1447,7 +1447,7 @@
         },
         "project.code": {
           "name": "project.code",
-          "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
+          "description": "identifier of project",
           "title": "project.code",
           "from_schema": "https://example.com/CIMR",
           "rank": 3,

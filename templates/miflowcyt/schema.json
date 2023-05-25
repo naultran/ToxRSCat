@@ -579,10 +579,10 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "investigation_identifier": {
-      "name": "investigation_identifier",
-      "description": "The identifier for this investigation collected using the \"investigation\" template. This is used to match the flow cytometry experiment to an investigation.",
-      "title": "Investigation_ID",
+    "program.name": {
+      "name": "program.name",
+      "description": "programs'identifier",
+      "title": "program.name",
       "comments": [
         "SRP_PRJ1"
       ],
@@ -591,10 +591,10 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "study_identifier": {
-      "name": "study_identifier",
-      "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
-      "title": "Study_ID",
+    "project.code": {
+      "name": "project.code",
+      "description": "project's identifier",
+      "title": "project.code",
       "comments": [
         "study_001"
       ],
@@ -1214,13 +1214,13 @@
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "investigation_identifier": {
-          "name": "investigation_identifier",
+        "program.name": {
+          "name": "program.name",
           "rank": 2,
           "slot_group": "identifiers"
         },
-        "study_identifier": {
-          "name": "study_identifier",
+        "project.code": {
+          "name": "project.code",
           "rank": 3,
           "slot_group": "identifiers"
         },
@@ -1652,14 +1652,14 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "investigation_identifier": {
-          "name": "investigation_identifier",
-          "description": "The identifier for this investigation collected using the \"investigation\" template. This is used to match the flow cytometry experiment to an investigation.",
-          "title": "Investigation_ID",
+        "program.name": {
+          "name": "program.name",
+          "description": "programs'identifier",
+          "title": "program.name",
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 2,
           "slot_uri": "obo:OBI_0000066",
-          "alias": "investigation_identifier",
+          "alias": "program.name",
           "owner": "Flow cytometry experiment",
           "domain_of": [
             "Flow cytometry experiment"
@@ -1668,13 +1668,13 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "study_identifier": {
-          "name": "study_identifier",
-          "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the flow cytometry experiment to a study.",
-          "title": "Study_ID",
+        "project.code": {
+          "name": "project.code",
+          "description": "project's identifier",
+          "title": "project.code",
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 3,
-          "alias": "study_identifier",
+          "alias": "project.code",
           "owner": "Flow cytometry experiment",
           "domain_of": [
             "Flow cytometry experiment"
