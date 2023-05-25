@@ -197,6 +197,7 @@ export default {
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
+            const logs = [[]];
             const ExportHeaders_subject = new Map([
                 ["type", []],
                 ["projects.code", []],
