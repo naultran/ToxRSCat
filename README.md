@@ -1,16 +1,53 @@
+# Toxicology Reporting Standard Catalogue (ToxRSCat)
 
+The toxicology reporting standard catalogue is a community-based effort to catalogue reporting standards to support the collection of essential metadata associated with environmental health experiments. ToxRSCat is a collection of machine actionable metadata requirements using [LinkML schemas](https://linkml.io/) and supporting implementation using [DataHarmonizer]([http://dh.toxdatacommons.com.s3-website-us-east-1.amazonaws.com/](http://dh.toxdatacommons.com.s3-website-us-east-1.amazonaws.com/)).
 
-# ToxRSCat
-A catalogue of machine actionable environmental health science related reporting standards for use with DataHarmonizer
+_Development of ToxRSCat was supported by the National Institutes of Environmental Health Science (NIEHS)._
+- Michigan State University Superfund Research Center ([P42ES004911](iit.msu.edu)).
+-  Other
 
+---
+### Table of Contents
+1. [Overview of ToxRSCat](#overview)<br>
+	a. Dependencies<br>
+2. [Machine-actionable metadata models](#ma)<br>
+	a. Creating and revising metadata models <br>
+3. [Capturing minimum requirement standards](#updateRS)<br>
+4. [Other 1](#changeRS)<br>
+5. [Other 2](#TDC)
 
+ <a id="overview"></a>
+## Overview to ToxRSCat
 
-## 1. Excel to LinkML
-#### Dependencies
-Python 3.9
-Pandas v..
+### Dependencies
+```
+python_version == 3.9.* 
+pandas 
 linkml
+```
 ....
+
+<a id="ma"></a>
+## Machine-actionable metadata models
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### How-to
 Use this method to go from an excel template formatted according to [this template](./script/LinkML_template.xlsx). __DO NOT CHANGE SHEET NAMES__. 
