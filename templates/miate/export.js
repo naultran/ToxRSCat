@@ -107,7 +107,8 @@ export default {
             // funding
             const ExportHeaders_funding = new Map([
                 ["type", []],
-                ["projects.code", []],             
+                ["projects.code", []],
+                ["submitter_id", ["support_id",],],       
                 ["support_source", []],
                 ["support_id", []],
                 ['provenance', ["investigation template version",],],
@@ -143,6 +144,7 @@ export default {
             const ExportHeaders_publication = new Map([
                 ["type", []],
                 ["projects.code", []],
+                ["submitter_id", ["PMC_id",],], 
                 ["PMC_id", []],
                 ["DOI", []],
                 ["PMID", []],
