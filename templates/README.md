@@ -55,20 +55,76 @@ Describe who, how, and when. The purpose of ToxRSCat and what is 'appropriate' a
 	 
 __2. Convert the excel template into a LinkML schema.__
 ```
-excel_schema.py -i excel_template.xlsx
+cd <path/to/folder/with/excel/template>
+python <path/to/ToxRSCat/script/>excel_schema.py -i excel_template.xlsx
 ```
 
 __3. Assign mapping data for export to external repositories if desired.__
-	Open the `schema.yaml` file using your favorite text editor. For each term ...
-	 
-__4. Convert your LinkML schema to JSON for DataHarmonizer.__
+	You will need to manually map each term to its node (output file). To do this open the `schema.yaml` file using your favorite text editor and go to the `slot_usage` section. For each slot that needs to be exported, edit using the following syntax:
 ```
-# from DataHarmonizer Github repository
-# https://github.com/cidgoh/DataHarmonizer/blob/master/script/linkml.py
-linkml.py -i source/schema.yaml
+    slot_usage:
+      submitter_id:
+        rank: 1
+        slot_group: Identifiers
+        exact_mappings: 
+        - gen3_data:slide.submitter_id
+        - gen3_slide:submitter_id
+      aliquots.submitter_id:
+        rank: 2
+        slot_group: Identifiers
+        exact_mappings: 
+        - gen3_slide:aliquots.submitter_id
+      ...
+``` 
+where __exact_mappings__ is a list of output names for each node it is exported to names gen3_<b><i>nodename</i></b> 
+
+> This has to be reapeated for each class as each will have a slot_group section in the yaml file.
+
+__4. Create an `export.js` file__
+An `export.js` file is used to support the export functions. You can leave this empty an move forward but this will prevent the ability to export the data in the expected formats.
+
+1. Start with our [export.js template](google.com). Download this file an place is in the same folder where the schema.json is.
+2. Edit the relevant sections for your type of exported data. Here we provide an example on how to export the data for ToxDataCommons. More advanced knowledge of Javascript may be necessary to support other types of respositories.
+
+__<i> Only change the exportConfigs section:</i>__
 ```
-__5. Creating an `export.js` script for creating files that can be used to upload to public repositories.__
-dfd
+		const exportConfigs = [
+			{
+				exportHeaders: new Map([
+				// See below for mapping headers
+				]),
+				uid:"submitter_id column mapping",
+				outputMatrix: [[]],
+				exportType: "gen3_<nodename>",
+			},
+			{
+				exportHeaders: new Map([
+				// See below for mapping headers
+				]),
+				uid:"submitter_id column mapping",
+				outputMatrix: [[]],
+				exportType: "gen3_<nodename_secondfile>",
+			},
+			...
+		]
+```
+- uid is used to denote which column mapping should be used as the unique identifier (_e.g._ slide.submitter_id)
+- outputMatrix does not change.
+- exportType is used to allow export of multiple files from one template to map to individual nodes in ToxDataCommons.
+- See below for header mappings.
+```
+exportHeaders: new Map([
+	["type", []], // This should always be included
+	["slide.submitter_id", []], // One column in the template should be a unique identifier for each file (or multiple files)
+	["file_name", []], // This refers to the exact_mapping value in the linkML file
+	...
+	['provenance', ["slide template version"]] // The first part is the exact_mapping, the second part will be ...????
+```
+
+__5. Convert your LinkML schema to JSON for DataHarmonizer.__
+```
+python <path/to/DataHarmonizer/script/>linkml.py -i schema.yaml
+```
 
 __6. Submit your templates to the ToxRSCat team__
 ToxRSCat is centrally managed to ensure that there is synergy between the templates and that ... Please see here to find out more about _[how to deploy your own ToxRSCat-DataHarmonizer](google.com)_

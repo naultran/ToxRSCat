@@ -1,0 +1,1829 @@
+{
+  "name": "slide_imaging",
+  "description": "These templates are intended to suppor the collection of metadata related to imaging and score of histopathology data. Terms are based on the recommended Recommended Metadata for Biological Images (REMBI) described by Sarkans et al. (2021) <Sarkans, U., Chiu, W., Collinson, L. et al. REMBI: Recommended Metadata for Biological Images—enabling reuse of microscopy data in biology. Nat Methods 18, 1418–1422 (2021). https://doi.org/10.1038/s41592-021-01166-8>",
+  "id": "https://example.com/REMBI",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "purl.obolibrary.org": {
+      "prefix_prefix": "purl.obolibrary.org",
+      "prefix_reference": "http://purl.obolibrary.org/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/REMBI/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/REMBI",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/REMBI",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/REMBI",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/REMBI",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/REMBI",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/REMBI",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/REMBI",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/REMBI",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/REMBI",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "data_category menu": {
+      "name": "data_category menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "biological imaging": {
+          "text": "biological imaging"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "data_format menu": {
+      "name": "data_format menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "zip": {
+          "text": "zip"
+        },
+        "gzip": {
+          "text": "gzip"
+        },
+        "png": {
+          "text": "png"
+        },
+        "tif": {
+          "text": "tif"
+        },
+        "tiff": {
+          "text": "tiff"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "data_type menu": {
+      "name": "data_type menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "whole slide scan": {
+          "text": "whole slide scan"
+        },
+        " field of view image": {
+          "text": " field of view image"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "instrument.submitter_id menu": {
+      "name": "instrument.submitter_id menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "VSI110": {
+          "text": "VSI110"
+        },
+        "VSI220": {
+          "text": "VSI220"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "magnification menu": {
+      "name": "magnification menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "4X": {
+          "text": "4X"
+        },
+        "10X": {
+          "text": "10X"
+        },
+        "20X": {
+          "text": "20X"
+        },
+        "60X": {
+          "text": "60X"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "assay menu": {
+      "name": "assay menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "IHC": {
+          "text": "IHC"
+        },
+        "ISH": {
+          "text": "ISH"
+        },
+        "FISH": {
+          "text": "FISH"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "probe_type menu": {
+      "name": "probe_type menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "Chemical": {
+          "text": "Chemical"
+        },
+        "Antibody": {
+          "text": "Antibody"
+        },
+        "Oligonucleotide": {
+          "text": "Oligonucleotide"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "finding_type menu": {
+      "name": "finding_type menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "Accumulation, foam cell": {
+          "text": "Accumulation, foam cell"
+        },
+        "Adenoma, hepatocellular": {
+          "text": "Adenoma, hepatocellular"
+        },
+        "Alteration, cytoplasmic": {
+          "text": "Alteration, cytoplasmic"
+        },
+        "Alteration, nuclear": {
+          "text": "Alteration, nuclear"
+        },
+        "Altered hepatocellular foci": {
+          "text": "Altered hepatocellular foci"
+        },
+        "Angiectasis": {
+          "text": "Angiectasis"
+        },
+        "Anisonucleosis": {
+          "text": "Anisonucleosis"
+        },
+        "Arteriolosclerosis": {
+          "text": "Arteriolosclerosis"
+        },
+        "Arteritis": {
+          "text": "Arteritis"
+        },
+        "Atrophy": {
+          "text": "Atrophy"
+        },
+        "Atypia, cellular": {
+          "text": "Atypia, cellular"
+        },
+        "Atypia, nuclear": {
+          "text": "Atypia, nuclear"
+        },
+        "Bacterium": {
+          "text": "Bacterium"
+        },
+        "Calcification": {
+          "text": "Calcification"
+        },
+        "Cast, cellular": {
+          "text": "Cast, cellular"
+        },
+        "Cast, hemoglobinogenous": {
+          "text": "Cast, hemoglobinogenous"
+        },
+        "Cast,hyaline": {
+          "text": "Cast,hyaline"
+        },
+        "Cellular foci": {
+          "text": "Cellular foci"
+        },
+        "Cellular infiltration": {
+          "text": "Cellular infiltration"
+        },
+        "Cellular infiltration, lymphocyte": {
+          "text": "Cellular infiltration, lymphocyte"
+        },
+        "Cellular infiltration, mononuclear cell": {
+          "text": "Cellular infiltration, mononuclear cell"
+        },
+        "Cellular infiltration, neutrophil": {
+          "text": "Cellular infiltration, neutrophil"
+        },
+        "Change, acidophilic": {
+          "text": "Change, acidophilic"
+        },
+        "Change, basophilic": {
+          "text": "Change, basophilic"
+        },
+        "Change, eosinophilic": {
+          "text": "Change, eosinophilic"
+        },
+        "Congestion": {
+          "text": "Congestion"
+        },
+        "Cyst": {
+          "text": "Cyst"
+        },
+        "Cyst, hemorrhagic": {
+          "text": "Cyst, hemorrhagic"
+        },
+        "DEAD": {
+          "text": "DEAD"
+        },
+        "Degeneration": {
+          "text": "Degeneration"
+        },
+        "Degeneration, acidophilic, eosinophilic": {
+          "text": "Degeneration, acidophilic, eosinophilic"
+        },
+        "Degeneration, fatty": {
+          "text": "Degeneration, fatty"
+        },
+        "Degeneration, granular": {
+          "text": "Degeneration, granular"
+        },
+        "Degeneration, granular, eosinophilic": {
+          "text": "Degeneration, granular, eosinophilic"
+        },
+        "Degeneration, hydropic": {
+          "text": "Degeneration, hydropic"
+        },
+        "Degeneration, vacuolar": {
+          "text": "Degeneration, vacuolar"
+        },
+        "Deposit, glycogen": {
+          "text": "Deposit, glycogen"
+        },
+        "Deposit, hemosiderin": {
+          "text": "Deposit, hemosiderin"
+        },
+        "Deposit, lipid": {
+          "text": "Deposit, lipid"
+        },
+        "Deposit, pigment": {
+          "text": "Deposit, pigment"
+        },
+        "Desquamation": {
+          "text": "Desquamation"
+        },
+        "Dilatation": {
+          "text": "Dilatation"
+        },
+        "Dilatation, cystic": {
+          "text": "Dilatation, cystic"
+        },
+        "Disarrangement": {
+          "text": "Disarrangement"
+        },
+        "Dysplasia": {
+          "text": "Dysplasia"
+        },
+        "Ectopic tissue": {
+          "text": "Ectopic tissue"
+        },
+        "Edema": {
+          "text": "Edema"
+        },
+        "Eosinophilic body": {
+          "text": "Eosinophilic body"
+        },
+        "Fibrosis": {
+          "text": "Fibrosis"
+        },
+        "Giant cell": {
+          "text": "Giant cell"
+        },
+        "Granuloma": {
+          "text": "Granuloma"
+        },
+        "Ground glass appearance": {
+          "text": "Ground glass appearance"
+        },
+        "Hematopoiesis, extramedullary": {
+          "text": "Hematopoiesis, extramedullary"
+        },
+        "Hemorrhage": {
+          "text": "Hemorrhage"
+        },
+        "Hyaline droplet": {
+          "text": "Hyaline droplet"
+        },
+        "Hydronephrosis": {
+          "text": "Hydronephrosis"
+        },
+        "Hyperplasia": {
+          "text": "Hyperplasia"
+        },
+        "Hyperplasia, regenerative": {
+          "text": "Hyperplasia, regenerative"
+        },
+        "Hypertrophy": {
+          "text": "Hypertrophy"
+        },
+        "Hypoplasia": {
+          "text": "Hypoplasia"
+        },
+        "Inclusion body, intracytoplasmic": {
+          "text": "Inclusion body, intracytoplasmic"
+        },
+        "Increased mitosis": {
+          "text": "Increased mitosis"
+        },
+        "Infarct": {
+          "text": "Infarct"
+        },
+        "Inflammation": {
+          "text": "Inflammation"
+        },
+        "Inflammation, foreign body": {
+          "text": "Inflammation, foreign body"
+        },
+        "Inflammation, suppurative": {
+          "text": "Inflammation, suppurative"
+        },
+        "Karyomegaly": {
+          "text": "Karyomegaly"
+        },
+        "Lesion,NOS": {
+          "text": "Lesion,NOS"
+        },
+        "Microgranuloma": {
+          "text": "Microgranuloma"
+        },
+        "Mineralization": {
+          "text": "Mineralization"
+        },
+        "Necrosis": {
+          "text": "Necrosis"
+        },
+        "Necrosis, fibrinoid": {
+          "text": "Necrosis, fibrinoid"
+        },
+        "Nephroblastoma": {
+          "text": "Nephroblastoma"
+        },
+        "Nodule, hepatodiaphragmatic": {
+          "text": "Nodule, hepatodiaphragmatic"
+        },
+        "Phagocytosis": {
+          "text": "Phagocytosis"
+        },
+        "Proliferation": {
+          "text": "Proliferation"
+        },
+        "Proliferation, bile duct": {
+          "text": "Proliferation, bile duct"
+        },
+        "Proliferation, Kupffer cell": {
+          "text": "Proliferation, Kupffer cell"
+        },
+        "Proliferation, oval cell": {
+          "text": "Proliferation, oval cell"
+        },
+        "Pyknosis": {
+          "text": "Pyknosis"
+        },
+        "Regeneration": {
+          "text": "Regeneration"
+        },
+        "Scar": {
+          "text": "Scar"
+        },
+        "Sclerosis, glomerulus": {
+          "text": "Sclerosis, glomerulus"
+        },
+        "Single cell necrosis": {
+          "text": "Single cell necrosis"
+        },
+        "Swelling": {
+          "text": "Swelling"
+        },
+        "Thickening": {
+          "text": "Thickening"
+        },
+        "Thrombus": {
+          "text": "Thrombus"
+        },
+        "Tubulitis": {
+          "text": "Tubulitis"
+        },
+        "Vacuolization (Vacuolation), cytoplasmic": {
+          "text": "Vacuolization (Vacuolation), cytoplasmic"
+        },
+        "Vacuolization, cytoplasmic": {
+          "text": "Vacuolization, cytoplasmic"
+        },
+        "Vacuolization, nuclear": {
+          "text": "Vacuolization, nuclear"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "topography_type menu": {
+      "name": "topography_type menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "Artery, interlobular": {
+          "text": "Artery, interlobular"
+        },
+        "Bile duct": {
+          "text": "Bile duct"
+        },
+        "Bile duct cell": {
+          "text": "Bile duct cell"
+        },
+        "Bile duct, interlobular": {
+          "text": "Bile duct, interlobular"
+        },
+        "Centrilobular": {
+          "text": "Centrilobular"
+        },
+        "Collecting tubule": {
+          "text": "Collecting tubule"
+        },
+        "Cortex": {
+          "text": "Cortex"
+        },
+        "Cortico-medullary junction": {
+          "text": "Cortico-medullary junction"
+        },
+        "Distal tubule": {
+          "text": "Distal tubule"
+        },
+        "Glisson's sheath": {
+          "text": "Glisson's sheath"
+        },
+        "Glomerular tuft": {
+          "text": "Glomerular tuft"
+        },
+        "Glomerulus": {
+          "text": "Glomerulus"
+        },
+        "Hepatic cord": {
+          "text": "Hepatic cord"
+        },
+        "Hepatocyte": {
+          "text": "Hepatocyte"
+        },
+        "Interlobular": {
+          "text": "Interlobular"
+        },
+        "Interstitium, Connective tissue": {
+          "text": "Interstitium, Connective tissue"
+        },
+        "Ito cell": {
+          "text": "Ito cell"
+        },
+        "Juxtaglomerular apparatus": {
+          "text": "Juxtaglomerular apparatus"
+        },
+        "Kupffer cell": {
+          "text": "Kupffer cell"
+        },
+        "Liver cell": {
+          "text": "Liver cell"
+        },
+        "Lobule, peripheral zone": {
+          "text": "Lobule, peripheral zone"
+        },
+        "Lymphatic": {
+          "text": "Lymphatic"
+        },
+        "Medulla": {
+          "text": "Medulla"
+        },
+        "Mesangial cell": {
+          "text": "Mesangial cell"
+        },
+        "Mesangial matrix": {
+          "text": "Mesangial matrix"
+        },
+        "Midlobular": {
+          "text": "Midlobular"
+        },
+        "Papilla": {
+          "text": "Papilla"
+        },
+        "Parenchyma": {
+          "text": "Parenchyma"
+        },
+        "Pelvic cavity": {
+          "text": "Pelvic cavity"
+        },
+        "Pelvic epithelium": {
+          "text": "Pelvic epithelium"
+        },
+        "Pelvic mucosa": {
+          "text": "Pelvic mucosa"
+        },
+        "Pelvis": {
+          "text": "Pelvis"
+        },
+        "Periductular": {
+          "text": "Periductular"
+        },
+        "Peripheral": {
+          "text": "Peripheral"
+        },
+        "Periportal": {
+          "text": "Periportal"
+        },
+        "Podocyte": {
+          "text": "Podocyte"
+        },
+        "Portal": {
+          "text": "Portal"
+        },
+        "Portal triad": {
+          "text": "Portal triad"
+        },
+        "Proximal tubule": {
+          "text": "Proximal tubule"
+        },
+        "Proximal tubule, segment 3": {
+          "text": "Proximal tubule, segment 3"
+        },
+        "Proximal tubule, straight": {
+          "text": "Proximal tubule, straight"
+        },
+        "Renal tubule": {
+          "text": "Renal tubule"
+        },
+        "Serosa": {
+          "text": "Serosa"
+        },
+        "Sinusoid": {
+          "text": "Sinusoid"
+        },
+        "Subcapsule": {
+          "text": "Subcapsule"
+        },
+        "Subserosa": {
+          "text": "Subserosa"
+        },
+        "Transitional epithelium": {
+          "text": "Transitional epithelium"
+        },
+        "Tubular epithelium": {
+          "text": "Tubular epithelium"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "scoring_system menu": {
+      "name": "scoring_system menu",
+      "from_schema": "https://example.com/REMBI",
+      "permissible_values": {
+        "TGGates": {
+          "text": "TGGates"
+        },
+        "DrugMatrix": {
+          "text": "DrugMatrix"
+        },
+        "1-5": {
+          "text": "1-5"
+        },
+        "NASH Score": {
+          "text": "NASH Score"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    }
+  },
+  "slots": {
+    "submitter_id": {
+      "name": "submitter_id",
+      "description": "An individual identifier for each slide record.",
+      "title": "submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString"
+    },
+    "aliquots.submitter_id": {
+      "name": "aliquots.submitter_id",
+      "description": "The identifier from the aliquots table for which the data represents",
+      "title": "aliquots.submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString"
+    },
+    "file_name": {
+      "name": "file_name",
+      "description": "The name (or part of a name) of a file (of any type).",
+      "title": "file_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "data_category": {
+      "name": "data_category",
+      "description": "Broad categorization of the contents of the data file.",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "data_category menu",
+      "required": true
+    },
+    "data_format": {
+      "name": "data_format",
+      "description": "Format of the data files.",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "data_format menu",
+      "required": true
+    },
+    "data_type": {
+      "name": "data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "data_type menu",
+      "required": true
+    },
+    "instrument.submitter_id": {
+      "name": "instrument.submitter_id",
+      "description": "Specific content type of the data file.",
+      "title": "instrument.submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "instrument.submitter_id menu",
+      "required": true
+    },
+    "magnification": {
+      "name": "magnification",
+      "description": "The amount or degree of visual enlargement used during image acquisition.",
+      "title": "magnification",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "slot_uri": "obo:NCIT_C181737",
+      "multivalued": true,
+      "range": "magnification menu",
+      "required": true
+    },
+    "imaging_protocol": {
+      "name": "imaging_protocol",
+      "description": " ",
+      "title": "imaging_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "imaging_protocol_DOI": {
+      "name": "imaging_protocol_DOI",
+      "description": " ",
+      "title": "imaging_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "assay": {
+      "name": "assay",
+      "description": "General methodology used",
+      "title": "assay",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "identifier": true,
+      "range": "assay menu",
+      "required": true
+    },
+    "probe_type": {
+      "name": "probe_type",
+      "description": " ",
+      "title": "probe_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "range": "probe_type menu",
+      "required": true
+    },
+    "probe_name": {
+      "name": "probe_name",
+      "description": " ",
+      "title": "probe_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "probe_provider": {
+      "name": "probe_provider",
+      "description": " ",
+      "title": "probe_provider",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "probe_catalog_number": {
+      "name": "probe_catalog_number",
+      "description": " ",
+      "title": "probe_catalog_number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "probe_concentration": {
+      "name": "probe_concentration",
+      "description": " ",
+      "title": "probe_concentration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString"
+    },
+    "detection_method": {
+      "name": "detection_method",
+      "description": " ",
+      "title": "detection_method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "slide.submitter_id": {
+      "name": "slide.submitter_id",
+      "description": " ",
+      "title": "slide.submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "finding_type": {
+      "name": "finding_type",
+      "description": "Pathological findings.",
+      "title": "finding_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "finding_type menu",
+      "required": true
+    },
+    "topography_type": {
+      "name": "topography_type",
+      "description": "\tRegion of the organ where the pathological changes were found.",
+      "title": "topography_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "slot_uri": "obo:NCIT_C38034",
+      "range": "topography_type menu",
+      "required": true
+    },
+    "grade": {
+      "name": "grade",
+      "description": "Magnitude of pathological changes.",
+      "title": "grade",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "spontaneous_flag": {
+      "name": "spontaneous_flag",
+      "description": "The flag shows whether the lesion occurred spontaneously. The flag value is \"1\" if the lesion occurred spontaneously.",
+      "title": "spontaneous_flag",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString"
+    },
+    "scoring_system": {
+      "name": "scoring_system",
+      "description": " ",
+      "title": "scoring_system",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "scoring_system menu",
+      "required": true
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/REMBI"
+    },
+    "slide": {
+      "name": "slide",
+      "from_schema": "https://example.com/REMBI",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "exact_mappings": [
+            "gen3_data:slide.submitter_id",
+            "gen3_slide:submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "Identifiers"
+        },
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
+          "exact_mappings": [
+            "gen3_slide:aliquots.submitter_id"
+          ],
+          "rank": 2,
+          "slot_group": "Identifiers"
+        },
+        "file_name": {
+          "name": "file_name",
+          "exact_mappings": [
+            "gen3_data:file_name"
+          ],
+          "rank": 3,
+          "slot_group": "data"
+        },
+        "data_category": {
+          "name": "data_category",
+          "exact_mappings": [
+            "gen3_data:data_category"
+          ],
+          "rank": 4,
+          "slot_group": "data"
+        },
+        "data_format": {
+          "name": "data_format",
+          "exact_mappings": [
+            "gen3_data:data_format"
+          ],
+          "rank": 5,
+          "slot_group": "data"
+        },
+        "data_type": {
+          "name": "data_type",
+          "exact_mappings": [
+            "gen3_data:data_type"
+          ],
+          "rank": 6,
+          "slot_group": "data"
+        },
+        "instrument.submitter_id": {
+          "name": "instrument.submitter_id",
+          "exact_mappings": [
+            "gen3_data:instrument.submitter_id"
+          ],
+          "rank": 7,
+          "slot_group": "data"
+        },
+        "magnification": {
+          "name": "magnification",
+          "exact_mappings": [
+            "gen3_data:magnification"
+          ],
+          "rank": 8,
+          "slot_group": "data"
+        },
+        "imaging_protocol": {
+          "name": "imaging_protocol",
+          "exact_mappings": [
+            "gen3_data:imaging_protocol"
+          ],
+          "rank": 9,
+          "slot_group": "data"
+        },
+        "imaging_protocol_DOI": {
+          "name": "imaging_protocol_DOI",
+          "exact_mappings": [
+            "gen3_data:imaging_protcol_DOI"
+          ],
+          "rank": 10,
+          "slot_group": "data"
+        },
+        "assay": {
+          "name": "assay",
+          "exact_mappings": [
+            "gen3_slide:assay"
+          ],
+          "rank": 11,
+          "slot_group": "slide_details"
+        },
+        "probe_type": {
+          "name": "probe_type",
+          "exact_mappings": [
+            "gen3_slide:probe_type"
+          ],
+          "rank": 12,
+          "slot_group": "slide_details"
+        },
+        "probe_name": {
+          "name": "probe_name",
+          "exact_mappings": [
+            "gen3_slide:probe_name"
+          ],
+          "rank": 13,
+          "slot_group": "slide_details"
+        },
+        "probe_provider": {
+          "name": "probe_provider",
+          "exact_mappings": [
+            "gen3_slide:probe_provider"
+          ],
+          "rank": 14,
+          "slot_group": "slide_details"
+        },
+        "probe_catalog_number": {
+          "name": "probe_catalog_number",
+          "exact_mappings": [
+            "gen3_slide:probe_catalog_number"
+          ],
+          "rank": 15,
+          "slot_group": "slide_details"
+        },
+        "probe_concentration": {
+          "name": "probe_concentration",
+          "exact_mappings": [
+            "gen3_slide:probe_concentration"
+          ],
+          "rank": 16,
+          "slot_group": "slide_details"
+        },
+        "detection_method": {
+          "name": "detection_method",
+          "exact_mappings": [
+            "gen3_slide:detection_method"
+          ],
+          "rank": 17,
+          "slot_group": "slide_details"
+        }
+      },
+      "attributes": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "description": "An individual identifier for each slide record.",
+          "title": "submitter_id",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:slide.submitter_id",
+            "gen3_slide:submitter_id"
+          ],
+          "rank": 1,
+          "alias": "submitter_id",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
+          "description": "The identifier from the aliquots table for which the data represents",
+          "title": "aliquots.submitter_id",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:aliquots.submitter_id"
+          ],
+          "rank": 2,
+          "alias": "aliquots.submitter_id",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "file_name": {
+          "name": "file_name",
+          "description": "The name (or part of a name) of a file (of any type).",
+          "title": "file_name",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:file_name"
+          ],
+          "rank": 3,
+          "alias": "file_name",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "data_category": {
+          "name": "data_category",
+          "description": "Broad categorization of the contents of the data file.",
+          "title": "data_category",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:data_category"
+          ],
+          "rank": 4,
+          "alias": "data_category",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "data_category menu",
+          "required": true
+        },
+        "data_format": {
+          "name": "data_format",
+          "description": "Format of the data files.",
+          "title": "data_format",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:data_format"
+          ],
+          "rank": 5,
+          "alias": "data_format",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "data_format menu",
+          "required": true
+        },
+        "data_type": {
+          "name": "data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:data_type"
+          ],
+          "rank": 6,
+          "alias": "data_type",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "data_type menu",
+          "required": true
+        },
+        "instrument.submitter_id": {
+          "name": "instrument.submitter_id",
+          "description": "Specific content type of the data file.",
+          "title": "instrument.submitter_id",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:instrument.submitter_id"
+          ],
+          "rank": 7,
+          "alias": "instrument.submitter_id",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "instrument.submitter_id menu",
+          "required": true
+        },
+        "magnification": {
+          "name": "magnification",
+          "description": "The amount or degree of visual enlargement used during image acquisition.",
+          "title": "magnification",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:magnification"
+          ],
+          "rank": 8,
+          "slot_uri": "obo:NCIT_C181737",
+          "multivalued": true,
+          "alias": "magnification",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "magnification menu",
+          "required": true
+        },
+        "imaging_protocol": {
+          "name": "imaging_protocol",
+          "description": " ",
+          "title": "imaging_protocol",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:imaging_protocol"
+          ],
+          "rank": 9,
+          "alias": "imaging_protocol",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "imaging_protocol_DOI": {
+          "name": "imaging_protocol_DOI",
+          "description": " ",
+          "title": "imaging_protocol_DOI",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_data:imaging_protcol_DOI"
+          ],
+          "rank": 10,
+          "alias": "imaging_protocol_DOI",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "assay": {
+          "name": "assay",
+          "description": "General methodology used",
+          "title": "assay",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:assay"
+          ],
+          "rank": 11,
+          "multivalued": true,
+          "identifier": true,
+          "alias": "assay",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "assay menu",
+          "required": true
+        },
+        "probe_type": {
+          "name": "probe_type",
+          "description": " ",
+          "title": "probe_type",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:probe_type"
+          ],
+          "rank": 12,
+          "multivalued": true,
+          "alias": "probe_type",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "probe_type menu",
+          "required": true
+        },
+        "probe_name": {
+          "name": "probe_name",
+          "description": " ",
+          "title": "probe_name",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:probe_name"
+          ],
+          "rank": 13,
+          "multivalued": true,
+          "alias": "probe_name",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "probe_provider": {
+          "name": "probe_provider",
+          "description": " ",
+          "title": "probe_provider",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:probe_provider"
+          ],
+          "rank": 14,
+          "multivalued": true,
+          "alias": "probe_provider",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "probe_catalog_number": {
+          "name": "probe_catalog_number",
+          "description": " ",
+          "title": "probe_catalog_number",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:probe_catalog_number"
+          ],
+          "rank": 15,
+          "multivalued": true,
+          "alias": "probe_catalog_number",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "probe_concentration": {
+          "name": "probe_concentration",
+          "description": " ",
+          "title": "probe_concentration",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:probe_concentration"
+          ],
+          "rank": 16,
+          "multivalued": true,
+          "alias": "probe_concentration",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "WhitespaceMinimizedString"
+        },
+        "detection_method": {
+          "name": "detection_method",
+          "description": " ",
+          "title": "detection_method",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_slide:detection_method"
+          ],
+          "rank": 17,
+          "multivalued": true,
+          "alias": "detection_method",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "slide_details",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        }
+      }
+    },
+    "pathology": {
+      "name": "pathology",
+      "from_schema": "https://example.com/REMBI",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "slide.submitter_id": {
+          "name": "slide.submitter_id",
+          "exact_mappings": [
+            "gen3_pathology:slot_usage"
+          ],
+          "rank": 1,
+          "slot_group": "Identifiers"
+        },
+        "finding_type": {
+          "name": "finding_type",
+          "exact_mappings": [
+            "gen3_pathology:finding_type"
+          ],
+          "rank": 2,
+          "slot_group": "pathology_grading"
+        },
+        "topography_type": {
+          "name": "topography_type",
+          "exact_mappings": [
+            "gen3_pathology:topography_type"
+          ],
+          "rank": 3,
+          "slot_group": "pathology_grading"
+        },
+        "grade": {
+          "name": "grade",
+          "exact_mappings": [
+            "gen3_pathology:grade"
+          ],
+          "rank": 4,
+          "slot_group": "pathology_grading"
+        },
+        "spontaneous_flag": {
+          "name": "spontaneous_flag",
+          "exact_mappings": [
+            "gen3_pathology:spontaneous_flag"
+          ],
+          "rank": 5,
+          "slot_group": "pathology_grading"
+        },
+        "scoring_system": {
+          "name": "scoring_system",
+          "exact_mappings": [
+            "gen3_pathology:scoring_system"
+          ],
+          "rank": 6,
+          "slot_group": "pathology_grading"
+        }
+      },
+      "attributes": {
+        "slide.submitter_id": {
+          "name": "slide.submitter_id",
+          "description": " ",
+          "title": "slide.submitter_id",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_pathology:slot_usage"
+          ],
+          "rank": 1,
+          "alias": "slide.submitter_id",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "finding_type": {
+          "name": "finding_type",
+          "description": "Pathological findings.",
+          "title": "finding_type",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_pathology:finding_type"
+          ],
+          "rank": 2,
+          "alias": "finding_type",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "pathology_grading",
+          "range": "finding_type menu",
+          "required": true
+        },
+        "topography_type": {
+          "name": "topography_type",
+          "description": "\tRegion of the organ where the pathological changes were found.",
+          "title": "topography_type",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_pathology:topography_type"
+          ],
+          "rank": 3,
+          "slot_uri": "obo:NCIT_C38034",
+          "alias": "topography_type",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "pathology_grading",
+          "range": "topography_type menu",
+          "required": true
+        },
+        "grade": {
+          "name": "grade",
+          "description": "Magnitude of pathological changes.",
+          "title": "grade",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_pathology:grade"
+          ],
+          "rank": 4,
+          "alias": "grade",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "pathology_grading",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "spontaneous_flag": {
+          "name": "spontaneous_flag",
+          "description": "The flag shows whether the lesion occurred spontaneously. The flag value is \"1\" if the lesion occurred spontaneously.",
+          "title": "spontaneous_flag",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_pathology:spontaneous_flag"
+          ],
+          "rank": 5,
+          "alias": "spontaneous_flag",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "pathology_grading",
+          "range": "WhitespaceMinimizedString"
+        },
+        "scoring_system": {
+          "name": "scoring_system",
+          "description": " ",
+          "title": "scoring_system",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "gen3_pathology:scoring_system"
+          ],
+          "rank": 6,
+          "alias": "scoring_system",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "pathology_grading",
+          "range": "scoring_system menu",
+          "required": true
+        }
+      }
+    }
+  },
+  "source_file": "schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

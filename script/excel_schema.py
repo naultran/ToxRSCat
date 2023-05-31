@@ -203,5 +203,5 @@ dir["settings"]["Title_Case"] = '(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)'
 dir["settings"]["UPPER_CASE"] = '[A-Z\W\d_]*'
 dir["settings"]["lower_case"] = '[a-z\W\d_]*'
 
-with open(f"{direc}/schema.yaml", 'w') as f:
+with open("./schema.yaml", 'w') as f:
     yaml.dump(dict(dir), f, sort_keys=False, default_flow_style=False)
