@@ -1,0 +1,815 @@
+id: https://example.com/REMBI
+name: slide_imaging
+description: "These templates are intended to suppor the collection of metadata related\
+  \ to imaging and score of histopathology data. Terms are based on the recommended\
+  \ Recommended Metadata for Biological Images (REMBI) described by Sarkans et al.\
+  \ (2021) <Sarkans, U., Chiu, W., Collinson, L. et al. REMBI: Recommended Metadata\
+  \ for Biological Images\u2014enabling reuse of microscopy data in biology. Nat Methods\
+  \ 18, 1418\u20131422 (2021). https://doi.org/10.1038/s41592-021-01166-8>"
+version: 1.0.0
+imports: linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  purl.obolibrary.org: http://purl.obolibrary.org/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/REMBI_draft
+  slide:
+    name: slide
+    is_a: dh_interface
+    slots:
+    - submitter_id
+    - aliquots.submitter_id
+    - file_name
+    - data_category
+    - data_format
+    - data_type
+    - instrument.submitter_id
+    - magnification
+    - imaging_protocol
+    - imaging_protocol_DOI
+    - assay
+    - probe_type
+    - probe_name
+    - probe_provider
+    - probe_catalog_number
+    - probe_concentration
+    - detection_method
+    slot_usage:
+      submitter_id:
+        rank: 1
+        slot_group: Identifiers
+        exact_mappings: 
+        - gen3_data:slide.submitter_id
+        - gen3_slide:submitter_id
+      aliquots.submitter_id:
+        rank: 2
+        slot_group: Identifiers
+        exact_mappings: 
+        - gen3_slide:aliquots.submitter_id
+      file_name:
+        rank: 3
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:file_name
+      data_category:
+        rank: 4
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:data_category
+      data_format:
+        rank: 5
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:data_format
+      data_type:
+        rank: 6
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:data_type
+      instrument.submitter_id:
+        rank: 7
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:instrument.submitter_id
+      magnification:
+        rank: 8
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:magnification
+      imaging_protocol:
+        rank: 9
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:imaging_protocol
+      imaging_protocol_DOI:
+        rank: 10
+        slot_group: data
+        exact_mappings: 
+        - gen3_data:imaging_protcol_DOI
+      assay:
+        rank: 11
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:assay
+      probe_type:
+        rank: 12
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:probe_type
+      probe_name:
+        rank: 13
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:probe_name
+      probe_provider:
+        rank: 14
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:probe_provider
+      probe_catalog_number:
+        rank: 15
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:probe_catalog_number
+      probe_concentration:
+        rank: 16
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:probe_concentration
+      detection_method:
+        rank: 17
+        slot_group: slide_details
+        exact_mappings: 
+        - gen3_slide:detection_method
+  pathology:
+    name: pathology
+    is_a: dh_interface
+    slots:
+    - slide.submitter_id
+    - finding_type
+    - topography_type
+    - grade
+    - spontaneous_flag
+    - scoring_system
+    slot_usage:
+      slide.submitter_id:
+        rank: 1
+        slot_group: Identifiers
+        exact_mappings: 
+        - gen3_pathology:slot_usage
+      finding_type:
+        rank: 2
+        slot_group: pathology_grading
+        exact_mappings: 
+        - gen3_pathology:finding_type
+      topography_type:
+        rank: 3
+        slot_group: pathology_grading
+        exact_mappings: 
+        - gen3_pathology:topography_type
+      grade:
+        rank: 4
+        slot_group: pathology_grading
+        exact_mappings: 
+        - gen3_pathology:grade
+      spontaneous_flag:
+        rank: 5
+        slot_group: pathology_grading
+        exact_mappings: 
+        - gen3_pathology:spontaneous_flag
+      scoring_system:
+        rank: 6
+        slot_group: pathology_grading
+        exact_mappings: 
+        - gen3_pathology:scoring_system
+
+slots:
+  submitter_id:
+    name: submitter_id
+    title: submitter_id
+    range: WhitespaceMinimizedString
+    description: An individual identifier for each slide record.
+    comments: ' '
+  aliquots.submitter_id:
+    name: aliquots.submitter_id
+    title: aliquots.submitter_id
+    range: WhitespaceMinimizedString
+    description: The identifier from the aliquots table for which the data represents
+    comments: ' '
+  file_name:
+    name: file_name
+    title: file_name
+    range: WhitespaceMinimizedString
+    description: The name (or part of a name) of a file (of any type).
+    required: true
+    comments: ' '
+  data_category:
+    name: data_category
+    title: data_category
+    range: data_category menu
+    description: Broad categorization of the contents of the data file.
+    required: true
+    comments: ' '
+  data_format:
+    name: data_format
+    title: data_format
+    range: data_format menu
+    description: Format of the data files.
+    required: true
+    comments: ' '
+  data_type:
+    name: data_type
+    title: data_type
+    range: data_type menu
+    description: ' '
+    required: true
+    comments: ' '
+  instrument.submitter_id:
+    name: instrument.submitter_id
+    title: instrument.submitter_id
+    range: instrument.submitter_id menu
+    description: Specific content type of the data file.
+    required: true
+    comments: ' '
+  magnification:
+    name: magnification
+    title: magnification
+    range: magnification menu
+    description: The amount or degree of visual enlargement used during image acquisition.
+    required: true
+    multivalued: true
+    slot_uri: obo:NCIT_C181737
+    comments: ' '
+  imaging_protocol:
+    name: imaging_protocol
+    title: imaging_protocol
+    range: WhitespaceMinimizedString
+    description: ' '
+    recommended: true
+    comments: ' '
+  imaging_protocol_DOI:
+    name: imaging_protocol_DOI
+    title: imaging_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: ' '
+    recommended: true
+    comments: ' '
+  assay:
+    name: assay
+    title: assay
+    range: assay menu
+    description: General methodology used
+    required: true
+    identifier: true
+    multivalued: true
+    comments: ' '
+  probe_type:
+    name: probe_type
+    title: probe_type
+    range: probe_type menu
+    description: ' '
+    required: true
+    multivalued: true
+    comments: ' '
+  probe_name:
+    name: probe_name
+    title: probe_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    multivalued: true
+    comments: ' '
+  probe_provider:
+    name: probe_provider
+    title: probe_provider
+    range: WhitespaceMinimizedString
+    description: ' '
+    recommended: true
+    multivalued: true
+    comments: ' '
+  probe_catalog_number:
+    name: probe_catalog_number
+    title: probe_catalog_number
+    range: WhitespaceMinimizedString
+    description: ' '
+    recommended: true
+    multivalued: true
+    comments: ' '
+  probe_concentration:
+    name: probe_concentration
+    title: probe_concentration
+    range: WhitespaceMinimizedString
+    description: ' '
+    multivalued: true
+    comments: ' '
+  detection_method:
+    name: detection_method
+    title: detection_method
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    multivalued: true
+    comments: ' '
+  slide.submitter_id:
+    name: slide.submitter_id
+    title: slide.submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  finding_type:
+    name: finding_type
+    title: finding_type
+    range: finding_type menu
+    description: Pathological findings.
+    required: true
+    comments: ' '
+  topography_type:
+    name: topography_type
+    title: topography_type
+    range: topography_type menu
+    description: "\tRegion of the organ where the pathological changes were found."
+    required: true
+    slot_uri: obo:NCIT_C38034
+    comments: ' '
+  grade:
+    name: grade
+    title: grade
+    range: WhitespaceMinimizedString
+    description: Magnitude of pathological changes.
+    required: true
+    comments: ' '
+  spontaneous_flag:
+    name: spontaneous_flag
+    title: spontaneous_flag
+    range: WhitespaceMinimizedString
+    description: The flag shows whether the lesion occurred spontaneously. The flag
+      value is "1" if the lesion occurred spontaneously.
+    comments: ' '
+  scoring_system:
+    name: scoring_system
+    title: scoring_system
+    range: scoring_system menu
+    description: ' '
+    required: true
+    comments: ' '
+enums:
+  data_category menu:
+    name: data_category menu
+    permissible_values:
+      biological imaging:
+        text: biological imaging
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  data_format menu:
+    name: data_format menu
+    permissible_values:
+      zip:
+        text: zip
+      gzip:
+        text: gzip
+      png:
+        text: png
+      tif:
+        text: tif
+      tiff:
+        text: tiff
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  data_type menu:
+    name: data_type menu
+    permissible_values:
+      whole slide scan:
+        text: whole slide scan
+      ' field of view image':
+        text: ' field of view image'
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  instrument.submitter_id menu:
+    name: instrument.submitter_id menu
+    permissible_values:
+      VSI110:
+        text: VSI110
+      VSI220:
+        text: VSI220
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  magnification menu:
+    name: magnification menu
+    permissible_values:
+      4X:
+        text: 4X
+      10X:
+        text: 10X
+      20X:
+        text: 20X
+      60X:
+        text: 60X
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  assay menu:
+    name: assay menu
+    permissible_values:
+      IHC:
+        text: IHC
+      ISH:
+        text: ISH
+      FISH:
+        text: FISH
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  probe_type menu:
+    name: probe_type menu
+    permissible_values:
+      Chemical:
+        text: Chemical
+      Antibody:
+        text: Antibody
+      Oligonucleotide:
+        text: Oligonucleotide
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  finding_type menu:
+    name: finding_type menu
+    permissible_values:
+      Accumulation, foam cell:
+        text: Accumulation, foam cell
+      Adenoma, hepatocellular:
+        text: Adenoma, hepatocellular
+      Alteration, cytoplasmic:
+        text: Alteration, cytoplasmic
+      Alteration, nuclear:
+        text: Alteration, nuclear
+      Altered hepatocellular foci:
+        text: Altered hepatocellular foci
+      Angiectasis:
+        text: Angiectasis
+      Anisonucleosis:
+        text: Anisonucleosis
+      Arteriolosclerosis:
+        text: Arteriolosclerosis
+      Arteritis:
+        text: Arteritis
+      Atrophy:
+        text: Atrophy
+      Atypia, cellular:
+        text: Atypia, cellular
+      Atypia, nuclear:
+        text: Atypia, nuclear
+      Bacterium:
+        text: Bacterium
+      Calcification:
+        text: Calcification
+      Cast, cellular:
+        text: Cast, cellular
+      Cast, hemoglobinogenous:
+        text: Cast, hemoglobinogenous
+      Cast,hyaline:
+        text: Cast,hyaline
+      Cellular foci:
+        text: Cellular foci
+      Cellular infiltration:
+        text: Cellular infiltration
+      Cellular infiltration, lymphocyte:
+        text: Cellular infiltration, lymphocyte
+      Cellular infiltration, mononuclear cell:
+        text: Cellular infiltration, mononuclear cell
+      Cellular infiltration, neutrophil:
+        text: Cellular infiltration, neutrophil
+      Change, acidophilic:
+        text: Change, acidophilic
+      Change, basophilic:
+        text: Change, basophilic
+      Change, eosinophilic:
+        text: Change, eosinophilic
+      Congestion:
+        text: Congestion
+      Cyst:
+        text: Cyst
+      Cyst, hemorrhagic:
+        text: Cyst, hemorrhagic
+      DEAD:
+        text: DEAD
+      Degeneration:
+        text: Degeneration
+      Degeneration, acidophilic, eosinophilic:
+        text: Degeneration, acidophilic, eosinophilic
+      Degeneration, fatty:
+        text: Degeneration, fatty
+      Degeneration, granular:
+        text: Degeneration, granular
+      Degeneration, granular, eosinophilic:
+        text: Degeneration, granular, eosinophilic
+      Degeneration, hydropic:
+        text: Degeneration, hydropic
+      Degeneration, vacuolar:
+        text: Degeneration, vacuolar
+      Deposit, glycogen:
+        text: Deposit, glycogen
+      Deposit, hemosiderin:
+        text: Deposit, hemosiderin
+      Deposit, lipid:
+        text: Deposit, lipid
+      Deposit, pigment:
+        text: Deposit, pigment
+      Desquamation:
+        text: Desquamation
+      Dilatation:
+        text: Dilatation
+      Dilatation, cystic:
+        text: Dilatation, cystic
+      Disarrangement:
+        text: Disarrangement
+      Dysplasia:
+        text: Dysplasia
+      Ectopic tissue:
+        text: Ectopic tissue
+      Edema:
+        text: Edema
+      Eosinophilic body:
+        text: Eosinophilic body
+      Fibrosis:
+        text: Fibrosis
+      Giant cell:
+        text: Giant cell
+      Granuloma:
+        text: Granuloma
+      Ground glass appearance:
+        text: Ground glass appearance
+      Hematopoiesis, extramedullary:
+        text: Hematopoiesis, extramedullary
+      Hemorrhage:
+        text: Hemorrhage
+      Hyaline droplet:
+        text: Hyaline droplet
+      Hydronephrosis:
+        text: Hydronephrosis
+      Hyperplasia:
+        text: Hyperplasia
+      Hyperplasia, regenerative:
+        text: Hyperplasia, regenerative
+      Hypertrophy:
+        text: Hypertrophy
+      Hypoplasia:
+        text: Hypoplasia
+      Inclusion body, intracytoplasmic:
+        text: Inclusion body, intracytoplasmic
+      Increased mitosis:
+        text: Increased mitosis
+      Infarct:
+        text: Infarct
+      Inflammation:
+        text: Inflammation
+      Inflammation, foreign body:
+        text: Inflammation, foreign body
+      Inflammation, suppurative:
+        text: Inflammation, suppurative
+      Karyomegaly:
+        text: Karyomegaly
+      Lesion,NOS:
+        text: Lesion,NOS
+      Microgranuloma:
+        text: Microgranuloma
+      Mineralization:
+        text: Mineralization
+      Necrosis:
+        text: Necrosis
+      Necrosis, fibrinoid:
+        text: Necrosis, fibrinoid
+      Nephroblastoma:
+        text: Nephroblastoma
+      Nodule, hepatodiaphragmatic:
+        text: Nodule, hepatodiaphragmatic
+      Phagocytosis:
+        text: Phagocytosis
+      Proliferation:
+        text: Proliferation
+      Proliferation, bile duct:
+        text: Proliferation, bile duct
+      Proliferation, Kupffer cell:
+        text: Proliferation, Kupffer cell
+      Proliferation, oval cell:
+        text: Proliferation, oval cell
+      Pyknosis:
+        text: Pyknosis
+      Regeneration:
+        text: Regeneration
+      Scar:
+        text: Scar
+      Sclerosis, glomerulus:
+        text: Sclerosis, glomerulus
+      Single cell necrosis:
+        text: Single cell necrosis
+      Swelling:
+        text: Swelling
+      Thickening:
+        text: Thickening
+      Thrombus:
+        text: Thrombus
+      Tubulitis:
+        text: Tubulitis
+      Vacuolization (Vacuolation), cytoplasmic:
+        text: Vacuolization (Vacuolation), cytoplasmic
+      Vacuolization, cytoplasmic:
+        text: Vacuolization, cytoplasmic
+      Vacuolization, nuclear:
+        text: Vacuolization, nuclear
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  topography_type menu:
+    name: topography_type menu
+    permissible_values:
+      Artery, interlobular:
+        text: Artery, interlobular
+      Bile duct:
+        text: Bile duct
+      Bile duct cell:
+        text: Bile duct cell
+      Bile duct, interlobular:
+        text: Bile duct, interlobular
+      Centrilobular:
+        text: Centrilobular
+      Collecting tubule:
+        text: Collecting tubule
+      Cortex:
+        text: Cortex
+      Cortico-medullary junction:
+        text: Cortico-medullary junction
+      Distal tubule:
+        text: Distal tubule
+      Glisson's sheath:
+        text: Glisson's sheath
+      Glomerular tuft:
+        text: Glomerular tuft
+      Glomerulus:
+        text: Glomerulus
+      Hepatic cord:
+        text: Hepatic cord
+      Hepatocyte:
+        text: Hepatocyte
+      Interlobular:
+        text: Interlobular
+      Interstitium, Connective tissue:
+        text: Interstitium, Connective tissue
+      Ito cell:
+        text: Ito cell
+      Juxtaglomerular apparatus:
+        text: Juxtaglomerular apparatus
+      Kupffer cell:
+        text: Kupffer cell
+      Liver cell:
+        text: Liver cell
+      Lobule, peripheral zone:
+        text: Lobule, peripheral zone
+      Lymphatic:
+        text: Lymphatic
+      Medulla:
+        text: Medulla
+      Mesangial cell:
+        text: Mesangial cell
+      Mesangial matrix:
+        text: Mesangial matrix
+      Midlobular:
+        text: Midlobular
+      Papilla:
+        text: Papilla
+      Parenchyma:
+        text: Parenchyma
+      Pelvic cavity:
+        text: Pelvic cavity
+      Pelvic epithelium:
+        text: Pelvic epithelium
+      Pelvic mucosa:
+        text: Pelvic mucosa
+      Pelvis:
+        text: Pelvis
+      Periductular:
+        text: Periductular
+      Peripheral:
+        text: Peripheral
+      Periportal:
+        text: Periportal
+      Podocyte:
+        text: Podocyte
+      Portal:
+        text: Portal
+      Portal triad:
+        text: Portal triad
+      Proximal tubule:
+        text: Proximal tubule
+      Proximal tubule, segment 3:
+        text: Proximal tubule, segment 3
+      Proximal tubule, straight:
+        text: Proximal tubule, straight
+      Renal tubule:
+        text: Renal tubule
+      Serosa:
+        text: Serosa
+      Sinusoid:
+        text: Sinusoid
+      Subcapsule:
+        text: Subcapsule
+      Subserosa:
+        text: Subserosa
+      Transitional epithelium:
+        text: Transitional epithelium
+      Tubular epithelium:
+        text: Tubular epithelium
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  scoring_system menu:
+    name: scoring_system menu
+    permissible_values:
+      TGGates:
+        text: TGGates
+      DrugMatrix:
+        text: DrugMatrix
+      1-5:
+        text: 1-5
+      NASH Score:
+        text: NASH Score
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
