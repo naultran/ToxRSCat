@@ -54,14 +54,14 @@ Describe who, how, and when. The purpose of ToxRSCat and what is 'appropriate' a
 	| comments| Here you can provide some examples. |
 	 
 __2. Convert the excel template into a LinkML schema.__
-```
+```bash
 cd <path/to/folder/with/excel/template>
 python <path/to/ToxRSCat/script/>excel_schema.py -i excel_template.xlsx
 ```
 
 __3. Assign mapping data for export to external repositories if desired.__
 	You will need to manually map each term to its node (output file). To do this open the `schema.yaml` file using your favorite text editor and go to the `slot_usage` section. For each slot that needs to be exported, edit using the following syntax:
-```
+```yaml
     slot_usage:
       submitter_id:
         rank: 1
@@ -87,7 +87,7 @@ An `export.js` file is used to support the export functions. You can leave this 
 2. Edit the relevant sections for your type of exported data. Here we provide an example on how to export the data for ToxDataCommons. More advanced knowledge of Javascript may be necessary to support other types of respositories.
 
 __<i> Only change the exportConfigs section:</i>__
-```
+```javascript
 		const exportConfigs = [
 			{
 				exportHeaders: new Map([
@@ -112,7 +112,7 @@ __<i> Only change the exportConfigs section:</i>__
 - outputMatrix does not change.
 - exportType is used to allow export of multiple files from one template to map to individual nodes in ToxDataCommons.
 - See below for header mappings.
-```
+```javascript
 exportHeaders: new Map([
 	["type", []], // This should always be included
 	["slide.submitter_id", []], // One column in the template should be a unique identifier for each file (or multiple files)
@@ -122,7 +122,7 @@ exportHeaders: new Map([
 ```
 
 __5. Convert your LinkML schema to JSON for DataHarmonizer.__
-```
+```bash
 python <path/to/DataHarmonizer/script/>linkml.py -i schema.yaml
 ```
 
@@ -146,3 +146,113 @@ Submissions can be submitted as follows:
 
  <a id="TDC"></a>
  ## Integrating with [ToxDataCommons](fairtox.com)
+
+Outline the structure of your reporting standard and the nodes to which it should connect to in existing ToxDataCommons model. For example:
+
+
+```mermaid
+graph RL
+B[Slide] -- "aliquots.submiter_id" --> A[Aliquot]
+C[Slide image] -- "slides.submitter_id" --> B
+D[pathology] -- "slides.submitter_id" --> B
+D -- "slide_images.submitter_id" --> C
+
+classDef TDC fill:#c7c8c9,font-style:italic;
+classDef biospecimen fill:#1eb352,font-weight:bold;
+classDef data_file fill:#a1ed37; 
+classDef notation fill:#f7393f;
+
+class A TDC;
+class B biospecimen; 
+class C data_file; 
+class D notation;
+```
+
+Change the `id:` to the node name (no spaces, all lowercase)
+```yaml
+id: "slide"
+```
+Change the `title:` to the display name for the node
+```yaml
+title: slide
+```
+Change the `category:` to one of the following:
+
+- administrative
+- clinical
+- biospecimen
+- data_file
+- analysis
+- notation
+```yaml
+category: biospecimen 
+```
+
+Add a description
+```yaml
+description: >
+  This is a description of the type of information captured in this node.
+```
+
+List required fields. The minimal requirements are already included in the template.
+```yaml
+required:
+  - type
+  - submitter_id
+  - ...
+```
+
+Create your links. Refer to your diagram above for reference.
+```yaml
+links:
+  - name: aliquots # name of linked node with an "s" at the end
+    backref: slides # name of this node with an "s" at the end
+    label: member_of # member_of, contribute_to, data_from, describes, generated_from, derived_from, outputs, performed_for, refers_to, relates_to 
+    target_type: aliquot # name of linked node
+    multiplicity: many_to_one # many_to_one, many_to_many, one_to_many, one_to_one 
+    required: true # true or false
+```
+
+Add the relevant properties. To ensure that you have all requirements for the node category, use the appropriate template. This is a biospecimen example.
+```yaml
+properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  type:
+    enum: ["slide"] # use node name
+  submitter_id:
+    type: string
+
+  # Enter other fields here. 
+
+  provenance:
+    type: string
+    description: "template version"  
+  aliquots: # the name field noted in the links
+    $ref: "_definitions.yaml#/to_one" 
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
+```
+
+Type can be any of the following:
+
+- string
+- enum
+```yaml
+  field_name:
+    enum:
+      - Option 1
+      - Option 2
+      - Option 3
+```
+- float
+- integer
+- number
+- boolean
