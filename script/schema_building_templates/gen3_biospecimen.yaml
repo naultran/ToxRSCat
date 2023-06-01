@@ -1,0 +1,80 @@
+$schema: "http://json-schema.org/draft-04/schema#"
+
+id: "slide"                         # Change node name
+title: slide                        # Change node display name
+type: object
+category: biospecimen
+program: '*'
+project: '*'
+description: >
+  description of extraction.        # Update description
+additionalProperties: false
+submittable: true
+validators: null
+
+systemProperties: 
+  - id
+  - project_id
+  - state
+  - created_datetime
+  - updated_datetime
+
+required:
+  - type
+  - submitter_id
+  - aliquots                       # include the linking field (identifier)
+  
+uniqueKeys:
+  - [id]
+  - [  project_id, submitter_id ]
+
+links:
+  - name: aliquots                  # name of linked node with an "s" at the end
+    backref: slides                 # name of this node with an "s" at the end
+    label: member_of                # member_of, contribute_to, data_from, describes, generated_from, derived_from, outputs, performed_for, refers_to, relates_to     
+    target_type: aliquot            # name of linked node
+    multiplicity: many_to_one       # many_to_one, many_to_many, one_to_many, one_to_one 
+    required: true
+
+properties:
+  id:
+    $ref: "_definitions.yaml#/UUID"
+    systemAlias: node_id
+  type:
+    enum: ["slide"]                 # use node name
+  submitter_id:
+    type: string
+
+  # Enter fields below
+  assay:
+    description: General methodology used
+    type: string
+  probe_type: 
+    type: string
+  probe_name:
+    type: string
+  probe_provider:
+    type: string
+  probe_catalog_number:
+    type: string
+  probe_concentration:
+    type: string
+  detection_method:
+    type: string
+  
+  # Add linking nodes and their relation. Use the name with an s at the end (links.name) 
+  aliquots:
+    $ref: "_definitions.yaml#/to_one"
+    
+  
+  provenance:
+    type: string
+    description: "template version"
+  state:
+    $ref: "_definitions.yaml#/state"
+  project_id:
+    $ref: "_definitions.yaml#/project_id"
+  created_datetime:
+    $ref: "_definitions.yaml#/datetime"
+  updated_datetime:
+    $ref: "_definitions.yaml#/datetime"
