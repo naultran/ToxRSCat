@@ -2907,7 +2907,7 @@
             "gen3_study_treatment:subjects.submitter_id"
           ],
           "rank": 1,
-          "slot_group": "subject"
+          "slot_group": "identifiers"
         },
         "Subject.study_identifier": {
           "name": "Subject.study_identifier",
@@ -3221,7 +3221,7 @@
           "domain_of": [
             "Subject"
           ],
-          "slot_group": "subject",
+          "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString",
           "required": true
         },
