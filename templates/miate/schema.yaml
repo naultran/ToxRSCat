@@ -59,7 +59,7 @@ classes:
     slot_usage:
       Subject.subject_identifier:
         rank: 1
-        slot_group: subject
+        slot_group: identifiers
         exact_mappings:
         - gen3_study_subject:submitter_id
         - gen3_study_housing:subjects.submitter_id
