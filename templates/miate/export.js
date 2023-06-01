@@ -421,11 +421,11 @@ export default {
               }
               async function myFunction() {
                 exportFile(outputMatrix_subject, "subject", "tsv");
-                await delay(5000);
+                await delay(1000);
                 exportFile(outputMatrix_housing, "housing", "tsv");
-                await delay(5000);
+                await delay(1000);
                 exportFile(outputMatrix_treatment, "treatment", "tsv");
-                await delay(5000);
+                await delay(1000);
                 exportFile(outputMatrix_diet, "diet", "tsv");
               }
               myFunction();

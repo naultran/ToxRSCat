@@ -533,19 +533,19 @@ export default {
               }
               async function myFunction() {
                 exportFile(outputMatrix_fr, "flourescence_reagent", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_dataana, "data_analysis", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(uniqueOutputMatrix_fcs, "FCS_file", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(uniqueOutputMatrix_ws, "WS_file", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_instrument, "instrument", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_of, "optical_filter", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_od, "optical_detector", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_lsi, "light_source_instrument", "tsv");
               }
               myFunction();
