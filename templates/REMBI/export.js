@@ -1,4 +1,4 @@
-import { exportFile, exportJsonFile } from '../../../lib/utils/files';
+import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
 
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));

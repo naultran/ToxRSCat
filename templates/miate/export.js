@@ -1,4 +1,4 @@
-import { exportFile, exportJsonFile } from '../../../lib/utils/files';
+import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
 // A dictionary of possible export formats
 export default {
     /**
