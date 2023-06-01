@@ -1,12 +1,12 @@
 {
   "miate": {
-    "Project": {
-      "name": "Project",
+    "Study": {
+      "name": "Study",
       "status": "published",
       "display": true
     },
-    "Study": {
-      "name": "Study",
+    "Subject": {
+      "name": "Subject",
       "status": "published",
       "display": true
     },

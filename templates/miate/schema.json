@@ -2067,12 +2067,12 @@
     }
   },
   "slots": {
-    "Project.project_identifier": {
-      "name": "Project.project_identifier",
+    "Study.study_identifier": {
+      "name": "Study.study_identifier",
       "description": " ",
-      "title": "project_identifier",
+      "title": "study_identifier",
       "comments": [
-        " "
+        "submitter_id of study file for gen3 uploading"
       ],
       "from_schema": "https://example.com/MIATE",
       "slot_uri": "obo:NCIT_C46002",
@@ -2108,7 +2108,7 @@
       "description": "The name of the person acting as a channel for communication between groups or on behalf of a group.",
       "title": "Contact name",
       "comments": [
-        "Rance Nault"
+        "Rance Nault(submitter_id of contact file for gen3 uploading)"
       ],
       "from_schema": "https://example.com/MIATE",
       "slot_uri": "obo:NCIT_C176230",
@@ -2249,7 +2249,7 @@
       "description": " ",
       "title": "Funding identifier",
       "comments": [
-        "P42ES004911"
+        "P42ES004911(submitter_id of funding file for gen3 uploading)"
       ],
       "from_schema": "https://example.com/MIATE",
       "multivalued": true,
@@ -2263,7 +2263,7 @@
       "description": " ",
       "title": "PMC ID",
       "comments": [
-        " "
+        "(submitter_id of publication file for gen3 uploading) "
       ],
       "from_schema": "https://example.com/MIATE",
       "multivalued": true,
@@ -2300,10 +2300,10 @@
       "inlined_as_list": true,
       "pattern": "^\\d{5,20}"
     },
-    "Study.project_identifier": {
-      "name": "Study.project_identifier",
+    "Subject.study_identifier": {
+      "name": "Subject.study_identifier",
       "description": " ",
-      "title": "project_identifier",
+      "title": "study_identifier",
       "comments": [
         " "
       ],
@@ -2356,12 +2356,12 @@
       "range": "Organism menu",
       "required": true
     },
-    "Study.subject_identifier": {
-      "name": "Study.subject_identifier",
+    "Subject.subject_identifier": {
+      "name": "Subject.subject_identifier",
       "description": " ",
       "title": "subject_identifier",
       "comments": [
-        " "
+        "(submitter_id of subject file for gen3 uploading)"
       ],
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString",
@@ -2490,7 +2490,7 @@
       "description": " ",
       "title": "Cage identifier",
       "comments": [
-        " "
+        "(submitter_id of housing file for gen3 uploading) "
       ],
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString"
@@ -2569,7 +2569,7 @@
       "description": " ",
       "title": "feed_catalog_number",
       "comments": [
-        " "
+        "(submitter_id of diet file for gen3 uploading) "
       ],
       "from_schema": "https://example.com/MIATE",
       "range": "WhitespaceMinimizedString"
@@ -2761,17 +2761,17 @@
       "description": " ",
       "title": "sample_identifier",
       "comments": [
-        " "
+        "(submitter_id of sampe file for gen3 uploading)"
       ],
       "from_schema": "https://example.com/MIATE",
       "identifier": true,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "Sample.project_identifier": {
-      "name": "Sample.project_identifier",
+    "Sample.study_identifier": {
+      "name": "Sample.study_identifier",
       "description": " ",
-      "title": "project_identifier",
+      "title": "study_identifier",
       "comments": [
         " "
       ],
@@ -2854,10 +2854,10 @@
       "from_schema": "https://example.com/MIATE",
       "range": "float"
     },
-    "project template version": {
-      "name": "project template version",
+    "study template version": {
+      "name": "study template version",
       "description": " ",
-      "title": "project template version",
+      "title": "study template version",
       "comments": [
         " "
       ],
@@ -2865,10 +2865,10 @@
       "range": "Provenance",
       "required": true
     },
-    "study template version": {
-      "name": "study template version",
+    "subject template version": {
+      "name": "subject template version",
       "description": " ",
-      "title": "study template version",
+      "title": "subject template version",
       "comments": [
         " "
       ],
@@ -2894,28 +2894,28 @@
       "description": "A DataHarmonizer interface",
       "from_schema": "https://example.com/MIATE"
     },
-    "Study": {
-      "name": "Study",
+    "Subject": {
+      "name": "Subject",
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
-        "Study.project_identifier": {
-          "name": "Study.project_identifier",
-          "exact_mappings": [
-            "gen3_study_subject:projects.code"
-          ],
-          "rank": 1,
-          "slot_group": "identifiers"
-        },
-        "Study.subject_identifier": {
-          "name": "Study.subject_identifier",
+        "Subject.subject_identifier": {
+          "name": "Subject.subject_identifier",
           "exact_mappings": [
             "gen3_study_subject:submitter_id",
             "gen3_study_housing:subjects.submitter_id",
             "gen3_study_treatment:subjects.submitter_id"
           ],
-          "rank": 2,
+          "rank": 1,
           "slot_group": "subject"
+        },
+        "Subject.study_identifier": {
+          "name": "Subject.study_identifier",
+          "exact_mappings": [
+            "gen3_study_subject:studies.code"
+          ],
+          "rank": 2,
+          "slot_group": "identifiers"
         },
         "start_date": {
           "name": "start_date",
@@ -3121,7 +3121,7 @@
         "administration_volume": {
           "name": "administration_volume",
           "exact_mappings": [
-            "gen3_study_treatment:administration_volume(ml)"
+            "gen3_study_treatment:administration_volume_ml"
           ],
           "rank": 28,
           "slot_group": "treatment"
@@ -3198,34 +3198,15 @@
           "rank": 37,
           "slot_group": "treatment"
         },
-        "study template version": {
-          "name": "study template version",
+        "subject template version": {
+          "name": "subject template version",
           "rank": 38,
           "slot_group": "provenance"
         }
       },
       "attributes": {
-        "Study.project_identifier": {
-          "name": "Study.project_identifier",
-          "description": " ",
-          "title": "project_identifier",
-          "from_schema": "https://example.com/MIATE",
-          "exact_mappings": [
-            "gen3_study_subject:projects.code"
-          ],
-          "rank": 1,
-          "slot_uri": "obo:NCIT_C46002",
-          "alias": "Study.project_identifier",
-          "owner": "Study",
-          "domain_of": [
-            "Study"
-          ],
-          "slot_group": "identifiers",
-          "range": "WhitespaceMinimizedString",
-          "required": true
-        },
-        "Study.subject_identifier": {
-          "name": "Study.subject_identifier",
+        "Subject.subject_identifier": {
+          "name": "Subject.subject_identifier",
           "description": " ",
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
@@ -3234,13 +3215,32 @@
             "gen3_study_housing:subjects.submitter_id",
             "gen3_study_treatment:subjects.submitter_id"
           ],
-          "rank": 2,
-          "alias": "Study.subject_identifier",
-          "owner": "Study",
+          "rank": 1,
+          "alias": "Subject.subject_identifier",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "Subject.study_identifier": {
+          "name": "Subject.study_identifier",
+          "description": " ",
+          "title": "study_identifier",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "gen3_study_subject:studies.code"
+          ],
+          "rank": 2,
+          "slot_uri": "obo:NCIT_C46002",
+          "alias": "Subject.study_identifier",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString",
           "required": true
         },
@@ -3254,9 +3254,9 @@
           ],
           "rank": 3,
           "alias": "start_date",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "date"
@@ -3272,9 +3272,9 @@
           "rank": 4,
           "slot_uri": "obo:NCIT_C25150",
           "alias": "start_date_age",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "integer"
@@ -3289,9 +3289,9 @@
           ],
           "rank": 5,
           "alias": "experiment_start_date",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "date"
@@ -3306,9 +3306,9 @@
           ],
           "rank": 6,
           "alias": "experiment_start_zt",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "integer",
@@ -3326,9 +3326,9 @@
           "rank": 7,
           "slot_uri": "obo:PATO_0000047",
           "alias": "sex",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "sex menu",
@@ -3345,9 +3345,9 @@
           "rank": 8,
           "slot_uri": "obo:OBI_0001185",
           "alias": "strain",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "strain menu",
@@ -3363,9 +3363,9 @@
           ],
           "rank": 9,
           "alias": "strain_source",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "WhitespaceMinimizedString"
@@ -3380,9 +3380,9 @@
           ],
           "rank": 10,
           "alias": "euthanasia_date",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "date"
@@ -3397,9 +3397,9 @@
           ],
           "rank": 11,
           "alias": "euthanasia_zt",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "WhitespaceMinimizedString"
@@ -3415,9 +3415,9 @@
           "rank": 12,
           "slot_uri": "obo:OBI_0000919",
           "alias": "euthanasia_method",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "subject",
           "range": "euthanasia_method menu"
@@ -3432,9 +3432,9 @@
           ],
           "rank": 13,
           "alias": "housing_change_date",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "date"
@@ -3450,9 +3450,9 @@
           ],
           "rank": 14,
           "alias": "cage_id",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "WhitespaceMinimizedString"
@@ -3468,9 +3468,9 @@
           "rank": 15,
           "slot_uri": "obo:NCIT_C90366",
           "alias": "bedding_type",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "bedding_type menu"
@@ -3485,9 +3485,9 @@
           ],
           "rank": 16,
           "alias": "cage_type",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "WhitespaceMinimizedString"
@@ -3503,9 +3503,9 @@
           "rank": 17,
           "slot_uri": "obo:PATO_0000146",
           "alias": "vivarium_temperature",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "float",
@@ -3523,9 +3523,9 @@
           "rank": 18,
           "slot_uri": "obo:NCIT_C88206",
           "alias": "vivarium_humidity",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "float",
@@ -3543,9 +3543,9 @@
           "rank": 19,
           "slot_uri": "obo:XCO_0000459",
           "alias": "vivarium_light_cycle",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "housing",
           "range": "WhitespaceMinimizedString",
@@ -3561,9 +3561,9 @@
           ],
           "rank": 20,
           "alias": "diet_date",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "date"
@@ -3578,9 +3578,9 @@
           ],
           "rank": 21,
           "alias": "feed_catalog_number",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "WhitespaceMinimizedString"
@@ -3595,9 +3595,9 @@
           ],
           "rank": 22,
           "alias": "feed_description",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "WhitespaceMinimizedString"
@@ -3613,9 +3613,9 @@
           "rank": 23,
           "slot_uri": "obo:OBI_0000248",
           "alias": "feed_name",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "WhitespaceMinimizedString"
@@ -3630,9 +3630,9 @@
           ],
           "rank": 24,
           "alias": "feed_vendor",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "WhitespaceMinimizedString"
@@ -3648,9 +3648,9 @@
           "rank": 25,
           "slot_uri": "obo:NCIT_C90377",
           "alias": "water_type",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "WhitespaceMinimizedString"
@@ -3666,9 +3666,9 @@
           "rank": 26,
           "slot_uri": "obo:OBI_0000694",
           "alias": "feeding_paradigm",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "diet",
           "range": "feeding_paradigm menu"
@@ -3683,9 +3683,9 @@
           ],
           "rank": 27,
           "alias": "treatment_date",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "date"
@@ -3696,13 +3696,13 @@
           "title": "Administration volume (mL)",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:administration_volume(ml)"
+            "gen3_study_treatment:administration_volume_ml"
           ],
           "rank": 28,
           "alias": "administration_volume",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "float",
@@ -3719,9 +3719,9 @@
           "rank": 29,
           "multivalued": true,
           "alias": "dose_amount",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "float",
@@ -3739,9 +3739,9 @@
           "rank": 30,
           "slot_uri": "obo:NCIT_C44278",
           "alias": "dose_amount_unit",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "dose_amount_unit menu"
@@ -3756,9 +3756,9 @@
           ],
           "rank": 31,
           "alias": "route",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "route menu"
@@ -3773,9 +3773,9 @@
           ],
           "rank": 32,
           "alias": "test_article_administration_zt",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "integer",
@@ -3792,9 +3792,9 @@
           ],
           "rank": 33,
           "alias": "test_article_administration_duration",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "float"
@@ -3809,9 +3809,9 @@
           ],
           "rank": 34,
           "alias": "test_article_name",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString"
@@ -3827,9 +3827,9 @@
           "rank": 35,
           "multivalued": true,
           "alias": "test_article_dtxsid",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString",
@@ -3847,9 +3847,9 @@
           "rank": 36,
           "multivalued": true,
           "alias": "vehicle_name",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString",
@@ -3866,25 +3866,25 @@
           "rank": 37,
           "multivalued": true,
           "alias": "vehicle_dtxsid",
-          "owner": "Study",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString",
           "inlined_as_list": true,
           "pattern": "^DTXSID\\d{1,17}$"
         },
-        "study template version": {
-          "name": "study template version",
+        "subject template version": {
+          "name": "subject template version",
           "description": " ",
-          "title": "study template version",
+          "title": "subject template version",
           "from_schema": "https://example.com/MIATE",
           "rank": 38,
-          "alias": "study_template_version",
-          "owner": "Study",
+          "alias": "subject_template_version",
+          "owner": "Subject",
           "domain_of": [
-            "Study"
+            "Subject"
           ],
           "slot_group": "provenance",
           "range": "Provenance",
@@ -3892,18 +3892,18 @@
         }
       }
     },
-    "Project": {
-      "name": "Project",
+    "Study": {
+      "name": "Study",
       "from_schema": "https://example.com/MIATE",
       "is_a": "dh_interface",
       "slot_usage": {
-        "Project.project_identifier": {
-          "name": "Project.project_identifier",
+        "Study.study_identifier": {
+          "name": "Study.study_identifier",
           "exact_mappings": [
-            "gem3_submit_project:code",
-            "gen3_submit_funding:projects.code",
-            "gen3_submit_Publication:projects.code",
-            "contact:projects.code"
+            "gem3_submit_study:submitter_id",
+            "gen3_submit_funding:studies.submitter_id",
+            "gen3_submit_Publication:studies.submitter_id",
+            "contact:studies.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -3911,7 +3911,7 @@
         "name": {
           "name": "name",
           "exact_mappings": [
-            "gem3_submit_project:project_title"
+            "gem3_submit_study:study_title"
           ],
           "rank": 2,
           "slot_group": "Contact"
@@ -3919,7 +3919,7 @@
         "investigation_description": {
           "name": "investigation_description",
           "exact_mappings": [
-            "gem3_submit_project:project_description"
+            "gem3_submit_study:study_description"
           ],
           "rank": 3,
           "slot_group": "Contact"
@@ -3935,7 +3935,7 @@
         "data_submission_contact_orcid": {
           "name": "data_submission_contact_orcid",
           "exact_mappings": [
-            "contact:investigator_orcid"
+            "contact:contact_orcid"
           ],
           "rank": 5,
           "slot_group": "Contact"
@@ -4030,7 +4030,7 @@
         "study_design": {
           "name": "study_design",
           "exact_mappings": [
-            "gem3_submit_project:study_design"
+            "gem3_submit_study:study_design"
           ],
           "rank": 18,
           "slot_group": "experiment"
@@ -4038,7 +4038,7 @@
         "study_type": {
           "name": "study_type",
           "exact_mappings": [
-            "gem3_submit_project:study_type"
+            "gem3_submit_study:study_type"
           ],
           "rank": 19,
           "slot_group": "experiment"
@@ -4046,7 +4046,7 @@
         "experimental_setting": {
           "name": "experimental_setting",
           "exact_mappings": [
-            "gem3_submit_project:experimental_setting"
+            "gem3_submit_study:experimental_setting"
           ],
           "rank": 20,
           "slot_group": "experiment"
@@ -4054,36 +4054,36 @@
         "Organism": {
           "name": "Organism",
           "exact_mappings": [
-            "gem3_submit_project:organism"
+            "gem3_submit_study:organism"
           ],
           "rank": 21,
           "slot_group": "experiment"
         },
-        "project template version": {
-          "name": "project template version",
+        "study template version": {
+          "name": "study template version",
           "rank": 12,
           "slot_group": "provenance"
         }
       },
       "attributes": {
-        "Project.project_identifier": {
-          "name": "Project.project_identifier",
+        "Study.study_identifier": {
+          "name": "Study.study_identifier",
           "description": " ",
-          "title": "project_identifier",
+          "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:code",
-            "gen3_submit_funding:projects.code",
-            "gen3_submit_Publication:projects.code",
-            "contact:projects.code"
+            "gem3_submit_study:submitter_id",
+            "gen3_submit_funding:studies.submitter_id",
+            "gen3_submit_Publication:studies.submitter_id",
+            "contact:studies.submitter_id"
           ],
           "rank": 1,
           "slot_uri": "obo:NCIT_C46002",
           "identifier": true,
-          "alias": "Project.project_identifier",
-          "owner": "Project",
+          "alias": "Study.study_identifier",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString",
@@ -4095,14 +4095,14 @@
           "title": "Title",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:project_title"
+            "gem3_submit_study:study_title"
           ],
           "rank": 2,
           "slot_uri": "obo:OBI_0001622",
           "alias": "name",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4114,14 +4114,14 @@
           "title": "Description",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:project_description"
+            "gem3_submit_study:study_description"
           ],
           "rank": 3,
           "slot_uri": "obo:OBI_0001615",
           "alias": "investigation_description",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString"
@@ -4138,9 +4138,9 @@
           "slot_uri": "obo:NCIT_C176230",
           "multivalued": true,
           "alias": "data_submission_contact_name",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4153,15 +4153,15 @@
           "title": "Contact ORCID",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "contact:investigator_orcid"
+            "contact:contact_orcid"
           ],
           "rank": 5,
           "slot_uri": "obo:IAO_0000708",
           "multivalued": true,
           "alias": "data_submission_contact_orcid",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4180,9 +4180,9 @@
           "rank": 6,
           "multivalued": true,
           "alias": "data_submission_contact_email",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4201,9 +4201,9 @@
           "rank": 7,
           "multivalued": true,
           "alias": "data_submission_contact_telephone",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4221,9 +4221,9 @@
           "rank": 8,
           "multivalued": true,
           "alias": "data_submission_contact_department",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4240,9 +4240,9 @@
           "rank": 9,
           "multivalued": true,
           "alias": "data_submission_contact_institution",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4256,9 +4256,9 @@
           "rank": 10,
           "multivalued": true,
           "alias": "data_submission_contact_institution_postal_address",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4273,9 +4273,9 @@
           "rank": 11,
           "multivalued": true,
           "alias": "data_submission_contact_institution_city",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
@@ -4289,9 +4289,9 @@
           "rank": 12,
           "multivalued": true,
           "alias": "data_submission_contact_state",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Contact",
           "range": "data_submission_contact_state menu",
@@ -4309,9 +4309,9 @@
           "slot_uri": "obo:NCIT_C19711",
           "multivalued": true,
           "alias": "support_source",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Funding",
           "range": "support_source menu",
@@ -4329,9 +4329,9 @@
           "rank": 14,
           "multivalued": true,
           "alias": "support_id",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Funding",
           "range": "WhitespaceMinimizedString",
@@ -4349,9 +4349,9 @@
           "rank": 15,
           "multivalued": true,
           "alias": "PMC_id",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
@@ -4369,9 +4369,9 @@
           "rank": 16,
           "multivalued": true,
           "alias": "DOI",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
@@ -4389,9 +4389,9 @@
           "slot_uri": "obo:NCIT_C127797",
           "multivalued": true,
           "alias": "PMID",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "Publication",
           "range": "WhitespaceMinimizedString",
@@ -4404,14 +4404,14 @@
           "title": "Study design",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:study_design"
+            "gem3_submit_study:study_design"
           ],
           "rank": 18,
           "slot_uri": "obo:OBI_0500000",
           "alias": "study_design",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "experiment",
           "range": "study_design menu"
@@ -4422,13 +4422,13 @@
           "title": "Study type",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:study_type"
+            "gem3_submit_study:study_type"
           ],
           "rank": 19,
           "alias": "study_type",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "experiment",
           "range": "study_type menu"
@@ -4439,14 +4439,14 @@
           "title": "Experimental setting",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:experimental_setting"
+            "gem3_submit_study:experimental_setting"
           ],
           "rank": 20,
           "slot_uri": "bao:BAO_0020005",
           "alias": "experimental_setting",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "experiment",
           "range": "experimental_setting menu"
@@ -4457,29 +4457,29 @@
           "title": "Organism",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_project:organism"
+            "gem3_submit_study:organism"
           ],
           "rank": 21,
           "slot_uri": "obo:NCIT_C45293",
           "alias": "Organism",
-          "owner": "Project",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "experiment",
           "range": "Organism menu",
           "required": true
         },
-        "project template version": {
-          "name": "project template version",
+        "study template version": {
+          "name": "study template version",
           "description": " ",
-          "title": "project template version",
+          "title": "study template version",
           "from_schema": "https://example.com/MIATE",
           "rank": 12,
-          "alias": "project_template_version",
-          "owner": "Project",
+          "alias": "study_template_version",
+          "owner": "Study",
           "domain_of": [
-            "Project"
+            "Study"
           ],
           "slot_group": "provenance",
           "range": "Provenance",
@@ -4500,8 +4500,8 @@
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "Sample.project_identifier": {
-          "name": "Sample.project_identifier",
+        "Sample.study_identifier": {
+          "name": "Sample.study_identifier",
           "rank": 2,
           "slot_group": "identifiers"
         },
@@ -4587,14 +4587,14 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
-        "Sample.project_identifier": {
-          "name": "Sample.project_identifier",
+        "Sample.study_identifier": {
+          "name": "Sample.study_identifier",
           "description": " ",
-          "title": "project_identifier",
+          "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "rank": 2,
           "multivalued": true,
-          "alias": "Sample.project_identifier",
+          "alias": "Sample.study_identifier",
           "owner": "Sample",
           "domain_of": [
             "Sample"

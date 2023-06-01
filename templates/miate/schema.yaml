@@ -14,12 +14,12 @@ classes:
     name: dh_interface
     description: A DataHarmonizer interface
     from_schema: https://example.com/MIATE_template
-  Study:
-    name: Study
+  Subject:
+    name: Subject
     is_a: dh_interface
     slots:
-    - Study.project_identifier
-    - Study.subject_identifier
+    - Subject.subject_identifier
+    - Subject.study_identifier
     - start_date
     - start_date_age
     - experiment_start_date
@@ -55,20 +55,20 @@ classes:
     - test_article_dtxsid
     - vehicle_name
     - vehicle_dtxsid
-    - study template version
+    - subject template version
     slot_usage:
-      Study.project_identifier:
+      Subject.subject_identifier:
         rank: 1
-        slot_group: identifiers
-        exact_mappings:
-        - gen3_study_subject:projects.code
-      Study.subject_identifier:
-        rank: 2
         slot_group: subject
         exact_mappings:
         - gen3_study_subject:submitter_id
         - gen3_study_housing:subjects.submitter_id
         - gen3_study_treatment:subjects.submitter_id
+      Subject.study_identifier:
+        rank: 2
+        slot_group: identifiers
+        exact_mappings:
+        - gen3_study_subject:studies.code
       start_date:
         rank: 3
         slot_group: subject
@@ -199,7 +199,7 @@ classes:
         rank: 28
         slot_group: treatment
         exact_mappings:
-        - gen3_study_treatment:administration_volume(ml)
+        - gen3_study_treatment:administration_volume_ml
       dose_amount:
         rank: 29
         slot_group: treatment
@@ -245,14 +245,14 @@ classes:
         slot_group: treatment
         exact_mappings:
         - gen3_study_treatment:vehicle_dtxsid
-      study template version:
+      subject template version:
         rank: 38
         slot_group: provenance
-  Project:
-    name: Project
+  Study:
+    name: Study
     is_a: dh_interface
     slots:
-    - Project.project_identifier
+    - Study.study_identifier
     - name
     - investigation_description
     - data_submission_contact_name
@@ -273,26 +273,26 @@ classes:
     - study_type
     - experimental_setting
     - Organism
-    - project template version
+    - study template version
     slot_usage:
-      Project.project_identifier:
+      Study.study_identifier:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-        - gem3_submit_project:code
-        - gen3_submit_funding:projects.code
-        - gen3_submit_Publication:projects.code
-        - contact:projects.code
+        - gem3_submit_study:submitter_id
+        - gen3_submit_funding:studies.submitter_id
+        - gen3_submit_Publication:studies.submitter_id
+        - contact:studies.submitter_id
       name:
         rank: 2
         slot_group: Contact
         exact_mappings:
-        - gem3_submit_project:project_title
+        - gem3_submit_study:study_title
       investigation_description:
         rank: 3
         slot_group: Contact
         exact_mappings:
-        - gem3_submit_project:project_description
+        - gem3_submit_study:study_description
       data_submission_contact_name:
         rank: 4
         slot_group: Contact
@@ -302,7 +302,7 @@ classes:
         rank: 5
         slot_group: Contact
         exact_mappings:
-        - contact:investigator_orcid
+        - contact:contact_orcid
       data_submission_contact_email:
         rank: 6
         slot_group: Contact
@@ -361,23 +361,23 @@ classes:
         rank: 18
         slot_group: experiment
         exact_mappings:
-        - gem3_submit_project:study_design
+        - gem3_submit_study:study_design
       study_type:
         rank: 19
         slot_group: experiment
         exact_mappings:
-        - gem3_submit_project:study_type
+        - gem3_submit_study:study_type
       experimental_setting:
         rank: 20
         slot_group: experiment
         exact_mappings:
-        - gem3_submit_project:experimental_setting
+        - gem3_submit_study:experimental_setting
       Organism:
         rank: 21
         slot_group: experiment
         exact_mappings:
-        - gem3_submit_project:organism
-      project template version:
+        - gem3_submit_study:organism
+      study template version:
         rank: 12
         slot_group: provenance
   Sample:
@@ -385,7 +385,7 @@ classes:
     is_a: dh_interface
     slots:
     - sample_identifier
-    - Sample.project_identifier
+    - Sample.study_identifier
     - Sample.subject_identifier
     - date
     - biospecimen_anatomic_site
@@ -400,7 +400,7 @@ classes:
         slot_group: identifiers
         exact_mappings:
         - gen3_submit_sample:submitter_id
-      Sample.project_identifier:
+      Sample.study_identifier:
         rank: 2
         slot_group: identifiers
       Sample.subject_identifier:
@@ -442,15 +442,15 @@ classes:
         rank: 10
         slot_group: provenance
 slots:
-  Project.project_identifier:
-    name: Project.project_identifier
-    title: project_identifier
+  Study.study_identifier:
+    name: Study.study_identifier
+    title: study_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
     identifier: true
     slot_uri: obo:NCIT_C46002
-    comments: ' '
+    comments: 'submitter_id of study file for gen3 uploading'
   name:
     name: name
     title: Title
@@ -476,7 +476,7 @@ slots:
     multivalued: true
     inlined_as_list: true
     slot_uri: obo:NCIT_C176230
-    comments: Rance Nault
+    comments: Rance Nault(submitter_id of contact file for gen3 uploading)
   data_submission_contact_orcid:
     name: data_submission_contact_orcid
     title: Contact ORCID
@@ -567,7 +567,7 @@ slots:
     recommended: true
     multivalued: true
     inlined_as_list: true
-    comments: P42ES004911
+    comments: P42ES004911(submitter_id of funding file for gen3 uploading)
   PMC_id:
     name: PMC_id
     title: PMC ID
@@ -576,7 +576,7 @@ slots:
     description: ' '
     multivalued: true
     inlined_as_list: true
-    comments: ' '
+    comments: '(submitter_id of publication file for gen3 uploading) '
   DOI:
     name: DOI
     title: DOI
@@ -596,9 +596,9 @@ slots:
     inlined_as_list: true
     slot_uri: obo:NCIT_C127797
     comments: ' '
-  Study.project_identifier:
-    name: Study.project_identifier
-    title: project_identifier
+  Subject.study_identifier:
+    name: Subject.study_identifier
+    title: study_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -635,13 +635,13 @@ slots:
     required: true
     slot_uri: obo:NCIT_C45293
     comments: ' '
-  Study.subject_identifier:
-    name: Study.subject_identifier
+  Subject.subject_identifier:
+    name: Subject.subject_identifier
     title: subject_identifier
     range: WhitespaceMinimizedString
     description: ' '
     required: true
-    comments: ' '
+    comments: '(submitter_id of subject file for gen3 uploading)'
   start_date:
     name: start_date
     title: start_date
@@ -721,7 +721,7 @@ slots:
     title: Cage identifier
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: '(submitter_id of housing file for gen3 uploading) '
   bedding_type:
     name: bedding_type
     title: bedding_type
@@ -772,7 +772,7 @@ slots:
     title: feed_catalog_number
     range: WhitespaceMinimizedString
     description: ' '
-    comments: ' '
+    comments: '(submitter_id of diet file for gen3 uploading) '
   feed_description:
     name: feed_description
     title: feed_description
@@ -894,10 +894,10 @@ slots:
     description: ' '
     required: true
     identifier: true
-    comments: ' '
-  Sample.project_identifier:
-    name: Sample.project_identifier
-    title: project_identifier
+    comments: '(submitter_id of sampe file for gen3 uploading)'
+  Sample.study_identifier:
+    name: Sample.study_identifier
+    title: study_identifier
     range: WhitespaceMinimizedString
     description: ' '
     multivalued: true
@@ -947,16 +947,16 @@ slots:
     range: float
     description: ' '
     comments: ' '
-  project template version:
-    name: project template version
-    title: project template version
+  study template version:
+    name: study template version
+    title: study template version
     range: Provenance
     description: ' '
     required: true
     comments: ' '
-  study template version:
-    name: study template version
-    title: study template version
+  subject template version:
+    name: subject template version
+    title: subject template version
     range: Provenance
     description: ' '
     required: true
