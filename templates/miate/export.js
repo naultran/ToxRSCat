@@ -5,7 +5,7 @@ export default {
    * Download secondary headers and grid data.
    * @param {Object} dh DataHarmonizer instance.
    */
-    gen3_project_all:{
+    gen3_study_all:{
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
@@ -14,14 +14,12 @@ export default {
             // NOTE: NULL reason fields must follow immediately after column they are about.
             const logs = [[]];
             // project
-            const ExportHeaders_project = new Map([
+            const ExportHeaders_study = new Map([
                 ["type", []],
-                ["availability_type", []],
-                ["programs.name", []],
-                ["code", []],
-                ["dbgap_accession_number", ["Project.project_identifier",],],
-                ["project_title", []],
-                ["project_description", []],
+                ["projects.code", []],
+                ["submitter_id", []],
+                ["study_title", []],
+                ["study_description", []],
                 ["study_design", []],
                 ["study_type", []],
                 ["experimental_setting", []],
@@ -30,14 +28,14 @@ export default {
             ]);
             const sourceFields = dh.getFields(dh.table);
             const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            dh.getHeaderMap(ExportHeaders_project, sourceFields, 'gem3_submit_project');
+            dh.getHeaderMap(ExportHeaders_study, sourceFields, 'gem3_submit_study');
 
             // Copy headers to 1st row of new export table
-            const outputMatrix_project = [[...ExportHeaders_project.keys()]];
+            const outputMatrix_study = [[...ExportHeaders_study.keys()]];
 
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders_project) {
+                for (const [headerName, sources] of ExportHeaders_study) {
                     // Otherwise apply source (many to one) to target field transform:
                     var value = dh.getMappedField(
                         headerName,
@@ -46,27 +44,23 @@ export default {
                         sourceFields,
                         sourceFieldNameMap,
                         ':',
-                        'gem3_submit_project'
+                        'gem3_submit_study'
                     );
                     if (headerName =="type"){
-                        value = "project";
-                    }
-                    if (headerName =="availability_type"){
-                        value = "open";
+                        value = "study";
                     }
                     outputRow.push(value);
                 }
-                outputMatrix_project.push(outputRow);
+                outputMatrix_study.push(outputRow);
             }
-            logs.push(["project is done"]);
+            logs.push(["study is done"]);
             //contact information
             const ExportHeaders_contact = new Map([
                 ["type", []],
-                ["projects.code", []],
-                ["program_title", []],
-                ["investigation_description", []],
+                ["studies.submitter_id", []],
+                ["submitter_id", ["data_submission_contact_name",]],
                 ["contact_name", []],
-                ["investigator_orcid", []],
+                ["contact_orcid", []],
                 ["contact_email", []],
                 ["contact_telephone", []],
                 ["contact_department", []],
@@ -107,10 +101,10 @@ export default {
             // funding
             const ExportHeaders_funding = new Map([
                 ["type", []],
-                ["projects.code", []],
-                ["submitter_id", ["support_id",],],       
+                ["studies.submitter_id", []],
+                ["submitter_id", ["support_id",],], 
+                ["support_id", []],      
                 ["support_source", []],
-                ["support_id", []],
                 ['provenance', ["investigation template version",],],
             ]);
             // Fills in the above mapping (or just set manually above)
@@ -143,7 +137,7 @@ export default {
             //publication
             const ExportHeaders_publication = new Map([
                 ["type", []],
-                ["projects.code", []],
+                ["studies.submitter_id", []],
                 ["submitter_id", ["PMC_id",],], 
                 ["PMC_id", []],
                 ["DOI", []],
@@ -182,7 +176,7 @@ export default {
                 return new Promise(resolve => setTimeout(resolve, ms));
               }
               async function myFunction() {
-                exportFile(outputMatrix_project, "project", "tsv");
+                exportFile(outputMatrix_study, "study", "tsv");
                 await delay(1000);
                 exportFile(outputMatrix_contact, "contact", "tsv");
                 await delay(1000);
@@ -195,14 +189,14 @@ export default {
         }
     },
 
-    gen3_study_all:{
+    gen3_subject_all:{
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
             const logs = [[]];
             const ExportHeaders_subject = new Map([
                 ["type", []],
-                ["projects.code", []],
+                ["studies.code", []],
                 ["submitter_id", []],
                 ["start_date", []],
                 ["start_date_age", []],
@@ -303,7 +297,7 @@ export default {
                 ["submitter_id", []],
                 ["subjects.submitter_id", []],
                 ["date", []],
-                ["administration_volume(ml)", []],
+                ["administration_volume_ml", []],
                 ["dose_amount", []], 
                 ["dose_amount_unit", []],
                 ["route", []],
