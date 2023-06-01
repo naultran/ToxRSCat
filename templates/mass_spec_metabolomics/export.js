@@ -384,17 +384,17 @@ export default {
               }
               async function myFunction() {
                 exportFile(outputMatrix_extraction, "extraction", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_chromatography, "chromatography", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_ms_method, "ms_method", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(uniqueOutputMatrix_rawdata_file, "rawdata_file", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_instrument, "instrument", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(uniqueOutputMatrix_processeddata_file, "processeddata_file", "tsv");
-                await delay(2000);
+                await delay(1000);
                 exportFile(outputMatrix_data_analysis_msm, "data_analysis_msm", "tsv");
               }
               myFunction();
