@@ -130,7 +130,7 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFileWithDelay(finalMatrix, exportConfig.exportType);
+				exportFileWithDelay(exportConfig.outputMatrix, exportConfig.exportType);
 			}
 			return logs;
 		}
