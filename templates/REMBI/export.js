@@ -19,7 +19,7 @@ export default {
 						["data_category", []],
 						["data_format", []],
 						["data_type", []],
-						["instrument.submitter_id", []],
+						["instruments.submitter_id", []],
 						["magnification", []],
 						["imaging_protocol", []],
 						["imaging_protocol_DOI", []],

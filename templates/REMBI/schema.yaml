@@ -42,7 +42,7 @@ classes:
         rank: 1
         slot_group: Identifiers
         exact_mappings: 
-        - slide_image:slide.submitter_id
+        - slide_image:slides.submitter_id
         - slide:submitter_id
       aliquots.submitter_id:
         rank: 2
@@ -73,7 +73,7 @@ classes:
         rank: 7
         slot_group: data
         exact_mappings: 
-        - slide_image:instrument.submitter_id
+        - slide_image:instruments.submitter_id
       magnification:
         rank: 8
         slot_group: data
