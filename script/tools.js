@@ -36,17 +36,17 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
     const uniqueIndex = deduplicatedMatrix[0].indexOf(uniqueColumn);
     const row_number = deduplicatedMatrix.length;
     const column_number = deduplicatedMatrix[0].length;
-    for (let m = 1; i < row_number; m++){
+    for (let m = 1; m < row_number; m++){
         const submitter_id = deduplicatedMatrix[i][uniqueIndex];
         for(let n = uniqueIndex+1; n < column_number; n++){
             let value = deduplicatedMatrix[m][n];
             for(let i = m+1; i < row_number; i++){
-                if(deduplicatedMatrix[i][uniqueIndex]===submitter_id && deduplicatedMatrix[i][n] !== value){
+                if(deduplicatedMatrix[i][uniqueIndex] === submitter_id && deduplicatedMatrix[i][n] !== value){
                     value = value + ',' + deduplicatedMatrix[i][n];
                 }
             }
             for(let j=m; j < row_number; j++){
-                if(deduplicatedMatrix[j][uniqueIndex]===submitter_id){
+                if(deduplicatedMatrix[j][uniqueIndex] === submitter_id){
                     deduplicatedMatrix[j][n] = value;
                 }
             }
