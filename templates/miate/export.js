@@ -1,19 +1,5 @@
 import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
-import {delay, removeDuplicatesAndCollapse} from '/home/ubuntu/ToxRSCat/script/tools';
-function removeDuplicateRows(outputMatrix) {
-    const deduplicatedMatrix = [];
-    const deduplicatedRows = new Set();
-  
-    for (const row of outputMatrix) {
-      const rowStr = JSON.stringify(row);
-      if (!deduplicatedRows.has(rowStr)) {
-        deduplicatedRows.add(rowStr);
-        deduplicatedMatrix.push(row);
-      }
-    }
-  
-    return deduplicatedMatrix;
-  }
+import {delay,removeDuplicateRows, removeDuplicatesAndCollapse} from '/home/ubuntu/ToxRSCat/script/tools';
 
 // A dictionary of possible export formats
 export default {
@@ -32,8 +18,8 @@ export default {
             // project
             const ExportHeaders_study = new Map([
                 ["type", []],
-                ["projects.code", []],
                 ["submitter_id", []],
+                ["projects.code", []],
                 ["study_title", []],
                 ["study_description", []],
                 ["study_design", []],
@@ -74,8 +60,8 @@ export default {
             //contact information
             const ExportHeaders_contact = new Map([
                 ["type", []],
-                ["studies.submitter_id", []],
                 ["submitter_id", ["data_submission_contact_name",]],
+                ["studies.submitter_id", []],
                 ["contact_name", []],
                 ["contact_orcid", []],
                 ["contact_email", []],
@@ -114,13 +100,14 @@ export default {
                 }
                 outputMatrix_contact.push(outputRow);
             }
+
             logs.push(["contact information is done"]);
 
             // funding
             const ExportHeaders_funding = new Map([
                 ["type", []],
-                ["studies.submitter_id", []],
                 ["submitter_id", ["support_id",],], 
+                ["studies.submitter_id", []],
                 ["support_id", []],      
                 ["support_source", []],
                 ['provenance', ["investigation template version",],],
@@ -156,8 +143,8 @@ export default {
             //publication
             const ExportHeaders_publication = new Map([
                 ["type", []],
+                ["submitter_id", ["PMC_id",],],
                 ["studies.submitter_id", []],
-                ["submitter_id", ["PMC_id",],], 
                 ["PMC_id", []],
                 ["DOI", []],
                 ["PMID", []],
@@ -212,8 +199,8 @@ export default {
             const logs = [[]];
             const ExportHeaders_subject = new Map([
                 ["type", []],
-                ["studies.code", []],
                 ["submitter_id", []],
+                ["studies.code", []],
                 ["start_date", []],
                 ["start_date_age", []],
                 ["experiment_start_date", []],
@@ -230,11 +217,9 @@ export default {
             const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
             // Fills in the above mapping (or just set manually above)
             dh.getHeaderMap(ExportHeaders_subject, sourceFields, 'gen3_study_subject');
-
             // Copy headers to 1st row of new export table
             const outputMatrix_subject = [[...ExportHeaders_subject.keys()]];
             const outputRows_subject = new Set();
-
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
                 for (const [headerName, sources] of ExportHeaders_subject) {
@@ -254,13 +239,6 @@ export default {
                     outputRow.push(value);
                 }
                 outputMatrix_subject.push(outputRow);
-                /*
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows_subject.has(outputRowStr)) {
-                    outputRows_subject.add(outputRowStr);
-                    outputMatrix_subject.push(outputRow);
-                    
-                }*/
             }
             const deduplicate_outputmatrix_subject = removeDuplicateRows(outputMatrix_subject);
             logs.push(["subjects is done"]);
@@ -268,8 +246,8 @@ export default {
             const ExportHeaders_housing = new Map([
                 ["type", []],
                 ["submitter_id", []],
-                ["cageID", ["cage_id"]], 
                 ["subjects.submitter_id", []],
+                ["cageID", ["cage_id"]], 
                 ["housing_change_date", []],
                 ["bedding_type", []], 
                 ["cage_type", []],
@@ -280,11 +258,8 @@ export default {
             ]); 
             // Fills in the above mapping (or just set manually above)
             dh.getHeaderMap(ExportHeaders_housing, sourceFields, 'gen3_study_housing');
-
             // Copy headers to 1st row of new export table
             const outputMatrix_housing = [[...ExportHeaders_housing.keys()]];
-            const outputRows_housing = new Set();
-
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
                 for (const [headerName, sources] of ExportHeaders_housing) {
@@ -304,14 +279,8 @@ export default {
                     outputRow.push(value);
                 }
                 outputMatrix_housing.push(outputRow);
-                /*
-                const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows_housing.has(outputRowStr)) {
-                    outputRows_housing.add(outputRowStr);
-                    outputMatrix_housing.push(outputRow);
-                }*/
             }
-            const deduplicate_outputmatrix_housing = removeDuplicateRows(outputMatrix_housing);
+            const deduplicate_outputmatrix_housing = removeDuplicatesAndCollapse(outputMatrix_housing, "submitter_id");
             logs.push(["housing is done"]);
 
             const ExportHeaders_treatment = new Map([
@@ -333,11 +302,8 @@ export default {
             ]); 
             // Fills in the above mapping (or just set manually above)
             dh.getHeaderMap(ExportHeaders_treatment, sourceFields, 'gen3_study_treatment');
-
             // Copy headers to 1st row of new export table
             const outputMatrix_treatment = [[...ExportHeaders_treatment.keys()]];
-            const outputRows_treatment = new Set();
-
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
                 for (const [headerName, sources] of ExportHeaders_treatment) {
@@ -378,12 +344,6 @@ export default {
                     outputRow.push(value);
                 }
                 outputMatrix_treatment.push(outputRow);
-
-                /*const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows_treatment.has(outputRowStr)) {
-                    outputRows_treatment.add(outputRowStr);
-                    outputMatrix_treatment.push(outputRow);
-                }*/
             }
             const deduplicate_outputmatrix_treatment = removeDuplicateRows(outputMatrix_treatment);
             // Add numbers to the end of submitter_id column in treatment) {
@@ -396,9 +356,9 @@ export default {
             const ExportHeaders_diet = new Map([
                 ["type", []],
                 ["submitter_id", []],
+                ["housings.submitter_id", []],
                 ["date", []],
                 ["feed_catalog_number",["feed_catalog_number"]],
-                ["housings.submitter_id", []],
                 ["feed_description", []],
                 ["feed_name", []], 
                 ["feed_vendor", []],
@@ -408,11 +368,8 @@ export default {
             ]); 
             // Fills in the above mapping (or just set manually above)
             dh.getHeaderMap(ExportHeaders_diet, sourceFields, 'gen3_study_diet');
-
             // Copy headers to 1st row of new export table
             const outputMatrix_diet = [[...ExportHeaders_diet.keys()]];
-            const outputRows_diet = new Set();
-
             for (const inputRow of dh.getTrimmedData(dh.hot)) {
                 const outputRow = [];
                 for (const [headerName, sources] of ExportHeaders_diet) {
@@ -431,19 +388,13 @@ export default {
                     }
                     outputRow.push(value);
                 }
-
-                /*const outputRowStr = JSON.stringify(outputRow);
-                if (!outputRows_diet.has(outputRowStr)) {
-                    outputRows_diet.add(outputRowStr);
-                    outputMatrix_diet.push(outputRow);
-                }*/
                 outputMatrix_diet.push(outputRow);
             
             }
-            const deduplicate_outputmatrix_diet = removeDuplicateRows(outputMatrix_diet);
+            const deduplicate_outputmatrix_diet = removeDuplicatesAndCollapse(outputMatrix_diet, "submitter_id");
             logs.push(["diet is done"]);
 
-              async function myFunction() {
+            async function myFunction() {
                 exportFile(deduplicate_outputmatrix_subject, "subject", "tsv");
                 await delay(1000);
                 exportFile(deduplicate_outputmatrix_housing, "housing", "tsv");
@@ -451,8 +402,9 @@ export default {
                 exportFile(deduplicate_outputmatrix_treatment, "treatment", "tsv");
                 await delay(1000);
                 exportFile(deduplicate_outputmatrix_diet, "diet", "tsv");
-              }
-              myFunction();
+            }
+            myFunction();
+
             return logs
         }
     },
