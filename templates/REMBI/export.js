@@ -98,7 +98,7 @@ export default {
 					]),
 					outputMatrix: [[]],
 					uid: "submitter_id",
-					exportType: "gen3_slide",
+					exportType: "slide",
 				}
 			];
 
@@ -161,7 +161,7 @@ export default {
 					]),
 					uid: "slide.submitter_id",
 					outputMatrix: [[]],
-					exportType: "gen3_pathology",
+					exportType: "pathology",
 				}
 			];
 
