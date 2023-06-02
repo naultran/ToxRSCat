@@ -345,18 +345,28 @@ classes:
       aliquot.submitter_id:
         rank: 1
         slot_group: identifiers
+        exact_mappings:
+          aliquot:submitter_id
       sample.submitter_id:
         rank: 2
         slot_group: identifiers
+        exact_mappings:
+          aliquot:samples.submitter_id
       analyte_type:
         rank: 3
         slot_group: aliquot
+        exact_mappings:
+          aliquot:analyte_type
       analyte_protocol:
         rank: 4
         slot_group: aliquot
+        exact_mappings:
+          aliquot:analyte_protocol
       aliquot_template_provenance:
         rank: 5
         slot_group: provenance
+        exact_mappings:
+          aliquot:provenance
 slots:
   flow_cytometry.submitter_id:
     name: flow_cytometry.submitter_id
