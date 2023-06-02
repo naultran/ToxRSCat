@@ -1,58 +1,45 @@
-import { exportFile, exportJsonFile } from './/../../../DataHarmonizer/lib/utils/files';
-import {removeDuplicateRows} from './/../../script/tools';
+import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
-    const uniqueRows = {};
-  
-    for (let i = 1; i < outputMatrix.length; i++) {
-      const row = outputMatrix[i];
-      const key = row[outputMatrix[0].indexOf(uniqueColumn)];
-  
-      if (uniqueRows.hasOwnProperty(key)) {
-        for (let j = 1; j < row.length; j++) {
-          const column = outputMatrix[0][j];
-          const value = row[j];
-  
-          if (!uniqueRows[key][column].includes(value)) {
-            uniqueRows[key][column].push(value);
-          }
-        }
-      } else {
-        uniqueRows[key] = {};
-  
-        for (let j = 1; j < row.length; j++) {
-          const column = outputMatrix[0][j];
-          const value = row[j];
-  
-          uniqueRows[key][column] = [value];
-        }
-      }
-    }
-  
-    const finalMatrix = [outputMatrix[0]];
-  
-    for (const key in uniqueRows) {
-      const row = [key];
-  
-      for (let j = 1; j < outputMatrix[0].length; j++) {
+  const uniqueRows = {};
+  for (let i = 1; i < outputMatrix.length; i++) {
+    const row = outputMatrix[i];
+    const key = row[outputMatrix[0].indexOf(uniqueColumn)];
+    if (uniqueRows.hasOwnProperty(key)) {
+      for (let j = 1; j < row.length; j++) {
         const column = outputMatrix[0][j];
-        const values = uniqueRows[key][column];
-  
-        if (values.length > 1) {
-          row.push(values.join(","));
-        } else {
-          row.push(values[0]);
+        const value = row[j];
+        if (!uniqueRows[key][column].includes(value)) {
+          uniqueRows[key][column].push(value);
         }
       }
-  
-      finalMatrix.push(row);
+    } else {
+      uniqueRows[key] = {};
+      for (let j = 1; j < row.length; j++) {
+        const column = outputMatrix[0][j];
+        const value = row[j];
+        uniqueRows[key][column] = [value];
+      }
     }
-  
-    return finalMatrix;
+  }
+  const finalMatrix = [outputMatrix[0]];
+  for (const key in uniqueRows) {
+    const row = [key];
+    for (let j = 1; j < outputMatrix[0].length; j++) {
+      const column = outputMatrix[0][j];
+      const values = uniqueRows[key][column];
+      if (values.length > 1) {
+        row.push(values.join(","));
+      } else {
+        row.push(values[0]);
+      }
+    }
+    finalMatrix.push(row);
+  }
+  return finalMatrix;
 }
-
 export default {
 	gen3_slide_all: {
 		fileType: 'tsv',
@@ -65,18 +52,18 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name",]],
 						["slides.submitter_id", []],
-						["instruments.submitter_id", []],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
 						["data_type", []],
+						["instruments.submitter_id", []],
 						["magnification", []],
 						["imaging_protocol", []],
 						["imaging_protocol_DOI", []],
+						['provenance', ["slide template version"]]
 					]),
-					uid: "submitter_id",
+					uid: "slides.submitter_id",
 					outputMatrix: [[]],
 					exportType: "slide_image",
 				},
@@ -92,23 +79,21 @@ export default {
 						["probe_catalog_number", []],
 						["probe_concentration", []],
 						["detection_method", []],
+						['provenance', ["slide template version"]],
 					]),
 					outputMatrix: [[]],
 					uid: "submitter_id",
 					exportType: "slide",
-				},
+				}
 			];
-
 			// Function to wait for downloading files to fix crashes
 			async function exportFileWithDelay(outputMatrix, exportType) {
 				exportFile(outputMatrix, exportType, "tsv");
-				await delay(2000);
+				await delay(1000);
 			}
-
 			for (const exportConfig of exportConfigs) {
 				dh.getHeaderMap(exportConfig.exportHeaders, sourceFields, exportConfig.exportType);
 				exportConfig.outputMatrix.push([...exportConfig.exportHeaders.keys()]);
-
 				for (const inputRow of dh.getTrimmedData(dh.hot)) {
 					const outputRow = [];
 					for (const [headerName, sources] of exportConfig.exportHeaders) {
@@ -135,7 +120,6 @@ export default {
 			return logs;
 		}
 	},
-
 	gen3_pathology_all: {
 		fileType: 'tsv',
 		status: 'published',
@@ -143,7 +127,6 @@ export default {
 			const logs = [[]];
 			const sourceFields = dh.getFields(dh.table);
 			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-
 			const exportConfigs = [
 				{
 					exportHeaders: new Map([
@@ -158,20 +141,17 @@ export default {
 					]),
 					uid: "slide.submitter_id",
 					outputMatrix: [[]],
-					exportType: "pathology",
+					exportType: "gen3_pathology",
 				}
 			];
-
 			// Function to wait for downloading files to fix crashes
 			async function exportFileWithDelay(outputMatrix, exportType) {
 				exportFile(outputMatrix, exportType, "tsv");
 				await delay(1000);
 			}
-
 			for (const exportConfig of exportConfigs) {
 				dh.getHeaderMap(exportConfig.exportHeaders, sourceFields, exportConfig.exportType);
 				exportConfig.outputMatrix.push([...exportConfig.exportHeaders.keys()]);
-
 				for (const inputRow of dh.getTrimmedData(dh.hot)) {
 					const outputRow = [];
 					for (const [headerName, sources] of exportConfig.exportHeaders) {
@@ -193,10 +173,18 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFileWithDelay(finalMatrix, exportConfig.exportType);
+				exportFileWithDelay(exportConfig.outputMatrix, exportConfig.exportType);
 			}
 
 			return logs;
 		}
 	}
 };
+
+
+
+
+
+
+
+
