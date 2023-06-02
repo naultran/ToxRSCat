@@ -1,4 +1,5 @@
 import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
+import {delay, removeDuplicateRows, removeDuplicatesAndCollapse} from '/home/ubuntu/ToxRSCat/script/tools';
 // A dictionary of possible export formats
 export default {
     /**
@@ -54,6 +55,7 @@ export default {
                 outputMatrix_study.push(outputRow);
             }
             logs.push(["study is done"]);
+
             //contact information
             const ExportHeaders_contact = new Map([
                 ["type", []],
@@ -98,6 +100,7 @@ export default {
                 outputMatrix_contact.push(outputRow);
             }
             logs.push(["contact information is done"]);
+
             // funding
             const ExportHeaders_funding = new Map([
                 ["type", []],
@@ -134,6 +137,7 @@ export default {
                 outputMatrix_funding.push(outputRow);
             }
             logs.push(["funding information is done"]);
+
             //publication
             const ExportHeaders_publication = new Map([
                 ["type", []],
@@ -172,9 +176,6 @@ export default {
             }
             logs.push(["publication is done"]);
 
-            function delay(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-              }
               async function myFunction() {
                 exportFile(outputMatrix_study, "study", "tsv");
                 await delay(1000);
@@ -237,13 +238,16 @@ export default {
                     }
                     outputRow.push(value);
                 }
-                // remove duplicate rows
+                outputMatrix_subject.push(outputRow);
+                /*
                 const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows_subject.has(outputRowStr)) {
                     outputRows_subject.add(outputRowStr);
                     outputMatrix_subject.push(outputRow);
-                }
+                    
+                }*/
             }
+            const deduplicate_outputmatrix_subject = removeDuplicateRows(outputMatrix_subject);
             logs.push(["subjects is done"]);
 
             const ExportHeaders_housing = new Map([
@@ -284,14 +288,17 @@ export default {
                     }
                     outputRow.push(value);
                 }
-                // Check if the output row already exists and skip adding it if it does
+                outputMatrix_housing.push(outputRow);
+                /*
                 const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows_housing.has(outputRowStr)) {
                     outputRows_housing.add(outputRowStr);
                     outputMatrix_housing.push(outputRow);
-                }
+                }*/
             }
+            const deduplicate_outputmatrix_housing = removeDuplicateRows(outputMatrix_housing);
             logs.push(["housing is done"]);
+
             const ExportHeaders_treatment = new Map([
                 ["type", []],
                 ["submitter_id", []],
@@ -355,17 +362,19 @@ export default {
                     }
                     outputRow.push(value);
                 }
-                // Check if the output row already exists and skip adding it if it does
-                const outputRowStr = JSON.stringify(outputRow);
+                outputMatrix_treatment.push(outputRow);
+
+                /*const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows_treatment.has(outputRowStr)) {
                     outputRows_treatment.add(outputRowStr);
                     outputMatrix_treatment.push(outputRow);
-                }
+                }*/
             }
+            const deduplicate_outputmatrix_treatment = removeDuplicateRows(outputMatrix_treatment);
             // Add numbers to the end of submitter_id column in treatment) {
-            for (let i = 1; i <= outputMatrix_treatment.length - 1; i++) {
-                const submitterId = outputMatrix_treatment[i][1] + "_" + i.toString();
-                outputMatrix_treatment[i][1] = submitterId;
+            for (let i = 1; i <= deduplicate_outputmatrix_treatment.length - 1; i++) {
+                const submitterId = deduplicate_outputmatrix_treatment[i][1] + "_" + i.toString();
+                deduplicate_outputmatrix_treatment[i][1] = submitterId;
             }
             logs.push(["treatment is done"]);
 
@@ -407,31 +416,28 @@ export default {
                     }
                     outputRow.push(value);
                 }
-                // Check if the output row already exists and skip adding it if it does
-                const outputRowStr = JSON.stringify(outputRow);
+
+                /*const outputRowStr = JSON.stringify(outputRow);
                 if (!outputRows_diet.has(outputRowStr)) {
                     outputRows_diet.add(outputRowStr);
                     outputMatrix_diet.push(outputRow);
-                }
+                }*/
+                outputMatrix_diet.push(outputRow);
             
             }
+            const deduplicate_outputmatrix_diet = removeDuplicateRows(outputMatrix_diet);
             logs.push(["diet is done"]);
-            function delay(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-              }
+
               async function myFunction() {
-                exportFile(outputMatrix_subject, "subject", "tsv");
+                exportFile(deduplicate_outputmatrix_subject, "subject", "tsv");
                 await delay(1000);
-                exportFile(outputMatrix_housing, "housing", "tsv");
+                exportFile(deduplicate_outputmatrix_housing, "housing", "tsv");
                 await delay(1000);
-                exportFile(outputMatrix_treatment, "treatment", "tsv");
+                exportFile(deduplicate_outputmatrix_treatment, "treatment", "tsv");
                 await delay(1000);
-                exportFile(outputMatrix_diet, "diet", "tsv");
+                exportFile(deduplicate_outputmatrix_diet, "diet", "tsv");
               }
               myFunction();
-            //exportFile(housingtsv, "housing", "tsv")
-            //exportFile(treatmenttsv, "treatment", "tsv")
-            //exportFile(diettsv, "diet", "tsv")
             return logs
         }
     },
