@@ -34,33 +34,23 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
     }
   
     const uniqueIndex = deduplicatedMatrix[0].indexOf(uniqueColumn);
-  
-    for (let i = 1; i < deduplicatedMatrix.length; i++) {
-      const submitterId = deduplicatedMatrix[i][uniqueIndex];
-      const uniqueRow = deduplicatedMatrix[i];
-      const combinedValues = {};
-  
-      for (let j = uniqueIndex + 1; j < uniqueRow.length; j++) {
-        const column = deduplicatedMatrix[0][j];
-        const value = uniqueRow[j];
-  
-        if (!(column in combinedValues)) {
-          combinedValues[column] = value;
-        } else if (combinedValues[column] !== value) {
-          combinedValues[column] += "," + value;
-        }
-      }
-  
-      for (let z = i; z < deduplicatedMatrix.length; z++) {
-        if (deduplicatedMatrix[z][uniqueIndex] === submitterId) {
-          for (let j = uniqueIndex + 1; j < deduplicatedMatrix[z].length; j++) {
-            const column = deduplicatedMatrix[0][j];
-            if (column in combinedValues) {
-              deduplicatedMatrix[z][j] = combinedValues[column];
+    const row_number = deduplicatedMatrix.length;
+    const column_number = deduplicatedMatrix[0].length;
+    for (let m = 1; i < row_number; m++){
+        const submitter_id = deduplicatedMatrix[i][uniqueIndex];
+        for(let n = uniqueIndex+1; n < column_number; n++){
+            let value = deduplicatedMatrix[m][n];
+            for(let i = m+1; i < row_number; i++){
+                if(deduplicatedMatrix[i][uniqueIndex]===submitter_id && deduplicatedMatrix[i][n] !== value){
+                    value = value + ',' + deduplicatedMatrix[i][n];
+                }
             }
-          }
+            for(let j=m; j < row_number; j++){
+                if(deduplicatedMatrix[j][uniqueIndex]===submitter_id){
+                    deduplicatedMatrix[j][n] = value
+                }
+            }
         }
-      }
     }
     const finalMatrix = [];
     const finalMatrix_row = new Set();
