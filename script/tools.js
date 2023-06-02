@@ -21,7 +21,7 @@ export function removeDuplicateRows(outputMatrix) {
     return deduplicatedMatrix;
 }
 
-export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
+export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
     const deduplicatedMatrix = [];
     const deduplicatedRows = new Set();
   
@@ -68,6 +68,7 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
   
 
 //remove duplicate rows and collapse for data files
+/*
 export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
     const uniqueRows = {};
   
@@ -117,4 +118,4 @@ export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
   
     return finalMatrix;
   }
-  
+*/
