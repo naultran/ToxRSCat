@@ -63,5 +63,22 @@
       "status": "published",
       "display": true
     }
+  },
+  "miflowcyt2": {
+    "Flow cytometry experiment": {
+      "name": "Flow cytometry experiment",
+      "status": "published",
+      "display": true
+    },
+    "Instrument": {
+      "name": "Instrument",
+      "status": "published",
+      "display": true
+    },
+    "Aliquot": {
+      "name": "Aliquot",
+      "status": "published",
+      "display": true
+    }
   }
 }
