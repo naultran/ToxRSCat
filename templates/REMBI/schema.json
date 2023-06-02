@@ -1192,7 +1192,7 @@
         "submitter_id": {
           "name": "submitter_id",
           "exact_mappings": [
-            "slide_image:slide.submitter_id",
+            "slide_image:slides.submitter_id",
             "slide:submitter_id"
           ],
           "rank": 1,
@@ -1241,7 +1241,7 @@
         "instrument.submitter_id": {
           "name": "instrument.submitter_id",
           "exact_mappings": [
-            "slide_image:instrument.submitter_id"
+            "slide_image:instruments.submitter_id"
           ],
           "rank": 7,
           "slot_group": "data"
@@ -1334,7 +1334,7 @@
           "title": "submitter_id",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "slide_image:slide.submitter_id",
+            "slide_image:slides.submitter_id",
             "slide:submitter_id"
           ],
           "rank": 1,
@@ -1441,7 +1441,7 @@
           "title": "instrument.submitter_id",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "slide_image:instrument.submitter_id"
+            "slide_image:instruments.submitter_id"
           ],
           "rank": 7,
           "alias": "instrument.submitter_id",
