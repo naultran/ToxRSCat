@@ -89,7 +89,7 @@ export default {
 			// Function to wait for downloading files to fix crashes
 			async function exportFileWithDelay(outputMatrix, exportType) {
 				exportFile(outputMatrix, exportType, "tsv");
-				await delay(1000);
+				await delay(4000);
 			}
 			for (const exportConfig of exportConfigs) {
 				dh.getHeaderMap(exportConfig.exportHeaders, sourceFields, exportConfig.exportType);
