@@ -55,7 +55,7 @@ function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
 }
 
 export default {
-	gen3_flow_cytometry_all: {
+	gen3_flow_cytometry: {
 		fileType: 'tsv',
 		status: 'published',
 		method: function(dh) {
@@ -171,7 +171,7 @@ export default {
 		}
 	},
 
-	gen3_temp_all: {
+	gen3_analyte: {
 		fileType: 'tsv',
 		status: 'published',
 		method: function(dh) {
@@ -183,17 +183,15 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["slide.submitter_id", []],
-						["finding_type", []],
-						["topography_type", []],
-						["grade", []],
-						["spontaneous_flag", []],
-						["scoring_system", []],
-						['provenance', ["slide template version"]]
+						["submitter_id", []],
+						["samples.submitter_id", []],
+						["analyte_type", []],
+						["analyte_protocol", []],
+						['provenance', []]
 					]),
-					uid: "slide.submitter_id",
+					uid: "submitter_id",
 					outputMatrix: [[]],
-					exportType: "gen3_pathology",
+					exportType: "aliquot",
 				}
 			];
 
