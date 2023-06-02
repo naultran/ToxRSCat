@@ -14,7 +14,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["slide.submitter_id", []],
+						["submitter_id", ["file_name"]],
+						["slides.submitter_id", []],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
@@ -27,7 +28,7 @@ export default {
 					]),
 					uid: "slide.submitter_id",
 					outputMatrix: [[]],
-					exportType: "gen3_data",
+					exportType: "slide_image",
 				},
 				{
 					exportHeaders: new Map([

@@ -2723,10 +2723,7 @@
         " "
       ],
       "from_schema": "https://example.com/MIATE",
-      "multivalued": true,
       "range": "WhitespaceMinimizedString",
-      "inlined": true,
-      "inlined_as_list": true,
       "pattern": "^DTXSID\\d{1,17}$"
     },
     "vehicle_name": {
@@ -3008,8 +3005,7 @@
         "cage_id": {
           "name": "cage_id",
           "exact_mappings": [
-            "gen3_study_housing:submitter_id",
-            "gen3_study_diet:housings.submitter_id"
+            "gen3_study_housing:cageID"
           ],
           "rank": 14,
           "slot_group": "housing"
@@ -3065,7 +3061,7 @@
         "feed_catalog_number": {
           "name": "feed_catalog_number",
           "exact_mappings": [
-            "gen3_study_diet:submitter_id"
+            "gen3_study_diet:feed_catalog_number"
           ],
           "rank": 21,
           "slot_group": "diet"
@@ -3445,8 +3441,7 @@
           "title": "Cage identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:submitter_id",
-            "gen3_study_diet:housings.submitter_id"
+            "gen3_study_housing:cageID"
           ],
           "rank": 14,
           "alias": "cage_id",
@@ -3574,7 +3569,7 @@
           "title": "feed_catalog_number",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:submitter_id"
+            "gen3_study_diet:feed_catalog_number"
           ],
           "rank": 21,
           "alias": "feed_catalog_number",
@@ -3825,7 +3820,6 @@
             "gen3_study_treatment:test_article_dtxsid"
           ],
           "rank": 35,
-          "multivalued": true,
           "alias": "test_article_dtxsid",
           "owner": "Subject",
           "domain_of": [
@@ -3833,7 +3827,6 @@
           ],
           "slot_group": "treatment",
           "range": "WhitespaceMinimizedString",
-          "inlined_as_list": true,
           "pattern": "^DTXSID\\d{1,17}$"
         },
         "vehicle_name": {

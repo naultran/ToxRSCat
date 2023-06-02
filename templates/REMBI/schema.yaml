@@ -42,88 +42,88 @@ classes:
         rank: 1
         slot_group: Identifiers
         exact_mappings: 
-        - gen3_data:slide.submitter_id
-        - gen3_slide:submitter_id
+        - slide_image:slide.submitter_id
+        - slide:submitter_id
       aliquots.submitter_id:
         rank: 2
         slot_group: Identifiers
         exact_mappings: 
-        - gen3_slide:aliquots.submitter_id
+        - slide:aliquots.submitter_id
       file_name:
         rank: 3
         slot_group: data
         exact_mappings: 
-        - gen3_data:file_name
+        - slide_image:file_name
       data_category:
         rank: 4
         slot_group: data
         exact_mappings: 
-        - gen3_data:data_category
+        - slide_image:data_category
       data_format:
         rank: 5
         slot_group: data
         exact_mappings: 
-        - gen3_data:data_format
+        - slide_image:data_format
       data_type:
         rank: 6
         slot_group: data
         exact_mappings: 
-        - gen3_data:data_type
+        - slide_image:data_type
       instrument.submitter_id:
         rank: 7
         slot_group: data
         exact_mappings: 
-        - gen3_data:instrument.submitter_id
+        - slide_image:instrument.submitter_id
       magnification:
         rank: 8
         slot_group: data
         exact_mappings: 
-        - gen3_data:magnification
+        - slide_image:magnification
       imaging_protocol:
         rank: 9
         slot_group: data
         exact_mappings: 
-        - gen3_data:imaging_protocol
+        - slide_image:imaging_protocol
       imaging_protocol_DOI:
         rank: 10
         slot_group: data
         exact_mappings: 
-        - gen3_data:imaging_protcol_DOI
+        - slide_image:imaging_protcol_DOI
       assay:
         rank: 11
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:assay
+        - slide:assay
       probe_type:
         rank: 12
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:probe_type
+        - slide:probe_type
       probe_name:
         rank: 13
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:probe_name
+        - gen3_sslidelide:probe_name
       probe_provider:
         rank: 14
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:probe_provider
+        - slide:probe_provider
       probe_catalog_number:
         rank: 15
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:probe_catalog_number
+        - slide:probe_catalog_number
       probe_concentration:
         rank: 16
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:probe_concentration
+        - slide:probe_concentration
       detection_method:
         rank: 17
         slot_group: slide_details
         exact_mappings: 
-        - gen3_slide:detection_method
+        - slide:detection_method
   pathology:
     name: pathology
     is_a: dh_interface
@@ -139,32 +139,32 @@ classes:
         rank: 1
         slot_group: Identifiers
         exact_mappings: 
-        - gen3_pathology:slot_usage
+        - pathology:slot_usage
       finding_type:
         rank: 2
         slot_group: pathology_grading
         exact_mappings: 
-        - gen3_pathology:finding_type
+        - pathology:finding_type
       topography_type:
         rank: 3
         slot_group: pathology_grading
         exact_mappings: 
-        - gen3_pathology:topography_type
+        - pathology:topography_type
       grade:
         rank: 4
         slot_group: pathology_grading
         exact_mappings: 
-        - gen3_pathology:grade
+        - pathology:grade
       spontaneous_flag:
         rank: 5
         slot_group: pathology_grading
         exact_mappings: 
-        - gen3_pathology:spontaneous_flag
+        - pathology:spontaneous_flag
       scoring_system:
         rank: 6
         slot_group: pathology_grading
         exact_mappings: 
-        - gen3_pathology:scoring_system
+        - pathology:scoring_system
 
 slots:
   submitter_id:
