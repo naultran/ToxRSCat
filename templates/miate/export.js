@@ -1,5 +1,20 @@
 import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
-import {delay, removeDuplicateRows, removeDuplicatesAndCollapse} from '/home/ubuntu/ToxRSCat/script/tools';
+import {delay, removeDuplicatesAndCollapse} from '/home/ubuntu/ToxRSCat/script/tools';
+function removeDuplicateRows(outputMatrix) {
+    const deduplicatedMatrix = [];
+    const deduplicatedRows = new Set();
+  
+    for (const row of outputMatrix) {
+      const rowStr = JSON.stringify(row);
+      if (!deduplicatedRows.has(rowStr)) {
+        deduplicatedRows.add(rowStr);
+        deduplicatedMatrix.push(row);
+      }
+    }
+  
+    return deduplicatedMatrix;
+  }
+
 // A dictionary of possible export formats
 export default {
     /**
