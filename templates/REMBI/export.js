@@ -1,7 +1,5 @@
 import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
-function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+
 function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
   const uniqueRows = {};
   for (let i = 1; i < outputMatrix.length; i++) {
@@ -115,7 +113,7 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFileWithDelay(exportConfig.outputMatrix, exportConfig.exportType);
+				exportFile(finalMatrix, exportConfig.exportType, "tsv");
 			}
 			return logs;
 		}
@@ -173,7 +171,7 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFileWithDelay(exportConfig.outputMatrix, exportConfig.exportType);
+				exportFile(finalMatrix, exportConfig.exportType, "tsv");
 			}
 
 			return logs;

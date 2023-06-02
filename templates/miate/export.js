@@ -1,5 +1,5 @@
 import { exportFile, exportJsonFile } from './/../../../DataHarmonizer/lib/utils/files';
-import {delay,removeDuplicateRows, removeDuplicatesAndCollapse} from './/../../script/tools';
+import {removeDuplicateRows, removeDuplicatesAndCollapse} from './/../../script/tools';
 
 // A dictionary of possible export formats
 export default {
@@ -178,16 +178,15 @@ export default {
             }
             logs.push(["publication is done"]);
 
-              async function myFunction() {
-                exportFile(outputMatrix_study, "study", "tsv");
-                await delay(1000);
-                exportFile(outputMatrix_contact, "contact", "tsv");
-                await delay(1000);
-                exportFile(outputMatrix_funding, "funding", "tsv");
-                await delay(1000);
-                exportFile(outputMatrix_publication, "publication", "tsv");
-              }
-              myFunction();
+
+            exportFile(outputMatrix_study, "study", "tsv");
+
+            exportFile(outputMatrix_contact, "contact", "tsv");
+
+            exportFile(outputMatrix_funding, "funding", "tsv");
+
+            exportFile(outputMatrix_publication, "publication", "tsv");
+
             return logs;
         }
     },
@@ -369,16 +368,15 @@ export default {
             const deduplicate_outputmatrix_diet = removeDuplicatesAndCollapse(outputMatrix_diet, "submitter_id");
             logs.push(["diet is done"]);
 
-            async function myFunction() {
-                exportFile(deduplicate_outputmatrix_subject, "subject", "tsv");
-                await delay(1000);
-                exportFile(deduplicate_outputmatrix_housing, "housing", "tsv");
-                await delay(1000);
-                exportFile(deduplicate_outputmatrix_treatment, "treatment", "tsv");
-                await delay(1000);
-                exportFile(deduplicate_outputmatrix_diet, "diet", "tsv");
-            }
-            myFunction();
+
+            exportFile(deduplicate_outputmatrix_subject, "subject", "tsv");
+
+            exportFile(deduplicate_outputmatrix_housing, "housing", "tsv");
+
+            exportFile(deduplicate_outputmatrix_treatment, "treatment", "tsv");
+
+            exportFile(deduplicate_outputmatrix_diet, "diet", "tsv");
+
 
             return logs
         }
