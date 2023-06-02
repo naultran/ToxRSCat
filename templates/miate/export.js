@@ -429,13 +429,13 @@ export default {
             logs.push(["diet is done"]);
 
               async function myFunction() {
-                exportFile(outputMatrix_subject, "subject", "tsv");
+                exportFile(deduplicate_outputmatrix_subject, "subject", "tsv");
                 await delay(1000);
-                exportFile(outputMatrix_housing, "housing", "tsv");
+                exportFile(deduplicate_outputmatrix_housing, "housing", "tsv");
                 await delay(1000);
-                exportFile(outputMatrix_treatment, "treatment", "tsv");
+                exportFile(deduplicate_outputmatrix_treatment, "treatment", "tsv");
                 await delay(1000);
-                exportFile(outputMatrix_diet, "diet", "tsv");
+                exportFile(deduplicate_outputmatrix_diet, "diet", "tsv");
               }
               myFunction();
             return logs
