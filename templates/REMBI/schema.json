@@ -1289,7 +1289,7 @@
         "probe_name": {
           "name": "probe_name",
           "exact_mappings": [
-            "gen3_sslidelide:probe_name"
+            "slide:probe_name"
           ],
           "rank": 13,
           "slot_group": "slide_details"
@@ -1554,7 +1554,7 @@
           "title": "probe_name",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "gen3_sslidelide:probe_name"
+            "slide:probe_name"
           ],
           "rank": 13,
           "multivalued": true,

@@ -47,7 +47,7 @@ export default {
 					outputMatrix: [[]],
 					uid: "submitter_id",
 					exportType: "slide",
-				}
+				},
 			];
 
 			// Function to wait for downloading files to fix crashes
