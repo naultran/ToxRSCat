@@ -9,7 +9,6 @@ export default {
 			const logs = [[]];
 			const sourceFields = dh.getFields(dh.table);
 			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-
 			const exportConfigs = [
 				{
 					exportHeaders: new Map([
@@ -24,7 +23,7 @@ export default {
 						["magnification", []],
 						["imaging_protocol", []],
 						["imaging_protocol_DOI", []],
-						['provenance', ["slide template version"]]
+						['provenance', ["slide template version"]],
 					]),
 					uid: "submitter_id",
 					outputMatrix: [[]],
@@ -81,7 +80,7 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFileWithDelay(exportConfig.outputMatrix, exportConfig.exportType);
+				exportFileWithDelay(finalMatrix, exportConfig.exportType);
 			}
 			return logs;
 		}
@@ -144,7 +143,7 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFileWithDelay(exportConfig.outputMatrix, exportConfig.exportType);
+				exportFileWithDelay(finalMatrix, exportConfig.exportType);
 			}
 
 			return logs;
