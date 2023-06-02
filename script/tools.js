@@ -37,7 +37,7 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
     const row_number = deduplicatedMatrix.length;
     const column_number = deduplicatedMatrix[0].length;
     for (let m = 1; m < row_number; m++){
-        const submitter_id = deduplicatedMatrix[i][uniqueIndex];
+        const submitter_id = deduplicatedMatrix[m][uniqueIndex];
         for(let n = uniqueIndex+1; n < column_number; n++){
             let value = deduplicatedMatrix[m][n];
             for(let i = m+1; i < row_number; i++){
