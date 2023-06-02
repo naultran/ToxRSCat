@@ -26,7 +26,7 @@ export default {
 						["imaging_protocol_DOI", []],
 						['provenance', ["slide template version"]]
 					]),
-					uid: "slide.submitter_id",
+					uid: "submitter_id",
 					outputMatrix: [[]],
 					exportType: "slide_image",
 				},

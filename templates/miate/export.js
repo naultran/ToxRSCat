@@ -1,5 +1,5 @@
 import { exportFile, exportJsonFile } from './/../../../DataHarmonizer/lib/utils/files';
-import {delay,removeDuplicateRows, removeDuplicatesAndCollapse2} from './/../../script/tools';
+import {delay,removeDuplicateRows, removeDuplicatesAndCollapse} from './/../../script/tools';
 
 // A dictionary of possible export formats
 export default {
@@ -280,7 +280,7 @@ export default {
                 }
                 outputMatrix_housing.push(outputRow);
             }
-            const deduplicate_outputmatrix_housing = removeDuplicatesAndCollapse2(outputMatrix_housing, "submitter_id");
+            const deduplicate_outputmatrix_housing = removeDuplicatesAndCollapse(outputMatrix_housing, "submitter_id");
             logs.push(["housing is done"]);
 
             const ExportHeaders_treatment = new Map([
@@ -366,7 +366,7 @@ export default {
                 outputMatrix_diet.push(outputRow);
             
             }
-            const deduplicate_outputmatrix_diet = removeDuplicatesAndCollapse2(outputMatrix_diet, "submitter_id");
+            const deduplicate_outputmatrix_diet = removeDuplicatesAndCollapse(outputMatrix_diet, "submitter_id");
             logs.push(["diet is done"]);
 
             async function myFunction() {
