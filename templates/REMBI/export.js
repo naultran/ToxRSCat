@@ -1,5 +1,5 @@
-import { exportFile, exportJsonFile } from '/../../../DataHarmonizer/lib/utils/files';
-import {delay,removeDuplicateRows, removeDuplicatesAndCollapse} from '/../../script/tools';
+import { exportFile, exportJsonFile } from './/../../../DataHarmonizer/lib/utils/files';
+import {delay,removeDuplicateRows, removeDuplicatesAndCollapse} from './/../../script/tools';
 
 export default {
 	gen3_slide_all: {
