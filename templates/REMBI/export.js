@@ -52,7 +52,7 @@ export default {
 			// Function to wait for downloading files to fix crashes
 			async function exportFileWithDelay(outputMatrix, exportType) {
 				exportFile(outputMatrix, exportType, "tsv");
-				await delay(1000);
+				await delay(2000);
 			}
 
 			for (const exportConfig of exportConfigs) {
@@ -80,7 +80,6 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				logs.push(finalMatrix);
 				exportFileWithDelay(finalMatrix, exportConfig.exportType);
 			}
 			return logs;
