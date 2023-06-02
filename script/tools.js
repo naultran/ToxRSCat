@@ -47,7 +47,7 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
             }
             for(let j=m; j < row_number; j++){
                 if(deduplicatedMatrix[j][uniqueIndex]===submitter_id){
-                    deduplicatedMatrix[j][n] = value
+                    deduplicatedMatrix[j][n] = value;
                 }
             }
         }
@@ -62,10 +62,8 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
         finalMatrix.push(row);
       }
     }
-  
-  
     return finalMatrix;
-  }
+}
   
   
 
