@@ -103,7 +103,7 @@ classes:
         rank: 13
         slot_group: slide_details
         exact_mappings: 
-        - gen3_sslidelide:probe_name
+        - slide:probe_name
       probe_provider:
         rank: 14
         slot_group: slide_details
