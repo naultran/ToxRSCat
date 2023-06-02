@@ -128,8 +128,7 @@ classes:
         rank: 14
         slot_group: housing
         exact_mappings:
-        - gen3_study_housing:submitter_id
-        - gen3_study_diet:housings.submitter_id
+        - gen3_study_housing:cageID
       bedding_type:
         rank: 15
         slot_group: housing
@@ -164,7 +163,7 @@ classes:
         rank: 21
         slot_group: diet
         exact_mappings:
-        - gen3_study_diet:submitter_id
+        - gen3_study_diet:feed_catalog_number
       feed_description:
         rank: 22
         slot_group: diet
@@ -867,8 +866,6 @@ slots:
     range: WhitespaceMinimizedString
     pattern: ^DTXSID\d{1,17}$
     description: ' '
-    multivalued: true
-    inlined_as_list: true
     comments: ' '
   vehicle_name:
     name: vehicle_name

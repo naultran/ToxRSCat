@@ -245,9 +245,9 @@ export default {
 
             const ExportHeaders_housing = new Map([
                 ["type", []],
-                ["submitter_id", []],
+                ["submitter_id", ["cage_id", "housing_change_date"]],
                 ["subjects.submitter_id", []],
-                ["cageID", ["cage_id"]], 
+                ["cageID", []], 
                 ["housing_change_date", []],
                 ["bedding_type", []], 
                 ["cage_type", []],
@@ -285,7 +285,7 @@ export default {
 
             const ExportHeaders_treatment = new Map([
                 ["type", []],
-                ["submitter_id", []],
+                ["submitter_id", ["test_article_dtxsid", "treatment_date"]],
                 ["subjects.submitter_id", []],
                 ["date", []],
                 ["administration_volume_ml", []],
@@ -320,45 +320,20 @@ export default {
                     if (headerName =="type"){
                         value = "treatment";
                     }
-                    if (headerName == "submitter_id"){
-                        const project_id = dh.getMappedField(
-                            "project_identifier",
-                            inputRow,
-                            ["Study.project_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_treatment'
-                          );
-                          const subject_id = dh.getMappedField(
-                            "subject_identifier",
-                            inputRow,
-                            ["Study.subject_identifier"],
-                            sourceFields,
-                            sourceFieldNameMap,
-                            ':',
-                            'gen3_study_treatment'
-                          );
-                          value = `${project_id}.${subject_id}.T`;
-                    }
+            
                     outputRow.push(value);
                 }
                 outputMatrix_treatment.push(outputRow);
             }
             const deduplicate_outputmatrix_treatment = removeDuplicateRows(outputMatrix_treatment);
-            // Add numbers to the end of submitter_id column in treatment) {
-            for (let i = 1; i <= deduplicate_outputmatrix_treatment.length - 1; i++) {
-                const submitterId = deduplicate_outputmatrix_treatment[i][1] + "_" + i.toString();
-                deduplicate_outputmatrix_treatment[i][1] = submitterId;
-            }
             logs.push(["treatment is done"]);
 
             const ExportHeaders_diet = new Map([
                 ["type", []],
-                ["submitter_id", []],
-                ["housings.submitter_id", []],
+                ["submitter_id", ["feed_catalog_number", "diet_date"]],
+                ["housings.submitter_id", ["cage_id", "housing_change_date"]],
                 ["date", []],
-                ["feed_catalog_number",["feed_catalog_number"]],
+                ["feed_catalog_number",[]],
                 ["feed_description", []],
                 ["feed_name", []], 
                 ["feed_vendor", []],
