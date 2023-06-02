@@ -19,9 +19,51 @@ export function removeDuplicateRows(outputMatrix) {
     }
   
     return deduplicatedMatrix;
-  }
+}
 
-//remove deplicate rows and collapse for data files
+export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
+    const uniqueRows = {};
+  
+    for (let i = 1; i < outputMatrix.length; i++) {
+      const row = outputMatrix[i];
+      const key = row[outputMatrix[0].indexOf(uniqueColumn)];
+  
+      if (uniqueRows.hasOwnProperty(key)) {
+        for (let j = 1; j < row.length; j++) {
+          const column = outputMatrix[0][j];
+          const value = row[j];
+  
+          if (!uniqueRows[key][column].includes(value)) {
+            uniqueRows[key][column].push(value);
+          }
+        }
+      } else {
+        uniqueRows[key] = {};
+  
+        for (let j = 1; j < row.length; j++) {
+          const column = outputMatrix[0][j];
+          const value = row[j];
+  
+          uniqueRows[key][column] = [value];
+        }
+      }
+    }
+  
+    const finalMatrix = [outputMatrix[0]];
+  
+    for (const key in uniqueRows) {
+      for (const column in uniqueRows[key]) {
+        const values = uniqueRows[key][column];
+        const newRow = [key, ...values];
+        finalMatrix.push(newRow);
+      }
+    }
+  
+    return finalMatrix;
+  }
+  
+
+//remove duplicate rows and collapse for data files
 export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
     const uniqueRows = {};
   
