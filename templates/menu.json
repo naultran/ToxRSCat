@@ -65,6 +65,11 @@
     }
   },
   "miflowcyt2": {
+    "Aliquot": {
+      "name": "Aliquot",
+      "status": "published",
+      "display": true
+    },
     "Flow cytometry experiment": {
       "name": "Flow cytometry experiment",
       "status": "published",
@@ -72,11 +77,6 @@
     },
     "Instrument": {
       "name": "Instrument",
-      "status": "published",
-      "display": true
-    },
-    "Aliquot": {
-      "name": "Aliquot",
       "status": "published",
       "display": true
     }
