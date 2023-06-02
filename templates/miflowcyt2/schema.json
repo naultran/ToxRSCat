@@ -746,7 +746,7 @@
         "flow_001-HSA_001"
       ],
       "from_schema": "https://example.com/MIFlowCyt",
-      "identifier": true,
+      "identifier": false,
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -1704,7 +1704,7 @@
             "flow_cytometry_assay:submitter_id flow_data:flow_cytometry_assay.submitter_id flow_analysis_data:flow_cytometry_assay.submitter_id"
           ],
           "rank": 1,
-          "identifier": true,
+          "identifier": false,
           "alias": "flow_cytometry.submitter_id",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2788,26 +2788,41 @@
       "slot_usage": {
         "aliquot.submitter_id": {
           "name": "aliquot.submitter_id",
+          "exact_mappings": [
+            "aliquot:submitter_id"
+          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
         "sample.submitter_id": {
           "name": "sample.submitter_id",
+          "exact_mappings": [
+            "aliquot:samples.submitter_id"
+          ],
           "rank": 2,
           "slot_group": "identifiers"
         },
         "analyte_type": {
           "name": "analyte_type",
+          "exact_mappings": [
+            "aliquot:analyte_type"
+          ],
           "rank": 3,
           "slot_group": "aliquot"
         },
         "analyte_protocol": {
           "name": "analyte_protocol",
+          "exact_mappings": [
+            "aliquot:analyte_protocol"
+          ],
           "rank": 4,
           "slot_group": "aliquot"
         },
         "aliquot_template_provenance": {
           "name": "aliquot_template_provenance",
+          "exact_mappings": [
+            "aliquot:provenance"
+          ],
           "rank": 5,
           "slot_group": "provenance"
         }
@@ -2818,6 +2833,9 @@
           "description": " ",
           "title": "submitter_id",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "aliquot:submitter_id"
+          ],
           "rank": 1,
           "alias": "aliquot.submitter_id",
           "owner": "Aliquot",
@@ -2832,6 +2850,9 @@
           "description": " ",
           "title": "sample.submitter_id",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "aliquot:samples.submitter_id"
+          ],
           "rank": 2,
           "alias": "sample.submitter_id",
           "owner": "Aliquot",
@@ -2846,6 +2867,9 @@
           "description": " ",
           "title": "Analyte type",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "aliquot:analyte_type"
+          ],
           "rank": 3,
           "alias": "analyte_type",
           "owner": "Aliquot",
@@ -2860,6 +2884,9 @@
           "description": " ",
           "title": "Analyte preparation protocol",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "aliquot:analyte_protocol"
+          ],
           "rank": 4,
           "alias": "analyte_protocol",
           "owner": "Aliquot",
@@ -2874,6 +2901,9 @@
           "description": " ",
           "title": "Provenance",
           "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "aliquot:provenance"
+          ],
           "rank": 5,
           "alias": "aliquot_template_provenance",
           "owner": "Aliquot",

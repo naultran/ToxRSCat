@@ -375,7 +375,7 @@ slots:
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
     required: true
-    identifier: true
+    identifier: false
     comments: flow_001-HSA_001
   aliquots.submitter_id:
     name: aliquots.submitter_id
