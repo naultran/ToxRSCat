@@ -80,6 +80,7 @@ export default {
 				}
 				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
+				logs.push(finalMatrix);
 				exportFileWithDelay(finalMatrix, exportConfig.exportType);
 			}
 			return logs;
