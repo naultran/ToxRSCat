@@ -1,5 +1,5 @@
 import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
-import {removeDuplicateRows, removeDuplicatesAndCollapse, removeDuplicatesAndCollapse2} from './/../../script/tools';
+import {removeDuplicateRows, removeDuplicatesAndCollapse} from './/../../script/tools';
 
 export default {
 	gen3_slide_all: {
@@ -71,7 +71,7 @@ export default {
 					}
 					exportConfig.outputMatrix.push(outputRow);
 				}
-				
+
 				let finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, "submitter_id");
 				logs.push([`${exportConfig.exportType} information is done`]);
 				exportFile(finalMatrix, exportConfig.exportType, "tsv");

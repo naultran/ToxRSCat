@@ -31,7 +31,6 @@ export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
   }
   
   const uniqueIndex = deduplicatedMatrix[0].indexOf(uniqueColumn);
-  console.log(deduplicatedMatrix);
   const row_number = deduplicatedMatrix.length;
   const column_number = deduplicatedMatrix[0].length;
   for (let m = 1; m < row_number; m++){
@@ -60,14 +59,13 @@ export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
       finalMatrix.push(row);
     }
   }
-  console.log(finalMatrix);
   return finalMatrix;
 }
   
   
 
 //remove duplicate rows and collapse for data files
-
+/*
 export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
     const uniqueRows = {};
   
@@ -117,3 +115,4 @@ export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
   
     return finalMatrix;
   }
+*/

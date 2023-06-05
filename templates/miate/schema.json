@@ -2899,9 +2899,9 @@
         "Subject.subject_identifier": {
           "name": "Subject.subject_identifier",
           "exact_mappings": [
-            "gen3_study_subject:submitter_id",
-            "gen3_study_housing:subjects.submitter_id",
-            "gen3_study_treatment:subjects.submitter_id"
+            "subject:submitter_id",
+            "housing:subjects.submitter_id",
+            "treatment:subjects.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -2909,7 +2909,7 @@
         "Subject.study_identifier": {
           "name": "Subject.study_identifier",
           "exact_mappings": [
-            "gen3_study_subject:studies.code"
+            "subject:studies.code"
           ],
           "rank": 2,
           "slot_group": "identifiers"
@@ -2917,7 +2917,7 @@
         "start_date": {
           "name": "start_date",
           "exact_mappings": [
-            "gen3_study_subject:start_date"
+            "subject:start_date"
           ],
           "rank": 3,
           "slot_group": "subject"
@@ -2925,7 +2925,7 @@
         "start_date_age": {
           "name": "start_date_age",
           "exact_mappings": [
-            "gen3_study_subject:start_date_age"
+            "subject:start_date_age"
           ],
           "rank": 4,
           "slot_group": "subject"
@@ -2933,7 +2933,7 @@
         "experiment_start_date": {
           "name": "experiment_start_date",
           "exact_mappings": [
-            "gen3_study_subject:experiment_start_date"
+            "subject:experiment_start_date"
           ],
           "rank": 5,
           "slot_group": "subject"
@@ -2941,7 +2941,7 @@
         "experiment_start_zt": {
           "name": "experiment_start_zt",
           "exact_mappings": [
-            "gen3_study_subject:experiment_start_zt"
+            "subject:experiment_start_zt"
           ],
           "rank": 6,
           "slot_group": "subject"
@@ -2949,7 +2949,7 @@
         "sex": {
           "name": "sex",
           "exact_mappings": [
-            "gen3_study_subject:sex"
+            "subject:sex"
           ],
           "rank": 7,
           "slot_group": "subject"
@@ -2957,7 +2957,7 @@
         "strain": {
           "name": "strain",
           "exact_mappings": [
-            "gen3_study_subject:strain"
+            "subject:strain"
           ],
           "rank": 8,
           "slot_group": "subject"
@@ -2965,7 +2965,7 @@
         "strain_source": {
           "name": "strain_source",
           "exact_mappings": [
-            "gen3_study_subject:strain_source"
+            "subject:strain_source"
           ],
           "rank": 9,
           "slot_group": "subject"
@@ -2973,7 +2973,7 @@
         "euthanasia_date": {
           "name": "euthanasia_date",
           "exact_mappings": [
-            "gen3_study_subject:euthanasia_date"
+            "subject:euthanasia_date"
           ],
           "rank": 10,
           "slot_group": "subject"
@@ -2981,7 +2981,7 @@
         "euthanasia_zt": {
           "name": "euthanasia_zt",
           "exact_mappings": [
-            "gen3_study_subject:euthanasia_zt"
+            "subject:euthanasia_zt"
           ],
           "rank": 11,
           "slot_group": "subject"
@@ -2989,7 +2989,7 @@
         "euthanasia_method": {
           "name": "euthanasia_method",
           "exact_mappings": [
-            "gen3_study_subject:euthanasia_method"
+            "subject:euthanasia_method"
           ],
           "rank": 12,
           "slot_group": "subject"
@@ -2997,7 +2997,7 @@
         "housing_change_date": {
           "name": "housing_change_date",
           "exact_mappings": [
-            "gen3_study_housing:housing_change_date"
+            "housing:housing_change_date"
           ],
           "rank": 13,
           "slot_group": "housing"
@@ -3005,7 +3005,7 @@
         "cage_id": {
           "name": "cage_id",
           "exact_mappings": [
-            "gen3_study_housing:cageID"
+            "housing:cageID"
           ],
           "rank": 14,
           "slot_group": "housing"
@@ -3013,7 +3013,7 @@
         "bedding_type": {
           "name": "bedding_type",
           "exact_mappings": [
-            "gen3_study_housing:bedding_type"
+            "housing:bedding_type"
           ],
           "rank": 15,
           "slot_group": "housing"
@@ -3021,7 +3021,7 @@
         "cage_type": {
           "name": "cage_type",
           "exact_mappings": [
-            "gen3_study_housing:cage_type"
+            "housing:cage_type"
           ],
           "rank": 16,
           "slot_group": "housing"
@@ -3029,7 +3029,7 @@
         "vivarium_temperature": {
           "name": "vivarium_temperature",
           "exact_mappings": [
-            "gen3_study_housing:vivarium_temperature_C"
+            "housing:vivarium_temperature_C"
           ],
           "rank": 17,
           "slot_group": "housing"
@@ -3037,7 +3037,7 @@
         "vivarium_humidity": {
           "name": "vivarium_humidity",
           "exact_mappings": [
-            "gen3_study_housing:vivarium_humidity_percentage"
+            "housing:vivarium_humidity_percentage"
           ],
           "rank": 18,
           "slot_group": "housing"
@@ -3045,7 +3045,7 @@
         "vivarium light cycle": {
           "name": "vivarium light cycle",
           "exact_mappings": [
-            "gen3_study_housing:vivarium_light_cycle"
+            "housing:vivarium_light_cycle"
           ],
           "rank": 19,
           "slot_group": "housing"
@@ -3053,7 +3053,7 @@
         "diet_date": {
           "name": "diet_date",
           "exact_mappings": [
-            "gen3_study_diet:date"
+            "diet:date"
           ],
           "rank": 20,
           "slot_group": "diet"
@@ -3061,7 +3061,7 @@
         "feed_catalog_number": {
           "name": "feed_catalog_number",
           "exact_mappings": [
-            "gen3_study_diet:feed_catalog_number"
+            "diet:feed_catalog_number"
           ],
           "rank": 21,
           "slot_group": "diet"
@@ -3069,7 +3069,7 @@
         "feed_description": {
           "name": "feed_description",
           "exact_mappings": [
-            "gen3_study_diet:feed_description"
+            "diet:feed_description"
           ],
           "rank": 22,
           "slot_group": "diet"
@@ -3077,7 +3077,7 @@
         "feed_name": {
           "name": "feed_name",
           "exact_mappings": [
-            "gen3_study_diet:feed_name"
+            "diet:feed_name"
           ],
           "rank": 23,
           "slot_group": "diet"
@@ -3085,7 +3085,7 @@
         "feed_vendor": {
           "name": "feed_vendor",
           "exact_mappings": [
-            "gen3_study_diet:feed_vendor"
+            "diet:feed_vendor"
           ],
           "rank": 24,
           "slot_group": "diet"
@@ -3093,7 +3093,7 @@
         "water_type": {
           "name": "water_type",
           "exact_mappings": [
-            "gen3_study_diet:water_type"
+            "diet:water_type"
           ],
           "rank": 25,
           "slot_group": "diet"
@@ -3101,7 +3101,7 @@
         "feeding_paradigm": {
           "name": "feeding_paradigm",
           "exact_mappings": [
-            "gen3_study_diet:feeding_paradigm"
+            "diet:feeding_paradigm"
           ],
           "rank": 26,
           "slot_group": "diet"
@@ -3109,7 +3109,7 @@
         "treatment_date": {
           "name": "treatment_date",
           "exact_mappings": [
-            "gen3_study_treatment:date"
+            "treatment:date"
           ],
           "rank": 27,
           "slot_group": "treatment"
@@ -3117,7 +3117,7 @@
         "administration_volume": {
           "name": "administration_volume",
           "exact_mappings": [
-            "gen3_study_treatment:administration_volume_ml"
+            "treatment:administration_volume_ml"
           ],
           "rank": 28,
           "slot_group": "treatment"
@@ -3125,7 +3125,7 @@
         "dose_amount": {
           "name": "dose_amount",
           "exact_mappings": [
-            "gen3_study_treatment:dose_amount"
+            "treatment:dose_amount"
           ],
           "rank": 29,
           "slot_group": "treatment"
@@ -3133,7 +3133,7 @@
         "dose_amount_unit": {
           "name": "dose_amount_unit",
           "exact_mappings": [
-            "gen3_study_treatment:dose_amount_unit"
+            "treatment:dose_amount_unit"
           ],
           "rank": 30,
           "slot_group": "treatment"
@@ -3141,7 +3141,7 @@
         "route": {
           "name": "route",
           "exact_mappings": [
-            "gen3_study_treatment:route"
+            "treatment:route"
           ],
           "rank": 31,
           "slot_group": "treatment"
@@ -3149,7 +3149,7 @@
         "test_article_administration_zt": {
           "name": "test_article_administration_zt",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_administration_zt"
+            "treatment:test_article_administration_zt"
           ],
           "rank": 32,
           "slot_group": "treatment"
@@ -3157,7 +3157,7 @@
         "test_article_administration_duration": {
           "name": "test_article_administration_duration",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_administration_duration"
+            "treatment:test_article_administration_duration"
           ],
           "rank": 33,
           "slot_group": "treatment"
@@ -3165,7 +3165,7 @@
         "test_article_name": {
           "name": "test_article_name",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_name"
+            "treatment:test_article_name"
           ],
           "rank": 34,
           "slot_group": "treatment"
@@ -3173,7 +3173,7 @@
         "test_article_dtxsid": {
           "name": "test_article_dtxsid",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_dtxsid"
+            "treatment:test_article_dtxsid"
           ],
           "rank": 35,
           "slot_group": "treatment"
@@ -3181,7 +3181,7 @@
         "vehicle_name": {
           "name": "vehicle_name",
           "exact_mappings": [
-            "gen3_study_treatment:vehicle_name"
+            "treatment:vehicle_name"
           ],
           "rank": 36,
           "slot_group": "treatment"
@@ -3189,7 +3189,7 @@
         "vehicle_dtxsid": {
           "name": "vehicle_dtxsid",
           "exact_mappings": [
-            "gen3_study_treatment:vehicle_dtxsid"
+            "treatment:vehicle_dtxsid"
           ],
           "rank": 37,
           "slot_group": "treatment"
@@ -3207,9 +3207,9 @@
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:submitter_id",
-            "gen3_study_housing:subjects.submitter_id",
-            "gen3_study_treatment:subjects.submitter_id"
+            "subject:submitter_id",
+            "housing:subjects.submitter_id",
+            "treatment:subjects.submitter_id"
           ],
           "rank": 1,
           "alias": "Subject.subject_identifier",
@@ -3227,7 +3227,7 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:studies.code"
+            "subject:studies.code"
           ],
           "rank": 2,
           "slot_uri": "obo:NCIT_C46002",
@@ -3246,7 +3246,7 @@
           "title": "start_date",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:start_date"
+            "subject:start_date"
           ],
           "rank": 3,
           "alias": "start_date",
@@ -3263,7 +3263,7 @@
           "title": "start_date_age",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:start_date_age"
+            "subject:start_date_age"
           ],
           "rank": 4,
           "slot_uri": "obo:NCIT_C25150",
@@ -3281,7 +3281,7 @@
           "title": "experiment_start_date",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:experiment_start_date"
+            "subject:experiment_start_date"
           ],
           "rank": 5,
           "alias": "experiment_start_date",
@@ -3298,7 +3298,7 @@
           "title": "Experiment start Zeitgeber",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:experiment_start_zt"
+            "subject:experiment_start_zt"
           ],
           "rank": 6,
           "alias": "experiment_start_zt",
@@ -3317,7 +3317,7 @@
           "title": "sex",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:sex"
+            "subject:sex"
           ],
           "rank": 7,
           "slot_uri": "obo:PATO_0000047",
@@ -3336,7 +3336,7 @@
           "title": "strain",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:strain"
+            "subject:strain"
           ],
           "rank": 8,
           "slot_uri": "obo:OBI_0001185",
@@ -3355,7 +3355,7 @@
           "title": "strain_source",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:strain_source"
+            "subject:strain_source"
           ],
           "rank": 9,
           "alias": "strain_source",
@@ -3372,7 +3372,7 @@
           "title": "euthanasia_date",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:euthanasia_date"
+            "subject:euthanasia_date"
           ],
           "rank": 10,
           "alias": "euthanasia_date",
@@ -3389,7 +3389,7 @@
           "title": "euthanasia_zt",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:euthanasia_zt"
+            "subject:euthanasia_zt"
           ],
           "rank": 11,
           "alias": "euthanasia_zt",
@@ -3406,7 +3406,7 @@
           "title": "euthanasia_method",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_subject:euthanasia_method"
+            "subject:euthanasia_method"
           ],
           "rank": 12,
           "slot_uri": "obo:OBI_0000919",
@@ -3424,7 +3424,7 @@
           "title": "housing_change_date",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:housing_change_date"
+            "housing:housing_change_date"
           ],
           "rank": 13,
           "alias": "housing_change_date",
@@ -3441,7 +3441,7 @@
           "title": "Cage identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:cageID"
+            "housing:cageID"
           ],
           "rank": 14,
           "alias": "cage_id",
@@ -3458,7 +3458,7 @@
           "title": "bedding_type",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:bedding_type"
+            "housing:bedding_type"
           ],
           "rank": 15,
           "slot_uri": "obo:NCIT_C90366",
@@ -3476,7 +3476,7 @@
           "title": "cage_type",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:cage_type"
+            "housing:cage_type"
           ],
           "rank": 16,
           "alias": "cage_type",
@@ -3493,7 +3493,7 @@
           "title": "Temperature (C)",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:vivarium_temperature_C"
+            "housing:vivarium_temperature_C"
           ],
           "rank": 17,
           "slot_uri": "obo:PATO_0000146",
@@ -3513,7 +3513,7 @@
           "title": "Humidiity (%)",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:vivarium_humidity_percentage"
+            "housing:vivarium_humidity_percentage"
           ],
           "rank": 18,
           "slot_uri": "obo:NCIT_C88206",
@@ -3533,7 +3533,7 @@
           "title": "vivarium light cycle",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_housing:vivarium_light_cycle"
+            "housing:vivarium_light_cycle"
           ],
           "rank": 19,
           "slot_uri": "obo:XCO_0000459",
@@ -3552,7 +3552,7 @@
           "title": "date",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:date"
+            "diet:date"
           ],
           "rank": 20,
           "alias": "diet_date",
@@ -3569,7 +3569,7 @@
           "title": "feed_catalog_number",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:feed_catalog_number"
+            "diet:feed_catalog_number"
           ],
           "rank": 21,
           "alias": "feed_catalog_number",
@@ -3586,7 +3586,7 @@
           "title": "feed_description",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:feed_description"
+            "diet:feed_description"
           ],
           "rank": 22,
           "alias": "feed_description",
@@ -3603,7 +3603,7 @@
           "title": "feed_name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:feed_name"
+            "diet:feed_name"
           ],
           "rank": 23,
           "slot_uri": "obo:OBI_0000248",
@@ -3621,7 +3621,7 @@
           "title": "feed_vendor",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:feed_vendor"
+            "diet:feed_vendor"
           ],
           "rank": 24,
           "alias": "feed_vendor",
@@ -3638,7 +3638,7 @@
           "title": "water_type",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:water_type"
+            "diet:water_type"
           ],
           "rank": 25,
           "slot_uri": "obo:NCIT_C90377",
@@ -3656,7 +3656,7 @@
           "title": "feeding_paradigm",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_diet:feeding_paradigm"
+            "diet:feeding_paradigm"
           ],
           "rank": 26,
           "slot_uri": "obo:OBI_0000694",
@@ -3674,7 +3674,7 @@
           "title": "date",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:date"
+            "treatment:date"
           ],
           "rank": 27,
           "alias": "treatment_date",
@@ -3691,7 +3691,7 @@
           "title": "Administration volume (mL)",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:administration_volume_ml"
+            "treatment:administration_volume_ml"
           ],
           "rank": 28,
           "alias": "administration_volume",
@@ -3709,7 +3709,7 @@
           "title": "dose_amount",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:dose_amount"
+            "treatment:dose_amount"
           ],
           "rank": 29,
           "multivalued": true,
@@ -3729,7 +3729,7 @@
           "title": "dose_amount_unit",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:dose_amount_unit"
+            "treatment:dose_amount_unit"
           ],
           "rank": 30,
           "slot_uri": "obo:NCIT_C44278",
@@ -3747,7 +3747,7 @@
           "title": "route",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:route"
+            "treatment:route"
           ],
           "rank": 31,
           "alias": "route",
@@ -3764,7 +3764,7 @@
           "title": "test_article_administration_zt",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_administration_zt"
+            "treatment:test_article_administration_zt"
           ],
           "rank": 32,
           "alias": "test_article_administration_zt",
@@ -3783,7 +3783,7 @@
           "title": "test_article_administration_duration",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_administration_duration"
+            "treatment:test_article_administration_duration"
           ],
           "rank": 33,
           "alias": "test_article_administration_duration",
@@ -3800,7 +3800,7 @@
           "title": "test_article_name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_name"
+            "treatment:test_article_name"
           ],
           "rank": 34,
           "alias": "test_article_name",
@@ -3817,7 +3817,7 @@
           "title": "test_article_dtxsid",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:test_article_dtxsid"
+            "treatment:test_article_dtxsid"
           ],
           "rank": 35,
           "alias": "test_article_dtxsid",
@@ -3835,7 +3835,7 @@
           "title": "vehicle_name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:vehicle_name"
+            "treatment:vehicle_name"
           ],
           "rank": 36,
           "multivalued": true,
@@ -3854,7 +3854,7 @@
           "title": "vehicle_dtxsid",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_study_treatment:vehicle_dtxsid"
+            "treatment:vehicle_dtxsid"
           ],
           "rank": 37,
           "multivalued": true,
@@ -3893,9 +3893,9 @@
         "Study.study_identifier": {
           "name": "Study.study_identifier",
           "exact_mappings": [
-            "gem3_submit_study:submitter_id",
-            "gen3_submit_funding:studies.submitter_id",
-            "gen3_submit_Publication:studies.submitter_id",
+            "study:submitter_id",
+            "funding:studies.submitter_id",
+            "publication:studies.submitter_id",
             "contact:studies.submitter_id"
           ],
           "rank": 1,
@@ -3904,7 +3904,7 @@
         "name": {
           "name": "name",
           "exact_mappings": [
-            "gem3_submit_study:study_title"
+            "study:study_title"
           ],
           "rank": 2,
           "slot_group": "Contact"
@@ -3912,7 +3912,7 @@
         "investigation_description": {
           "name": "investigation_description",
           "exact_mappings": [
-            "gem3_submit_study:study_description"
+            "study:study_description"
           ],
           "rank": 3,
           "slot_group": "Contact"
@@ -3983,7 +3983,7 @@
         "support_source": {
           "name": "support_source",
           "exact_mappings": [
-            "gen3_submit_funding:support_source"
+            "funding:support_source"
           ],
           "rank": 13,
           "slot_group": "Funding"
@@ -3991,7 +3991,7 @@
         "support_id": {
           "name": "support_id",
           "exact_mappings": [
-            "gen3_submit_funding:support_id"
+            "funding:support_id"
           ],
           "rank": 14,
           "slot_group": "Funding"
@@ -3999,7 +3999,7 @@
         "PMC_id": {
           "name": "PMC_id",
           "exact_mappings": [
-            "gen3_submit_Publication:PMC_id"
+            "publication:PMC_id"
           ],
           "rank": 15,
           "slot_group": "Publication"
@@ -4007,7 +4007,7 @@
         "DOI": {
           "name": "DOI",
           "exact_mappings": [
-            "gen3_submit_Publication:DOI"
+            "publication:DOI"
           ],
           "rank": 16,
           "slot_group": "Publication"
@@ -4015,7 +4015,7 @@
         "PMID": {
           "name": "PMID",
           "exact_mappings": [
-            "gen3_submit_Publication:PMID"
+            "publication:PMID"
           ],
           "rank": 17,
           "slot_group": "Publication"
@@ -4023,7 +4023,7 @@
         "study_design": {
           "name": "study_design",
           "exact_mappings": [
-            "gem3_submit_study:study_design"
+            "study:study_design"
           ],
           "rank": 18,
           "slot_group": "experiment"
@@ -4031,7 +4031,7 @@
         "study_type": {
           "name": "study_type",
           "exact_mappings": [
-            "gem3_submit_study:study_type"
+            "study:study_type"
           ],
           "rank": 19,
           "slot_group": "experiment"
@@ -4039,7 +4039,7 @@
         "experimental_setting": {
           "name": "experimental_setting",
           "exact_mappings": [
-            "gem3_submit_study:experimental_setting"
+            "study:experimental_setting"
           ],
           "rank": 20,
           "slot_group": "experiment"
@@ -4047,7 +4047,7 @@
         "Organism": {
           "name": "Organism",
           "exact_mappings": [
-            "gem3_submit_study:organism"
+            "study:organism"
           ],
           "rank": 21,
           "slot_group": "experiment"
@@ -4065,9 +4065,9 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:submitter_id",
-            "gen3_submit_funding:studies.submitter_id",
-            "gen3_submit_Publication:studies.submitter_id",
+            "study:submitter_id",
+            "funding:studies.submitter_id",
+            "publication:studies.submitter_id",
             "contact:studies.submitter_id"
           ],
           "rank": 1,
@@ -4088,7 +4088,7 @@
           "title": "Title",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:study_title"
+            "study:study_title"
           ],
           "rank": 2,
           "slot_uri": "obo:OBI_0001622",
@@ -4107,7 +4107,7 @@
           "title": "Description",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:study_description"
+            "study:study_description"
           ],
           "rank": 3,
           "slot_uri": "obo:OBI_0001615",
@@ -4296,7 +4296,7 @@
           "title": "Funding institution",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_submit_funding:support_source"
+            "funding:support_source"
           ],
           "rank": 13,
           "slot_uri": "obo:NCIT_C19711",
@@ -4317,7 +4317,7 @@
           "title": "Funding identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_submit_funding:support_id"
+            "funding:support_id"
           ],
           "rank": 14,
           "multivalued": true,
@@ -4337,7 +4337,7 @@
           "title": "PMC ID",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_submit_Publication:PMC_id"
+            "publication:PMC_id"
           ],
           "rank": 15,
           "multivalued": true,
@@ -4357,7 +4357,7 @@
           "title": "DOI",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_submit_Publication:DOI"
+            "publication:DOI"
           ],
           "rank": 16,
           "multivalued": true,
@@ -4376,7 +4376,7 @@
           "title": "PMID",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gen3_submit_Publication:PMID"
+            "publication:PMID"
           ],
           "rank": 17,
           "slot_uri": "obo:NCIT_C127797",
@@ -4397,7 +4397,7 @@
           "title": "Study design",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:study_design"
+            "study:study_design"
           ],
           "rank": 18,
           "slot_uri": "obo:OBI_0500000",
@@ -4415,7 +4415,7 @@
           "title": "Study type",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:study_type"
+            "study:study_type"
           ],
           "rank": 19,
           "alias": "study_type",
@@ -4432,7 +4432,7 @@
           "title": "Experimental setting",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:experimental_setting"
+            "study:experimental_setting"
           ],
           "rank": 20,
           "slot_uri": "bao:BAO_0020005",
@@ -4450,7 +4450,7 @@
           "title": "Organism",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "gem3_submit_study:organism"
+            "study:organism"
           ],
           "rank": 21,
           "slot_uri": "obo:NCIT_C45293",
@@ -4735,7 +4735,7 @@
       }
     }
   },
-  "source_file": "/Users/apple/ToxRSCat/templates/miate/schema.yaml",
+  "source_file": "/Users/apple/ToxRSCat/templates/MIATE/schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
