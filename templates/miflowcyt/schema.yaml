@@ -21,19 +21,28 @@ classes:
     name: Flow cytometry experiment
     is_a: dh_interface
     slots:
-    - flow_experiment_identifier
-    - program.name
-    - project.code
-    - sample_identifier
-    - purpose
-    - keywords
-    - experimentVariables
-    - primaryContact
-    - date
-    - conclusions
-    - qualityControlMeasures
+    - flow_cytometry.submitter_id
+    - aliquots.submitter_id
+    - listModeDataFile
+    - raw.data_type
+    - raw.data_format
+    - raw.data_category
+    - WorkspaceFile
+    - processed.data_type
+    - processed.data_format
+    - processed.data_category
+    - analysis_protocol
+    - analysis_protocol_DOI
+    - CompensationDescription
+    - TransformationPurpose
+    - TransformationDescription
+    - GateDescription
+    - Gate Statistics
+    - GateBoundaries
     - flow_cytometry_protocol
     - flow_cytometry_protocol_DOI
+    - qualityControlMeasures
+    - instrument.submitter_id
     - staining_protocol
     - staining_protocol_DOI
     - characteristicsBeingMeasured
@@ -45,16 +54,188 @@ classes:
     - reagentCatalogueNumber
     - stainingStatus
     - other_fluorescence_reagent
-    - analysis_protocol
-    - analysis_protocol_DOI
-    - listModeDataFile
-    - CompensationDescription
-    - TransformationPurpose
-    - TransformationDescription
-    - GateDescription
-    - Gate Statistics
-    - GateBoundaries
-    - WorkspaceFile
+    - flowcytometry_template_provenance
+    slot_usage:
+      flow_cytometry.submitter_id:
+        rank: 1
+        slot_group: identifiers
+        exact_mappings:
+          flow_cytometry_assay:submitter_id
+          flow_data:flow_cytometry_assay.submitter_id
+          flow_analysis_data:flow_cytometry_assay.submitter_id
+      aliquots.submitter_id:
+        rank: 2
+        slot_group: identifiers
+        exact_mappings:
+          flow_cytometry_assay:aliquots.submitter_id
+      listModeDataFile:
+        rank: 3
+        slot_group: raw_data_file
+        exact_mappings:
+          flow_data:file_name
+      raw.data_type:
+        rank: 4
+        slot_group: raw_data_file
+        exact_mappings:
+          flow_data:data_type
+      raw.data_format:
+        rank: 5
+        slot_group: raw_data_file
+        exact_mappings:
+          flow_data:data_format
+      raw.data_category:
+        rank: 6
+        slot_group: raw_data_file
+        exact_mappings:
+          flow_data:data_category
+      WorkspaceFile:
+        rank: 7
+        slot_group: processed_data_file
+        exact_mappings:
+          flow_analysis_data:file_name
+      processed.data_type:
+        rank: 8
+        slot_group: processed_data_file
+        exact_mappings:
+          flow_analysis_data:data_type
+      processed.data_format:
+        rank: 9
+        slot_group: processed_data_file
+        exact_mappings:
+          flow_analysis_data:data_format
+      processed.data_category:
+        rank: 10
+        slot_group: processed_data_file
+        exact_mappings:
+          flow_analysis_data:data_category
+      analysis_protocol:
+        rank: 11
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:protocol
+      analysis_protocol_DOI:
+        rank: 12
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:protocol_doi
+      CompensationDescription:
+        rank: 13
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:compensation_description
+      TransformationPurpose:
+        rank: 14
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:transformation_purpose
+      TransformationDescription:
+        rank: 15
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:transformation_description
+      GateDescription:
+        rank: 16
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:gate_description
+      Gate Statistics:
+        rank: 17
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:gate_statistics
+      GateBoundaries:
+        rank: 18
+        slot_group: data_analysis
+        exact_mappings:
+          flow_analysis:gate_boundaries
+      flow_cytometry_protocol:
+        rank: 19
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:protocol
+      flow_cytometry_protocol_DOI:
+        rank: 20
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:protocol_doi
+      qualityControlMeasures:
+        rank: 21
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:quality_control_measures
+      instrument.submitter_id:
+        rank: 22
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:instruments.submitter_id
+      staining_protocol:
+        rank: 23
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:staining_protocol
+      staining_protocol_DOI:
+        rank: 24
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:staining_protocol_doi
+      characteristicsBeingMeasured:
+        rank: 25
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:characteristic_being_measured
+      analyte:
+        rank: 26
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:analyte
+      analyteDetector:
+        rank: 27
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:analyte_detector
+      analyteReporter:
+        rank: 28
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:analyte_reporter
+      cloneNameOrNumber:
+        rank: 29
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:clone
+      reagentManufacturerName:
+        rank: 30
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:reagent_manufacturer
+      reagentCatalogueNumber:
+        rank: 31
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:reagent_catalogue
+      stainingStatus:
+        rank: 32
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:staining_status
+      other_fluorescence_reagent:
+        rank: 33
+        slot_group: flow_cytometry
+        exact_mappings:
+          flow_cytometry_assay:other_reagent
+      flowcytometry_template_provenance:
+        rank: 34
+        slot_group: provenance
+        exact_mappings:
+          flow_cytometry_assay:provenance
+          flow_analysis_data:provenance
+          flow_data:provenance
+          flow_analysis:provenance
+  Instrument:
+    name: Instrument
+    is_a: dh_interface
+    slots:
+    - submitter_id.instrument
     - flowCellType
     - other_flow_cell
     - manufacturer
@@ -77,386 +258,267 @@ classes:
     - transmittedWavelengths
     - installationDate
     - other_optical_filter
-    - template version
+    - instrument_template_provenance
     slot_usage:
-      flow_experiment_identifier:
+      submitter_id.instrument:
         rank: 1
         slot_group: identifiers
-      program.name:
+      flowCellType:
+        rank: 2
+        slot_group: Instrument
+      other_flow_cell:
+        rank: 3
+        slot_group: Instrument
+      manufacturer:
+        rank: 4
+        slot_group: Instrument
+      model:
+        rank: 5
+        slot_group: Instrument
+      configurationAndSettings:
+        rank: 6
+        slot_group: Instrument
+      other_instrument:
+        rank: 7
+        slot_group: Instrument
+      type:
+        rank: 8
+        slot_group: light_source_instrument
+      excitatoryWavelength:
+        rank: 9
+        slot_group: light_source_instrument
+      powerAtExcitatoryWavelength:
+        rank: 10
+        slot_group: light_source_instrument
+      polarization:
+        rank: 11
+        slot_group: light_source_instrument
+      beam:
+        rank: 12
+        slot_group: light_source_instrument
+      other_light_source_instrument:
+        rank: 13
+        slot_group: light_source_instrument
+      name:
+        rank: 14
+        slot_group: optical_detector
+      type_optical_detector:
+        rank: 15
+        slot_group: optical_detector
+      voltage:
+        rank: 16
+        slot_group: optical_detector
+      amplificationType:
+        rank: 17
+        slot_group: optical_detector
+      amplificationFactor:
+        rank: 18
+        slot_group: optical_detector
+      other_optical_detector:
+        rank: 19
+        slot_group: optical_detector
+      type_optical_filter:
+        rank: 20
+        slot_group: optical_filter
+      transmittedWavelengths:
+        rank: 21
+        slot_group: optical_filter
+      installationDate:
+        rank: 22
+        slot_group: optical_filter
+      other_optical_filter:
+        rank: 23
+        slot_group: optical_filter
+      instrument_template_provenance:
+        rank: 24
+        slot_group: provenance
+  Aliquot:
+    name: Aliquot
+    is_a: dh_interface
+    slots:
+    - aliquot.submitter_id
+    - sample.submitter_id
+    - analyte_type
+    - analyte_protocol
+    - aliquot_template_provenance
+    slot_usage:
+      aliquot.submitter_id:
+        rank: 1
+        slot_group: identifiers
+        exact_mappings:
+          aliquot:submitter_id
+      sample.submitter_id:
         rank: 2
         slot_group: identifiers
-      project.code:
+        exact_mappings:
+          aliquot:samples.submitter_id
+      analyte_type:
         rank: 3
-        slot_group: identifiers
-      sample_identifier:
+        slot_group: aliquot
+        exact_mappings:
+          aliquot:analyte_type
+      analyte_protocol:
         rank: 4
-        slot_group: identifiers
+        slot_group: aliquot
         exact_mappings:
-        - flourescence_reagent:samples.submitter_id
-      purpose:
+          aliquot:analyte_protocol
+      aliquot_template_provenance:
         rank: 5
-        slot_group: experiment
-      keywords:
-        rank: 6
-        slot_group: experiment
-      experimentVariables:
-        rank: 7
-        slot_group: experiment
-      primaryContact:
-        rank: 8
-        slot_group: experiment
-      date:
-        rank: 9
-        slot_group: experiment
-      conclusions:
-        rank: 10
-        slot_group: experiment
-      qualityControlMeasures:
-        rank: 11
-        slot_group: experiment
-      flow_cytometry_protocol:
-        rank: 12
-        slot_group: experiment
-      flow_cytometry_protocol_DOI:
-        rank: 13
-        slot_group: experiment
-      staining_protocol:
-        rank: 14
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:staining_protocol
-      staining_protocol_DOI:
-        rank: 15
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:staining_protocol_DOI
-      characteristicsBeingMeasured:
-        rank: 16
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:characteristics_being_measured
-      analyte:
-        rank: 17
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:submitter_id
-        - FCS:flourescence_reagents.submitter_id
-        - WS:flourescence_reagents.submitter_id
-      analyteDetector:
-        rank: 18
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:analyte_detector
-      analyteReporter:
-        rank: 19
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:analyte_reporter
-      cloneNameOrNumber:
-        rank: 20
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:clone_name_or_number
-      reagentManufacturerName:
-        rank: 21
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:reagent_manufacturer_name
-      reagentCatalogueNumber:
-        rank: 22
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:reagent_catalogue_number
-      stainingStatus:
-        rank: 23
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:staining_status
-      other_fluorescence_reagent:
-        rank: 24
-        slot_group: flourescence_reagent
-        exact_mappings:
-        - flourescence_reagent:other_fluorescence_reagent
-      analysis_protocol:
-        rank: 25
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:analysis_protocol
-      analysis_protocol_DOI:
-        rank: 26
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:analysis_protocol_DOI
-      listModeDataFile:
-        rank: 27
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:FCS_files.submitter_id
-        - FCS:file_name
-      CompensationDescription:
-        rank: 28
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:compensation_description
-      TransformationPurpose:
-        rank: 29
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:transformation_purpose
-      TransformationDescription:
-        rank: 30
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:transformation_description
-      GateDescription:
-        rank: 31
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:gate_description
-      Gate Statistics:
-        rank: 32
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:gate_statistics
-      GateBoundaries:
-        rank: 33
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:gate_boundaries
-      WorkspaceFile:
-        rank: 34
-        slot_group: data_analysis
-        exact_mappings:
-        - data_analysis:WS_files.submitter_id
-        - WS:file_name
-      flowCellType:
-        rank: 35
-        slot_group: Instrument
-        exact_mappings:
-        - instrument:flow_cell_type
-      other_flow_cell:
-        rank: 36
-        slot_group: Instrument
-        exact_mappings:
-        - instrument:other_flow_cell
-      manufacturer:
-        rank: 37
-        slot_group: Instrument
-        exact_mappings:
-        - instrument:manufacturer
-      model:
-        rank: 38
-        slot_group: Instrument
-        exact_mappings:
-        - flourescence_reagent:instruments.submitter_id
-        - instrument:submitter_id
-        - light_source_instrument:instruments.submitter_id
-        - optical_filter:instruments.submitter_id
-        - optical_detector:instruments.submitter_id
-      configurationAndSettings:
-        rank: 39
-        slot_group: Instrument
-        exact_mappings:
-        - instrument:configuration_settings
-      other_instrument:
-        rank: 40
-        slot_group: Instrument
-        exact_mappings:
-        - instrument:other_instrument
-      type:
-        rank: 41
-        slot_group: light_source_instrument
-        exact_mappings:
-        - light_source_instrument:light_source_type
-      excitatoryWavelength:
-        rank: 42
-        slot_group: light_source_instrument
-        exact_mappings:
-        - light_source_instrument:excitatory_wave_length
-      powerAtExcitatoryWavelength:
-        rank: 43
-        slot_group: light_source_instrument
-        exact_mappings:
-        - light_source_instrument:power_at_excitatory_wave_length
-      polarization:
-        rank: 44
-        slot_group: light_source_instrument
-        exact_mappings:
-        - light_source_instrument:polarization
-      beam:
-        rank: 45
-        slot_group: light_source_instrument
-        exact_mappings:
-        - light_source_instrument:beam
-      other_light_source_instrument:
-        rank: 46
-        slot_group: light_source_instrument
-        exact_mappings:
-        - light_source_instrument:other_light_source_instrument
-      name:
-        rank: 47
-        slot_group: optical_detector
-        exact_mappings:
-        - optical_detector:name
-      type_optical_detector:
-        rank: 48
-        slot_group: optical_detector
-        exact_mappings:
-        - optical_detector:type_optical_detector
-      voltage:
-        rank: 49
-        slot_group: optical_detector
-        exact_mappings:
-        - optical_detector:voltage
-      amplificationType:
-        rank: 50
-        slot_group: optical_detector
-        exact_mappings:
-        - optical_detector:amplification_type
-      amplificationFactor:
-        rank: 51
-        slot_group: optical_detector
-        exact_mappings:
-        - optical_detector:amplification_factor
-      other_optical_detector:
-        rank: 52
-        slot_group: optical_detector
-        exact_mappings:
-        - optical_detector:other_optical_detector
-      type_optical_filter:
-        rank: 53
-        slot_group: optical_filter
-        exact_mappings:
-        - optical_detector:type_optical_filter
-      transmittedWavelengths:
-        rank: 54
-        slot_group: optical_filter
-        exact_mappings:
-        - optical_detector:transmitted_wave_lengths
-      installationDate:
-        rank: 55
-        slot_group: optical_filter
-        exact_mappings:
-        - optical_detector:installation_date
-      other_optical_filter:
-        rank: 56
-        slot_group: optical_filter
-        exact_mappings:
-        - optical_detector:other_optical_filter
-      template version:
-        rank: 57
         slot_group: provenance
+        exact_mappings:
+          aliquot:provenance
 slots:
-  flow_experiment_identifier:
-    name: flow_experiment_identifier
-    title: Flow_experiment_ID
+  flow_cytometry.submitter_id:
+    name: flow_cytometry.submitter_id
+    title: submitter_id
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
     required: true
-    identifier: true
+    identifier: false
     comments: flow_001-HSA_001
-  program.name:
-    name: program.name
-    title: program.name
-    range: WhitespaceMinimizedString
-    description: programs'identifier
-    required: true
-    slot_uri: obo:OBI_0000066
-    comments: SRP_PRJ1
-  project.code:
-    name: project.code
-    title: project.code
-    range: WhitespaceMinimizedString
-    description: project's identifier
-    required: true
-    comments: study_001
-  sample_identifier:
-    name: sample_identifier
-    title: Sample_ID
+  aliquots.submitter_id:
+    name: aliquots.submitter_id
+    title: aliquots.submitter_id
     range: WhitespaceMinimizedString
     description: The identifier for this study collected using the template appropriate
       for your study design (e.g., MIATE for animal experiments). This is used to
       match the sample source to the data.
     required: true
     comments: HSA_001
-  purpose:
-    name: purpose
-    title: purpose
+  listModeDataFile:
+    name: listModeDataFile
+    title: raw data file name
     range: WhitespaceMinimizedString
-    description: A brief description of the goal of the experiment. This should include
-      the rationale and hypothesis.
-    recommended: true
-    slot_uri: obo:NCIT_C25634
-    comments: Test the hypothesis that CD5+ innate-like B Cells (ILBs) are sensitive
-      to AHR-mediated immunotoxicity.
-  keywords:
-    name: keywords
-    title: keywords
-    range: WhitespaceMinimizedString
-    description: The keywords should include terms from an appropriate vocabulary
-      (e.g. MeSH) to describe the experiment. Each keyword should be seperated by
-      a ";" with not spaces.
-    recommended: true
-    multivalued: true
-    inlined_as_list: true
-    slot_uri: obo:NCIT_C43513
-    comments: Monocytes;2,3,7,8-Tetrachlorodibenzo-p-dioxin
-  experimentVariables:
-    name: experimentVariables
-    title: experimentVariables
-    range: experimentVariables menu
-    description: Variables are attribute(s) that differ between samples within an
-      experiment due to pre-existing differences in sample states or due to experimental
-      manipulation of the samples.
-    required: true
-    multivalued: true
-    slot_uri: obo:STATO_0000258
-    comments: Dose;Timepoint;Individual
-  primaryContact:
-    name: primaryContact
-    title: primaryContact
-    range: WhitespaceMinimizedString
-    description: The individual who is the primary contact for this experiment (last
-      name,first name).
-    required: true
-    multivalued: true
-    slot_uri: obo:OBI_0000202
-    comments: Blevins,Lance
-  date:
-    name: date
-    title: date
-    range: date
-    description: The date or time period during which the investigation was performed
-      (i.e., from collecting and treating samples to performing data analysis) shall
-      be stated.
-    recommended: true
-    slot_uri: obo:STATO_0000093
+    description: The list-mode data files (e.g., FCS files [18]) shall be provided
+      directly or details on how they may be requested shall be stated.
+    slot_uri: obo:OBI:0000021
+    comments: sample1.FCS
+  raw.data_type:
+    name: raw.data_type
+    title: data_type
+    range: raw.data_type menu
+    description: ' '
     comments: ' '
-  conclusions:
-    name: conclusions
-    title: conclusions
+  raw.data_format:
+    name: raw.data_format
+    title: data_format
+    range: raw.data_format menu
+    description: ' '
+    comments: ' '
+  raw.data_category:
+    name: raw.data_category
+    title: data_category
+    range: raw.data_category menu
+    description: ' '
+    comments: ' '
+  WorkspaceFile:
+    name: WorkspaceFile
+    title: processed_data_file_name
     range: WhitespaceMinimizedString
-    description: A brief summary of the interpretation of the results or outcome of
-      the experiment shall be provided if available.
-    recommended: true
-    slot_uri: obo:IAO_0000144
-    comments: Levels of AHR-mediated suppression of the IgM response from individual
-      donors strongly correlated with the percentage of the B cell pool that was CD5+,
-      suggesting that CD5+ B cells are more sensitive to AHR-mediated impairment.
-  qualityControlMeasures:
-    name: qualityControlMeasures
-    title: qualityControlMeasures
-    range: qualityControlMeasures menu
-    description: A description of the quality control measures used such as replicates,
-      calibrations, control assays, etc. shall be provided. If another experiment
-      was performed for the purposes of establishing quality control standards, that
-      experiment may be referenced.
-    recommended: true
-    required: true
-    multivalued: true
-    slot_uri: obo:MSIO_0000085
-    comments: Live/Dead staining;unstained controls
+    description: ' '
+    comments: Analysis.wsp
+  processed.data_type:
+    name: processed.data_type
+    title: data_type
+    range: processed.data_type menu
+    description: ' '
+    comments: ' '
+  processed.data_format:
+    name: processed.data_format
+    title: data_format
+    range: processed.data_format menu
+    description: ' '
+    comments: ' '
+  processed.data_category:
+    name: processed.data_category
+    title: data_category
+    range: processed.data_category menu
+    description: ' '
+    comments: ' '
+  analysis_protocol:
+    name: analysis_protocol
+    title: analysis_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: 'Positive gates were drawn using unstained and day 0 controls. '
+  analysis_protocol_DOI:
+    name: analysis_protocol_DOI
+    title: analysis_protocol_DOI
+    range: WhitespaceMinimizedString
+    description: A DOI to a version controlled protocol, preferably available on a
+      repository such as protocols.io
+    slot_uri: obo:OBI_0002110
+    comments: ' '
+  CompensationDescription:
+    name: CompensationDescription
+    title: CompensationDescription
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  TransformationPurpose:
+    name: TransformationPurpose
+    title: TransformationPurpose
+    range: WhitespaceMinimizedString
+    description: 'The purpose of each performed transformation shall be specified
+      (e.g.,
+
+      data visualization, background correction, statistical analysis, quantitative
+
+      flow cytometry, etc.).'
+    comments: ' '
+  TransformationDescription:
+    name: TransformationDescription
+    title: TransformationDescription
+    range: WhitespaceMinimizedString
+    description: 'Either the exact mathematical formulas/algorithms of each data
+
+      transformation shall be supplied using an open and freely available
+
+      specification, or a description of each transformation shall be provided.'
+    comments: ' '
+  GateDescription:
+    name: GateDescription
+    title: GateDescription
+    range: WhitespaceMinimizedString
+    description: "The subpopulation identified by the gate shall be briefly described\
+      \ (e.g.,\n\u201CIL-4 producing helper T cells of the CD3+CD4+ phenotype\u201D\
+      )."
+    comments: ILBs of the CD5+ phenotype
+  Gate Statistics:
+    name: Gate Statistics
+    title: Gate Statistics
+    range: WhitespaceMinimizedString
+    description: 'Percentage of events within the gate shall be provided specifically
+      stating
+
+      the denominator. The denominator shall be either the total population of events
+      (e.g., percentage of lymphocytes based on the total number of
+
+      events) or another gate (e.g., percentage of CD4+ lymphocytes based on
+
+      all lymphocytes). When the denominator is another gate, this shall also be
+
+      exactly specified in recursive fashion so that the gating strategy can be
+
+      followed up to the original data set. The denominator may not necessarily
+
+      be a containing (superset) population for some statistics (e.g., the donor /
+
+      host blood cell ratio).'
+    comments: ' '
+  GateBoundaries:
+    name: GateBoundaries
+    title: GateBoundaries
+    range: WhitespaceMinimizedString
+    description: 'Either the exact mathematical descriptions of each gate boundary
+      shall be
+
+      provided using an open and freely available specification, or this
+
+      information shall be provided in the form of images. '
+    comments: ' '
   flow_cytometry_protocol:
     name: flow_cytometry_protocol
     title: flow_cytometry_protocol
@@ -473,6 +535,26 @@ slots:
     description: A DOI to a version controlled protocol, preferably available on a
       repository such as protocols.io
     slot_uri: obo:OBI_0002110
+    comments: ' '
+  qualityControlMeasures:
+    name: qualityControlMeasures
+    title: qualityControlMeasures
+    range: qualityControlMeasures menu
+    description: A description of the quality control measures used such as replicates,
+      calibrations, control assays, etc. shall be provided. If another experiment
+      was performed for the purposes of establishing quality control standards, that
+      experiment may be referenced.
+    recommended: true
+    required: true
+    multivalued: true
+    slot_uri: obo:MSIO_0000085
+    comments: Live/Dead staining;unstained controls
+  instrument.submitter_id:
+    name: instrument.submitter_id
+    title: instrument.submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
     comments: ' '
   staining_protocol:
     name: staining_protocol
@@ -578,103 +660,18 @@ slots:
       method, separation technique, antibody staining procedures, and wash steps.
     slot_uri: obo:NCIT_C17649
     comments: ' '
-  analysis_protocol:
-    name: analysis_protocol
-    title: analysis_protocol
-    range: WhitespaceMinimizedString
-    description: A brief description of the flow cytometry protocol
-    slot_uri: obo:NCIT_C42651
-    comments: 'Positive gates were drawn using unstained and day 0 controls. '
-  analysis_protocol_DOI:
-    name: analysis_protocol_DOI
-    title: analysis_protocol_DOI
-    range: WhitespaceMinimizedString
-    description: A DOI to a version controlled protocol, preferably available on a
-      repository such as protocols.io
-    slot_uri: obo:OBI_0002110
+  flowcytometry_template_provenance:
+    name: flowcytometry_template_provenance
+    title: Provenance
+    range: Provenance
+    description: ' '
     comments: ' '
-  listModeDataFile:
-    name: listModeDataFile
-    title: listModeDataFile
-    range: WhitespaceMinimizedString
-    description: The list-mode data files (e.g., FCS files [18]) shall be provided
-      directly or details on how they may be requested shall be stated.
-    slot_uri: obo:OBI:0000021
-    comments: sample1.FCS
-  CompensationDescription:
-    name: CompensationDescription
-    title: CompensationDescription
+  submitter_id.instrument:
+    name: submitter_id.instrument
+    title: submitter_id
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
-  TransformationPurpose:
-    name: TransformationPurpose
-    title: TransformationPurpose
-    range: WhitespaceMinimizedString
-    description: 'The purpose of each performed transformation shall be specified
-      (e.g.,
-
-      data visualization, background correction, statistical analysis, quantitative
-
-      flow cytometry, etc.).'
-    comments: ' '
-  TransformationDescription:
-    name: TransformationDescription
-    title: TransformationDescription
-    range: WhitespaceMinimizedString
-    description: 'Either the exact mathematical formulas/algorithms of each data
-
-      transformation shall be supplied using an open and freely available
-
-      specification, or a description of each transformation shall be provided.'
-    comments: ' '
-  GateDescription:
-    name: GateDescription
-    title: GateDescription
-    range: WhitespaceMinimizedString
-    description: "The subpopulation identified by the gate shall be briefly described\
-      \ (e.g.,\n\u201CIL-4 producing helper T cells of the CD3+CD4+ phenotype\u201D\
-      )."
-    comments: ILBs of the CD5+ phenotype
-  Gate Statistics:
-    name: Gate Statistics
-    title: Gate Statistics
-    range: WhitespaceMinimizedString
-    description: 'Percentage of events within the gate shall be provided specifically
-      stating
-
-      the denominator. The denominator shall be either the total population of events
-      (e.g., percentage of lymphocytes based on the total number of
-
-      events) or another gate (e.g., percentage of CD4+ lymphocytes based on
-
-      all lymphocytes). When the denominator is another gate, this shall also be
-
-      exactly specified in recursive fashion so that the gating strategy can be
-
-      followed up to the original data set. The denominator may not necessarily
-
-      be a containing (superset) population for some statistics (e.g., the donor /
-
-      host blood cell ratio).'
-    comments: ' '
-  GateBoundaries:
-    name: GateBoundaries
-    title: GateBoundaries
-    range: WhitespaceMinimizedString
-    description: 'Either the exact mathematical descriptions of each gate boundary
-      shall be
-
-      provided using an open and freely available specification, or this
-
-      information shall be provided in the form of images. '
-    comments: ' '
-  WorkspaceFile:
-    name: WorkspaceFile
-    title: WorkspaceFile
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: Analysis.wsp
   flowCellType:
     name: flowCellType
     title: flowCellType
@@ -861,26 +858,131 @@ slots:
     range: WhitespaceMinimizedString
     description: Other relevant optical filter details should be provided.
     comments: ' '
-  template version:
-    name: template version
-    title: template version
+  instrument_template_provenance:
+    name: instrument_template_provenance
+    title: Provenance
+    range: Provenance
+    description: ' '
+    comments: ' '
+  aliquot.submitter_id:
+    name: aliquot.submitter_id
+    title: submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  sample.submitter_id:
+    name: sample.submitter_id
+    title: sample.submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analyte_type:
+    name: analyte_type
+    title: Analyte type
+    range: analyte_type menu
+    description: ' '
+    comments: ' '
+  analyte_protocol:
+    name: analyte_protocol
+    title: Analyte preparation protocol
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  aliquot_template_provenance:
+    name: aliquot_template_provenance
+    title: Provenance
     range: Provenance
     description: ' '
     comments: ' '
 enums:
-  experimentVariables menu:
-    name: experimentVariables menu
+  raw.data_type menu:
+    name: raw.data_type menu
     permissible_values:
-      Condition:
-        text: Condition
-      Dose:
-        text: Dose
-      Timepoint:
-        text: Timepoint
-      Individual:
-        text: Individual
-      Experimental variable sample type:
-        text: Experimental variable sample type
+      flow cytometry:
+        text: flow cytometry
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_format menu:
+    name: raw.data_format menu
+    permissible_values:
+      FCS:
+        text: FCS
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_category menu:
+    name: raw.data_category menu
+    permissible_values:
+      flow cytometry:
+        text: flow cytometry
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_type menu:
+    name: processed.data_type menu
+    permissible_values:
+      workspace:
+        text: workspace
+      export:
+        text: export
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_format menu:
+    name: processed.data_format menu
+    permissible_values:
+      wsp:
+        text: wsp
+      txt:
+        text: txt
+      csv:
+        text: csv
+      xlsx:
+        text: xlsx
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_category menu:
+    name: processed.data_category menu
+    permissible_values:
+      flow cytometry:
+        text: flow cytometry
       Not applicable:
         text: Not applicable
       Missing:
@@ -1077,6 +1179,39 @@ enums:
         text: polarizer excitation filter
       grating, prism:
         text: grating, prism
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  analyte_type menu:
+    name: analyte_type menu
+    permissible_values:
+      Cell suspension:
+        text: Cell suspension
+      Nuclei suspension:
+        text: Nuclei suspension
+      Bacteria:
+        text: Bacteria
+      Blood:
+        text: Blood
+      Non-adherent cells:
+        text: Non-adherent cells
+      Microbeads:
+        text: Microbeads
+      Nanoparticles:
+        text: Nanoparticles
+      Exosomes:
+        text: Exosomes
+      Microvesicles:
+        text: Microvesicles
+      Particles:
+        text: Particles
       Not applicable:
         text: Not applicable
       Missing:

@@ -1,0 +1,2655 @@
+{
+  "name": "flow_cytometry_assay",
+  "description": "Template based on the expectactions from the FlowRepository (flowrepository.org) and the Minimum Information about Flow Cytometry Experiments (MIFlowCyt) developed by the International Society for Advancement of Cytometry (ISAC). More details can be found at https://doi.org/10.25504/FAIRsharing.kcnjj2. The LinkML Schema and template was developed by the Michigan State University Superfund Research Center Data Management and Analysis Core. ",
+  "id": "https://example.com/MIFlowCyt",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "obo": {
+      "prefix_prefix": "obo",
+      "prefix_reference": "http://purl.obolibrary.org/obo/"
+    },
+    "bao": {
+      "prefix_prefix": "bao",
+      "prefix_reference": "http://www.bioassayontology.org/bao/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/MIFlowCyt/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "experimentVariables menu": {
+      "name": "experimentVariables menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "Condition": {
+          "text": "Condition"
+        },
+        "Dose": {
+          "text": "Dose"
+        },
+        "Timepoint": {
+          "text": "Timepoint"
+        },
+        "Individual": {
+          "text": "Individual"
+        },
+        "Experimental variable sample type": {
+          "text": "Experimental variable sample type"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "qualityControlMeasures menu": {
+      "name": "qualityControlMeasures menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "STR profiling of source cells": {
+          "text": "STR profiling of source cells"
+        },
+        "mycoplasma testing": {
+          "text": "mycoplasma testing"
+        },
+        "isotype control for antibody": {
+          "text": "isotype control for antibody"
+        },
+        "no antibody negative control": {
+          "text": "no antibody negative control"
+        },
+        "positive control cell type": {
+          "text": "positive control cell type"
+        },
+        "Live/Dead staining": {
+          "text": "Live/Dead staining"
+        },
+        "unstained controls": {
+          "text": "unstained controls"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "stainingStatus menu": {
+      "name": "stainingStatus menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "stained": {
+          "text": "stained"
+        },
+        "unstained": {
+          "text": "unstained"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "flowCellType menu": {
+      "name": "flowCellType menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "jet-in-air": {
+          "text": "jet-in-air"
+        },
+        "quartz cuvette": {
+          "text": "quartz cuvette"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "manufacturer menu": {
+      "name": "manufacturer menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "BD Biosciences": {
+          "text": "BD Biosciences"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "model menu": {
+      "name": "model menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "BD FACSAria": {
+          "text": "BD FACSAria"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "configurationAndSettings menu": {
+      "name": "configurationAndSettings menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "The instrument has not been altered": {
+          "text": "The instrument has not been altered"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "type menu": {
+      "name": "type menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "mercury-vapor lamp": {
+          "text": "mercury-vapor lamp"
+        },
+        "xenon lamp": {
+          "text": "xenon lamp"
+        },
+        "diode laser": {
+          "text": "diode laser"
+        },
+        "dye laser": {
+          "text": "dye laser"
+        },
+        "gas laser": {
+          "text": "gas laser"
+        },
+        "solid state laser": {
+          "text": "solid state laser"
+        },
+        "light-emitting diode": {
+          "text": "light-emitting diode"
+        },
+        "tungsten halogen lamp": {
+          "text": "tungsten halogen lamp"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "type_optical_detector menu": {
+      "name": "type_optical_detector menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "photodiode": {
+          "text": "photodiode"
+        },
+        "photomultiplier tube": {
+          "text": "photomultiplier tube"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "amplificationType menu": {
+      "name": "amplificationType menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "linear": {
+          "text": "linear"
+        },
+        "log": {
+          "text": "log"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "type_optical_filter menu": {
+      "name": "type_optical_filter menu",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "permissible_values": {
+        "band pass filter": {
+          "text": "band pass filter"
+        },
+        "long pass filter": {
+          "text": "long pass filter"
+        },
+        "dichroic long pass filters": {
+          "text": "dichroic long pass filters"
+        },
+        "short pass filter": {
+          "text": "short pass filter"
+        },
+        "dichroic short pass filter": {
+          "text": "dichroic short pass filter"
+        },
+        "polarizer excitation filter": {
+          "text": "polarizer excitation filter"
+        },
+        "grating, prism": {
+          "text": "grating, prism"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    }
+  },
+  "slots": {
+    "flow_experiment_identifier": {
+      "name": "flow_experiment_identifier",
+      "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+      "title": "Flow_experiment_ID",
+      "comments": [
+        "flow_001-HSA_001"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "program.name": {
+      "name": "program.name",
+      "description": "programs'identifier",
+      "title": "program.name",
+      "comments": [
+        "SRP_PRJ1"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0000066",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "project.code": {
+      "name": "project.code",
+      "description": "project's identifier",
+      "title": "project.code",
+      "comments": [
+        "study_001"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "sample_identifier": {
+      "name": "sample_identifier",
+      "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
+      "title": "Sample_ID",
+      "comments": [
+        "HSA_001"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "purpose": {
+      "name": "purpose",
+      "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
+      "title": "purpose",
+      "comments": [
+        "Test the hypothesis that CD5+ innate-like B Cells (ILBs) are sensitive to AHR-mediated immunotoxicity."
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C25634",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "keywords": {
+      "name": "keywords",
+      "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment. Each keyword should be seperated by a \";\" with not spaces.",
+      "title": "keywords",
+      "comments": [
+        "Monocytes;2,3,7,8-Tetrachlorodibenzo-p-dioxin"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C43513",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "experimentVariables": {
+      "name": "experimentVariables",
+      "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples.",
+      "title": "experimentVariables",
+      "comments": [
+        "Dose;Timepoint;Individual"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:STATO_0000258",
+      "multivalued": true,
+      "range": "experimentVariables menu",
+      "required": true
+    },
+    "primaryContact": {
+      "name": "primaryContact",
+      "description": "The individual who is the primary contact for this experiment (last name,first name).",
+      "title": "primaryContact",
+      "comments": [
+        "Blevins,Lance"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0000202",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "date": {
+      "name": "date",
+      "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:STATO_0000093",
+      "range": "date",
+      "recommended": true
+    },
+    "conclusions": {
+      "name": "conclusions",
+      "description": "A brief summary of the interpretation of the results or outcome of the experiment shall be provided if available.",
+      "title": "conclusions",
+      "comments": [
+        "Levels of AHR-mediated suppression of the IgM response from individual donors strongly correlated with the percentage of the B cell pool that was CD5+, suggesting that CD5+ B cells are more sensitive to AHR-mediated impairment."
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:IAO_0000144",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "qualityControlMeasures": {
+      "name": "qualityControlMeasures",
+      "description": "A description of the quality control measures used such as replicates, calibrations, control assays, etc. shall be provided. If another experiment was performed for the purposes of establishing quality control standards, that experiment may be referenced.",
+      "title": "qualityControlMeasures",
+      "comments": [
+        "Live/Dead staining;unstained controls"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:MSIO_0000085",
+      "multivalued": true,
+      "range": "qualityControlMeasures menu",
+      "required": true,
+      "recommended": true
+    },
+    "flow_cytometry_protocol": {
+      "name": "flow_cytometry_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "flow_cytometry_protocol",
+      "comments": [
+        "Cells were processed using a BD FACSCanto II using FACS Diva software (BD Bioscience) and analyzed using FloJo (Version 10, Treestar Software, Ashland OR)."
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C42651",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_cytometry_protocol_DOI": {
+      "name": "flow_cytometry_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "flow_cytometry_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0002110",
+      "range": "WhitespaceMinimizedString"
+    },
+    "staining_protocol": {
+      "name": "staining_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "staining_protocol",
+      "comments": [
+        "~0.25x10^6 cells were stained with antibody."
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C42651",
+      "range": "WhitespaceMinimizedString"
+    },
+    "staining_protocol_DOI": {
+      "name": "staining_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "staining_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0002110",
+      "range": "WhitespaceMinimizedString"
+    },
+    "characteristicsBeingMeasured": {
+      "name": "characteristicsBeingMeasured",
+      "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H) used primarily for this measurement shall be indicated.",
+      "title": "characteristicsBeingMeasured",
+      "comments": [
+        "CD5"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:BFO_0000005",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "analyte": {
+      "name": "analyte",
+      "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
+      "title": "analyte",
+      "comments": [
+        "CD5"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0000275",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "analyteDetector": {
+      "name": "analyteDetector",
+      "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
+      "title": "analyteDetector",
+      "comments": [
+        "mouse anti-human CD5"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:CHMO_0002244",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "analyteReporter": {
+      "name": "analyteReporter",
+      "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
+      "title": "analyteReporter",
+      "comments": [
+        "PE"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:CHEBI_35209",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "cloneNameOrNumber": {
+      "name": "cloneNameOrNumber",
+      "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
+      "title": "cloneNameOrNumber",
+      "comments": [
+        "UCHT2"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:SO_0000151",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reagentManufacturerName": {
+      "name": "reagentManufacturerName",
+      "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
+      "title": "reagentManufacturerName",
+      "comments": [
+        "BioLegend"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:IAO_0000590",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reagentCatalogueNumber": {
+      "name": "reagentCatalogueNumber",
+      "description": "The reagent catalogue number shall be specified.",
+      "title": "reagentCatalogueNumber",
+      "comments": [
+        "300607"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C112406",
+      "range": "WhitespaceMinimizedString"
+    },
+    "stainingStatus": {
+      "name": "stainingStatus",
+      "description": " ",
+      "title": "stainingStatus",
+      "comments": [
+        "stained"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "stainingStatus menu"
+    },
+    "other_fluorescence_reagent": {
+      "name": "other_fluorescence_reagent",
+      "description": "When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.",
+      "title": "other_fluorescence_reagent",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis_protocol": {
+      "name": "analysis_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "analysis_protocol",
+      "comments": [
+        "Positive gates were drawn using unstained and day 0 controls. "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C42651",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis_protocol_DOI": {
+      "name": "analysis_protocol_DOI",
+      "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+      "title": "analysis_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0002110",
+      "range": "WhitespaceMinimizedString"
+    },
+    "listModeDataFile": {
+      "name": "listModeDataFile",
+      "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
+      "title": "listModeDataFile",
+      "comments": [
+        "sample1.FCS"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "CompensationDescription": {
+      "name": "CompensationDescription",
+      "description": " ",
+      "title": "CompensationDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "TransformationPurpose": {
+      "name": "TransformationPurpose",
+      "description": "The purpose of each performed transformation shall be specified (e.g.,\ndata visualization, background correction, statistical analysis, quantitative\nflow cytometry, etc.).",
+      "title": "TransformationPurpose",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "TransformationDescription": {
+      "name": "TransformationDescription",
+      "description": "Either the exact mathematical formulas/algorithms of each data\ntransformation shall be supplied using an open and freely available\nspecification, or a description of each transformation shall be provided.",
+      "title": "TransformationDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "GateDescription": {
+      "name": "GateDescription",
+      "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”).",
+      "title": "GateDescription",
+      "comments": [
+        "ILBs of the CD5+ phenotype"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Gate Statistics": {
+      "name": "Gate Statistics",
+      "description": "Percentage of events within the gate shall be provided specifically stating\nthe denominator. The denominator shall be either the total population of events (e.g., percentage of lymphocytes based on the total number of\nevents) or another gate (e.g., percentage of CD4+ lymphocytes based on\nall lymphocytes). When the denominator is another gate, this shall also be\nexactly specified in recursive fashion so that the gating strategy can be\nfollowed up to the original data set. The denominator may not necessarily\nbe a containing (superset) population for some statistics (e.g., the donor /\nhost blood cell ratio).",
+      "title": "Gate Statistics",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "GateBoundaries": {
+      "name": "GateBoundaries",
+      "description": "Either the exact mathematical descriptions of each gate boundary shall be\nprovided using an open and freely available specification, or this\ninformation shall be provided in the form of images. ",
+      "title": "GateBoundaries",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "WorkspaceFile": {
+      "name": "WorkspaceFile",
+      "description": " ",
+      "title": "WorkspaceFile",
+      "comments": [
+        "Analysis.wsp"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flowCellType": {
+      "name": "flowCellType",
+      "description": "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided.",
+      "title": "flowCellType",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0400043 ",
+      "range": "flowCellType menu"
+    },
+    "other_flow_cell": {
+      "name": "other_flow_cell",
+      "description": "Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).",
+      "title": "other_flow_cell",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "manufacturer": {
+      "name": "manufacturer",
+      "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
+      "title": "manufacturer",
+      "comments": [
+        "BD Bioscience"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OBI_0000835",
+      "range": "manufacturer menu"
+    },
+    "model": {
+      "name": "model",
+      "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
+      "title": "model",
+      "comments": [
+        "BD FACSAria"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:MS_1000031",
+      "range": "model menu"
+    },
+    "configurationAndSettings": {
+      "name": "configurationAndSettings",
+      "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
+      "title": "configurationAndSettings",
+      "comments": [
+        "The instrument has not been altered"
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:MS_1000740",
+      "range": "configurationAndSettings menu"
+    },
+    "other_instrument": {
+      "name": "other_instrument",
+      "description": "Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.",
+      "title": "other_instrument",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "type": {
+      "name": "type",
+      "description": "The type of the light source shall be provided (e.g., laser, diode laser, xenon lamp).",
+      "title": "type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "bao:BAO_0150029",
+      "range": "type menu"
+    },
+    "excitatoryWavelength": {
+      "name": "excitatoryWavelength",
+      "description": "The excitatory wavelength shall be provided (e.g., 488nm, 633 nm).",
+      "title": "excitatoryWavelength",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "bao:BAO_0000566",
+      "range": "WhitespaceMinimizedString"
+    },
+    "powerAtExcitatoryWavelength": {
+      "name": "powerAtExcitatoryWavelength",
+      "description": "The power of the light source shall be provided (e.g., 180 mW, 50 mW). If possible, this should be measured at the intersection of the light source beam with particles; see also 3.3.3.",
+      "title": "powerAtExcitatoryWavelength",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "bao:BAO_0000566",
+      "range": "WhitespaceMinimizedString"
+    },
+    "polarization": {
+      "name": "polarization",
+      "description": "Polarization shall be specified (e.g., linear, >100:1, in the direction of the sample flow). If possible, this should be specified at the intersection of the light source beam and particles; see also 3.3.3.",
+      "title": "polarization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:OMIT_0009913",
+      "range": "WhitespaceMinimizedString"
+    },
+    "beam": {
+      "name": "beam",
+      "description": "Light source beam dimensions and geometry shall be specified at the flow cell or at the intersection of the beam with particles (e.g., elliptical 22 x 66 Î¼m).",
+      "title": "beam",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C70569",
+      "range": "WhitespaceMinimizedString"
+    },
+    "other_light_source_instrument": {
+      "name": "other_light_source_instrument",
+      "description": "Additional relevant light source details should be provided and may include light source manufacturer name (e.g., MIFlowCyt Lasers, Inc.), light source model name (e.g., 302C Krypton-Ion Laser), light source part number (e.g., I-326), noise (e.g., <1%), pointing and power stability (e.g., <1% over 1 hour), etc.",
+      "title": "other_light_source_instrument",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:NCIT_C17649",
+      "range": "WhitespaceMinimizedString"
+    },
+    "name": {
+      "name": "name",
+      "description": "The optical detector name (e.g., FSC, SSC, FL1, FL2, FL3, FL4, etc.) shall be specified.",
+      "title": "name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "type_optical_detector": {
+      "name": "type_optical_detector",
+      "description": "The type of the optical detector shall be provided (e.g., photodiode, photomultiplier tube).",
+      "title": "type_optical_detector",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "slot_uri": "obo:FBbi_00000269 ",
+      "range": "type_optical_detector menu"
+    },
+    "voltage": {
+      "name": "voltage",
+      "description": "The optical detector voltage shall be specified (e.g., 300V, 700V).",
+      "title": "voltage",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "float",
+      "minimum_value": 0
+    },
+    "amplificationType": {
+      "name": "amplificationType",
+      "description": "The optical detector amplification type shall be specified (e.g., linear, log).  Additional details including the actual amplifier profile may be provided.",
+      "title": "amplificationType",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "amplificationType menu"
+    },
+    "amplificationFactor": {
+      "name": "amplificationFactor",
+      "description": "For log amplification, the number of decades shall be provided (e.g., 4 decades). For a linear amplification, the linear gain shall be provided (e.g., linear gain of 2.0).",
+      "title": "amplificationFactor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "float"
+    },
+    "other_optical_detector": {
+      "name": "other_optical_detector",
+      "description": "Additional relevant optical detector details should be provided and may include the optical detector manufacturer name and model number (e.g., MIFlowCyt Photonics Inc., PMT #R9220), minimal, maximal, and peak wavelength sensitivity (e.g., 185 nm, 900 nm, and 650 nm), the internal gain (e.g., 107), or the rise time (e.g., 2.2ns).",
+      "title": "other_optical_detector",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "type_optical_filter": {
+      "name": "type_optical_filter",
+      "description": "The optical filter type shall be specified.",
+      "title": "type_optical_filter",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "type_optical_filter menu"
+    },
+    "transmittedWavelengths": {
+      "name": "transmittedWavelengths",
+      "description": "Light wavelengths transmitted by the filter shall be specified (e.g., 488/25 nm, >670 nm, <620 nm).",
+      "title": "transmittedWavelengths",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "installationDate": {
+      "name": "installationDate",
+      "description": "As optical filters of all types are subject to degradation, filter performance needs to be monitored at intervals to verify continued performance at an acceptable level [19]. The optical filter installation date shall be specified (e.g., January 15, 2007).",
+      "title": "installationDate",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "date"
+    },
+    "other_optical_filter": {
+      "name": "other_optical_filter",
+      "description": "Other relevant optical filter details should be provided.",
+      "title": "other_optical_filter",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "template version": {
+      "name": "template version",
+      "description": " ",
+      "title": "template version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "Provenance"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/MIFlowCyt"
+    },
+    "Flow cytometry experiment": {
+      "name": "Flow cytometry experiment",
+      "from_schema": "https://example.com/MIFlowCyt",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "flow_experiment_identifier": {
+          "name": "flow_experiment_identifier",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "program.name": {
+          "name": "program.name",
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "project.code": {
+          "name": "project.code",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "sample_identifier": {
+          "name": "sample_identifier",
+          "exact_mappings": [
+            "flourescence_reagent:samples.submitter_id"
+          ],
+          "rank": 4,
+          "slot_group": "identifiers"
+        },
+        "purpose": {
+          "name": "purpose",
+          "rank": 5,
+          "slot_group": "experiment"
+        },
+        "keywords": {
+          "name": "keywords",
+          "rank": 6,
+          "slot_group": "experiment"
+        },
+        "experimentVariables": {
+          "name": "experimentVariables",
+          "rank": 7,
+          "slot_group": "experiment"
+        },
+        "primaryContact": {
+          "name": "primaryContact",
+          "rank": 8,
+          "slot_group": "experiment"
+        },
+        "date": {
+          "name": "date",
+          "rank": 9,
+          "slot_group": "experiment"
+        },
+        "conclusions": {
+          "name": "conclusions",
+          "rank": 10,
+          "slot_group": "experiment"
+        },
+        "qualityControlMeasures": {
+          "name": "qualityControlMeasures",
+          "rank": 11,
+          "slot_group": "experiment"
+        },
+        "flow_cytometry_protocol": {
+          "name": "flow_cytometry_protocol",
+          "rank": 12,
+          "slot_group": "experiment"
+        },
+        "flow_cytometry_protocol_DOI": {
+          "name": "flow_cytometry_protocol_DOI",
+          "rank": 13,
+          "slot_group": "experiment"
+        },
+        "staining_protocol": {
+          "name": "staining_protocol",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol"
+          ],
+          "rank": 14,
+          "slot_group": "flourescence_reagent"
+        },
+        "staining_protocol_DOI": {
+          "name": "staining_protocol_DOI",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol_DOI"
+          ],
+          "rank": 15,
+          "slot_group": "flourescence_reagent"
+        },
+        "characteristicsBeingMeasured": {
+          "name": "characteristicsBeingMeasured",
+          "exact_mappings": [
+            "flourescence_reagent:characteristics_being_measured"
+          ],
+          "rank": 16,
+          "slot_group": "flourescence_reagent"
+        },
+        "analyte": {
+          "name": "analyte",
+          "exact_mappings": [
+            "flourescence_reagent:submitter_id",
+            "FCS:flourescence_reagents.submitter_id",
+            "WS:flourescence_reagents.submitter_id"
+          ],
+          "rank": 17,
+          "slot_group": "flourescence_reagent"
+        },
+        "analyteDetector": {
+          "name": "analyteDetector",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_detector"
+          ],
+          "rank": 18,
+          "slot_group": "flourescence_reagent"
+        },
+        "analyteReporter": {
+          "name": "analyteReporter",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_reporter"
+          ],
+          "rank": 19,
+          "slot_group": "flourescence_reagent"
+        },
+        "cloneNameOrNumber": {
+          "name": "cloneNameOrNumber",
+          "exact_mappings": [
+            "flourescence_reagent:clone_name_or_number"
+          ],
+          "rank": 20,
+          "slot_group": "flourescence_reagent"
+        },
+        "reagentManufacturerName": {
+          "name": "reagentManufacturerName",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_manufacturer_name"
+          ],
+          "rank": 21,
+          "slot_group": "flourescence_reagent"
+        },
+        "reagentCatalogueNumber": {
+          "name": "reagentCatalogueNumber",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_catalogue_number"
+          ],
+          "rank": 22,
+          "slot_group": "flourescence_reagent"
+        },
+        "stainingStatus": {
+          "name": "stainingStatus",
+          "exact_mappings": [
+            "flourescence_reagent:staining_status"
+          ],
+          "rank": 23,
+          "slot_group": "flourescence_reagent"
+        },
+        "other_fluorescence_reagent": {
+          "name": "other_fluorescence_reagent",
+          "exact_mappings": [
+            "flourescence_reagent:other_fluorescence_reagent"
+          ],
+          "rank": 24,
+          "slot_group": "flourescence_reagent"
+        },
+        "analysis_protocol": {
+          "name": "analysis_protocol",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol"
+          ],
+          "rank": 25,
+          "slot_group": "data_analysis"
+        },
+        "analysis_protocol_DOI": {
+          "name": "analysis_protocol_DOI",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol_DOI"
+          ],
+          "rank": 26,
+          "slot_group": "data_analysis"
+        },
+        "listModeDataFile": {
+          "name": "listModeDataFile",
+          "exact_mappings": [
+            "data_analysis:FCS_files.submitter_id",
+            "FCS:file_name"
+          ],
+          "rank": 27,
+          "slot_group": "data_analysis"
+        },
+        "CompensationDescription": {
+          "name": "CompensationDescription",
+          "exact_mappings": [
+            "data_analysis:compensation_description"
+          ],
+          "rank": 28,
+          "slot_group": "data_analysis"
+        },
+        "TransformationPurpose": {
+          "name": "TransformationPurpose",
+          "exact_mappings": [
+            "data_analysis:transformation_purpose"
+          ],
+          "rank": 29,
+          "slot_group": "data_analysis"
+        },
+        "TransformationDescription": {
+          "name": "TransformationDescription",
+          "exact_mappings": [
+            "data_analysis:transformation_description"
+          ],
+          "rank": 30,
+          "slot_group": "data_analysis"
+        },
+        "GateDescription": {
+          "name": "GateDescription",
+          "exact_mappings": [
+            "data_analysis:gate_description"
+          ],
+          "rank": 31,
+          "slot_group": "data_analysis"
+        },
+        "Gate Statistics": {
+          "name": "Gate Statistics",
+          "exact_mappings": [
+            "data_analysis:gate_statistics"
+          ],
+          "rank": 32,
+          "slot_group": "data_analysis"
+        },
+        "GateBoundaries": {
+          "name": "GateBoundaries",
+          "exact_mappings": [
+            "data_analysis:gate_boundaries"
+          ],
+          "rank": 33,
+          "slot_group": "data_analysis"
+        },
+        "WorkspaceFile": {
+          "name": "WorkspaceFile",
+          "exact_mappings": [
+            "data_analysis:WS_files.submitter_id",
+            "WS:file_name"
+          ],
+          "rank": 34,
+          "slot_group": "data_analysis"
+        },
+        "flowCellType": {
+          "name": "flowCellType",
+          "exact_mappings": [
+            "instrument:flow_cell_type"
+          ],
+          "rank": 35,
+          "slot_group": "Instrument"
+        },
+        "other_flow_cell": {
+          "name": "other_flow_cell",
+          "exact_mappings": [
+            "instrument:other_flow_cell"
+          ],
+          "rank": 36,
+          "slot_group": "Instrument"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "exact_mappings": [
+            "instrument:manufacturer"
+          ],
+          "rank": 37,
+          "slot_group": "Instrument"
+        },
+        "model": {
+          "name": "model",
+          "exact_mappings": [
+            "flourescence_reagent:instruments.submitter_id",
+            "instrument:submitter_id",
+            "light_source_instrument:instruments.submitter_id",
+            "optical_filter:instruments.submitter_id",
+            "optical_detector:instruments.submitter_id"
+          ],
+          "rank": 38,
+          "slot_group": "Instrument"
+        },
+        "configurationAndSettings": {
+          "name": "configurationAndSettings",
+          "exact_mappings": [
+            "instrument:configuration_settings"
+          ],
+          "rank": 39,
+          "slot_group": "Instrument"
+        },
+        "other_instrument": {
+          "name": "other_instrument",
+          "exact_mappings": [
+            "instrument:other_instrument"
+          ],
+          "rank": 40,
+          "slot_group": "Instrument"
+        },
+        "type": {
+          "name": "type",
+          "exact_mappings": [
+            "light_source_instrument:light_source_type"
+          ],
+          "rank": 41,
+          "slot_group": "light_source_instrument"
+        },
+        "excitatoryWavelength": {
+          "name": "excitatoryWavelength",
+          "exact_mappings": [
+            "light_source_instrument:excitatory_wave_length"
+          ],
+          "rank": 42,
+          "slot_group": "light_source_instrument"
+        },
+        "powerAtExcitatoryWavelength": {
+          "name": "powerAtExcitatoryWavelength",
+          "exact_mappings": [
+            "light_source_instrument:power_at_excitatory_wave_length"
+          ],
+          "rank": 43,
+          "slot_group": "light_source_instrument"
+        },
+        "polarization": {
+          "name": "polarization",
+          "exact_mappings": [
+            "light_source_instrument:polarization"
+          ],
+          "rank": 44,
+          "slot_group": "light_source_instrument"
+        },
+        "beam": {
+          "name": "beam",
+          "exact_mappings": [
+            "light_source_instrument:beam"
+          ],
+          "rank": 45,
+          "slot_group": "light_source_instrument"
+        },
+        "other_light_source_instrument": {
+          "name": "other_light_source_instrument",
+          "exact_mappings": [
+            "light_source_instrument:other_light_source_instrument"
+          ],
+          "rank": 46,
+          "slot_group": "light_source_instrument"
+        },
+        "name": {
+          "name": "name",
+          "exact_mappings": [
+            "optical_detector:name"
+          ],
+          "rank": 47,
+          "slot_group": "optical_detector"
+        },
+        "type_optical_detector": {
+          "name": "type_optical_detector",
+          "exact_mappings": [
+            "optical_detector:type_optical_detector"
+          ],
+          "rank": 48,
+          "slot_group": "optical_detector"
+        },
+        "voltage": {
+          "name": "voltage",
+          "exact_mappings": [
+            "optical_detector:voltage"
+          ],
+          "rank": 49,
+          "slot_group": "optical_detector"
+        },
+        "amplificationType": {
+          "name": "amplificationType",
+          "exact_mappings": [
+            "optical_detector:amplification_type"
+          ],
+          "rank": 50,
+          "slot_group": "optical_detector"
+        },
+        "amplificationFactor": {
+          "name": "amplificationFactor",
+          "exact_mappings": [
+            "optical_detector:amplification_factor"
+          ],
+          "rank": 51,
+          "slot_group": "optical_detector"
+        },
+        "other_optical_detector": {
+          "name": "other_optical_detector",
+          "exact_mappings": [
+            "optical_detector:other_optical_detector"
+          ],
+          "rank": 52,
+          "slot_group": "optical_detector"
+        },
+        "type_optical_filter": {
+          "name": "type_optical_filter",
+          "exact_mappings": [
+            "optical_detector:type_optical_filter"
+          ],
+          "rank": 53,
+          "slot_group": "optical_filter"
+        },
+        "transmittedWavelengths": {
+          "name": "transmittedWavelengths",
+          "exact_mappings": [
+            "optical_detector:transmitted_wave_lengths"
+          ],
+          "rank": 54,
+          "slot_group": "optical_filter"
+        },
+        "installationDate": {
+          "name": "installationDate",
+          "exact_mappings": [
+            "optical_detector:installation_date"
+          ],
+          "rank": 55,
+          "slot_group": "optical_filter"
+        },
+        "other_optical_filter": {
+          "name": "other_optical_filter",
+          "exact_mappings": [
+            "optical_detector:other_optical_filter"
+          ],
+          "rank": 56,
+          "slot_group": "optical_filter"
+        },
+        "template version": {
+          "name": "template version",
+          "rank": 57,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "flow_experiment_identifier": {
+          "name": "flow_experiment_identifier",
+          "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+          "title": "Flow_experiment_ID",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 1,
+          "identifier": true,
+          "alias": "flow_experiment_identifier",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "program.name": {
+          "name": "program.name",
+          "description": "programs'identifier",
+          "title": "program.name",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 2,
+          "slot_uri": "obo:OBI_0000066",
+          "alias": "program.name",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "project.code": {
+          "name": "project.code",
+          "description": "project's identifier",
+          "title": "project.code",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 3,
+          "alias": "project.code",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "sample_identifier": {
+          "name": "sample_identifier",
+          "description": "The identifier for this study collected using the template appropriate for your study design (e.g., MIATE for animal experiments). This is used to match the sample source to the data.",
+          "title": "Sample_ID",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:samples.submitter_id"
+          ],
+          "rank": 4,
+          "alias": "sample_identifier",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "purpose": {
+          "name": "purpose",
+          "description": "A brief description of the goal of the experiment. This should include the rationale and hypothesis.",
+          "title": "purpose",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 5,
+          "slot_uri": "obo:NCIT_C25634",
+          "alias": "purpose",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "keywords": {
+          "name": "keywords",
+          "description": "The keywords should include terms from an appropriate vocabulary (e.g. MeSH) to describe the experiment. Each keyword should be seperated by a \";\" with not spaces.",
+          "title": "keywords",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 6,
+          "slot_uri": "obo:NCIT_C43513",
+          "multivalued": true,
+          "alias": "keywords",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true,
+          "inlined_as_list": true
+        },
+        "experimentVariables": {
+          "name": "experimentVariables",
+          "description": "Variables are attribute(s) that differ between samples within an experiment due to pre-existing differences in sample states or due to experimental manipulation of the samples.",
+          "title": "experimentVariables",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 7,
+          "slot_uri": "obo:STATO_0000258",
+          "multivalued": true,
+          "alias": "experimentVariables",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "experimentVariables menu",
+          "required": true
+        },
+        "primaryContact": {
+          "name": "primaryContact",
+          "description": "The individual who is the primary contact for this experiment (last name,first name).",
+          "title": "primaryContact",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 8,
+          "slot_uri": "obo:OBI_0000202",
+          "multivalued": true,
+          "alias": "primaryContact",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "date": {
+          "name": "date",
+          "description": "The date or time period during which the investigation was performed (i.e., from collecting and treating samples to performing data analysis) shall be stated.",
+          "title": "date",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 9,
+          "slot_uri": "obo:STATO_0000093",
+          "alias": "date",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "date",
+          "recommended": true
+        },
+        "conclusions": {
+          "name": "conclusions",
+          "description": "A brief summary of the interpretation of the results or outcome of the experiment shall be provided if available.",
+          "title": "conclusions",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 10,
+          "slot_uri": "obo:IAO_0000144",
+          "alias": "conclusions",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "qualityControlMeasures": {
+          "name": "qualityControlMeasures",
+          "description": "A description of the quality control measures used such as replicates, calibrations, control assays, etc. shall be provided. If another experiment was performed for the purposes of establishing quality control standards, that experiment may be referenced.",
+          "title": "qualityControlMeasures",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 11,
+          "slot_uri": "obo:MSIO_0000085",
+          "multivalued": true,
+          "alias": "qualityControlMeasures",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "qualityControlMeasures menu",
+          "required": true,
+          "recommended": true
+        },
+        "flow_cytometry_protocol": {
+          "name": "flow_cytometry_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "flow_cytometry_protocol",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 12,
+          "slot_uri": "obo:NCIT_C42651",
+          "alias": "flow_cytometry_protocol",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_cytometry_protocol_DOI": {
+          "name": "flow_cytometry_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "flow_cytometry_protocol_DOI",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 13,
+          "slot_uri": "obo:OBI_0002110",
+          "alias": "flow_cytometry_protocol_DOI",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "experiment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "staining_protocol": {
+          "name": "staining_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "staining_protocol",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol"
+          ],
+          "rank": 14,
+          "slot_uri": "obo:NCIT_C42651",
+          "alias": "staining_protocol",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "staining_protocol_DOI": {
+          "name": "staining_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "staining_protocol_DOI",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:staining_protocol_DOI"
+          ],
+          "rank": 15,
+          "slot_uri": "obo:OBI_0002110",
+          "alias": "staining_protocol_DOI",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "characteristicsBeingMeasured": {
+          "name": "characteristicsBeingMeasured",
+          "description": "The relative amount of molecules, properties, or processes being evaluated (e.g., CD25, apoptosis, membrane permeability, cell viability, oxidative burst). The characteristic(s) being measured shall be provided whenever there is ambiguity about the analyte being measured, such as when sample processing affects detection of the analyte (e.g., propidium iodide example in Table 1). The optical detector (e.g., FL1) or parameter (e.g., FL1-H) used primarily for this measurement shall be indicated.",
+          "title": "characteristicsBeingMeasured",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:characteristics_being_measured"
+          ],
+          "rank": 16,
+          "slot_uri": "obo:BFO_0000005",
+          "alias": "characteristicsBeingMeasured",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "analyte": {
+          "name": "analyte",
+          "description": "What plays the role of the analyte? Which substance or chemical constituent is the subject of interest of the analytical procedure, what target is specifically bound by the analyte detector (e.g., CD25)?",
+          "title": "analyte",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:submitter_id",
+            "FCS:flourescence_reagents.submitter_id",
+            "WS:flourescence_reagents.submitter_id"
+          ],
+          "rank": 17,
+          "slot_uri": "obo:OBI_0000275",
+          "alias": "analyte",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "analyteDetector": {
+          "name": "analyteDetector",
+          "description": "What plays the role of analyte detector? Which component of the fluorescence reagent specifically binds to the analyte to make it detectable (e.g., anti-CD25 antibody)?",
+          "title": "analyteDetector",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_detector"
+          ],
+          "rank": 18,
+          "slot_uri": "obo:CHMO_0002244",
+          "alias": "analyteDetector",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "analyteReporter": {
+          "name": "analyteReporter",
+          "description": "(Fluorochrome) What plays the role of analyte reporter? Which component of the fluorescence reagent reports the presents of the analyte to the flow cytometer? What substance (label) is used to generate the measured signal (e.g., FITC)?",
+          "title": "analyteReporter",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:analyte_reporter"
+          ],
+          "rank": 19,
+          "slot_uri": "obo:CHEBI_35209",
+          "alias": "analyteReporter",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "cloneNameOrNumber": {
+          "name": "cloneNameOrNumber",
+          "description": "If the probe is a monoclonal antibody, the clone name or number shall be provided.",
+          "title": "cloneNameOrNumber",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:clone_name_or_number"
+          ],
+          "rank": 20,
+          "slot_uri": "obo:SO_0000151",
+          "alias": "cloneNameOrNumber",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reagentManufacturerName": {
+          "name": "reagentManufacturerName",
+          "description": "The reagent manufacturer shall be specified (e.g., MIFlowCyt Reagent Inc.).",
+          "title": "reagentManufacturerName",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_manufacturer_name"
+          ],
+          "rank": 21,
+          "slot_uri": "obo:IAO_0000590",
+          "alias": "reagentManufacturerName",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reagentCatalogueNumber": {
+          "name": "reagentCatalogueNumber",
+          "description": "The reagent catalogue number shall be specified.",
+          "title": "reagentCatalogueNumber",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:reagent_catalogue_number"
+          ],
+          "rank": 22,
+          "slot_uri": "obo:NCIT_C112406",
+          "alias": "reagentCatalogueNumber",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "stainingStatus": {
+          "name": "stainingStatus",
+          "description": " ",
+          "title": "stainingStatus",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:staining_status"
+          ],
+          "rank": 23,
+          "alias": "stainingStatus",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "stainingStatus menu"
+        },
+        "other_fluorescence_reagent": {
+          "name": "other_fluorescence_reagent",
+          "description": "When secondary antibodies are used, the primary analyte (the analyte bound by the primary antibody) and the reporter component of the secondary antibody (the reporter that generates the measured signal) shall be clearly specified as described in 2.4.2, 2.4.3, and 2.4.4. If relevant, the primary and secondary antibodies shall be described individually (e.g., in the case that the use of a secondary antibody significantly impacts the interpretation of results because of nonspecific fluorescence, etc.). The description should also contain other relevant details which may include lot number, concentration, label incorporation method, separation technique, antibody staining procedures, and wash steps.",
+          "title": "other_fluorescence_reagent",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:other_fluorescence_reagent"
+          ],
+          "rank": 24,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_fluorescence_reagent",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "flourescence_reagent",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis_protocol": {
+          "name": "analysis_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "analysis_protocol",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol"
+          ],
+          "rank": 25,
+          "slot_uri": "obo:NCIT_C42651",
+          "alias": "analysis_protocol",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis_protocol_DOI": {
+          "name": "analysis_protocol_DOI",
+          "description": "A DOI to a version controlled protocol, preferably available on a repository such as protocols.io",
+          "title": "analysis_protocol_DOI",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:analysis_protocol_DOI"
+          ],
+          "rank": 26,
+          "slot_uri": "obo:OBI_0002110",
+          "alias": "analysis_protocol_DOI",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "listModeDataFile": {
+          "name": "listModeDataFile",
+          "description": "The list-mode data files (e.g., FCS files [18]) shall be provided directly or details on how they may be requested shall be stated.",
+          "title": "listModeDataFile",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:FCS_files.submitter_id",
+            "FCS:file_name"
+          ],
+          "rank": 27,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "listModeDataFile",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "CompensationDescription": {
+          "name": "CompensationDescription",
+          "description": " ",
+          "title": "CompensationDescription",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:compensation_description"
+          ],
+          "rank": 28,
+          "alias": "CompensationDescription",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TransformationPurpose": {
+          "name": "TransformationPurpose",
+          "description": "The purpose of each performed transformation shall be specified (e.g.,\ndata visualization, background correction, statistical analysis, quantitative\nflow cytometry, etc.).",
+          "title": "TransformationPurpose",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:transformation_purpose"
+          ],
+          "rank": 29,
+          "alias": "TransformationPurpose",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TransformationDescription": {
+          "name": "TransformationDescription",
+          "description": "Either the exact mathematical formulas/algorithms of each data\ntransformation shall be supplied using an open and freely available\nspecification, or a description of each transformation shall be provided.",
+          "title": "TransformationDescription",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:transformation_description"
+          ],
+          "rank": 30,
+          "alias": "TransformationDescription",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "GateDescription": {
+          "name": "GateDescription",
+          "description": "The subpopulation identified by the gate shall be briefly described (e.g.,\n“IL-4 producing helper T cells of the CD3+CD4+ phenotype”).",
+          "title": "GateDescription",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:gate_description"
+          ],
+          "rank": 31,
+          "alias": "GateDescription",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Gate Statistics": {
+          "name": "Gate Statistics",
+          "description": "Percentage of events within the gate shall be provided specifically stating\nthe denominator. The denominator shall be either the total population of events (e.g., percentage of lymphocytes based on the total number of\nevents) or another gate (e.g., percentage of CD4+ lymphocytes based on\nall lymphocytes). When the denominator is another gate, this shall also be\nexactly specified in recursive fashion so that the gating strategy can be\nfollowed up to the original data set. The denominator may not necessarily\nbe a containing (superset) population for some statistics (e.g., the donor /\nhost blood cell ratio).",
+          "title": "Gate Statistics",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:gate_statistics"
+          ],
+          "rank": 32,
+          "alias": "Gate_Statistics",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "GateBoundaries": {
+          "name": "GateBoundaries",
+          "description": "Either the exact mathematical descriptions of each gate boundary shall be\nprovided using an open and freely available specification, or this\ninformation shall be provided in the form of images. ",
+          "title": "GateBoundaries",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:gate_boundaries"
+          ],
+          "rank": 33,
+          "alias": "GateBoundaries",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "WorkspaceFile": {
+          "name": "WorkspaceFile",
+          "description": " ",
+          "title": "WorkspaceFile",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "data_analysis:WS_files.submitter_id",
+            "WS:file_name"
+          ],
+          "rank": 34,
+          "alias": "WorkspaceFile",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flowCellType": {
+          "name": "flowCellType",
+          "description": "The flow cell type (e.g., stream-in-air, cuvette) including the material shall be provided.",
+          "title": "flowCellType",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:flow_cell_type"
+          ],
+          "rank": 35,
+          "slot_uri": "obo:OBI_0400043 ",
+          "alias": "flowCellType",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "flowCellType menu"
+        },
+        "other_flow_cell": {
+          "name": "other_flow_cell",
+          "description": "Other relevant flow cell details should be provided and may include flow cell manufacturer name (e.g., MIFlowCyt Optics, Inc.) and model number (e.g., PRO-CFC-75), flow cell outside shape (e.g., rectangular with an attached sphere, spherical, square) and dimensions, flow channel shape (e.g., rectangular, circular, triangular) and dimensions, sheath flow velocity (e.g., 10 l/s), sheath flow pump type (e.g., gas pressure, vacuum, gear), sample flow velocity (e.g., 7.5 l/s) and sample flow pump (e.g., gas pressure, syringe).",
+          "title": "other_flow_cell",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:other_flow_cell"
+          ],
+          "rank": 36,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_flow_cell",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "description": "The instrument manufacturer shall be specified by stating its name (e.g., MIFlowCyt Cytometry Systems, Inc.). A URL pointing to manufacturer web pages may also be provided.",
+          "title": "manufacturer",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:manufacturer"
+          ],
+          "rank": 37,
+          "slot_uri": "obo:OBI_0000835",
+          "alias": "manufacturer",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "manufacturer menu"
+        },
+        "model": {
+          "name": "model",
+          "description": "The instrument model shall be specified (e.g., CytMeter Elite-2000). It may include the instrument serial number.",
+          "title": "model",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flourescence_reagent:instruments.submitter_id",
+            "instrument:submitter_id",
+            "light_source_instrument:instruments.submitter_id",
+            "optical_filter:instruments.submitter_id",
+            "optical_detector:instruments.submitter_id"
+          ],
+          "rank": 38,
+          "slot_uri": "obo:MS_1000031",
+          "alias": "model",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "model menu"
+        },
+        "configurationAndSettings": {
+          "name": "configurationAndSettings",
+          "description": "The system and its configurations have significant impact on experimental results and as such the following shall be provided",
+          "title": "configurationAndSettings",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:configuration_settings"
+          ],
+          "rank": 39,
+          "slot_uri": "obo:MS_1000740",
+          "alias": "configurationAndSettings",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "configurationAndSettings menu"
+        },
+        "other_instrument": {
+          "name": "other_instrument",
+          "description": "Additional relevant instrument details should be provided and may include machine-specific information such as information about automated agitation, temperature control, controlled volume dispensing, sampling from microtiter plates, auto-boost, auto-flush, etc. Other custom settings shall be provided if relevant and may include setting name, description, and value.",
+          "title": "other_instrument",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "instrument:other_instrument"
+          ],
+          "rank": 40,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_instrument",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "type": {
+          "name": "type",
+          "description": "The type of the light source shall be provided (e.g., laser, diode laser, xenon lamp).",
+          "title": "type",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:light_source_type"
+          ],
+          "rank": 41,
+          "slot_uri": "bao:BAO_0150029",
+          "alias": "type",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "type menu"
+        },
+        "excitatoryWavelength": {
+          "name": "excitatoryWavelength",
+          "description": "The excitatory wavelength shall be provided (e.g., 488nm, 633 nm).",
+          "title": "excitatoryWavelength",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:excitatory_wave_length"
+          ],
+          "rank": 42,
+          "slot_uri": "bao:BAO_0000566",
+          "alias": "excitatoryWavelength",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "powerAtExcitatoryWavelength": {
+          "name": "powerAtExcitatoryWavelength",
+          "description": "The power of the light source shall be provided (e.g., 180 mW, 50 mW). If possible, this should be measured at the intersection of the light source beam with particles; see also 3.3.3.",
+          "title": "powerAtExcitatoryWavelength",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:power_at_excitatory_wave_length"
+          ],
+          "rank": 43,
+          "slot_uri": "bao:BAO_0000566",
+          "alias": "powerAtExcitatoryWavelength",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "polarization": {
+          "name": "polarization",
+          "description": "Polarization shall be specified (e.g., linear, >100:1, in the direction of the sample flow). If possible, this should be specified at the intersection of the light source beam and particles; see also 3.3.3.",
+          "title": "polarization",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:polarization"
+          ],
+          "rank": 44,
+          "slot_uri": "obo:OMIT_0009913",
+          "alias": "polarization",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "beam": {
+          "name": "beam",
+          "description": "Light source beam dimensions and geometry shall be specified at the flow cell or at the intersection of the beam with particles (e.g., elliptical 22 x 66 Î¼m).",
+          "title": "beam",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:beam"
+          ],
+          "rank": 45,
+          "slot_uri": "obo:NCIT_C70569",
+          "alias": "beam",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "other_light_source_instrument": {
+          "name": "other_light_source_instrument",
+          "description": "Additional relevant light source details should be provided and may include light source manufacturer name (e.g., MIFlowCyt Lasers, Inc.), light source model name (e.g., 302C Krypton-Ion Laser), light source part number (e.g., I-326), noise (e.g., <1%), pointing and power stability (e.g., <1% over 1 hour), etc.",
+          "title": "other_light_source_instrument",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "light_source_instrument:other_light_source_instrument"
+          ],
+          "rank": 46,
+          "slot_uri": "obo:NCIT_C17649",
+          "alias": "other_light_source_instrument",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "light_source_instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "name": {
+          "name": "name",
+          "description": "The optical detector name (e.g., FSC, SSC, FL1, FL2, FL3, FL4, etc.) shall be specified.",
+          "title": "name",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:name"
+          ],
+          "rank": 47,
+          "alias": "name",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "type_optical_detector": {
+          "name": "type_optical_detector",
+          "description": "The type of the optical detector shall be provided (e.g., photodiode, photomultiplier tube).",
+          "title": "type_optical_detector",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:type_optical_detector"
+          ],
+          "rank": 48,
+          "slot_uri": "obo:FBbi_00000269 ",
+          "alias": "type_optical_detector",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_detector",
+          "range": "type_optical_detector menu"
+        },
+        "voltage": {
+          "name": "voltage",
+          "description": "The optical detector voltage shall be specified (e.g., 300V, 700V).",
+          "title": "voltage",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:voltage"
+          ],
+          "rank": 49,
+          "alias": "voltage",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_detector",
+          "range": "float",
+          "minimum_value": 0
+        },
+        "amplificationType": {
+          "name": "amplificationType",
+          "description": "The optical detector amplification type shall be specified (e.g., linear, log).  Additional details including the actual amplifier profile may be provided.",
+          "title": "amplificationType",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:amplification_type"
+          ],
+          "rank": 50,
+          "alias": "amplificationType",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_detector",
+          "range": "amplificationType menu"
+        },
+        "amplificationFactor": {
+          "name": "amplificationFactor",
+          "description": "For log amplification, the number of decades shall be provided (e.g., 4 decades). For a linear amplification, the linear gain shall be provided (e.g., linear gain of 2.0).",
+          "title": "amplificationFactor",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:amplification_factor"
+          ],
+          "rank": 51,
+          "alias": "amplificationFactor",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_detector",
+          "range": "float"
+        },
+        "other_optical_detector": {
+          "name": "other_optical_detector",
+          "description": "Additional relevant optical detector details should be provided and may include the optical detector manufacturer name and model number (e.g., MIFlowCyt Photonics Inc., PMT #R9220), minimal, maximal, and peak wavelength sensitivity (e.g., 185 nm, 900 nm, and 650 nm), the internal gain (e.g., 107), or the rise time (e.g., 2.2ns).",
+          "title": "other_optical_detector",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:other_optical_detector"
+          ],
+          "rank": 52,
+          "alias": "other_optical_detector",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_detector",
+          "range": "WhitespaceMinimizedString"
+        },
+        "type_optical_filter": {
+          "name": "type_optical_filter",
+          "description": "The optical filter type shall be specified.",
+          "title": "type_optical_filter",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:type_optical_filter"
+          ],
+          "rank": 53,
+          "alias": "type_optical_filter",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_filter",
+          "range": "type_optical_filter menu"
+        },
+        "transmittedWavelengths": {
+          "name": "transmittedWavelengths",
+          "description": "Light wavelengths transmitted by the filter shall be specified (e.g., 488/25 nm, >670 nm, <620 nm).",
+          "title": "transmittedWavelengths",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:transmitted_wave_lengths"
+          ],
+          "rank": 54,
+          "alias": "transmittedWavelengths",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_filter",
+          "range": "WhitespaceMinimizedString"
+        },
+        "installationDate": {
+          "name": "installationDate",
+          "description": "As optical filters of all types are subject to degradation, filter performance needs to be monitored at intervals to verify continued performance at an acceptable level [19]. The optical filter installation date shall be specified (e.g., January 15, 2007).",
+          "title": "installationDate",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:installation_date"
+          ],
+          "rank": 55,
+          "alias": "installationDate",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_filter",
+          "range": "date"
+        },
+        "other_optical_filter": {
+          "name": "other_optical_filter",
+          "description": "Other relevant optical filter details should be provided.",
+          "title": "other_optical_filter",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "optical_detector:other_optical_filter"
+          ],
+          "rank": 56,
+          "alias": "other_optical_filter",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "optical_filter",
+          "range": "WhitespaceMinimizedString"
+        },
+        "template version": {
+          "name": "template version",
+          "description": " ",
+          "title": "template version",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "rank": 57,
+          "alias": "template_version",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "provenance",
+          "range": "Provenance"
+        }
+      }
+    }
+  },
+  "source_file": "/Users/apple/ToxRSCat/templates/miflowcyt/schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}
