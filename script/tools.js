@@ -63,8 +63,8 @@ export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
   
 
 //remove duplicate rows and collapse for data files
-/*
-export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
+
+export function removeDuplicatesAndCollapse2(outputMatrix, uniqueColumn) {
     const uniqueRows = {};
   
     for (let i = 1; i < outputMatrix.length; i++) {
@@ -113,4 +113,3 @@ export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
   
     return finalMatrix;
   }
-*/
