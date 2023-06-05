@@ -13,6 +13,7 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
+						["submitter_id", ["file_name",]],
 						["slides.submitter_id", []],
 						["file_name", []],
 						["data_category", []],
@@ -24,7 +25,7 @@ export default {
 						["imaging_protocol_DOI", []],
 						['provenance', ["slide template version"]]
 					]),
-					uid: "slides.submitter_id",
+					uid: "submitter_id",
 					outputMatrix: [[]],
 					exportType: "slide_image",
 				},
@@ -54,7 +55,7 @@ export default {
 				for (const inputRow of dh.getTrimmedData(dh.hot)) {
 					const outputRow = [];
 					for (const [headerName, sources] of exportConfig.exportHeaders) {
-						let value = dh.getMappedField(
+						var value = dh.getMappedField(
 							headerName,
 							inputRow,
 							sources,
@@ -63,7 +64,7 @@ export default {
 							':',
 							exportConfig.exportType
 						);
-						if (headerName === "type") {
+						if (headerName == "type") {
 							value = exportConfig.exportType;
 						}
 						outputRow.push(value);
