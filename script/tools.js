@@ -57,6 +57,7 @@ export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
         finalMatrix.push(row);
       }
     }
+    console.log(finalMatrix);
     return finalMatrix;
 }
   
