@@ -17,49 +17,51 @@ export function removeDuplicateRows(outputMatrix) {
 }
 
 export function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
-    const deduplicatedMatrix = [];
-    const deduplicatedRows = new Set();
+  // Remove empty rows
+  const nonEmptyMatrix = outputMatrix.filter(row => row.some(value => value !== ""));
+  const deduplicatedMatrix = [];
+  const deduplicatedRows = new Set();
   
-    for (const row of outputMatrix) {
-      const rowStr = JSON.stringify(row);
-      if (!deduplicatedRows.has(rowStr)) {
-        deduplicatedRows.add(rowStr);
-        deduplicatedMatrix.push(row);
+  for (const row of nonEmptyMatrix) {
+    const rowStr = JSON.stringify(row);
+    if (!deduplicatedRows.has(rowStr)) {
+      deduplicatedRows.add(rowStr);
+      deduplicatedMatrix.push(row);
+    }
+  }
+  
+  const uniqueIndex = deduplicatedMatrix[0].indexOf(uniqueColumn);
+  console.log(deduplicatedMatrix);
+  const row_number = deduplicatedMatrix.length;
+  const column_number = deduplicatedMatrix[0].length;
+  for (let m = 1; m < row_number; m++){
+      const submitter_id = deduplicatedMatrix[m][uniqueIndex];
+      for(let n = uniqueIndex+1; n < column_number; n++){
+          let value = deduplicatedMatrix[m][n];
+          for(let i = m+1; i < row_number; i++){
+              if(deduplicatedMatrix[i][uniqueIndex] === submitter_id && deduplicatedMatrix[i][n] !== value){
+                  value = value + ',' + deduplicatedMatrix[i][n];
+              }
+          }
+          for(let j=m; j < row_number; j++){
+            if(deduplicatedMatrix[j][uniqueIndex] === submitter_id){
+                deduplicatedMatrix[j][n] = value;
+            }        
+          }
       }
-    }
+  }
+  const finalMatrix = [];
+  const finalMatrix_row = new Set();
   
-    const uniqueIndex = deduplicatedMatrix[0].indexOf(uniqueColumn);
-    console.log(deduplicatedMatrix);
-    const row_number = deduplicatedMatrix.length;
-    const column_number = deduplicatedMatrix[0].length;
-    for (let m = 1; m < row_number; m++){
-        const submitter_id = deduplicatedMatrix[m][uniqueIndex];
-        for(let n = uniqueIndex+1; n < column_number; n++){
-            let value = deduplicatedMatrix[m][n];
-            for(let i = m+1; i < row_number; i++){
-                if(deduplicatedMatrix[i][uniqueIndex] === submitter_id && deduplicatedMatrix[i][n] !== value){
-                    value = value + ',' + deduplicatedMatrix[i][n];
-                }
-            }
-            for(let j=m; j < row_number; j++){
-                if(deduplicatedMatrix[j][uniqueIndex] === submitter_id){
-                    deduplicatedMatrix[j][n] = value;
-                }
-            }
-        }
+  for (const row of deduplicatedMatrix) {
+    const rowStr = JSON.stringify(row);
+    if (!finalMatrix_row.has(rowStr)) {
+      finalMatrix_row.add(rowStr);
+      finalMatrix.push(row);
     }
-    const finalMatrix = [];
-    const finalMatrix_row = new Set();
-  
-    for (const row of deduplicatedMatrix) {
-      const rowStr = JSON.stringify(row);
-      if (!finalMatrix_row.has(rowStr)) {
-        finalMatrix_row.add(rowStr);
-        finalMatrix.push(row);
-      }
-    }
-    console.log(finalMatrix);
-    return finalMatrix;
+  }
+  console.log(finalMatrix);
+  return finalMatrix;
 }
   
   
