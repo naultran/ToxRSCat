@@ -71,7 +71,7 @@ export default {
 					}
 					exportConfig.outputMatrix.push(outputRow);
 				}
-				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
+				let finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
 				exportFile(finalMatrix, exportConfig.exportType, "tsv");
 			}
