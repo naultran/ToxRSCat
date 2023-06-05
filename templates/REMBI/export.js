@@ -9,7 +9,7 @@ export default {
 			const logs = [[]];
 			const sourceFields = dh.getFields(dh.table);
 			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-			const exportC5onfigs = [
+			const exportConfigs = [
 				{
 					exportHeaders: new Map([
 						["type", []],
