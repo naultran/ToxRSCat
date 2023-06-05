@@ -16,13 +16,6 @@
       "display": true
     }
   },
-  "miflowcyt": {
-    "Flow cytometry experiment": {
-      "name": "Flow cytometry experiment",
-      "status": "published",
-      "display": true
-    }
-  },
   "miaca": {
     "Project": {
       "name": "Project",
@@ -64,7 +57,7 @@
       "display": true
     }
   },
-  "miflowcyt2": {
+  "miflowcyt": {
     "Aliquot": {
       "name": "Aliquot",
       "status": "published",
@@ -80,6 +73,5 @@
       "status": "published",
       "display": true
     }
-
   }
 }
