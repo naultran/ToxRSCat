@@ -70,9 +70,9 @@ export default {
 					}
 					exportConfig.outputMatrix.push(outputRow);
 				}
-				const finalMatrix = removeDuplicatesAndCollapse2(exportConfig.outputMatrix, exportConfig.uid);
+				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
-				exportFile(exportConfig.outputMatrix, exportConfig.exportType, "tsv");
+				exportFile(finalMatrix, exportConfig.exportType, "tsv");
 			}
 			return logs;
 		}
@@ -128,7 +128,7 @@ export default {
 					}
 					exportConfig.outputMatrix.push(outputRow);
 				}
-				const finalMatrix = removeDuplicatesAndCollapse2(exportConfig.outputMatrix, exportConfig.uid);
+				const finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
 				logs.push([`${exportConfig.exportType} information is done`]);
 				exportFile(finalMatrix, exportConfig.exportType, "tsv");
 			}
