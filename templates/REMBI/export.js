@@ -1,43 +1,6 @@
 import { exportFile, exportJsonFile } from '/home/ubuntu/DataHarmonizer/lib/utils/files';
+import {removeDuplicateRows, removeDuplicatesAndCollapse} from './/../../script/tools';
 
-function removeDuplicatesAndCollapse(outputMatrix, uniqueColumn) {
-  const uniqueRows = {};
-  for (let i = 1; i < outputMatrix.length; i++) {
-    const row = outputMatrix[i];
-    const key = row[outputMatrix[0].indexOf(uniqueColumn)];
-    if (uniqueRows.hasOwnProperty(key)) {
-      for (let j = 1; j < row.length; j++) {
-        const column = outputMatrix[0][j];
-        const value = row[j];
-        if (!uniqueRows[key][column].includes(value)) {
-          uniqueRows[key][column].push(value);
-        }
-      }
-    } else {
-      uniqueRows[key] = {};
-      for (let j = 1; j < row.length; j++) {
-        const column = outputMatrix[0][j];
-        const value = row[j];
-        uniqueRows[key][column] = [value];
-      }
-    }
-  }
-  const finalMatrix = [outputMatrix[0]];
-  for (const key in uniqueRows) {
-    const row = [key];
-    for (let j = 1; j < outputMatrix[0].length; j++) {
-      const column = outputMatrix[0][j];
-      const values = uniqueRows[key][column];
-      if (values.length > 1) {
-        row.push(values.join(","));
-      } else {
-        row.push(values[0]);
-      }
-    }
-    finalMatrix.push(row);
-  }
-  return finalMatrix;
-}
 export default {
 	gen3_slide_all: {
 		fileType: 'tsv',
@@ -84,11 +47,7 @@ export default {
 					exportType: "slide",
 				}
 			];
-			// Function to wait for downloading files to fix crashes
-			async function exportFileWithDelay(outputMatrix, exportType) {
-				exportFile(outputMatrix, exportType, "tsv");
-				await delay(4000);
-			}
+
 			for (const exportConfig of exportConfigs) {
 				dh.getHeaderMap(exportConfig.exportHeaders, sourceFields, exportConfig.exportType);
 				exportConfig.outputMatrix.push([...exportConfig.exportHeaders.keys()]);
