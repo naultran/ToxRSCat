@@ -1,0 +1,1015 @@
+id: https://example.com/CIMR
+name: mass_spec_metabolomics
+description: Based on CIMR
+version: 1.0.0
+imports: linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  obo: http://purl.obolibrary.org/obo/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/mass_spec_MS_template
+  mass_spec_assay:
+    name: mass_spec_assay
+    is_a: dh_interface
+    slots:
+    - submitter_id
+    - aliquots.submitter_id
+    - rawDataFile
+    - raw.data_category
+    - raw.data_format
+    - raw.data_type
+    - instruments.submitter_id
+    - processedDataFile
+    - processed.data_category
+    - processed.data_format
+    - processed.data_type
+    - Normalization
+    - Transformation
+    - TransformationPurpose
+    - TransformationDescription
+    - unit
+    - analysis_protocol.submitter_id
+    - calibration_standard
+    - chromatography.name
+    - chromatography_column
+    - chromatography_protocol
+    - elution program
+    - flow_rate
+    - carrier_gas
+    - oven_temperature_program
+    - ms_method.name
+    - ms_protocol
+    - mass_spec_assay.provenance
+    slot_usage:
+      submitter_id:
+        rank: 1
+        slot_group: identifiers
+        exact_mappings:
+          mass_spec_assay:submitter_id
+          ms_raw_data:mass_spec_assay.submitter_id
+          ms_analysis:submitter_id #Need to add an analysis name column
+      aliquots.submitter_id:
+        rank: 2
+        slot_group: identifiers
+        exact_mappings:
+          mass_spec_assay:aliquots.submitter_id
+      rawDataFile:
+        rank: 3
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:file_name
+          ms_analysis:ms_raw_data.submitter_id
+      raw.data_category:
+        rank: 4
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:data_category
+      raw.data_format:
+        rank: 5
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:data_format
+      raw.data_type:
+        rank: 6
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:data_type
+      instruments.submitter_id:
+        rank: 7
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:instruments.submitter_id
+      processedDataFile:
+        rank: 8
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:file_name
+      processed.data_category:
+        rank: 9
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:data_category
+      processed.data_format:
+        rank: 10
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:data_format
+      processed.data_type:
+        rank: 11
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:data_type
+      Normalization:
+        rank: 12
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysis:normalization
+      Transformation:
+        rank: 13
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysis:transformation
+      TransformationPurpose:
+        rank: 14
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysis:transformation_purpose
+      TransformationDescription:
+        rank: 15
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysis:transformation_description
+      unit:
+        rank: 16
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysis:unit
+      analysis_protocol.submitter_id:
+        rank: 17
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysis:analysis_protocol.submitter_id
+      calibration_standard:
+        rank: 18
+        slot_group: extract
+        exact_mappings:
+          mass_spec_assay:calibration_standard
+      chromatography.name:
+        rank: 19
+        slot_group: chromatography
+        exact_mappings:
+          mass_spec_assay:chromatography_name
+      chromatography_column:
+        rank: 20
+        slot_group: chromatography
+        exact_mappings:
+          mass_spec_assay:chromatography_column
+      chromatography_protocol:
+        rank: 21
+        slot_group: chromatography
+        exact_mappings:
+          mass_spec_assay:chromatography_protocol
+      elution program:
+        rank: 22
+        slot_group: LiquidChromatography
+        exact_mappings:
+          mass_spec_assay:elution_program
+      flow_rate:
+        rank: 23
+        slot_group: LiquidChromatography
+        exact_mappings:
+          mass_spec_assay:flow_rate
+      carrier_gas:
+        rank: 24
+        slot_group: GasChromatography
+        exact_mappings:
+          mass_spec_assay:carrier_gas
+      oven_temperature_program:
+        rank: 25
+        slot_group: GasChromatography
+        exact_mappings:
+          mass_spec_assay:oven_temperature_program
+      ms_method.name:
+        rank: 26
+        slot_group: ms_method
+        exact_mappings:
+          mass_spec_assay:ms_method_name
+      ms_protocol:
+        rank: 27
+        slot_group: ms_method
+        exact_mappings:
+          mass_spec_assay:ms_protocol
+      mass_spec_assay.provenance:
+        rank: 28
+        slot_group: provenance
+        exact_mappings:
+          mass_spec_assay:provenance
+          ms_analysed_data:provenance
+          ms_analysis:provenance
+  metaboliteID:
+    name: metaboliteID
+    is_a: dh_interface
+    slots:
+    - metabolite_name
+    - metabolite.data_analysis_id
+    - refmet_name
+    - dtxsid
+    - inchikey
+    - mass
+    - elution_time
+    - metabolide_id.provenance
+    slot_usage:
+      metabolite_name:
+        rank: 1
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:submitter_id #Need to add a submitter ID
+      metabolite.data_analysis_id:
+        rank: 2
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:ms_analysed_data.submitter_id
+      refmet_name:
+        rank: 3
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:refmet_name
+      dtxsid:
+        rank: 4
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:dtxsid
+      inchikey:
+        rank: 5
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:inchikey
+      mass:
+        rank: 6
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:mass
+      elution_time:
+        rank: 7
+        slot_group: metabolite_identification
+        exact_mappings:
+          metabolite_id:elution_time
+      metabolide_id.provenance:
+        rank: 8
+        slot_group: provenance
+        exact_mappings:
+          metabolite_id:provenance
+  Instrument:
+    name: Instrument
+    is_a: dh_interface
+    slots:
+    - instrument.submitter_id
+    - manufacturer
+    - model
+    - scan_polarity
+    - ionization_type
+    - detector_type
+    - mass_analyzer_type
+    - instrument.provenance
+    slot_usage:
+      instrument.submitter_id:
+        rank: 1
+        slot_group: Instrument
+
+      manufacturer:
+        rank: 2
+        slot_group: Instrument
+
+      model:
+        rank: 3
+        slot_group: Instrument
+
+      scan_polarity:
+        rank: 4
+        slot_group: Instrument
+
+      ionization_type:
+        rank: 5
+        slot_group: Instrument
+
+      detector_type:
+        rank: 6
+        slot_group: Instrument
+
+      mass_analyzer_type:
+        rank: 7
+        slot_group: Instrument
+
+      instrument.provenance:
+        rank: 8
+        slot_group: provenance
+
+  Aliquot:
+    name: Aliquot
+    is_a: dh_interface
+    slots:
+    - aliquot.submitter_id
+    - sample.submitter_id
+    - analyte_type
+    - analyte_protocol
+    - derivitization
+    - extract_preservation_method
+    - aliquot.provenance
+    slot_usage:
+      aliquot.submitter_id:
+        rank: 1
+        slot_group: identifiers
+        exact_mappings:
+          aliquot:submitter_id
+      sample.submitter_id:
+        rank: 2
+        slot_group: identifiers
+        exact_mappings:
+          aliquot:samples.submitter_id
+      analyte_type:
+        rank: 3
+        slot_group: aliquot
+        exact_mappings:
+          aliquot:analyte_type
+      analyte_protocol:
+        rank: 4
+        slot_group: aliquot
+        exact_mappings:
+          aliquot:analyte_protocol
+      derivitization:
+        rank: 5
+        slot_group: aliquot
+        exact_mappings:
+          aliquot:derivitization
+      extract_preservation_method:
+        rank: 6
+        slot_group: aliquot
+        exact_mappings:
+          aliquot:extract_preservation_method
+      aliquot.provenance:
+        rank: 7
+        slot_group: provenance
+        exact_mappings:
+          aliquot:provenance
+slots:
+  aliquot.submitter_id:
+    name: aliquot.submitter_id
+    title: submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  sample.submitter_id:
+    name: sample.submitter_id
+    title: sample.submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analyte_type:
+    name: analyte_type
+    title: Analyte type
+    range: analyte_type menu
+    description: ' '
+    comments: ' '
+  analyte_protocol:
+    name: analyte_protocol
+    title: Analyte preparation protocol
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  derivitization:
+    name: derivitization
+    title: derivitization
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  extract_preservation_method:
+    name: extract_preservation_method
+    title: extract_preservation_method
+    range: extract_preservation_method menu
+    description: The chemical agent used for the derivatization reaction
+    comments: ' '
+  submitter_id:
+    name: submitter_id
+    title: submitter_id
+    range: WhitespaceMinimizedString
+    description: This is a unique ID assigned by the user to represent each individual
+      record in this flow cytometry experiment.
+    required: true
+    comments: ms_S001
+  aliquots.submitter_id:
+    name: aliquots.submitter_id
+    title: aliquots.submitter_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  rawDataFile:
+    name: rawDataFile
+    title: rawDataFile
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:OBI:0000021
+    comments: ' '
+  raw.data_category:
+    name: raw.data_category
+    title: data_category
+    range: raw.data_category menu
+    description: ' '
+    comments: ' '
+  raw.data_format:
+    name: raw.data_format
+    title: data_format
+    range: raw.data_format menu
+    description: ' '
+    comments: ' '
+  raw.data_type:
+    name: raw.data_type
+    title: data_type
+    range: raw.data_type menu
+    description: ' '
+    comments: ' '
+  instruments.submitter_id:
+    name: instruments.submitter_id
+    title: instrument.submitter_id
+    range: instruments.submitter_id menu
+    description: ' '
+    comments: ' '
+  processedDataFile:
+    name: processedDataFile
+    title: processedDataFile
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  processed.data_category:
+    name: processed.data_category
+    title: data_category
+    range: processed.data_category menu
+    description: ' '
+    comments: ' '
+  processed.data_format:
+    name: processed.data_format
+    title: data_format
+    range: processed.data_format menu
+    description: ' '
+    comments: ' '
+  processed.data_type:
+    name: processed.data_type
+    title: data_type
+    range: processed.data_type menu
+    description: ' '
+    comments: ' '
+  Normalization:
+    name: Normalization
+    title: Normalization
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: Each sample was normalized to both liver weight and 13C-,15N-labelled
+      amino acid standards
+  Transformation:
+    name: Transformation
+    title: Transformation
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  TransformationPurpose:
+    name: TransformationPurpose
+    title: TransformationPurpose
+    range: WhitespaceMinimizedString
+    description: The purpose of each performed transformation shall be specified (e.g.,
+      data visualization, background correction, statistical analysis, etc.).
+    comments: ' '
+  TransformationDescription:
+    name: TransformationDescription
+    title: TransformationDescription
+    range: WhitespaceMinimizedString
+    description: Either the exact mathematical formulas/algorithms of each data transformation
+      shall be supplied using an open and freely available specification, or a description
+      of each transformation shall be provided.
+    comments: ' '
+  unit:
+    name: unit
+    title: unit
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: nmol/mg total protein
+  analysis_protocol.submitter_id:
+    name: analysis_protocol.submitter_id
+    title: analysis_protocol.submitter_id
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    slot_uri: obo:NCIT_C42651
+    comments: 'Progenesis QI (Waters) was used for peak processing. Metabolites were
+      identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used
+      to measure area under the curve. '
+  calibration_standard:
+    name: calibration_standard
+    title: calibration_standard
+    range: WhitespaceMinimizedString
+    description: Indicate the name of the chemical compound used as calibration standard.
+    comments: Acetyl-1,2-13C2 Coenzyme A Sodium Salt
+  chromatography.name:
+    name: chromatography.name
+    title: name
+    range: WhitespaceMinimizedString
+    description: name of chromatography
+    required: true
+    comments: ' '
+  chromatography_column:
+    name: chromatography_column
+    title: chromatography_column
+    range: WhitespaceMinimizedString
+    description: The name of the chromatography column.
+    required: true
+    comments: 'Ascentis Express C18: 5cm x 2.1 mm, 2.7 um, Sigma-Aldrich'
+  chromatography_protocol:
+    name: chromatography_protocol
+    title: chromatography_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    required: true
+    comments: "Ion-pairing reverse phase chromatography was performed on an Ascentis\
+      \ Express column (C18, 5\u2009cm\u2009\xD7\u20092.1\u2009mm, 2.7\u2009\xB5m,\
+      \ Sigma)."
+  elution program:
+    name: elution program
+    title: elution program
+    range: WhitespaceMinimizedString
+    description: Description of the elution program using the following scheme
+    comments: "injection volume, 10\u2009\xB5l; column temperature, 30\u2009\xB0C;\
+      \ and flow rate, 400\u2009\xB5l/min. The LC solvents were solvent A: 10\u2009\
+      mM tributylamine and 15\u2009mM acetic acid in 97:3 water:methanol (pH 4.95)\
+      \ and solvent B: methanol. Elution from the column was performed over 11\u2009\
+      min with the following gradient: t\u2009=\u20090, 0% solvent B, flow rate 0.4\u2009\
+      ml/min; t\u2009=\u20091, 0% solvent B, flow rate 0.4\u2009ml/min; t\u2009=\u2009\
+      2, 20% solvent B, flow rate 0.3\u2009ml/min; t\u2009=\u20093, 20% solvent B,\
+      \ flow rate 0.25\u2009ml/min; t\u2009=\u20095, 55% solvent B, flow rate 0.15\u2009\
+      ml/min; t\u2009=\u20098, 95% solvent B, flow rate 0.15\u2009ml/min; t\u2009\
+      =\u20098.5, 95% solvent B, flow rate 0.15\u2009ml/min; t\u2009=\u20099, 0% solvent\
+      \ B, flow rate 0.4\u2009ml/min; t\u2009=\u200911, 0% solvent B, flow rate 0.4\u2009\
+      ml/min."
+  flow_rate:
+    name: flow_rate
+    title: flow_rate
+    range: WhitespaceMinimizedString
+    description: Report the flow rate of the elution buffer through column in amount
+      per minute.
+    comments: ' '
+  carrier_gas:
+    name: carrier_gas
+    title: carrier_gas
+    range: WhitespaceMinimizedString
+    description: The composition of the carrier gas (modile phase)
+    comments: ' '
+  oven_temperature_program:
+    name: oven_temperature_program
+    title: oven_temperature_program
+    range: WhitespaceMinimizedString
+    description: The description of the gas chromatography oven temperature program
+    comments: 40 degree C hold for 1 min.;10 degree C/min. to 300 degree C;300 degree
+      C hold for 10 min.
+  ms_method.name:
+    name: ms_method.name
+    title: name
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: name of ms_method
+  ms_protocol:
+    name: ms_protocol
+    title: ms_protocol
+    range: WhitespaceMinimizedString
+    description: A brief description of the flow cytometry protocol
+    required: true
+    comments: "Mass spectra were acquired using negative-mode electrospray ionization\
+      \ run in MSE continuum mode. The capillary voltage was 2,500\u2009V and cone\
+      \ voltage was 40\u2009V. Nitrogen was used as cone gas and desolvation gas,\
+      \ with flow rates of 50 and 600\u2009L/h, respectively. The source temperature\
+      \ was 100\u2009\xB0C, and desolvation temperature was 300\u2009\xB0C. Argon\
+      \ was used as collision gas."
+  metabolite_name:
+    name: metabolite_name
+    title: metabolite_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    identifier: true
+    comments: Acetyl-CoA
+  metabolite.data_analysis_id:
+    name: metabolite.data_analysis_id
+    title: data_analysis_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  refmet_name:
+    name: refmet_name
+    title: refmet_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    recommended: true
+    comments: Acetyl-CoA
+  dtxsid:
+    name: dtxsid
+    title: dtxsid
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: DTXSID30992686
+  inchikey:
+    name: inchikey
+    title: inchikey
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ZSLZBFCDCINBPY-ZSJPKINUSA-N
+  mass:
+    name: mass
+    title: mass
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: '809.125784'
+  elution_time:
+    name: elution_time
+    title: elution_time
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: '1.23'
+  instrument.submitter_id:
+    name: instrument.submitter_id
+    title: instrument_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  manufacturer:
+    name: manufacturer
+    title: manufacturer
+    range: manufacturer menu
+    description: The name of the mass spectrometry instrument manufacturer
+    comments: ' '
+  model:
+    name: model
+    title: model
+    range: model menu
+    description: The name of the mass spectrometry instrument
+    required: true
+    slot_uri: obo:MS_1000031
+    comments: ' '
+  scan_polarity:
+    name: scan_polarity
+    title: scan_polarity
+    range: scan_polarity menu
+    description: Relative orientation of the electromagnetic field during the selection
+      and detection of ions in the mass spectrometer.
+    slot_uri: obo:MS_1000465
+    comments: ' '
+  ionization_type:
+    name: ionization_type
+    title: ionization_type
+    range: WhitespaceMinimizedString
+    description: The method by which gas phase ions are generated from the sample.
+    slot_uri: obo:MS_1000008
+    comments: electrospray ionization
+  detector_type:
+    name: detector_type
+    title: detector_type
+    range: WhitespaceMinimizedString
+    description: Type of detector used in the mass spectrometer.
+    slot_uri: obo:MS_1000026
+    comments: electron multiplier
+  mass_analyzer_type:
+    name: mass_analyzer_type
+    title: mass_analyzer_type
+    range: WhitespaceMinimizedString
+    description: Mass analyzer separates the ions according to their mass-to-charge
+      ratio.
+    slot_uri: obo:MS_1000443
+    comments: quadrupole
+  mass_spec_assay.provenance:
+    name: mass_spec_assay.provenance
+    title: Provenance
+    range: Provenance
+    description: ' '
+    required: true
+    comments: ' '
+  metabolide_id.provenance:
+    name: metabolide_id.provenance
+    title: Provenance
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  instrument.provenance:
+    name: instrument.provenance
+    title: Provenance
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  aliquot.provenance:
+    name: aliquot.provenance
+    title: Provenance
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+enums:
+  analyte_type menu:
+    name: analyte_type menu
+    permissible_values:
+      Biofluid:
+        text: Biofluid
+      Aqueous:
+        text: Aqueous
+      Lipophilic:
+        text: Lipophilic
+      Two-phase:
+        text: Two-phase
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  extract_preservation_method menu:
+    name: extract_preservation_method menu
+    permissible_values:
+      Room temperature:
+        text: Room temperature
+      -20C:
+        text: -20C
+      -80C:
+        text: -80C
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_category menu:
+    name: raw.data_category menu
+    permissible_values:
+      targeted metabolomics:
+        text: targeted metabolomics
+      untargeted metabolomics:
+        text: untargeted metabolomics
+      proteomics:
+        text: proteomics
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_format menu:
+    name: raw.data_format menu
+    permissible_values:
+      .RAW:
+        text: .RAW
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_type menu:
+    name: raw.data_type menu
+    permissible_values:
+      chromatograms:
+        text: chromatograms
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_category menu:
+    name: processed.data_category menu
+    permissible_values:
+      targeted metabolomics:
+        text: targeted metabolomics
+      untargeted metabolomics:
+        text: untargeted metabolomics
+      proteomics:
+        text: proteomics
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_format menu:
+    name: processed.data_format menu
+    permissible_values:
+      .txt:
+        text: .txt
+      .csv:
+        text: .csv
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_type menu:
+    name: processed.data_type menu
+    permissible_values:
+      integrated peaks:
+        text: integrated peaks
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  unit menu:
+    name: unit menu
+    permissible_values:
+      AUC:
+        text: AUC
+      nmol/mg protein:
+        text: nmol/mg protein
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  manufacturer menu:
+    name: manufacturer menu
+    permissible_values:
+      Agilent:
+        text: Agilent
+      Waters:
+        text: Waters
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  model menu:
+    name: model menu
+    permissible_values:
+      Xevo TQ-S:
+        text: Xevo TQ-S
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  scan_polarity menu:
+    name: scan_polarity menu
+    permissible_values:
+      negative scan:
+        text: negative scan
+      positive scan:
+        text: positive scan
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  detector_type menu:
+    name: detector_type menu
+    permissible_values:
+      array detector:
+        text: array detector
+      microchannel plate detector:
+        text: microchannel plate detector
+      photodiode array detector:
+        text: photodiode array detector
+      channeltron:
+        text: channeltron
+      conversion dynode:
+        text: conversion dynode
+      conversion dynode electron multiplier:
+        text: conversion dynode electron multiplier
+      conversion dynode photomultiplier:
+        text: conversion dynode photomultiplier
+      daly detector:
+        text: daly detector
+      dynode:
+        text: dynode
+      electron multiplier:
+        text: electron multiplier
+      electron multiplier tube:
+        text: electron multiplier tube
+      faraday cup:
+        text: faraday cup
+      fluorescence detector:
+        text: fluorescence detector
+      Acquity UPLC FLR:
+        text: Acquity UPLC FLR
+      focal plane collector:
+        text: focal plane collector
+      focal plane array:
+        text: focal plane array
+      inductive detector:
+        text: inductive detector
+      ion-to-photon detector:
+        text: ion-to-photon detector
+      multi-collector:
+        text: multi-collector
+      photomultiplier:
+        text: photomultiplier
+      point collector:
+        text: point collector
+      postacceleration detector:
+        text: postacceleration detector
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  mass_analyzer_type menu:
+    name: mass_analyzer_type menu
+    permissible_values:
+      cyclotron:
+        text: cyclotron
+      electrostatic energy analyzer:
+        text: electrostatic energy analyzer
+      fourier transform ion cyclotron resonance mass spectrometer:
+        text: fourier transform ion cyclotron resonance mass spectrometer
+      ion trap:
+        text: ion trap
+      linear ion trap:
+        text: linear ion trap
+      axial ejection linear ion trap:
+        text: axial ejection linear ion trap
+      radial ejection linear ion trap:
+        text: radial ejection linear ion trap
+      quadrupole ion trap:
+        text: quadrupole ion trap
+      magnetic sector:
+        text: magnetic sector
+      orbitrap:
+        text: orbitrap
+      quadrupole:
+        text: quadrupole
+      stored waveform inverse fourier transform:
+        text: stored waveform inverse fourier transform
+      time-of-flight:
+        text: time-of-flight
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'

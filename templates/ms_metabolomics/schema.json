@@ -1,0 +1,2532 @@
+{
+  "name": "mass_spec_metabolomics",
+  "description": "Based on CIMR",
+  "id": "https://example.com/CIMR",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "obo": {
+      "prefix_prefix": "obo",
+      "prefix_reference": "http://purl.obolibrary.org/obo/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/CIMR/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/CIMR",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/CIMR",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/CIMR",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/CIMR",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/CIMR",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/CIMR",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/CIMR",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/CIMR",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "analyte_type menu": {
+      "name": "analyte_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Biofluid": {
+          "text": "Biofluid"
+        },
+        "Aqueous": {
+          "text": "Aqueous"
+        },
+        "Lipophilic": {
+          "text": "Lipophilic"
+        },
+        "Two-phase": {
+          "text": "Two-phase"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "extract_preservation_method menu": {
+      "name": "extract_preservation_method menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Room temperature": {
+          "text": "Room temperature"
+        },
+        "-20C": {
+          "text": "-20C"
+        },
+        "-80C": {
+          "text": "-80C"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "raw.data_category menu": {
+      "name": "raw.data_category menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "targeted metabolomics": {
+          "text": "targeted metabolomics"
+        },
+        "untargeted metabolomics": {
+          "text": "untargeted metabolomics"
+        },
+        "proteomics": {
+          "text": "proteomics"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "raw.data_format menu": {
+      "name": "raw.data_format menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        ".RAW": {
+          "text": ".RAW"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "raw.data_type menu": {
+      "name": "raw.data_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "chromatograms": {
+          "text": "chromatograms"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "processed.data_category menu": {
+      "name": "processed.data_category menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "targeted metabolomics": {
+          "text": "targeted metabolomics"
+        },
+        "untargeted metabolomics": {
+          "text": "untargeted metabolomics"
+        },
+        "proteomics": {
+          "text": "proteomics"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "processed.data_format menu": {
+      "name": "processed.data_format menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        ".txt": {
+          "text": ".txt"
+        },
+        ".csv": {
+          "text": ".csv"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "processed.data_type menu": {
+      "name": "processed.data_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "integrated peaks": {
+          "text": "integrated peaks"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "unit menu": {
+      "name": "unit menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "AUC": {
+          "text": "AUC"
+        },
+        "nmol/mg protein": {
+          "text": "nmol/mg protein"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "manufacturer menu": {
+      "name": "manufacturer menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Agilent": {
+          "text": "Agilent"
+        },
+        "Waters": {
+          "text": "Waters"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "model menu": {
+      "name": "model menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Xevo TQ-S": {
+          "text": "Xevo TQ-S"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "scan_polarity menu": {
+      "name": "scan_polarity menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "negative scan": {
+          "text": "negative scan"
+        },
+        "positive scan": {
+          "text": "positive scan"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "detector_type menu": {
+      "name": "detector_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "array detector": {
+          "text": "array detector"
+        },
+        "microchannel plate detector": {
+          "text": "microchannel plate detector"
+        },
+        "photodiode array detector": {
+          "text": "photodiode array detector"
+        },
+        "channeltron": {
+          "text": "channeltron"
+        },
+        "conversion dynode": {
+          "text": "conversion dynode"
+        },
+        "conversion dynode electron multiplier": {
+          "text": "conversion dynode electron multiplier"
+        },
+        "conversion dynode photomultiplier": {
+          "text": "conversion dynode photomultiplier"
+        },
+        "daly detector": {
+          "text": "daly detector"
+        },
+        "dynode": {
+          "text": "dynode"
+        },
+        "electron multiplier": {
+          "text": "electron multiplier"
+        },
+        "electron multiplier tube": {
+          "text": "electron multiplier tube"
+        },
+        "faraday cup": {
+          "text": "faraday cup"
+        },
+        "fluorescence detector": {
+          "text": "fluorescence detector"
+        },
+        "Acquity UPLC FLR": {
+          "text": "Acquity UPLC FLR"
+        },
+        "focal plane collector": {
+          "text": "focal plane collector"
+        },
+        "focal plane array": {
+          "text": "focal plane array"
+        },
+        "inductive detector": {
+          "text": "inductive detector"
+        },
+        "ion-to-photon detector": {
+          "text": "ion-to-photon detector"
+        },
+        "multi-collector": {
+          "text": "multi-collector"
+        },
+        "photomultiplier": {
+          "text": "photomultiplier"
+        },
+        "point collector": {
+          "text": "point collector"
+        },
+        "postacceleration detector": {
+          "text": "postacceleration detector"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "mass_analyzer_type menu": {
+      "name": "mass_analyzer_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "cyclotron": {
+          "text": "cyclotron"
+        },
+        "electrostatic energy analyzer": {
+          "text": "electrostatic energy analyzer"
+        },
+        "fourier transform ion cyclotron resonance mass spectrometer": {
+          "text": "fourier transform ion cyclotron resonance mass spectrometer"
+        },
+        "ion trap": {
+          "text": "ion trap"
+        },
+        "linear ion trap": {
+          "text": "linear ion trap"
+        },
+        "axial ejection linear ion trap": {
+          "text": "axial ejection linear ion trap"
+        },
+        "radial ejection linear ion trap": {
+          "text": "radial ejection linear ion trap"
+        },
+        "quadrupole ion trap": {
+          "text": "quadrupole ion trap"
+        },
+        "magnetic sector": {
+          "text": "magnetic sector"
+        },
+        "orbitrap": {
+          "text": "orbitrap"
+        },
+        "quadrupole": {
+          "text": "quadrupole"
+        },
+        "stored waveform inverse fourier transform": {
+          "text": "stored waveform inverse fourier transform"
+        },
+        "time-of-flight": {
+          "text": "time-of-flight"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    }
+  },
+  "slots": {
+    "aliquot.submitter_id": {
+      "name": "aliquot.submitter_id",
+      "description": " ",
+      "title": "submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sample.submitter_id": {
+      "name": "sample.submitter_id",
+      "description": " ",
+      "title": "sample.submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyte_type": {
+      "name": "analyte_type",
+      "description": " ",
+      "title": "Analyte type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "analyte_type menu"
+    },
+    "analyte_protocol": {
+      "name": "analyte_protocol",
+      "description": " ",
+      "title": "Analyte preparation protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "derivitization": {
+      "name": "derivitization",
+      "description": " ",
+      "title": "derivitization",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "extract_preservation_method": {
+      "name": "extract_preservation_method",
+      "description": "The chemical agent used for the derivatization reaction",
+      "title": "extract_preservation_method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "extract_preservation_method menu"
+    },
+    "submitter_id": {
+      "name": "submitter_id",
+      "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+      "title": "submitter_id",
+      "comments": [
+        "ms_S001"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "aliquots.submitter_id": {
+      "name": "aliquots.submitter_id",
+      "description": " ",
+      "title": "aliquots.submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "rawDataFile": {
+      "name": "rawDataFile",
+      "description": " ",
+      "title": "rawDataFile",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "raw.data_category": {
+      "name": "raw.data_category",
+      "description": " ",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_category menu"
+    },
+    "raw.data_format": {
+      "name": "raw.data_format",
+      "description": " ",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_format menu"
+    },
+    "raw.data_type": {
+      "name": "raw.data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_type menu"
+    },
+    "instruments.submitter_id": {
+      "name": "instruments.submitter_id",
+      "description": " ",
+      "title": "instrument.submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "instruments.submitter_id menu"
+    },
+    "processedDataFile": {
+      "name": "processedDataFile",
+      "description": " ",
+      "title": "processedDataFile",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "processed.data_category": {
+      "name": "processed.data_category",
+      "description": " ",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "processed.data_category menu"
+    },
+    "processed.data_format": {
+      "name": "processed.data_format",
+      "description": " ",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "processed.data_format menu"
+    },
+    "processed.data_type": {
+      "name": "processed.data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "processed.data_type menu"
+    },
+    "Normalization": {
+      "name": "Normalization",
+      "description": " ",
+      "title": "Normalization",
+      "comments": [
+        "Each sample was normalized to both liver weight and 13C-,15N-labelled amino acid standards"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "Transformation": {
+      "name": "Transformation",
+      "description": " ",
+      "title": "Transformation",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "TransformationPurpose": {
+      "name": "TransformationPurpose",
+      "description": "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, etc.).",
+      "title": "TransformationPurpose",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "TransformationDescription": {
+      "name": "TransformationDescription",
+      "description": "Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.",
+      "title": "TransformationDescription",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "unit": {
+      "name": "unit",
+      "description": " ",
+      "title": "unit",
+      "comments": [
+        "nmol/mg total protein"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis_protocol.submitter_id": {
+      "name": "analysis_protocol.submitter_id",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "analysis_protocol.submitter_id",
+      "comments": [
+        "Progenesis QI (Waters) was used for peak processing. Metabolites were identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used to measure area under the curve. "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:NCIT_C42651",
+      "range": "WhitespaceMinimizedString"
+    },
+    "calibration_standard": {
+      "name": "calibration_standard",
+      "description": "Indicate the name of the chemical compound used as calibration standard.",
+      "title": "calibration_standard",
+      "comments": [
+        "Acetyl-1,2-13C2 Coenzyme A Sodium Salt"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "chromatography.name": {
+      "name": "chromatography.name",
+      "description": "name of chromatography",
+      "title": "name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "chromatography_column": {
+      "name": "chromatography_column",
+      "description": "The name of the chromatography column.",
+      "title": "chromatography_column",
+      "comments": [
+        "Ascentis Express C18: 5cm x 2.1 mm, 2.7 um, Sigma-Aldrich"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "chromatography_protocol": {
+      "name": "chromatography_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "chromatography_protocol",
+      "comments": [
+        "Ion-pairing reverse phase chromatography was performed on an Ascentis Express column (C18, 5 cm × 2.1 mm, 2.7 µm, Sigma)."
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "elution program": {
+      "name": "elution program",
+      "description": "Description of the elution program using the following scheme",
+      "title": "elution program",
+      "comments": [
+        "injection volume, 10 µl; column temperature, 30 °C; and flow rate, 400 µl/min. The LC solvents were solvent A: 10 mM tributylamine and 15 mM acetic acid in 97:3 water:methanol (pH 4.95) and solvent B: methanol. Elution from the column was performed over 11 min with the following gradient: t = 0, 0% solvent B, flow rate 0.4 ml/min; t = 1, 0% solvent B, flow rate 0.4 ml/min; t = 2, 20% solvent B, flow rate 0.3 ml/min; t = 3, 20% solvent B, flow rate 0.25 ml/min; t = 5, 55% solvent B, flow rate 0.15 ml/min; t = 8, 95% solvent B, flow rate 0.15 ml/min; t = 8.5, 95% solvent B, flow rate 0.15 ml/min; t = 9, 0% solvent B, flow rate 0.4 ml/min; t = 11, 0% solvent B, flow rate 0.4 ml/min."
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_rate": {
+      "name": "flow_rate",
+      "description": "Report the flow rate of the elution buffer through column in amount per minute.",
+      "title": "flow_rate",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "carrier_gas": {
+      "name": "carrier_gas",
+      "description": "The composition of the carrier gas (modile phase)",
+      "title": "carrier_gas",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "oven_temperature_program": {
+      "name": "oven_temperature_program",
+      "description": "The description of the gas chromatography oven temperature program",
+      "title": "oven_temperature_program",
+      "comments": [
+        "40 degree C hold for 1 min.;10 degree C/min. to 300 degree C;300 degree C hold for 10 min."
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "ms_method.name": {
+      "name": "ms_method.name",
+      "description": " ",
+      "title": "name",
+      "comments": [
+        "name of ms_method"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "ms_protocol": {
+      "name": "ms_protocol",
+      "description": "A brief description of the flow cytometry protocol",
+      "title": "ms_protocol",
+      "comments": [
+        "Mass spectra were acquired using negative-mode electrospray ionization run in MSE continuum mode. The capillary voltage was 2,500 V and cone voltage was 40 V. Nitrogen was used as cone gas and desolvation gas, with flow rates of 50 and 600 L/h, respectively. The source temperature was 100 °C, and desolvation temperature was 300 °C. Argon was used as collision gas."
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "metabolite_name": {
+      "name": "metabolite_name",
+      "description": " ",
+      "title": "metabolite_name",
+      "comments": [
+        "Acetyl-CoA"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "metabolite.data_analysis_id": {
+      "name": "metabolite.data_analysis_id",
+      "description": " ",
+      "title": "data_analysis_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "refmet_name": {
+      "name": "refmet_name",
+      "description": " ",
+      "title": "refmet_name",
+      "comments": [
+        "Acetyl-CoA"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "dtxsid": {
+      "name": "dtxsid",
+      "description": " ",
+      "title": "dtxsid",
+      "comments": [
+        "DTXSID30992686"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "inchikey": {
+      "name": "inchikey",
+      "description": " ",
+      "title": "inchikey",
+      "comments": [
+        "ZSLZBFCDCINBPY-ZSJPKINUSA-N"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "mass": {
+      "name": "mass",
+      "description": " ",
+      "title": "mass",
+      "comments": [
+        "809.125784"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "elution_time": {
+      "name": "elution_time",
+      "description": " ",
+      "title": "elution_time",
+      "comments": [
+        "1.23"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "instrument.submitter_id": {
+      "name": "instrument.submitter_id",
+      "description": " ",
+      "title": "instrument_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "manufacturer": {
+      "name": "manufacturer",
+      "description": "The name of the mass spectrometry instrument manufacturer",
+      "title": "manufacturer",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "manufacturer menu"
+    },
+    "model": {
+      "name": "model",
+      "description": "The name of the mass spectrometry instrument",
+      "title": "model",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000031",
+      "range": "model menu",
+      "required": true
+    },
+    "scan_polarity": {
+      "name": "scan_polarity",
+      "description": "Relative orientation of the electromagnetic field during the selection and detection of ions in the mass spectrometer.",
+      "title": "scan_polarity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000465",
+      "range": "scan_polarity menu"
+    },
+    "ionization_type": {
+      "name": "ionization_type",
+      "description": "The method by which gas phase ions are generated from the sample.",
+      "title": "ionization_type",
+      "comments": [
+        "electrospray ionization"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000008",
+      "range": "WhitespaceMinimizedString"
+    },
+    "detector_type": {
+      "name": "detector_type",
+      "description": "Type of detector used in the mass spectrometer.",
+      "title": "detector_type",
+      "comments": [
+        "electron multiplier"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000026",
+      "range": "WhitespaceMinimizedString"
+    },
+    "mass_analyzer_type": {
+      "name": "mass_analyzer_type",
+      "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
+      "title": "mass_analyzer_type",
+      "comments": [
+        "quadrupole"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:MS_1000443",
+      "range": "WhitespaceMinimizedString"
+    },
+    "mass_spec_assay.provenance": {
+      "name": "mass_spec_assay.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "Provenance",
+      "required": true
+    },
+    "metabolide_id.provenance": {
+      "name": "metabolide_id.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "instrument.provenance": {
+      "name": "instrument.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "aliquot.provenance": {
+      "name": "aliquot.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/CIMR"
+    },
+    "mass_spec_assay": {
+      "name": "mass_spec_assay",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "exact_mappings": [
+            "mass_spec_assay:submitter_id ms_raw_data:mass_spec_assay.submitter_id ms_analysis:submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
+          "exact_mappings": [
+            "mass_spec_assay:aliquots.submitter_id"
+          ],
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "rawDataFile": {
+          "name": "rawDataFile",
+          "exact_mappings": [
+            "ms_raw_data:file_name ms_analysis:ms_raw_data.submitter_id"
+          ],
+          "rank": 3,
+          "slot_group": "raw_data"
+        },
+        "raw.data_category": {
+          "name": "raw.data_category",
+          "exact_mappings": [
+            "ms_raw_data:data_category"
+          ],
+          "rank": 4,
+          "slot_group": "raw_data"
+        },
+        "raw.data_format": {
+          "name": "raw.data_format",
+          "exact_mappings": [
+            "ms_raw_data:data_format"
+          ],
+          "rank": 5,
+          "slot_group": "raw_data"
+        },
+        "raw.data_type": {
+          "name": "raw.data_type",
+          "exact_mappings": [
+            "ms_raw_data:data_type"
+          ],
+          "rank": 6,
+          "slot_group": "raw_data"
+        },
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
+          "exact_mappings": [
+            "ms_raw_data:instruments.submitter_id"
+          ],
+          "rank": 7,
+          "slot_group": "raw_data"
+        },
+        "processedDataFile": {
+          "name": "processedDataFile",
+          "exact_mappings": [
+            "ms_analysed_data:file_name"
+          ],
+          "rank": 8,
+          "slot_group": "data_analysis"
+        },
+        "processed.data_category": {
+          "name": "processed.data_category",
+          "exact_mappings": [
+            "ms_analysed_data:data_category"
+          ],
+          "rank": 9,
+          "slot_group": "data_analysis"
+        },
+        "processed.data_format": {
+          "name": "processed.data_format",
+          "exact_mappings": [
+            "ms_analysed_data:data_format"
+          ],
+          "rank": 10,
+          "slot_group": "data_analysis"
+        },
+        "processed.data_type": {
+          "name": "processed.data_type",
+          "exact_mappings": [
+            "ms_analysed_data:data_type"
+          ],
+          "rank": 11,
+          "slot_group": "data_analysis"
+        },
+        "Normalization": {
+          "name": "Normalization",
+          "exact_mappings": [
+            "ms_analysis:normalization"
+          ],
+          "rank": 12,
+          "slot_group": "data_analysis"
+        },
+        "Transformation": {
+          "name": "Transformation",
+          "exact_mappings": [
+            "ms_analysis:transformation"
+          ],
+          "rank": 13,
+          "slot_group": "data_analysis"
+        },
+        "TransformationPurpose": {
+          "name": "TransformationPurpose",
+          "exact_mappings": [
+            "ms_analysis:transformation_purpose"
+          ],
+          "rank": 14,
+          "slot_group": "data_analysis"
+        },
+        "TransformationDescription": {
+          "name": "TransformationDescription",
+          "exact_mappings": [
+            "ms_analysis:transformation_description"
+          ],
+          "rank": 15,
+          "slot_group": "data_analysis"
+        },
+        "unit": {
+          "name": "unit",
+          "exact_mappings": [
+            "ms_analysis:unit"
+          ],
+          "rank": 16,
+          "slot_group": "data_analysis"
+        },
+        "analysis_protocol.submitter_id": {
+          "name": "analysis_protocol.submitter_id",
+          "exact_mappings": [
+            "ms_analysis:analysis_protocol.submitter_id"
+          ],
+          "rank": 17,
+          "slot_group": "data_analysis"
+        },
+        "calibration_standard": {
+          "name": "calibration_standard",
+          "exact_mappings": [
+            "mass_spec_assay:calibration_standard"
+          ],
+          "rank": 18,
+          "slot_group": "extract"
+        },
+        "chromatography.name": {
+          "name": "chromatography.name",
+          "exact_mappings": [
+            "mass_spec_assay:chromatography_name"
+          ],
+          "rank": 19,
+          "slot_group": "chromatography"
+        },
+        "chromatography_column": {
+          "name": "chromatography_column",
+          "exact_mappings": [
+            "mass_spec_assay:chromatography_column"
+          ],
+          "rank": 20,
+          "slot_group": "chromatography"
+        },
+        "chromatography_protocol": {
+          "name": "chromatography_protocol",
+          "exact_mappings": [
+            "mass_spec_assay:chromatography_protocol"
+          ],
+          "rank": 21,
+          "slot_group": "chromatography"
+        },
+        "elution program": {
+          "name": "elution program",
+          "exact_mappings": [
+            "mass_spec_assay:elution_program"
+          ],
+          "rank": 22,
+          "slot_group": "LiquidChromatography"
+        },
+        "flow_rate": {
+          "name": "flow_rate",
+          "exact_mappings": [
+            "mass_spec_assay:flow_rate"
+          ],
+          "rank": 23,
+          "slot_group": "LiquidChromatography"
+        },
+        "carrier_gas": {
+          "name": "carrier_gas",
+          "exact_mappings": [
+            "mass_spec_assay:carrier_gas"
+          ],
+          "rank": 24,
+          "slot_group": "GasChromatography"
+        },
+        "oven_temperature_program": {
+          "name": "oven_temperature_program",
+          "exact_mappings": [
+            "mass_spec_assay:oven_temperature_program"
+          ],
+          "rank": 25,
+          "slot_group": "GasChromatography"
+        },
+        "ms_method.name": {
+          "name": "ms_method.name",
+          "exact_mappings": [
+            "mass_spec_assay:ms_method_name"
+          ],
+          "rank": 26,
+          "slot_group": "ms_method"
+        },
+        "ms_protocol": {
+          "name": "ms_protocol",
+          "exact_mappings": [
+            "mass_spec_assay:ms_protocol"
+          ],
+          "rank": 27,
+          "slot_group": "ms_method"
+        },
+        "mass_spec_assay.provenance": {
+          "name": "mass_spec_assay.provenance",
+          "exact_mappings": [
+            "mass_spec_assay:provenance ms_analysed_data:provenance ms_analysis:provenance"
+          ],
+          "rank": 28,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+          "title": "submitter_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:submitter_id ms_raw_data:mass_spec_assay.submitter_id ms_analysis:submitter_id"
+          ],
+          "rank": 1,
+          "alias": "submitter_id",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
+          "description": " ",
+          "title": "aliquots.submitter_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:aliquots.submitter_id"
+          ],
+          "rank": 2,
+          "alias": "aliquots.submitter_id",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "rawDataFile": {
+          "name": "rawDataFile",
+          "description": " ",
+          "title": "rawDataFile",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_raw_data:file_name ms_analysis:ms_raw_data.submitter_id"
+          ],
+          "rank": 3,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "rawDataFile",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "raw_data",
+          "range": "WhitespaceMinimizedString"
+        },
+        "raw.data_category": {
+          "name": "raw.data_category",
+          "description": " ",
+          "title": "data_category",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_raw_data:data_category"
+          ],
+          "rank": 4,
+          "alias": "raw.data_category",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "raw_data",
+          "range": "raw.data_category menu"
+        },
+        "raw.data_format": {
+          "name": "raw.data_format",
+          "description": " ",
+          "title": "data_format",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_raw_data:data_format"
+          ],
+          "rank": 5,
+          "alias": "raw.data_format",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "raw_data",
+          "range": "raw.data_format menu"
+        },
+        "raw.data_type": {
+          "name": "raw.data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_raw_data:data_type"
+          ],
+          "rank": 6,
+          "alias": "raw.data_type",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "raw_data",
+          "range": "raw.data_type menu"
+        },
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
+          "description": " ",
+          "title": "instrument.submitter_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_raw_data:instruments.submitter_id"
+          ],
+          "rank": 7,
+          "alias": "instruments.submitter_id",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "raw_data",
+          "range": "instruments.submitter_id menu"
+        },
+        "processedDataFile": {
+          "name": "processedDataFile",
+          "description": " ",
+          "title": "processedDataFile",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysed_data:file_name"
+          ],
+          "rank": 8,
+          "alias": "processedDataFile",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "processed.data_category": {
+          "name": "processed.data_category",
+          "description": " ",
+          "title": "data_category",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysed_data:data_category"
+          ],
+          "rank": 9,
+          "alias": "processed.data_category",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "processed.data_category menu"
+        },
+        "processed.data_format": {
+          "name": "processed.data_format",
+          "description": " ",
+          "title": "data_format",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysed_data:data_format"
+          ],
+          "rank": 10,
+          "alias": "processed.data_format",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "processed.data_format menu"
+        },
+        "processed.data_type": {
+          "name": "processed.data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysed_data:data_type"
+          ],
+          "rank": 11,
+          "alias": "processed.data_type",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "processed.data_type menu"
+        },
+        "Normalization": {
+          "name": "Normalization",
+          "description": " ",
+          "title": "Normalization",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysis:normalization"
+          ],
+          "rank": 12,
+          "alias": "Normalization",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "Transformation": {
+          "name": "Transformation",
+          "description": " ",
+          "title": "Transformation",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysis:transformation"
+          ],
+          "rank": 13,
+          "alias": "Transformation",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TransformationPurpose": {
+          "name": "TransformationPurpose",
+          "description": "The purpose of each performed transformation shall be specified (e.g., data visualization, background correction, statistical analysis, etc.).",
+          "title": "TransformationPurpose",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysis:transformation_purpose"
+          ],
+          "rank": 14,
+          "alias": "TransformationPurpose",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "TransformationDescription": {
+          "name": "TransformationDescription",
+          "description": "Either the exact mathematical formulas/algorithms of each data transformation shall be supplied using an open and freely available specification, or a description of each transformation shall be provided.",
+          "title": "TransformationDescription",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysis:transformation_description"
+          ],
+          "rank": 15,
+          "alias": "TransformationDescription",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "unit": {
+          "name": "unit",
+          "description": " ",
+          "title": "unit",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysis:unit"
+          ],
+          "rank": 16,
+          "alias": "unit",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis_protocol.submitter_id": {
+          "name": "analysis_protocol.submitter_id",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "analysis_protocol.submitter_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "ms_analysis:analysis_protocol.submitter_id"
+          ],
+          "rank": 17,
+          "slot_uri": "obo:NCIT_C42651",
+          "alias": "analysis_protocol.submitter_id",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "calibration_standard": {
+          "name": "calibration_standard",
+          "description": "Indicate the name of the chemical compound used as calibration standard.",
+          "title": "calibration_standard",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:calibration_standard"
+          ],
+          "rank": 18,
+          "alias": "calibration_standard",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "extract",
+          "range": "WhitespaceMinimizedString"
+        },
+        "chromatography.name": {
+          "name": "chromatography.name",
+          "description": "name of chromatography",
+          "title": "name",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:chromatography_name"
+          ],
+          "rank": 19,
+          "alias": "chromatography.name",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "chromatography_column": {
+          "name": "chromatography_column",
+          "description": "The name of the chromatography column.",
+          "title": "chromatography_column",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:chromatography_column"
+          ],
+          "rank": 20,
+          "alias": "chromatography_column",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "chromatography_protocol": {
+          "name": "chromatography_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "chromatography_protocol",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:chromatography_protocol"
+          ],
+          "rank": 21,
+          "alias": "chromatography_protocol",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "chromatography",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "elution program": {
+          "name": "elution program",
+          "description": "Description of the elution program using the following scheme",
+          "title": "elution program",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:elution_program"
+          ],
+          "rank": 22,
+          "alias": "elution_program",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_rate": {
+          "name": "flow_rate",
+          "description": "Report the flow rate of the elution buffer through column in amount per minute.",
+          "title": "flow_rate",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:flow_rate"
+          ],
+          "rank": 23,
+          "alias": "flow_rate",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "carrier_gas": {
+          "name": "carrier_gas",
+          "description": "The composition of the carrier gas (modile phase)",
+          "title": "carrier_gas",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:carrier_gas"
+          ],
+          "rank": 24,
+          "alias": "carrier_gas",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "GasChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "oven_temperature_program": {
+          "name": "oven_temperature_program",
+          "description": "The description of the gas chromatography oven temperature program",
+          "title": "oven_temperature_program",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:oven_temperature_program"
+          ],
+          "rank": 25,
+          "alias": "oven_temperature_program",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "GasChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "ms_method.name": {
+          "name": "ms_method.name",
+          "description": " ",
+          "title": "name",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:ms_method_name"
+          ],
+          "rank": 26,
+          "alias": "ms_method.name",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "ms_method",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "ms_protocol": {
+          "name": "ms_protocol",
+          "description": "A brief description of the flow cytometry protocol",
+          "title": "ms_protocol",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:ms_protocol"
+          ],
+          "rank": 27,
+          "alias": "ms_protocol",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "ms_method",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "mass_spec_assay.provenance": {
+          "name": "mass_spec_assay.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:provenance ms_analysed_data:provenance ms_analysis:provenance"
+          ],
+          "rank": 28,
+          "alias": "mass_spec_assay.provenance",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "provenance",
+          "range": "Provenance",
+          "required": true
+        }
+      }
+    },
+    "metaboliteID": {
+      "name": "metaboliteID",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "metabolite_name": {
+          "name": "metabolite_name",
+          "exact_mappings": [
+            "metabolite_id:submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "metabolite_identification"
+        },
+        "metabolite.data_analysis_id": {
+          "name": "metabolite.data_analysis_id",
+          "exact_mappings": [
+            "metabolite_id:ms_analysed_data.submitter_id"
+          ],
+          "rank": 2,
+          "slot_group": "metabolite_identification"
+        },
+        "refmet_name": {
+          "name": "refmet_name",
+          "exact_mappings": [
+            "metabolite_id:refmet_name"
+          ],
+          "rank": 3,
+          "slot_group": "metabolite_identification"
+        },
+        "dtxsid": {
+          "name": "dtxsid",
+          "exact_mappings": [
+            "metabolite_id:dtxsid"
+          ],
+          "rank": 4,
+          "slot_group": "metabolite_identification"
+        },
+        "inchikey": {
+          "name": "inchikey",
+          "exact_mappings": [
+            "metabolite_id:inchikey"
+          ],
+          "rank": 5,
+          "slot_group": "metabolite_identification"
+        },
+        "mass": {
+          "name": "mass",
+          "exact_mappings": [
+            "metabolite_id:mass"
+          ],
+          "rank": 6,
+          "slot_group": "metabolite_identification"
+        },
+        "elution_time": {
+          "name": "elution_time",
+          "exact_mappings": [
+            "metabolite_id:elution_time"
+          ],
+          "rank": 7,
+          "slot_group": "metabolite_identification"
+        },
+        "metabolide_id.provenance": {
+          "name": "metabolide_id.provenance",
+          "exact_mappings": [
+            "metabolite_id:provenance"
+          ],
+          "rank": 8,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "metabolite_name": {
+          "name": "metabolite_name",
+          "description": " ",
+          "title": "metabolite_name",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:submitter_id"
+          ],
+          "rank": 1,
+          "identifier": true,
+          "alias": "metabolite_name",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "metabolite.data_analysis_id": {
+          "name": "metabolite.data_analysis_id",
+          "description": " ",
+          "title": "data_analysis_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:ms_analysed_data.submitter_id"
+          ],
+          "rank": 2,
+          "alias": "metabolite.data_analysis_id",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "refmet_name": {
+          "name": "refmet_name",
+          "description": " ",
+          "title": "refmet_name",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:refmet_name"
+          ],
+          "rank": 3,
+          "alias": "refmet_name",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "dtxsid": {
+          "name": "dtxsid",
+          "description": " ",
+          "title": "dtxsid",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:dtxsid"
+          ],
+          "rank": 4,
+          "alias": "dtxsid",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "inchikey": {
+          "name": "inchikey",
+          "description": " ",
+          "title": "inchikey",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:inchikey"
+          ],
+          "rank": 5,
+          "alias": "inchikey",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "mass": {
+          "name": "mass",
+          "description": " ",
+          "title": "mass",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:mass"
+          ],
+          "rank": 6,
+          "alias": "mass",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "elution_time": {
+          "name": "elution_time",
+          "description": " ",
+          "title": "elution_time",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:elution_time"
+          ],
+          "rank": 7,
+          "alias": "elution_time",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
+        "metabolide_id.provenance": {
+          "name": "metabolide_id.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "metabolite_id:provenance"
+          ],
+          "rank": 8,
+          "alias": "metabolide_id.provenance",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "provenance",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        }
+      }
+    },
+    "Instrument": {
+      "name": "Instrument",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "instrument.submitter_id": {
+          "name": "instrument.submitter_id",
+          "rank": 1,
+          "slot_group": "Instrument"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "rank": 2,
+          "slot_group": "Instrument"
+        },
+        "model": {
+          "name": "model",
+          "rank": 3,
+          "slot_group": "Instrument"
+        },
+        "scan_polarity": {
+          "name": "scan_polarity",
+          "rank": 4,
+          "slot_group": "Instrument"
+        },
+        "ionization_type": {
+          "name": "ionization_type",
+          "rank": 5,
+          "slot_group": "Instrument"
+        },
+        "detector_type": {
+          "name": "detector_type",
+          "rank": 6,
+          "slot_group": "Instrument"
+        },
+        "mass_analyzer_type": {
+          "name": "mass_analyzer_type",
+          "rank": 7,
+          "slot_group": "Instrument"
+        },
+        "instrument.provenance": {
+          "name": "instrument.provenance",
+          "rank": 8,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "instrument.submitter_id": {
+          "name": "instrument.submitter_id",
+          "description": " ",
+          "title": "instrument_id",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "alias": "instrument.submitter_id",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "manufacturer": {
+          "name": "manufacturer",
+          "description": "The name of the mass spectrometry instrument manufacturer",
+          "title": "manufacturer",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "manufacturer",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "manufacturer menu"
+        },
+        "model": {
+          "name": "model",
+          "description": "The name of the mass spectrometry instrument",
+          "title": "model",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "slot_uri": "obo:MS_1000031",
+          "alias": "model",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "model menu",
+          "required": true
+        },
+        "scan_polarity": {
+          "name": "scan_polarity",
+          "description": "Relative orientation of the electromagnetic field during the selection and detection of ions in the mass spectrometer.",
+          "title": "scan_polarity",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 4,
+          "slot_uri": "obo:MS_1000465",
+          "alias": "scan_polarity",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "scan_polarity menu"
+        },
+        "ionization_type": {
+          "name": "ionization_type",
+          "description": "The method by which gas phase ions are generated from the sample.",
+          "title": "ionization_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 5,
+          "slot_uri": "obo:MS_1000008",
+          "alias": "ionization_type",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "detector_type": {
+          "name": "detector_type",
+          "description": "Type of detector used in the mass spectrometer.",
+          "title": "detector_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 6,
+          "slot_uri": "obo:MS_1000026",
+          "alias": "detector_type",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "mass_analyzer_type": {
+          "name": "mass_analyzer_type",
+          "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
+          "title": "mass_analyzer_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 7,
+          "slot_uri": "obo:MS_1000443",
+          "alias": "mass_analyzer_type",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
+        "instrument.provenance": {
+          "name": "instrument.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 8,
+          "alias": "instrument.provenance",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "provenance",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    },
+    "Aliquot": {
+      "name": "Aliquot",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "aliquot.submitter_id": {
+          "name": "aliquot.submitter_id",
+          "exact_mappings": [
+            "aliquot:submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "sample.submitter_id": {
+          "name": "sample.submitter_id",
+          "exact_mappings": [
+            "aliquot:samples.submitter_id"
+          ],
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "analyte_type": {
+          "name": "analyte_type",
+          "exact_mappings": [
+            "aliquot:analyte_type"
+          ],
+          "rank": 3,
+          "slot_group": "aliquot"
+        },
+        "analyte_protocol": {
+          "name": "analyte_protocol",
+          "exact_mappings": [
+            "aliquot:analyte_protocol"
+          ],
+          "rank": 4,
+          "slot_group": "aliquot"
+        },
+        "derivitization": {
+          "name": "derivitization",
+          "exact_mappings": [
+            "aliquot:derivitization"
+          ],
+          "rank": 5,
+          "slot_group": "aliquot"
+        },
+        "extract_preservation_method": {
+          "name": "extract_preservation_method",
+          "exact_mappings": [
+            "aliquot:extract_preservation_method"
+          ],
+          "rank": 6,
+          "slot_group": "aliquot"
+        },
+        "aliquot.provenance": {
+          "name": "aliquot.provenance",
+          "exact_mappings": [
+            "aliquot:provenance"
+          ],
+          "rank": 7,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "aliquot.submitter_id": {
+          "name": "aliquot.submitter_id",
+          "description": " ",
+          "title": "submitter_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:submitter_id"
+          ],
+          "rank": 1,
+          "alias": "aliquot.submitter_id",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sample.submitter_id": {
+          "name": "sample.submitter_id",
+          "description": " ",
+          "title": "sample.submitter_id",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:samples.submitter_id"
+          ],
+          "rank": 2,
+          "alias": "sample.submitter_id",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyte_type": {
+          "name": "analyte_type",
+          "description": " ",
+          "title": "Analyte type",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:analyte_type"
+          ],
+          "rank": 3,
+          "alias": "analyte_type",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "analyte_type menu"
+        },
+        "analyte_protocol": {
+          "name": "analyte_protocol",
+          "description": " ",
+          "title": "Analyte preparation protocol",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:analyte_protocol"
+          ],
+          "rank": 4,
+          "alias": "analyte_protocol",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "WhitespaceMinimizedString"
+        },
+        "derivitization": {
+          "name": "derivitization",
+          "description": " ",
+          "title": "derivitization",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:derivitization"
+          ],
+          "rank": 5,
+          "alias": "derivitization",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "WhitespaceMinimizedString"
+        },
+        "extract_preservation_method": {
+          "name": "extract_preservation_method",
+          "description": "The chemical agent used for the derivatization reaction",
+          "title": "extract_preservation_method",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:extract_preservation_method"
+          ],
+          "rank": 6,
+          "alias": "extract_preservation_method",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "extract_preservation_method menu"
+        },
+        "aliquot.provenance": {
+          "name": "aliquot.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:provenance"
+          ],
+          "rank": 7,
+          "alias": "aliquot.provenance",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "provenance",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    }
+  },
+  "source_file": "schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

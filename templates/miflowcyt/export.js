@@ -119,7 +119,7 @@ export default {
 		}
 	},
 
-	gen3_analyte: {
+	gen3_aliquot: {
 		fileType: 'tsv',
 		status: 'published',
 		method: function(dh) {
