@@ -1,0 +1,5127 @@
+{
+  "name": "toxicology_cellular_assays",
+  "description": "The Minimum Information about Animal Toxicology Experiments is a community-driven set of metadata expectations for in vivo experiments capturing treatment with an environmental contaminant, food contaminant, or chemical agent.",
+  "id": "https://example.com/MIACA",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "obo": {
+      "prefix_prefix": "obo",
+      "prefix_reference": "http://purl.obolibrary.org/obo/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/MIACA/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/MIACA",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/MIACA",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/MIACA",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/MIACA",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/MIACA",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/MIACA",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/MIACA",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/MIACA",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/MIACA",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "data_submission_contact_department menu": {
+      "name": "data_submission_contact_department menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "Biochemistry and Molecular Biology": {
+          "text": "Biochemistry and Molecular Biology"
+        },
+        "Pharmacology and toxicology": {
+          "text": "Pharmacology and toxicology"
+        },
+        "Institute for Integrative toxicology": {
+          "text": "Institute for Integrative toxicology"
+        },
+        "Physiology": {
+          "text": "Physiology"
+        },
+        "Statistics": {
+          "text": "Statistics"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "data_submission_contact_institution menu": {
+      "name": "data_submission_contact_institution menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "Michigan State University": {
+          "text": "Michigan State University"
+        },
+        "Emory University": {
+          "text": "Emory University"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "data_submission_contact_state menu": {
+      "name": "data_submission_contact_state menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "AL": {
+          "text": "AL"
+        },
+        "AK": {
+          "text": "AK"
+        },
+        "AZ": {
+          "text": "AZ"
+        },
+        "AR": {
+          "text": "AR"
+        },
+        "CA": {
+          "text": "CA"
+        },
+        "CO": {
+          "text": "CO"
+        },
+        "CT": {
+          "text": "CT"
+        },
+        "DE": {
+          "text": "DE"
+        },
+        "DC": {
+          "text": "DC"
+        },
+        "FL": {
+          "text": "FL"
+        },
+        "GA": {
+          "text": "GA"
+        },
+        "HI": {
+          "text": "HI"
+        },
+        "ID": {
+          "text": "ID"
+        },
+        "IL": {
+          "text": "IL"
+        },
+        "IN": {
+          "text": "IN"
+        },
+        "IA": {
+          "text": "IA"
+        },
+        "KS": {
+          "text": "KS"
+        },
+        "KY": {
+          "text": "KY"
+        },
+        "LA": {
+          "text": "LA"
+        },
+        "ME": {
+          "text": "ME"
+        },
+        "MD": {
+          "text": "MD"
+        },
+        "MA": {
+          "text": "MA"
+        },
+        "MI": {
+          "text": "MI"
+        },
+        "MN": {
+          "text": "MN"
+        },
+        "MS": {
+          "text": "MS"
+        },
+        "MO": {
+          "text": "MO"
+        },
+        "MT": {
+          "text": "MT"
+        },
+        "NB*": {
+          "text": "NB*"
+        },
+        "*to NE in 1969": {
+          "text": "*to NE in 1969"
+        },
+        "NV": {
+          "text": "NV"
+        },
+        "NH": {
+          "text": "NH"
+        },
+        "NJ": {
+          "text": "NJ"
+        },
+        "NM": {
+          "text": "NM"
+        },
+        "NY": {
+          "text": "NY"
+        },
+        "NC": {
+          "text": "NC"
+        },
+        "ND": {
+          "text": "ND"
+        },
+        "OH": {
+          "text": "OH"
+        },
+        "OK": {
+          "text": "OK"
+        },
+        "OR": {
+          "text": "OR"
+        },
+        "PA": {
+          "text": "PA"
+        },
+        "PR": {
+          "text": "PR"
+        },
+        "RI": {
+          "text": "RI"
+        },
+        "SC": {
+          "text": "SC"
+        },
+        "SD": {
+          "text": "SD"
+        },
+        "TN": {
+          "text": "TN"
+        },
+        "TX": {
+          "text": "TX"
+        },
+        "UT": {
+          "text": "UT"
+        },
+        "VT": {
+          "text": "VT"
+        },
+        "VA": {
+          "text": "VA"
+        },
+        "WA": {
+          "text": "WA"
+        },
+        "WV": {
+          "text": "WV"
+        },
+        "WI": {
+          "text": "WI"
+        },
+        "WY": {
+          "text": "WY"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "support_source menu": {
+      "name": "support_source menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "NIEHS": {
+          "text": "NIEHS"
+        },
+        "NIDDK": {
+          "text": "NIDDK"
+        },
+        "NHGRI": {
+          "text": "NHGRI"
+        },
+        "NHLBI": {
+          "text": "NHLBI"
+        },
+        "NIAID": {
+          "text": "NIAID"
+        },
+        "NLM": {
+          "text": "NLM"
+        },
+        "Superfund Basic Research Program": {
+          "text": "Superfund Basic Research Program"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "study_design menu": {
+      "name": "study_design menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "dose response design": {
+          "text": "dose response design"
+        },
+        "case control design": {
+          "text": "case control design"
+        },
+        "cross sectional design": {
+          "text": "cross sectional design"
+        },
+        "genetic modification design": {
+          "text": "genetic modification design"
+        },
+        "sex design": {
+          "text": "sex design"
+        },
+        "time series design": {
+          "text": "time series design"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "study_type menu": {
+      "name": "study_type menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "Teratology": {
+          "text": "Teratology"
+        },
+        "Short term": {
+          "text": "Short term"
+        },
+        "Long term": {
+          "text": "Long term"
+        },
+        "Bacterial mutagenicity": {
+          "text": "Bacterial mutagenicity"
+        },
+        "Drosophila germ cell mutagenicity": {
+          "text": "Drosophila germ cell mutagenicity"
+        },
+        "In vitro micronucleus": {
+          "text": "In vitro micronucleus"
+        },
+        "In vivo alkaline comet assay": {
+          "text": "In vivo alkaline comet assay"
+        },
+        "Mammalian cell cytogenetics": {
+          "text": "Mammalian cell cytogenetics"
+        },
+        "Mammalian cell mutagenicity": {
+          "text": "Mammalian cell mutagenicity"
+        },
+        "Micronucleus": {
+          "text": "Micronucleus"
+        },
+        "Rodent cytogenetics": {
+          "text": "Rodent cytogenetics"
+        },
+        "ADME": {
+          "text": "ADME"
+        },
+        "Immunotoxicology": {
+          "text": "Immunotoxicology"
+        },
+        "Nematode": {
+          "text": "Nematode"
+        },
+        "RACB": {
+          "text": "RACB"
+        },
+        "Tox21 - Phase II": {
+          "text": "Tox21 - Phase II"
+        },
+        "Toxicogenomics": {
+          "text": "Toxicogenomics"
+        },
+        "Toxicokinetics": {
+          "text": "Toxicokinetics"
+        },
+        "Zebrafish": {
+          "text": "Zebrafish"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "experimental_setting menu": {
+      "name": "experimental_setting menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "in vitro": {
+          "text": "in vitro"
+        },
+        "ex vivo": {
+          "text": "ex vivo"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "cell_type menu": {
+      "name": "cell_type menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "Hepatocyte": {
+          "text": "Hepatocyte"
+        },
+        "Hep G2 cell": {
+          "text": "Hep G2 cell"
+        },
+        "Hepa-RG cell": {
+          "text": "Hepa-RG cell"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "organism menu": {
+      "name": "organism menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "Homo sapiens": {
+          "text": "Homo sapiens"
+        },
+        "Mus musculus": {
+          "text": "Mus musculus"
+        },
+        "Rattus norvegicus": {
+          "text": "Rattus norvegicus"
+        },
+        "Drosophila melanogaster": {
+          "text": "Drosophila melanogaster"
+        },
+        "Danio rerio": {
+          "text": "Danio rerio"
+        },
+        "Xenopus laevis": {
+          "text": "Xenopus laevis"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "strain menu": {
+      "name": "strain menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "C57BL/6NCrl": {
+          "text": "C57BL/6NCrl"
+        },
+        "C57BL/6J": {
+          "text": "C57BL/6J"
+        },
+        "129/Sv": {
+          "text": "129/Sv"
+        },
+        "FVB/N": {
+          "text": "FVB/N"
+        },
+        "BALB/cJ": {
+          "text": "BALB/cJ"
+        },
+        "C3H/HeJ": {
+          "text": "C3H/HeJ"
+        },
+        "Sprague-Dawley": {
+          "text": "Sprague-Dawley"
+        },
+        "Dahl SS": {
+          "text": "Dahl SS"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "sex menu": {
+      "name": "sex menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "female": {
+          "text": "female"
+        },
+        "male": {
+          "text": "male"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "source_organ menu": {
+      "name": "source_organ menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "Abdomen": {
+          "text": "Abdomen"
+        },
+        "Abdominal Wall": {
+          "text": "Abdominal Wall"
+        },
+        "Acetabulum": {
+          "text": "Acetabulum"
+        },
+        "Adenoid": {
+          "text": "Adenoid"
+        },
+        "Adipose": {
+          "text": "Adipose"
+        },
+        "Adrenal": {
+          "text": "Adrenal"
+        },
+        "Alveolar Ridge": {
+          "text": "Alveolar Ridge"
+        },
+        "Amniotic Fluid": {
+          "text": "Amniotic Fluid"
+        },
+        "Ampulla Of Vater": {
+          "text": "Ampulla Of Vater"
+        },
+        "Anal Sphincter": {
+          "text": "Anal Sphincter"
+        },
+        "Ankle": {
+          "text": "Ankle"
+        },
+        "Anorectum": {
+          "text": "Anorectum"
+        },
+        "Antecubital Fossa": {
+          "text": "Antecubital Fossa"
+        },
+        "Antrum": {
+          "text": "Antrum"
+        },
+        "Anus": {
+          "text": "Anus"
+        },
+        "Aorta": {
+          "text": "Aorta"
+        },
+        "Aortic Body": {
+          "text": "Aortic Body"
+        },
+        "Appendix": {
+          "text": "Appendix"
+        },
+        "Aqueous Fluid": {
+          "text": "Aqueous Fluid"
+        },
+        "Arm": {
+          "text": "Arm"
+        },
+        "Artery": {
+          "text": "Artery"
+        },
+        "Ascending Colon": {
+          "text": "Ascending Colon"
+        },
+        "Ascending Colon Hepatic Flexure": {
+          "text": "Ascending Colon Hepatic Flexure"
+        },
+        "Auditory Canal": {
+          "text": "Auditory Canal"
+        },
+        "Autonomic Nervous System": {
+          "text": "Autonomic Nervous System"
+        },
+        "Axilla": {
+          "text": "Axilla"
+        },
+        "Back": {
+          "text": "Back"
+        },
+        "Bile Duct": {
+          "text": "Bile Duct"
+        },
+        "Bladder": {
+          "text": "Bladder"
+        },
+        "Blood": {
+          "text": "Blood"
+        },
+        "Blood Vessel": {
+          "text": "Blood Vessel"
+        },
+        "Bone": {
+          "text": "Bone"
+        },
+        "Bone Marrow": {
+          "text": "Bone Marrow"
+        },
+        "Bowel": {
+          "text": "Bowel"
+        },
+        "Brain": {
+          "text": "Brain"
+        },
+        "Brain Stem": {
+          "text": "Brain Stem"
+        },
+        "Breast": {
+          "text": "Breast"
+        },
+        "Broad Ligament": {
+          "text": "Broad Ligament"
+        },
+        "Bronchiole": {
+          "text": "Bronchiole"
+        },
+        "Bronchus": {
+          "text": "Bronchus"
+        },
+        "Brow": {
+          "text": "Brow"
+        },
+        "Buccal Cavity": {
+          "text": "Buccal Cavity"
+        },
+        "Buccal Mucosa": {
+          "text": "Buccal Mucosa"
+        },
+        "Buttock": {
+          "text": "Buttock"
+        },
+        "Calf": {
+          "text": "Calf"
+        },
+        "Capillary": {
+          "text": "Capillary"
+        },
+        "Cardia": {
+          "text": "Cardia"
+        },
+        "Carina": {
+          "text": "Carina"
+        },
+        "Carotid Artery": {
+          "text": "Carotid Artery"
+        },
+        "Carotid Body": {
+          "text": "Carotid Body"
+        },
+        "Cartilage": {
+          "text": "Cartilage"
+        },
+        "Cecum": {
+          "text": "Cecum"
+        },
+        "Cell-Line": {
+          "text": "Cell-Line"
+        },
+        "Central Nervous System": {
+          "text": "Central Nervous System"
+        },
+        "Cerebellum": {
+          "text": "Cerebellum"
+        },
+        "Cerebral Cortex": {
+          "text": "Cerebral Cortex"
+        },
+        "Cerebrospinal Fluid": {
+          "text": "Cerebrospinal Fluid"
+        },
+        "Cerebrum": {
+          "text": "Cerebrum"
+        },
+        "Cervical Spine": {
+          "text": "Cervical Spine"
+        },
+        "Cervix": {
+          "text": "Cervix"
+        },
+        "Chest": {
+          "text": "Chest"
+        },
+        "Chest Wall": {
+          "text": "Chest Wall"
+        },
+        "Chin": {
+          "text": "Chin"
+        },
+        "Clavicle": {
+          "text": "Clavicle"
+        },
+        "Clitoris": {
+          "text": "Clitoris"
+        },
+        "Colon": {
+          "text": "Colon"
+        },
+        "Colon - Mucosa Only": {
+          "text": "Colon - Mucosa Only"
+        },
+        "Common Duct": {
+          "text": "Common Duct"
+        },
+        "Conjunctiva": {
+          "text": "Conjunctiva"
+        },
+        "Connective Tissue": {
+          "text": "Connective Tissue"
+        },
+        "Dermal": {
+          "text": "Dermal"
+        },
+        "Descending Colon": {
+          "text": "Descending Colon"
+        },
+        "Diaphragm": {
+          "text": "Diaphragm"
+        },
+        "Duodenum": {
+          "text": "Duodenum"
+        },
+        "Ear": {
+          "text": "Ear"
+        },
+        "Ear Canal": {
+          "text": "Ear Canal"
+        },
+        "Pinna (External)": {
+          "text": "Pinna (External)"
+        },
+        "Effusion": {
+          "text": "Effusion"
+        },
+        "Elbow": {
+          "text": "Elbow"
+        },
+        "Endocrine Gland": {
+          "text": "Endocrine Gland"
+        },
+        "Epididymis": {
+          "text": "Epididymis"
+        },
+        "Epidural Space": {
+          "text": "Epidural Space"
+        },
+        "Esophagogastric Junction": {
+          "text": "Esophagogastric Junction"
+        },
+        "Esophagus": {
+          "text": "Esophagus"
+        },
+        "Esophagus - Mucosa Only": {
+          "text": "Esophagus - Mucosa Only"
+        },
+        "Eye": {
+          "text": "Eye"
+        },
+        "Fallopian Tube": {
+          "text": "Fallopian Tube"
+        },
+        "Femoral Artery": {
+          "text": "Femoral Artery"
+        },
+        "Femoral Vein": {
+          "text": "Femoral Vein"
+        },
+        "Femur": {
+          "text": "Femur"
+        },
+        "Fibroblasts": {
+          "text": "Fibroblasts"
+        },
+        "Fibula": {
+          "text": "Fibula"
+        },
+        "Finger": {
+          "text": "Finger"
+        },
+        "Floor Of Mouth": {
+          "text": "Floor Of Mouth"
+        },
+        "Fluid": {
+          "text": "Fluid"
+        },
+        "Foot": {
+          "text": "Foot"
+        },
+        "Forearm": {
+          "text": "Forearm"
+        },
+        "Forehead": {
+          "text": "Forehead"
+        },
+        "Foreskin": {
+          "text": "Foreskin"
+        },
+        "Frontal Cortex": {
+          "text": "Frontal Cortex"
+        },
+        "Frontal Lobe": {
+          "text": "Frontal Lobe"
+        },
+        "Fundus Of Stomach": {
+          "text": "Fundus Of Stomach"
+        },
+        "Gallbladder": {
+          "text": "Gallbladder"
+        },
+        "Ganglia": {
+          "text": "Ganglia"
+        },
+        "Gastroesophageal Junction": {
+          "text": "Gastroesophageal Junction"
+        },
+        "Gastrointestinal Tract": {
+          "text": "Gastrointestinal Tract"
+        },
+        "Groin": {
+          "text": "Groin"
+        },
+        "Gum": {
+          "text": "Gum"
+        },
+        "Hand": {
+          "text": "Hand"
+        },
+        "Hard Palate": {
+          "text": "Hard Palate"
+        },
+        "Head & Neck": {
+          "text": "Head & Neck"
+        },
+        "Head - Face Or Neck": {
+          "text": "Head - Face Or Neck"
+        },
+        "Nos": {
+          "text": "Nos"
+        },
+        "Heart": {
+          "text": "Heart"
+        },
+        "Hepatic": {
+          "text": "Hepatic"
+        },
+        "Hepatic Duct": {
+          "text": "Hepatic Duct"
+        },
+        "Hepatic Vein": {
+          "text": "Hepatic Vein"
+        },
+        "Hip": {
+          "text": "Hip"
+        },
+        "Hippocampus": {
+          "text": "Hippocampus"
+        },
+        "Humerus": {
+          "text": "Humerus"
+        },
+        "Hypopharynx": {
+          "text": "Hypopharynx"
+        },
+        "Ileum": {
+          "text": "Ileum"
+        },
+        "Ilium": {
+          "text": "Ilium"
+        },
+        "Index Finger": {
+          "text": "Index Finger"
+        },
+        "Ischium": {
+          "text": "Ischium"
+        },
+        "Islet Cells": {
+          "text": "Islet Cells"
+        },
+        "Jaw": {
+          "text": "Jaw"
+        },
+        "Jejunum": {
+          "text": "Jejunum"
+        },
+        "Joint": {
+          "text": "Joint"
+        },
+        "Kidney": {
+          "text": "Kidney"
+        },
+        "Knee": {
+          "text": "Knee"
+        },
+        "Lacrimal Gland": {
+          "text": "Lacrimal Gland"
+        },
+        "Large Bowel": {
+          "text": "Large Bowel"
+        },
+        "Laryngopharynx": {
+          "text": "Laryngopharynx"
+        },
+        "Larynx": {
+          "text": "Larynx"
+        },
+        "Leg": {
+          "text": "Leg"
+        },
+        "Leptomeninges": {
+          "text": "Leptomeninges"
+        },
+        "Ligament": {
+          "text": "Ligament"
+        },
+        "Lip": {
+          "text": "Lip"
+        },
+        "Liver": {
+          "text": "Liver"
+        },
+        "Lumbar Spine": {
+          "text": "Lumbar Spine"
+        },
+        "Lung": {
+          "text": "Lung"
+        },
+        "Lymph Node": {
+          "text": "Lymph Node"
+        },
+        "Lymph Node(s) Axilla": {
+          "text": "Lymph Node(s) Axilla"
+        },
+        "Lymph Node(s) Cervical": {
+          "text": "Lymph Node(s) Cervical"
+        },
+        "Lymph Node(s) Distant": {
+          "text": "Lymph Node(s) Distant"
+        },
+        "Lymph Node(s) Epitrochlear": {
+          "text": "Lymph Node(s) Epitrochlear"
+        },
+        "Lymph Node(s) Femoral": {
+          "text": "Lymph Node(s) Femoral"
+        },
+        "Lymph Node(s) Hilar": {
+          "text": "Lymph Node(s) Hilar"
+        },
+        "Lymph Node(s) Iliac-Common": {
+          "text": "Lymph Node(s) Iliac-Common"
+        },
+        "Lymph Node(s) Iliac-External": {
+          "text": "Lymph Node(s) Iliac-External"
+        },
+        "Lymph Node(s) Inguinal": {
+          "text": "Lymph Node(s) Inguinal"
+        },
+        "Lymph Node(s) Internal Mammary": {
+          "text": "Lymph Node(s) Internal Mammary"
+        },
+        "Lymph Node(s) Mammary": {
+          "text": "Lymph Node(s) Mammary"
+        },
+        "Lymph Node(s) Mesenteric": {
+          "text": "Lymph Node(s) Mesenteric"
+        },
+        "Lymph Node(s) Occipital": {
+          "text": "Lymph Node(s) Occipital"
+        },
+        "Lymph Node(s) Paraaortic": {
+          "text": "Lymph Node(s) Paraaortic"
+        },
+        "Lymph Node(s) Parotid": {
+          "text": "Lymph Node(s) Parotid"
+        },
+        "Lymph Node(s) Pelvic": {
+          "text": "Lymph Node(s) Pelvic"
+        },
+        "Lymph Node(s) Popliteal": {
+          "text": "Lymph Node(s) Popliteal"
+        },
+        "Lymph Node(s) Regional": {
+          "text": "Lymph Node(s) Regional"
+        },
+        "Lymph Node(s) Retroperitoneal": {
+          "text": "Lymph Node(s) Retroperitoneal"
+        },
+        "Lymph Node(s) Scalene": {
+          "text": "Lymph Node(s) Scalene"
+        },
+        "Lymph Node(s) Splenic": {
+          "text": "Lymph Node(s) Splenic"
+        },
+        "Lymph Node(s) Subclavicular": {
+          "text": "Lymph Node(s) Subclavicular"
+        },
+        "Lymph Node(s) Submandibular": {
+          "text": "Lymph Node(s) Submandibular"
+        },
+        "Lymph Node(s) Supraclavicular": {
+          "text": "Lymph Node(s) Supraclavicular"
+        },
+        "Lymph Nodes(s) Mediastinal": {
+          "text": "Lymph Nodes(s) Mediastinal"
+        },
+        "Mandible": {
+          "text": "Mandible"
+        },
+        "Maxilla": {
+          "text": "Maxilla"
+        },
+        "Mediastinal Soft Tissue": {
+          "text": "Mediastinal Soft Tissue"
+        },
+        "Mediastinum": {
+          "text": "Mediastinum"
+        },
+        "Mesentery": {
+          "text": "Mesentery"
+        },
+        "Mesothelium": {
+          "text": "Mesothelium"
+        },
+        "Middle Finger": {
+          "text": "Middle Finger"
+        },
+        "Mitochondria": {
+          "text": "Mitochondria"
+        },
+        "Muscle": {
+          "text": "Muscle"
+        },
+        "Nails": {
+          "text": "Nails"
+        },
+        "Nasal Cavity": {
+          "text": "Nasal Cavity"
+        },
+        "Nasal Soft Tissue": {
+          "text": "Nasal Soft Tissue"
+        },
+        "Nasopharynx": {
+          "text": "Nasopharynx"
+        },
+        "Neck": {
+          "text": "Neck"
+        },
+        "Nerve": {
+          "text": "Nerve"
+        },
+        "Nerve(s) Cranial": {
+          "text": "Nerve(s) Cranial"
+        },
+        "Occipital Cortex": {
+          "text": "Occipital Cortex"
+        },
+        "Ocular Orbits": {
+          "text": "Ocular Orbits"
+        },
+        "Omentum": {
+          "text": "Omentum"
+        },
+        "Oral Cavity": {
+          "text": "Oral Cavity"
+        },
+        "Oral Cavity - Mucosa Only": {
+          "text": "Oral Cavity - Mucosa Only"
+        },
+        "Oropharynx": {
+          "text": "Oropharynx"
+        },
+        "Other": {
+          "text": "Other"
+        },
+        "Ovary": {
+          "text": "Ovary"
+        },
+        "Palate": {
+          "text": "Palate"
+        },
+        "Pancreas": {
+          "text": "Pancreas"
+        },
+        "Paraspinal Ganglion": {
+          "text": "Paraspinal Ganglion"
+        },
+        "Parathyroid": {
+          "text": "Parathyroid"
+        },
+        "Parotid Gland": {
+          "text": "Parotid Gland"
+        },
+        "Patella": {
+          "text": "Patella"
+        },
+        "Pelvis": {
+          "text": "Pelvis"
+        },
+        "Penis": {
+          "text": "Penis"
+        },
+        "Pericardium": {
+          "text": "Pericardium"
+        },
+        "Periorbital Soft Tissue": {
+          "text": "Periorbital Soft Tissue"
+        },
+        "Peritoneal Cavity": {
+          "text": "Peritoneal Cavity"
+        },
+        "Peritoneum": {
+          "text": "Peritoneum"
+        },
+        "Pharynx": {
+          "text": "Pharynx"
+        },
+        "Pineal": {
+          "text": "Pineal"
+        },
+        "Pineal Gland": {
+          "text": "Pineal Gland"
+        },
+        "Pituitary Gland": {
+          "text": "Pituitary Gland"
+        },
+        "Placenta": {
+          "text": "Placenta"
+        },
+        "Pleura": {
+          "text": "Pleura"
+        },
+        "Popliteal Fossa": {
+          "text": "Popliteal Fossa"
+        },
+        "Prostate": {
+          "text": "Prostate"
+        },
+        "Pylorus": {
+          "text": "Pylorus"
+        },
+        "Rectosigmoid Junction": {
+          "text": "Rectosigmoid Junction"
+        },
+        "Rectum": {
+          "text": "Rectum"
+        },
+        "Retina": {
+          "text": "Retina"
+        },
+        "Retro-Orbital Region": {
+          "text": "Retro-Orbital Region"
+        },
+        "Retroperitoneum": {
+          "text": "Retroperitoneum"
+        },
+        "Rib": {
+          "text": "Rib"
+        },
+        "Ring Finger": {
+          "text": "Ring Finger"
+        },
+        "Round Ligament": {
+          "text": "Round Ligament"
+        },
+        "Sacrum": {
+          "text": "Sacrum"
+        },
+        "Salivary Gland": {
+          "text": "Salivary Gland"
+        },
+        "Scalp": {
+          "text": "Scalp"
+        },
+        "Scapula": {
+          "text": "Scapula"
+        },
+        "Sciatic Nerve": {
+          "text": "Sciatic Nerve"
+        },
+        "Scrotum": {
+          "text": "Scrotum"
+        },
+        "Seminal Vesicle": {
+          "text": "Seminal Vesicle"
+        },
+        "Shoulder": {
+          "text": "Shoulder"
+        },
+        "Sigmoid Colon": {
+          "text": "Sigmoid Colon"
+        },
+        "Sinus": {
+          "text": "Sinus"
+        },
+        "Sinus(es)": {
+          "text": "Sinus(es)"
+        },
+        "Maxillary": {
+          "text": "Maxillary"
+        },
+        "Skeletal Muscle": {
+          "text": "Skeletal Muscle"
+        },
+        "Skin": {
+          "text": "Skin"
+        },
+        "Skull": {
+          "text": "Skull"
+        },
+        "Small Bowel": {
+          "text": "Small Bowel"
+        },
+        "Small Bowel - Mucosa Only": {
+          "text": "Small Bowel - Mucosa Only"
+        },
+        "Small Finger": {
+          "text": "Small Finger"
+        },
+        "Soft Tissue": {
+          "text": "Soft Tissue"
+        },
+        "Spinal Column": {
+          "text": "Spinal Column"
+        },
+        "Spinal Cord": {
+          "text": "Spinal Cord"
+        },
+        "Spleen": {
+          "text": "Spleen"
+        },
+        "Splenic Flexure": {
+          "text": "Splenic Flexure"
+        },
+        "Sternum": {
+          "text": "Sternum"
+        },
+        "Stomach": {
+          "text": "Stomach"
+        },
+        "Stomach - Mucosa Only": {
+          "text": "Stomach - Mucosa Only"
+        },
+        "Subcutaneous Tissue": {
+          "text": "Subcutaneous Tissue"
+        },
+        "Synovium": {
+          "text": "Synovium"
+        },
+        "Temporal Cortex": {
+          "text": "Temporal Cortex"
+        },
+        "Tendon": {
+          "text": "Tendon"
+        },
+        "Testis": {
+          "text": "Testis"
+        },
+        "Thigh": {
+          "text": "Thigh"
+        },
+        "Thoracic Spine": {
+          "text": "Thoracic Spine"
+        },
+        "Thorax": {
+          "text": "Thorax"
+        },
+        "Throat": {
+          "text": "Throat"
+        },
+        "Thumb": {
+          "text": "Thumb"
+        },
+        "Thymus": {
+          "text": "Thymus"
+        },
+        "Thyroid": {
+          "text": "Thyroid"
+        },
+        "Tibia": {
+          "text": "Tibia"
+        },
+        "Tongue": {
+          "text": "Tongue"
+        },
+        "Tonsil": {
+          "text": "Tonsil"
+        },
+        "Tonsil (Pharyngeal)": {
+          "text": "Tonsil (Pharyngeal)"
+        },
+        "Trachea / Major Bronchi": {
+          "text": "Trachea / Major Bronchi"
+        },
+        "Transverse Colon": {
+          "text": "Transverse Colon"
+        },
+        "Trunk": {
+          "text": "Trunk"
+        },
+        "Umbilical Cord": {
+          "text": "Umbilical Cord"
+        },
+        "Ureter": {
+          "text": "Ureter"
+        },
+        "Urethra": {
+          "text": "Urethra"
+        },
+        "Urinary Tract": {
+          "text": "Urinary Tract"
+        },
+        "Uterus": {
+          "text": "Uterus"
+        },
+        "Uvula": {
+          "text": "Uvula"
+        },
+        "Vagina": {
+          "text": "Vagina"
+        },
+        "Vas Deferens": {
+          "text": "Vas Deferens"
+        },
+        "Vein": {
+          "text": "Vein"
+        },
+        "Venous": {
+          "text": "Venous"
+        },
+        "Vertebra": {
+          "text": "Vertebra"
+        },
+        "Vulva": {
+          "text": "Vulva"
+        },
+        "White Blood Cells": {
+          "text": "White Blood Cells"
+        },
+        "Wrist": {
+          "text": "Wrist"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "karyotype menu": {
+      "name": "karyotype menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "normal": {
+          "text": "normal"
+        },
+        "abnormal XYY": {
+          "text": "abnormal XYY"
+        },
+        "Trisomy": {
+          "text": "Trisomy"
+        },
+        "Aneuploidy": {
+          "text": "Aneuploidy"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "health_status menu": {
+      "name": "health_status menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "healthy": {
+          "text": "healthy"
+        },
+        "cancer": {
+          "text": "cancer"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "lineQC menu": {
+      "name": "lineQC menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "mycoplasma": {
+          "text": "mycoplasma"
+        },
+        "virus": {
+          "text": "virus"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "validation menu": {
+      "name": "validation menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "DNA fingerprinting": {
+          "text": "DNA fingerprinting"
+        },
+        "genotyping": {
+          "text": "genotyping"
+        },
+        "morphology testing": {
+          "text": "morphology testing"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "nameType menu": {
+      "name": "nameType menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "4mm dish": {
+          "text": "4mm dish"
+        },
+        "8mm dish": {
+          "text": "8mm dish"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "biospeciment_anatomic_site menu": {
+      "name": "biospeciment_anatomic_site menu",
+      "from_schema": "https://example.com/MIACA",
+      "permissible_values": {
+        "cell culture": {
+          "text": "cell culture"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    }
+  },
+  "slots": {
+    "submitter_id": {
+      "name": "submitter_id",
+      "description": " ",
+      "title": "Study ID",
+      "comments": [
+        "SRP_PRJ3"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "name": {
+      "name": "name",
+      "description": "A textual entity that denotes an study.",
+      "title": "Title",
+      "comments": [
+        "SRP_PRJ3"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "project_description": {
+      "name": "project_description",
+      "description": "A textual entity that describes an investigation.",
+      "title": "Description",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "OBI_0001615",
+      "range": "WhitespaceMinimizedString"
+    },
+    "data_submission_contact_name": {
+      "name": "data_submission_contact_name",
+      "description": "the name of the person bearing the data submission contact representative role (last name,first name)",
+      "title": "Contact name",
+      "comments": [
+        "Nault,Rance"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "data_submission_contact_orcid": {
+      "name": "data_submission_contact_orcid",
+      "description": " ",
+      "title": "Contact ORCID",
+      "comments": [
+        "0000-0002-6822-4962"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "pattern": "\"\\b\\d{4}-\\d{4}-\\d{4}-\\d{3}[\\dX]\\b\""
+    },
+    "data_submission_contact_email": {
+      "name": "data_submission_contact_email",
+      "description": "email address of data submission contact",
+      "title": "Contact email",
+      "comments": [
+        "naultran@msu.edu"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true,
+      "pattern": "\"^\\\\S+@[\\\\S+\\\\.]+\\\\S+\""
+    },
+    "data_submission_contact_telephone": {
+      "name": "data_submission_contact_telephone",
+      "description": "telephone number of data submission contact",
+      "title": "Contact phone",
+      "comments": [
+        "517-884-2054"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true,
+      "pattern": "\"^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$\""
+    },
+    "data_submission_contact_department": {
+      "name": "data_submission_contact_department",
+      "description": "department of data submission contact",
+      "title": "Contact department",
+      "comments": [
+        "Biochemistry & Molecular Biology"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "data_submission_contact_department menu",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "data_submission_contact_institution": {
+      "name": "data_submission_contact_institution",
+      "description": "institution of data submission contact",
+      "title": "Contact institution",
+      "comments": [
+        "Michigan State University"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "data_submission_contact_institution menu",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "data_submission_contact_institution_postal_address": {
+      "name": "data_submission_contact_institution_postal_address",
+      "description": "postal address of data submission contact",
+      "title": "Contact ZIP",
+      "comments": [
+        "48824"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true,
+      "pattern": "\"^[0-9]{5}(?:-[0-9]{4})?$\""
+    },
+    "data_submission_contact_institution_city": {
+      "name": "data_submission_contact_institution_city",
+      "description": "city of data submission contact",
+      "title": "Contact city",
+      "comments": [
+        "East Lansing"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "data_submission_contact_state": {
+      "name": "data_submission_contact_state",
+      "description": "state of publication contact",
+      "title": "Contact state",
+      "comments": [
+        "MI"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "support_source": {
+      "name": "support_source",
+      "description": " ",
+      "title": "Funding institution",
+      "comments": [
+        "Superfund Basic Research Program"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "support_source menu",
+      "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "support_id": {
+      "name": "support_id",
+      "description": " ",
+      "title": "Funding identifier",
+      "comments": [
+        "P42ES004911"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "recommended": true,
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "PMC_id": {
+      "name": "PMC_id",
+      "description": " ",
+      "title": "PMC ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true,
+      "pattern": "^\\d{5,20}"
+    },
+    "DOI": {
+      "name": "DOI",
+      "description": " ",
+      "title": "DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "PMID": {
+      "name": "PMID",
+      "description": " ",
+      "title": "PMID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "multivalued": true,
+      "range": "WhitespaceMinimizedString",
+      "inlined": true,
+      "inlined_as_list": true,
+      "pattern": "^\\d{5,20}"
+    },
+    "study_design": {
+      "name": "study_design",
+      "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
+      "title": "Study design",
+      "comments": [
+        "dose response design"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:OBI_0500000",
+      "range": "study_design menu"
+    },
+    "study_type": {
+      "name": "study_type",
+      "description": "A categorical value specification that specifies the type of study from a list of study types",
+      "title": "Study type",
+      "comments": [
+        "Toxicogenomics"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "study_type menu"
+    },
+    "experimental_setting": {
+      "name": "experimental_setting",
+      "description": " ",
+      "title": "Experimental setting",
+      "comments": [
+        "in vitro"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "experimental_setting menu"
+    },
+    "cell_subject.submitter_id": {
+      "name": "cell_subject.submitter_id",
+      "description": " ",
+      "title": "Cell culture ID",
+      "comments": [
+        "PRJ140"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "study.submitter_id": {
+      "name": "study.submitter_id",
+      "description": " ",
+      "title": "Study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString",
+      "recommended": true
+    },
+    "miate.subject.submitter_id": {
+      "name": "miate.subject.submitter_id",
+      "description": " ",
+      "title": "Animal ID",
+      "comments": [
+        "M001"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "cell_type": {
+      "name": "cell_type",
+      "description": " ",
+      "title": "cell_type",
+      "comments": [
+        "Hepatocyte"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:CL_0000000",
+      "range": "cell_type menu"
+    },
+    "organism": {
+      "name": "organism",
+      "description": " ",
+      "title": "organism",
+      "comments": [
+        "Mus musculus"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "race": {
+      "name": "race",
+      "description": " ",
+      "title": "race",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "strain": {
+      "name": "strain",
+      "description": " ",
+      "title": "strain",
+      "comments": [
+        "C57BL/6NCrl"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "strain menu"
+    },
+    "sex": {
+      "name": "sex",
+      "description": " ",
+      "title": "sex",
+      "comments": [
+        "male"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "sex menu"
+    },
+    "age": {
+      "name": "age",
+      "description": " ",
+      "title": "age",
+      "comments": [
+        "32"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "integer",
+      "minimum_value": 0,
+      "maximum_value": 150
+    },
+    "passage_number": {
+      "name": "passage_number",
+      "description": " ",
+      "title": "passage_number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "integer",
+      "minimum_value": 0,
+      "maximum_value": 100
+    },
+    "lot_no": {
+      "name": "lot_no",
+      "description": " ",
+      "title": "lot_no",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "source_organ": {
+      "name": "source_organ",
+      "description": " ",
+      "title": "source_organ",
+      "comments": [
+        "Liver"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "source_organ menu"
+    },
+    "lineage": {
+      "name": "lineage",
+      "description": " ",
+      "title": "lineage",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "karyotype": {
+      "name": "karyotype",
+      "description": "The chromosomal morphology and number in somatic cells of an individual.",
+      "title": "karyotype",
+      "comments": [
+        "normal"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "health_status": {
+      "name": "health_status",
+      "description": " ",
+      "title": "health_status",
+      "comments": [
+        "healthy"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "modifications": {
+      "name": "modifications",
+      "description": " transgene/genetic manipulations, e.g. stably transfected, induced",
+      "title": "modifications",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:CLO_0000004",
+      "range": "WhitespaceMinimizedString"
+    },
+    "lineQC": {
+      "name": "lineQC",
+      "description": " Mycoplasma test (Y/N) and other measures for quality control, e.g.",
+      "title": "lineQC",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:ERO_0001219",
+      "multivalued": true,
+      "range": "lineQC menu",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "validation": {
+      "name": "validation",
+      "description": " measures undertaken to validate cell line, e.g. DNA fingerprinting,",
+      "title": "validation",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:ERO_0002025",
+      "multivalued": true,
+      "range": "validation menu",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "isolation_protocol": {
+      "name": "isolation_protocol",
+      "description": " ",
+      "title": "isolation_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "stem_cell_protocol": {
+      "name": "stem_cell_protocol",
+      "description": " ",
+      "title": "stem_cell_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "cell_line_protocol": {
+      "name": "cell_line_protocol",
+      "description": " ",
+      "title": "cell_line_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "date.culture_vessel": {
+      "name": "date.culture_vessel",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "date"
+    },
+    "nameType": {
+      "name": "nameType",
+      "description": "Type of vessel used",
+      "title": "nameType",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:OBI_0000967",
+      "range": "nameType menu"
+    },
+    "vendor": {
+      "name": "vendor",
+      "description": " ",
+      "title": "vendor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:NCIT_C68608",
+      "range": "WhitespaceMinimizedString"
+    },
+    "dimension": {
+      "name": "dimension",
+      "description": "Number of wells in the culture vessel",
+      "title": "dimension",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:NCIT_C25483",
+      "range": "integer",
+      "minimum_value": 1,
+      "maximum_value": 384
+    },
+    "size": {
+      "name": "size",
+      "description": "Volume of the reaction vessel.",
+      "title": "size",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:PATO_0000117",
+      "range": "float",
+      "minimum_value": 0
+    },
+    "surfaceArea": {
+      "name": "surfaceArea",
+      "description": " surface area in mm^2",
+      "title": "surfaceArea",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:GENEPIO_0001885",
+      "range": "float",
+      "minimum_value": 0
+    },
+    "coating_substrate": {
+      "name": "coating_substrate",
+      "description": " ",
+      "title": "coating_substrate",
+      "comments": [
+        "Collagen"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "culture_vessel_location": {
+      "name": "culture_vessel_location",
+      "description": " ",
+      "title": "culture_vessel_location",
+      "comments": [
+        "A1"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "seeding_cell_density": {
+      "name": "seeding_cell_density",
+      "description": " ",
+      "title": "seeding_cell_density",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "float",
+      "minimum_value": 0
+    },
+    "seeding_cell_date": {
+      "name": "seeding_cell_date",
+      "description": " ",
+      "title": "seeding_cell_date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "date"
+    },
+    "cellDensity": {
+      "name": "cellDensity",
+      "description": " ",
+      "title": "cellDensity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "slot_uri": "obo:NCIT_C120538",
+      "range": "WhitespaceMinimizedString"
+    },
+    "incubator_vendor": {
+      "name": "incubator_vendor",
+      "description": " ",
+      "title": "incubator_vendor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "incubator_model": {
+      "name": "incubator_model",
+      "description": " ",
+      "title": "incubator_model",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "co2_percent": {
+      "name": "co2_percent",
+      "description": " ",
+      "title": "co2_percent",
+      "comments": [
+        "5"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "float",
+      "minimum_value": 0,
+      "maximum_value": 100
+    },
+    "o2_percent": {
+      "name": "o2_percent",
+      "description": " ",
+      "title": "o2_percent",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "float",
+      "minimum_value": 0,
+      "maximum_value": 100
+    },
+    "temperature": {
+      "name": "temperature",
+      "description": " ",
+      "title": "temperature",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString",
+      "minimum_value": 0,
+      "maximum_value": 100
+    },
+    "humidity": {
+      "name": "humidity",
+      "description": " ",
+      "title": "humidity",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString",
+      "minimum_value": 0,
+      "maximum_value": 100
+    },
+    "date.medium": {
+      "name": "date.medium",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "date"
+    },
+    "protocol": {
+      "name": "protocol",
+      "description": " ",
+      "title": "protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "basal_medium": {
+      "name": "basal_medium",
+      "description": " ",
+      "title": "basal_medium",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "basal_medium_vendor": {
+      "name": "basal_medium_vendor",
+      "description": " ",
+      "title": "basal_medium_vendor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "basal_medium_lot_no": {
+      "name": "basal_medium_lot_no",
+      "description": " ",
+      "title": "basal_medium_lot_no",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "culture_additives": {
+      "name": "culture_additives",
+      "description": " ",
+      "title": "culture_additives",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "culture_additives_concentration": {
+      "name": "culture_additives_concentration",
+      "description": " ",
+      "title": "culture_additives_concentration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "anitibiotic_name": {
+      "name": "anitibiotic_name",
+      "description": " ",
+      "title": "anitibiotic_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "antibiotic_concentration": {
+      "name": "antibiotic_concentration",
+      "description": " ",
+      "title": "antibiotic_concentration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "treatment_date": {
+      "name": "treatment_date",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "date"
+    },
+    "addition_volume": {
+      "name": "addition_volume",
+      "description": " ",
+      "title": "addition_volume",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "stock_concentration": {
+      "name": "stock_concentration",
+      "description": " ",
+      "title": "stock_concentration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "final_concentration": {
+      "name": "final_concentration",
+      "description": " ",
+      "title": "final_concentration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "concentration_unit": {
+      "name": "concentration_unit",
+      "description": " ",
+      "title": "concentration_unit",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "test_article_administration_duration": {
+      "name": "test_article_administration_duration",
+      "description": " ",
+      "title": "test_article_administration_duration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "test_article_name": {
+      "name": "test_article_name",
+      "description": " ",
+      "title": "test_article_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "test_article_dtxsid": {
+      "name": "test_article_dtxsid",
+      "description": " ",
+      "title": "test_article_dtxsid",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "vehicle_name": {
+      "name": "vehicle_name",
+      "description": " ",
+      "title": "vehicle_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "vehicle_dtxsid": {
+      "name": "vehicle_dtxsid",
+      "description": " ",
+      "title": "vehicle_dtxsid",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "treatment_protocol": {
+      "name": "treatment_protocol",
+      "description": "Description of the conditions that are applied to CellLine during",
+      "title": "treatment_protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "treatment_protocol_DOI": {
+      "name": "treatment_protocol_DOI",
+      "description": " ",
+      "title": "treatment_protocol_DOI",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sample.submitter_id": {
+      "name": "sample.submitter_id",
+      "description": " ",
+      "title": "submitter_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "identifier": true,
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "cell_subjects.submitter_id": {
+      "name": "cell_subjects.submitter_id",
+      "description": " ",
+      "title": "Cell culture ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "date.sample_details": {
+      "name": "date.sample_details",
+      "description": " ",
+      "title": "date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "date"
+    },
+    "biospeciment_anatomic_site": {
+      "name": "biospeciment_anatomic_site",
+      "description": " ",
+      "title": "collection_source",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "biospeciment_anatomic_site menu"
+    },
+    "method_of_sample_procurement": {
+      "name": "method_of_sample_procurement",
+      "description": "Description of the conditions, i.e. lysis, fixation, staining, antibody",
+      "title": "method_of_sample_procurement",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "preservation_method": {
+      "name": "preservation_method",
+      "description": " ",
+      "title": "preservation_method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "study.provenance": {
+      "name": "study.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "Provenance"
+    },
+    "cell_subject.provenance": {
+      "name": "cell_subject.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "Provenance"
+    },
+    "sample.provenance": {
+      "name": "sample.provenance",
+      "description": " ",
+      "title": "Provenance",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "Provenance"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/MIACA"
+    },
+    "Cell_Subject": {
+      "name": "Cell_Subject",
+      "from_schema": "https://example.com/MIACA",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "cell_subject.submitter_id": {
+          "name": "cell_subject.submitter_id",
+          "exact_mappings": [
+            "cell_subject:submitter_id culture_conditions:cell_subjects.submitter_id culture_media:cell_subjects.submitter_id treatment:cell_subjects.submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "study.submitter_id": {
+          "name": "study.submitter_id",
+          "exact_mappings": [
+            "cell_subject:studies.submitter_id"
+          ],
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "miate.subject.submitter_id": {
+          "name": "miate.subject.submitter_id",
+          "exact_mappings": [
+            "cell_subject:miate.subject.submitter_id"
+          ],
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "cell_type": {
+          "name": "cell_type",
+          "exact_mappings": [
+            "cell_subject:cell_type"
+          ],
+          "rank": 4,
+          "slot_group": "cell_culture"
+        },
+        "organism": {
+          "name": "organism",
+          "exact_mappings": [
+            "cell_subject:organism"
+          ],
+          "rank": 5,
+          "slot_group": "cell_culture"
+        },
+        "race": {
+          "name": "race",
+          "exact_mappings": [
+            "cell_subject:race"
+          ],
+          "rank": 6,
+          "slot_group": "cell_culture"
+        },
+        "strain": {
+          "name": "strain",
+          "exact_mappings": [
+            "cell_subject:strain"
+          ],
+          "rank": 7,
+          "slot_group": "cell_culture"
+        },
+        "sex": {
+          "name": "sex",
+          "exact_mappings": [
+            "cell_subject:sex"
+          ],
+          "rank": 8,
+          "slot_group": "cell_culture"
+        },
+        "age": {
+          "name": "age",
+          "exact_mappings": [
+            "cell_subject:age"
+          ],
+          "rank": 9,
+          "slot_group": "cell_culture"
+        },
+        "passage_number": {
+          "name": "passage_number",
+          "exact_mappings": [
+            "cell_subject:passage_number"
+          ],
+          "rank": 10,
+          "slot_group": "cell_culture"
+        },
+        "lot_no": {
+          "name": "lot_no",
+          "exact_mappings": [
+            "cell_subject:lot_no"
+          ],
+          "rank": 11,
+          "slot_group": "cell_culture"
+        },
+        "source_organ": {
+          "name": "source_organ",
+          "exact_mappings": [
+            "cell_subject:source_organ"
+          ],
+          "rank": 12,
+          "slot_group": "cell_culture"
+        },
+        "lineage": {
+          "name": "lineage",
+          "exact_mappings": [
+            "cell_subject:lineage"
+          ],
+          "rank": 13,
+          "slot_group": "cell_culture"
+        },
+        "karyotype": {
+          "name": "karyotype",
+          "exact_mappings": [
+            "cell_subject:karyotype"
+          ],
+          "rank": 14,
+          "slot_group": "cell_culture"
+        },
+        "health_status": {
+          "name": "health_status",
+          "exact_mappings": [
+            "cell_subject:health_status"
+          ],
+          "rank": 15,
+          "slot_group": "cell_culture"
+        },
+        "modifications": {
+          "name": "modifications",
+          "exact_mappings": [
+            "cell_subject:modifications"
+          ],
+          "rank": 16,
+          "slot_group": "cell_culture"
+        },
+        "lineQC": {
+          "name": "lineQC",
+          "exact_mappings": [
+            "cell_subject:lineQC"
+          ],
+          "rank": 17,
+          "slot_group": "cell_culture"
+        },
+        "validation": {
+          "name": "validation",
+          "exact_mappings": [
+            "cell_subject:validation"
+          ],
+          "rank": 18,
+          "slot_group": "cell_culture"
+        },
+        "isolation_protocol": {
+          "name": "isolation_protocol",
+          "exact_mappings": [
+            "cell_subject:isolation_protocol"
+          ],
+          "rank": 19,
+          "slot_group": "primary_cell"
+        },
+        "stem_cell_protocol": {
+          "name": "stem_cell_protocol",
+          "exact_mappings": [
+            "cell_subject:stem_cell_protocol"
+          ],
+          "rank": 20,
+          "slot_group": "stem_cell"
+        },
+        "cell_line_protocol": {
+          "name": "cell_line_protocol",
+          "exact_mappings": [
+            "cell_subject:cell_line_protocol"
+          ],
+          "rank": 21,
+          "slot_group": "cell_line"
+        },
+        "date.culture_vessel": {
+          "name": "date.culture_vessel",
+          "exact_mappings": [
+            "culture_conditions:date culture_media:culture_vessel_date"
+          ],
+          "rank": 22,
+          "slot_group": "culture_vessel"
+        },
+        "nameType": {
+          "name": "nameType",
+          "exact_mappings": [
+            "culture_conditions:culture_vessel"
+          ],
+          "rank": 23,
+          "slot_group": "culture_vessel"
+        },
+        "vendor": {
+          "name": "vendor",
+          "exact_mappings": [
+            "culture_conditions:vendor"
+          ],
+          "rank": 24,
+          "slot_group": "culture_vessel"
+        },
+        "dimension": {
+          "name": "dimension",
+          "exact_mappings": [
+            "culture_conditions:dimension"
+          ],
+          "rank": 25,
+          "slot_group": "culture_vessel"
+        },
+        "size": {
+          "name": "size",
+          "exact_mappings": [
+            "culture_conditions:size"
+          ],
+          "rank": 26,
+          "slot_group": "culture_vessel"
+        },
+        "surfaceArea": {
+          "name": "surfaceArea",
+          "exact_mappings": [
+            "culture_conditions:surfaceArea"
+          ],
+          "rank": 27,
+          "slot_group": "culture_vessel"
+        },
+        "coating_substrate": {
+          "name": "coating_substrate",
+          "exact_mappings": [
+            "culture_conditions:coating_substrate"
+          ],
+          "rank": 28,
+          "slot_group": "culture_vessel"
+        },
+        "culture_vessel_location": {
+          "name": "culture_vessel_location",
+          "exact_mappings": [
+            "culture_conditions:culture_vessel_location"
+          ],
+          "rank": 29,
+          "slot_group": "culture_vessel"
+        },
+        "seeding_cell_density": {
+          "name": "seeding_cell_density",
+          "exact_mappings": [
+            "culture_conditions:seeding_cell_density"
+          ],
+          "rank": 30,
+          "slot_group": "culture_vessel"
+        },
+        "seeding_cell_date": {
+          "name": "seeding_cell_date",
+          "exact_mappings": [
+            "culture_conditions:seeding_cell_date"
+          ],
+          "rank": 31,
+          "slot_group": "culture_vessel"
+        },
+        "cellDensity": {
+          "name": "cellDensity",
+          "exact_mappings": [
+            "culture_conditions:cellDensity"
+          ],
+          "rank": 32,
+          "slot_group": "culture_vessel"
+        },
+        "incubator_vendor": {
+          "name": "incubator_vendor",
+          "exact_mappings": [
+            "culture_conditions:incubator_vendor"
+          ],
+          "rank": 33,
+          "slot_group": "incubation"
+        },
+        "incubator_model": {
+          "name": "incubator_model",
+          "exact_mappings": [
+            "culture_conditions:incubator_model"
+          ],
+          "rank": 34,
+          "slot_group": "incubation"
+        },
+        "co2_percent": {
+          "name": "co2_percent",
+          "exact_mappings": [
+            "culture_conditions:co2_percent"
+          ],
+          "rank": 35,
+          "slot_group": "incubation"
+        },
+        "o2_percent": {
+          "name": "o2_percent",
+          "exact_mappings": [
+            "culture_conditions:o2_percent"
+          ],
+          "rank": 36,
+          "slot_group": "incubation"
+        },
+        "temperature": {
+          "name": "temperature",
+          "exact_mappings": [
+            "culture_conditions:temperature"
+          ],
+          "rank": 37,
+          "slot_group": "incubation"
+        },
+        "humidity": {
+          "name": "humidity",
+          "exact_mappings": [
+            "culture_conditions:humidity"
+          ],
+          "rank": 38,
+          "slot_group": "incubation"
+        },
+        "date.medium": {
+          "name": "date.medium",
+          "exact_mappings": [
+            "culture_media:date"
+          ],
+          "rank": 39,
+          "slot_group": "medium"
+        },
+        "protocol": {
+          "name": "protocol",
+          "exact_mappings": [
+            "culture_media:protocol"
+          ],
+          "rank": 40,
+          "slot_group": "medium"
+        },
+        "basal_medium": {
+          "name": "basal_medium",
+          "exact_mappings": [
+            "culture_media:basal_medium"
+          ],
+          "rank": 41,
+          "slot_group": "medium"
+        },
+        "basal_medium_vendor": {
+          "name": "basal_medium_vendor",
+          "exact_mappings": [
+            "culture_media:basal_medium_vendor"
+          ],
+          "rank": 42,
+          "slot_group": "medium"
+        },
+        "basal_medium_lot_no": {
+          "name": "basal_medium_lot_no",
+          "exact_mappings": [
+            "culture_media:basal_medium_lot_no"
+          ],
+          "rank": 43,
+          "slot_group": "medium"
+        },
+        "culture_additives": {
+          "name": "culture_additives",
+          "exact_mappings": [
+            "culture_media:culture_additives"
+          ],
+          "rank": 44,
+          "slot_group": "medium"
+        },
+        "culture_additives_concentration": {
+          "name": "culture_additives_concentration",
+          "exact_mappings": [
+            "culture_media:culture_additives_concentration"
+          ],
+          "rank": 45,
+          "slot_group": "medium"
+        },
+        "anitibiotic_name": {
+          "name": "anitibiotic_name",
+          "exact_mappings": [
+            "culture_media:anitibiotic_name"
+          ],
+          "rank": 46,
+          "slot_group": "medium"
+        },
+        "antibiotic_concentration": {
+          "name": "antibiotic_concentration",
+          "exact_mappings": [
+            "culture_media:antibiotic_concentration"
+          ],
+          "rank": 47,
+          "slot_group": "medium"
+        },
+        "treatment_date": {
+          "name": "treatment_date",
+          "exact_mappings": [
+            "treatment:treatment_date"
+          ],
+          "rank": 48,
+          "slot_group": "treatment"
+        },
+        "addition_volume": {
+          "name": "addition_volume",
+          "exact_mappings": [
+            "treatment:addition_volume"
+          ],
+          "rank": 49,
+          "slot_group": "treatment"
+        },
+        "stock_concentration": {
+          "name": "stock_concentration",
+          "exact_mappings": [
+            "treatment:stock_concentration"
+          ],
+          "rank": 50,
+          "slot_group": "treatment"
+        },
+        "final_concentration": {
+          "name": "final_concentration",
+          "exact_mappings": [
+            "treatment:final_concentration"
+          ],
+          "rank": 51,
+          "slot_group": "treatment"
+        },
+        "concentration_unit": {
+          "name": "concentration_unit",
+          "exact_mappings": [
+            "treatment:concentration_unit"
+          ],
+          "rank": 52,
+          "slot_group": "treatment"
+        },
+        "test_article_administration_duration": {
+          "name": "test_article_administration_duration",
+          "exact_mappings": [
+            "treatment:test_article_administration_duration"
+          ],
+          "rank": 53,
+          "slot_group": "treatment"
+        },
+        "test_article_name": {
+          "name": "test_article_name",
+          "exact_mappings": [
+            "treatment:test_article_name"
+          ],
+          "rank": 54,
+          "slot_group": "treatment"
+        },
+        "test_article_dtxsid": {
+          "name": "test_article_dtxsid",
+          "exact_mappings": [
+            "treatment:test_article_dtxsid"
+          ],
+          "rank": 55,
+          "slot_group": "treatment"
+        },
+        "vehicle_name": {
+          "name": "vehicle_name",
+          "exact_mappings": [
+            "treatment:vehicle_name"
+          ],
+          "rank": 56,
+          "slot_group": "treatment"
+        },
+        "vehicle_dtxsid": {
+          "name": "vehicle_dtxsid",
+          "exact_mappings": [
+            "treatment:vehicle_dtxsid"
+          ],
+          "rank": 57,
+          "slot_group": "treatment"
+        },
+        "treatment_protocol": {
+          "name": "treatment_protocol",
+          "exact_mappings": [
+            "treatment:treatment_protocol"
+          ],
+          "rank": 58,
+          "slot_group": "treatment"
+        },
+        "treatment_protocol_DOI": {
+          "name": "treatment_protocol_DOI",
+          "exact_mappings": [
+            "treatment:treatment_protocol_DOI"
+          ],
+          "rank": 59,
+          "slot_group": "treatment"
+        },
+        "cell_subject.provenance": {
+          "name": "cell_subject.provenance",
+          "exact_mappings": [
+            "cell_subject:provenance culture_conditions:provenance culture_media:provenance treatment:provenance"
+          ],
+          "rank": 60,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "cell_subject.submitter_id": {
+          "name": "cell_subject.submitter_id",
+          "description": " ",
+          "title": "Cell culture ID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:submitter_id culture_conditions:cell_subjects.submitter_id culture_media:cell_subjects.submitter_id treatment:cell_subjects.submitter_id"
+          ],
+          "rank": 1,
+          "identifier": true,
+          "alias": "cell_subject.submitter_id",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "study.submitter_id": {
+          "name": "study.submitter_id",
+          "description": " ",
+          "title": "Study ID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:studies.submitter_id"
+          ],
+          "rank": 2,
+          "alias": "study.submitter_id",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true
+        },
+        "miate.subject.submitter_id": {
+          "name": "miate.subject.submitter_id",
+          "description": " ",
+          "title": "Animal ID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:miate.subject.submitter_id"
+          ],
+          "rank": 3,
+          "alias": "miate.subject.submitter_id",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "cell_type": {
+          "name": "cell_type",
+          "description": " ",
+          "title": "cell_type",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:cell_type"
+          ],
+          "rank": 4,
+          "slot_uri": "obo:CL_0000000",
+          "alias": "cell_type",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "cell_type menu"
+        },
+        "organism": {
+          "name": "organism",
+          "description": " ",
+          "title": "organism",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:organism"
+          ],
+          "rank": 5,
+          "alias": "organism",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "race": {
+          "name": "race",
+          "description": " ",
+          "title": "race",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:race"
+          ],
+          "rank": 6,
+          "alias": "race",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "strain": {
+          "name": "strain",
+          "description": " ",
+          "title": "strain",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:strain"
+          ],
+          "rank": 7,
+          "alias": "strain",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "strain menu"
+        },
+        "sex": {
+          "name": "sex",
+          "description": " ",
+          "title": "sex",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:sex"
+          ],
+          "rank": 8,
+          "alias": "sex",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "sex menu"
+        },
+        "age": {
+          "name": "age",
+          "description": " ",
+          "title": "age",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:age"
+          ],
+          "rank": 9,
+          "alias": "age",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "integer",
+          "minimum_value": 0,
+          "maximum_value": 150
+        },
+        "passage_number": {
+          "name": "passage_number",
+          "description": " ",
+          "title": "passage_number",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:passage_number"
+          ],
+          "rank": 10,
+          "alias": "passage_number",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "integer",
+          "minimum_value": 0,
+          "maximum_value": 100
+        },
+        "lot_no": {
+          "name": "lot_no",
+          "description": " ",
+          "title": "lot_no",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:lot_no"
+          ],
+          "rank": 11,
+          "alias": "lot_no",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "source_organ": {
+          "name": "source_organ",
+          "description": " ",
+          "title": "source_organ",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:source_organ"
+          ],
+          "rank": 12,
+          "alias": "source_organ",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "source_organ menu"
+        },
+        "lineage": {
+          "name": "lineage",
+          "description": " ",
+          "title": "lineage",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:lineage"
+          ],
+          "rank": 13,
+          "alias": "lineage",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "karyotype": {
+          "name": "karyotype",
+          "description": "The chromosomal morphology and number in somatic cells of an individual.",
+          "title": "karyotype",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:karyotype"
+          ],
+          "rank": 14,
+          "alias": "karyotype",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "health_status": {
+          "name": "health_status",
+          "description": " ",
+          "title": "health_status",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:health_status"
+          ],
+          "rank": 15,
+          "alias": "health_status",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "modifications": {
+          "name": "modifications",
+          "description": " transgene/genetic manipulations, e.g. stably transfected, induced",
+          "title": "modifications",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:modifications"
+          ],
+          "rank": 16,
+          "slot_uri": "obo:CLO_0000004",
+          "alias": "modifications",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "WhitespaceMinimizedString"
+        },
+        "lineQC": {
+          "name": "lineQC",
+          "description": " Mycoplasma test (Y/N) and other measures for quality control, e.g.",
+          "title": "lineQC",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:lineQC"
+          ],
+          "rank": 17,
+          "slot_uri": "obo:ERO_0001219",
+          "multivalued": true,
+          "alias": "lineQC",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "lineQC menu",
+          "inlined_as_list": true
+        },
+        "validation": {
+          "name": "validation",
+          "description": " measures undertaken to validate cell line, e.g. DNA fingerprinting,",
+          "title": "validation",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:validation"
+          ],
+          "rank": 18,
+          "slot_uri": "obo:ERO_0002025",
+          "multivalued": true,
+          "alias": "validation",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_culture",
+          "range": "validation menu",
+          "inlined_as_list": true
+        },
+        "isolation_protocol": {
+          "name": "isolation_protocol",
+          "description": " ",
+          "title": "isolation_protocol",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:isolation_protocol"
+          ],
+          "rank": 19,
+          "alias": "isolation_protocol",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "primary_cell",
+          "range": "WhitespaceMinimizedString"
+        },
+        "stem_cell_protocol": {
+          "name": "stem_cell_protocol",
+          "description": " ",
+          "title": "stem_cell_protocol",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:stem_cell_protocol"
+          ],
+          "rank": 20,
+          "alias": "stem_cell_protocol",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "stem_cell",
+          "range": "WhitespaceMinimizedString"
+        },
+        "cell_line_protocol": {
+          "name": "cell_line_protocol",
+          "description": " ",
+          "title": "cell_line_protocol",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:cell_line_protocol"
+          ],
+          "rank": 21,
+          "alias": "cell_line_protocol",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "cell_line",
+          "range": "WhitespaceMinimizedString"
+        },
+        "date.culture_vessel": {
+          "name": "date.culture_vessel",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:date culture_media:culture_vessel_date"
+          ],
+          "rank": 22,
+          "alias": "date.culture_vessel",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "date"
+        },
+        "nameType": {
+          "name": "nameType",
+          "description": "Type of vessel used",
+          "title": "nameType",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:culture_vessel"
+          ],
+          "rank": 23,
+          "slot_uri": "obo:OBI_0000967",
+          "alias": "nameType",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "nameType menu"
+        },
+        "vendor": {
+          "name": "vendor",
+          "description": " ",
+          "title": "vendor",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:vendor"
+          ],
+          "rank": 24,
+          "slot_uri": "obo:NCIT_C68608",
+          "alias": "vendor",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "WhitespaceMinimizedString"
+        },
+        "dimension": {
+          "name": "dimension",
+          "description": "Number of wells in the culture vessel",
+          "title": "dimension",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:dimension"
+          ],
+          "rank": 25,
+          "slot_uri": "obo:NCIT_C25483",
+          "alias": "dimension",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "integer",
+          "minimum_value": 1,
+          "maximum_value": 384
+        },
+        "size": {
+          "name": "size",
+          "description": "Volume of the reaction vessel.",
+          "title": "size",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:size"
+          ],
+          "rank": 26,
+          "slot_uri": "obo:PATO_0000117",
+          "alias": "size",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "float",
+          "minimum_value": 0
+        },
+        "surfaceArea": {
+          "name": "surfaceArea",
+          "description": " surface area in mm^2",
+          "title": "surfaceArea",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:surfaceArea"
+          ],
+          "rank": 27,
+          "slot_uri": "obo:GENEPIO_0001885",
+          "alias": "surfaceArea",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "float",
+          "minimum_value": 0
+        },
+        "coating_substrate": {
+          "name": "coating_substrate",
+          "description": " ",
+          "title": "coating_substrate",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:coating_substrate"
+          ],
+          "rank": 28,
+          "alias": "coating_substrate",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "WhitespaceMinimizedString"
+        },
+        "culture_vessel_location": {
+          "name": "culture_vessel_location",
+          "description": " ",
+          "title": "culture_vessel_location",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:culture_vessel_location"
+          ],
+          "rank": 29,
+          "alias": "culture_vessel_location",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "WhitespaceMinimizedString"
+        },
+        "seeding_cell_density": {
+          "name": "seeding_cell_density",
+          "description": " ",
+          "title": "seeding_cell_density",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:seeding_cell_density"
+          ],
+          "rank": 30,
+          "alias": "seeding_cell_density",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "float",
+          "minimum_value": 0
+        },
+        "seeding_cell_date": {
+          "name": "seeding_cell_date",
+          "description": " ",
+          "title": "seeding_cell_date",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:seeding_cell_date"
+          ],
+          "rank": 31,
+          "alias": "seeding_cell_date",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "date"
+        },
+        "cellDensity": {
+          "name": "cellDensity",
+          "description": " ",
+          "title": "cellDensity",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:cellDensity"
+          ],
+          "rank": 32,
+          "slot_uri": "obo:NCIT_C120538",
+          "alias": "cellDensity",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "culture_vessel",
+          "range": "WhitespaceMinimizedString"
+        },
+        "incubator_vendor": {
+          "name": "incubator_vendor",
+          "description": " ",
+          "title": "incubator_vendor",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:incubator_vendor"
+          ],
+          "rank": 33,
+          "alias": "incubator_vendor",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "incubation",
+          "range": "WhitespaceMinimizedString"
+        },
+        "incubator_model": {
+          "name": "incubator_model",
+          "description": " ",
+          "title": "incubator_model",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:incubator_model"
+          ],
+          "rank": 34,
+          "alias": "incubator_model",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "incubation",
+          "range": "WhitespaceMinimizedString"
+        },
+        "co2_percent": {
+          "name": "co2_percent",
+          "description": " ",
+          "title": "co2_percent",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:co2_percent"
+          ],
+          "rank": 35,
+          "alias": "co2_percent",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "incubation",
+          "range": "float",
+          "minimum_value": 0,
+          "maximum_value": 100
+        },
+        "o2_percent": {
+          "name": "o2_percent",
+          "description": " ",
+          "title": "o2_percent",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:o2_percent"
+          ],
+          "rank": 36,
+          "alias": "o2_percent",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "incubation",
+          "range": "float",
+          "minimum_value": 0,
+          "maximum_value": 100
+        },
+        "temperature": {
+          "name": "temperature",
+          "description": " ",
+          "title": "temperature",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:temperature"
+          ],
+          "rank": 37,
+          "alias": "temperature",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "incubation",
+          "range": "WhitespaceMinimizedString",
+          "minimum_value": 0,
+          "maximum_value": 100
+        },
+        "humidity": {
+          "name": "humidity",
+          "description": " ",
+          "title": "humidity",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_conditions:humidity"
+          ],
+          "rank": 38,
+          "alias": "humidity",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "incubation",
+          "range": "WhitespaceMinimizedString",
+          "minimum_value": 0,
+          "maximum_value": 100
+        },
+        "date.medium": {
+          "name": "date.medium",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:date"
+          ],
+          "rank": 39,
+          "alias": "date.medium",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "date"
+        },
+        "protocol": {
+          "name": "protocol",
+          "description": " ",
+          "title": "protocol",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:protocol"
+          ],
+          "rank": 40,
+          "alias": "protocol",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "basal_medium": {
+          "name": "basal_medium",
+          "description": " ",
+          "title": "basal_medium",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:basal_medium"
+          ],
+          "rank": 41,
+          "alias": "basal_medium",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "basal_medium_vendor": {
+          "name": "basal_medium_vendor",
+          "description": " ",
+          "title": "basal_medium_vendor",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:basal_medium_vendor"
+          ],
+          "rank": 42,
+          "alias": "basal_medium_vendor",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "basal_medium_lot_no": {
+          "name": "basal_medium_lot_no",
+          "description": " ",
+          "title": "basal_medium_lot_no",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:basal_medium_lot_no"
+          ],
+          "rank": 43,
+          "alias": "basal_medium_lot_no",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "culture_additives": {
+          "name": "culture_additives",
+          "description": " ",
+          "title": "culture_additives",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:culture_additives"
+          ],
+          "rank": 44,
+          "alias": "culture_additives",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "culture_additives_concentration": {
+          "name": "culture_additives_concentration",
+          "description": " ",
+          "title": "culture_additives_concentration",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:culture_additives_concentration"
+          ],
+          "rank": 45,
+          "alias": "culture_additives_concentration",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "anitibiotic_name": {
+          "name": "anitibiotic_name",
+          "description": " ",
+          "title": "anitibiotic_name",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:anitibiotic_name"
+          ],
+          "rank": 46,
+          "alias": "anitibiotic_name",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "antibiotic_concentration": {
+          "name": "antibiotic_concentration",
+          "description": " ",
+          "title": "antibiotic_concentration",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "culture_media:antibiotic_concentration"
+          ],
+          "rank": 47,
+          "alias": "antibiotic_concentration",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "medium",
+          "range": "WhitespaceMinimizedString"
+        },
+        "treatment_date": {
+          "name": "treatment_date",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:treatment_date"
+          ],
+          "rank": 48,
+          "alias": "treatment_date",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "date"
+        },
+        "addition_volume": {
+          "name": "addition_volume",
+          "description": " ",
+          "title": "addition_volume",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:addition_volume"
+          ],
+          "rank": 49,
+          "alias": "addition_volume",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "stock_concentration": {
+          "name": "stock_concentration",
+          "description": " ",
+          "title": "stock_concentration",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:stock_concentration"
+          ],
+          "rank": 50,
+          "alias": "stock_concentration",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "final_concentration": {
+          "name": "final_concentration",
+          "description": " ",
+          "title": "final_concentration",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:final_concentration"
+          ],
+          "rank": 51,
+          "alias": "final_concentration",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "concentration_unit": {
+          "name": "concentration_unit",
+          "description": " ",
+          "title": "concentration_unit",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:concentration_unit"
+          ],
+          "rank": 52,
+          "alias": "concentration_unit",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "test_article_administration_duration": {
+          "name": "test_article_administration_duration",
+          "description": " ",
+          "title": "test_article_administration_duration",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:test_article_administration_duration"
+          ],
+          "rank": 53,
+          "alias": "test_article_administration_duration",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "test_article_name": {
+          "name": "test_article_name",
+          "description": " ",
+          "title": "test_article_name",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:test_article_name"
+          ],
+          "rank": 54,
+          "alias": "test_article_name",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "test_article_dtxsid": {
+          "name": "test_article_dtxsid",
+          "description": " ",
+          "title": "test_article_dtxsid",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:test_article_dtxsid"
+          ],
+          "rank": 55,
+          "alias": "test_article_dtxsid",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "vehicle_name": {
+          "name": "vehicle_name",
+          "description": " ",
+          "title": "vehicle_name",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:vehicle_name"
+          ],
+          "rank": 56,
+          "alias": "vehicle_name",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "vehicle_dtxsid": {
+          "name": "vehicle_dtxsid",
+          "description": " ",
+          "title": "vehicle_dtxsid",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:vehicle_dtxsid"
+          ],
+          "rank": 57,
+          "alias": "vehicle_dtxsid",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "treatment_protocol": {
+          "name": "treatment_protocol",
+          "description": "Description of the conditions that are applied to CellLine during",
+          "title": "treatment_protocol",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:treatment_protocol"
+          ],
+          "rank": 58,
+          "alias": "treatment_protocol",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "treatment_protocol_DOI": {
+          "name": "treatment_protocol_DOI",
+          "description": " ",
+          "title": "treatment_protocol_DOI",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "treatment:treatment_protocol_DOI"
+          ],
+          "rank": 59,
+          "alias": "treatment_protocol_DOI",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString"
+        },
+        "cell_subject.provenance": {
+          "name": "cell_subject.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "cell_subject:provenance culture_conditions:provenance culture_media:provenance treatment:provenance"
+          ],
+          "rank": 60,
+          "alias": "cell_subject.provenance",
+          "owner": "Cell_Subject",
+          "domain_of": [
+            "Cell_Subject"
+          ],
+          "slot_group": "provenance",
+          "range": "Provenance"
+        }
+      }
+    },
+    "Study": {
+      "name": "Study",
+      "from_schema": "https://example.com/MIACA",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "exact_mappings": [
+            "study:submitter_id contact:studies.submitter_id funding:studies.submitter_id publication:studies.submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "name": {
+          "name": "name",
+          "exact_mappings": [
+            "contact:name"
+          ],
+          "rank": 2,
+          "slot_group": "Contact"
+        },
+        "project_description": {
+          "name": "project_description",
+          "exact_mappings": [
+            "study:study_description"
+          ],
+          "rank": 3,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_name": {
+          "name": "data_submission_contact_name",
+          "exact_mappings": [
+            "contact:submitter_id"
+          ],
+          "rank": 4,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_orcid": {
+          "name": "data_submission_contact_orcid",
+          "exact_mappings": [
+            "contact:data_submission_contact_orcid"
+          ],
+          "rank": 5,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_email": {
+          "name": "data_submission_contact_email",
+          "exact_mappings": [
+            "contact:data_submission_contact_email"
+          ],
+          "rank": 6,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_telephone": {
+          "name": "data_submission_contact_telephone",
+          "exact_mappings": [
+            "contact:data_submission_contact_telephone"
+          ],
+          "rank": 7,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_department": {
+          "name": "data_submission_contact_department",
+          "exact_mappings": [
+            "contact:data_submission_contact_department"
+          ],
+          "rank": 8,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_institution": {
+          "name": "data_submission_contact_institution",
+          "exact_mappings": [
+            "contact:data_submission_contact_institution"
+          ],
+          "rank": 9,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_institution_postal_address": {
+          "name": "data_submission_contact_institution_postal_address",
+          "exact_mappings": [
+            "contact:data_submission_contact_institution_postal_address"
+          ],
+          "rank": 10,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_institution_city": {
+          "name": "data_submission_contact_institution_city",
+          "exact_mappings": [
+            "contact:data_submission_contact_institution_city"
+          ],
+          "rank": 11,
+          "slot_group": "Contact"
+        },
+        "data_submission_contact_state": {
+          "name": "data_submission_contact_state",
+          "exact_mappings": [
+            "contact:data_submission_contact_state"
+          ],
+          "rank": 12,
+          "slot_group": "Contact"
+        },
+        "support_source": {
+          "name": "support_source",
+          "exact_mappings": [
+            "funding:support_source"
+          ],
+          "rank": 13,
+          "slot_group": "Funding"
+        },
+        "support_id": {
+          "name": "support_id",
+          "exact_mappings": [
+            "funding:submitter_id"
+          ],
+          "rank": 14,
+          "slot_group": "Funding"
+        },
+        "PMC_id": {
+          "name": "PMC_id",
+          "exact_mappings": [
+            "publication:PMC_id"
+          ],
+          "rank": 15,
+          "slot_group": "Publication"
+        },
+        "DOI": {
+          "name": "DOI",
+          "exact_mappings": [
+            "publication:DOI"
+          ],
+          "rank": 16,
+          "slot_group": "Publication"
+        },
+        "PMID": {
+          "name": "PMID",
+          "exact_mappings": [
+            "publication:PMID"
+          ],
+          "rank": 17,
+          "slot_group": "Publication"
+        },
+        "study_design": {
+          "name": "study_design",
+          "exact_mappings": [
+            "study:study_design"
+          ],
+          "rank": 18,
+          "slot_group": "experiment"
+        },
+        "study_type": {
+          "name": "study_type",
+          "exact_mappings": [
+            "study:study_type"
+          ],
+          "rank": 19,
+          "slot_group": "experiment"
+        },
+        "experimental_setting": {
+          "name": "experimental_setting",
+          "exact_mappings": [
+            "study:experimental_setting"
+          ],
+          "rank": 20,
+          "slot_group": "experiment"
+        },
+        "study.provenance": {
+          "name": "study.provenance",
+          "exact_mappings": [
+            "study:provenance contact:provenance funding:provenance publication:provenance"
+          ],
+          "rank": 21,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "description": " ",
+          "title": "Study ID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "study:submitter_id contact:studies.submitter_id funding:studies.submitter_id publication:studies.submitter_id"
+          ],
+          "rank": 1,
+          "identifier": true,
+          "alias": "submitter_id",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "name": {
+          "name": "name",
+          "description": "A textual entity that denotes an study.",
+          "title": "Title",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:name"
+          ],
+          "rank": 2,
+          "alias": "name",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString"
+        },
+        "project_description": {
+          "name": "project_description",
+          "description": "A textual entity that describes an investigation.",
+          "title": "Description",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "study:study_description"
+          ],
+          "rank": 3,
+          "slot_uri": "OBI_0001615",
+          "alias": "project_description",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString"
+        },
+        "data_submission_contact_name": {
+          "name": "data_submission_contact_name",
+          "description": "the name of the person bearing the data submission contact representative role (last name,first name)",
+          "title": "Contact name",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:submitter_id"
+          ],
+          "rank": 4,
+          "multivalued": true,
+          "alias": "data_submission_contact_name",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true,
+          "inlined_as_list": true
+        },
+        "data_submission_contact_orcid": {
+          "name": "data_submission_contact_orcid",
+          "description": " ",
+          "title": "Contact ORCID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_orcid"
+          ],
+          "rank": 5,
+          "multivalued": true,
+          "alias": "data_submission_contact_orcid",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "required": true,
+          "inlined_as_list": true,
+          "pattern": "\"\\b\\d{4}-\\d{4}-\\d{4}-\\d{3}[\\dX]\\b\""
+        },
+        "data_submission_contact_email": {
+          "name": "data_submission_contact_email",
+          "description": "email address of data submission contact",
+          "title": "Contact email",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_email"
+          ],
+          "rank": 6,
+          "multivalued": true,
+          "alias": "data_submission_contact_email",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true,
+          "inlined_as_list": true,
+          "pattern": "\"^\\\\S+@[\\\\S+\\\\.]+\\\\S+\""
+        },
+        "data_submission_contact_telephone": {
+          "name": "data_submission_contact_telephone",
+          "description": "telephone number of data submission contact",
+          "title": "Contact phone",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_telephone"
+          ],
+          "rank": 7,
+          "multivalued": true,
+          "alias": "data_submission_contact_telephone",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true,
+          "pattern": "\"^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$\""
+        },
+        "data_submission_contact_department": {
+          "name": "data_submission_contact_department",
+          "description": "department of data submission contact",
+          "title": "Contact department",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_department"
+          ],
+          "rank": 8,
+          "multivalued": true,
+          "alias": "data_submission_contact_department",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "data_submission_contact_department menu",
+          "inlined_as_list": true
+        },
+        "data_submission_contact_institution": {
+          "name": "data_submission_contact_institution",
+          "description": "institution of data submission contact",
+          "title": "Contact institution",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_institution"
+          ],
+          "rank": 9,
+          "multivalued": true,
+          "alias": "data_submission_contact_institution",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "data_submission_contact_institution menu",
+          "inlined_as_list": true
+        },
+        "data_submission_contact_institution_postal_address": {
+          "name": "data_submission_contact_institution_postal_address",
+          "description": "postal address of data submission contact",
+          "title": "Contact ZIP",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_institution_postal_address"
+          ],
+          "rank": 10,
+          "multivalued": true,
+          "alias": "data_submission_contact_institution_postal_address",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true,
+          "pattern": "\"^[0-9]{5}(?:-[0-9]{4})?$\""
+        },
+        "data_submission_contact_institution_city": {
+          "name": "data_submission_contact_institution_city",
+          "description": "city of data submission contact",
+          "title": "Contact city",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_institution_city"
+          ],
+          "rank": 11,
+          "multivalued": true,
+          "alias": "data_submission_contact_institution_city",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true
+        },
+        "data_submission_contact_state": {
+          "name": "data_submission_contact_state",
+          "description": "state of publication contact",
+          "title": "Contact state",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:data_submission_contact_state"
+          ],
+          "rank": 12,
+          "multivalued": true,
+          "alias": "data_submission_contact_state",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true
+        },
+        "support_source": {
+          "name": "support_source",
+          "description": " ",
+          "title": "Funding institution",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "funding:support_source"
+          ],
+          "rank": 13,
+          "multivalued": true,
+          "alias": "support_source",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Funding",
+          "range": "support_source menu",
+          "recommended": true,
+          "inlined_as_list": true
+        },
+        "support_id": {
+          "name": "support_id",
+          "description": " ",
+          "title": "Funding identifier",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "funding:submitter_id"
+          ],
+          "rank": 14,
+          "multivalued": true,
+          "alias": "support_id",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Funding",
+          "range": "WhitespaceMinimizedString",
+          "recommended": true,
+          "inlined_as_list": true
+        },
+        "PMC_id": {
+          "name": "PMC_id",
+          "description": " ",
+          "title": "PMC ID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "publication:PMC_id"
+          ],
+          "rank": 15,
+          "multivalued": true,
+          "alias": "PMC_id",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Publication",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true,
+          "pattern": "^\\d{5,20}"
+        },
+        "DOI": {
+          "name": "DOI",
+          "description": " ",
+          "title": "DOI",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "publication:DOI"
+          ],
+          "rank": 16,
+          "multivalued": true,
+          "alias": "DOI",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Publication",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true
+        },
+        "PMID": {
+          "name": "PMID",
+          "description": " ",
+          "title": "PMID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "publication:PMID"
+          ],
+          "rank": 17,
+          "multivalued": true,
+          "alias": "PMID",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Publication",
+          "range": "WhitespaceMinimizedString",
+          "inlined_as_list": true,
+          "pattern": "^\\d{5,20}"
+        },
+        "study_design": {
+          "name": "study_design",
+          "description": "A plan specification comprised of protocols (which may specify how and what kinds of data will be gathered) that are executed as part of an investigation and is realized during a study design execution.",
+          "title": "Study design",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "study:study_design"
+          ],
+          "rank": 18,
+          "slot_uri": "obo:OBI_0500000",
+          "alias": "study_design",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "experiment",
+          "range": "study_design menu"
+        },
+        "study_type": {
+          "name": "study_type",
+          "description": "A categorical value specification that specifies the type of study from a list of study types",
+          "title": "Study type",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "study:study_type"
+          ],
+          "rank": 19,
+          "alias": "study_type",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "experiment",
+          "range": "study_type menu"
+        },
+        "experimental_setting": {
+          "name": "experimental_setting",
+          "description": " ",
+          "title": "Experimental setting",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "study:experimental_setting"
+          ],
+          "rank": 20,
+          "alias": "experimental_setting",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "experiment",
+          "range": "experimental_setting menu"
+        },
+        "study.provenance": {
+          "name": "study.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "study:provenance contact:provenance funding:provenance publication:provenance"
+          ],
+          "rank": 21,
+          "alias": "study.provenance",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "provenance",
+          "range": "Provenance"
+        }
+      }
+    },
+    "Sample": {
+      "name": "Sample",
+      "from_schema": "https://example.com/MIACA",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "sample.submitter_id": {
+          "name": "sample.submitter_id",
+          "exact_mappings": [
+            "sample:submitter_id"
+          ],
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "cell_subjects.submitter_id": {
+          "name": "cell_subjects.submitter_id",
+          "exact_mappings": [
+            "sample:cell_subjects.submitter_id"
+          ],
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "date.sample_details": {
+          "name": "date.sample_details",
+          "exact_mappings": [
+            "sample:date"
+          ],
+          "rank": 3,
+          "slot_group": "sample_details"
+        },
+        "biospeciment_anatomic_site": {
+          "name": "biospeciment_anatomic_site",
+          "exact_mappings": [
+            "sample:biospecimen_anatomic_site"
+          ],
+          "rank": 4,
+          "slot_group": "sample_details"
+        },
+        "method_of_sample_procurement": {
+          "name": "method_of_sample_procurement",
+          "exact_mappings": [
+            "sample:method_of_sample_procurement"
+          ],
+          "rank": 5,
+          "slot_group": "sample_details"
+        },
+        "preservation_method": {
+          "name": "preservation_method",
+          "exact_mappings": [
+            "sample:preservation_method"
+          ],
+          "rank": 6,
+          "slot_group": "sample_details"
+        },
+        "sample.provenance": {
+          "name": "sample.provenance",
+          "exact_mappings": [
+            "sample:provenance"
+          ],
+          "rank": 7,
+          "slot_group": "provenance"
+        }
+      },
+      "attributes": {
+        "sample.submitter_id": {
+          "name": "sample.submitter_id",
+          "description": " ",
+          "title": "submitter_id",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:submitter_id"
+          ],
+          "rank": 1,
+          "identifier": true,
+          "alias": "sample.submitter_id",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "cell_subjects.submitter_id": {
+          "name": "cell_subjects.submitter_id",
+          "description": " ",
+          "title": "Cell culture ID",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:cell_subjects.submitter_id"
+          ],
+          "rank": 2,
+          "alias": "cell_subjects.submitter_id",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "date.sample_details": {
+          "name": "date.sample_details",
+          "description": " ",
+          "title": "date",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:date"
+          ],
+          "rank": 3,
+          "alias": "date.sample_details",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "date"
+        },
+        "biospeciment_anatomic_site": {
+          "name": "biospeciment_anatomic_site",
+          "description": " ",
+          "title": "collection_source",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:biospecimen_anatomic_site"
+          ],
+          "rank": 4,
+          "alias": "biospeciment_anatomic_site",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "biospeciment_anatomic_site menu"
+        },
+        "method_of_sample_procurement": {
+          "name": "method_of_sample_procurement",
+          "description": "Description of the conditions, i.e. lysis, fixation, staining, antibody",
+          "title": "method_of_sample_procurement",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:method_of_sample_procurement"
+          ],
+          "rank": 5,
+          "alias": "method_of_sample_procurement",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "WhitespaceMinimizedString"
+        },
+        "preservation_method": {
+          "name": "preservation_method",
+          "description": " ",
+          "title": "preservation_method",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:preservation_method"
+          ],
+          "rank": 6,
+          "alias": "preservation_method",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sample.provenance": {
+          "name": "sample.provenance",
+          "description": " ",
+          "title": "Provenance",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:provenance"
+          ],
+          "rank": 7,
+          "alias": "sample.provenance",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "provenance",
+          "range": "Provenance"
+        }
+      }
+    }
+  },
+  "source_file": "schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}
