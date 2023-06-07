@@ -19,7 +19,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", []],
-                        //["projects.code", []], Need to add
+                        ["projects.code", []], 
                         //["study_title", []], Need to add
                         //["study_description", []], Need to add
                         ["study_design", []],
