@@ -253,53 +253,59 @@ export default {
 		}
 	},
 
-    gen3_submit_sample:{
+
+    gen3_sample:{
         fileType: 'tsv',
         status: 'published',
         method: function (dh){
-            const ExportHeaders = new Map([
-                ["type", []],
-                ["submitter_id", []],
-                ["subjects.submitter_id", []],
-                ["date", []],
-                ["biospecimen_anatomic_site", []],
-                ["method_of_sample_procurement", []],
-                ["preservation_method", []],
-                ["weight", []],
-                ["volume",[]],
-                ['provenance', ["sample template version",],],
-            ]);
-
-            const sourceFields = dh.getFields(dh.table);
-            const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
-            // Fills in the above mapping (or just set manually above)
-            dh.getHeaderMap(ExportHeaders, sourceFields, 'gen3_submit_sample');
-
-            // Copy headers to 1st row of new export table
-            const outputMatrix = [[...ExportHeaders.keys()]];
-
-            for (const inputRow of dh.getTrimmedData(dh.hot)) {
-                const outputRow = [];
-                for (const [headerName, sources] of ExportHeaders) {
-                    // Otherwise apply source (many to one) to target field transform:
-                    var value = dh.getMappedField(
-                        headerName,
-                        inputRow,
-                        sources,
-                        sourceFields,
-                        sourceFieldNameMap,
-                        ':',
-                        'gen3_submit_sample'
-                    );
-                    if (headerName =="type"){
-                        value = "sample";
-                    }
-                    outputRow.push(value);
+            const logs = [[]];
+			const sourceFields = dh.getFields(dh.table);
+			const sourceFieldNameMap = dh.getFieldNameMap(sourceFields);
+            const exportConfigs =[
+                {
+                    exportHeaders: new Map([
+                        ["type", []],
+                        ["submitter_id", []],
+                        ["cell_subjects.submitter_id", []],
+                        ["date", []],
+						["biospecimen_anatomic_site", []],
+						["method_of_sample_procurement", []],
+						["preservation_method", []],
+						['provenance', [],],
+                    ]),
+                    uid: "submitter_id",
+                    outputMatrix: [[]],
+                    exportType: "sample",
                 }
-            outputMatrix.push(outputRow);
-            }
+            ];
+            for (const exportConfig of exportConfigs) {
+				dh.getHeaderMap(exportConfig.exportHeaders, sourceFields, exportConfig.exportType);
+				exportConfig.outputMatrix.push([...exportConfig.exportHeaders.keys()]);
+				for (const inputRow of dh.getTrimmedData(dh.hot)) {
+					const outputRow = [];
+					for (const [headerName, sources] of exportConfig.exportHeaders) {
+						var value = dh.getMappedField(
+							headerName,
+							inputRow,
+							sources,
+							sourceFields,
+							sourceFieldNameMap,
+							':',
+							exportConfig.exportType
+						);
+						if (headerName == "type") {
+							value = exportConfig.exportType;
+						}
+						outputRow.push(value);
+					}
+					exportConfig.outputMatrix.push(outputRow);
+				}
 
-        return outputMatrix;
-        }
-    },
+				let finalMatrix = removeDuplicatesAndCollapse(exportConfig.outputMatrix, exportConfig.uid);
+				logs.push([`${exportConfig.exportType} information is done`]);
+				exportFile(finalMatrix, exportConfig.exportType, "tsv");
+			}
+			return logs;
+		}
+	},
 };

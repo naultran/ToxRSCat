@@ -602,7 +602,7 @@ classes:
       study.provenance:
         rank: 21
         slot_group: provenance
-        exact_mappings:provenance
+        exact_mappings:
           study:provenance
           contact:provenance
           funding:provenance
@@ -630,7 +630,7 @@ classes:
         rank: 2
         slot_group: identifiers
         exact_mappings:
-          sample:cell_subject.submitter_id
+          sample:cell_subjects.submitter_id
 
       date.sample_details:
         rank: 3
@@ -642,7 +642,7 @@ classes:
         rank: 4
         slot_group: sample_details
         exact_mappings:
-          sample:biospeciment_anatomic_site
+          sample:biospecimen_anatomic_site
 
       method_of_sample_procurement:
         rank: 5
