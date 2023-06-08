@@ -1237,7 +1237,9 @@
         "submitter_id": {
           "name": "submitter_id",
           "exact_mappings": [
-            "mass_spec_assay:submitter_id ms_raw_data:mass_spec_assay.submitter_id ms_analysis:submitter_id"
+            "mass_spec_assay:submitter_id",
+            "ms_raw_data:mass_spec_assay.submitter_id",
+            "ms_analysis:submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -1253,7 +1255,8 @@
         "rawDataFile": {
           "name": "rawDataFile",
           "exact_mappings": [
-            "ms_raw_data:file_name ms_analysis:ms_raw_data.submitter_id"
+            "ms_raw_data:file_name",
+            "ms_analysis:ms_raw_data.submitter_id"
           ],
           "rank": 3,
           "slot_group": "raw_data"
@@ -1453,7 +1456,9 @@
         "mass_spec_assay.provenance": {
           "name": "mass_spec_assay.provenance",
           "exact_mappings": [
-            "mass_spec_assay:provenance ms_analysed_data:provenance ms_analysis:provenance"
+            "mass_spec_assay:provenance",
+            "ms_analysed_data:provenance",
+            "ms_analysis:provenance"
           ],
           "rank": 28,
           "slot_group": "provenance"
@@ -1466,7 +1471,9 @@
           "title": "submitter_id",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "mass_spec_assay:submitter_id ms_raw_data:mass_spec_assay.submitter_id ms_analysis:submitter_id"
+            "mass_spec_assay:submitter_id",
+            "ms_raw_data:mass_spec_assay.submitter_id",
+            "ms_analysis:submitter_id"
           ],
           "rank": 1,
           "alias": "submitter_id",
@@ -1501,7 +1508,8 @@
           "title": "rawDataFile",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "ms_raw_data:file_name ms_analysis:ms_raw_data.submitter_id"
+            "ms_raw_data:file_name",
+            "ms_analysis:ms_raw_data.submitter_id"
           ],
           "rank": 3,
           "slot_uri": "obo:OBI:0000021",
@@ -1933,7 +1941,9 @@
           "title": "Provenance",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "mass_spec_assay:provenance ms_analysed_data:provenance ms_analysis:provenance"
+            "mass_spec_assay:provenance",
+            "ms_analysed_data:provenance",
+            "ms_analysis:provenance"
           ],
           "rank": 28,
           "alias": "mass_spec_assay.provenance",
@@ -2513,7 +2523,7 @@
       }
     }
   },
-  "source_file": "schema.yaml",
+  "source_file": "/Users/apple/ToxRSCat/templates/ms_metabolomics/schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",

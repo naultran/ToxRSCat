@@ -2808,7 +2808,10 @@
         "cell_subject.submitter_id": {
           "name": "cell_subject.submitter_id",
           "exact_mappings": [
-            "cell_subject:submitter_id culture_conditions:cell_subjects.submitter_id culture_media:cell_subjects.submitter_id treatment:cell_subjects.submitter_id"
+            "cell_subject:submitter_id",
+            "culture_conditions:cell_subjects.submitter_id",
+            "culture_media:cell_subjects.submitter_id",
+            "treatment:cell_subjects.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -2976,7 +2979,8 @@
         "date.culture_vessel": {
           "name": "date.culture_vessel",
           "exact_mappings": [
-            "culture_conditions:date culture_media:culture_vessel_date"
+            "culture_conditions:date",
+            "culture_media:culture_vessel_date"
           ],
           "rank": 22,
           "slot_group": "culture_vessel"
@@ -3280,7 +3284,10 @@
         "cell_subject.provenance": {
           "name": "cell_subject.provenance",
           "exact_mappings": [
-            "cell_subject:provenance culture_conditions:provenance culture_media:provenance treatment:provenance"
+            "cell_subject:provenance",
+            "culture_conditions:provenance",
+            "culture_media:provenance",
+            "treatment:provenance"
           ],
           "rank": 60,
           "slot_group": "provenance"
@@ -3293,7 +3300,10 @@
           "title": "Cell culture ID",
           "from_schema": "https://example.com/MIACA",
           "exact_mappings": [
-            "cell_subject:submitter_id culture_conditions:cell_subjects.submitter_id culture_media:cell_subjects.submitter_id treatment:cell_subjects.submitter_id"
+            "cell_subject:submitter_id",
+            "culture_conditions:cell_subjects.submitter_id",
+            "culture_media:cell_subjects.submitter_id",
+            "treatment:cell_subjects.submitter_id"
           ],
           "rank": 1,
           "identifier": true,
@@ -3665,7 +3675,8 @@
           "title": "date",
           "from_schema": "https://example.com/MIACA",
           "exact_mappings": [
-            "culture_conditions:date culture_media:culture_vessel_date"
+            "culture_conditions:date",
+            "culture_media:culture_vessel_date"
           ],
           "rank": 22,
           "alias": "date.culture_vessel",
@@ -4330,7 +4341,10 @@
           "title": "Provenance",
           "from_schema": "https://example.com/MIACA",
           "exact_mappings": [
-            "cell_subject:provenance culture_conditions:provenance culture_media:provenance treatment:provenance"
+            "cell_subject:provenance",
+            "culture_conditions:provenance",
+            "culture_media:provenance",
+            "treatment:provenance"
           ],
           "rank": 60,
           "alias": "cell_subject.provenance",
@@ -4351,7 +4365,10 @@
         "submitter_id": {
           "name": "submitter_id",
           "exact_mappings": [
-            "study:submitter_id contact:studies.submitter_id funding:studies.submitter_id publication:studies.submitter_id"
+            "study:submitter_id",
+            "contact:studies.submitter_id",
+            "funding:studies.submitter_id",
+            "publication:studies.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -4511,7 +4528,10 @@
         "study.provenance": {
           "name": "study.provenance",
           "exact_mappings": [
-            "study:provenance contact:provenance funding:provenance publication:provenance"
+            "study:provenance",
+            "contact:provenance",
+            "funding:provenance",
+            "publication:provenance"
           ],
           "rank": 21,
           "slot_group": "provenance"
@@ -4524,7 +4544,10 @@
           "title": "Study ID",
           "from_schema": "https://example.com/MIACA",
           "exact_mappings": [
-            "study:submitter_id contact:studies.submitter_id funding:studies.submitter_id publication:studies.submitter_id"
+            "study:submitter_id",
+            "contact:studies.submitter_id",
+            "funding:studies.submitter_id",
+            "publication:studies.submitter_id"
           ],
           "rank": 1,
           "identifier": true,
@@ -4907,7 +4930,10 @@
           "title": "Provenance",
           "from_schema": "https://example.com/MIACA",
           "exact_mappings": [
-            "study:provenance contact:provenance funding:provenance publication:provenance"
+            "study:provenance",
+            "contact:provenance",
+            "funding:provenance",
+            "publication:provenance"
           ],
           "rank": 21,
           "alias": "study.provenance",
@@ -5108,7 +5134,7 @@
       }
     }
   },
-  "source_file": "schema.yaml",
+  "source_file": "/Users/apple/ToxRSCat/templates/miaca_update/schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",

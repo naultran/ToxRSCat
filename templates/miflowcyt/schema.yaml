@@ -60,114 +60,114 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-          flow_cytometry_assay:submitter_id
-          flow_data:flow_cytometry_assay.submitter_id
-          flow_analysis_data:flow_cytometry_assay.submitter_id
+        - flow_cytometry_assay:submitter_id
+        - flow_data:flow_cytometry_assay.submitter_id
+        - flow_analysis_data:flow_cytometry_assay.submitter_id
       aliquots.submitter_id:
         rank: 2
         slot_group: identifiers
         exact_mappings:
-          flow_cytometry_assay:aliquots.submitter_id
+        - flow_cytometry_assay:aliquots.submitter_id
       listModeDataFile:
         rank: 3
         slot_group: raw_data_file
         exact_mappings:
-          flow_data:file_name
+        - flow_data:file_name
       raw.data_type:
         rank: 4
         slot_group: raw_data_file
         exact_mappings:
-          flow_data:data_type
+        - flow_data:data_type
       raw.data_format:
         rank: 5
         slot_group: raw_data_file
         exact_mappings:
-          flow_data:data_format
+        - flow_data:data_format
       raw.data_category:
         rank: 6
         slot_group: raw_data_file
         exact_mappings:
-          flow_data:data_category
+        - flow_data:data_category
       WorkspaceFile:
         rank: 7
         slot_group: processed_data_file
         exact_mappings:
-          flow_analysis_data:file_name
+        - flow_analysis_data:file_name
       processed.data_type:
         rank: 8
         slot_group: processed_data_file
         exact_mappings:
-          flow_analysis_data:data_type
+        - flow_analysis_data:data_type
       processed.data_format:
         rank: 9
         slot_group: processed_data_file
         exact_mappings:
-          flow_analysis_data:data_format
+        - flow_analysis_data:data_format
       processed.data_category:
         rank: 10
         slot_group: processed_data_file
         exact_mappings:
-          flow_analysis_data:data_category
+        - flow_analysis_data:data_category
       analysis_protocol:
         rank: 11
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:protocol
+        - flow_analysis:protocol
       analysis_protocol_DOI:
         rank: 12
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:protocol_doi
+        - flow_analysis:protocol_doi
       CompensationDescription:
         rank: 13
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:compensation_description
+        - flow_analysis:compensation_description
       TransformationPurpose:
         rank: 14
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:transformation_purpose
+        - flow_analysis:transformation_purpose
       TransformationDescription:
         rank: 15
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:transformation_description
+        - flow_analysis:transformation_description
       GateDescription:
         rank: 16
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:gate_description
+        - flow_analysis:gate_description
       Gate Statistics:
         rank: 17
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:gate_statistics
+        - flow_analysis:gate_statistics
       GateBoundaries:
         rank: 18
         slot_group: data_analysis
         exact_mappings:
-          flow_analysis:gate_boundaries
+        - flow_analysis:gate_boundaries
       flow_cytometry_protocol:
         rank: 19
         slot_group: flow_cytometry
         exact_mappings:
-          flow_cytometry_assay:protocol
+        - flow_cytometry_assay:protocol
       flow_cytometry_protocol_DOI:
         rank: 20
         slot_group: flow_cytometry
         exact_mappings:
-          flow_cytometry_assay:protocol_doi
+        - flow_cytometry_assay:protocol_doi
       qualityControlMeasures:
         rank: 21
         slot_group: flow_cytometry
         exact_mappings:
-          flow_cytometry_assay:quality_control_measures
+        - flow_cytometry_assay:quality_control_measures
       instrument.submitter_id:
         rank: 22
         slot_group: flow_cytometry
         exact_mappings:
-          flow_cytometry_assay:instruments.submitter_id
+        - flow_cytometry_assay:instruments.submitter_id
       staining_protocol:
         rank: 23
         slot_group: flow_cytometry
@@ -227,10 +227,10 @@ classes:
         rank: 34
         slot_group: provenance
         exact_mappings:
-          flow_cytometry_assay:provenance
-          flow_analysis_data:provenance
-          flow_data:provenance
-          flow_analysis:provenance
+        - flow_cytometry_assay:provenance
+        - flow_analysis_data:provenance
+        - flow_data:provenance
+        - flow_analysis:provenance
   Instrument:
     name: Instrument
     is_a: dh_interface

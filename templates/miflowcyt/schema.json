@@ -1424,7 +1424,9 @@
         "flow_cytometry.submitter_id": {
           "name": "flow_cytometry.submitter_id",
           "exact_mappings": [
-            "flow_cytometry_assay:submitter_id flow_data:flow_cytometry_assay.submitter_id flow_analysis_data:flow_cytometry_assay.submitter_id"
+            "flow_cytometry_assay:submitter_id",
+            "flow_data:flow_cytometry_assay.submitter_id",
+            "flow_analysis_data:flow_cytometry_assay.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -1688,7 +1690,10 @@
         "flowcytometry_template_provenance": {
           "name": "flowcytometry_template_provenance",
           "exact_mappings": [
-            "flow_cytometry_assay:provenance flow_analysis_data:provenance flow_data:provenance flow_analysis:provenance"
+            "flow_cytometry_assay:provenance",
+            "flow_analysis_data:provenance",
+            "flow_data:provenance",
+            "flow_analysis:provenance"
           ],
           "rank": 34,
           "slot_group": "provenance"
@@ -1701,7 +1706,9 @@
           "title": "submitter_id",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "flow_cytometry_assay:submitter_id flow_data:flow_cytometry_assay.submitter_id flow_analysis_data:flow_cytometry_assay.submitter_id"
+            "flow_cytometry_assay:submitter_id",
+            "flow_data:flow_cytometry_assay.submitter_id",
+            "flow_analysis_data:flow_cytometry_assay.submitter_id"
           ],
           "rank": 1,
           "identifier": false,
@@ -2289,7 +2296,10 @@
           "title": "Provenance",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "flow_cytometry_assay:provenance flow_analysis_data:provenance flow_data:provenance flow_analysis:provenance"
+            "flow_cytometry_assay:provenance",
+            "flow_analysis_data:provenance",
+            "flow_data:provenance",
+            "flow_analysis:provenance"
           ],
           "rank": 34,
           "alias": "flowcytometry_template_provenance",

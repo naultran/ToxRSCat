@@ -48,9 +48,9 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-          mass_spec_assay:submitter_id
-          ms_raw_data:mass_spec_assay.submitter_id
-          ms_analysis:submitter_id #Need to add an analysis name column
+        - mass_spec_assay:submitter_id
+        - ms_raw_data:mass_spec_assay.submitter_id
+        - ms_analysis:submitter_id #Need to add an analysis name column
       aliquots.submitter_id:
         rank: 2
         slot_group: identifiers
@@ -60,8 +60,8 @@ classes:
         rank: 3
         slot_group: raw_data
         exact_mappings:
-          ms_raw_data:file_name
-          ms_analysis:ms_raw_data.submitter_id
+        - ms_raw_data:file_name
+        - ms_analysis:ms_raw_data.submitter_id
       raw.data_category:
         rank: 4
         slot_group: raw_data
@@ -186,9 +186,9 @@ classes:
         rank: 28
         slot_group: provenance
         exact_mappings:
-          mass_spec_assay:provenance
-          ms_analysed_data:provenance
-          ms_analysis:provenance
+        - mass_spec_assay:provenance
+        - ms_analysed_data:provenance
+        - ms_analysis:provenance
   metaboliteID:
     name: metaboliteID
     is_a: dh_interface
