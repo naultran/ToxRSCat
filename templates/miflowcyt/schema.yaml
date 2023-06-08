@@ -61,8 +61,8 @@ classes:
         slot_group: identifiers
         exact_mappings:
         - flow_cytometry_assay:submitter_id
-        - flow_data:flow_cytometry_assay.submitter_id
-        - flow_analysis_data:flow_cytometry_assay.submitter_id
+        - flow_data:flow_cytometry_assays.submitter_id
+        - flow_analysis_data:flow_cytometry_assays.submitter_id
       aliquots.submitter_id:
         rank: 2
         slot_group: identifiers
@@ -167,7 +167,7 @@ classes:
         rank: 22
         slot_group: flow_cytometry
         exact_mappings:
-        - flow_cytometry_assay:instruments.submitter_id
+        - flow_cytometry_assay:instruments_submitter_id
       staining_protocol:
         rank: 23
         slot_group: flow_cytometry

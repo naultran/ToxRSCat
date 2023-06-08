@@ -20,7 +20,7 @@ export default {
 						["protocol", []],
 						["protocol_doi", []],
 						["quality_control_measures", []],
-						["instruments.submitter_id", []],
+						["instruments_submitter_id", []],
 						["staining_protocol", []],
 						["staining_protocol_doi", []],
 						["characteristics_being_measured", []],
@@ -42,7 +42,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", ["listModeDataFile"]],
-						["flow_cytometry_assay.submitter_id", []],
+						["flow_cytometry_assays.submitter_id", []],
 						["file_name", []],
 						["data_type", []],
 						["data_format", []],
@@ -57,7 +57,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", ["WorkspaceFile"]],
-						["flow_cytometry_assay.submitter_id", []],
+						["flow_cytometry_assays.submitter_id", []],
 						["file_name", []],
 						["data_type", []],
 						["data_format", []],
@@ -72,7 +72,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", ["TransformationDescription"]],
-						["flow_data.submitter_id", ["listModeDataFile"]],
+						["flow_datas.submitter_id", ["listModeDataFile"]],
 						["protocol", []],
 						["compensation_description", []],
 						["transformation_purpose", []],
