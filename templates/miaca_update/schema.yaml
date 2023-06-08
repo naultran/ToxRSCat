@@ -82,10 +82,10 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-          cell_subject:submitter_id
-          culture_conditions:cell_subjects.submitter_id
-          culture_media:cell_subjects.submitter_id
-          treatment:cell_subjects.submitter_id
+        - cell_subject:submitter_id
+        - culture_conditions:cell_subjects.submitter_id
+        - culture_media:cell_subjects.submitter_id
+        - treatment:cell_subjects.submitter_id
           
       study.submitter_id:
         rank: 2
@@ -213,8 +213,8 @@ classes:
         rank: 22
         slot_group: culture_vessel
         exact_mappings:
-          culture_conditions:date
-          culture_media:culture_vessel_date
+        - culture_conditions:date
+        - culture_media:culture_vessel_date
 
       nameType:
         rank: 23
@@ -443,10 +443,10 @@ classes:
         rank: 60
         slot_group: provenance
         exact_mappings:
-          cell_subject:provenance
-          culture_conditions:provenance
-          culture_media:provenance
-          treatment:provenance
+        - cell_subject:provenance
+        - culture_conditions:provenance
+        - culture_media:provenance
+        - treatment:provenance
 
   Study:
     name: Study
@@ -478,10 +478,10 @@ classes:
         rank: 1
         slot_group: identifiers
         exact_mappings:
-          study:submitter_id
-          contact:studies.submitter_id
-          funding:studies.submitter_id
-          publication:studies.submitter_id
+        - study:submitter_id
+        - contact:studies.submitter_id
+        - funding:studies.submitter_id
+        - publication:studies.submitter_id
 
       name:
         rank: 2
@@ -603,10 +603,10 @@ classes:
         rank: 21
         slot_group: provenance
         exact_mappings:
-          study:provenance
-          contact:provenance
-          funding:provenance
-          publication:provenance
+        - study:provenance
+        - contact:provenance
+        - funding:provenance
+        - publication:provenance
 
   Sample:
     name: Sample

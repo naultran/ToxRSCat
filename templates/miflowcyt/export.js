@@ -32,7 +32,7 @@ export default {
 						["reagent_catalogue", []],
 						["staining_status", []],
 						["other_reagent", []],
-						['provenance', []]
+						['provenance', []],
 					]),
 					uid: "submitter_id",
 					outputMatrix: [[]],
