@@ -1618,7 +1618,7 @@
         "characteristicsBeingMeasured": {
           "name": "characteristicsBeingMeasured",
           "exact_mappings": [
-            "flow_cytometry_assay:characteristic_being_measured"
+            "flow_cytometry_assay:characteristics_being_measured"
           ],
           "rank": 25,
           "slot_group": "flow_cytometry"
@@ -2131,7 +2131,7 @@
           "title": "characteristicsBeingMeasured",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "flow_cytometry_assay:characteristic_being_measured"
+            "flow_cytometry_assay:characteristics_being_measured"
           ],
           "rank": 25,
           "slot_uri": "obo:BFO_0000005",
