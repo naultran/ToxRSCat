@@ -182,7 +182,7 @@ classes:
         rank: 25
         slot_group: flow_cytometry
         exact_mappings:
-          flow_cytometry_assay:characteristic_being_measured
+          flow_cytometry_assay:characteristics_being_measured
       analyte:
         rank: 26
         slot_group: flow_cytometry
