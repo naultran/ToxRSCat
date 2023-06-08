@@ -163,7 +163,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["test_article_dtxsid", "treatment_date"]],
+                        ["submitter_id", ["test_article_dtxsid", "treatment_date", "dose_amount"]],
                         ["subjects.submitter_id", []],
                         ["date", []],
                         ["administration_volume_ml", []],
