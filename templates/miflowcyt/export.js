@@ -20,8 +20,9 @@ export default {
 						["protocol", []],
 						["protocol_doi", []],
 						["quality_control_measures", []],
-						["instrument.submitter_id", []],
+						["instruments.submitter_id", []],
 						["staining_protocol", []],
+						["staining_protocol_doi", []]
 						["characteristics_being_measured", []],
 						["analyte", []],
 						["analyte_detector", []],
