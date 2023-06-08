@@ -41,7 +41,7 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name"]],
+						["submitter_id", ["listModeDataFile"]],
 						["flow_cytometry_assay.submitter_id", []],
 						["file_name", []],
 						["data_type", []],
@@ -56,7 +56,7 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name"]],
+						["submitter_id", ["WorkspaceFile"]],
 						["flow_cytometry_assay.submitter_id", []],
 						["file_name", []],
 						["data_type", []],
@@ -71,8 +71,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name"]],
-						["flow_data.submitter_id", ["fcs"]],
+						["submitter_id", ["TransformationDescription"]],
+						["flow_data.submitter_id", ["listModeDataFile"]],
 						["protocol", []],
 						["compensation_description", []],
 						["transformation_purpose", []],
