@@ -22,7 +22,7 @@ export default {
 						["quality_control_measures", []],
 						["instruments.submitter_id", []],
 						["staining_protocol", []],
-						["staining_protocol_doi", []]
+						["staining_protocol_doi", []],
 						["characteristics_being_measured", []],
 						["analyte", []],
 						["analyte_detector", []],
