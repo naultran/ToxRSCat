@@ -1425,8 +1425,8 @@
           "name": "flow_cytometry.submitter_id",
           "exact_mappings": [
             "flow_cytometry_assay:submitter_id",
-            "flow_data:flow_cytometry_assay.submitter_id",
-            "flow_analysis_data:flow_cytometry_assay.submitter_id"
+            "flow_data:flow_cytometry_assays.submitter_id",
+            "flow_analysis_data:flow_cytometry_assays.submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
@@ -1594,7 +1594,7 @@
         "instrument.submitter_id": {
           "name": "instrument.submitter_id",
           "exact_mappings": [
-            "flow_cytometry_assay:instruments.submitter_id"
+            "flow_cytometry_assay:instruments_submitter_id"
           ],
           "rank": 22,
           "slot_group": "flow_cytometry"
@@ -1707,8 +1707,8 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
             "flow_cytometry_assay:submitter_id",
-            "flow_data:flow_cytometry_assay.submitter_id",
-            "flow_analysis_data:flow_cytometry_assay.submitter_id"
+            "flow_data:flow_cytometry_assays.submitter_id",
+            "flow_analysis_data:flow_cytometry_assays.submitter_id"
           ],
           "rank": 1,
           "identifier": false,
@@ -2077,7 +2077,7 @@
           "title": "instrument.submitter_id",
           "from_schema": "https://example.com/MIFlowCyt",
           "exact_mappings": [
-            "flow_cytometry_assay:instruments.submitter_id"
+            "flow_cytometry_assay:instruments_submitter_id"
           ],
           "rank": 22,
           "alias": "instrument.submitter_id",
