@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#toxicology-reporting-standard-catalogue-toxrscat">Toxicology Reporting Standard Catalogue (ToxRSCat)</a>
+<ul>
+<li></li>
+<li><a href="#overview-to-toxrscat">Overview to ToxRSCat</a></li>
+<li><a href="#capturing-minimum-requirement-standards">Capturing minimum requirement standards</a></li>
+<li><a href="#machine-actionable-metadata-models">Machine-actionable metadata models</a></li>
+<li><a href="#using-toxrscat-web-version">Using ToxRSCat (web version)</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#using-toxrscat-local-version">Using ToxRSCat (local version)</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="toxicology-reporting-standard-catalogue-toxrscat">Toxicology Reporting Standard Catalogue (ToxRSCat)</h1>
+<p align="center">  <img src="https://img.shields.io/badge/status-work%20in%20progress-yellow" alt="Work in Progress">  <br>  <strong>🚧 This repository is a work in progress 🚧</strong>  <br> Please check in regularly for updates .  If you have any questions feel free to contact the ToxRSCat team using <i>issues</i> or by email.</p>
+<hr>
+<h3 id="table-of-contents">Table of Contents</h3>
+<ol>
+<li><a href="#skip-to-the-real-thing">Skip to Data Collection!</a><br>
+a. <a href="google.com">Follow with scribe</a></li>
+<li><a href="#overview">Overview of ToxRSCat</a><br><br>
+a. Dependencies<br></li>
+<li><a href="#updateRS">Capturing minimum requirement standards</a><br></li>
+<li><a href="#ma">Machine-actionable metadata models</a><br><br>
+a. Creating and revising metadata models <br></li>
+<li><a href="#skip-to-the-real-thing">Using ToxRSCat (web)</a><br></li>
+<li><a href="#local-dh">Using ToxRSCat (local)</a></li>
+</ol>
+<p><a id="overview"></a></p>
+<h2 id="overview-to-toxrscat">Overview to ToxRSCat</h2>
+<p>The toxicology reporting standard catalogue is a community-based effort to catalogue reporting standards to support the collection of essential metadata associated with environmental health experiments. ToxRSCat is a collection of machine actionable metadata requirements using <a href="https://linkml.io/">LinkML schemas</a> and supporting implementation using <a href="http://3.90.137.203:8080/">DataHarmonizer</a>.</p>
+<p><em>Development of ToxRSCat was supported by the National Institutes of Environmental Health Science (NIEHS).</em></p>
+<ul>
+<li>Michigan State University Superfund Research Center (<a href="iit.msu.edu">P42ES004911</a>).</li>
+</ul>
+<h3 id="dependencies">Dependencies</h3>
+<pre><code>python_version == 3.9.*
+pandas
+linkml
+</code></pre>
+<p><a id="updateRS"></a></p>
+<h2 id="capturing-minimum-requirement-standards">Capturing minimum requirement standards</h2>
+<p>Our goal is to capture the consensus set of minimally required metadata for the diverse study designs and endpoints relevant to the environmental health research community <!-- ([see our commentary in EHP](google.com))-->. Standards are continuously evolving and so there is a need to be agile in our development of templates, collection mechanisms, and respositories. For more information on how we develop the standards in ToxRSCat and how to contribute following <a href="https://github.com/naultran/ToxRSCat/tree/main/templates#readme">this link</a>.</p>
+<p><a id="ma"></a></p>
+<h2 id="machine-actionable-metadata-models">Machine-actionable metadata models</h2>
+<p><strong>In progress:</strong> Outline the value of machine-actionable metadata models. See <a href="https://pubmed.ncbi.nlm.nih.gov/36180441/">Batista et al. 2022</a> for an excellent primer.</p>
+<p><a id="#skip-to-the-real-thing"></a></p>
+<h2 id="using-toxrscat-web-version">Using ToxRSCat (web version)</h2>
+<p>ToxRSCat uses machine-actionable models to support use of diverse collection tools and resources. However, to accelerate adoption we have implemented a workflow from (meta)data collection to data depositing leveraging <a href="http://3.90.137.203:8080/">DataHarmonizer</a> and a <a href="fairtox.com">Gen3 data commons - ToxDataCommons</a>.</p>
+<blockquote>
+<p>We’re testing out Scribe!</p>
+</blockquote>
+<iframe src="https://scribehow.com/embed/Intro_to_ToxRSCat-DataHarmonizer__YD2kEHXKQJajwexAoSMCdw" width="100%" height="640" allowfullscreen=""></iframe>
+<h4 id="go-to-toxdatacommons-dataharmonizer">1.  Go to ToxDataCommons-DataHarmonizer</h4>
+<p><a href="http://3.90.137.203:8080/">Click here</a> to go to our live instance of ToxDataCommons-DataHarmonizer.</p>
+<h4 id="familiarize-yourself-with-the-available-types-of-metadata-that-can-be-collected.">2. Familiarize yourself with the available types of (meta)data that can be collected.</h4>
+<p>We currently support the following  types of study designs and data:</p>
+<p><strong>Study designs</strong></p>
+<ul>
+<li><a href="https://github.com/naultran/ToxRSCat/tree/main/templates/miate#readme"><em>In vivo</em></a> (MIATE: Minimum Information about Animal Toxicology Experiments)</li>
+<li><a href="https://github.com/naultran/ToxRSCat/tree/main/templates/miaca#readme"><em>In vitro</em></a> (MIACA: Minimum Information about Cellular Assays)</li>
+</ul>
+<p><strong>Assays</strong></p>
+<ul>
+<li><a href="https://github.com/naultran/ToxRSCat/tree/main/templates/REMBI#readme">Histology imaging</a> (REMBI: Recommended Metadata for Biological Imaging)</li>
+<li><a href="https://github.com/naultran/ToxRSCat/tree/main/templates/miflowcyt#readme">Flow Cytometry</a> (MIFlowCyt: Minimum Information about Flow Cytometry Experiments)</li>
+<li><a href="https://github.com/naultran/ToxRSCat/tree/main/templates/ms_mettabolomics#readme">Mass Spec Metabolomics</a> (CIMR: Core Information for Metabolomics Reporting)</li>
+</ul>
+<h4 id="collecting-metadata">3. Collecting (meta)data</h4>
+<p><em>Instructions here - just like excel!</em></p>
+<h4 id="save-your-work">4. Save your work!</h4>
+<h4 id="export-for-depositing-into-toxdatacommons">5. Export for depositing into ToxDataCommons</h4>
+<h4 id="submit-your-data-to-toxdatacommons">6. Submit your data to ToxDataCommons</h4>
+<p><a id="#local-dh"></a></p>
+<h2 id="using-toxrscat-local-version">Using ToxRSCat (local version)</h2>
+<p><em>Not currently developed - see DataHarmonizer for instructions.</em></p>
+
+    </div>
+  </div>
+</body>
+
+</html>
+
