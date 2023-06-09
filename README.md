@@ -57,7 +57,7 @@ __Assays__
 
 - [Histology imaging](https://github.com/naultran/ToxRSCat/tree/main/templates/REMBI#readme) (REMBI: Recommended Metadata for Biological Imaging)
 - [Flow Cytometry](https://github.com/naultran/ToxRSCat/tree/main/templates/miflowcyt#readme) (MIFlowCyt: Minimum Information about Flow Cytometry Experiments)
-- [Mass Spec Metabolomics](https://github.com/naultran/ToxRSCat/tree/main/templates/ms_mettabolomics#readme) (CIMR: Core Information for Metabolomics Reporting) 
+- [Mass Spec Metabolomics](https://github.com/naultran/ToxRSCat/tree/main/templates/ms_metabolomics#readme) (CIMR: Core Information for Metabolomics Reporting) 
 
 #### 3. Collecting (meta)data
 _Instructions here - just like excel!_
