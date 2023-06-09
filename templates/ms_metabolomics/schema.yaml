@@ -31,7 +31,7 @@ classes:
     - TransformationPurpose
     - TransformationDescription
     - unit
-    - analysis_protocol.submitter_id
+    - analysis_protocols.submitter_id
     - calibration_standard
     - chromatography.name
     - chromatography_column
@@ -125,11 +125,11 @@ classes:
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:unit
-      analysis_protocol.submitter_id:
+      analysis_protocols.submitter_id:
         rank: 17
         slot_group: data_analysis
         exact_mappings:
-          ms_analysis:analysis_protocol.submitter_id
+          ms_analysis:analysis_protocols.submitter_id
       calibration_standard:
         rank: 18
         slot_group: extract
@@ -244,7 +244,7 @@ classes:
     name: Instrument
     is_a: dh_interface
     slots:
-    - instrument.submitter_id
+    - instruments.submitter_id
     - manufacturer
     - model
     - scan_polarity
@@ -253,7 +253,7 @@ classes:
     - mass_analyzer_type
     - instrument.provenance
     slot_usage:
-      instrument.submitter_id:
+      instruments.submitter_id:
         rank: 1
         slot_group: Instrument
 
@@ -289,20 +289,20 @@ classes:
     name: Aliquot
     is_a: dh_interface
     slots:
-    - aliquot.submitter_id
-    - sample.submitter_id
+    - aliquots.submitter_id
+    - samples.submitter_id
     - analyte_type
     - analyte_protocol
     - derivitization
     - extract_preservation_method
     - aliquot.provenance
     slot_usage:
-      aliquot.submitter_id:
+      aliquots.submitter_id:
         rank: 1
         slot_group: identifiers
         exact_mappings:
           aliquot:submitter_id
-      sample.submitter_id:
+      samples.submitter_id:
         rank: 2
         slot_group: identifiers
         exact_mappings:
@@ -333,15 +333,9 @@ classes:
         exact_mappings:
           aliquot:provenance
 slots:
-  aliquot.submitter_id:
-    name: aliquot.submitter_id
-    title: submitter_id
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  sample.submitter_id:
-    name: sample.submitter_id
-    title: sample.submitter_id
+  samples.submitter_id:
+    name: samples.submitter_id
+    title: samples.submitter_id
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -410,7 +404,7 @@ slots:
     comments: ' '
   instruments.submitter_id:
     name: instruments.submitter_id
-    title: instrument.submitter_id
+    title: instruments.submitter_id
     range: instruments.submitter_id menu
     description: ' '
     comments: ' '
@@ -472,9 +466,9 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     comments: nmol/mg total protein
-  analysis_protocol.submitter_id:
-    name: analysis_protocol.submitter_id
-    title: analysis_protocol.submitter_id
+  analysis_protocols.submitter_id:
+    name: analysis_protocols.submitter_id
+    title: analysis_protocols.submitter_id
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     slot_uri: obo:NCIT_C42651
@@ -612,12 +606,6 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     comments: '1.23'
-  instrument.submitter_id:
-    name: instrument.submitter_id
-    title: instrument_id
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
   manufacturer:
     name: manufacturer
     title: manufacturer

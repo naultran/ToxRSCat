@@ -692,20 +692,10 @@
     }
   },
   "slots": {
-    "aliquot.submitter_id": {
-      "name": "aliquot.submitter_id",
+    "samples.submitter_id": {
+      "name": "samples.submitter_id",
       "description": " ",
-      "title": "submitter_id",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
-    "sample.submitter_id": {
-      "name": "sample.submitter_id",
-      "description": " ",
-      "title": "sample.submitter_id",
+      "title": "samples.submitter_id",
       "comments": [
         " "
       ],
@@ -817,7 +807,7 @@
     "instruments.submitter_id": {
       "name": "instruments.submitter_id",
       "description": " ",
-      "title": "instrument.submitter_id",
+      "title": "instruments.submitter_id",
       "comments": [
         " "
       ],
@@ -914,10 +904,10 @@
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
     },
-    "analysis_protocol.submitter_id": {
-      "name": "analysis_protocol.submitter_id",
+    "analysis_protocols.submitter_id": {
+      "name": "analysis_protocols.submitter_id",
       "description": "A brief description of the flow cytometry protocol",
-      "title": "analysis_protocol.submitter_id",
+      "title": "analysis_protocols.submitter_id",
       "comments": [
         "Progenesis QI (Waters) was used for peak processing. Metabolites were identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used to measure area under the curve. "
       ],
@@ -1100,16 +1090,6 @@
       "title": "elution_time",
       "comments": [
         "1.23"
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
-    "instrument.submitter_id": {
-      "name": "instrument.submitter_id",
-      "description": " ",
-      "title": "instrument_id",
-      "comments": [
-        " "
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
@@ -1362,10 +1342,10 @@
           "rank": 16,
           "slot_group": "data_analysis"
         },
-        "analysis_protocol.submitter_id": {
-          "name": "analysis_protocol.submitter_id",
+        "analysis_protocols.submitter_id": {
+          "name": "analysis_protocols.submitter_id",
           "exact_mappings": [
-            "ms_analysis:analysis_protocol.submitter_id"
+            "ms_analysis:analysis_protocols.submitter_id"
           ],
           "rank": 17,
           "slot_group": "data_analysis"
@@ -1494,7 +1474,8 @@
           "alias": "aliquots.submitter_id",
           "owner": "mass_spec_assay",
           "domain_of": [
-            "mass_spec_assay"
+            "mass_spec_assay",
+            "Aliquot"
           ],
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString"
@@ -1572,13 +1553,14 @@
         "instruments.submitter_id": {
           "name": "instruments.submitter_id",
           "description": " ",
-          "title": "instrument.submitter_id",
+          "title": "instruments.submitter_id",
           "from_schema": "https://example.com/CIMR",
           "rank": 7,
           "alias": "instruments.submitter_id",
           "owner": "mass_spec_assay",
           "domain_of": [
-            "mass_spec_assay"
+            "mass_spec_assay",
+            "Instrument"
           ],
           "slot_group": "raw_data",
           "range": "instruments.submitter_id menu"
@@ -1736,17 +1718,17 @@
           "slot_group": "data_analysis",
           "range": "WhitespaceMinimizedString"
         },
-        "analysis_protocol.submitter_id": {
-          "name": "analysis_protocol.submitter_id",
+        "analysis_protocols.submitter_id": {
+          "name": "analysis_protocols.submitter_id",
           "description": "A brief description of the flow cytometry protocol",
-          "title": "analysis_protocol.submitter_id",
+          "title": "analysis_protocols.submitter_id",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "ms_analysis:analysis_protocol.submitter_id"
+            "ms_analysis:analysis_protocols.submitter_id"
           ],
           "rank": 17,
           "slot_uri": "obo:NCIT_C42651",
-          "alias": "analysis_protocol.submitter_id",
+          "alias": "analysis_protocols.submitter_id",
           "owner": "mass_spec_assay",
           "domain_of": [
             "mass_spec_assay"
@@ -2170,8 +2152,8 @@
       "from_schema": "https://example.com/CIMR",
       "is_a": "dh_interface",
       "slot_usage": {
-        "instrument.submitter_id": {
-          "name": "instrument.submitter_id",
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
           "rank": 1,
           "slot_group": "Instrument"
         },
@@ -2212,19 +2194,20 @@
         }
       },
       "attributes": {
-        "instrument.submitter_id": {
-          "name": "instrument.submitter_id",
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
           "description": " ",
-          "title": "instrument_id",
+          "title": "instruments.submitter_id",
           "from_schema": "https://example.com/CIMR",
           "rank": 1,
-          "alias": "instrument.submitter_id",
+          "alias": "instruments.submitter_id",
           "owner": "Instrument",
           "domain_of": [
+            "mass_spec_assay",
             "Instrument"
           ],
           "slot_group": "Instrument",
-          "range": "WhitespaceMinimizedString"
+          "range": "instruments.submitter_id menu"
         },
         "manufacturer": {
           "name": "manufacturer",
@@ -2337,16 +2320,16 @@
       "from_schema": "https://example.com/CIMR",
       "is_a": "dh_interface",
       "slot_usage": {
-        "aliquot.submitter_id": {
-          "name": "aliquot.submitter_id",
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
           "exact_mappings": [
             "aliquot:submitter_id"
           ],
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "sample.submitter_id": {
-          "name": "sample.submitter_id",
+        "samples.submitter_id": {
+          "name": "samples.submitter_id",
           "exact_mappings": [
             "aliquot:samples.submitter_id"
           ],
@@ -2395,33 +2378,34 @@
         }
       },
       "attributes": {
-        "aliquot.submitter_id": {
-          "name": "aliquot.submitter_id",
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
           "description": " ",
-          "title": "submitter_id",
+          "title": "aliquots.submitter_id",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "aliquot:submitter_id"
           ],
           "rank": 1,
-          "alias": "aliquot.submitter_id",
+          "alias": "aliquots.submitter_id",
           "owner": "Aliquot",
           "domain_of": [
+            "mass_spec_assay",
             "Aliquot"
           ],
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString"
         },
-        "sample.submitter_id": {
-          "name": "sample.submitter_id",
+        "samples.submitter_id": {
+          "name": "samples.submitter_id",
           "description": " ",
-          "title": "sample.submitter_id",
+          "title": "samples.submitter_id",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "aliquot:samples.submitter_id"
           ],
           "rank": 2,
-          "alias": "sample.submitter_id",
+          "alias": "samples.submitter_id",
           "owner": "Aliquot",
           "domain_of": [
             "Aliquot"
