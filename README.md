@@ -11,8 +11,8 @@
 3. [Capturing minimum requirement standards](#updateRS)<br>
 4. [Machine-actionable metadata models](#ma)<br>
 	a. Creating and revising metadata models <br>
-5. [Using ToxRSCat (web)](#changeRS)<br>
-6. [Using ToxRSCat (local)](#TDC)
+5. [Using ToxRSCat (web)](#skip-to-the-real-thing)<br>
+6. [Using ToxRSCat (local)](#local-dh)
 
  <a id="overview"></a>
 ## Overview to ToxRSCat
@@ -35,10 +35,12 @@ Our goal is to capture the consensus set of minimally required metadata for the 
 ## Machine-actionable metadata models
 __In progress:__ Outline the value of machine-actionable metadata models. See [Batista et al. 2022](https://pubmed.ncbi.nlm.nih.gov/36180441/) for an excellent primer. 
 
+<a id="#skip-to-the-real-thing"></a>
 ## Using ToxRSCat (web version)
 ToxRSCat uses machine-actionable models to support use of diverse collection tools and resources. However, to accelerate adoption we have implemented a workflow from (meta)data collection to data depositing leveraging [DataHarmonizer](http://3.90.137.203:8080/) and a [Gen3 data commons - ToxDataCommons](fairtox.com).
 
-> We're testing out Scribe! [Click here](google.com) to follow along with this tutorial 
+> We're testing out Scribe! 
+<iframe src="https://scribehow.com/embed/Intro_to_ToxRSCat-DataHarmonizer__YD2kEHXKQJajwexAoSMCdw" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
 
 #### 1.  Go to ToxDataCommons-DataHarmonizer
 [Click here](http://3.90.137.203:8080/) to go to our live instance of ToxDataCommons-DataHarmonizer.
@@ -66,5 +68,6 @@ _Instructions here - just like excel!_
 
 #### 6. Submit your data to ToxDataCommons
 
+<a id="#local-dh"></a>
 ## Using ToxRSCat (local version)
 _Not currently developed - see DataHarmonizer for instructions._
