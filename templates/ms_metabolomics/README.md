@@ -32,11 +32,11 @@ style GH fill:#ffffcc, font-weight:bold;
 subgraph AF[MIATE/MIACA]
   style B fill:#ffcc00;
   style E fill:#ffcc00;
-  B[Study 1] --> A[Investigation]
-  C[Samples] --> B
-  D[Samples] --> B
-  E[Study 2] --> A
-  F[Samples] --> E
+  B[subject 1] --> A[Study]
+  C[Sample 1] --> B
+  D[Sample 2] --> B
+  E[Subject 2] --> A
+  F[Sample 1] --> E
 end
 
 subgraph GH[ms_metabolomics]
