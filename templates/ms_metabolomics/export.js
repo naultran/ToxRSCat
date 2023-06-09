@@ -189,7 +189,7 @@ export default {
 						["type", []],
 						["submitter_id", []],
 						["ms_analysed_data.submitter_id", []],
-						["metabolite_name", ["submitter_id"]],
+						["metabolite_name", ["metabolite_name"]],
 						["refmet_name", []],
 						["dtxsid", []],
 						["inchikey", []],
