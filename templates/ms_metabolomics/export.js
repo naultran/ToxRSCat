@@ -34,12 +34,15 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name",]],
+						["submitter_id", ["rawDataFile",]],
 						["mass_spec_assay.submitter_id", []],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
 						["data_type", []],
+						["file_size", []],
+						["md5sum", []],
+						["object_id", []],
 						["instruments.submitter_id", []],
 						['provenance', []]
 					]),
@@ -50,12 +53,15 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name",]],
+						["submitter_id", ["processedDataFile",]],
 						["mass_spec_assay.submitter_id", []],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
 						["data_type", []],
+						["file_size", []],
+						["md5sum", []],
+						["object_id", []],
 						['provenance', []]
 					]),
 					outputMatrix: [[]],
