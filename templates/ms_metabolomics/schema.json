@@ -1287,9 +1287,6 @@
         },
         "instruments.submitter_id": {
           "name": "instruments.submitter_id",
-          "exact_mappings": [
-            "ms_raw_data:instruments.submitter_id"
-          ],
           "rank": 7,
           "slot_group": "raw_data"
         },
@@ -1577,9 +1574,6 @@
           "description": " ",
           "title": "instrument.submitter_id",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "ms_raw_data:instruments.submitter_id"
-          ],
           "rank": 7,
           "alias": "instruments.submitter_id",
           "owner": "mass_spec_assay",
