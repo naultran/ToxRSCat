@@ -1238,7 +1238,7 @@
           "name": "submitter_id",
           "exact_mappings": [
             "mass_spec_assay:submitter_id",
-            "ms_raw_data:mass_spec_assay.submitter_id",
+            "ms_raw_data:mass_spec_assays.submitter_id",
             "ms_analysis:submitter_id"
           ],
           "rank": 1,
@@ -1256,7 +1256,7 @@
           "name": "rawDataFile",
           "exact_mappings": [
             "ms_raw_data:file_name",
-            "ms_analysis:ms_raw_data.submitter_id"
+            "ms_analysis:ms_raw_datas.submitter_id"
           ],
           "rank": 3,
           "slot_group": "raw_data"
@@ -1469,7 +1469,7 @@
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "mass_spec_assay:submitter_id",
-            "ms_raw_data:mass_spec_assay.submitter_id",
+            "ms_raw_data:mass_spec_assays.submitter_id",
             "ms_analysis:submitter_id"
           ],
           "rank": 1,
@@ -1506,7 +1506,7 @@
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "ms_raw_data:file_name",
-            "ms_analysis:ms_raw_data.submitter_id"
+            "ms_analysis:ms_raw_datas.submitter_id"
           ],
           "rank": 3,
           "slot_uri": "obo:OBI:0000021",
@@ -1967,7 +1967,7 @@
         "metabolite.data_analysis_id": {
           "name": "metabolite.data_analysis_id",
           "exact_mappings": [
-            "metabolite_id:ms_analysed_data.submitter_id"
+            "metabolite_id:ms_analysed_datas.submitter_id"
           ],
           "rank": 2,
           "slot_group": "metabolite_identification"
@@ -2047,7 +2047,7 @@
           "title": "data_analysis_id",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "metabolite_id:ms_analysed_data.submitter_id"
+            "metabolite_id:ms_analysed_datas.submitter_id"
           ],
           "rank": 2,
           "alias": "metabolite.data_analysis_id",

@@ -35,7 +35,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", ["rawDataFile",]],
-						["mass_spec_assay.submitter_id", []],
+						["mass_spec_assays.submitter_id", []],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
@@ -53,7 +53,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", ["processedDataFile",]],
-						["mass_spec_assay.submitter_id", []],
+						["ms_analyses.submitter_id", ["submitter_id"]],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
@@ -71,7 +71,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", []],
-						["ms_raw_data.submitter_id", []],
+						["ms_raw_datas.submitter_id", []],
 						["normalization", []],
 						["transformation", []],
 						["transformation_purpose", []],
@@ -187,7 +187,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", []],
-						["ms_analysed_data.submitter_id", []],
+						["ms_analysed_datas.submitter_id", []],
 						["metabolite_name", ["metabolite_name"]],
 						["refmet_name", []],
 						["dtxsid", []],
