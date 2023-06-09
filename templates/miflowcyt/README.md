@@ -1,31 +1,15 @@
+
 <p align="center">
 Michigan State University Superfund Research Center <br>
 <b> MIFlowCyt_1.0.0 Contextual Data Curation </b>
 </p>
 
 ## Contextual Data (Metadata) Curation
-
-### Overview
-The purpose for this template is to harmonize the metadata collection for flow cytometry analyses and support the submission to the International Society for Advancement of Cytometry (ISAC) [FLOWRepository](flowrepository.org). 
-> Metadata will be provided by the data generators who are responsible for its accuracy at time of collection. 
-
-This  MIFlowCyt template developed by the [Michigan Sate University Superfund Research Center Data Management and Analysis Core](https://iit.msu.edu/centers/superfund/) is intended to be used with [_DataHarmonizer_](https://github.com/cidgoh/DataHarmonizer): 
-```
-@article{,
-   author = {Gill, I. S., Griffiths, E. J., Dooley, D., Cameron, R., Savic Kallesoe, S., John, N. S., Sehar, A., Gosal, G., Alexander, D., Chapel, M., Croxen, M. A., Delisle, B., Di Tullio, R., Gaston, D., Duggan, A., Guthrie, J. L., Horsman, M., Joshi, E., Kearny, L., Knox, N., Lau, L., LeBlanc, J. J., Li, V., Lyons, P., MacKenzie, K., McArthur, A. G., Panousis, E. M., Palmer, J., Prystajecky, N., Smith, K. N., Tanner, J., Townend, C., Tyler, A., Van Domselaar, G. and Hsiao, W. W. L.},
-   title = {The DataHarmonizer: a tool for faster data harmonization, validation, aggregation and analysis of pathogen genomics contextual information.},
-   journal = {Microb Genom},
-   pages = {},
-   DOI = {10.1099/mgen.0.000908},
-   url = {},
-   year = {2023},
-   type = {Journal Article}
-}
-```
-
+<p align="center">  <img src="https://img.shields.io/badge/status-work%20in%20progress-yellow" alt="Work in Progress">  <br>  <strong>🚧 This repository is a work in progress 🚧</strong>  <br> Please check in regularly for updates .  If you have any questions feel free to contact the ToxRSCat team using <i>issues</i> or by email.</p>
 
 ---
 ### Table of Contents
+1. [Overview](#nolink)<br>
 1. [Usage](#usage)<br>
 	a. [Getting to know _DataHarmonizer_](#familiorize)<br>
 	b. [Collecting __investigation__ and __study__ level metadata](#isa)<br>
@@ -37,8 +21,45 @@ This  MIFlowCyt template developed by the [Michigan Sate University Superfund Re
 2. [FAQ](#faq)<br>
 3. [Record of Changes](#changes)<br>
 
+
+### Overview
+The purpose for this template is to harmonize the metadata collection for flow cytometry analyses and support the submission to the International Society for Advancement of Cytometry (ISAC) [FLOWRepository](flowrepository.org). 
+
+This  MIFlowCyt templates were developed by the [Michigan Sate University Superfund Research Center Data Management and Analysis Core](https://iit.msu.edu/centers/superfund/) is intended to be used with [_DataHarmonizer_](https://github.com/cidgoh/DataHarmonizer): 
+
+```mermaid
+graph RL
+
+classDef investigation fill:#f0ff02;
+classDef study fill:#ffcc00;
+classDef samples fill:#ccffcc;
+classDef assay font-style:italic;
+
+style AF fill:#ccebff, font-weight:bold;
+style GH fill:#ffffcc, font-weight:bold;
+
+subgraph AF[MIATE/MIACA]
+  style B fill:#ffcc00;
+  style E fill:#ffcc00;
+  B[Study 1] --> A[Investigation]
+  C[Samples] --> B
+  D[Samples] --> B
+  E[Study 2] --> A
+  F[Samples] --> E
+end
+
+subgraph GH[MIFlowCyt]
+  style G fill:#f0ff02;
+  G[Aliquots] --> F
+  G[Aliquots] --> C
+  G[Aliquots] --> D
+  H[Assays] --> G
+end
+
+```
 ---
 ### Usage
+
 
  <a id="familiorize"></a>
 #### 1.  Familiarize yourself with _DataHarmonizer_<br>
@@ -163,4 +184,3 @@ To delete an item from a dropdown menu, select it and hit the `delete` button on
 __bold__ indicates a unique identifier to be used as key for database records.
 
 ### Record of changes
-
