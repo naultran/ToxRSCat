@@ -80,8 +80,6 @@ classes:
       instruments.submitter_id:
         rank: 7
         slot_group: raw_data
-        exact_mappings:
-          ms_raw_data:instruments.submitter_id
       processedDataFile:
         rank: 8
         slot_group: data_analysis

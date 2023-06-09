@@ -43,7 +43,6 @@ export default {
 						["file_size", []],
 						["md5sum", []],
 						["object_id", []],
-						["instruments.submitter_id", []],
 						['provenance', []]
 					]),
 					outputMatrix: [[]],
