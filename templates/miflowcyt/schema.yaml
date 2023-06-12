@@ -23,6 +23,7 @@ classes:
     slots:
     - flow_cytometry.submitter_id
     - aliquots.submitter_id
+    - Flow_cytometry_experiment_study_id
     - listModeDataFile
     - raw.data_type
     - raw.data_format
@@ -59,172 +60,170 @@ classes:
       flow_cytometry.submitter_id:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-        - flow_cytometry_assay:submitter_id
-        - flow_data:flow_cytometry_assays.submitter_id
-        - flow_analysis_data:flow_cytometry_assays.submitter_id
+  
       aliquots.submitter_id:
         rank: 2
         slot_group: identifiers
-        exact_mappings:
-        - flow_cytometry_assay:aliquots.submitter_id
-      listModeDataFile:
+  
+      Flow_cytometry_experiment_study_id:
         rank: 3
+        slot_group: identifiers
+      listModeDataFile:
+        rank: 4
         slot_group: raw_data_file
         exact_mappings:
         - flow_data:file_name
       raw.data_type:
-        rank: 4
+        rank: 5
         slot_group: raw_data_file
         exact_mappings:
         - flow_data:data_type
       raw.data_format:
-        rank: 5
+        rank: 6
         slot_group: raw_data_file
         exact_mappings:
         - flow_data:data_format
       raw.data_category:
-        rank: 6
+        rank: 7
         slot_group: raw_data_file
         exact_mappings:
         - flow_data:data_category
       WorkspaceFile:
-        rank: 7
+        rank: 8
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:file_name
       processed.data_type:
-        rank: 8
+        rank: 9
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:data_type
       processed.data_format:
-        rank: 9
+        rank: 10
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:data_format
       processed.data_category:
-        rank: 10
+        rank: 11
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:data_category
       analysis_protocol:
-        rank: 11
+        rank: 12
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:protocol
       analysis_protocol_DOI:
-        rank: 12
+        rank: 13
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:protocol_doi
       CompensationDescription:
-        rank: 13
+        rank: 14
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:compensation_description
       TransformationPurpose:
-        rank: 14
+        rank: 15
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:transformation_purpose
       TransformationDescription:
-        rank: 15
+        rank: 16
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:transformation_description
       GateDescription:
-        rank: 16
+        rank: 17
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:gate_description
       Gate Statistics:
-        rank: 17
+        rank: 18
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:gate_statistics
       GateBoundaries:
-        rank: 18
+        rank: 19
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:gate_boundaries
       flow_cytometry_protocol:
-        rank: 19
+        rank: 20
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:protocol
       flow_cytometry_protocol_DOI:
-        rank: 20
+        rank: 21
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:protocol_doi
       qualityControlMeasures:
-        rank: 21
+        rank: 22
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:quality_control_measures
       instrument.submitter_id:
-        rank: 22
-        slot_group: flow_cytometry
-        exact_mappings:
-        - flow_cytometry_assay:instruments_submitter_id
-      staining_protocol:
         rank: 23
+        slot_group: flow_cytometry
+
+      staining_protocol:
+        rank: 24
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:staining_protocol
       staining_protocol_DOI:
-        rank: 24
+        rank: 25
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:staining_protocol_doi
       characteristicsBeingMeasured:
-        rank: 25
+        rank: 26
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:characteristics_being_measured
       analyte:
-        rank: 26
+        rank: 27
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:analyte
       analyteDetector:
-        rank: 27
+        rank: 28
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:analyte_detector
       analyteReporter:
-        rank: 28
+        rank: 29
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:analyte_reporter
       cloneNameOrNumber:
-        rank: 29
+        rank: 30
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:clone
       reagentManufacturerName:
-        rank: 30
+        rank: 31
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:reagent_manufacturer
       reagentCatalogueNumber:
-        rank: 31
+        rank: 32
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:reagent_catalogue
       stainingStatus:
-        rank: 32
+        rank: 33
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:staining_status
       other_fluorescence_reagent:
-        rank: 33
+        rank: 34
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:other_reagent
       flowcytometry_template_provenance:
-        rank: 34
+        rank: 35
         slot_group: provenance
         exact_mappings:
         - flow_cytometry_assay:provenance
@@ -236,6 +235,7 @@ classes:
     is_a: dh_interface
     slots:
     - submitter_id.instrument
+    - instrument.study_id
     - flowCellType
     - other_flow_cell
     - manufacturer
@@ -263,74 +263,77 @@ classes:
       submitter_id.instrument:
         rank: 1
         slot_group: identifiers
-      flowCellType:
+      instrument.study_id:
         rank: 2
-        slot_group: Instrument
-      other_flow_cell:
+        slot_group: identifiers
+      flowCellType:
         rank: 3
         slot_group: Instrument
-      manufacturer:
+      other_flow_cell:
         rank: 4
         slot_group: Instrument
-      model:
+      manufacturer:
         rank: 5
         slot_group: Instrument
-      configurationAndSettings:
+      model:
         rank: 6
         slot_group: Instrument
-      other_instrument:
+      configurationAndSettings:
         rank: 7
         slot_group: Instrument
-      type:
+      other_instrument:
         rank: 8
-        slot_group: light_source_instrument
-      excitatoryWavelength:
+        slot_group: Instrument
+      type:
         rank: 9
         slot_group: light_source_instrument
-      powerAtExcitatoryWavelength:
+      excitatoryWavelength:
         rank: 10
         slot_group: light_source_instrument
-      polarization:
+      powerAtExcitatoryWavelength:
         rank: 11
         slot_group: light_source_instrument
-      beam:
+      polarization:
         rank: 12
         slot_group: light_source_instrument
-      other_light_source_instrument:
+      beam:
         rank: 13
         slot_group: light_source_instrument
-      name:
+      other_light_source_instrument:
         rank: 14
-        slot_group: optical_detector
-      type_optical_detector:
+        slot_group: light_source_instrument
+      name:
         rank: 15
         slot_group: optical_detector
-      voltage:
+      type_optical_detector:
         rank: 16
         slot_group: optical_detector
-      amplificationType:
+      voltage:
         rank: 17
         slot_group: optical_detector
-      amplificationFactor:
+      amplificationType:
         rank: 18
         slot_group: optical_detector
-      other_optical_detector:
+      amplificationFactor:
         rank: 19
         slot_group: optical_detector
-      type_optical_filter:
+      other_optical_detector:
         rank: 20
-        slot_group: optical_filter
-      transmittedWavelengths:
+        slot_group: optical_detector
+      type_optical_filter:
         rank: 21
         slot_group: optical_filter
-      installationDate:
+      transmittedWavelengths:
         rank: 22
         slot_group: optical_filter
-      other_optical_filter:
+      installationDate:
         rank: 23
         slot_group: optical_filter
-      instrument_template_provenance:
+      other_optical_filter:
         rank: 24
+        slot_group: optical_filter
+      instrument_template_provenance:
+        rank: 25
         slot_group: provenance
   Aliquot:
     name: Aliquot
@@ -338,6 +341,7 @@ classes:
     slots:
     - aliquot.submitter_id
     - sample.submitter_id
+    - aliquot.study_id
     - analyte_type
     - analyte_protocol
     - aliquot_template_provenance
@@ -345,32 +349,33 @@ classes:
       aliquot.submitter_id:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-          aliquot:submitter_id
+
       sample.submitter_id:
         rank: 2
         slot_group: identifiers
-        exact_mappings:
-          aliquot:samples.submitter_id
-      analyte_type:
+
+      aliquot.study_id: 
         rank: 3
+        slot_group: identifiers
+      analyte_type:
+        rank: 4
         slot_group: aliquot
         exact_mappings:
           aliquot:analyte_type
       analyte_protocol:
-        rank: 4
+        rank: 5
         slot_group: aliquot
         exact_mappings:
           aliquot:analyte_protocol
       aliquot_template_provenance:
-        rank: 5
+        rank: 6
         slot_group: provenance
         exact_mappings:
           aliquot:provenance
 slots:
   flow_cytometry.submitter_id:
     name: flow_cytometry.submitter_id
-    title: submitter_id
+    title: flow_cytometry ID
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
@@ -379,7 +384,7 @@ slots:
     comments: flow_001-HSA_001
   aliquots.submitter_id:
     name: aliquots.submitter_id
-    title: aliquots.submitter_id
+    title: aliquot ID
     range: WhitespaceMinimizedString
     description: The identifier for this study collected using the template appropriate
       for your study design (e.g., MIATE for animal experiments). This is used to
@@ -551,7 +556,7 @@ slots:
     comments: Live/Dead staining;unstained controls
   instrument.submitter_id:
     name: instrument.submitter_id
-    title: instrument.submitter_id
+    title: instrument ID
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -866,13 +871,13 @@ slots:
     comments: ' '
   aliquot.submitter_id:
     name: aliquot.submitter_id
-    title: submitter_id
+    title: aliquot ID
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
   sample.submitter_id:
     name: sample.submitter_id
-    title: sample.submitter_id
+    title: sample ID
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -892,6 +897,24 @@ slots:
     name: aliquot_template_provenance
     title: Provenance
     range: Provenance
+    description: ' '
+    comments: ' '
+  Flow_cytometry_experiment_study_id:
+    name: Flow_cytometry_experiment_study_id
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  instrument.study_id:
+    name: instrument.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  aliquot.study_id:
+    name: aliquot.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
 enums:

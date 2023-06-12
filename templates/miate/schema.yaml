@@ -397,8 +397,6 @@ classes:
       sample_identifier:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-        - gen3_submit_sample:submitter_id
       Sample.study_identifier:
         rank: 2
         slot_group: identifiers

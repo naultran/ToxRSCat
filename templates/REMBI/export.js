@@ -13,8 +13,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["file_name",]],
-						["slides.submitter_id", []],
+						["submitter_id", ["slide.study_id","file_name"]],
+						["slides.submitter_id", ["slide.study_id", "submitter_id"]],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
@@ -32,8 +32,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["aliquots.submitter_id", []],
+						["submitter_id", ["slide.study_id", "submitter_id"]],
+						["aliquots.submitter_id", ["slide.study_id", "aliquots.submitter_id"]],
 						["assay", []],
 						["probe_type", []],
 						["probe_name", []],
@@ -90,7 +90,7 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["slide.submitter_id", []],
+						["slides.submitter_id", ["pathology.study_id", "slides.submitter_id"]],
 						["finding_type", []],
 						["topography_type", []],
 						["grade", []],
@@ -98,9 +98,9 @@ export default {
 						["scoring_system", []],
 						['provenance', ["slide template version"]]
 					]),
-					uid: "slide.submitter_id",
+					uid: "slides.submitter_id",
 					outputMatrix: [[]],
-					exportType: "gen3_pathology",
+					exportType: "slide_pathology",
 				}
 			];
 			// Function to wait for downloading files to fix crashes

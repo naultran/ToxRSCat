@@ -4487,9 +4487,6 @@
       "slot_usage": {
         "sample_identifier": {
           "name": "sample_identifier",
-          "exact_mappings": [
-            "gen3_submit_sample:submitter_id"
-          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
@@ -4566,9 +4563,6 @@
           "description": " ",
           "title": "sample_identifier",
           "from_schema": "https://example.com/MIATE",
-          "exact_mappings": [
-            "gen3_submit_sample:submitter_id"
-          ],
           "rank": 1,
           "identifier": true,
           "alias": "sample_identifier",
@@ -4735,7 +4729,7 @@
       }
     }
   },
-  "source_file": "/Users/apple/ToxRSCat/templates/MIATE/schema.yaml",
+  "source_file": "/Users/apple/ToxRSCat/templates/miate/schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",

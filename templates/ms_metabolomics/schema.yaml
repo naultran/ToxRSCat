@@ -17,6 +17,7 @@ classes:
     slots:
     - submitter_id
     - aliquots.submitter_id
+    - mass_spec_assay.study_id
     - rawDataFile
     - raw.data_category
     - raw.data_format
@@ -47,141 +48,137 @@ classes:
       submitter_id:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-        - mass_spec_assay:submitter_id
-        - ms_raw_data:mass_spec_assays.submitter_id
-        - ms_analysis:submitter_id #Need to add an analysis name column
       aliquots.submitter_id:
         rank: 2
         slot_group: identifiers
-        exact_mappings:
-          mass_spec_assay:aliquots.submitter_id
-      rawDataFile:
+      mass_spec_assay.study_id: 
         rank: 3
+        slot_group: identifiers
+      rawDataFile:
+        rank: 4
         slot_group: raw_data
         exact_mappings:
-        - ms_raw_data:file_name
-        - ms_analysis:ms_raw_datas.submitter_id
+        - ms_raw_data:file_named
       raw.data_category:
-        rank: 4
+        rank: 5
         slot_group: raw_data
         exact_mappings:
           ms_raw_data:data_category
       raw.data_format:
-        rank: 5
+        rank: 6
         slot_group: raw_data
         exact_mappings:
           ms_raw_data:data_format
       raw.data_type:
-        rank: 6
+        rank: 7
         slot_group: raw_data
         exact_mappings:
           ms_raw_data:data_type
       instruments.submitter_id:
-        rank: 7
+        rank: 8
         slot_group: raw_data
       processedDataFile:
-        rank: 8
+        rank: 9
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:file_name
       processed.data_category:
-        rank: 9
+        rank: 10
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:data_category
       processed.data_format:
-        rank: 10
+        rank: 11
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:data_format
       processed.data_type:
-        rank: 11
+        rank: 12
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:data_type
       Normalization:
-        rank: 12
+        rank: 13
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:normalization
       Transformation:
-        rank: 13
+        rank: 14
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:transformation
       TransformationPurpose:
-        rank: 14
+        rank: 15
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:transformation_purpose
       TransformationDescription:
-        rank: 15
+        rank: 16
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:transformation_description
       unit:
-        rank: 16
+        rank: 17
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:unit
       analysis_protocols.submitter_id:
-        rank: 17
+        rank: 18
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:analysis_protocols.submitter_id
       calibration_standard:
-        rank: 18
+        rank: 19
         slot_group: extract
         exact_mappings:
           mass_spec_assay:calibration_standard
       chromatography.name:
-        rank: 19
+        rank: 20
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_name
       chromatography_column:
-        rank: 20
+        rank: 21
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_column
       chromatography_protocol:
-        rank: 21
+        rank: 22
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_protocol
       elution program:
-        rank: 22
+        rank: 23
         slot_group: LiquidChromatography
         exact_mappings:
           mass_spec_assay:elution_program
       flow_rate:
-        rank: 23
+        rank: 24
         slot_group: LiquidChromatography
         exact_mappings:
           mass_spec_assay:flow_rate
       carrier_gas:
-        rank: 24
+        rank: 25
         slot_group: GasChromatography
         exact_mappings:
           mass_spec_assay:carrier_gas
       oven_temperature_program:
-        rank: 25
+        rank: 26
         slot_group: GasChromatography
         exact_mappings:
           mass_spec_assay:oven_temperature_program
       ms_method.name:
-        rank: 26
+        rank: 27
         slot_group: ms_method
         exact_mappings:
           mass_spec_assay:ms_method_name
       ms_protocol:
-        rank: 27
+        rank: 28
         slot_group: ms_method
         exact_mappings:
           mass_spec_assay:ms_protocol
       mass_spec_assay.provenance:
-        rank: 28
+        rank: 29
         slot_group: provenance
         exact_mappings:
         - mass_spec_assay:provenance
@@ -193,6 +190,7 @@ classes:
     slots:
     - metabolite_name
     - metabolite.data_analysis_id
+    - metabolite.study_id
     - refmet_name
     - dtxsid
     - inchikey
@@ -203,40 +201,39 @@ classes:
       metabolite_name:
         rank: 1
         slot_group: metabolite_identification
-        exact_mappings:
-          metabolite_id:submitter_id #Need to add a submitter ID
       metabolite.data_analysis_id:
         rank: 2
         slot_group: metabolite_identification
-        exact_mappings:
-          metabolite_id:ms_analysed_datas.submitter_id
-      refmet_name:
+      metabolite.study_id:
         rank: 3
+        slot_group: metabolite_identification
+      refmet_name:
+        rank: 4
         slot_group: metabolite_identification
         exact_mappings:
           metabolite_id:refmet_name
       dtxsid:
-        rank: 4
+        rank: 5
         slot_group: metabolite_identification
         exact_mappings:
           metabolite_id:dtxsid
       inchikey:
-        rank: 5
+        rank: 6
         slot_group: metabolite_identification
         exact_mappings:
           metabolite_id:inchikey
       mass:
-        rank: 6
+        rank: 7
         slot_group: metabolite_identification
         exact_mappings:
           metabolite_id:mass
       elution_time:
-        rank: 7
+        rank: 8
         slot_group: metabolite_identification
         exact_mappings:
           metabolite_id:elution_time
       metabolide_id.provenance:
-        rank: 8
+        rank: 9
         slot_group: provenance
         exact_mappings:
           metabolite_id:provenance
@@ -245,6 +242,7 @@ classes:
     is_a: dh_interface
     slots:
     - instruments.submitter_id
+    - instrument.study_id
     - manufacturer
     - model
     - scan_polarity
@@ -256,33 +254,35 @@ classes:
       instruments.submitter_id:
         rank: 1
         slot_group: Instrument
-
-      manufacturer:
+      instrument.study_id:
         rank: 2
         slot_group: Instrument
-
-      model:
+      manufacturer:
         rank: 3
         slot_group: Instrument
 
-      scan_polarity:
+      model:
         rank: 4
         slot_group: Instrument
 
-      ionization_type:
+      scan_polarity:
         rank: 5
         slot_group: Instrument
 
-      detector_type:
+      ionization_type:
         rank: 6
         slot_group: Instrument
 
-      mass_analyzer_type:
+      detector_type:
         rank: 7
         slot_group: Instrument
 
-      instrument.provenance:
+      mass_analyzer_type:
         rank: 8
+        slot_group: Instrument
+
+      instrument.provenance:
+        rank: 9
         slot_group: provenance
 
   Aliquot:
@@ -291,6 +291,7 @@ classes:
     slots:
     - aliquots.submitter_id
     - samples.submitter_id
+    - aliquot.study_id
     - analyte_type
     - analyte_protocol
     - derivitization
@@ -307,35 +308,38 @@ classes:
         slot_group: identifiers
         exact_mappings:
           aliquot:samples.submitter_id
-      analyte_type:
+      aliquot.study_id:
         rank: 3
+        slot_group: identifiers
+      analyte_type:
+        rank: 4
         slot_group: aliquot
         exact_mappings:
           aliquot:analyte_type
       analyte_protocol:
-        rank: 4
+        rank: 5
         slot_group: aliquot
         exact_mappings:
           aliquot:analyte_protocol
       derivitization:
-        rank: 5
+        rank: 6
         slot_group: aliquot
         exact_mappings:
           aliquot:derivitization
       extract_preservation_method:
-        rank: 6
+        rank: 7
         slot_group: aliquot
         exact_mappings:
           aliquot:extract_preservation_method
       aliquot.provenance:
-        rank: 7
+        rank: 8
         slot_group: provenance
         exact_mappings:
           aliquot:provenance
 slots:
   samples.submitter_id:
     name: samples.submitter_id
-    title: samples.submitter_id
+    title: sample ID
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -365,7 +369,7 @@ slots:
     comments: ' '
   submitter_id:
     name: submitter_id
-    title: submitter_id
+    title: ID
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
@@ -373,7 +377,7 @@ slots:
     comments: ms_S001
   aliquots.submitter_id:
     name: aliquots.submitter_id
-    title: aliquots.submitter_id
+    title: aliquot ID
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -404,8 +408,8 @@ slots:
     comments: ' '
   instruments.submitter_id:
     name: instruments.submitter_id
-    title: instruments.submitter_id
-    range: instruments.submitter_id menu
+    title: instrument ID
+    range:   instruments.submitter_id menu
     description: ' '
     comments: ' '
   processedDataFile:
@@ -673,6 +677,30 @@ slots:
   aliquot.provenance:
     name: aliquot.provenance
     title: Provenance
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  aliquot.study_id:
+    name: aliquot.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  mass_spec_assay.study_id:
+    name: mass_spec_assay.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  metabolite.study_id: 
+    name: metabolite.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  instrument.study_id: 
+    name: instrument.study_id
+    title: study ID
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -969,6 +997,23 @@ enums:
         text: stored waveform inverse fourier transform
       time-of-flight:
         text: time-of-flight
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  instruments.submitter_id menu:
+    name: instruments.submitter_id menu
+    permissible_values:
+      VSI110:
+        text: VSI110
+      VSI220:
+        text: VSI220
       Not applicable:
         text: Not applicable
       Missing:

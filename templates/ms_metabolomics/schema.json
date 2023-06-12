@@ -689,13 +689,40 @@
           "text": "Restricted access"
         }
       }
+    },
+    "instruments.submitter_id menu": {
+      "name": "instruments.submitter_id menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "VSI110": {
+          "text": "VSI110"
+        },
+        "VSI220": {
+          "text": "VSI220"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
     }
   },
   "slots": {
     "samples.submitter_id": {
       "name": "samples.submitter_id",
       "description": " ",
-      "title": "samples.submitter_id",
+      "title": "sample ID",
       "comments": [
         " "
       ],
@@ -745,7 +772,7 @@
     "submitter_id": {
       "name": "submitter_id",
       "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-      "title": "submitter_id",
+      "title": "ID",
       "comments": [
         "ms_S001"
       ],
@@ -756,7 +783,7 @@
     "aliquots.submitter_id": {
       "name": "aliquots.submitter_id",
       "description": " ",
-      "title": "aliquots.submitter_id",
+      "title": "aliquot ID",
       "comments": [
         " "
       ],
@@ -807,7 +834,7 @@
     "instruments.submitter_id": {
       "name": "instruments.submitter_id",
       "description": " ",
-      "title": "instruments.submitter_id",
+      "title": "instrument ID",
       "comments": [
         " "
       ],
@@ -1201,6 +1228,46 @@
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
+    },
+    "aliquot.study_id": {
+      "name": "aliquot.study_id",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "mass_spec_assay.study_id": {
+      "name": "mass_spec_assay.study_id",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "metabolite.study_id": {
+      "name": "metabolite.study_id",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "instrument.study_id": {
+      "name": "instrument.study_id",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
     }
   },
   "classes": {
@@ -1216,29 +1283,25 @@
       "slot_usage": {
         "submitter_id": {
           "name": "submitter_id",
-          "exact_mappings": [
-            "mass_spec_assay:submitter_id",
-            "ms_raw_data:mass_spec_assays.submitter_id",
-            "ms_analysis:submitter_id"
-          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
         "aliquots.submitter_id": {
           "name": "aliquots.submitter_id",
-          "exact_mappings": [
-            "mass_spec_assay:aliquots.submitter_id"
-          ],
           "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "mass_spec_assay.study_id": {
+          "name": "mass_spec_assay.study_id",
+          "rank": 3,
           "slot_group": "identifiers"
         },
         "rawDataFile": {
           "name": "rawDataFile",
           "exact_mappings": [
-            "ms_raw_data:file_name",
-            "ms_analysis:ms_raw_datas.submitter_id"
+            "ms_raw_data:file_named"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_group": "raw_data"
         },
         "raw.data_category": {
@@ -1246,7 +1309,7 @@
           "exact_mappings": [
             "ms_raw_data:data_category"
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "raw_data"
         },
         "raw.data_format": {
@@ -1254,7 +1317,7 @@
           "exact_mappings": [
             "ms_raw_data:data_format"
           ],
-          "rank": 5,
+          "rank": 6,
           "slot_group": "raw_data"
         },
         "raw.data_type": {
@@ -1262,12 +1325,12 @@
           "exact_mappings": [
             "ms_raw_data:data_type"
           ],
-          "rank": 6,
+          "rank": 7,
           "slot_group": "raw_data"
         },
         "instruments.submitter_id": {
           "name": "instruments.submitter_id",
-          "rank": 7,
+          "rank": 8,
           "slot_group": "raw_data"
         },
         "processedDataFile": {
@@ -1275,7 +1338,7 @@
           "exact_mappings": [
             "ms_analysed_data:file_name"
           ],
-          "rank": 8,
+          "rank": 9,
           "slot_group": "data_analysis"
         },
         "processed.data_category": {
@@ -1283,7 +1346,7 @@
           "exact_mappings": [
             "ms_analysed_data:data_category"
           ],
-          "rank": 9,
+          "rank": 10,
           "slot_group": "data_analysis"
         },
         "processed.data_format": {
@@ -1291,7 +1354,7 @@
           "exact_mappings": [
             "ms_analysed_data:data_format"
           ],
-          "rank": 10,
+          "rank": 11,
           "slot_group": "data_analysis"
         },
         "processed.data_type": {
@@ -1299,7 +1362,7 @@
           "exact_mappings": [
             "ms_analysed_data:data_type"
           ],
-          "rank": 11,
+          "rank": 12,
           "slot_group": "data_analysis"
         },
         "Normalization": {
@@ -1307,7 +1370,7 @@
           "exact_mappings": [
             "ms_analysis:normalization"
           ],
-          "rank": 12,
+          "rank": 13,
           "slot_group": "data_analysis"
         },
         "Transformation": {
@@ -1315,7 +1378,7 @@
           "exact_mappings": [
             "ms_analysis:transformation"
           ],
-          "rank": 13,
+          "rank": 14,
           "slot_group": "data_analysis"
         },
         "TransformationPurpose": {
@@ -1323,7 +1386,7 @@
           "exact_mappings": [
             "ms_analysis:transformation_purpose"
           ],
-          "rank": 14,
+          "rank": 15,
           "slot_group": "data_analysis"
         },
         "TransformationDescription": {
@@ -1331,7 +1394,7 @@
           "exact_mappings": [
             "ms_analysis:transformation_description"
           ],
-          "rank": 15,
+          "rank": 16,
           "slot_group": "data_analysis"
         },
         "unit": {
@@ -1339,7 +1402,7 @@
           "exact_mappings": [
             "ms_analysis:unit"
           ],
-          "rank": 16,
+          "rank": 17,
           "slot_group": "data_analysis"
         },
         "analysis_protocols.submitter_id": {
@@ -1347,7 +1410,7 @@
           "exact_mappings": [
             "ms_analysis:analysis_protocols.submitter_id"
           ],
-          "rank": 17,
+          "rank": 18,
           "slot_group": "data_analysis"
         },
         "calibration_standard": {
@@ -1355,7 +1418,7 @@
           "exact_mappings": [
             "mass_spec_assay:calibration_standard"
           ],
-          "rank": 18,
+          "rank": 19,
           "slot_group": "extract"
         },
         "chromatography.name": {
@@ -1363,7 +1426,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_name"
           ],
-          "rank": 19,
+          "rank": 20,
           "slot_group": "chromatography"
         },
         "chromatography_column": {
@@ -1371,7 +1434,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_column"
           ],
-          "rank": 20,
+          "rank": 21,
           "slot_group": "chromatography"
         },
         "chromatography_protocol": {
@@ -1379,7 +1442,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_protocol"
           ],
-          "rank": 21,
+          "rank": 22,
           "slot_group": "chromatography"
         },
         "elution program": {
@@ -1387,7 +1450,7 @@
           "exact_mappings": [
             "mass_spec_assay:elution_program"
           ],
-          "rank": 22,
+          "rank": 23,
           "slot_group": "LiquidChromatography"
         },
         "flow_rate": {
@@ -1395,7 +1458,7 @@
           "exact_mappings": [
             "mass_spec_assay:flow_rate"
           ],
-          "rank": 23,
+          "rank": 24,
           "slot_group": "LiquidChromatography"
         },
         "carrier_gas": {
@@ -1403,7 +1466,7 @@
           "exact_mappings": [
             "mass_spec_assay:carrier_gas"
           ],
-          "rank": 24,
+          "rank": 25,
           "slot_group": "GasChromatography"
         },
         "oven_temperature_program": {
@@ -1411,7 +1474,7 @@
           "exact_mappings": [
             "mass_spec_assay:oven_temperature_program"
           ],
-          "rank": 25,
+          "rank": 26,
           "slot_group": "GasChromatography"
         },
         "ms_method.name": {
@@ -1419,7 +1482,7 @@
           "exact_mappings": [
             "mass_spec_assay:ms_method_name"
           ],
-          "rank": 26,
+          "rank": 27,
           "slot_group": "ms_method"
         },
         "ms_protocol": {
@@ -1427,7 +1490,7 @@
           "exact_mappings": [
             "mass_spec_assay:ms_protocol"
           ],
-          "rank": 27,
+          "rank": 28,
           "slot_group": "ms_method"
         },
         "mass_spec_assay.provenance": {
@@ -1437,7 +1500,7 @@
             "ms_analysed_data:provenance",
             "ms_analysis:provenance"
           ],
-          "rank": 28,
+          "rank": 29,
           "slot_group": "provenance"
         }
       },
@@ -1445,13 +1508,8 @@
         "submitter_id": {
           "name": "submitter_id",
           "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-          "title": "submitter_id",
+          "title": "ID",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "mass_spec_assay:submitter_id",
-            "ms_raw_data:mass_spec_assays.submitter_id",
-            "ms_analysis:submitter_id"
-          ],
           "rank": 1,
           "alias": "submitter_id",
           "owner": "mass_spec_assay",
@@ -1465,11 +1523,8 @@
         "aliquots.submitter_id": {
           "name": "aliquots.submitter_id",
           "description": " ",
-          "title": "aliquots.submitter_id",
+          "title": "aliquot ID",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "mass_spec_assay:aliquots.submitter_id"
-          ],
           "rank": 2,
           "alias": "aliquots.submitter_id",
           "owner": "mass_spec_assay",
@@ -1480,16 +1535,29 @@
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString"
         },
+        "mass_spec_assay.study_id": {
+          "name": "mass_spec_assay.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "mass_spec_assay.study_id",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
         "rawDataFile": {
           "name": "rawDataFile",
           "description": " ",
           "title": "rawDataFile",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "ms_raw_data:file_name",
-            "ms_analysis:ms_raw_datas.submitter_id"
+            "ms_raw_data:file_named"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_uri": "obo:OBI:0000021",
           "alias": "rawDataFile",
           "owner": "mass_spec_assay",
@@ -1507,7 +1575,7 @@
           "exact_mappings": [
             "ms_raw_data:data_category"
           ],
-          "rank": 4,
+          "rank": 5,
           "alias": "raw.data_category",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1524,7 +1592,7 @@
           "exact_mappings": [
             "ms_raw_data:data_format"
           ],
-          "rank": 5,
+          "rank": 6,
           "alias": "raw.data_format",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1541,7 +1609,7 @@
           "exact_mappings": [
             "ms_raw_data:data_type"
           ],
-          "rank": 6,
+          "rank": 7,
           "alias": "raw.data_type",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1553,9 +1621,9 @@
         "instruments.submitter_id": {
           "name": "instruments.submitter_id",
           "description": " ",
-          "title": "instruments.submitter_id",
+          "title": "instrument ID",
           "from_schema": "https://example.com/CIMR",
-          "rank": 7,
+          "rank": 8,
           "alias": "instruments.submitter_id",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1573,7 +1641,7 @@
           "exact_mappings": [
             "ms_analysed_data:file_name"
           ],
-          "rank": 8,
+          "rank": 9,
           "alias": "processedDataFile",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1590,7 +1658,7 @@
           "exact_mappings": [
             "ms_analysed_data:data_category"
           ],
-          "rank": 9,
+          "rank": 10,
           "alias": "processed.data_category",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1607,7 +1675,7 @@
           "exact_mappings": [
             "ms_analysed_data:data_format"
           ],
-          "rank": 10,
+          "rank": 11,
           "alias": "processed.data_format",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1624,7 +1692,7 @@
           "exact_mappings": [
             "ms_analysed_data:data_type"
           ],
-          "rank": 11,
+          "rank": 12,
           "alias": "processed.data_type",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1641,7 +1709,7 @@
           "exact_mappings": [
             "ms_analysis:normalization"
           ],
-          "rank": 12,
+          "rank": 13,
           "alias": "Normalization",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1658,7 +1726,7 @@
           "exact_mappings": [
             "ms_analysis:transformation"
           ],
-          "rank": 13,
+          "rank": 14,
           "alias": "Transformation",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1675,7 +1743,7 @@
           "exact_mappings": [
             "ms_analysis:transformation_purpose"
           ],
-          "rank": 14,
+          "rank": 15,
           "alias": "TransformationPurpose",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1692,7 +1760,7 @@
           "exact_mappings": [
             "ms_analysis:transformation_description"
           ],
-          "rank": 15,
+          "rank": 16,
           "alias": "TransformationDescription",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1709,7 +1777,7 @@
           "exact_mappings": [
             "ms_analysis:unit"
           ],
-          "rank": 16,
+          "rank": 17,
           "alias": "unit",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1726,7 +1794,7 @@
           "exact_mappings": [
             "ms_analysis:analysis_protocols.submitter_id"
           ],
-          "rank": 17,
+          "rank": 18,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "analysis_protocols.submitter_id",
           "owner": "mass_spec_assay",
@@ -1744,7 +1812,7 @@
           "exact_mappings": [
             "mass_spec_assay:calibration_standard"
           ],
-          "rank": 18,
+          "rank": 19,
           "alias": "calibration_standard",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1761,7 +1829,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_name"
           ],
-          "rank": 19,
+          "rank": 20,
           "alias": "chromatography.name",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1779,7 +1847,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_column"
           ],
-          "rank": 20,
+          "rank": 21,
           "alias": "chromatography_column",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1797,7 +1865,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_protocol"
           ],
-          "rank": 21,
+          "rank": 22,
           "alias": "chromatography_protocol",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1815,7 +1883,7 @@
           "exact_mappings": [
             "mass_spec_assay:elution_program"
           ],
-          "rank": 22,
+          "rank": 23,
           "alias": "elution_program",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1832,7 +1900,7 @@
           "exact_mappings": [
             "mass_spec_assay:flow_rate"
           ],
-          "rank": 23,
+          "rank": 24,
           "alias": "flow_rate",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1849,7 +1917,7 @@
           "exact_mappings": [
             "mass_spec_assay:carrier_gas"
           ],
-          "rank": 24,
+          "rank": 25,
           "alias": "carrier_gas",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1866,7 +1934,7 @@
           "exact_mappings": [
             "mass_spec_assay:oven_temperature_program"
           ],
-          "rank": 25,
+          "rank": 26,
           "alias": "oven_temperature_program",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1883,7 +1951,7 @@
           "exact_mappings": [
             "mass_spec_assay:ms_method_name"
           ],
-          "rank": 26,
+          "rank": 27,
           "alias": "ms_method.name",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1901,7 +1969,7 @@
           "exact_mappings": [
             "mass_spec_assay:ms_protocol"
           ],
-          "rank": 27,
+          "rank": 28,
           "alias": "ms_protocol",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1921,7 +1989,7 @@
             "ms_analysed_data:provenance",
             "ms_analysis:provenance"
           ],
-          "rank": 28,
+          "rank": 29,
           "alias": "mass_spec_assay.provenance",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -1940,18 +2008,17 @@
       "slot_usage": {
         "metabolite_name": {
           "name": "metabolite_name",
-          "exact_mappings": [
-            "metabolite_id:submitter_id"
-          ],
           "rank": 1,
           "slot_group": "metabolite_identification"
         },
         "metabolite.data_analysis_id": {
           "name": "metabolite.data_analysis_id",
-          "exact_mappings": [
-            "metabolite_id:ms_analysed_datas.submitter_id"
-          ],
           "rank": 2,
+          "slot_group": "metabolite_identification"
+        },
+        "metabolite.study_id": {
+          "name": "metabolite.study_id",
+          "rank": 3,
           "slot_group": "metabolite_identification"
         },
         "refmet_name": {
@@ -1959,7 +2026,7 @@
           "exact_mappings": [
             "metabolite_id:refmet_name"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_group": "metabolite_identification"
         },
         "dtxsid": {
@@ -1967,7 +2034,7 @@
           "exact_mappings": [
             "metabolite_id:dtxsid"
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "metabolite_identification"
         },
         "inchikey": {
@@ -1975,7 +2042,7 @@
           "exact_mappings": [
             "metabolite_id:inchikey"
           ],
-          "rank": 5,
+          "rank": 6,
           "slot_group": "metabolite_identification"
         },
         "mass": {
@@ -1983,7 +2050,7 @@
           "exact_mappings": [
             "metabolite_id:mass"
           ],
-          "rank": 6,
+          "rank": 7,
           "slot_group": "metabolite_identification"
         },
         "elution_time": {
@@ -1991,7 +2058,7 @@
           "exact_mappings": [
             "metabolite_id:elution_time"
           ],
-          "rank": 7,
+          "rank": 8,
           "slot_group": "metabolite_identification"
         },
         "metabolide_id.provenance": {
@@ -1999,7 +2066,7 @@
           "exact_mappings": [
             "metabolite_id:provenance"
           ],
-          "rank": 8,
+          "rank": 9,
           "slot_group": "provenance"
         }
       },
@@ -2009,9 +2076,6 @@
           "description": " ",
           "title": "metabolite_name",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "metabolite_id:submitter_id"
-          ],
           "rank": 1,
           "identifier": true,
           "alias": "metabolite_name",
@@ -2028,9 +2092,6 @@
           "description": " ",
           "title": "data_analysis_id",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "metabolite_id:ms_analysed_datas.submitter_id"
-          ],
           "rank": 2,
           "alias": "metabolite.data_analysis_id",
           "owner": "metaboliteID",
@@ -2041,6 +2102,20 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
+        "metabolite.study_id": {
+          "name": "metabolite.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "metabolite.study_id",
+          "owner": "metaboliteID",
+          "domain_of": [
+            "metaboliteID"
+          ],
+          "slot_group": "metabolite_identification",
+          "range": "WhitespaceMinimizedString"
+        },
         "refmet_name": {
           "name": "refmet_name",
           "description": " ",
@@ -2049,7 +2124,7 @@
           "exact_mappings": [
             "metabolite_id:refmet_name"
           ],
-          "rank": 3,
+          "rank": 4,
           "alias": "refmet_name",
           "owner": "metaboliteID",
           "domain_of": [
@@ -2067,7 +2142,7 @@
           "exact_mappings": [
             "metabolite_id:dtxsid"
           ],
-          "rank": 4,
+          "rank": 5,
           "alias": "dtxsid",
           "owner": "metaboliteID",
           "domain_of": [
@@ -2084,7 +2159,7 @@
           "exact_mappings": [
             "metabolite_id:inchikey"
           ],
-          "rank": 5,
+          "rank": 6,
           "alias": "inchikey",
           "owner": "metaboliteID",
           "domain_of": [
@@ -2101,7 +2176,7 @@
           "exact_mappings": [
             "metabolite_id:mass"
           ],
-          "rank": 6,
+          "rank": 7,
           "alias": "mass",
           "owner": "metaboliteID",
           "domain_of": [
@@ -2118,7 +2193,7 @@
           "exact_mappings": [
             "metabolite_id:elution_time"
           ],
-          "rank": 7,
+          "rank": 8,
           "alias": "elution_time",
           "owner": "metaboliteID",
           "domain_of": [
@@ -2135,7 +2210,7 @@
           "exact_mappings": [
             "metabolite_id:provenance"
           ],
-          "rank": 8,
+          "rank": 9,
           "alias": "metabolide_id.provenance",
           "owner": "metaboliteID",
           "domain_of": [
@@ -2157,39 +2232,44 @@
           "rank": 1,
           "slot_group": "Instrument"
         },
+        "instrument.study_id": {
+          "name": "instrument.study_id",
+          "rank": 2,
+          "slot_group": "Instrument"
+        },
         "manufacturer": {
           "name": "manufacturer",
-          "rank": 2,
+          "rank": 3,
           "slot_group": "Instrument"
         },
         "model": {
           "name": "model",
-          "rank": 3,
+          "rank": 4,
           "slot_group": "Instrument"
         },
         "scan_polarity": {
           "name": "scan_polarity",
-          "rank": 4,
+          "rank": 5,
           "slot_group": "Instrument"
         },
         "ionization_type": {
           "name": "ionization_type",
-          "rank": 5,
+          "rank": 6,
           "slot_group": "Instrument"
         },
         "detector_type": {
           "name": "detector_type",
-          "rank": 6,
+          "rank": 7,
           "slot_group": "Instrument"
         },
         "mass_analyzer_type": {
           "name": "mass_analyzer_type",
-          "rank": 7,
+          "rank": 8,
           "slot_group": "Instrument"
         },
         "instrument.provenance": {
           "name": "instrument.provenance",
-          "rank": 8,
+          "rank": 9,
           "slot_group": "provenance"
         }
       },
@@ -2197,7 +2277,7 @@
         "instruments.submitter_id": {
           "name": "instruments.submitter_id",
           "description": " ",
-          "title": "instruments.submitter_id",
+          "title": "instrument ID",
           "from_schema": "https://example.com/CIMR",
           "rank": 1,
           "alias": "instruments.submitter_id",
@@ -2209,12 +2289,26 @@
           "slot_group": "Instrument",
           "range": "instruments.submitter_id menu"
         },
+        "instrument.study_id": {
+          "name": "instrument.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "instrument.study_id",
+          "owner": "Instrument",
+          "domain_of": [
+            "Instrument"
+          ],
+          "slot_group": "Instrument",
+          "range": "WhitespaceMinimizedString"
+        },
         "manufacturer": {
           "name": "manufacturer",
           "description": "The name of the mass spectrometry instrument manufacturer",
           "title": "manufacturer",
           "from_schema": "https://example.com/CIMR",
-          "rank": 2,
+          "rank": 3,
           "alias": "manufacturer",
           "owner": "Instrument",
           "domain_of": [
@@ -2228,7 +2322,7 @@
           "description": "The name of the mass spectrometry instrument",
           "title": "model",
           "from_schema": "https://example.com/CIMR",
-          "rank": 3,
+          "rank": 4,
           "slot_uri": "obo:MS_1000031",
           "alias": "model",
           "owner": "Instrument",
@@ -2244,7 +2338,7 @@
           "description": "Relative orientation of the electromagnetic field during the selection and detection of ions in the mass spectrometer.",
           "title": "scan_polarity",
           "from_schema": "https://example.com/CIMR",
-          "rank": 4,
+          "rank": 5,
           "slot_uri": "obo:MS_1000465",
           "alias": "scan_polarity",
           "owner": "Instrument",
@@ -2259,7 +2353,7 @@
           "description": "The method by which gas phase ions are generated from the sample.",
           "title": "ionization_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 5,
+          "rank": 6,
           "slot_uri": "obo:MS_1000008",
           "alias": "ionization_type",
           "owner": "Instrument",
@@ -2274,7 +2368,7 @@
           "description": "Type of detector used in the mass spectrometer.",
           "title": "detector_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 6,
+          "rank": 7,
           "slot_uri": "obo:MS_1000026",
           "alias": "detector_type",
           "owner": "Instrument",
@@ -2289,7 +2383,7 @@
           "description": "Mass analyzer separates the ions according to their mass-to-charge ratio.",
           "title": "mass_analyzer_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 7,
+          "rank": 8,
           "slot_uri": "obo:MS_1000443",
           "alias": "mass_analyzer_type",
           "owner": "Instrument",
@@ -2304,7 +2398,7 @@
           "description": " ",
           "title": "Provenance",
           "from_schema": "https://example.com/CIMR",
-          "rank": 8,
+          "rank": 9,
           "alias": "instrument.provenance",
           "owner": "Instrument",
           "domain_of": [
@@ -2336,12 +2430,17 @@
           "rank": 2,
           "slot_group": "identifiers"
         },
+        "aliquot.study_id": {
+          "name": "aliquot.study_id",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
         "analyte_type": {
           "name": "analyte_type",
           "exact_mappings": [
             "aliquot:analyte_type"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_group": "aliquot"
         },
         "analyte_protocol": {
@@ -2349,7 +2448,7 @@
           "exact_mappings": [
             "aliquot:analyte_protocol"
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "aliquot"
         },
         "derivitization": {
@@ -2357,7 +2456,7 @@
           "exact_mappings": [
             "aliquot:derivitization"
           ],
-          "rank": 5,
+          "rank": 6,
           "slot_group": "aliquot"
         },
         "extract_preservation_method": {
@@ -2365,7 +2464,7 @@
           "exact_mappings": [
             "aliquot:extract_preservation_method"
           ],
-          "rank": 6,
+          "rank": 7,
           "slot_group": "aliquot"
         },
         "aliquot.provenance": {
@@ -2373,7 +2472,7 @@
           "exact_mappings": [
             "aliquot:provenance"
           ],
-          "rank": 7,
+          "rank": 8,
           "slot_group": "provenance"
         }
       },
@@ -2381,7 +2480,7 @@
         "aliquots.submitter_id": {
           "name": "aliquots.submitter_id",
           "description": " ",
-          "title": "aliquots.submitter_id",
+          "title": "aliquot ID",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "aliquot:submitter_id"
@@ -2399,13 +2498,27 @@
         "samples.submitter_id": {
           "name": "samples.submitter_id",
           "description": " ",
-          "title": "samples.submitter_id",
+          "title": "sample ID",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
             "aliquot:samples.submitter_id"
           ],
           "rank": 2,
           "alias": "samples.submitter_id",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "aliquot.study_id": {
+          "name": "aliquot.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "aliquot.study_id",
           "owner": "Aliquot",
           "domain_of": [
             "Aliquot"
@@ -2421,7 +2534,7 @@
           "exact_mappings": [
             "aliquot:analyte_type"
           ],
-          "rank": 3,
+          "rank": 4,
           "alias": "analyte_type",
           "owner": "Aliquot",
           "domain_of": [
@@ -2438,7 +2551,7 @@
           "exact_mappings": [
             "aliquot:analyte_protocol"
           ],
-          "rank": 4,
+          "rank": 5,
           "alias": "analyte_protocol",
           "owner": "Aliquot",
           "domain_of": [
@@ -2455,7 +2568,7 @@
           "exact_mappings": [
             "aliquot:derivitization"
           ],
-          "rank": 5,
+          "rank": 6,
           "alias": "derivitization",
           "owner": "Aliquot",
           "domain_of": [
@@ -2472,7 +2585,7 @@
           "exact_mappings": [
             "aliquot:extract_preservation_method"
           ],
-          "rank": 6,
+          "rank": 7,
           "alias": "extract_preservation_method",
           "owner": "Aliquot",
           "domain_of": [
@@ -2489,7 +2602,7 @@
           "exact_mappings": [
             "aliquot:provenance"
           ],
-          "rank": 7,
+          "rank": 8,
           "alias": "aliquot.provenance",
           "owner": "Aliquot",
           "domain_of": [

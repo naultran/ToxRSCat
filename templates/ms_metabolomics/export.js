@@ -13,8 +13,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["aliquots.submitter_id", []],
+						["submitter_id", ["mass_spec_assay.study_id", "submitter_id"]],
+						["aliquots.submitter_id", ["mass_spec_assay.study_id", "aliquots.submitter_id"]],
 						["calibration_standard", []],
 						["chromatography_name", []],
 						["chromatography_column", []],
@@ -34,8 +34,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["rawDataFile",]],
-						["mass_spec_assays.submitter_id", []],
+						["submitter_id", ["mass_spec_assay.study_id", "rawDataFile",]],
+						["mass_spec_assays.submitter_id", ["mass_spec_assay.study_id", "submitter_id"]],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
@@ -52,8 +52,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["processedDataFile",]],
-						["ms_analyses.submitter_id", ["submitter_id"]],
+						["submitter_id", ["mass_spec_assay.study_id", "processedDataFile",]],
+						["ms_analyses.submitter_id", ["mass_spec_assay.study_id", "submitter_id"]],
 						["file_name", []],
 						["data_category", []],
 						["data_format", []],
@@ -70,8 +70,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["ms_raw_datas.submitter_id", []],
+						["submitter_id", ["mass_spec_assay.study_id", "submitter_id"]],
+						["ms_raw_datas.submitter_id", ["mass_spec_assay.study_id", "rawDataFile"]],
 						["normalization", []],
 						["transformation", []],
 						["transformation_purpose", []],
@@ -186,8 +186,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["ms_analysed_datas.submitter_id", []],
+						["submitter_id", ["metabolite.study_id", "metabolite_name"]],
+						["ms_analysed_datas.submitter_id", ["metabolite.study_id", "metabolite.data_analysis_id"]],
 						["metabolite_name", ["metabolite_name"]],
 						["refmet_name", []],
 						["dtxsid", []],

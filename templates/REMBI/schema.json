@@ -920,7 +920,7 @@
     "submitter_id": {
       "name": "submitter_id",
       "description": "An individual identifier for each slide record.",
-      "title": "submitter_id",
+      "title": "slide ID",
       "comments": [
         " "
       ],
@@ -930,7 +930,7 @@
     "aliquots.submitter_id": {
       "name": "aliquots.submitter_id",
       "description": "The identifier from the aliquots table for which the data represents",
-      "title": "aliquots.submitter_id",
+      "title": "aliquot ID",
       "comments": [
         " "
       ],
@@ -981,10 +981,10 @@
       "range": "data_type menu",
       "required": true
     },
-    "instrument.submitter_id": {
-      "name": "instrument.submitter_id",
+    "instruments.submitter_id": {
+      "name": "instruments.submitter_id",
       "description": "Specific content type of the data file.",
-      "title": "instrument.submitter_id",
+      "title": "instrument ID",
       "comments": [
         " "
       ],
@@ -1111,10 +1111,10 @@
       "range": "WhitespaceMinimizedString",
       "required": true
     },
-    "slide.submitter_id": {
-      "name": "slide.submitter_id",
+    "slides.submitter_id": {
+      "name": "slides.submitter_id",
       "description": " ",
-      "title": "slide.submitter_id",
+      "title": "slide ID",
       "comments": [
         " "
       ],
@@ -1176,6 +1176,28 @@
       "from_schema": "https://example.com/REMBI",
       "range": "scoring_system menu",
       "required": true
+    },
+    "slide.study_id": {
+      "name": "slide.study_id",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "pathology.study_id": {
+      "name": "pathology.study_id",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString",
+      "required": true
     }
   },
   "classes": {
@@ -1191,19 +1213,17 @@
       "slot_usage": {
         "submitter_id": {
           "name": "submitter_id",
-          "exact_mappings": [
-            "slide_image:slides.submitter_id",
-            "slide:submitter_id"
-          ],
           "rank": 1,
           "slot_group": "Identifiers"
         },
         "aliquots.submitter_id": {
           "name": "aliquots.submitter_id",
-          "exact_mappings": [
-            "slide:aliquots.submitter_id"
-          ],
           "rank": 2,
+          "slot_group": "Identifiers"
+        },
+        "slide.study_id": {
+          "name": "slide.study_id",
+          "rank": 3,
           "slot_group": "Identifiers"
         },
         "file_name": {
@@ -1211,7 +1231,7 @@
           "exact_mappings": [
             "slide_image:file_name"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_group": "data"
         },
         "data_category": {
@@ -1219,7 +1239,7 @@
           "exact_mappings": [
             "slide_image:data_category"
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "data"
         },
         "data_format": {
@@ -1227,7 +1247,7 @@
           "exact_mappings": [
             "slide_image:data_format"
           ],
-          "rank": 5,
+          "rank": 6,
           "slot_group": "data"
         },
         "data_type": {
@@ -1235,15 +1255,15 @@
           "exact_mappings": [
             "slide_image:data_type"
           ],
-          "rank": 6,
+          "rank": 7,
           "slot_group": "data"
         },
-        "instrument.submitter_id": {
-          "name": "instrument.submitter_id",
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
           "exact_mappings": [
             "slide_image:instruments.submitter_id"
           ],
-          "rank": 7,
+          "rank": 8,
           "slot_group": "data"
         },
         "magnification": {
@@ -1251,7 +1271,7 @@
           "exact_mappings": [
             "slide_image:magnification"
           ],
-          "rank": 8,
+          "rank": 9,
           "slot_group": "data"
         },
         "imaging_protocol": {
@@ -1259,7 +1279,7 @@
           "exact_mappings": [
             "slide_image:imaging_protocol"
           ],
-          "rank": 9,
+          "rank": 10,
           "slot_group": "data"
         },
         "imaging_protocol_DOI": {
@@ -1267,7 +1287,7 @@
           "exact_mappings": [
             "slide_image:imaging_protcol_DOI"
           ],
-          "rank": 10,
+          "rank": 11,
           "slot_group": "data"
         },
         "assay": {
@@ -1275,7 +1295,7 @@
           "exact_mappings": [
             "slide:assay"
           ],
-          "rank": 11,
+          "rank": 12,
           "slot_group": "slide_details"
         },
         "probe_type": {
@@ -1283,7 +1303,7 @@
           "exact_mappings": [
             "slide:probe_type"
           ],
-          "rank": 12,
+          "rank": 13,
           "slot_group": "slide_details"
         },
         "probe_name": {
@@ -1291,7 +1311,7 @@
           "exact_mappings": [
             "slide:probe_name"
           ],
-          "rank": 13,
+          "rank": 14,
           "slot_group": "slide_details"
         },
         "probe_provider": {
@@ -1299,7 +1319,7 @@
           "exact_mappings": [
             "slide:probe_provider"
           ],
-          "rank": 14,
+          "rank": 15,
           "slot_group": "slide_details"
         },
         "probe_catalog_number": {
@@ -1307,7 +1327,7 @@
           "exact_mappings": [
             "slide:probe_catalog_number"
           ],
-          "rank": 15,
+          "rank": 16,
           "slot_group": "slide_details"
         },
         "probe_concentration": {
@@ -1315,7 +1335,7 @@
           "exact_mappings": [
             "slide:probe_concentration"
           ],
-          "rank": 16,
+          "rank": 17,
           "slot_group": "slide_details"
         },
         "detection_method": {
@@ -1323,7 +1343,7 @@
           "exact_mappings": [
             "slide:detection_method"
           ],
-          "rank": 17,
+          "rank": 18,
           "slot_group": "slide_details"
         }
       },
@@ -1331,12 +1351,8 @@
         "submitter_id": {
           "name": "submitter_id",
           "description": "An individual identifier for each slide record.",
-          "title": "submitter_id",
+          "title": "slide ID",
           "from_schema": "https://example.com/REMBI",
-          "exact_mappings": [
-            "slide_image:slides.submitter_id",
-            "slide:submitter_id"
-          ],
           "rank": 1,
           "alias": "submitter_id",
           "owner": "slide",
@@ -1349,11 +1365,8 @@
         "aliquots.submitter_id": {
           "name": "aliquots.submitter_id",
           "description": "The identifier from the aliquots table for which the data represents",
-          "title": "aliquots.submitter_id",
+          "title": "aliquot ID",
           "from_schema": "https://example.com/REMBI",
-          "exact_mappings": [
-            "slide:aliquots.submitter_id"
-          ],
           "rank": 2,
           "alias": "aliquots.submitter_id",
           "owner": "slide",
@@ -1363,6 +1376,21 @@
           "slot_group": "Identifiers",
           "range": "WhitespaceMinimizedString"
         },
+        "slide.study_id": {
+          "name": "slide.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/REMBI",
+          "rank": 3,
+          "alias": "slide.study_id",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "file_name": {
           "name": "file_name",
           "description": "The name (or part of a name) of a file (of any type).",
@@ -1371,7 +1399,7 @@
           "exact_mappings": [
             "slide_image:file_name"
           ],
-          "rank": 3,
+          "rank": 4,
           "alias": "file_name",
           "owner": "slide",
           "domain_of": [
@@ -1389,7 +1417,7 @@
           "exact_mappings": [
             "slide_image:data_category"
           ],
-          "rank": 4,
+          "rank": 5,
           "alias": "data_category",
           "owner": "slide",
           "domain_of": [
@@ -1407,7 +1435,7 @@
           "exact_mappings": [
             "slide_image:data_format"
           ],
-          "rank": 5,
+          "rank": 6,
           "alias": "data_format",
           "owner": "slide",
           "domain_of": [
@@ -1425,7 +1453,7 @@
           "exact_mappings": [
             "slide_image:data_type"
           ],
-          "rank": 6,
+          "rank": 7,
           "alias": "data_type",
           "owner": "slide",
           "domain_of": [
@@ -1435,16 +1463,16 @@
           "range": "data_type menu",
           "required": true
         },
-        "instrument.submitter_id": {
-          "name": "instrument.submitter_id",
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
           "description": "Specific content type of the data file.",
-          "title": "instrument.submitter_id",
+          "title": "instrument ID",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
             "slide_image:instruments.submitter_id"
           ],
-          "rank": 7,
-          "alias": "instrument.submitter_id",
+          "rank": 8,
+          "alias": "instruments.submitter_id",
           "owner": "slide",
           "domain_of": [
             "slide"
@@ -1461,7 +1489,7 @@
           "exact_mappings": [
             "slide_image:magnification"
           ],
-          "rank": 8,
+          "rank": 9,
           "slot_uri": "obo:NCIT_C181737",
           "multivalued": true,
           "alias": "magnification",
@@ -1481,7 +1509,7 @@
           "exact_mappings": [
             "slide_image:imaging_protocol"
           ],
-          "rank": 9,
+          "rank": 10,
           "alias": "imaging_protocol",
           "owner": "slide",
           "domain_of": [
@@ -1499,7 +1527,7 @@
           "exact_mappings": [
             "slide_image:imaging_protcol_DOI"
           ],
-          "rank": 10,
+          "rank": 11,
           "alias": "imaging_protocol_DOI",
           "owner": "slide",
           "domain_of": [
@@ -1517,7 +1545,7 @@
           "exact_mappings": [
             "slide:assay"
           ],
-          "rank": 11,
+          "rank": 12,
           "multivalued": true,
           "identifier": true,
           "alias": "assay",
@@ -1537,7 +1565,7 @@
           "exact_mappings": [
             "slide:probe_type"
           ],
-          "rank": 12,
+          "rank": 13,
           "multivalued": true,
           "alias": "probe_type",
           "owner": "slide",
@@ -1556,7 +1584,7 @@
           "exact_mappings": [
             "slide:probe_name"
           ],
-          "rank": 13,
+          "rank": 14,
           "multivalued": true,
           "alias": "probe_name",
           "owner": "slide",
@@ -1575,7 +1603,7 @@
           "exact_mappings": [
             "slide:probe_provider"
           ],
-          "rank": 14,
+          "rank": 15,
           "multivalued": true,
           "alias": "probe_provider",
           "owner": "slide",
@@ -1594,7 +1622,7 @@
           "exact_mappings": [
             "slide:probe_catalog_number"
           ],
-          "rank": 15,
+          "rank": 16,
           "multivalued": true,
           "alias": "probe_catalog_number",
           "owner": "slide",
@@ -1613,7 +1641,7 @@
           "exact_mappings": [
             "slide:probe_concentration"
           ],
-          "rank": 16,
+          "rank": 17,
           "multivalued": true,
           "alias": "probe_concentration",
           "owner": "slide",
@@ -1631,7 +1659,7 @@
           "exact_mappings": [
             "slide:detection_method"
           ],
-          "rank": 17,
+          "rank": 18,
           "multivalued": true,
           "alias": "detection_method",
           "owner": "slide",
@@ -1649,66 +1677,80 @@
       "from_schema": "https://example.com/REMBI",
       "is_a": "dh_interface",
       "slot_usage": {
-        "slide.submitter_id": {
-          "name": "slide.submitter_id",
-          "exact_mappings": [
-            "pathology:slot_usage"
-          ],
+        "slides.submitter_id": {
+          "name": "slides.submitter_id",
           "rank": 1,
+          "slot_group": "Identifiers"
+        },
+        "pathology.study_id": {
+          "name": "pathology.study_id",
+          "rank": 2,
           "slot_group": "Identifiers"
         },
         "finding_type": {
           "name": "finding_type",
           "exact_mappings": [
-            "pathology:finding_type"
+            "slide_pathology:finding_type"
           ],
-          "rank": 2,
+          "rank": 3,
           "slot_group": "pathology_grading"
         },
         "topography_type": {
           "name": "topography_type",
           "exact_mappings": [
-            "pathology:topography_type"
+            "slide_pathology:topography_type"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_group": "pathology_grading"
         },
         "grade": {
           "name": "grade",
           "exact_mappings": [
-            "pathology:grade"
+            "slide_pathology:grade"
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "pathology_grading"
         },
         "spontaneous_flag": {
           "name": "spontaneous_flag",
           "exact_mappings": [
-            "pathology:spontaneous_flag"
+            "slide_pathology:spontaneous_flag"
           ],
-          "rank": 5,
+          "rank": 6,
           "slot_group": "pathology_grading"
         },
         "scoring_system": {
           "name": "scoring_system",
           "exact_mappings": [
-            "pathology:scoring_system"
+            "slide_pathology:scoring_system"
           ],
-          "rank": 6,
+          "rank": 7,
           "slot_group": "pathology_grading"
         }
       },
       "attributes": {
-        "slide.submitter_id": {
-          "name": "slide.submitter_id",
+        "slides.submitter_id": {
+          "name": "slides.submitter_id",
           "description": " ",
-          "title": "slide.submitter_id",
+          "title": "slide ID",
           "from_schema": "https://example.com/REMBI",
-          "exact_mappings": [
-            "pathology:slot_usage"
-          ],
           "rank": 1,
-          "alias": "slide.submitter_id",
+          "alias": "slides.submitter_id",
+          "owner": "pathology",
+          "domain_of": [
+            "pathology"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "pathology.study_id": {
+          "name": "pathology.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/REMBI",
+          "rank": 2,
+          "alias": "pathology.study_id",
           "owner": "pathology",
           "domain_of": [
             "pathology"
@@ -1723,9 +1765,9 @@
           "title": "finding_type",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "pathology:finding_type"
+            "slide_pathology:finding_type"
           ],
-          "rank": 2,
+          "rank": 3,
           "alias": "finding_type",
           "owner": "pathology",
           "domain_of": [
@@ -1741,9 +1783,9 @@
           "title": "topography_type",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "pathology:topography_type"
+            "slide_pathology:topography_type"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_uri": "obo:NCIT_C38034",
           "alias": "topography_type",
           "owner": "pathology",
@@ -1760,9 +1802,9 @@
           "title": "grade",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "pathology:grade"
+            "slide_pathology:grade"
           ],
-          "rank": 4,
+          "rank": 5,
           "alias": "grade",
           "owner": "pathology",
           "domain_of": [
@@ -1778,9 +1820,9 @@
           "title": "spontaneous_flag",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "pathology:spontaneous_flag"
+            "slide_pathology:spontaneous_flag"
           ],
-          "rank": 5,
+          "rank": 6,
           "alias": "spontaneous_flag",
           "owner": "pathology",
           "domain_of": [
@@ -1795,9 +1837,9 @@
           "title": "scoring_system",
           "from_schema": "https://example.com/REMBI",
           "exact_mappings": [
-            "pathology:scoring_system"
+            "slide_pathology:scoring_system"
           ],
-          "rank": 6,
+          "rank": 7,
           "alias": "scoring_system",
           "owner": "pathology",
           "domain_of": [

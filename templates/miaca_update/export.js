@@ -154,7 +154,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["cell_subjects.submitter_id","date",]],
+                        ["submitter_id", ["study.submitter_id", "cell_subjects.submitter_id","date",]],
                         ["cell_subjects.submitter_id", []],
                         ["date", []], 
                         ["culture_vessel", []],
@@ -182,7 +182,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["test_article_dtxsid", "treatment_date"]],
+                        ["submitter_id", ["study.submitter_id", "test_article_dtxsid", "treatment_date"]],
                         ["cell_subjects.submitter_id", []],
                         ["treatment_date", []],
                         ["addition_volume", []],
@@ -204,8 +204,8 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["cell_subjects.submitter_id","culture_vessel_date","date"]],
-                        ["culture_conditions.submitter_id", ["cell_subjects.submitter_id","culture_vessel_date"]],
+                        ["submitter_id", ["study.submitter_id", "cell_subjects.submitter_id","culture_vessel_date","date"]],
+                        ["culture_conditions.submitter_id", ["study.submitter_id", "cell_subjects.submitter_id","culture_vessel_date"]],
                         ["date", []],
                         ["protocol",[]],
                         ["basal_medium", []],
@@ -265,7 +265,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", []],
+                        ["submitter_id", ["sample.study_id", "sample.submitter_id"]],
                         ["cell_subjects.submitter_id", []],
                         ["date", []],
 						["biospecimen_anatomic_site", []],

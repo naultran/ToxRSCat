@@ -2703,7 +2703,7 @@
     "sample.submitter_id": {
       "name": "sample.submitter_id",
       "description": " ",
-      "title": "submitter_id",
+      "title": "sample ID",
       "comments": [
         " "
       ],
@@ -2716,6 +2716,17 @@
       "name": "cell_subjects.submitter_id",
       "description": " ",
       "title": "Cell culture ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "sample.study_id": {
+      "name": "sample.study_id",
+      "description": " ",
+      "title": "study ID",
       "comments": [
         " "
       ],
@@ -4953,9 +4964,6 @@
       "slot_usage": {
         "sample.submitter_id": {
           "name": "sample.submitter_id",
-          "exact_mappings": [
-            "sample:submitter_id"
-          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
@@ -4967,12 +4975,17 @@
           "rank": 2,
           "slot_group": "identifiers"
         },
+        "sample.study_id": {
+          "name": "sample.study_id",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
         "date.sample_details": {
           "name": "date.sample_details",
           "exact_mappings": [
             "sample:date"
           ],
-          "rank": 3,
+          "rank": 4,
           "slot_group": "sample_details"
         },
         "biospeciment_anatomic_site": {
@@ -4980,7 +4993,7 @@
           "exact_mappings": [
             "sample:biospecimen_anatomic_site"
           ],
-          "rank": 4,
+          "rank": 5,
           "slot_group": "sample_details"
         },
         "method_of_sample_procurement": {
@@ -4988,7 +5001,7 @@
           "exact_mappings": [
             "sample:method_of_sample_procurement"
           ],
-          "rank": 5,
+          "rank": 6,
           "slot_group": "sample_details"
         },
         "preservation_method": {
@@ -4996,7 +5009,7 @@
           "exact_mappings": [
             "sample:preservation_method"
           ],
-          "rank": 6,
+          "rank": 7,
           "slot_group": "sample_details"
         },
         "sample.provenance": {
@@ -5004,7 +5017,7 @@
           "exact_mappings": [
             "sample:provenance"
           ],
-          "rank": 7,
+          "rank": 8,
           "slot_group": "provenance"
         }
       },
@@ -5012,11 +5025,8 @@
         "sample.submitter_id": {
           "name": "sample.submitter_id",
           "description": " ",
-          "title": "submitter_id",
+          "title": "sample ID",
           "from_schema": "https://example.com/MIACA",
-          "exact_mappings": [
-            "sample:submitter_id"
-          ],
           "rank": 1,
           "identifier": true,
           "alias": "sample.submitter_id",
@@ -5046,6 +5056,21 @@
           "range": "WhitespaceMinimizedString",
           "required": true
         },
+        "sample.study_id": {
+          "name": "sample.study_id",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/MIACA",
+          "rank": 3,
+          "alias": "sample.study_id",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "date.sample_details": {
           "name": "date.sample_details",
           "description": " ",
@@ -5054,7 +5079,7 @@
           "exact_mappings": [
             "sample:date"
           ],
-          "rank": 3,
+          "rank": 4,
           "alias": "date.sample_details",
           "owner": "Sample",
           "domain_of": [
@@ -5071,7 +5096,7 @@
           "exact_mappings": [
             "sample:biospecimen_anatomic_site"
           ],
-          "rank": 4,
+          "rank": 5,
           "alias": "biospeciment_anatomic_site",
           "owner": "Sample",
           "domain_of": [
@@ -5088,7 +5113,7 @@
           "exact_mappings": [
             "sample:method_of_sample_procurement"
           ],
-          "rank": 5,
+          "rank": 6,
           "alias": "method_of_sample_procurement",
           "owner": "Sample",
           "domain_of": [
@@ -5105,7 +5130,7 @@
           "exact_mappings": [
             "sample:preservation_method"
           ],
-          "rank": 6,
+          "rank": 7,
           "alias": "preservation_method",
           "owner": "Sample",
           "domain_of": [
@@ -5122,7 +5147,7 @@
           "exact_mappings": [
             "sample:provenance"
           ],
-          "rank": 7,
+          "rank": 8,
           "alias": "sample.provenance",
           "owner": "Sample",
           "domain_of": [

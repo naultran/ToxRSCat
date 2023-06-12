@@ -614,6 +614,7 @@ classes:
     slots:
     - sample.submitter_id
     - cell_subjects.submitter_id
+    - sample.study_id
     - date.sample_details
     - biospeciment_anatomic_site
     - method_of_sample_procurement
@@ -623,41 +624,43 @@ classes:
       sample.submitter_id:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-          sample:submitter_id
-
+    
       cell_subjects.submitter_id:
         rank: 2
         slot_group: identifiers
         exact_mappings:
           sample:cell_subjects.submitter_id
 
-      date.sample_details:
+      sample.study_id:
         rank: 3
+        slot_group: identifiers
+
+      date.sample_details:
+        rank: 4
         slot_group: sample_details
         exact_mappings:
           sample:date
 
       biospeciment_anatomic_site:
-        rank: 4
+        rank: 5
         slot_group: sample_details
         exact_mappings:
           sample:biospecimen_anatomic_site
 
       method_of_sample_procurement:
-        rank: 5
+        rank: 6
         slot_group: sample_details
         exact_mappings:
           sample:method_of_sample_procurement
 
       preservation_method:
-        rank: 6
+        rank: 7
         slot_group: sample_details
         exact_mappings:
           sample:preservation_method
 
       sample.provenance:
-        rank: 7
+        rank: 8
         slot_group: provenance
         exact_mappings:
           sample:provenance
@@ -1220,7 +1223,7 @@ slots:
     comments: ' '
   sample.submitter_id:
     name: sample.submitter_id
-    title: submitter_id
+    title: sample ID
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -1229,6 +1232,13 @@ slots:
   cell_subjects.submitter_id:
     name: cell_subjects.submitter_id
     title: Cell culture ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  sample.study_id:
+    name: sample.study_id
+    title: study ID
     range: WhitespaceMinimizedString
     description: ' '
     required: true

@@ -15,12 +15,12 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["aliquots.submitter_id", []],
+						["submitter_id", ["Flow_cytometry_experiment_study_id", "flow_cytometry.submitter_id"]],
+						["aliquots.submitter_id", ["Flow_cytometry_experiment_study_id", "aliquots.submitter_id"]],
 						["protocol", []],
 						["protocol_doi", []],
 						["quality_control_measures", []],
-						["instruments_submitter_id", []],
+						["instruments_submitter_id", ["Flow_cytometry_experiment_study_id", "instrument.submitter_id"]],
 						["staining_protocol", []],
 						["staining_protocol_doi", []],
 						["characteristics_being_measured", []],
@@ -41,8 +41,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["listModeDataFile"]],
-						["flow_cytometry_assays.submitter_id", []],
+						["submitter_id", ["Flow_cytometry_experiment_study_id", "listModeDataFile"]],
+						["flow_cytometry_assays.submitter_id", ["Flow_cytometry_experiment_study_id", "flow_cytometry.submitter_id"]],
 						["file_name", []],
 						["data_type", []],
 						["data_format", []],
@@ -59,8 +59,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["WorkspaceFile"]],
-						["flow_cytometry_assays.submitter_id", []],
+						["submitter_id", ["Flow_cytometry_experiment_study_id", "WorkspaceFile"]],
+						["flow_cytometry_assays.submitter_id", ["Flow_cytometry_experiment_study_id", "flow_cytometry.submitter_id"]],
 						["file_name", []],
 						["data_type", []],
 						["data_format", []],
@@ -74,8 +74,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", ["TransformationDescription"]],
-						["flow_datas.submitter_id", ["listModeDataFile"]],
+						["submitter_id", ["Flow_cytometry_experiment_study_id", "TransformationDescription"]],
+						["flow_datas.submitter_id", ["Flow_cytometry_experiment_study_id", "listModeDataFile"]],
 						["protocol", []],
 						["compensation_description", []],
 						["transformation_purpose", []],
@@ -135,8 +135,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["samples.submitter_id", []],
+						["submitter_id", ["aliquot.study_id", "aliquot.submitter_id"]],
+						["samples.submitter_id", ["aliquot.study_id", "sample.submitter_id"]],
 						["analyte_type", []],
 						["analyte_protocol", []],
 						['provenance', []]

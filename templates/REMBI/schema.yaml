@@ -22,11 +22,12 @@ classes:
     slots:
     - submitter_id
     - aliquots.submitter_id
+    - slide.study_id
     - file_name
     - data_category
     - data_format
     - data_type
-    - instrument.submitter_id
+    - instruments.submitter_id
     - magnification
     - imaging_protocol
     - imaging_protocol_DOI
@@ -41,86 +42,84 @@ classes:
       submitter_id:
         rank: 1
         slot_group: Identifiers
-        exact_mappings: 
-        - slide_image:slides.submitter_id
-        - slide:submitter_id
       aliquots.submitter_id:
         rank: 2
         slot_group: Identifiers
-        exact_mappings: 
-        - slide:aliquots.submitter_id
-      file_name:
+      slide.study_id:
         rank: 3
+        slot_group: Identifiers
+      file_name:
+        rank: 4
         slot_group: data
         exact_mappings: 
         - slide_image:file_name
       data_category:
-        rank: 4
+        rank: 5
         slot_group: data
         exact_mappings: 
         - slide_image:data_category
       data_format:
-        rank: 5
+        rank: 6
         slot_group: data
         exact_mappings: 
         - slide_image:data_format
       data_type:
-        rank: 6
+        rank: 7
         slot_group: data
         exact_mappings: 
         - slide_image:data_type
-      instrument.submitter_id:
-        rank: 7
+      instruments.submitter_id:
+        rank: 8
         slot_group: data
         exact_mappings: 
         - slide_image:instruments.submitter_id
       magnification:
-        rank: 8
+        rank: 9
         slot_group: data
         exact_mappings: 
         - slide_image:magnification
       imaging_protocol:
-        rank: 9
+        rank: 10
         slot_group: data
         exact_mappings: 
         - slide_image:imaging_protocol
       imaging_protocol_DOI:
-        rank: 10
+        rank: 11
         slot_group: data
         exact_mappings: 
         - slide_image:imaging_protcol_DOI
       assay:
-        rank: 11
+        rank: 12
         slot_group: slide_details
         exact_mappings: 
         - slide:assay
       probe_type:
-        rank: 12
+        rank: 13
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_type
       probe_name:
-        rank: 13
+        rank: 14
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_name
       probe_provider:
-        rank: 14
+        rank: 15
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_provider
       probe_catalog_number:
-        rank: 15
+        rank: 16
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_catalog_number
       probe_concentration:
-        rank: 16
+        rank: 17
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_concentration
       detection_method:
-        rank: 17
+        rank: 18
         slot_group: slide_details
         exact_mappings: 
         - slide:detection_method
@@ -128,54 +127,56 @@ classes:
     name: pathology
     is_a: dh_interface
     slots:
-    - slide.submitter_id
+    - slides.submitter_id
+    - pathology.study_id
     - finding_type
     - topography_type
     - grade
     - spontaneous_flag
     - scoring_system
     slot_usage:
-      slide.submitter_id:
+      slides.submitter_id:
         rank: 1
         slot_group: Identifiers
-        exact_mappings: 
-        - pathology:slot_usage
-      finding_type:
+      pathology.study_id:
         rank: 2
-        slot_group: pathology_grading
-        exact_mappings: 
-        - pathology:finding_type
-      topography_type:
+        slot_group: Identifiers
+      finding_type:
         rank: 3
         slot_group: pathology_grading
         exact_mappings: 
-        - pathology:topography_type
-      grade:
+        - slide_pathology:finding_type
+      topography_type:
         rank: 4
         slot_group: pathology_grading
         exact_mappings: 
-        - pathology:grade
-      spontaneous_flag:
+        - slide_pathology:topography_type
+      grade:
         rank: 5
         slot_group: pathology_grading
         exact_mappings: 
-        - pathology:spontaneous_flag
-      scoring_system:
+        - slide_pathology:grade
+      spontaneous_flag:
         rank: 6
         slot_group: pathology_grading
         exact_mappings: 
-        - pathology:scoring_system
+        - slide_pathology:spontaneous_flag
+      scoring_system:
+        rank: 7
+        slot_group: pathology_grading
+        exact_mappings: 
+        - slide_pathology:scoring_system
 
 slots:
   submitter_id:
     name: submitter_id
-    title: submitter_id
+    title: slide ID
     range: WhitespaceMinimizedString
     description: An individual identifier for each slide record.
     comments: ' '
   aliquots.submitter_id:
     name: aliquots.submitter_id
-    title: aliquots.submitter_id
+    title: aliquot ID
     range: WhitespaceMinimizedString
     description: The identifier from the aliquots table for which the data represents
     comments: ' '
@@ -207,9 +208,9 @@ slots:
     description: ' '
     required: true
     comments: ' '
-  instrument.submitter_id:
-    name: instrument.submitter_id
-    title: instrument.submitter_id
+  instruments.submitter_id:
+    name: instruments.submitter_id
+    title: instrument ID
     range: instrument.submitter_id menu
     description: Specific content type of the data file.
     required: true
@@ -293,9 +294,9 @@ slots:
     required: true
     multivalued: true
     comments: ' '
-  slide.submitter_id:
-    name: slide.submitter_id
-    title: slide.submitter_id
+  slides.submitter_id:
+    name: slides.submitter_id
+    title: slide ID
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -333,6 +334,20 @@ slots:
     name: scoring_system
     title: scoring_system
     range: scoring_system menu
+    description: ' '
+    required: true
+    comments: ' '
+  slide.study_id:
+    name: slide.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    required: true
+    comments: ' '
+  pathology.study_id:
+    name: pathology.study_id
+    title: study ID
+    range: WhitespaceMinimizedString
     description: ' '
     required: true
     comments: ' '

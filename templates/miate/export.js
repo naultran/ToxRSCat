@@ -145,7 +145,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["cage_id", "housing_change_date"]],
+                        ["submitter_id", ["Subject.study_identifier", "cage_id", "housing_change_date"]],
                         ["subjects.submitter_id", []],
                         ["cageID", []], 
                         ["housing_change_date", []],
@@ -163,7 +163,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["test_article_dtxsid", "treatment_date", "dose_amount"]],
+                        ["submitter_id", ["Subject.study_identifier", "test_article_dtxsid", "treatment_date", "dose_amount"]],
                         ["subjects.submitter_id", []],
                         ["date", []],
                         ["administration_volume_ml", []],
@@ -185,8 +185,8 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["feed_catalog_number", "diet_date"]],
-                        ["housings.submitter_id", ["cage_id", "housing_change_date"]],
+                        ["submitter_id", ["Subject.study_identifier", "feed_catalog_number", "diet_date"]],
+                        ["housings.submitter_id", ["Subject.study_identifier", "cage_id", "housing_change_date"]],
                         ["date", []],
                         ["feed_catalog_number",[]],
                         ["feed_description", []],
@@ -238,8 +238,9 @@ export default {
         method: function (dh){
             const ExportHeaders = new Map([
                 ["type", []],
-                ["submitter_id", []],
+                ["submitter_id", ["Sample.study_identifier", "sample_identifier"]],
                 ["subjects.submitter_id", []],
+                ["sample_identifier", ["sample_identifier"]],
                 ["date", []],
                 ["biospecimen_anatomic_site", []],
                 ["method_of_sample_procurement", []],
