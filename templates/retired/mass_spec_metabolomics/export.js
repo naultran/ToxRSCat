@@ -1,5 +1,5 @@
-import { exportFile, exportJsonFile } from './/../../../DataHarmonizer/lib/utils/files';
-import {removeDuplicateRows, removeDuplicatesAndCollapse} from '../../../script/tools';
+import { exportFile, exportJsonFile } from './/../../../../DataHarmonizer/lib/utils/files';
+import {removeDuplicateRows, removeDuplicatesAndCollapse} from '../../../../script/tools';
 // A dictionary of possible export formats
 export default {
     /**
