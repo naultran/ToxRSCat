@@ -2416,17 +2416,11 @@
       "slot_usage": {
         "aliquots.submitter_id": {
           "name": "aliquots.submitter_id",
-          "exact_mappings": [
-            "aliquot:submitter_id"
-          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
         "samples.submitter_id": {
           "name": "samples.submitter_id",
-          "exact_mappings": [
-            "aliquot:samples.submitter_id"
-          ],
           "rank": 2,
           "slot_group": "identifiers"
         },
@@ -2482,9 +2476,6 @@
           "description": " ",
           "title": "aliquot ID",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "aliquot:submitter_id"
-          ],
           "rank": 1,
           "alias": "aliquots.submitter_id",
           "owner": "Aliquot",
@@ -2500,9 +2491,6 @@
           "description": " ",
           "title": "sample ID",
           "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "aliquot:samples.submitter_id"
-          ],
           "rank": 2,
           "alias": "samples.submitter_id",
           "owner": "Aliquot",

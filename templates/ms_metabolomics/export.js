@@ -127,8 +127,8 @@ export default {
 				{
 					exportHeaders: new Map([
 						["type", []],
-						["submitter_id", []],
-						["samples.submitter_id", []],
+						["submitter_id", ["aliquot.study_id", "aliquots.submitter_id"]],
+						["samples.submitter_id", ["aliquot.study_id", "samples.submitter_id"]],
 						["analyte_type", []],
 						["derivitization", []],
 						["extract_preservation_method", []],
