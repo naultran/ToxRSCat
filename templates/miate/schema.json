@@ -2909,7 +2909,7 @@
         "Subject.study_identifier": {
           "name": "Subject.study_identifier",
           "exact_mappings": [
-            "subject:studies.code"
+            "subject:studies.submitter_id"
           ],
           "rank": 2,
           "slot_group": "identifiers"
@@ -3227,7 +3227,7 @@
           "title": "study_identifier",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "subject:studies.code"
+            "subject:studies.submitter_id"
           ],
           "rank": 2,
           "slot_uri": "obo:NCIT_C46002",

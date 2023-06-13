@@ -125,7 +125,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", []],
-                        ["studies.code", []],
+                        ["studies.submitter_id", []],
                         ["start_date", []],
                         ["start_date_age", []],
                         ["experiment_start_date", []],
