@@ -60,7 +60,7 @@ export default {
 					exportHeaders: new Map([
 						["type", []],
 						["submitter_id", ["Flow_cytometry_experiment_study_id", "WorkspaceFile"]],
-						["flow_analysises.submitter_id", ["Flow_cytometry_experiment_study_id", "listModeDataFile"]],
+						["flow_analysises.submitter_id", ["Flow_cytometry_experiment_study_id", "TransformationDescription"]],
 						["file_name", []],
 						["data_type", []],
 						["data_format", []],
