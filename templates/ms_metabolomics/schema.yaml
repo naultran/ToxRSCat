@@ -32,7 +32,7 @@ classes:
     - TransformationPurpose
     - TransformationDescription
     - unit
-    - analysis_protocols.submitter_id
+    - analysis_protocols
     - calibration_standard
     - chromatography.name
     - chromatography_column
@@ -122,11 +122,11 @@ classes:
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:unit
-      analysis_protocols.submitter_id:
+      analysis_protocols:
         rank: 18
         slot_group: data_analysis
         exact_mappings:
-          ms_analysis:analysis_protocols.submitter_id
+          ms_analysis:analysis_protocols
       calibration_standard:
         rank: 19
         slot_group: extract
@@ -466,9 +466,9 @@ slots:
     range: WhitespaceMinimizedString
     description: ' '
     comments: nmol/mg total protein
-  analysis_protocols.submitter_id:
-    name: analysis_protocols.submitter_id
-    title: analysis_protocols.submitter_id
+  analysis_protocols:
+    name: analysis_protocols
+    title: analysis_protocols
     range: WhitespaceMinimizedString
     description: A brief description of the flow cytometry protocol
     slot_uri: obo:NCIT_C42651

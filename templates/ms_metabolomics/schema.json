@@ -931,10 +931,10 @@
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
     },
-    "analysis_protocols.submitter_id": {
-      "name": "analysis_protocols.submitter_id",
+    "analysis_protocols": {
+      "name": "analysis_protocols",
       "description": "A brief description of the flow cytometry protocol",
-      "title": "analysis_protocols.submitter_id",
+      "title": "analysis_protocols",
       "comments": [
         "Progenesis QI (Waters) was used for peak processing. Metabolites were identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used to measure area under the curve. "
       ],
@@ -1405,10 +1405,10 @@
           "rank": 17,
           "slot_group": "data_analysis"
         },
-        "analysis_protocols.submitter_id": {
-          "name": "analysis_protocols.submitter_id",
+        "analysis_protocols": {
+          "name": "analysis_protocols",
           "exact_mappings": [
-            "ms_analysis:analysis_protocols.submitter_id"
+            "ms_analysis:analysis_protocols"
           ],
           "rank": 18,
           "slot_group": "data_analysis"
@@ -1786,17 +1786,17 @@
           "slot_group": "data_analysis",
           "range": "WhitespaceMinimizedString"
         },
-        "analysis_protocols.submitter_id": {
-          "name": "analysis_protocols.submitter_id",
+        "analysis_protocols": {
+          "name": "analysis_protocols",
           "description": "A brief description of the flow cytometry protocol",
-          "title": "analysis_protocols.submitter_id",
+          "title": "analysis_protocols",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "ms_analysis:analysis_protocols.submitter_id"
+            "ms_analysis:analysis_protocols"
           ],
           "rank": 18,
           "slot_uri": "obo:NCIT_C42651",
-          "alias": "analysis_protocols.submitter_id",
+          "alias": "analysis_protocols",
           "owner": "mass_spec_assay",
           "domain_of": [
             "mass_spec_assay"

@@ -77,7 +77,7 @@ export default {
 						["transformation_purpose", []],
 						["transformation_description", []],
 						["unit", []],
-						["analysis_protocols.submitter_id", []],
+						["analysis_protocols", []],
 						['provenance', []]
 					]),
 					outputMatrix: [[]],

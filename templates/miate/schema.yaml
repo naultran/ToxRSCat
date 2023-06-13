@@ -60,10 +60,6 @@ classes:
       Subject.subject_identifier:
         rank: 1
         slot_group: identifiers
-        exact_mappings:
-        - subject:submitter_id
-        - housing:subjects.submitter_id
-        - treatment:subjects.submitter_id
       Subject.study_identifier:
         rank: 2
         slot_group: identifiers

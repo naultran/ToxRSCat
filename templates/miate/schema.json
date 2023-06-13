@@ -2898,11 +2898,6 @@
       "slot_usage": {
         "Subject.subject_identifier": {
           "name": "Subject.subject_identifier",
-          "exact_mappings": [
-            "subject:submitter_id",
-            "housing:subjects.submitter_id",
-            "treatment:subjects.submitter_id"
-          ],
           "rank": 1,
           "slot_group": "identifiers"
         },
@@ -3206,11 +3201,6 @@
           "description": " ",
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
-          "exact_mappings": [
-            "subject:submitter_id",
-            "housing:subjects.submitter_id",
-            "treatment:subjects.submitter_id"
-          ],
           "rank": 1,
           "alias": "Subject.subject_identifier",
           "owner": "Subject",

@@ -35,7 +35,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["data_submission_contact_name",]],
+                        ["submitter_id", ["Study.study_identifier", "data_submission_contact_name",]],
                         ["studies.submitter_id", []],
                         ["contact_name", []],
                         ["contact_orcid", []],
@@ -56,7 +56,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["support_id",],], 
+                        ["submitter_id", ["Study.study_identifier", "support_id",],], 
                         ["studies.submitter_id", []],
                         ["support_id", []],      
                         ["support_source", []],
@@ -69,7 +69,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["PMC_id",],],
+                        ["submitter_id", ["Study.study_identifier", "PMC_id",],],
                         ["studies.submitter_id", []],
                         ["PMC_id", []],
                         ["DOI", []],
@@ -124,7 +124,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", []],
+                        ["submitter_id", ["Subject.study_identifier", "Subject.subject_identifier"]],
                         ["studies.submitter_id", []],
                         ["start_date", []],
                         ["start_date_age", []],
@@ -146,7 +146,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["Subject.study_identifier", "cage_id", "housing_change_date"]],
-                        ["subjects.submitter_id", []],
+                        ["subjects.submitter_id", ["Subject.study_identifier", "Subject.subject_identifier"]],
                         ["cageID", []], 
                         ["housing_change_date", []],
                         ["bedding_type", []], 
@@ -164,7 +164,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["Subject.study_identifier", "test_article_dtxsid", "treatment_date", "dose_amount"]],
-                        ["subjects.submitter_id", []],
+                        ["subjects.submitter_id", ["Subject.study_identifier", "Subject.subject_identifier"]],
                         ["date", []],
                         ["administration_volume_ml", []],
                         ["dose_amount", []], 
