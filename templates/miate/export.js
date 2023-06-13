@@ -240,7 +240,6 @@ export default {
                 ["type", []],
                 ["submitter_id", ["Sample.study_identifier", "sample_identifier"]],
                 ["subjects.submitter_id", []],
-                ["sample_identifier", ["sample_identifier"]],
                 ["date", []],
                 ["biospecimen_anatomic_site", []],
                 ["method_of_sample_procurement", []],
