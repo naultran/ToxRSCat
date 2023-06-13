@@ -1299,7 +1299,7 @@
         "rawDataFile": {
           "name": "rawDataFile",
           "exact_mappings": [
-            "ms_raw_data:file_named"
+            "ms_raw_data:file_name"
           ],
           "rank": 4,
           "slot_group": "raw_data"
@@ -1555,7 +1555,7 @@
           "title": "rawDataFile",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "ms_raw_data:file_named"
+            "ms_raw_data:file_name"
           ],
           "rank": 4,
           "slot_uri": "obo:OBI:0000021",

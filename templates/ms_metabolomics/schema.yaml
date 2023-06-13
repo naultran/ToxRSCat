@@ -58,7 +58,7 @@ classes:
         rank: 4
         slot_group: raw_data
         exact_mappings:
-        - ms_raw_data:file_named
+        - ms_raw_data:file_name
       raw.data_category:
         rank: 5
         slot_group: raw_data
