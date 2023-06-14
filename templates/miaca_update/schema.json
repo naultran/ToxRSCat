@@ -1850,19 +1850,37 @@
       "slot_uri": "OBI_0001615",
       "range": "WhitespaceMinimizedString"
     },
-    "data_submission_contact_name": {
-      "name": "data_submission_contact_name",
-      "description": "the name of the person bearing the data submission contact representative role (last name,first name)",
-      "title": "Contact name",
+    "first_name": {
+      "name": "first_name",
+      "description": "The first name of the person acting as a channel for communication between groups or on behalf of a group.",
+      "title": "first name",
       "comments": [
-        "Nault,Rance"
+        "Rance"
       ],
       "from_schema": "https://example.com/MIACA",
-      "multivalued": true,
       "range": "WhitespaceMinimizedString",
-      "recommended": true,
-      "inlined": true,
-      "inlined_as_list": true
+      "required": true
+    },
+    "last_name": {
+      "name": "last_name",
+      "description": "The last name of the person acting as a channel for communication between groups or on behalf of a group.",
+      "title": "last name",
+      "comments": [
+        "Nault"
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "middle_name": {
+      "name": "middle_name",
+      "description": "The middle name of the person acting as a channel for communication between groups or on behalf of a group.",
+      "title": "middle name",
+      "comments": [
+        ""
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
     },
     "data_submission_contact_orcid": {
       "name": "data_submission_contact_orcid",
@@ -1889,7 +1907,7 @@
       "from_schema": "https://example.com/MIACA",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
-      "recommended": true,
+      "required": true,
       "inlined": true,
       "inlined_as_list": true,
       "pattern": "\"^\\\\S+@[\\\\S+\\\\.]+\\\\S+\""
@@ -1904,6 +1922,7 @@
       "from_schema": "https://example.com/MIACA",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
+      "required": true,
       "inlined": true,
       "inlined_as_list": true,
       "pattern": "\"^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$\""
@@ -1931,6 +1950,7 @@
       "from_schema": "https://example.com/MIACA",
       "multivalued": true,
       "range": "data_submission_contact_institution menu",
+      "required": true,
       "inlined": true,
       "inlined_as_list": true
     },
@@ -2768,6 +2788,26 @@
       "name": "preservation_method",
       "description": " ",
       "title": "preservation_method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "storage_vessel": {
+      "name": "storage_vessel",
+      "description": " ",
+      "title": "storage vessel",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIACA",
+      "range": "WhitespaceMinimizedString"
+    },
+    "collection_protocol": {
+      "name": "collection_protocol",
+      "description": " ",
+      "title": "collection protocol",
       "comments": [
         " "
       ],
@@ -4400,12 +4440,28 @@
           "rank": 3,
           "slot_group": "Contact"
         },
-        "data_submission_contact_name": {
-          "name": "data_submission_contact_name",
+        "irst_name": {
+          "name": "irst_name",
           "exact_mappings": [
-            "contact:submitter_id"
+            "contact:contact_name.First"
           ],
           "rank": 4,
+          "slot_group": "Contact"
+        },
+        "last_name": {
+          "name": "last_name",
+          "exact_mappings": [
+            "contact:contact_name.Last"
+          ],
+          "rank": 5,
+          "slot_group": "Contact"
+        },
+        "middle_name": {
+          "name": "middle_name",
+          "exact_mappings": [
+            "contact:contact_name.Middle"
+          ],
+          "rank": 6,
           "slot_group": "Contact"
         },
         "data_submission_contact_orcid": {
@@ -4413,7 +4469,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_orcid"
           ],
-          "rank": 5,
+          "rank": 7,
           "slot_group": "Contact"
         },
         "data_submission_contact_email": {
@@ -4421,7 +4477,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_email"
           ],
-          "rank": 6,
+          "rank": 8,
           "slot_group": "Contact"
         },
         "data_submission_contact_telephone": {
@@ -4429,7 +4485,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_telephone"
           ],
-          "rank": 7,
+          "rank": 9,
           "slot_group": "Contact"
         },
         "data_submission_contact_department": {
@@ -4437,7 +4493,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_department"
           ],
-          "rank": 8,
+          "rank": 10,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution": {
@@ -4445,7 +4501,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_institution"
           ],
-          "rank": 9,
+          "rank": 11,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution_postal_address": {
@@ -4453,7 +4509,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_institution_postal_address"
           ],
-          "rank": 10,
+          "rank": 12,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution_city": {
@@ -4461,7 +4517,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_institution_city"
           ],
-          "rank": 11,
+          "rank": 13,
           "slot_group": "Contact"
         },
         "data_submission_contact_state": {
@@ -4469,7 +4525,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_state"
           ],
-          "rank": 12,
+          "rank": 14,
           "slot_group": "Contact"
         },
         "support_source": {
@@ -4477,15 +4533,12 @@
           "exact_mappings": [
             "funding:support_source"
           ],
-          "rank": 13,
+          "rank": 15,
           "slot_group": "Funding"
         },
         "support_id": {
           "name": "support_id",
-          "exact_mappings": [
-            "funding:submitter_id"
-          ],
-          "rank": 14,
+          "rank": 16,
           "slot_group": "Funding"
         },
         "PMC_id": {
@@ -4493,7 +4546,7 @@
           "exact_mappings": [
             "publication:PMC_id"
           ],
-          "rank": 15,
+          "rank": 17,
           "slot_group": "Publication"
         },
         "DOI": {
@@ -4501,7 +4554,7 @@
           "exact_mappings": [
             "publication:DOI"
           ],
-          "rank": 16,
+          "rank": 18,
           "slot_group": "Publication"
         },
         "PMID": {
@@ -4509,7 +4562,7 @@
           "exact_mappings": [
             "publication:PMID"
           ],
-          "rank": 17,
+          "rank": 19,
           "slot_group": "Publication"
         },
         "study_design": {
@@ -4517,7 +4570,7 @@
           "exact_mappings": [
             "study:study_design"
           ],
-          "rank": 18,
+          "rank": 20,
           "slot_group": "experiment"
         },
         "study_type": {
@@ -4525,7 +4578,7 @@
           "exact_mappings": [
             "study:study_type"
           ],
-          "rank": 19,
+          "rank": 21,
           "slot_group": "experiment"
         },
         "experimental_setting": {
@@ -4533,7 +4586,7 @@
           "exact_mappings": [
             "study:experimental_setting"
           ],
-          "rank": 20,
+          "rank": 22,
           "slot_group": "experiment"
         },
         "study.provenance": {
@@ -4544,7 +4597,7 @@
             "funding:provenance",
             "publication:provenance"
           ],
-          "rank": 21,
+          "rank": 23,
           "slot_group": "provenance"
         }
       },
@@ -4606,25 +4659,56 @@
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString"
         },
-        "data_submission_contact_name": {
-          "name": "data_submission_contact_name",
-          "description": "the name of the person bearing the data submission contact representative role (last name,first name)",
-          "title": "Contact name",
+        "first_name": {
+          "name": "first_name",
+          "description": "The first name of the person acting as a channel for communication between groups or on behalf of a group.",
+          "title": "first name",
+          "comments": [
+            "Rance"
+          ],
+          "from_schema": "https://example.com/MIACA",
+          "alias": "first_name",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "middle_name": {
+          "name": "middle_name",
+          "description": "The middle name of the person acting as a channel for communication between groups or on behalf of a group.",
+          "title": "middle name",
           "from_schema": "https://example.com/MIACA",
           "exact_mappings": [
-            "contact:submitter_id"
+            "contact:contact_name.Middle"
           ],
-          "rank": 4,
-          "multivalued": true,
-          "alias": "data_submission_contact_name",
+          "rank": 6,
+          "alias": "middle_name",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString"
+        },
+        "last_name": {
+          "name": "last_name",
+          "description": "The last name of the person acting as a channel for communication between groups or on behalf of a group.",
+          "title": "last name",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:contact_name.Last"
+          ],
+          "rank": 5,
+          "alias": "last_name",
           "owner": "Study",
           "domain_of": [
             "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
-          "recommended": true,
-          "inlined_as_list": true
+          "required": true
         },
         "data_submission_contact_orcid": {
           "name": "data_submission_contact_orcid",
@@ -4634,7 +4718,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_orcid"
           ],
-          "rank": 5,
+          "rank": 7,
           "multivalued": true,
           "alias": "data_submission_contact_orcid",
           "owner": "Study",
@@ -4655,7 +4739,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_email"
           ],
-          "rank": 6,
+          "rank": 8,
           "multivalued": true,
           "alias": "data_submission_contact_email",
           "owner": "Study",
@@ -4664,7 +4748,7 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
-          "recommended": true,
+          "required": true,
           "inlined_as_list": true,
           "pattern": "\"^\\\\S+@[\\\\S+\\\\.]+\\\\S+\""
         },
@@ -4676,7 +4760,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_telephone"
           ],
-          "rank": 7,
+          "rank": 9,
           "multivalued": true,
           "alias": "data_submission_contact_telephone",
           "owner": "Study",
@@ -4685,6 +4769,7 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
+          "required": true,
           "inlined_as_list": true,
           "pattern": "\"^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]\\d{3}[\\s.-]\\d{4}$\""
         },
@@ -4696,7 +4781,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_department"
           ],
-          "rank": 8,
+          "rank": 10,
           "multivalued": true,
           "alias": "data_submission_contact_department",
           "owner": "Study",
@@ -4715,7 +4800,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_institution"
           ],
-          "rank": 9,
+          "rank": 11,
           "multivalued": true,
           "alias": "data_submission_contact_institution",
           "owner": "Study",
@@ -4724,6 +4809,7 @@
           ],
           "slot_group": "Contact",
           "range": "data_submission_contact_institution menu",
+          "required": true,
           "inlined_as_list": true
         },
         "data_submission_contact_institution_postal_address": {
@@ -4734,7 +4820,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_institution_postal_address"
           ],
-          "rank": 10,
+          "rank": 12,
           "multivalued": true,
           "alias": "data_submission_contact_institution_postal_address",
           "owner": "Study",
@@ -4754,7 +4840,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_institution_city"
           ],
-          "rank": 11,
+          "rank": 13,
           "multivalued": true,
           "alias": "data_submission_contact_institution_city",
           "owner": "Study",
@@ -4773,7 +4859,7 @@
           "exact_mappings": [
             "contact:data_submission_contact_state"
           ],
-          "rank": 12,
+          "rank": 14,
           "multivalued": true,
           "alias": "data_submission_contact_state",
           "owner": "Study",
@@ -4792,7 +4878,7 @@
           "exact_mappings": [
             "funding:support_source"
           ],
-          "rank": 13,
+          "rank": 15,
           "multivalued": true,
           "alias": "support_source",
           "owner": "Study",
@@ -4809,10 +4895,7 @@
           "description": " ",
           "title": "Funding identifier",
           "from_schema": "https://example.com/MIACA",
-          "exact_mappings": [
-            "funding:submitter_id"
-          ],
-          "rank": 14,
+          "rank": 16,
           "multivalued": true,
           "alias": "support_id",
           "owner": "Study",
@@ -4832,7 +4915,7 @@
           "exact_mappings": [
             "publication:PMC_id"
           ],
-          "rank": 15,
+          "rank": 17,
           "multivalued": true,
           "alias": "PMC_id",
           "owner": "Study",
@@ -4852,7 +4935,7 @@
           "exact_mappings": [
             "publication:DOI"
           ],
-          "rank": 16,
+          "rank": 18,
           "multivalued": true,
           "alias": "DOI",
           "owner": "Study",
@@ -4871,7 +4954,7 @@
           "exact_mappings": [
             "publication:PMID"
           ],
-          "rank": 17,
+          "rank": 19,
           "multivalued": true,
           "alias": "PMID",
           "owner": "Study",
@@ -4891,7 +4974,7 @@
           "exact_mappings": [
             "study:study_design"
           ],
-          "rank": 18,
+          "rank": 20,
           "slot_uri": "obo:OBI_0500000",
           "alias": "study_design",
           "owner": "Study",
@@ -4909,7 +4992,7 @@
           "exact_mappings": [
             "study:study_type"
           ],
-          "rank": 19,
+          "rank": 21,
           "alias": "study_type",
           "owner": "Study",
           "domain_of": [
@@ -4926,7 +5009,7 @@
           "exact_mappings": [
             "study:experimental_setting"
           ],
-          "rank": 20,
+          "rank": 22,
           "alias": "experimental_setting",
           "owner": "Study",
           "domain_of": [
@@ -4946,7 +5029,7 @@
             "funding:provenance",
             "publication:provenance"
           ],
-          "rank": 21,
+          "rank": 23,
           "alias": "study.provenance",
           "owner": "Study",
           "domain_of": [
@@ -5012,12 +5095,28 @@
           "rank": 7,
           "slot_group": "sample_details"
         },
+        "storage_vessel": {
+          "name": "storage_vessel",
+          "exact_mappings": [
+            "sample:storage_vessel"
+          ],
+          "rank": 8,
+          "slot_group": "sample_details"
+        },
+        "collection_protocol": {
+          "name": "collection_protocol",
+          "exact_mappings": [
+            "sample:collection_protocol"
+          ],
+          "rank": 9,
+          "slot_group": "sample_details"
+        },
         "sample.provenance": {
           "name": "sample.provenance",
           "exact_mappings": [
             "sample:provenance"
           ],
-          "rank": 8,
+          "rank": 10,
           "slot_group": "provenance"
         }
       },
@@ -5139,6 +5238,40 @@
           "slot_group": "sample_details",
           "range": "WhitespaceMinimizedString"
         },
+        "storage_vessel": {
+          "name": "storage_vessel",
+          "description": " ",
+          "title": "storage vessel",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:storage_vessel"
+          ],
+          "rank": 8,
+          "alias": "storage_vessel",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "WhitespaceMinimizedString"
+        },
+        "collection_protocol": {
+          "name": "collection_protocol",
+          "description": " ",
+          "title": "collection protocol",
+          "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "sample:collection_protocol"
+          ],
+          "rank": 9,
+          "alias": "collection_protocol",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "WhitespaceMinimizedString"
+        },
         "sample.provenance": {
           "name": "sample.provenance",
           "description": " ",
@@ -5147,7 +5280,7 @@
           "exact_mappings": [
             "sample:provenance"
           ],
-          "rank": 8,
+          "rank": 10,
           "alias": "sample.provenance",
           "owner": "Sample",
           "domain_of": [

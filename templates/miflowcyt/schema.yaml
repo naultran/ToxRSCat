@@ -28,10 +28,16 @@ classes:
     - raw.data_type
     - raw.data_format
     - raw.data_category
+    - flow_data.file_source_repository
+    - flow_data.repository_accession_id
+    - flow_data.repository_download_ftp
     - WorkspaceFile
     - processed.data_type
     - processed.data_format
     - processed.data_category
+    - flow_analysis_data.file_source_repository
+    - flow_analysis_data.repository_accession_id
+    - flow_analysis_data.repository_download_ftp
     - analysis_protocol
     - analysis_protocol_DOI
     - CompensationDescription
@@ -88,142 +94,172 @@ classes:
         slot_group: raw_data_file
         exact_mappings:
         - flow_data:data_category
-      WorkspaceFile:
+      flow_data.file_source_repository:
         rank: 8
+        slot_group: raw_data_file
+        exact_mappings:
+        - flow_data:file_source_repository
+      flow_data.repository_accession_id: 
+        rank: 9
+        slot_group: raw_data_file
+        exact_mappings:
+        - flow_data:repository_accession_id
+      flow_data.repository_download_ftp: 
+        rank: 10
+        slot_group: raw_data_file
+        exact_mappings:
+        - flow_data:repository_download_ftp
+      WorkspaceFile:
+        rank: 11
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:file_name
       processed.data_type:
-        rank: 9
+        rank: 12
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:data_type
       processed.data_format:
-        rank: 10
+        rank: 13
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:data_format
       processed.data_category:
-        rank: 11
+        rank: 14
         slot_group: processed_data_file
         exact_mappings:
         - flow_analysis_data:data_category
+      flow_analysis_data.file_source_repository:
+        rank: 15
+        slot_group: processed_data_file
+        exact_mappings:
+        - flow_analysis_data:file_source_repository
+      flow_analysis_data.repository_accession_id:
+        rank: 16
+        slot_group: processed_data_file
+        exact_mappings:
+        - flow_analysis_data:repository_accession_id
+      flow_analysis_data.repository_download_ftp:
+        rank: 17
+        slot_group: processed_data_file
+        exact_mappings:
+        - flow_analysis_data:repository_download_ftp
       analysis_protocol:
-        rank: 12
+        rank: 18
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:protocol
       analysis_protocol_DOI:
-        rank: 13
+        rank: 19
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:protocol_doi
       CompensationDescription:
-        rank: 14
+        rank: 20
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:compensation_description
       TransformationPurpose:
-        rank: 15
+        rank: 21
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:transformation_purpose
       TransformationDescription:
-        rank: 16
+        rank: 22
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:transformation_description
       GateDescription:
-        rank: 17
+        rank: 23
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:gate_description
       Gate Statistics:
-        rank: 18
+        rank: 24
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:gate_statistics
       GateBoundaries:
-        rank: 19
+        rank: 25
         slot_group: data_analysis
         exact_mappings:
         - flow_analysis:gate_boundaries
       flow_cytometry_protocol:
-        rank: 20
+        rank: 26
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:protocol
       flow_cytometry_protocol_DOI:
-        rank: 21
+        rank: 27
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:protocol_doi
       qualityControlMeasures:
-        rank: 22
+        rank: 28
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:quality_control_measures
       instrument.submitter_id:
-        rank: 23
+        rank: 29
         slot_group: flow_cytometry
 
       staining_protocol:
-        rank: 24
+        rank: 30
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:staining_protocol
       staining_protocol_DOI:
-        rank: 25
+        rank: 31
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:staining_protocol_doi
       characteristicsBeingMeasured:
-        rank: 26
+        rank: 32
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:characteristics_being_measured
       analyte:
-        rank: 27
+        rank: 33
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:analyte
       analyteDetector:
-        rank: 28
+        rank: 34
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:analyte_detector
       analyteReporter:
-        rank: 29
+        rank: 35
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:analyte_reporter
       cloneNameOrNumber:
-        rank: 30
+        rank: 36
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:clone
       reagentManufacturerName:
-        rank: 31
+        rank: 37
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:reagent_manufacturer
       reagentCatalogueNumber:
-        rank: 32
+        rank: 38
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:reagent_catalogue
       stainingStatus:
-        rank: 33
+        rank: 39
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:staining_status
       other_fluorescence_reagent:
-        rank: 34
+        rank: 40
         slot_group: flow_cytometry
         exact_mappings:
           flow_cytometry_assay:other_reagent
       flowcytometry_template_provenance:
-        rank: 35
+        rank: 41
         slot_group: provenance
         exact_mappings:
         - flow_cytometry_assay:provenance
@@ -417,6 +453,24 @@ slots:
     range: raw.data_category menu
     description: ' '
     comments: ' '
+  flow_data.file_source_repository:
+    name: flow_data.file_source_repository
+    title: file source repository
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
+  flow_data.repository_accession_id:
+    name: flow_data.repository_accession_id
+    title: repository accession id
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
+  flow_data.repository_download_ftp:
+    name: flow_data.repository_download_ftp
+    title: repository download ftp
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
   WorkspaceFile:
     name: WorkspaceFile
     title: processed_data_file_name
@@ -439,6 +493,24 @@ slots:
     name: processed.data_category
     title: data_category
     range: processed.data_category menu
+    description: ' '
+    comments: ' '
+  flow_analysis_data.file_source_repository:
+    name: flow_analysis_data.file_source_repository
+    title: file_source_repository
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  flow_analysis_data.repository_accession_id:
+    name: flow_analysis_data.repository_accession_id
+    title: repository_accession_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  flow_analysis_data.repository_download_ftp:
+    name: flow_analysis_data.repository_download_ftp
+    title: repository_download_ftp
+    range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
   analysis_protocol:

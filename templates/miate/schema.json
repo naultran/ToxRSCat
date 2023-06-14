@@ -2115,8 +2115,39 @@
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
       "recommended": true,
-      "inlined": true,
       "inlined_as_list": true
+    },
+    "first_name": {
+      "name": "first_name",
+      "description": "The first name of the person acting as a channel for communication between groups or on behalf of a group.",
+      "title": "first name",
+      "comments": [
+        "Rance"
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "last_name": {
+      "name": "last_name",
+      "description": "The last name of the person acting as a channel for communication between groups or on behalf of a group.",
+      "title": "last name",
+      "comments": [
+        "Nault"
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "middle_name": {
+      "name": "middle_name",
+      "description": "The middle name of the person acting as a channel for communication between groups or on behalf of a group.",
+      "title": "middle name",
+      "comments": [
+        ""
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
     },
     "data_submission_contact_orcid": {
       "name": "data_submission_contact_orcid",
@@ -2144,7 +2175,7 @@
       "from_schema": "https://example.com/MIATE",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
-      "recommended": true,
+      "required": true,
       "inlined": true,
       "inlined_as_list": true,
       "pattern": "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
@@ -2159,6 +2190,7 @@
       "from_schema": "https://example.com/MIATE",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
+      "required": true,
       "inlined": true,
       "inlined_as_list": true,
       "pattern": "^([+]?\\d{1,2}[-\\s]?|)\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$"
@@ -2186,6 +2218,7 @@
       "from_schema": "https://example.com/MIATE",
       "multivalued": true,
       "range": "WhitespaceMinimizedString",
+      "required": true,
       "inlined": true,
       "inlined_as_list": true
     },
@@ -2753,6 +2786,17 @@
       "inlined_as_list": true,
       "pattern": "^DTXSID\\d{1,17}$"
     },
+    "treatment_protocol": {
+      "name": "treatment_protocol",
+      "description": " ",
+      "title": "treatment protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
     "sample_identifier": {
       "name": "sample_identifier",
       "description": " ",
@@ -2850,6 +2894,26 @@
       ],
       "from_schema": "https://example.com/MIATE",
       "range": "float"
+    },
+    "storage_vessel": {
+      "name": "storage_vessel",
+      "description": " ",
+      "title": "storage vessel",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
+    },
+    "collection_protocol": {
+      "name": "collection_protocol",
+      "description": " ",
+      "title": "collection protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIATE",
+      "range": "WhitespaceMinimizedString"
     },
     "study template version": {
       "name": "study template version",
@@ -3189,9 +3253,17 @@
           "rank": 37,
           "slot_group": "treatment"
         },
+        "treatment_protocol": {
+          "name": "treatment_protocol",
+          "exact_mappings": [
+            "treatment:treatment_protocol"
+          ],
+          "rank": 38,
+          "slot_group": "treatment"
+        },
         "subject template version": {
           "name": "subject template version",
-          "rank": 38,
+          "rank": 39,
           "slot_group": "provenance"
         }
       },
@@ -3858,12 +3930,30 @@
           "inlined_as_list": true,
           "pattern": "^DTXSID\\d{1,17}$"
         },
+        "treatment_protocol": {
+          "name": "treatment_protocol",
+          "description": " ",
+          "title": "treatment protocol",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "treatment:treatment_protocol"
+          ],
+          "rank": 38,
+          "alias": "treatment_protocol",
+          "owner": "Subject",
+          "domain_of": [
+            "Subject"
+          ],
+          "slot_group": "treatment",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
         "subject template version": {
           "name": "subject template version",
           "description": " ",
           "title": "subject template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 38,
+          "rank": 39,
           "alias": "subject_template_version",
           "owner": "Subject",
           "domain_of": [
@@ -3907,12 +3997,28 @@
           "rank": 3,
           "slot_group": "Contact"
         },
-        "data_submission_contact_name": {
-          "name": "data_submission_contact_name",
+        "first_name": {
+          "name": "first_name",
           "exact_mappings": [
-            "contact:contact_name"
+            "contact:contact_name.First"
           ],
           "rank": 4,
+          "slot_group": "Contact"
+        },
+        "last_name": {
+          "name": "last_name",
+          "exact_mappings": [
+            "contact:contact_name.Last"
+          ],
+          "rank": 5,
+          "slot_group": "Contact"
+        },
+        "middle_name": {
+          "name": "middle_name",
+          "exact_mappings": [
+            "contact:contact_name.Middle"
+          ],
+          "rank": 6,
           "slot_group": "Contact"
         },
         "data_submission_contact_orcid": {
@@ -3920,7 +4026,7 @@
           "exact_mappings": [
             "contact:contact_orcid"
           ],
-          "rank": 5,
+          "rank": 7,
           "slot_group": "Contact"
         },
         "data_submission_contact_email": {
@@ -3928,7 +4034,7 @@
           "exact_mappings": [
             "contact:contact_email"
           ],
-          "rank": 6,
+          "rank": 8,
           "slot_group": "Contact"
         },
         "data_submission_contact_telephone": {
@@ -3936,7 +4042,7 @@
           "exact_mappings": [
             "contact:contact_telephone"
           ],
-          "rank": 7,
+          "rank": 9,
           "slot_group": "Contact"
         },
         "data_submission_contact_department": {
@@ -3944,7 +4050,7 @@
           "exact_mappings": [
             "contact:contact_department"
           ],
-          "rank": 8,
+          "rank": 10,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution": {
@@ -3952,22 +4058,22 @@
           "exact_mappings": [
             "contact:contact_institution"
           ],
-          "rank": 9,
+          "rank": 11,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution_postal_address": {
           "name": "data_submission_contact_institution_postal_address",
-          "rank": 10,
+          "rank": 12,
           "slot_group": "Contact"
         },
         "data_submission_contact_institution_city": {
           "name": "data_submission_contact_institution_city",
-          "rank": 11,
+          "rank": 13,
           "slot_group": "Contact"
         },
         "data_submission_contact_state": {
           "name": "data_submission_contact_state",
-          "rank": 12,
+          "rank": 14,
           "slot_group": "Contact"
         },
         "support_source": {
@@ -3975,7 +4081,7 @@
           "exact_mappings": [
             "funding:support_source"
           ],
-          "rank": 13,
+          "rank": 15,
           "slot_group": "Funding"
         },
         "support_id": {
@@ -3983,7 +4089,7 @@
           "exact_mappings": [
             "funding:support_id"
           ],
-          "rank": 14,
+          "rank": 16,
           "slot_group": "Funding"
         },
         "PMC_id": {
@@ -3991,7 +4097,7 @@
           "exact_mappings": [
             "publication:PMC_id"
           ],
-          "rank": 15,
+          "rank": 17,
           "slot_group": "Publication"
         },
         "DOI": {
@@ -3999,7 +4105,7 @@
           "exact_mappings": [
             "publication:DOI"
           ],
-          "rank": 16,
+          "rank": 18,
           "slot_group": "Publication"
         },
         "PMID": {
@@ -4007,7 +4113,7 @@
           "exact_mappings": [
             "publication:PMID"
           ],
-          "rank": 17,
+          "rank": 19,
           "slot_group": "Publication"
         },
         "study_design": {
@@ -4015,7 +4121,7 @@
           "exact_mappings": [
             "study:study_design"
           ],
-          "rank": 18,
+          "rank": 20,
           "slot_group": "experiment"
         },
         "study_type": {
@@ -4023,7 +4129,7 @@
           "exact_mappings": [
             "study:study_type"
           ],
-          "rank": 19,
+          "rank": 21,
           "slot_group": "experiment"
         },
         "experimental_setting": {
@@ -4031,7 +4137,7 @@
           "exact_mappings": [
             "study:experimental_setting"
           ],
-          "rank": 20,
+          "rank": 22,
           "slot_group": "experiment"
         },
         "Organism": {
@@ -4039,12 +4145,12 @@
           "exact_mappings": [
             "study:organism"
           ],
-          "rank": 21,
+          "rank": 23,
           "slot_group": "experiment"
         },
         "study template version": {
           "name": "study template version",
-          "rank": 12,
+          "rank": 24,
           "slot_group": "provenance"
         }
       },
@@ -4109,26 +4215,58 @@
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString"
         },
-        "data_submission_contact_name": {
-          "name": "data_submission_contact_name",
-          "description": "The name of the person acting as a channel for communication between groups or on behalf of a group.",
-          "title": "Contact name",
+        "first_name": {
+          "name": "first_name",
+          "description": "The first name of the person acting as a channel for communication between groups or on behalf of a group.",
+          "title": "first name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "contact:contact_name"
+            "contact:contact_name.First"
           ],
           "rank": 4,
-          "slot_uri": "obo:NCIT_C176230",
-          "multivalued": true,
-          "alias": "data_submission_contact_name",
+          "alias": "first_name",
           "owner": "Study",
           "domain_of": [
             "Study"
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
-          "recommended": true,
-          "inlined_as_list": true
+          "required": true
+        },
+        "middle_name": {
+          "name": "middle_name",
+          "description": "The middle name of the person acting as a channel for communication between groups or on behalf of a group.",
+          "title": "middle name",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "contact:contact_name.Middle"
+          ],
+          "rank": 6,
+          "alias": "middle_name",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString"
+        },
+        "last_name": {
+          "name": "last_name",
+          "description": "The last name of the person acting as a channel for communication between groups or on behalf of a group.",
+          "title": "last name",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "contact:contact_name.Last"
+          ],
+          "rank": 5,
+          "alias": "last_name",
+          "owner": "Study",
+          "domain_of": [
+            "Study"
+          ],
+          "slot_group": "Contact",
+          "range": "WhitespaceMinimizedString",
+          "required": true
         },
         "data_submission_contact_orcid": {
           "name": "data_submission_contact_orcid",
@@ -4138,7 +4276,7 @@
           "exact_mappings": [
             "contact:contact_orcid"
           ],
-          "rank": 5,
+          "rank": 7,
           "slot_uri": "obo:IAO_0000708",
           "multivalued": true,
           "alias": "data_submission_contact_orcid",
@@ -4160,7 +4298,7 @@
           "exact_mappings": [
             "contact:contact_email"
           ],
-          "rank": 6,
+          "rank": 8,
           "multivalued": true,
           "alias": "data_submission_contact_email",
           "owner": "Study",
@@ -4169,7 +4307,7 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
-          "recommended": true,
+          "required": true,
           "inlined_as_list": true,
           "pattern": "^((?!\\.)[\\w-_.]*[^.])(@\\w+)(\\.\\w+(\\.\\w+)?[^.\\W])$"
         },
@@ -4181,7 +4319,7 @@
           "exact_mappings": [
             "contact:contact_telephone"
           ],
-          "rank": 7,
+          "rank": 9,
           "multivalued": true,
           "alias": "data_submission_contact_telephone",
           "owner": "Study",
@@ -4190,6 +4328,7 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
+          "required": true,
           "inlined_as_list": true,
           "pattern": "^([+]?\\d{1,2}[-\\s]?|)\\d{3}[-\\s]?\\d{3}[-\\s]?\\d{4}$"
         },
@@ -4201,7 +4340,7 @@
           "exact_mappings": [
             "contact:contact_department"
           ],
-          "rank": 8,
+          "rank": 10,
           "multivalued": true,
           "alias": "data_submission_contact_department",
           "owner": "Study",
@@ -4220,7 +4359,7 @@
           "exact_mappings": [
             "contact:contact_institution"
           ],
-          "rank": 9,
+          "rank": 11,
           "multivalued": true,
           "alias": "data_submission_contact_institution",
           "owner": "Study",
@@ -4229,6 +4368,7 @@
           ],
           "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
+          "required": true,
           "inlined_as_list": true
         },
         "data_submission_contact_institution_postal_address": {
@@ -4236,7 +4376,7 @@
           "description": "postal address of data submission contact",
           "title": "Contact ZIP",
           "from_schema": "https://example.com/MIATE",
-          "rank": 10,
+          "rank": 12,
           "multivalued": true,
           "alias": "data_submission_contact_institution_postal_address",
           "owner": "Study",
@@ -4253,7 +4393,7 @@
           "description": "city of data submission contact",
           "title": "Contact city",
           "from_schema": "https://example.com/MIATE",
-          "rank": 11,
+          "rank": 13,
           "multivalued": true,
           "alias": "data_submission_contact_institution_city",
           "owner": "Study",
@@ -4269,7 +4409,7 @@
           "description": "state of data submission contact",
           "title": "Contact state",
           "from_schema": "https://example.com/MIATE",
-          "rank": 12,
+          "rank": 14,
           "multivalued": true,
           "alias": "data_submission_contact_state",
           "owner": "Study",
@@ -4288,7 +4428,7 @@
           "exact_mappings": [
             "funding:support_source"
           ],
-          "rank": 13,
+          "rank": 15,
           "slot_uri": "obo:NCIT_C19711",
           "multivalued": true,
           "alias": "support_source",
@@ -4309,7 +4449,7 @@
           "exact_mappings": [
             "funding:support_id"
           ],
-          "rank": 14,
+          "rank": 16,
           "multivalued": true,
           "alias": "support_id",
           "owner": "Study",
@@ -4329,7 +4469,7 @@
           "exact_mappings": [
             "publication:PMC_id"
           ],
-          "rank": 15,
+          "rank": 17,
           "multivalued": true,
           "alias": "PMC_id",
           "owner": "Study",
@@ -4349,7 +4489,7 @@
           "exact_mappings": [
             "publication:DOI"
           ],
-          "rank": 16,
+          "rank": 18,
           "multivalued": true,
           "alias": "DOI",
           "owner": "Study",
@@ -4368,7 +4508,7 @@
           "exact_mappings": [
             "publication:PMID"
           ],
-          "rank": 17,
+          "rank": 19,
           "slot_uri": "obo:NCIT_C127797",
           "multivalued": true,
           "alias": "PMID",
@@ -4389,7 +4529,7 @@
           "exact_mappings": [
             "study:study_design"
           ],
-          "rank": 18,
+          "rank": 20,
           "slot_uri": "obo:OBI_0500000",
           "alias": "study_design",
           "owner": "Study",
@@ -4407,7 +4547,7 @@
           "exact_mappings": [
             "study:study_type"
           ],
-          "rank": 19,
+          "rank": 21,
           "alias": "study_type",
           "owner": "Study",
           "domain_of": [
@@ -4424,7 +4564,7 @@
           "exact_mappings": [
             "study:experimental_setting"
           ],
-          "rank": 20,
+          "rank": 22,
           "slot_uri": "bao:BAO_0020005",
           "alias": "experimental_setting",
           "owner": "Study",
@@ -4442,7 +4582,7 @@
           "exact_mappings": [
             "study:organism"
           ],
-          "rank": 21,
+          "rank": 23,
           "slot_uri": "obo:NCIT_C45293",
           "alias": "Organism",
           "owner": "Study",
@@ -4458,7 +4598,7 @@
           "description": " ",
           "title": "study template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 12,
+          "rank": 24,
           "alias": "study_template_version",
           "owner": "Study",
           "domain_of": [
@@ -4541,9 +4681,25 @@
           "rank": 9,
           "slot_group": "sample_details"
         },
+        "storage_vessel": {
+          "name": "storage_vessel",
+          "exact_mappings": [
+            "gen3_submit_sample:storage_vessel"
+          ],
+          "rank": 10,
+          "slot_group": "sample_details"
+        },
+        "collection_protocol": {
+          "name": "collection_protocol",
+          "exact_mappings": [
+            "gen3_submit_sample:collection_protocol"
+          ],
+          "rank": 11,
+          "slot_group": "sample_details"
+        },
         "sample template version": {
           "name": "sample template version",
-          "rank": 10,
+          "rank": 12,
           "slot_group": "provenance"
         }
       },
@@ -4701,12 +4857,46 @@
           "slot_group": "sample_details",
           "range": "float"
         },
+        "storage_vessel": {
+          "name": "storage_vessel",
+          "description": " ",
+          "title": "storage vessel",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "gen3_submit_sample:storage_vessel"
+          ],
+          "rank": 10,
+          "alias": "storage_vessel",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "WhitespaceMinimizedString"
+        },
+        "collection_protocol": {
+          "name": "collection_protocol",
+          "description": " ",
+          "title": "collection protocol",
+          "from_schema": "https://example.com/MIATE",
+          "exact_mappings": [
+            "gen3_submit_sample:collection_protocol"
+          ],
+          "rank": 11,
+          "alias": "collection_protocol",
+          "owner": "Sample",
+          "domain_of": [
+            "Sample"
+          ],
+          "slot_group": "sample_details",
+          "range": "WhitespaceMinimizedString"
+        },
         "sample template version": {
           "name": "sample template version",
           "description": " ",
           "title": "sample template version",
           "from_schema": "https://example.com/MIATE",
-          "rank": 10,
+          "rank": 12,
           "alias": "sample_template_version",
           "owner": "Sample",
           "domain_of": [

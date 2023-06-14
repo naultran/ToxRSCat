@@ -35,9 +35,11 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", ["Study.study_identifier", "data_submission_contact_name",]],
+                        ["submitter_id", ["Study.study_identifier","last_name", "first_name","middle_name"]],
                         ["studies.submitter_id", []],
-                        ["contact_name", []],
+                        ["contact_name.Last", []],
+                        ["contact_name.First", []],
+                        ["contact_name.Middle", []],
                         ["contact_orcid", []],
                         ["contact_email", []],
                         ["contact_telephone", []],
@@ -176,6 +178,7 @@ export default {
                         ["test_article_dtxsid", []],
                         ["vehicle_name", []],
                         ["vehicle_dtxsid", []],
+                        ["treatment_protocol", []],
                         ['provenance', ["study template version",],],
                     ]),
                     uid: "submitter_id",
@@ -246,6 +249,8 @@ export default {
                 ["preservation_method", []],
                 ["weight", []],
                 ["volume",[]],
+                ["storage_vessel", []],
+                ["collection_protocol", []],
                 ['provenance', ["sample template version",],],
             ]);
 

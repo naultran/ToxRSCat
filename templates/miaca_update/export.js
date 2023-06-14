@@ -35,9 +35,11 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", []],
+                        ["submitter_id", ["Study.study_identifier","last_name", "first_name","middle_name"]],
                         ["studies.submitter_id", []],
-                        ["contact_name", []],
+                        ["contact_name.Last", []],
+                        ["contact_name.First", []],
+                        ["contact_name.Middle", []],
                         ["contact_orcid", []],
                         ["contact_email", []],
                         ["contact_telephone", []],
@@ -56,7 +58,7 @@ export default {
                 {
                     exportHeaders: new Map([
                         ["type", []],
-                        ["submitter_id", [],], 
+                        ["submitter_id", ["submitter_id", "support_id"],], 
                         ["studies.submitter_id", []],
                         ["support_id", []],      
                         ["support_source", []],
@@ -271,7 +273,9 @@ export default {
 						["biospecimen_anatomic_site", []],
 						["method_of_sample_procurement", []],
 						["preservation_method", []],
-						['provenance', [],],
+                        ["storage_vessel", []],
+                        ["collection_protocol", []],
+						['provenance', []],
                     ]),
                     uid: "submitter_id",
                     outputMatrix: [[]],

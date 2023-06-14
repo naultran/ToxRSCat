@@ -27,6 +27,9 @@ classes:
     - data_category
     - data_format
     - data_type
+    - slide_image.file_source_repository
+    - slide_image.repository_accession_id
+    - slide_image.repository_download_ftp
     - instruments.submitter_id
     - magnification
     - imaging_protocol
@@ -68,58 +71,73 @@ classes:
         slot_group: data
         exact_mappings: 
         - slide_image:data_type
-      instruments.submitter_id:
+      slide_image.file_source_repository:
         rank: 8
         slot_group: data
         exact_mappings: 
-        - slide_image:instruments.submitter_id
-      magnification:
+        - slide_image:file_source_repository
+      slide_image.repository_accession_id:
         rank: 9
+        slot_group: data
+        exact_mappings: 
+        - slide_image:repository_accession_id
+      slide_image.repository_download_ftp:
+        rank: 10
+        slot_group: data
+        exact_mappings: 
+        - slide_image:repository_download_ftp
+      instruments.submitter_id:
+        rank: 11
+        slot_group: data
+        #exact_mappings: 
+        #- slide_image:instruments.submitter_id
+      magnification:
+        rank: 12
         slot_group: data
         exact_mappings: 
         - slide_image:magnification
       imaging_protocol:
-        rank: 10
+        rank: 13
         slot_group: data
         exact_mappings: 
         - slide_image:imaging_protocol
       imaging_protocol_DOI:
-        rank: 11
+        rank: 14
         slot_group: data
         exact_mappings: 
         - slide_image:imaging_protcol_DOI
       assay:
-        rank: 12
+        rank: 15
         slot_group: slide_details
         exact_mappings: 
         - slide:assay
       probe_type:
-        rank: 13
+        rank: 16
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_type
       probe_name:
-        rank: 14
+        rank: 17
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_name
       probe_provider:
-        rank: 15
+        rank: 18
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_provider
       probe_catalog_number:
-        rank: 16
+        rank: 19
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_catalog_number
       probe_concentration:
-        rank: 17
+        rank: 20
         slot_group: slide_details
         exact_mappings: 
         - slide:probe_concentration
       detection_method:
-        rank: 18
+        rank: 21
         slot_group: slide_details
         exact_mappings: 
         - slide:detection_method
@@ -207,6 +225,24 @@ slots:
     range: data_type menu
     description: ' '
     required: true
+    comments: ' '
+  slide_image.file_source_repository:
+    name: slide_image.file_source_repository
+    title: file source repository
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  slide_image.repository_accession_id:
+    name: slide_image.repository_accession_id
+    title: repository accession id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  slide_image.repository_download_ftp:
+    name: slide_image.repository_download_ftp
+    title: repository download ftp
+    range: WhitespaceMinimizedString
+    description: ' '
     comments: ' '
   instruments.submitter_id:
     name: instruments.submitter_id

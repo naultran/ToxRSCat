@@ -55,6 +55,7 @@ classes:
     - test_article_dtxsid
     - vehicle_name
     - vehicle_dtxsid
+    - treatment_protocol
     - subject template version
     slot_usage:
       Subject.subject_identifier:
@@ -240,8 +241,13 @@ classes:
         slot_group: treatment
         exact_mappings:
         - treatment:vehicle_dtxsid
-      subject template version:
+      treatment_protocol:
         rank: 38
+        slot_group: treatment
+        exact_mappings:
+        - treatment:treatment_protocol
+      subject template version:
+        rank: 39
         slot_group: provenance
   Study:
     name: Study
@@ -250,7 +256,9 @@ classes:
     - Study.study_identifier
     - name
     - investigation_description
-    - data_submission_contact_name
+    - first_name
+    - middle_name
+    - last_name
     - data_submission_contact_orcid
     - data_submission_contact_email
     - data_submission_contact_telephone
@@ -288,92 +296,102 @@ classes:
         slot_group: Contact
         exact_mappings:
         - study:study_description
-      data_submission_contact_name:
+      first_name: 
         rank: 4
         slot_group: Contact
         exact_mappings:
-        - contact:contact_name
-      data_submission_contact_orcid:
+        - contact:contact_name.First
+      last_name:
         rank: 5
+        slot_group: Contact
+        exact_mappings:
+        - contact:contact_name.Last
+      middle_name: 
+        rank: 6
+        slot_group: Contact
+        exact_mappings:
+        - contact:contact_name.Middle
+      data_submission_contact_orcid:
+        rank: 7
         slot_group: Contact
         exact_mappings:
         - contact:contact_orcid
       data_submission_contact_email:
-        rank: 6
+        rank: 8
         slot_group: Contact
         exact_mappings:
         - contact:contact_email
       data_submission_contact_telephone:
-        rank: 7
+        rank: 9
         slot_group: Contact
         exact_mappings:
         - contact:contact_telephone
       data_submission_contact_department:
-        rank: 8
+        rank: 10
         slot_group: Contact
         exact_mappings:
         - contact:contact_department
       data_submission_contact_institution:
-        rank: 9
+        rank: 11
         slot_group: Contact
         exact_mappings:
         - contact:contact_institution
       data_submission_contact_institution_postal_address:
-        rank: 10
-        slot_group: Contact
-      data_submission_contact_institution_city:
-        rank: 11
-        slot_group: Contact
-      data_submission_contact_state:
         rank: 12
         slot_group: Contact
-      support_source:
+      data_submission_contact_institution_city:
         rank: 13
+        slot_group: Contact
+      data_submission_contact_state:
+        rank: 14
+        slot_group: Contact
+      support_source:
+        rank: 15
         slot_group: Funding
         exact_mappings:
         - funding:support_source
       support_id:
-        rank: 14
+        rank: 16
         slot_group: Funding
         exact_mappings:
         - funding:support_id
       PMC_id:
-        rank: 15
+        rank: 17
         slot_group: Publication
         exact_mappings:
         - publication:PMC_id
       DOI:
-        rank: 16
+        rank: 18
         slot_group: Publication
         exact_mappings:
         - publication:DOI
       PMID:
-        rank: 17
+        rank: 19
         slot_group: Publication
         exact_mappings:
         - publication:PMID
       study_design:
-        rank: 18
+        rank: 20
         slot_group: experiment
         exact_mappings:
         - study:study_design
       study_type:
-        rank: 19
+        rank: 21
         slot_group: experiment
         exact_mappings:
         - study:study_type
       experimental_setting:
-        rank: 20
+        rank: 22
         slot_group: experiment
         exact_mappings:
         - study:experimental_setting
       Organism:
-        rank: 21
+        rank: 23
         slot_group: experiment
         exact_mappings:
         - study:organism
       study template version:
-        rank: 12
+        rank: 24
         slot_group: provenance
   Sample:
     name: Sample
@@ -388,6 +406,8 @@ classes:
     - preservation_method
     - weight
     - volume
+    - storage_vessel
+    - collection_protocol
     - sample template version
     slot_usage:
       sample_identifier:
@@ -431,8 +451,18 @@ classes:
         slot_group: sample_details
         exact_mappings:
         - gen3_submit_sample:volume
-      sample template version:
+      storage_vessel:
         rank: 10
+        slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:storage_vessel
+      collection_protocol:
+        rank: 11
+        slot_group: sample_details
+        exact_mappings:
+        - gen3_submit_sample:collection_protocol
+      sample template version:
+        rank: 12
         slot_group: provenance
 slots:
   Study.study_identifier:
@@ -470,6 +500,30 @@ slots:
     inlined_as_list: true
     slot_uri: obo:NCIT_C176230
     comments: Rance Nault(submitter_id of contact file for gen3 uploading)
+  first_name:
+    name: first_name
+    title: first name
+    range: WhitespaceMinimizedString
+    description: The first name of the person acting as a channel for communication between
+      groups or on behalf of a group.
+    comments: Rance
+    required: true
+  last_name:
+    name: last_name
+    title: last name
+    range: WhitespaceMinimizedString
+    description: The last name of the person acting as a channel for communication between
+      groups or on behalf of a group.
+    comments: Nault
+    required: true
+  middle_name: 
+    name: middle_name
+    title: middle name
+    range: WhitespaceMinimizedString
+    description: The middle name of the person acting as a channel for communication between
+      groups or on behalf of a group.
+    comments: ""
+
   data_submission_contact_orcid:
     name: data_submission_contact_orcid
     title: Contact ORCID
@@ -488,7 +542,7 @@ slots:
     range: WhitespaceMinimizedString
     pattern: ^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$
     description: email address of data submission contact
-    recommended: true
+    required: true
     multivalued: true
     inlined_as_list: true
     comments: naultran@msu.edu
@@ -499,6 +553,7 @@ slots:
     pattern: ^([+]?\d{1,2}[-\s]?|)\d{3}[-\s]?\d{3}[-\s]?\d{4}$
     description: telephone number of data submission contact
     multivalued: true
+    required: true
     inlined_as_list: true
     comments: '5178842054'
   data_submission_contact_department:
@@ -516,6 +571,7 @@ slots:
     description: institution of data submission contact
     multivalued: true
     inlined_as_list: true
+    required: true
     comments: Michigan State University
   data_submission_contact_institution_postal_address:
     name: data_submission_contact_institution_postal_address
@@ -878,6 +934,13 @@ slots:
     multivalued: true
     inlined_as_list: true
     comments: ' '
+  treatment_protocol:
+    name: treatment_protocol
+    title: treatment protocol
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+    required: true
   sample_identifier:
     name: sample_identifier
     title: sample_identifier
@@ -936,6 +999,18 @@ slots:
     name: volume
     title: sample volume (ml)
     range: float
+    description: ' '
+    comments: ' '
+  storage_vessel:
+    name: storage_vessel
+    title: storage vessel
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  collection_protocol: 
+    name: collection_protocol
+    title: collection protocol
+    range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
   study template version:

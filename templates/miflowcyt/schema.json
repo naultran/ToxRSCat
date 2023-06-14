@@ -802,6 +802,36 @@
       "from_schema": "https://example.com/MIFlowCyt",
       "range": "raw.data_category menu"
     },
+    "flow_data.file_source_repository": {
+      "name": "flow_data.file_source_repository",
+      "description": " ",
+      "title": "file source repository",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_data.repository_accession_id": {
+      "name": "flow_data.repository_accession_id",
+      "description": " ",
+      "title": "repository accession id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_data.repository_download_ftp": {
+      "name": "flow_data.repository_download_ftp",
+      "description": " ",
+      "title": "repository download ftp",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
     "WorkspaceFile": {
       "name": "WorkspaceFile",
       "description": " ",
@@ -841,6 +871,36 @@
       ],
       "from_schema": "https://example.com/MIFlowCyt",
       "range": "processed.data_category menu"
+    },
+    "flow_analysis_data.file_source_repository": {
+      "name": "flow_analysis_data.file_source_repository",
+      "description": " ",
+      "title": "file_source_repository",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_analysis_data.repository_accession_id": {
+      "name": "flow_analysis_data.repository_accession_id",
+      "description": " ",
+      "title": "repository_accession_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_analysis_data.repository_download_ftp": {
+      "name": "flow_analysis_data.repository_download_ftp",
+      "description": " ",
+      "title": "repository_download_ftp",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/MIFlowCyt",
+      "range": "WhitespaceMinimizedString"
     },
     "analysis_protocol": {
       "name": "analysis_protocol",
@@ -1498,12 +1558,36 @@
           "rank": 7,
           "slot_group": "raw_data_file"
         },
+        "flow_data.file_source_repository": {
+          "name": "flow_data.file_source_repository",
+          "exact_mappings": [
+            "flow_data:file_source_repository"
+          ],
+          "rank": 8,
+          "slot_group": "raw_data_file"
+        },
+        "flow_data.repository_accession_id": {
+          "name": "flow_data.repository_accession_id",
+          "exact_mappings": [
+            "flow_data:repository_accession_id"
+          ],
+          "rank": 9,
+          "slot_group": "raw_data_file"
+        },
+        "flow_data.repository_download_ftp": {
+          "name": "flow_data.repository_download_ftp",
+          "exact_mappings": [
+            "flow_data:repository_download_ftp"
+          ],
+          "rank": 10,
+          "slot_group": "raw_data_file"
+        },
         "WorkspaceFile": {
           "name": "WorkspaceFile",
           "exact_mappings": [
             "flow_analysis_data:file_name"
           ],
-          "rank": 8,
+          "rank": 11,
           "slot_group": "processed_data_file"
         },
         "processed.data_type": {
@@ -1511,7 +1595,7 @@
           "exact_mappings": [
             "flow_analysis_data:data_type"
           ],
-          "rank": 9,
+          "rank": 12,
           "slot_group": "processed_data_file"
         },
         "processed.data_format": {
@@ -1519,7 +1603,7 @@
           "exact_mappings": [
             "flow_analysis_data:data_format"
           ],
-          "rank": 10,
+          "rank": 13,
           "slot_group": "processed_data_file"
         },
         "processed.data_category": {
@@ -1527,7 +1611,31 @@
           "exact_mappings": [
             "flow_analysis_data:data_category"
           ],
-          "rank": 11,
+          "rank": 14,
+          "slot_group": "processed_data_file"
+        },
+        "flow_analysis_data.file_source_repository": {
+          "name": "flow_analysis_data.file_source_repository",
+          "exact_mappings": [
+            "flow_analysis_data:file_source_repository"
+          ],
+          "rank": 15,
+          "slot_group": "processed_data_file"
+        },
+        "flow_analysis_data.repository_accession_id": {
+          "name": "flow_analysis_data.repository_accession_id",
+          "exact_mappings": [
+            "flow_analysis_data:repository_accession_id"
+          ],
+          "rank": 16,
+          "slot_group": "processed_data_file"
+        },
+        "flow_analysis_data.repository_download_ftp": {
+          "name": "flow_analysis_data.repository_download_ftp",
+          "exact_mappings": [
+            "flow_analysis_data:repository_download_ftp"
+          ],
+          "rank": 17,
           "slot_group": "processed_data_file"
         },
         "analysis_protocol": {
@@ -1535,7 +1643,7 @@
           "exact_mappings": [
             "flow_analysis:protocol"
           ],
-          "rank": 12,
+          "rank": 18,
           "slot_group": "data_analysis"
         },
         "analysis_protocol_DOI": {
@@ -1543,7 +1651,7 @@
           "exact_mappings": [
             "flow_analysis:protocol_doi"
           ],
-          "rank": 13,
+          "rank": 19,
           "slot_group": "data_analysis"
         },
         "CompensationDescription": {
@@ -1551,7 +1659,7 @@
           "exact_mappings": [
             "flow_analysis:compensation_description"
           ],
-          "rank": 14,
+          "rank": 20,
           "slot_group": "data_analysis"
         },
         "TransformationPurpose": {
@@ -1559,7 +1667,7 @@
           "exact_mappings": [
             "flow_analysis:transformation_purpose"
           ],
-          "rank": 15,
+          "rank": 21,
           "slot_group": "data_analysis"
         },
         "TransformationDescription": {
@@ -1567,7 +1675,7 @@
           "exact_mappings": [
             "flow_analysis:transformation_description"
           ],
-          "rank": 16,
+          "rank": 22,
           "slot_group": "data_analysis"
         },
         "GateDescription": {
@@ -1575,7 +1683,7 @@
           "exact_mappings": [
             "flow_analysis:gate_description"
           ],
-          "rank": 17,
+          "rank": 23,
           "slot_group": "data_analysis"
         },
         "Gate Statistics": {
@@ -1583,7 +1691,7 @@
           "exact_mappings": [
             "flow_analysis:gate_statistics"
           ],
-          "rank": 18,
+          "rank": 24,
           "slot_group": "data_analysis"
         },
         "GateBoundaries": {
@@ -1591,7 +1699,7 @@
           "exact_mappings": [
             "flow_analysis:gate_boundaries"
           ],
-          "rank": 19,
+          "rank": 25,
           "slot_group": "data_analysis"
         },
         "flow_cytometry_protocol": {
@@ -1599,7 +1707,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:protocol"
           ],
-          "rank": 20,
+          "rank": 26,
           "slot_group": "flow_cytometry"
         },
         "flow_cytometry_protocol_DOI": {
@@ -1607,7 +1715,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:protocol_doi"
           ],
-          "rank": 21,
+          "rank": 27,
           "slot_group": "flow_cytometry"
         },
         "qualityControlMeasures": {
@@ -1615,12 +1723,12 @@
           "exact_mappings": [
             "flow_cytometry_assay:quality_control_measures"
           ],
-          "rank": 22,
+          "rank": 28,
           "slot_group": "flow_cytometry"
         },
         "instrument.submitter_id": {
           "name": "instrument.submitter_id",
-          "rank": 23,
+          "rank": 29,
           "slot_group": "flow_cytometry"
         },
         "staining_protocol": {
@@ -1628,7 +1736,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:staining_protocol"
           ],
-          "rank": 24,
+          "rank": 30,
           "slot_group": "flow_cytometry"
         },
         "staining_protocol_DOI": {
@@ -1636,7 +1744,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:staining_protocol_doi"
           ],
-          "rank": 25,
+          "rank": 31,
           "slot_group": "flow_cytometry"
         },
         "characteristicsBeingMeasured": {
@@ -1644,7 +1752,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:characteristics_being_measured"
           ],
-          "rank": 26,
+          "rank": 32,
           "slot_group": "flow_cytometry"
         },
         "analyte": {
@@ -1652,7 +1760,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:analyte"
           ],
-          "rank": 27,
+          "rank": 33,
           "slot_group": "flow_cytometry"
         },
         "analyteDetector": {
@@ -1660,7 +1768,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:analyte_detector"
           ],
-          "rank": 28,
+          "rank": 34,
           "slot_group": "flow_cytometry"
         },
         "analyteReporter": {
@@ -1668,7 +1776,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:analyte_reporter"
           ],
-          "rank": 29,
+          "rank": 35,
           "slot_group": "flow_cytometry"
         },
         "cloneNameOrNumber": {
@@ -1676,7 +1784,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:clone"
           ],
-          "rank": 30,
+          "rank": 36,
           "slot_group": "flow_cytometry"
         },
         "reagentManufacturerName": {
@@ -1684,7 +1792,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:reagent_manufacturer"
           ],
-          "rank": 31,
+          "rank": 37,
           "slot_group": "flow_cytometry"
         },
         "reagentCatalogueNumber": {
@@ -1692,7 +1800,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:reagent_catalogue"
           ],
-          "rank": 32,
+          "rank": 38,
           "slot_group": "flow_cytometry"
         },
         "stainingStatus": {
@@ -1700,7 +1808,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:staining_status"
           ],
-          "rank": 33,
+          "rank": 39,
           "slot_group": "flow_cytometry"
         },
         "other_fluorescence_reagent": {
@@ -1708,7 +1816,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:other_reagent"
           ],
-          "rank": 34,
+          "rank": 40,
           "slot_group": "flow_cytometry"
         },
         "flowcytometry_template_provenance": {
@@ -1719,7 +1827,7 @@
             "flow_data:provenance",
             "flow_analysis:provenance"
           ],
-          "rank": 35,
+          "rank": 41,
           "slot_group": "provenance"
         }
       },
@@ -1838,6 +1946,57 @@
           "slot_group": "raw_data_file",
           "range": "raw.data_category menu"
         },
+        "flow_data.file_source_repository": {
+          "name": "flow_data.file_source_repository",
+          "description": " ",
+          "title": "file source repository",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flow_data:file_source_repository"
+          ],
+          "rank": 8,
+          "alias": "flow_data.file_source_repository",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "raw_data_file",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_data.repository_accession_id": {
+          "name": "flow_data.repository_accession_id",
+          "description": " ",
+          "title": "repository accession id",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flow_data:repository_accession_id"
+          ],
+          "rank": 9,
+          "alias": "flow_data.repository_accession_id",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "raw_data_file",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_data.repository_download_ftp": {
+          "name": "flow_data.repository_download_ftp",
+          "description": " ",
+          "title": "repository download ftp",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flow_data:repository_download_ftp"
+          ],
+          "rank": 10,
+          "alias": "flow_data.repository_download_ftp",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "raw_data_file",
+          "range": "WhitespaceMinimizedString"
+        },
         "WorkspaceFile": {
           "name": "WorkspaceFile",
           "description": " ",
@@ -1846,7 +2005,7 @@
           "exact_mappings": [
             "flow_analysis_data:file_name"
           ],
-          "rank": 8,
+          "rank": 11,
           "alias": "WorkspaceFile",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -1863,7 +2022,7 @@
           "exact_mappings": [
             "flow_analysis_data:data_type"
           ],
-          "rank": 9,
+          "rank": 12,
           "alias": "processed.data_type",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -1880,7 +2039,7 @@
           "exact_mappings": [
             "flow_analysis_data:data_format"
           ],
-          "rank": 10,
+          "rank": 13,
           "alias": "processed.data_format",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -1897,7 +2056,7 @@
           "exact_mappings": [
             "flow_analysis_data:data_category"
           ],
-          "rank": 11,
+          "rank": 14,
           "alias": "processed.data_category",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -1905,6 +2064,57 @@
           ],
           "slot_group": "processed_data_file",
           "range": "processed.data_category menu"
+        },
+        "flow_analysis_data.file_source_repository": {
+          "name": "flow_analysis_data.file_source_repository",
+          "description": " ",
+          "title": "file_source_repository",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flow_analysis_data:file_source_repository"
+          ],
+          "rank": 15,
+          "alias": "flow_analysis_data.file_source_repository",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "processed_data_file",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_analysis_data.repository_accession_id": {
+          "name": "flow_analysis_data.repository_accession_id",
+          "description": " ",
+          "title": "repository_accession_id",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flow_analysis_data:repository_accession_id"
+          ],
+          "rank": 16,
+          "alias": "flow_analysis_data.repository_accession_id",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "processed_data_file",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_analysis_data.repository_download_ftp": {
+          "name": "flow_analysis_data.repository_download_ftp",
+          "description": " ",
+          "title": "repository_download_ftp",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "exact_mappings": [
+            "flow_analysis_data:repository_download_ftp"
+          ],
+          "rank": 17,
+          "alias": "flow_analysis_data.repository_download_ftp",
+          "owner": "Flow cytometry experiment",
+          "domain_of": [
+            "Flow cytometry experiment"
+          ],
+          "slot_group": "processed_data_file",
+          "range": "WhitespaceMinimizedString"
         },
         "analysis_protocol": {
           "name": "analysis_protocol",
@@ -1914,7 +2124,7 @@
           "exact_mappings": [
             "flow_analysis:protocol"
           ],
-          "rank": 12,
+          "rank": 18,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "analysis_protocol",
           "owner": "Flow cytometry experiment",
@@ -1932,7 +2142,7 @@
           "exact_mappings": [
             "flow_analysis:protocol_doi"
           ],
-          "rank": 13,
+          "rank": 19,
           "slot_uri": "obo:OBI_0002110",
           "alias": "analysis_protocol_DOI",
           "owner": "Flow cytometry experiment",
@@ -1950,7 +2160,7 @@
           "exact_mappings": [
             "flow_analysis:compensation_description"
           ],
-          "rank": 14,
+          "rank": 20,
           "alias": "CompensationDescription",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -1967,7 +2177,7 @@
           "exact_mappings": [
             "flow_analysis:transformation_purpose"
           ],
-          "rank": 15,
+          "rank": 21,
           "alias": "TransformationPurpose",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -1984,7 +2194,7 @@
           "exact_mappings": [
             "flow_analysis:transformation_description"
           ],
-          "rank": 16,
+          "rank": 22,
           "alias": "TransformationDescription",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2001,7 +2211,7 @@
           "exact_mappings": [
             "flow_analysis:gate_description"
           ],
-          "rank": 17,
+          "rank": 23,
           "alias": "GateDescription",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2018,7 +2228,7 @@
           "exact_mappings": [
             "flow_analysis:gate_statistics"
           ],
-          "rank": 18,
+          "rank": 24,
           "alias": "Gate_Statistics",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2035,7 +2245,7 @@
           "exact_mappings": [
             "flow_analysis:gate_boundaries"
           ],
-          "rank": 19,
+          "rank": 25,
           "alias": "GateBoundaries",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2052,7 +2262,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:protocol"
           ],
-          "rank": 20,
+          "rank": 26,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "flow_cytometry_protocol",
           "owner": "Flow cytometry experiment",
@@ -2070,7 +2280,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:protocol_doi"
           ],
-          "rank": 21,
+          "rank": 27,
           "slot_uri": "obo:OBI_0002110",
           "alias": "flow_cytometry_protocol_DOI",
           "owner": "Flow cytometry experiment",
@@ -2088,7 +2298,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:quality_control_measures"
           ],
-          "rank": 22,
+          "rank": 28,
           "slot_uri": "obo:MSIO_0000085",
           "multivalued": true,
           "alias": "qualityControlMeasures",
@@ -2106,7 +2316,7 @@
           "description": " ",
           "title": "instrument ID",
           "from_schema": "https://example.com/MIFlowCyt",
-          "rank": 23,
+          "rank": 29,
           "alias": "instrument.submitter_id",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2124,7 +2334,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:staining_protocol"
           ],
-          "rank": 24,
+          "rank": 30,
           "slot_uri": "obo:NCIT_C42651",
           "alias": "staining_protocol",
           "owner": "Flow cytometry experiment",
@@ -2142,7 +2352,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:staining_protocol_doi"
           ],
-          "rank": 25,
+          "rank": 31,
           "slot_uri": "obo:OBI_0002110",
           "alias": "staining_protocol_DOI",
           "owner": "Flow cytometry experiment",
@@ -2160,7 +2370,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:characteristics_being_measured"
           ],
-          "rank": 26,
+          "rank": 32,
           "slot_uri": "obo:BFO_0000005",
           "alias": "characteristicsBeingMeasured",
           "owner": "Flow cytometry experiment",
@@ -2179,7 +2389,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:analyte"
           ],
-          "rank": 27,
+          "rank": 33,
           "slot_uri": "obo:OBI_0000275",
           "alias": "analyte",
           "owner": "Flow cytometry experiment",
@@ -2198,7 +2408,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:analyte_detector"
           ],
-          "rank": 28,
+          "rank": 34,
           "slot_uri": "obo:CHMO_0002244",
           "alias": "analyteDetector",
           "owner": "Flow cytometry experiment",
@@ -2217,7 +2427,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:analyte_reporter"
           ],
-          "rank": 29,
+          "rank": 35,
           "slot_uri": "obo:CHEBI_35209",
           "alias": "analyteReporter",
           "owner": "Flow cytometry experiment",
@@ -2236,7 +2446,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:clone"
           ],
-          "rank": 30,
+          "rank": 36,
           "slot_uri": "obo:SO_0000151",
           "alias": "cloneNameOrNumber",
           "owner": "Flow cytometry experiment",
@@ -2254,7 +2464,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:reagent_manufacturer"
           ],
-          "rank": 31,
+          "rank": 37,
           "slot_uri": "obo:IAO_0000590",
           "alias": "reagentManufacturerName",
           "owner": "Flow cytometry experiment",
@@ -2272,7 +2482,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:reagent_catalogue"
           ],
-          "rank": 32,
+          "rank": 38,
           "slot_uri": "obo:NCIT_C112406",
           "alias": "reagentCatalogueNumber",
           "owner": "Flow cytometry experiment",
@@ -2290,7 +2500,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:staining_status"
           ],
-          "rank": 33,
+          "rank": 39,
           "alias": "stainingStatus",
           "owner": "Flow cytometry experiment",
           "domain_of": [
@@ -2307,7 +2517,7 @@
           "exact_mappings": [
             "flow_cytometry_assay:other_reagent"
           ],
-          "rank": 34,
+          "rank": 40,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_fluorescence_reagent",
           "owner": "Flow cytometry experiment",
@@ -2328,7 +2538,7 @@
             "flow_data:provenance",
             "flow_analysis:provenance"
           ],
-          "rank": 35,
+          "rank": 41,
           "alias": "flowcytometry_template_provenance",
           "owner": "Flow cytometry experiment",
           "domain_of": [

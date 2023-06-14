@@ -981,6 +981,36 @@
       "range": "data_type menu",
       "required": true
     },
+    "slide_image.file_source_repository": {
+      "name": "slide_image.file_source_repository",
+      "description": " ",
+      "title": "file source repository",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString"
+    },
+    "slide_image.repository_accession_id": {
+      "name": "slide_image.repository_accession_id",
+      "description": " ",
+      "title": "repository accession id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString"
+    },
+    "slide_image.repository_download_ftp": {
+      "name": "slide_image.repository_download_ftp",
+      "description": " ",
+      "title": "repository download ftp",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/REMBI",
+      "range": "WhitespaceMinimizedString"
+    },
     "instruments.submitter_id": {
       "name": "instruments.submitter_id",
       "description": "Specific content type of the data file.",
@@ -1258,12 +1288,33 @@
           "rank": 7,
           "slot_group": "data"
         },
-        "instruments.submitter_id": {
-          "name": "instruments.submitter_id",
+        "slide_image.file_source_repository": {
+          "name": "slide_image.file_source_repository",
           "exact_mappings": [
-            "slide_image:instruments.submitter_id"
+            "slide_image:file_source_repository"
           ],
           "rank": 8,
+          "slot_group": "data"
+        },
+        "slide_image.repository_accession_id": {
+          "name": "slide_image.repository_accession_id",
+          "exact_mappings": [
+            "slide_image:repository_accession_id"
+          ],
+          "rank": 9,
+          "slot_group": "data"
+        },
+        "slide_image.repository_download_ftp": {
+          "name": "slide_image.repository_download_ftp",
+          "exact_mappings": [
+            "slide_image:repository_download_ftp"
+          ],
+          "rank": 10,
+          "slot_group": "data"
+        },
+        "instruments.submitter_id": {
+          "name": "instruments.submitter_id",
+          "rank": 11,
           "slot_group": "data"
         },
         "magnification": {
@@ -1271,7 +1322,7 @@
           "exact_mappings": [
             "slide_image:magnification"
           ],
-          "rank": 9,
+          "rank": 12,
           "slot_group": "data"
         },
         "imaging_protocol": {
@@ -1279,7 +1330,7 @@
           "exact_mappings": [
             "slide_image:imaging_protocol"
           ],
-          "rank": 10,
+          "rank": 13,
           "slot_group": "data"
         },
         "imaging_protocol_DOI": {
@@ -1287,7 +1338,7 @@
           "exact_mappings": [
             "slide_image:imaging_protcol_DOI"
           ],
-          "rank": 11,
+          "rank": 14,
           "slot_group": "data"
         },
         "assay": {
@@ -1295,7 +1346,7 @@
           "exact_mappings": [
             "slide:assay"
           ],
-          "rank": 12,
+          "rank": 15,
           "slot_group": "slide_details"
         },
         "probe_type": {
@@ -1303,7 +1354,7 @@
           "exact_mappings": [
             "slide:probe_type"
           ],
-          "rank": 13,
+          "rank": 16,
           "slot_group": "slide_details"
         },
         "probe_name": {
@@ -1311,7 +1362,7 @@
           "exact_mappings": [
             "slide:probe_name"
           ],
-          "rank": 14,
+          "rank": 17,
           "slot_group": "slide_details"
         },
         "probe_provider": {
@@ -1319,7 +1370,7 @@
           "exact_mappings": [
             "slide:probe_provider"
           ],
-          "rank": 15,
+          "rank": 18,
           "slot_group": "slide_details"
         },
         "probe_catalog_number": {
@@ -1327,7 +1378,7 @@
           "exact_mappings": [
             "slide:probe_catalog_number"
           ],
-          "rank": 16,
+          "rank": 19,
           "slot_group": "slide_details"
         },
         "probe_concentration": {
@@ -1335,7 +1386,7 @@
           "exact_mappings": [
             "slide:probe_concentration"
           ],
-          "rank": 17,
+          "rank": 20,
           "slot_group": "slide_details"
         },
         "detection_method": {
@@ -1343,7 +1394,7 @@
           "exact_mappings": [
             "slide:detection_method"
           ],
-          "rank": 18,
+          "rank": 21,
           "slot_group": "slide_details"
         }
       },
@@ -1463,15 +1514,63 @@
           "range": "data_type menu",
           "required": true
         },
+        "slide_image.file_source_repository": {
+          "name": "slide_image.file_source_repository",
+          "description": " ",
+          "title": "file source repository",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "slide_image:file_source_repository"
+          ],
+          "rank": 8,
+          "alias": "slide_image.file_source_repository",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "WhitespaceMinimizedString"
+        },
+        "slide_image.repository_accession_id": {
+          "name": "slide_image.repository_accession_id",
+          "description": " ",
+          "title": "repository accession id",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "slide_image:repository_accession_id"
+          ],
+          "rank": 9,
+          "alias": "slide_image.repository_accession_id",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "WhitespaceMinimizedString"
+        },
+        "slide_image.repository_download_ftp": {
+          "name": "slide_image.repository_download_ftp",
+          "description": " ",
+          "title": "repository download ftp",
+          "from_schema": "https://example.com/REMBI",
+          "exact_mappings": [
+            "slide_image:repository_download_ftp"
+          ],
+          "rank": 10,
+          "alias": "slide_image.repository_download_ftp",
+          "owner": "slide",
+          "domain_of": [
+            "slide"
+          ],
+          "slot_group": "data",
+          "range": "WhitespaceMinimizedString"
+        },
         "instruments.submitter_id": {
           "name": "instruments.submitter_id",
           "description": "Specific content type of the data file.",
           "title": "instrument ID",
           "from_schema": "https://example.com/REMBI",
-          "exact_mappings": [
-            "slide_image:instruments.submitter_id"
-          ],
-          "rank": 8,
+          "rank": 11,
           "alias": "instruments.submitter_id",
           "owner": "slide",
           "domain_of": [
@@ -1489,7 +1588,7 @@
           "exact_mappings": [
             "slide_image:magnification"
           ],
-          "rank": 9,
+          "rank": 12,
           "slot_uri": "obo:NCIT_C181737",
           "multivalued": true,
           "alias": "magnification",
@@ -1509,7 +1608,7 @@
           "exact_mappings": [
             "slide_image:imaging_protocol"
           ],
-          "rank": 10,
+          "rank": 13,
           "alias": "imaging_protocol",
           "owner": "slide",
           "domain_of": [
@@ -1527,7 +1626,7 @@
           "exact_mappings": [
             "slide_image:imaging_protcol_DOI"
           ],
-          "rank": 11,
+          "rank": 14,
           "alias": "imaging_protocol_DOI",
           "owner": "slide",
           "domain_of": [
@@ -1545,7 +1644,7 @@
           "exact_mappings": [
             "slide:assay"
           ],
-          "rank": 12,
+          "rank": 15,
           "multivalued": true,
           "identifier": true,
           "alias": "assay",
@@ -1565,7 +1664,7 @@
           "exact_mappings": [
             "slide:probe_type"
           ],
-          "rank": 13,
+          "rank": 16,
           "multivalued": true,
           "alias": "probe_type",
           "owner": "slide",
@@ -1584,7 +1683,7 @@
           "exact_mappings": [
             "slide:probe_name"
           ],
-          "rank": 14,
+          "rank": 17,
           "multivalued": true,
           "alias": "probe_name",
           "owner": "slide",
@@ -1603,7 +1702,7 @@
           "exact_mappings": [
             "slide:probe_provider"
           ],
-          "rank": 15,
+          "rank": 18,
           "multivalued": true,
           "alias": "probe_provider",
           "owner": "slide",
@@ -1622,7 +1721,7 @@
           "exact_mappings": [
             "slide:probe_catalog_number"
           ],
-          "rank": 16,
+          "rank": 19,
           "multivalued": true,
           "alias": "probe_catalog_number",
           "owner": "slide",
@@ -1641,7 +1740,7 @@
           "exact_mappings": [
             "slide:probe_concentration"
           ],
-          "rank": 17,
+          "rank": 20,
           "multivalued": true,
           "alias": "probe_concentration",
           "owner": "slide",
@@ -1659,7 +1758,7 @@
           "exact_mappings": [
             "slide:detection_method"
           ],
-          "rank": 18,
+          "rank": 21,
           "multivalued": true,
           "alias": "detection_method",
           "owner": "slide",

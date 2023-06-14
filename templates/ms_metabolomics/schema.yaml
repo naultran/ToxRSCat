@@ -22,27 +22,41 @@ classes:
     - raw.data_category
     - raw.data_format
     - raw.data_type
+    - ms_raw_data.file_source_repository
+    - ms_raw_data.repository_accession_id
+    - ms_raw_data.repository_download_ftp
     - instruments.submitter_id
     - processedDataFile
     - processed.data_category
     - processed.data_format
     - processed.data_type
+    - ms_analysed_data.file_source_repository
+    - ms_analysed_data.repository_accession_id
+    - ms_analysed_data.repository_download_ftp
     - Normalization
     - Transformation
     - TransformationPurpose
     - TransformationDescription
     - unit
     - analysis_protocols
+    - sample_dilution
     - calibration_standard
+    - solventA
+    - solventB
+    - solventC
     - chromatography.name
     - chromatography_column
     - chromatography_protocol
+    - chromatography_instrument
+    - chromatography_method_filename
     - elution program
     - flow_rate
     - carrier_gas
     - oven_temperature_program
     - ms_method.name
     - ms_protocol
+    - ms_method_filename
+    - ion_mode
     - mass_spec_assay.provenance
     slot_usage:
       submitter_id:
@@ -74,111 +88,182 @@ classes:
         slot_group: raw_data
         exact_mappings:
           ms_raw_data:data_type
-      instruments.submitter_id:
+      ms_raw_data.file_source_repository:
         rank: 8
         slot_group: raw_data
-      processedDataFile:
+        exact_mappings:
+          ms_raw_data:file_source_repository
+      ms_raw_data.repository_accession_id:
         rank: 9
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:repository_accession_id
+      ms_raw_data.repository_download_ftp:
+        rank: 10
+        slot_group: raw_data
+        exact_mappings:
+          ms_raw_data:repository_download_ftp
+      
+      processedDataFile:
+        rank: 11
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:file_name
       processed.data_category:
-        rank: 10
+        rank: 12
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:data_category
       processed.data_format:
-        rank: 11
+        rank: 13
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:data_format
       processed.data_type:
-        rank: 12
+        rank: 14
         slot_group: data_analysis
         exact_mappings:
           ms_analysed_data:data_type
+      ms_analysed_data.file_source_repository:
+        rank: 15
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:file_source_repository
+      ms_analysed_data.repository_accession_id:
+        rank: 16
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:repository_accession_id
+      ms_analysed_data.repository_download_ftp:
+        rank: 17
+        slot_group: data_analysis
+        exact_mappings:
+          ms_analysed_data:repository_download_ftp
       Normalization:
-        rank: 13
+        rank: 18
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:normalization
       Transformation:
-        rank: 14
+        rank: 29
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:transformation
       TransformationPurpose:
-        rank: 15
+        rank: 20
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:transformation_purpose
       TransformationDescription:
-        rank: 16
+        rank: 21
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:transformation_description
       unit:
-        rank: 17
+        rank: 22
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:unit
       analysis_protocols:
-        rank: 18
+        rank: 23
         slot_group: data_analysis
         exact_mappings:
           ms_analysis:analysis_protocols
+      sample_dilution:
+        rank: 24
+        slot_group: extract
+        exact_mappings:
+          mass_spec_assay:sample_dilution
       calibration_standard:
-        rank: 19
+        rank: 25
         slot_group: extract
         exact_mappings:
           mass_spec_assay:calibration_standard
+      solventA:
+        rank: 26
+        slot_group: solvent
+        exact_mappings:
+          mass_spec_assay:solvent.solventA
+      solventB:
+        rank: 27
+        slot_group: solvent
+        exact_mappings:
+          mass_spec_assay:solvent.solventB
+      solventC:
+        rank: 28
+        slot_group: solvent
+        exact_mappings:
+          mass_spec_assay:solvent.solventC
       chromatography.name:
-        rank: 20
+        rank: 29
         slot_group: chromatography
         exact_mappings:
-          mass_spec_assay:chromatography_name
+          mass_spec_assay:chromatography_type
       chromatography_column:
-        rank: 21
+        rank: 30
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_column
       chromatography_protocol:
-        rank: 22
+        rank: 31
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_protocol
+      chromatography_instrument:
+        rank: 32
+        slot_group: chromatography
+        exact_mappings:
+          mass_spec_assay:chromatography_instrument
+      chromatography_method_filename:
+        rank: 33
+        slot_group: chromatography
+        exact_mappings:
+          mass_spec_assay:chromatography_method_filename
       elution program:
-        rank: 23
+        rank: 34
         slot_group: LiquidChromatography
         exact_mappings:
           mass_spec_assay:elution_program
       flow_rate:
-        rank: 24
+        rank: 35
         slot_group: LiquidChromatography
         exact_mappings:
           mass_spec_assay:flow_rate
       carrier_gas:
-        rank: 25
+        rank: 36
         slot_group: GasChromatography
         exact_mappings:
           mass_spec_assay:carrier_gas
       oven_temperature_program:
-        rank: 26
+        rank: 37
         slot_group: GasChromatography
         exact_mappings:
           mass_spec_assay:oven_temperature_program
+      instruments.submitter_id:
+        rank: 38
+        slot_group: ms_method
       ms_method.name:
-        rank: 27
+        rank: 39
         slot_group: ms_method
         exact_mappings:
-          mass_spec_assay:ms_method_name
+          mass_spec_assay:ms_type
       ms_protocol:
-        rank: 28
+        rank: 40
         slot_group: ms_method
         exact_mappings:
           mass_spec_assay:ms_protocol
+      ms_method_filename: 
+        rank: 41
+        slot_group: ms_method
+        exact_mappings:
+          mass_spec_assay:ms_method_filename
+      ion_mode:
+        rank: 42
+        slot_group: ms_method
+        exact_mappings:
+          mass_spec_assay:ion_mode
       mass_spec_assay.provenance:
-        rank: 29
+        rank: 43
         slot_group: provenance
         exact_mappings:
         - mass_spec_assay:provenance
@@ -402,6 +487,24 @@ slots:
     range: raw.data_type menu
     description: ' '
     comments: ' '
+  ms_raw_data.file_source_repository:
+    name: ms_raw_data.file_source_repository
+    title: file source repository
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  ms_raw_data.repository_accession_id:
+    name: ms_raw_data.repository_accession_id
+    title: repository accession id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  ms_raw_data.repository_download_ftp:
+    name: ms_raw_data.repository_download_ftp
+    title: repository download ftp
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
   instruments.submitter_id:
     name: instruments.submitter_id
     title: instrument ID
@@ -430,6 +533,24 @@ slots:
     name: processed.data_type
     title: data_type
     range: processed.data_type menu
+    description: ' '
+    comments: ' '
+  ms_analysed_data.file_source_repository:
+    name: ms_analysed_data.file_source_repository
+    title: file source repository
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  ms_analysed_data.repository_accession_id:
+    name: ms_analysed_data.repository_accession_id
+    title: repository accession id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  ms_analysed_data.repository_download_ftp:
+    name: ms_analysed_data.repository_download_ftp
+    title: repository download ftp
+    range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
   Normalization:
@@ -475,23 +596,47 @@ slots:
     comments: 'Progenesis QI (Waters) was used for peak processing. Metabolites were
       identified using the Human Metabolome Database (HMDB). MassLynx V4.2 was used
       to measure area under the curve. '
+  sample_dilution:
+    name: sample_dilution
+    title: sample dilution
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
   calibration_standard:
     name: calibration_standard
     title: calibration_standard
     range: WhitespaceMinimizedString
     description: Indicate the name of the chemical compound used as calibration standard.
     comments: Acetyl-1,2-13C2 Coenzyme A Sodium Salt
+  solventA:
+    name: solventA
+    title: solventA
+    range: WhitespaceMinimizedString
+    description: "<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>"
+    comments: "100% water; 0.01% formic acid"
+  solventB:
+    name: solventB
+    title: solventB
+    range: WhitespaceMinimizedString
+    description: "<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>"
+    comments: "90% isopropanol/8% acetonitrile/2% water; 0.1% formic acid; 10 mM ammonium formate"
+  solventC:
+    name: solventC
+    title: solventC
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
   chromatography.name:
     name: chromatography.name
     title: name
-    range: WhitespaceMinimizedString
+    range: chromatography.name menu
     description: name of chromatography
     required: true
     comments: ' '
   chromatography_column:
     name: chromatography_column
     title: chromatography_column
-    range: WhitespaceMinimizedString
+    range: chromatography_column menu
     description: The name of the chromatography column.
     required: true
     comments: 'Ascentis Express C18: 5cm x 2.1 mm, 2.7 um, Sigma-Aldrich'
@@ -504,6 +649,18 @@ slots:
     comments: "Ion-pairing reverse phase chromatography was performed on an Ascentis\
       \ Express column (C18, 5\u2009cm\u2009\xD7\u20092.1\u2009mm, 2.7\u2009\xB5m,\
       \ Sigma)."
+  chromatography_instrument:
+    name: chromatography_instrument
+    title: chromatography instrument
+    range: chromatography_instrument menu
+    description: " "
+    comments: " "
+  chromatography_method_filename:
+    name: chromatography_method_filename
+    title: chromatography_method_filename
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
   elution program:
     name: elution program
     title: elution program
@@ -544,7 +701,7 @@ slots:
   ms_method.name:
     name: ms_method.name
     title: name
-    range: WhitespaceMinimizedString
+    range: ms_method.name menu
     description: ' '
     required: true
     comments: name of ms_method
@@ -560,6 +717,18 @@ slots:
       \ with flow rates of 50 and 600\u2009L/h, respectively. The source temperature\
       \ was 100\u2009\xB0C, and desolvation temperature was 300\u2009\xB0C. Argon\
       \ was used as collision gas."
+  ms_method_filename:
+    name: ms_method_filename
+    title: ms_method_filename
+    range: WhitespaceMinimizedString
+    description: " "
+    comments: " "
+  ion_mode:
+    name: ion_mode
+    title: ion mode
+    range: ion_mode menu
+    description: " "
+    comments: " "
   metabolite_name:
     name: metabolite_name
     title: metabolite_name
@@ -701,6 +870,37 @@ slots:
     description: ' '
     comments: ' '
 enums:
+  chromatography.name menu:
+    name: chromatography.name menu
+    permissible_values:
+      GC:
+        text: GC
+      Reversed phase:
+        text: Reversed phase
+      Normal phase: 
+        text: Normal phase
+      HILIC:
+        text: HILIC
+      CE:
+        text: CE
+      Ion exchange:
+        text: Ion exchange
+      Ion pair: 
+        text: Ion pair
+      Flow induction analysis:
+        text: Flow induction analysis
+      None (Direct infusion): 
+        text: None (Direct infusion)
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
   analyte_type menu:
     name: analyte_type menu
     permissible_values:
@@ -1010,6 +1210,488 @@ enums:
         text: VSI110
       VSI220:
         text: VSI220
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  chromatography_column menu:
+    name: chromatography_column menu
+    permissible_values:
+      Acchrom XAqua C18 (150 x 2.1mm,5um):
+        text: Acchrom XAqua C18 (150 x 2.1mm,5um)
+      ACE 5 C18-300 (100 x 2.1mm):
+        text: ACE 5 C18-300 (100 x 2.1mm)
+      ACE 5 C8-300 (100 x 2.1mm):
+        text: ACE 5 C8-300 (100 x 2.1mm)
+      ACE C18 (75 x 1mm,3um):
+        text: ACE C18 (75 x 1mm,3um)
+      ACE Excel 2 C18-PFP (100 x 2.1mm,2um):
+        text: ACE Excel 2 C18-PFP (100 x 2.1mm,2um)
+      Agilent DB5-MS (15m x 0.25mm, 0.25um):
+        text: Agilent DB5-MS (15m x 0.25mm, 0.25um)
+      Agilent DB5-MS (30m x 0.25mm, 0.25um):
+        text: Agilent DB5-MS (30m x 0.25mm, 0.25um)
+      Agilent Eclipse XDB-C18 (100 x 3.0mm):
+        text: Agilent Eclipse XDB-C18 (100 x 3.0mm)
+      Agilent HP5-MS (30m x 0.25mm, 0.25 um):
+        text: Agilent HP5-MS (30m x 0.25mm, 0.25 um)
+      Agilent InfinityLab Poroshell 120 EC-C18 (100 x 3mm,2.7um):
+        text: Agilent InfinityLab Poroshell 120 EC-C18 (100 x 3mm,2.7um)
+      Agilent InfinityLab Poroshell 120 EC-C8 (100 x 2.1mm,2.5um):
+        text: Agilent InfinityLab Poroshell 120 EC-C8 (100 x 2.1mm,2.5um)
+      Agilent InfinityLab Poroshell 120 EC-C8 (150 x 2.1mm,2.7um):
+        text: Agilent InfinityLab Poroshell 120 EC-C8 (150 x 2.1mm,2.7um)
+      Agilent InfinityLab Poroshell 120 EC-C8 (50 x 2.1mm,2.7um):
+        text: Agilent InfinityLab Poroshell 120 EC-C8 (50 x 2.1mm,2.7um)
+      Agilent InfinityLab Poroshell 120 Phenyl-Hexyl (150 x 3mm,1.9um):
+        text: Agilent InfinityLab Poroshell 120 Phenyl-Hexyl (150 x 3mm,1.9um)
+      Agilent Zorbax Eclipse Plus C18 (100 x 2.1mm, 1.8 um):
+        text: Agilent Zorbax Eclipse Plus C18 (100 x 2.1mm, 1.8 um)
+      Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,1.8um):
+        text: Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,1.8um)
+      Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,3.5um):
+        text: Agilent ZORBAX Eclipse Plus C18 (100 x 2.1mm,3.5um)
+      Agilent ZORBAX Eclipse Plus C18 (100 x 4.6mm,3.5um):
+        text: Agilent ZORBAX Eclipse Plus C18 (100 x 4.6mm,3.5um)
+      Agilent ZORBAX Eclipse Plus C18 (150 x 2.1mm,3.5um):
+        text: Agilent ZORBAX Eclipse Plus C18 (150 x 2.1mm,3.5um)
+      Agilent ZORBAX Eclipse Plus C18 (150 x 3mm,1.8um):
+        text: Agilent ZORBAX Eclipse Plus C18 (150 x 3mm,1.8um)
+      Agilent ZORBAX Eclipse Plus C18 (50 x 2.1mm,1.8um):
+        text: Agilent ZORBAX Eclipse Plus C18 (50 x 2.1mm,1.8um)
+      Agilent ZORBAX Eclipse XDB-C18 (100 x 4.6mm,1.8um):
+        text: Agilent ZORBAX Eclipse XDB-C18 (100 x 4.6mm,1.8um)
+      Agilent ZORBAX Eclipse XDB-C18 (250 x 4.6mm,5um):
+        text: Agilent ZORBAX Eclipse XDB-C18 (250 x 4.6mm,5um)
+      Agilent ZORBAX RRHD Extend-C18 (50 x 2.1mm,1.8um):
+        text: Agilent ZORBAX RRHD Extend-C18 (50 x 2.1mm,1.8um)
+      Agilent ZORBAX RRHD SB-C18 (100 x 2.1mm,1.8um):
+        text: Agilent ZORBAX RRHD SB-C18 (100 x 2.1mm,1.8um)
+      Agilent ZORBAX RRHD SB-C18 (150 x 2.1mm,1.8um):
+        text: Agilent ZORBAX RRHD SB-C18 (150 x 2.1mm,1.8um)
+      AMT HALO HILIC (150 x 4.6mm,1.7um):
+        text: AMT HALO HILIC (150 x 4.6mm,1.7um)
+      EMD Millipore ZIC-HILIC (100 x 2.1 mm,3.5 um) :
+        text: EMD Millipore ZIC-HILIC (100 x 2.1 mm,3.5 um)
+      GL Sciences Intersil ODS-3 (150 x 4.6mm,3um):
+        text: GL Sciences Intersil ODS-3 (150 x 4.6mm,3um)
+      Hichrom Alltima HP C18 (150 x 2.1mm,3um):
+        text: Hichrom Alltima HP C18 (150 x 2.1mm,3um)
+      Hichrom AMT HALO HILIC (150 x 4.6mm,2.7um):
+        text: Hichrom AMT HALO HILIC (150 x 4.6mm,2.7um)
+      Higgins Analytical TARGA C18 (100 x 2.1mm,5um):
+        text: Higgins Analytical TARGA C18 (100 x 2.1mm,5um)
+      Higgins Analytical TARGA C18 (50 x 2.1mm,5um):
+        text: Higgins Analytical TARGA C18 (50 x 2.1mm,5um)
+      Macherey-Nagel NUCLEODUR C18 Isis (100 x 2mm,1.8um):
+        text: Macherey-Nagel NUCLEODUR C18 Isis (100 x 2mm,1.8um)
+      Macherey-Nagel NUCLEODUR HILIC (150 x 2mm,1.8um):
+        text: Macherey-Nagel NUCLEODUR HILIC (150 x 2mm,1.8um)
+      Macherey-Nagel NUCLEOSHELL RP18 (150 x 2mm,2.7um):
+        text: Macherey-Nagel NUCLEOSHELL RP18 (150 x 2mm,2.7um)
+      Merck Discovery HS C18 (150 x 2.1mm,3um):
+        text: Merck Discovery HS C18 (150 x 2.1mm,3um)
+      Merck Discovery HS F5 (PFP) (150 x 2.1mm,3um):
+        text: Merck Discovery HS F5 (PFP) (150 x 2.1mm,3um)
+      Merck Discovery HS F5 (PFP) (250 x 2.1mm,5um):
+        text: Merck Discovery HS F5 (PFP) (250 x 2.1mm,5um)
+      Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um):
+        text: Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+      Merck SeQuant ZIC-HILIC (150 x 2.1mm,3.5um):
+        text: Merck SeQuant ZIC-HILIC (150 x 2.1mm,3.5um)
+      Merck SeQuant ZIC-HILIC (150 x 2.1mm,5um):
+        text: Merck SeQuant ZIC-HILIC (150 x 2.1mm,5um)
+      Merck SeQuant ZIC-HILIC (150 x 4.6mm,5um):
+        text: Merck SeQuant ZIC-HILIC (150 x 4.6mm,5um)
+      Merck SeQuant ZIC-pHILIC (100 x 2.1mm,5um):
+        text: Merck SeQuant ZIC-pHILIC (100 x 2.1mm,5um)
+      Merck SeQuant ZIC-pHILIC (150 x 2.1mm,5um):
+        text: Merck SeQuant ZIC-pHILIC (150 x 2.1mm,5um)
+      Merck SeQuant ZIC-pHILIC (150 x 4.6mm,5um):
+        text: Merck SeQuant ZIC-pHILIC (150 x 4.6mm,5um)
+      Merck Supelco Ascentis Express C18 (100 x 2.1mm,2.7um):
+        text: Merck Supelco Ascentis Express C18 (100 x 2.1mm,2.7um)
+      Merck Supelco Ascentis Express C18 (100 x 4.6mm,2.7um):
+        text: Merck Supelco Ascentis Express C18 (100 x 4.6mm,2.7um)
+      Merck Supelco Ascentis Express C18 (150 x 2.1mm,2.7um):
+        text: Merck Supelco Ascentis Express C18 (150 x 2.1mm,2.7um)
+      Merck Supelco Ascentis Express C18 (50 x 2.1mm,2.7um):
+        text: Merck Supelco Ascentis Express C18 (50 x 2.1mm,2.7um)
+      Merck Supelco Ascentis Express C8 (50 x 2.1mm,2.7um):
+        text: Merck Supelco Ascentis Express C8 (50 x 2.1mm,2.7um)
+      MicroSolv Diamond Hydride (150 x 2.1mm,3.5um):
+        text: MicroSolv Diamond Hydride (150 x 2.1mm,3.5um)
+      Microsolv Diamond hydride (150mm,4um):
+        text: Microsolv Diamond hydride (150mm,4um)
+      Phenomenex Gemini C18 (50 x 4.6mm,5um):
+        text: Phenomenex Gemini C18 (50 x 4.6mm,5um)
+      Phenomenex Gemini NX-C18 (50 x 2mm,3um):
+        text: Phenomenex Gemini NX-C18 (50 x 2mm,3um)
+      Phenomenex Jupiter C18 (150 x 2mm,5um):
+        text: Phenomenex Jupiter C18 (150 x 2mm,5um)
+      Phenomenex Kinetex C18 (100 x 2.1mm,1.7um):
+        text: Phenomenex Kinetex C18 (100 x 2.1mm,1.7um)
+      Phenomenex Kinetex C18 (100 x 2.1mm,2.6um):
+        text: Phenomenex Kinetex C18 (100 x 2.1mm,2.6um)
+      Phenomenex Kinetex C18 (150 x 2.1mm,2.6um):
+        text: Phenomenex Kinetex C18 (150 x 2.1mm,2.6um)
+      Phenomenex Kinetex C18 (150 x 2.1mm,1.7um):
+        text: Phenomenex Kinetex C18 (150 x 2.1mm,1.7um)
+      Phenomenex Kinetex C18 (150 x 2.1mm,5um):
+        text: Phenomenex Kinetex C18 (150 x 2.1mm,5um)
+      Phenomenex Kinetex C18 (150 x 3mm,2.6um):
+        text: Phenomenex Kinetex C18 (150 x 3mm,2.6um)
+      Phenomenex Kinetex C18 (50 x 2.1mm,1.7um):
+        text: Phenomenex Kinetex C18 (50 x 2.1mm,1.7um)
+      Phenomenex Kinetex C8 (100 x 2.1mm,1.7um):
+        text: Phenomenex Kinetex C8 (100 x 2.1mm,1.7um)
+      Phenomenex Kinetex EVO C18 (100 x 2.1mm,1.7um):
+        text: Phenomenex Kinetex EVO C18 (100 x 2.1mm,1.7um)
+      Phenomenex Kinetex HILIC (150 x 3mm,2.6um):
+        text: Phenomenex Kinetex HILIC (150 x 3mm,2.6um)
+      Phenomenex Kinetex HILIC (50 x 2.1mm,2.6um):
+        text: Phenomenex Kinetex HILIC (50 x 2.1mm,2.6um)
+      Phenomenex Kinetex HILIC 100A (50 x 2.1 mm,2.6um):
+        text: Phenomenex Kinetex HILIC 100A (50 x 2.1 mm,2.6um)
+      Phenomenex Kinetex PFP (100 x 2.1mm,2.6um):
+        text: Phenomenex Kinetex PFP (100 x 2.1mm,2.6um)
+      Phenomenex Kinetex XB-C18 (150 x 2.1mm,1.7um):
+        text: Phenomenex Kinetex XB-C18 (150 x 2.1mm,1.7um)
+      Phenomenex Luna C5 (50 x 4.6mm,5um):
+        text: Phenomenex Luna C5 (50 x 4.6mm,5um)
+      Phenomenex Luna NH2 (100 x 2mm,3um):
+        text: Phenomenex Luna NH2 (100 x 2mm,3um)
+      Phenomenex Luna NH2 (150 x 1mm,3um):
+        text: Phenomenex Luna NH2 (150 x 1mm,3um)
+      Phenomenex Luna NH2 (150 x 2.1mm,3um):
+        text: Phenomenex Luna NH2 (150 x 2.1mm,3um)
+      Phenomenex Luna NH2 (150 x 2mm,3um):
+        text: Phenomenex Luna NH2 (150 x 2mm,3um)
+      Phenomenex Synergi Fusion-RP (100 x 4.6mm,4um):
+        text: Phenomenex Synergi Fusion-RP (100 x 4.6mm,4um)
+      Phenomenex Synergi Fusion-RP (150 x 2mm,4um):
+        text: Phenomenex Synergi Fusion-RP (150 x 2mm,4um)
+      Phenomenex Synergi Hydro RP 100 A (100 x 2mm,2.5um):
+        text: Phenomenex Synergi Hydro RP 100 A (100 x 2mm,2.5um)
+      Phenomenex Synergi Hydro-RP (100 x 2mm,2.5um):
+        text: Phenomenex Synergi Hydro-RP (100 x 2mm,2.5um)
+      Phenomenex Synergi Hydro-RP (150 x 2mm,4um):
+        text: Phenomenex Synergi Hydro-RP (150 x 2mm,4um)
+      Phenomenex Synergi Hydro-RP (250 x 2mm,4um):
+        text: Phenomenex Synergi Hydro-RP (250 x 2mm,4um)
+      Phenomenex Synergi Hydro-RP (50 x 2mm,4um):
+        text: Phenomenex Synergi Hydro-RP (50 x 2mm,4um)
+      Phenomenex Synergi Polar-RP (100 x 2.1mm,2.5um):
+        text: Phenomenex Synergi Polar-RP (100 x 2.1mm,2.5um)
+      Phenomenex Zebron ZB-AAA (10m x 0.25mm):
+        text: Phenomenex Zebron ZB-AAA (10m x 0.25mm)
+      Phenomenex Zebron ZB-WAXplus (30m x 0.25mm,0.25um):
+        text: Phenomenex Zebron ZB-WAXplus (30m x 0.25mm,0.25um)
+      Phenomenex, Kinetex HILIC (50 x 4.6mm,2.6um):
+        text: Phenomenex, Kinetex HILIC (50 x 4.6mm,2.6um)
+      Restek Pinnacle DB Biphenyl (50 x 2.1mm,1.9um):
+        text: Restek Pinnacle DB Biphenyl (50 x 2.1mm,1.9um)
+      Restek Rtx-5Sil MS (30 x 0.25mm, 0.25um):
+        text: Restek Rtx-5Sil MS (30 x 0.25mm, 0.25um)
+      Sequant Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um):
+        text: Sequant Merck SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+      SeQuant ZIC- pHILIC (150 x 2.1mm,5um):
+        text: SeQuant ZIC- pHILIC (150 x 2.1mm,5um)
+      SeQuant ZIC-HILIC (100 x 2.1mm,3.5um):
+        text: SeQuant ZIC-HILIC (100 x 2.1mm,3.5um)
+      SeQuant ZIC-HILIC (150 x 2.1mm,5um):
+        text: SeQuant ZIC-HILIC (150 x 2.1mm,5um)
+      SeQuant ZIC-HILIC (150 x 4.6mm,3.5um):
+        text: SeQuant ZIC-HILIC (150 x 4.6mm,3.5um)
+      Shodex ODP2 HP-4B 5um polymer (50 x 4.6mm):
+        text: Shodex ODP2 HP-4B 5um polymer (50 x 4.6mm)
+      Thermo Acclaim 120 C18 (150 x 2.1mm,2.2um):
+        text: Thermo Acclaim 120 C18 (150 x 2.1mm,2.2um)
+      Thermo Acclaim C30 (150 x 2.1mm,3um):
+        text: Thermo Acclaim C30 (150 x 2.1mm,3um)
+      Thermo Acclaim C30 (150 x 3mm,3um):
+        text: Thermo Acclaim C30 (150 x 3mm,3um)
+      Thermo Acclaim PepMap 100 C18 (150 x 0.075mm,2um):
+        text: Thermo Acclaim PepMap 100 C18 (150 x 0.075mm,2um)
+      Thermo Acclaim Polar Advantage II (150 x 3mm,3um):
+        text: Thermo Acclaim Polar Advantage II (150 x 3mm,3um)
+      Thermo Accucore C18 (100 x 2.1mm,2.6um):
+        text: Thermo Accucore C18 (100 x 2.1mm,2.6um)
+      Thermo Accucore C18 (150 x 2.1mm,2.6um):
+        text: Thermo Accucore C18 (150 x 2.1mm,2.6um)
+      Thermo Accucore C18 (30 x 2.1mm,2.6um):
+        text: Thermo Accucore C18 (30 x 2.1mm,2.6um)
+      Thermo Accucore C30 (150 x 2.1mm,2.6um):
+        text: Thermo Accucore C30 (150 x 2.1mm,2.6um)
+      Thermo Accucore HILIC (100 x 2.1mm,2.6um):
+        text: Thermo Accucore HILIC (100 x 2.1mm,2.6um)
+      Thermo Accucore HILIC (50 x 2.1mm,2.6um):
+        text: Thermo Accucore HILIC (50 x 2.1mm,2.6um)
+      Thermo AQUASIL C18 (50 x 2.1mm,5um):
+        text: Thermo AQUASIL C18 (50 x 2.1mm,5um)
+      Thermo BETASIL C1 (50 x 2.1mm,5um):
+        text: Thermo BETASIL C1 (50 x 2.1mm,5um)
+      Thermo BETASIL Diol (150 x 2.1mm,5um):
+        text: Thermo BETASIL Diol (150 x 2.1mm,5um)
+      Thermo Hamilton Anion Exchange (100 x 2.1mm,2.6um):
+        text: Thermo Hamilton Anion Exchange (100 x 2.1mm,2.6um)
+      Thermo Hamilton Anion Exchange (100 x 2.1mm,7um):
+        text: Thermo Hamilton Anion Exchange (100 x 2.1mm,7um)
+      Thermo Higgins C18 (50 x 2.1mm,3um):
+        text: Thermo Higgins C18 (50 x 2.1mm,3um)
+      Thermo Hypercarb (100 x 2.1mm,3um):
+        text: Thermo Hypercarb (100 x 2.1mm,3um)
+      Thermo Hypercarb (100 x 2.1mm,5um):
+        text: Thermo Hypercarb (100 x 2.1mm,5um)
+      Thermo Hypercarb (50 x 2.1mm,3um):
+        text: Thermo Hypercarb (50 x 2.1mm,3um)
+      Thermo Hypersil GOLD aQ (100 x 2mm,1.9um):
+        text: Thermo Hypersil GOLD aQ (100 x 2mm,1.9um)
+      Waters AccQ Tag (100 x 2mm,1.7um):
+        text: Waters AccQ Tag (100 x 2mm,1.7um)
+      Waters AccQ-Tag Ultra (100 x 2.1mm,1.7um):
+        text: Waters AccQ-Tag Ultra (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH Amide (100 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH Amide (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH Amide (150 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH Amide (150 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH Amide (50 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH Amide (50 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH C18 (100 x 1mm,2.1um):
+        text: Waters ACQUITY UPLC BEH C18 (100 x 1mm,2.1um)
+      Waters ACQUITY UPLC BEH C18 (100 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C18 (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH C18 (150 x 1.7mm,2.1um):
+        text: Waters ACQUITY UPLC BEH C18 (150 x 1.7mm,2.1um)
+      Waters ACQUITY UPLC BEH C18 (150 x 1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C18 (150 x 1mm,1.7um)
+      Waters ACQUITY UPLC BEH C18 (150 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C18 (150 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH C18 (30 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C18 (30 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH C18 (50 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C18 (50 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH C8 (100 x 1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C8 (100 x 1mm,1.7um)
+      Waters ACQUITY UPLC BEH C8 (100 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C8 (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH C8 (150 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH C8 (150 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH HILIC (100 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH HILIC (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH HILIC (150 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH HILIC (150 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH Phenyl (100 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH Phenyl (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC BEH Shield RP18 (50 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC BEH Shield RP18 (50 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC CSH C18 (100 x 1mm,1.7um):
+        text: Waters ACQUITY UPLC CSH C18 (100 x 1mm,1.7um)
+      Waters ACQUITY UPLC CSH C18 (100 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC CSH C18 (100 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC CSH C18 (150 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC CSH C18 (150 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC HSS C18 (100 x 2.1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS C18 (100 x 2.1mm,1.8um)
+      Waters ACQUITY UPLC HSS CN (100 x 2.1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS CN (100 x 2.1mm,1.8um)
+      Waters ACQUITY UPLC HSS T3 (100 x 1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS T3 (100 x 1mm,1.8um)
+      Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,1.8um)
+      Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,3um):
+        text: Waters ACQUITY UPLC HSS T3 (100 x 2.1mm,3um)
+      Waters ACQUITY UPLC HSS T3 (150 x 1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS T3 (150 x 1mm,1.8um)
+      Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.7um):
+        text: Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.7um)
+      Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS T3 (150 x 2.1mm,1.8um)
+      Waters ACQUITY UPLC HSS T3 (30 x 2.1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS T3 (30 x 2.1mm,1.8um)
+      Waters ACQUITY UPLC HSS T3 (50 x 2.1mm,1.8um):
+        text: Waters ACQUITY UPLC HSS T3 (50 x 2.1mm,1.8um)
+      Waters Atlantis T3 (150 x 4.6mm,5um):
+        text: Waters Atlantis T3 (150 x 4.6mm,5um)
+      Waters CORTECS HILIC (100 x 2.1mm,1.6um):
+        text: Waters CORTECS HILIC (100 x 2.1mm,1.6um)
+      Waters CORTECS UPLC C18 (150 x 2.1mm,1.6um):
+        text: Waters CORTECS UPLC C18 (150 x 2.1mm,1.6um)
+      Waters SunFire C18 (150 x 2.1mm,3.5um):
+        text: Waters SunFire C18 (150 x 2.1mm,3.5um)
+      Waters SunFire C18 (50 x 4.6mm,3.5um):
+        text: Waters SunFire C18 (50 x 4.6mm,3.5um)
+      Waters XBridge Amide (100 x 4.6mm,3.5um):
+        text: Waters XBridge Amide (100 x 4.6mm,3.5um)
+      Waters XBridge BEH Amide (100 x 2.1mm,2.5um):
+        text: Waters XBridge BEH Amide (100 x 2.1mm,2.5um)
+      Waters XBridge BEH Amide (50 x 2.1mm,2.5um):
+        text: Waters XBridge BEH Amide (50 x 2.1mm,2.5um)
+      Waters XBridge BEH C18 (100 x 2.1mm,3.5um):
+        text: Waters XBridge BEH C18 (100 x 2.1mm,3.5um)
+      Waters XBridge BEH C18 (150 x 2.1mm,3.5um):
+        text: Waters XBridge BEH C18 (150 x 2.1mm,3.5um)
+      Waters XBridge BEH HILIC (150 x 4.6mm,5um):
+        text: Waters XBridge BEH HILIC (150 x 4.6mm,5um)
+      Waters Xbridge BEH HILIC (75 x 2.1mm,2.5um):
+        text: Waters Xbridge BEH HILIC (75 x 2.1mm,2.5um)
+      Waters XBridge C18 (50 x 2.1mm,3um):
+        text: Waters XBridge C18 (50 x 2.1mm,3um)
+      Waters XSelect HSS T3 XP (150 x 3mm,2.5um):
+        text: Waters XSelect HSS T3 XP (150 x 3mm,2.5um)
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  chromatography_instrument menu:
+    name: chromatography_instrument menu
+    permissible_values:       
+      Waters TQS:
+        text: Waters TQS
+      Agilent 1100:
+        text: Agilent 1100
+      Agilent 1200:
+        text: Agilent 1200
+      Agilent 1200 RR Series II:
+        text: Agilent 1200 RR Series II
+      Agilent 1200SL:
+        text: Agilent 1200SL
+      Agilent 1260:
+        text: Agilent 1260
+      Agilent 1290:
+        text: Agilent 1290
+      Agilent 1290 Infinity:
+        text: Agilent 1290 Infinity
+      Agilent 1290 Infinity II:
+        text: Agilent 1290 Infinity II
+      Agilent 6210:
+        text: Agilent 6210
+      Agilent 6220:
+        text: Agilent 6220
+      Agilent 6490:
+        text: Agilent 6490
+      Agilent 6490A:
+        text: Agilent 6490A
+      Agilent 6520:
+        text: Agilent 6520
+      Agilent 6530:
+        text: Agilent 6530
+      Agilent 6550:
+        text: Agilent 6550
+      Agilent 6560:
+        text: Agilent 6560
+      Agilent 6890N:
+        text: Agilent 6890N
+      Agilent 7100 CE:
+        text: Agilent 7100 CE
+      Agilent 7890A:
+        text: Agilent 7890A
+      Agilent 7890B:
+        text: Agilent 7890B
+      Agilent 7890N:
+        text: Agilent 7890N
+      Agilent CE:
+        text: Agilent CE
+      Cohesive TX2:
+        text: Cohesive TX2
+      Leco Pegasus 4D GC:
+        text: Leco Pegasus 4D GC
+      Leco Pegasus III GC:
+        text: Leco Pegasus III GC
+      Leco Pegasus IV GC:
+        text: Leco Pegasus IV GC
+      Shimadzu 10A:
+        text: Shimadzu 10A
+      Shimadzu 20AD:
+        text: Shimadzu 20AD
+      Shimadzu CBM20A:
+        text: Shimadzu CBM20A
+      Shimadzu GC-2010:
+        text: Shimadzu GC-2010
+      Shimadzu GCMS-QP2010 ultra:
+        text: Shimadzu GCMS-QP2010 ultra
+      Shimadzu Nexera X2:
+        text: Shimadzu Nexera X2
+      Thermo Accela 1250:
+        text: Thermo Accela 1250
+      Thermo Accela 600:
+        text: Thermo Accela 600
+      Thermo Accela CTC:
+        text: Thermo Accela CTC
+      Thermo Dionex:
+        text: Thermo Dionex
+      Thermo Dionex Ultimate 3000:
+        text: Thermo Dionex Ultimate 3000
+      Thermo Dionex Ultimate 3000 RS:
+        text: Thermo Dionex Ultimate 3000 RS
+      Thermo Dionex ICS-5000+:
+        text: Thermo Dionex ICS-5000+
+      Thermo Trace 1310:
+        text: Thermo Trace 1310
+      Thermo Vanquish:
+        text: Thermo Vanquish
+      Waters 2777C:
+        text: Waters 2777C
+      Waters Acquity:
+        text: Waters Acquity
+      Waters Acquity H-Class:
+        text: Waters Acquity H-Class
+      Waters Acquity I-Class:
+        text: Waters Acquity I-Class
+      Waters NanoAcquity:
+        text: Waters NanoAcquity
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  ms_method.name menu:
+    name: ms_method.name menu
+    permissible_values: 
+      APCI:
+        text: APCI
+      API:
+        text: API
+      EI:
+        text: EI
+      ESI:
+        text: ESI
+      MALDI:
+        text: MALDI
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  ion_mode menu:
+    name: ion_mode menu
+    permissible_values:
+      POSITIVE:
+        text: POSITIVE
+      NEGATIVE:
+        text: NEGATIVE
       Not applicable:
         text: Not applicable
       Missing:
