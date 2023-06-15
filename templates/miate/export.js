@@ -196,7 +196,7 @@ export default {
                         ["feed_name", []], 
                         ["feed_vendor", []],
                         ["water_type", []],
-                        ["feeding_paradigm", []],
+                        ["feed_paradigm", []],
                         ['provenance', ["study template version",],],
                     ]),
                     uid: "submitter_id",

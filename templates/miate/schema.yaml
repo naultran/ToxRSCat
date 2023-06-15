@@ -185,7 +185,7 @@ classes:
         rank: 26
         slot_group: diet
         exact_mappings:
-        - diet:feeding_paradigm
+        - diet:feed_paradigm
       treatment_date:
         rank: 27
         slot_group: treatment

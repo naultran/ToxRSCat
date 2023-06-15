@@ -3160,7 +3160,7 @@
         "feeding_paradigm": {
           "name": "feeding_paradigm",
           "exact_mappings": [
-            "diet:feeding_paradigm"
+            "diet:feed_paradigm"
           ],
           "rank": 26,
           "slot_group": "diet"
@@ -3718,7 +3718,7 @@
           "title": "feeding_paradigm",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "diet:feeding_paradigm"
+            "diet:feed_paradigm"
           ],
           "rank": 26,
           "slot_uri": "obo:OBI_0000694",
