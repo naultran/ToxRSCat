@@ -2448,7 +2448,7 @@
         "solventA": {
           "name": "solventA",
           "exact_mappings": [
-            "mass_spec_assay:solvent.solventA"
+            "mass_spec_assay:solventA"
           ],
           "rank": 33,
           "slot_group": "LiquidChromatography"
@@ -2456,7 +2456,7 @@
         "solventB": {
           "name": "solventB",
           "exact_mappings": [
-            "mass_spec_assay:solvent.solventB"
+            "mass_spec_assay:solventB"
           ],
           "rank": 34,
           "slot_group": "LiquidChromatography"
@@ -2464,7 +2464,7 @@
         "solventC": {
           "name": "solventC",
           "exact_mappings": [
-            "mass_spec_assay:solvent.solventC"
+            "mass_spec_assay:solventC"
           ],
           "rank": 35,
           "slot_group": "LiquidChromatography"
@@ -3097,7 +3097,7 @@
           "title": "solventA",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "mass_spec_assay:solvent.solventA"
+            "mass_spec_assay:solventA"
           ],
           "rank": 33,
           "alias": "solventA",
@@ -3114,7 +3114,7 @@
           "title": "solventB",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "mass_spec_assay:solvent.solventB"
+            "mass_spec_assay:solventB"
           ],
           "rank": 34,
           "alias": "solventB",
@@ -3131,7 +3131,7 @@
           "title": "solventC",
           "from_schema": "https://example.com/CIMR",
           "exact_mappings": [
-            "mass_spec_assay:solvent.solventC"
+            "mass_spec_assay:solventC"
           ],
           "rank": 35,
           "alias": "solventC",

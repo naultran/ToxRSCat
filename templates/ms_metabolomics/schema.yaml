@@ -218,17 +218,17 @@ classes:
         rank: 33
         slot_group: LiquidChromatography
         exact_mappings:
-          mass_spec_assay:solvent.solventA
+          mass_spec_assay:solventA
       solventB:
         rank: 34
         slot_group: LiquidChromatography
         exact_mappings:
-          mass_spec_assay:solvent.solventB
+          mass_spec_assay:solventB
       solventC:
         rank: 35
         slot_group: LiquidChromatography
         exact_mappings:
-          mass_spec_assay:solvent.solventC
+          mass_spec_assay:solventC
       carrier_gas:
         rank: 36
         slot_group: GasChromatography
