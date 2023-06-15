@@ -41,9 +41,6 @@ classes:
     - analysis_protocols
     - sample_dilution
     - calibration_standard
-    - solventA
-    - solventB
-    - solventC
     - chromatography.name
     - chromatography_column
     - chromatography_protocol
@@ -51,6 +48,9 @@ classes:
     - chromatography_method_filename
     - elution program
     - flow_rate
+    - solventA
+    - solventB
+    - solventC
     - carrier_gas
     - oven_temperature_program
     - ms_method.name
@@ -179,56 +179,56 @@ classes:
         slot_group: extract
         exact_mappings:
           mass_spec_assay:calibration_standard
-      solventA:
-        rank: 26
-        slot_group: solvent
-        exact_mappings:
-          mass_spec_assay:solvent.solventA
-      solventB:
-        rank: 27
-        slot_group: solvent
-        exact_mappings:
-          mass_spec_assay:solvent.solventB
-      solventC:
-        rank: 28
-        slot_group: solvent
-        exact_mappings:
-          mass_spec_assay:solvent.solventC
       chromatography.name:
-        rank: 29
+        rank: 26
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_type
       chromatography_column:
-        rank: 30
+        rank: 27
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_column
       chromatography_protocol:
-        rank: 31
+        rank: 28
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_protocol
       chromatography_instrument:
-        rank: 32
+        rank: 29
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_instrument
       chromatography_method_filename:
-        rank: 33
+        rank: 30
         slot_group: chromatography
         exact_mappings:
           mass_spec_assay:chromatography_method_filename
       elution program:
-        rank: 34
+        rank: 31
         slot_group: LiquidChromatography
         exact_mappings:
           mass_spec_assay:elution_program
       flow_rate:
-        rank: 35
+        rank: 32
         slot_group: LiquidChromatography
         exact_mappings:
           mass_spec_assay:flow_rate
+      solventA:
+        rank: 33
+        slot_group: LiquidChromatography
+        exact_mappings:
+          mass_spec_assay:solvent.solventA
+      solventB:
+        rank: 34
+        slot_group: LiquidChromatography
+        exact_mappings:
+          mass_spec_assay:solvent.solventB
+      solventC:
+        rank: 35
+        slot_group: LiquidChromatography
+        exact_mappings:
+          mass_spec_assay:solvent.solventC
       carrier_gas:
         rank: 36
         slot_group: GasChromatography

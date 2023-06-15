@@ -2389,36 +2389,12 @@
           "rank": 25,
           "slot_group": "extract"
         },
-        "solventA": {
-          "name": "solventA",
-          "exact_mappings": [
-            "mass_spec_assay:solvent.solventA"
-          ],
-          "rank": 26,
-          "slot_group": "solvent"
-        },
-        "solventB": {
-          "name": "solventB",
-          "exact_mappings": [
-            "mass_spec_assay:solvent.solventB"
-          ],
-          "rank": 27,
-          "slot_group": "solvent"
-        },
-        "solventC": {
-          "name": "solventC",
-          "exact_mappings": [
-            "mass_spec_assay:solvent.solventC"
-          ],
-          "rank": 28,
-          "slot_group": "solvent"
-        },
         "chromatography.name": {
           "name": "chromatography.name",
           "exact_mappings": [
             "mass_spec_assay:chromatography_type"
           ],
-          "rank": 29,
+          "rank": 26,
           "slot_group": "chromatography"
         },
         "chromatography_column": {
@@ -2426,7 +2402,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_column"
           ],
-          "rank": 30,
+          "rank": 27,
           "slot_group": "chromatography"
         },
         "chromatography_protocol": {
@@ -2434,7 +2410,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_protocol"
           ],
-          "rank": 31,
+          "rank": 28,
           "slot_group": "chromatography"
         },
         "chromatography_instrument": {
@@ -2442,7 +2418,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_instrument"
           ],
-          "rank": 32,
+          "rank": 29,
           "slot_group": "chromatography"
         },
         "chromatography_method_filename": {
@@ -2450,7 +2426,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_method_filename"
           ],
-          "rank": 33,
+          "rank": 30,
           "slot_group": "chromatography"
         },
         "elution program": {
@@ -2458,13 +2434,37 @@
           "exact_mappings": [
             "mass_spec_assay:elution_program"
           ],
-          "rank": 34,
+          "rank": 31,
           "slot_group": "LiquidChromatography"
         },
         "flow_rate": {
           "name": "flow_rate",
           "exact_mappings": [
             "mass_spec_assay:flow_rate"
+          ],
+          "rank": 32,
+          "slot_group": "LiquidChromatography"
+        },
+        "solventA": {
+          "name": "solventA",
+          "exact_mappings": [
+            "mass_spec_assay:solvent.solventA"
+          ],
+          "rank": 33,
+          "slot_group": "LiquidChromatography"
+        },
+        "solventB": {
+          "name": "solventB",
+          "exact_mappings": [
+            "mass_spec_assay:solvent.solventB"
+          ],
+          "rank": 34,
+          "slot_group": "LiquidChromatography"
+        },
+        "solventC": {
+          "name": "solventC",
+          "exact_mappings": [
+            "mass_spec_assay:solvent.solventC"
           ],
           "rank": 35,
           "slot_group": "LiquidChromatography"
@@ -2969,57 +2969,6 @@
           "slot_group": "extract",
           "range": "WhitespaceMinimizedString"
         },
-        "solventA": {
-          "name": "solventA",
-          "description": "<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>",
-          "title": "solventA",
-          "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "mass_spec_assay:solvent.solventA"
-          ],
-          "rank": 26,
-          "alias": "solventA",
-          "owner": "mass_spec_assay",
-          "domain_of": [
-            "mass_spec_assay"
-          ],
-          "slot_group": "solvent",
-          "range": "WhitespaceMinimizedString"
-        },
-        "solventB": {
-          "name": "solventB",
-          "description": "<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>",
-          "title": "solventB",
-          "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "mass_spec_assay:solvent.solventB"
-          ],
-          "rank": 27,
-          "alias": "solventB",
-          "owner": "mass_spec_assay",
-          "domain_of": [
-            "mass_spec_assay"
-          ],
-          "slot_group": "solvent",
-          "range": "WhitespaceMinimizedString"
-        },
-        "solventC": {
-          "name": "solventC",
-          "description": " ",
-          "title": "solventC",
-          "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "mass_spec_assay:solvent.solventC"
-          ],
-          "rank": 28,
-          "alias": "solventC",
-          "owner": "mass_spec_assay",
-          "domain_of": [
-            "mass_spec_assay"
-          ],
-          "slot_group": "solvent",
-          "range": "WhitespaceMinimizedString"
-        },
         "chromatography.name": {
           "name": "chromatography.name",
           "description": "name of chromatography",
@@ -3028,7 +2977,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_type"
           ],
-          "rank": 29,
+          "rank": 26,
           "alias": "chromatography.name",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -3046,7 +2995,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_column"
           ],
-          "rank": 30,
+          "rank": 27,
           "alias": "chromatography_column",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -3064,7 +3013,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_protocol"
           ],
-          "rank": 31,
+          "rank": 28,
           "alias": "chromatography_protocol",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -3082,7 +3031,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_instrument"
           ],
-          "rank": 32,
+          "rank": 29,
           "alias": "chromatography_instrument",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -3099,7 +3048,7 @@
           "exact_mappings": [
             "mass_spec_assay:chromatography_method_filename"
           ],
-          "rank": 33,
+          "rank": 30,
           "alias": "chromatography_method_filename",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -3116,7 +3065,7 @@
           "exact_mappings": [
             "mass_spec_assay:elution_program"
           ],
-          "rank": 34,
+          "rank": 31,
           "alias": "elution_program",
           "owner": "mass_spec_assay",
           "domain_of": [
@@ -3133,8 +3082,59 @@
           "exact_mappings": [
             "mass_spec_assay:flow_rate"
           ],
-          "rank": 35,
+          "rank": 32,
           "alias": "flow_rate",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "solventA": {
+          "name": "solventA",
+          "description": "<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>",
+          "title": "solventA",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:solvent.solventA"
+          ],
+          "rank": 33,
+          "alias": "solventA",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "solventB": {
+          "name": "solventB",
+          "description": "<Solvent (vol/vol) percentage X/Y/Z>; <acid concentration (final % or mM)>; <Salts/additives(final % or mM)>",
+          "title": "solventB",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:solvent.solventB"
+          ],
+          "rank": 34,
+          "alias": "solventB",
+          "owner": "mass_spec_assay",
+          "domain_of": [
+            "mass_spec_assay"
+          ],
+          "slot_group": "LiquidChromatography",
+          "range": "WhitespaceMinimizedString"
+        },
+        "solventC": {
+          "name": "solventC",
+          "description": " ",
+          "title": "solventC",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "mass_spec_assay:solvent.solventC"
+          ],
+          "rank": 35,
+          "alias": "solventC",
           "owner": "mass_spec_assay",
           "domain_of": [
             "mass_spec_assay"
