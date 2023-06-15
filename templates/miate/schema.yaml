@@ -300,17 +300,17 @@ classes:
         rank: 4
         slot_group: Contact
         exact_mappings:
-        - contact:contact_name.First
+        - contact:first_name
       last_name:
         rank: 5
         slot_group: Contact
         exact_mappings:
-        - contact:contact_name.Last
+        - contact:last_name
       middle_name: 
         rank: 6
         slot_group: Contact
         exact_mappings:
-        - contact:contact_name.Middle
+        - contact:middle_name
       data_submission_contact_orcid:
         rank: 7
         slot_group: Contact
@@ -419,8 +419,6 @@ classes:
       Sample.subject_identifier:
         rank: 3
         slot_group: identifiers
-        exact_mappings:
-        - gen3_submit_sample:subjects.submitter_id
       date:
         rank: 4
         slot_group: sample_details

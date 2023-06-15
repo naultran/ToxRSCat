@@ -4000,7 +4000,7 @@
         "first_name": {
           "name": "first_name",
           "exact_mappings": [
-            "contact:contact_name.First"
+            "contact:first_name"
           ],
           "rank": 4,
           "slot_group": "Contact"
@@ -4008,7 +4008,7 @@
         "last_name": {
           "name": "last_name",
           "exact_mappings": [
-            "contact:contact_name.Last"
+            "contact:last_name"
           ],
           "rank": 5,
           "slot_group": "Contact"
@@ -4016,7 +4016,7 @@
         "middle_name": {
           "name": "middle_name",
           "exact_mappings": [
-            "contact:contact_name.Middle"
+            "contact:middle_name"
           ],
           "rank": 6,
           "slot_group": "Contact"
@@ -4221,7 +4221,7 @@
           "title": "first name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "contact:contact_name.First"
+            "contact:first_name"
           ],
           "rank": 4,
           "alias": "first_name",
@@ -4239,7 +4239,7 @@
           "title": "middle name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "contact:contact_name.Middle"
+            "contact:middle_name"
           ],
           "rank": 6,
           "alias": "middle_name",
@@ -4256,7 +4256,7 @@
           "title": "last name",
           "from_schema": "https://example.com/MIATE",
           "exact_mappings": [
-            "contact:contact_name.Last"
+            "contact:last_name"
           ],
           "rank": 5,
           "alias": "last_name",
@@ -4627,9 +4627,6 @@
         },
         "Sample.subject_identifier": {
           "name": "Sample.subject_identifier",
-          "exact_mappings": [
-            "gen3_submit_sample:subjects.submitter_id"
-          ],
           "rank": 3,
           "slot_group": "identifiers"
         },
@@ -4741,9 +4738,6 @@
           "description": " ",
           "title": "subject_identifier",
           "from_schema": "https://example.com/MIATE",
-          "exact_mappings": [
-            "gen3_submit_sample:subjects.submitter_id"
-          ],
           "rank": 3,
           "alias": "Sample.subject_identifier",
           "owner": "Sample",
