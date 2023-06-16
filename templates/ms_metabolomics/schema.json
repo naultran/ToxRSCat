@@ -1979,7 +1979,7 @@
     "metabolite.data_analysis_id": {
       "name": "metabolite.data_analysis_id",
       "description": " ",
-      "title": "data_analysis_id",
+      "title": "processedDataFile",
       "comments": [
         " "
       ],
@@ -3357,7 +3357,7 @@
         "metabolite.data_analysis_id": {
           "name": "metabolite.data_analysis_id",
           "description": " ",
-          "title": "data_analysis_id",
+          "title": "processedDataFile",
           "from_schema": "https://example.com/CIMR",
           "rank": 2,
           "alias": "metabolite.data_analysis_id",

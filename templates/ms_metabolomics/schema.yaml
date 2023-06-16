@@ -739,7 +739,7 @@ slots:
     comments: Acetyl-CoA
   metabolite.data_analysis_id:
     name: metabolite.data_analysis_id
-    title: data_analysis_id
+    title: processedDataFile
     range: WhitespaceMinimizedString
     description: ' '
     required: true
