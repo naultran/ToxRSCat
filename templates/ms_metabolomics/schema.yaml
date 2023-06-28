@@ -478,7 +478,7 @@ slots:
   raw.data_format:
     name: raw.data_format
     title: data_format
-    range: raw.data_format menu
+    range: data_format menu
     description: ' '
     comments: ' '
   raw.data_type:
@@ -526,7 +526,7 @@ slots:
   processed.data_format:
     name: processed.data_format
     title: data_format
-    range: processed.data_format menu
+    range: data_format menu
     description: ' '
     comments: ' '
   processed.data_type:

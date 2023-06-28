@@ -1581,7 +1581,7 @@
         " "
       ],
       "from_schema": "https://example.com/CIMR",
-      "range": "raw.data_format menu"
+      "range": "data_format menu"
     },
     "raw.data_type": {
       "name": "raw.data_type",
@@ -1661,7 +1661,7 @@
         " "
       ],
       "from_schema": "https://example.com/CIMR",
-      "range": "processed.data_format menu"
+      "range": "data_format menu"
     },
     "processed.data_type": {
       "name": "processed.data_type",
@@ -2613,7 +2613,7 @@
             "mass_spec_assay"
           ],
           "slot_group": "raw_data",
-          "range": "raw.data_format menu"
+          "range": "data_format menu"
         },
         "raw.data_type": {
           "name": "raw.data_type",
@@ -2747,7 +2747,7 @@
             "mass_spec_assay"
           ],
           "slot_group": "data_analysis",
-          "range": "processed.data_format menu"
+          "range": "data_format menu"
         },
         "processed.data_type": {
           "name": "processed.data_type",
