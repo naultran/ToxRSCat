@@ -960,21 +960,6 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
-  raw.data_format menu:
-    name: raw.data_format menu
-    permissible_values:
-      .RAW:
-        text: .RAW
-      Not applicable:
-        text: Not applicable
-      Missing:
-        text: Missing
-      Not collected:
-        text: Not collected
-      Not provided:
-        text: Not provided
-      Restricted access:
-        text: Restricted access
   raw.data_type menu:
     name: raw.data_type menu
     permissible_values:
@@ -1009,13 +994,17 @@ enums:
         text: Not provided
       Restricted access:
         text: Restricted access
-  processed.data_format menu:
-    name: processed.data_format menu
+  data_format menu:
+    name: data_format menu
     permissible_values:
+      .RAW:
+        text: .RAW
       .txt:
         text: .txt
       .csv:
         text: .csv
+      .mzML:
+        text: .mzML
       Not applicable:
         text: Not applicable
       Missing:
@@ -1029,6 +1018,8 @@ enums:
   processed.data_type menu:
     name: processed.data_type menu
     permissible_values:
+      chromatograms:
+        text: chromatograms
       integrated peaks:
         text: integrated peaks
       Not applicable:
