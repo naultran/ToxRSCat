@@ -382,7 +382,7 @@ slots:
     comments: ' '
   submitter_id:
     name: submitter_id
-    title: flwy cytometry ID
+    title: flow cytometry ID
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.

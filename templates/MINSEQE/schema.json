@@ -928,7 +928,7 @@
     "submitter_id": {
       "name": "submitter_id",
       "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-      "title": "flwy cytometry ID",
+      "title": "flow cytometry ID",
       "comments": [
         "ms_S001"
       ],
@@ -1894,7 +1894,7 @@
         "submitter_id": {
           "name": "submitter_id",
           "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-          "title": "flwy cytometry ID",
+          "title": "flow cytometry ID",
           "from_schema": "https://example.com/CIMR",
           "rank": 1,
           "alias": "submitter_id",
