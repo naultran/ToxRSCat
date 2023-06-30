@@ -1,0 +1,3116 @@
+{
+  "name": "mass_spec_metabolomics",
+  "description": "Based on CIMR",
+  "id": "https://example.com/CIMR",
+  "version": "1.0.0",
+  "prefixes": {
+    "linkml": {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    "obo": {
+      "prefix_prefix": "obo",
+      "prefix_reference": "http://purl.obolibrary.org/obo/"
+    },
+    "xsd": {
+      "prefix_prefix": "xsd",
+      "prefix_reference": "http://www.w3.org/2001/XMLSchema#"
+    },
+    "shex": {
+      "prefix_prefix": "shex",
+      "prefix_reference": "http://www.w3.org/ns/shex#"
+    },
+    "schema": {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    }
+  },
+  "default_prefix": "https://example.com/CIMR/",
+  "types": {
+    "WhitespaceMinimizedString": {
+      "name": "WhitespaceMinimizedString",
+      "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
+      "from_schema": "https://example.com/CIMR",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "Provenance": {
+      "name": "Provenance",
+      "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
+      "from_schema": "https://example.com/CIMR",
+      "typeof": "string",
+      "base": "str",
+      "uri": "xsd:token"
+    },
+    "string": {
+      "name": "string",
+      "description": "A character string",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "xsd:string"
+    },
+    "integer": {
+      "name": "integer",
+      "description": "An integer",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "xsd:integer"
+    },
+    "boolean": {
+      "name": "boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "xsd:boolean",
+      "repr": "bool"
+    },
+    "float": {
+      "name": "float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:float"
+    },
+    "double": {
+      "name": "double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://example.com/CIMR",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "xsd:double"
+    },
+    "decimal": {
+      "name": "decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://example.com/CIMR",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "xsd:decimal"
+    },
+    "time": {
+      "name": "time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date": {
+      "name": "date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "xsd:date",
+      "repr": "str"
+    },
+    "datetime": {
+      "name": "datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://example.com/CIMR",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "xsd:dateTime",
+      "repr": "str"
+    },
+    "date_or_datetime": {
+      "name": "date_or_datetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://example.com/CIMR",
+      "base": "str",
+      "uri": "linkml:DateOrDatetime",
+      "repr": "str"
+    },
+    "uriorcurie": {
+      "name": "uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://example.com/CIMR",
+      "base": "URIorCURIE",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "curie": {
+      "name": "curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "base": "Curie",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "uri": {
+      "name": "uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "xsd:anyURI",
+      "repr": "str"
+    },
+    "ncname": {
+      "name": "ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://example.com/CIMR",
+      "base": "NCName",
+      "uri": "xsd:string",
+      "repr": "str"
+    },
+    "objectidentifier": {
+      "name": "objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "base": "ElementIdentifier",
+      "uri": "shex:iri",
+      "repr": "str"
+    },
+    "nodeidentifier": {
+      "name": "nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://example.com/CIMR",
+      "base": "NodeIdentifier",
+      "uri": "shex:nonLiteral",
+      "repr": "str"
+    }
+  },
+  "enums": {
+    "analyte_type menu": {
+      "name": "analyte_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "mRNA,cDNA,DNA": {
+          "text": "mRNA,cDNA,DNA"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "extract_preservation_method menu": {
+      "name": "extract_preservation_method menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Room temperature": {
+          "text": "Room temperature"
+        },
+        "-20C": {
+          "text": "-20C"
+        },
+        "-80C": {
+          "text": "-80C"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "raw.data_category menu": {
+      "name": "raw.data_category menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "WGS": {
+          "text": "WGS"
+        },
+        "WXS": {
+          "text": "WXS"
+        },
+        "Low Pass WGS": {
+          "text": "Low Pass WGS"
+        },
+        "Validation": {
+          "text": "Validation"
+        },
+        "RNA-Seq": {
+          "text": "RNA-Seq"
+        },
+        "miRNA-Seq": {
+          "text": "miRNA-Seq"
+        },
+        "Total RNA-Seq": {
+          "text": "Total RNA-Seq"
+        },
+        "DNA Panel": {
+          "text": "DNA Panel"
+        },
+        "snRNAseq": {
+          "text": "snRNAseq"
+        },
+        "scRNAseq": {
+          "text": "scRNAseq"
+        },
+        "Spatial Trancriptomics": {
+          "text": "Spatial Trancriptomics"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "raw.data_format menu": {
+      "name": "raw.data_format menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        ".FASTQ": {
+          "text": ".FASTQ"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "raw.data_type menu": {
+      "name": "raw.data_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Unaligned Reads": {
+          "text": "Unaligned Reads"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "qc.data_format menu": {
+      "name": "qc.data_format menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "FASTQC": {
+          "text": "FASTQC"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "qc.data_type menu": {
+      "name": "qc.data_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Unaligned Read QC": {
+          "text": "Unaligned Read QC"
+        },
+        "Aligned Read QC": {
+          "text": "Aligned Read QC"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "processed.data_format menu": {
+      "name": "processed.data_format menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "BAM": {
+          "text": "BAM"
+        },
+        "BED": {
+          "text": "BED"
+        },
+        "TXT": {
+          "text": "TXT"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "processed.data_type menu": {
+      "name": "processed.data_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Aligned Reads": {
+          "text": "Aligned Reads"
+        },
+        "Alignment Coordinates": {
+          "text": "Alignment Coordinates"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "workflow_type menu": {
+      "name": "workflow_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "STAR": {
+          "text": "STAR"
+        },
+        "BWA-aln": {
+          "text": "BWA-aln"
+        },
+        "BWA-mem": {
+          "text": "BWA-mem"
+        },
+        "spinnaker": {
+          "text": "spinnaker"
+        },
+        "Salmon": {
+          "text": "Salmon"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "spike_ins menu": {
+      "name": "spike_ins menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "ERCC RNA Spike-In Mix (Thermo Fisher)": {
+          "text": "ERCC RNA Spike-In Mix (Thermo Fisher)"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "instrument_model menu": {
+      "name": "instrument_model menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "454 GS FLX Titanium": {
+          "text": "454 GS FLX Titanium"
+        },
+        "AB SOLiD 4": {
+          "text": "AB SOLiD 4"
+        },
+        "AB SOLiD 2": {
+          "text": "AB SOLiD 2"
+        },
+        "AB SOLiD 3": {
+          "text": "AB SOLiD 3"
+        },
+        "Complete Genomics": {
+          "text": "Complete Genomics"
+        },
+        "Illumina HiSeq X Ten": {
+          "text": "Illumina HiSeq X Ten"
+        },
+        "Illumina HiSeq X Five": {
+          "text": "Illumina HiSeq X Five"
+        },
+        "Illumina Genome Analyzer II": {
+          "text": "Illumina Genome Analyzer II"
+        },
+        "Illumina Genome Analyzer IIx": {
+          "text": "Illumina Genome Analyzer IIx"
+        },
+        "Illumina HiSeq 2000": {
+          "text": "Illumina HiSeq 2000"
+        },
+        "Illumina HiSeq 2500": {
+          "text": "Illumina HiSeq 2500"
+        },
+        "Illumina HiSeq 4000": {
+          "text": "Illumina HiSeq 4000"
+        },
+        "Illumina MiSeq": {
+          "text": "Illumina MiSeq"
+        },
+        "Illumina NextSeq 500": {
+          "text": "Illumina NextSeq 500"
+        },
+        "Illumina NextSeq 550": {
+          "text": "Illumina NextSeq 550"
+        },
+        "Illumina NovaSeq 6000": {
+          "text": "Illumina NovaSeq 6000"
+        },
+        "Ion Torrent PGM": {
+          "text": "Ion Torrent PGM"
+        },
+        "Ion Torrent Proton": {
+          "text": "Ion Torrent Proton"
+        },
+        "PacBio RS": {
+          "text": "PacBio RS"
+        },
+        "Ion S5 XL System, Ion 530 Chip": {
+          "text": "Ion S5 XL System, Ion 530 Chip"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "library_selection menu": {
+      "name": "library_selection menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Hybrid_Selection": {
+          "text": "Hybrid_Selection"
+        },
+        "PCR": {
+          "text": "PCR"
+        },
+        "Affinity_Enrichment": {
+          "text": "Affinity_Enrichment"
+        },
+        "Poly-T_Enrichment": {
+          "text": "Poly-T_Enrichment"
+        },
+        "RNA_Depletion": {
+          "text": "RNA_Depletion"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "library_strand menu": {
+      "name": "library_strand menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Unstranded": {
+          "text": "Unstranded"
+        },
+        "First_Stranded": {
+          "text": "First_Stranded"
+        },
+        "Second_Stranded": {
+          "text": "Second_Stranded"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "library_strategy menu": {
+      "name": "library_strategy menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "WGS": {
+          "text": "WGS"
+        },
+        "WXS": {
+          "text": "WXS"
+        },
+        "RNA-Seq": {
+          "text": "RNA-Seq"
+        },
+        "ChIP-Seq": {
+          "text": "ChIP-Seq"
+        },
+        "miRNA-Seq": {
+          "text": "miRNA-Seq"
+        },
+        "Bisulfite-Seq": {
+          "text": "Bisulfite-Seq"
+        },
+        "Validation": {
+          "text": "Validation"
+        },
+        "Amplicon": {
+          "text": "Amplicon"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "platform menu": {
+      "name": "platform menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Illumina": {
+          "text": "Illumina"
+        },
+        "SOLiD": {
+          "text": "SOLiD"
+        },
+        "LS454": {
+          "text": "LS454"
+        },
+        "Ion Torrent": {
+          "text": "Ion Torrent"
+        },
+        "Complete Genomics": {
+          "text": "Complete Genomics"
+        },
+        "PacBio": {
+          "text": "PacBio"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "analyzed.data_category menu": {
+      "name": "analyzed.data_category menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "DESeq2": {
+          "text": "DESeq2"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "analyzed.data_format menu": {
+      "name": "analyzed.data_format menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "TXT": {
+          "text": "TXT"
+        },
+        "RDATA": {
+          "text": "RDATA"
+        },
+        "H5AD": {
+          "text": "H5AD"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    },
+    "analyzed.data_type menu": {
+      "name": "analyzed.data_type menu",
+      "from_schema": "https://example.com/CIMR",
+      "permissible_values": {
+        "Differential expression": {
+          "text": "Differential expression"
+        },
+        "Not applicable": {
+          "text": "Not applicable"
+        },
+        "Missing": {
+          "text": "Missing"
+        },
+        "Not collected": {
+          "text": "Not collected"
+        },
+        "Not provided": {
+          "text": "Not provided"
+        },
+        "Restricted access": {
+          "text": "Restricted access"
+        }
+      }
+    }
+  },
+  "slots": {
+    "aliquot.submitter_id": {
+      "name": "aliquot.submitter_id",
+      "description": " ",
+      "title": "aliquot ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sample.submitter_id": {
+      "name": "sample.submitter_id",
+      "description": " ",
+      "title": "sample ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyte_type": {
+      "name": "analyte_type",
+      "description": " ",
+      "title": "Analyte type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "analyte_type menu"
+    },
+    "analyte_protocol": {
+      "name": "analyte_protocol",
+      "description": " ",
+      "title": "Analyte preparation protocol",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "extract_preservation_method": {
+      "name": "extract_preservation_method",
+      "description": "The chemical agent used for the derivatization reaction",
+      "title": "extract_preservation_method",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "extract_preservation_method menu"
+    },
+    "a260_a280_ratio": {
+      "name": "a260_a280_ratio",
+      "description": "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.",
+      "title": "a260_a280_ratio",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "number",
+      "minimum_value": 0,
+      "maximum_value": 2
+    },
+    "RIN": {
+      "name": "RIN",
+      "description": "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products.",
+      "title": "RIN",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "number",
+      "minimum_value": 0,
+      "maximum_value": 1
+    },
+    "submitter_id": {
+      "name": "submitter_id",
+      "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+      "title": "flwy cytometry ID",
+      "comments": [
+        "ms_S001"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString",
+      "required": true
+    },
+    "aliquots.submitter_id": {
+      "name": "aliquots.submitter_id",
+      "description": " ",
+      "title": "aliquots ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "unaligned_read_file": {
+      "name": "unaligned_read_file",
+      "description": " ",
+      "title": "unaligned_read_file",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "raw.data_category": {
+      "name": "raw.data_category",
+      "description": " ",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_category menu"
+    },
+    "raw.data_format": {
+      "name": "raw.data_format",
+      "description": " ",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_format menu"
+    },
+    "raw.data_type": {
+      "name": "raw.data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_type menu"
+    },
+    "QC_file": {
+      "name": "QC_file",
+      "description": " ",
+      "title": "QC_file",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "qc.data_format": {
+      "name": "qc.data_format",
+      "description": " ",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "qc.data_format menu"
+    },
+    "qc.data_type": {
+      "name": "qc.data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "qc.data_type menu"
+    },
+    "aligned_read_file": {
+      "name": "aligned_read_file",
+      "description": " ",
+      "title": "aligned_read_file",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "processed.data_format": {
+      "name": "processed.data_format",
+      "description": " ",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "processed.data_format menu"
+    },
+    "processed.data_type": {
+      "name": "processed.data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "processed.data_type menu"
+    },
+    "workflow_type": {
+      "name": "workflow_type",
+      "description": " ",
+      "title": "workflow_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "workflow_type menu"
+    },
+    "workflow_link": {
+      "name": "workflow_link",
+      "description": "\tLink to Github hash for the CWL workflow used.",
+      "title": "workflow_link",
+      "comments": [
+        "Each sample was normalized to both liver weight and 13C-,15N-labelled amino acid standards"
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "workflow_version": {
+      "name": "workflow_version",
+      "description": " ",
+      "title": "workflow_version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reference_genome": {
+      "name": "reference_genome",
+      "description": " ",
+      "title": "reference_genome",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reference_build": {
+      "name": "reference_build",
+      "description": " ",
+      "title": "reference_build",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "reference_source": {
+      "name": "reference_source",
+      "description": " ",
+      "title": "reference_source",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "file_source_repository": {
+      "name": "file_source_repository",
+      "description": " ",
+      "title": "file_source_repository",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "repository_accession_id": {
+      "name": "repository_accession_id",
+      "description": " ",
+      "title": "repository_accession_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "repository_download_ftp": {
+      "name": "repository_download_ftp",
+      "description": " ",
+      "title": "repository_download_ftp",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "adapter_sequence": {
+      "name": "adapter_sequence",
+      "description": "Base sequence of the sequencing adapter.",
+      "title": "adapter_sequence",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "barcoding_applied": {
+      "name": "barcoding_applied",
+      "description": "True/False: was barcoding applied?",
+      "title": "barcoding_applied",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "boolean"
+    },
+    "base_caller_name": {
+      "name": "base_caller_name",
+      "description": "Name of the base caller.",
+      "title": "base_caller_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "base_caller_version": {
+      "name": "base_caller_version",
+      "description": "\tVersion of the base caller.",
+      "title": "base_caller_version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "flow_cell_barcode": {
+      "name": "flow_cell_barcode",
+      "description": "Flow Cell Barcode.",
+      "title": "flow_cell_barcode",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "spike_ins": {
+      "name": "spike_ins",
+      "description": " ",
+      "title": "spike_ins",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "multivalued": true,
+      "range": "spike_ins menu",
+      "inlined": true,
+      "inlined_as_list": true
+    },
+    "instrument_model": {
+      "name": "instrument_model",
+      "description": " ",
+      "title": "instrument_model",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "instrument_model menu"
+    },
+    "is_paired_end": {
+      "name": "is_paired_end",
+      "description": "Are the reads paired end?",
+      "title": "is_paired_end",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "boolean"
+    },
+    "library_preparation_kit_catalog_number": {
+      "name": "library_preparation_kit_catalog_number",
+      "description": "Catalog of Library Preparation Kit",
+      "title": "library_preparation_kit_catalog_number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "library_preparation_kit_name": {
+      "name": "library_preparation_kit_name",
+      "description": "Name of Library Preparation Kit",
+      "title": "library_preparation_kit_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "library_preparation_kit_vendor": {
+      "name": "library_preparation_kit_vendor",
+      "description": "Vendor of Library Preparation Kit",
+      "title": "library_preparation_kit_vendor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "library_preparation_kit_version": {
+      "name": "library_preparation_kit_version",
+      "description": "Version of Library Preparation Kit",
+      "title": "library_preparation_kit_version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "library_selection": {
+      "name": "library_selection",
+      "description": "Library Selection Method",
+      "title": "library_selection",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "library_selection menu"
+    },
+    "library_strand": {
+      "name": "library_strand",
+      "description": "Library stranded-ness.",
+      "title": "library_strand",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "library_strand menu"
+    },
+    "library_strategy": {
+      "name": "library_strategy",
+      "description": "Library strategy.",
+      "title": "library_strategy",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "library_strategy menu"
+    },
+    "platform": {
+      "name": "platform",
+      "description": "Name of the platform used to obtain data.",
+      "title": "platform",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "platform menu"
+    },
+    "read_length": {
+      "name": "read_length",
+      "description": " ",
+      "title": "read_length",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sequencing_center": {
+      "name": "sequencing_center",
+      "description": "Name of the center that provided the sequence files.",
+      "title": "sequencing_center",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "sequencing_date": {
+      "name": "sequencing_date",
+      "description": "\tA combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+      "title": "sequencing_date",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "size_selection_range": {
+      "name": "size_selection_range",
+      "description": "Range of size selection.",
+      "title": "size_selection_range",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "spike_ins_concentration": {
+      "name": "spike_ins_concentration",
+      "description": "Spike in concentration.",
+      "title": "spike_ins_concentration",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "spike_ins_fasta": {
+      "name": "spike_ins_fasta",
+      "description": "\tName of the FASTA file that contains the spike-in sequences.",
+      "title": "spike_ins_fasta",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_capture_kit_catalog_number": {
+      "name": "target_capture_kit_catalog_number",
+      "description": "\tCatalog of Target Capture Kit.",
+      "title": "target_capture_kit_catalog_number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_capture_kit_name": {
+      "name": "target_capture_kit_name",
+      "description": "\tName of Target Capture Kit.",
+      "title": "target_capture_kit_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_capture_kit_target_region": {
+      "name": "target_capture_kit_target_region",
+      "description": "\tTarget Capture Kit BED file.",
+      "title": "target_capture_kit_target_region",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_capture_kit_vendor": {
+      "name": "target_capture_kit_vendor",
+      "description": "Vendor of Target Capture Kit.",
+      "title": "target_capture_kit_vendor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_capture_kit_version": {
+      "name": "target_capture_kit_version",
+      "description": "Version of Target Capture Kit.",
+      "title": "target_capture_kit_version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_depletion_kit_catalog_number": {
+      "name": "target_depletion_kit_catalog_number",
+      "description": " ",
+      "title": "target_depletion_kit_catalog_number",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_depletion_kit_name": {
+      "name": "target_depletion_kit_name",
+      "description": " ",
+      "title": "target_depletion_kit_name",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_depletion_kit_target_region": {
+      "name": "target_depletion_kit_target_region",
+      "description": " ",
+      "title": "target_depletion_kit_target_region",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_depletion_kit_vendor": {
+      "name": "target_depletion_kit_vendor",
+      "description": " ",
+      "title": "target_depletion_kit_vendor",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "target_depletion_kit_version": {
+      "name": "target_depletion_kit_version",
+      "description": " ",
+      "title": "target_depletion_kit_version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "to_trim_adapter_sequence": {
+      "name": "to_trim_adapter_sequence",
+      "description": "Does the user suggest adapter trimming?",
+      "title": "to_trim_adapter_sequence",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "boolean"
+    },
+    "analysis.submitter_id": {
+      "name": "analysis.submitter_id",
+      "description": " ",
+      "title": "analysis ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "aligned_reads.submitter_id": {
+      "name": "aligned_reads.submitter_id",
+      "description": " ",
+      "title": "aligned_reads ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis.workflow_type": {
+      "name": "analysis.workflow_type",
+      "description": " ",
+      "title": "workflow_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis.workflow_link": {
+      "name": "analysis.workflow_link",
+      "description": " ",
+      "title": "workflow_link",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis.workflow_version": {
+      "name": "analysis.workflow_version",
+      "description": " ",
+      "title": "workflow_version",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analysis_file": {
+      "name": "analysis_file",
+      "description": " ",
+      "title": "analysis_file",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "slot_uri": "obo:OBI:0000021",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyzed.data_category": {
+      "name": "analyzed.data_category",
+      "description": " ",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "analyzed.data_category menu"
+    },
+    "analyzed.data_format": {
+      "name": "analyzed.data_format",
+      "description": " ",
+      "title": "data_format",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "analyzed.data_format menu"
+    },
+    "analyzed.data_type": {
+      "name": "analyzed.data_type",
+      "description": " ",
+      "title": "data_type",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "analyzed.data_type menu"
+    },
+    "analyzed.file_source_repository": {
+      "name": "analyzed.file_source_repository",
+      "description": " ",
+      "title": "file_source_repository",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyzed.repository_accession_id": {
+      "name": "analyzed.repository_accession_id",
+      "description": " ",
+      "title": "repository_accession_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyzed.repository_download_ftp": {
+      "name": "analyzed.repository_download_ftp",
+      "description": " ",
+      "title": "repository_download_ftp",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "studyID": {
+      "name": "studyID",
+      "description": " ",
+      "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    }
+  },
+  "classes": {
+    "dh_interface": {
+      "name": "dh_interface",
+      "description": "A DataHarmonizer interface",
+      "from_schema": "https://example.com/CIMR"
+    },
+    "Sequencing": {
+      "name": "Sequencing",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "studyID": {
+          "name": "studyID",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "unaligned_read_file": {
+          "name": "unaligned_read_file",
+          "rank": 4,
+          "slot_group": "unaligned_reads"
+        },
+        "raw.data_category": {
+          "name": "raw.data_category",
+          "rank": 5,
+          "slot_group": "unaligned_reads"
+        },
+        "raw.data_format": {
+          "name": "raw.data_format",
+          "rank": 6,
+          "slot_group": "unaligned_reads"
+        },
+        "raw.data_type": {
+          "name": "raw.data_type",
+          "rank": 7,
+          "slot_group": "unaligned_reads"
+        },
+        "QC_file": {
+          "name": "QC_file",
+          "rank": 8,
+          "slot_group": "unaligned_reads_QC"
+        },
+        "qc.data_format": {
+          "name": "qc.data_format",
+          "rank": 9,
+          "slot_group": "unaligned_reads_QC"
+        },
+        "qc.data_type": {
+          "name": "qc.data_type",
+          "rank": 10,
+          "slot_group": "unaligned_reads_QC"
+        },
+        "aligned_read_file": {
+          "name": "aligned_read_file",
+          "rank": 11,
+          "slot_group": "aligned_reads"
+        },
+        "processed.data_format": {
+          "name": "processed.data_format",
+          "rank": 12,
+          "slot_group": "aligned_reads"
+        },
+        "processed.data_type": {
+          "name": "processed.data_type",
+          "rank": 13,
+          "slot_group": "aligned_reads"
+        },
+        "workflow_type": {
+          "name": "workflow_type",
+          "rank": 14,
+          "slot_group": "aligned_reads"
+        },
+        "workflow_link": {
+          "name": "workflow_link",
+          "rank": 15,
+          "slot_group": "aligned_reads"
+        },
+        "workflow_version": {
+          "name": "workflow_version",
+          "rank": 16,
+          "slot_group": "aligned_reads"
+        },
+        "reference_genome": {
+          "name": "reference_genome",
+          "rank": 17,
+          "slot_group": "aligned_reads"
+        },
+        "reference_build": {
+          "name": "reference_build",
+          "rank": 18,
+          "slot_group": "aligned_reads"
+        },
+        "reference_source": {
+          "name": "reference_source",
+          "rank": 19,
+          "slot_group": "aligned_reads"
+        },
+        "file_source_repository": {
+          "name": "file_source_repository",
+          "rank": 20,
+          "slot_group": "repository"
+        },
+        "repository_accession_id": {
+          "name": "repository_accession_id",
+          "rank": 21,
+          "slot_group": "repository"
+        },
+        "repository_download_ftp": {
+          "name": "repository_download_ftp",
+          "rank": 22,
+          "slot_group": "repository"
+        },
+        "adapter_sequence": {
+          "name": "adapter_sequence",
+          "rank": 23,
+          "slot_group": "read_group"
+        },
+        "barcoding_applied": {
+          "name": "barcoding_applied",
+          "rank": 24,
+          "slot_group": "read_group"
+        },
+        "base_caller_name": {
+          "name": "base_caller_name",
+          "rank": 25,
+          "slot_group": "read_group"
+        },
+        "base_caller_version": {
+          "name": "base_caller_version",
+          "rank": 26,
+          "slot_group": "read_group"
+        },
+        "flow_cell_barcode": {
+          "name": "flow_cell_barcode",
+          "rank": 27,
+          "slot_group": "read_group"
+        },
+        "spike_ins": {
+          "name": "spike_ins",
+          "rank": 28,
+          "slot_group": "read_group"
+        },
+        "instrument_model": {
+          "name": "instrument_model",
+          "rank": 29,
+          "slot_group": "read_group"
+        },
+        "is_paired_end": {
+          "name": "is_paired_end",
+          "rank": 30,
+          "slot_group": "read_group"
+        },
+        "library_preparation_kit_catalog_number": {
+          "name": "library_preparation_kit_catalog_number",
+          "rank": 31,
+          "slot_group": "read_group"
+        },
+        "library_preparation_kit_name": {
+          "name": "library_preparation_kit_name",
+          "rank": 32,
+          "slot_group": "read_group"
+        },
+        "library_preparation_kit_vendor": {
+          "name": "library_preparation_kit_vendor",
+          "rank": 33,
+          "slot_group": "read_group"
+        },
+        "library_preparation_kit_version": {
+          "name": "library_preparation_kit_version",
+          "rank": 34,
+          "slot_group": "read_group"
+        },
+        "library_selection": {
+          "name": "library_selection",
+          "rank": 35,
+          "slot_group": "read_group"
+        },
+        "library_strand": {
+          "name": "library_strand",
+          "rank": 36,
+          "slot_group": "read_group"
+        },
+        "library_strategy": {
+          "name": "library_strategy",
+          "rank": 37,
+          "slot_group": "read_group"
+        },
+        "platform": {
+          "name": "platform",
+          "rank": 38,
+          "slot_group": "read_group"
+        },
+        "read_length": {
+          "name": "read_length",
+          "rank": 39,
+          "slot_group": "read_group"
+        },
+        "sequencing_center": {
+          "name": "sequencing_center",
+          "rank": 40,
+          "slot_group": "read_group"
+        },
+        "sequencing_date": {
+          "name": "sequencing_date",
+          "rank": 41,
+          "slot_group": "read_group"
+        },
+        "size_selection_range": {
+          "name": "size_selection_range",
+          "rank": 42,
+          "slot_group": "read_group"
+        },
+        "spike_ins_concentration": {
+          "name": "spike_ins_concentration",
+          "rank": 43,
+          "slot_group": "read_group"
+        },
+        "spike_ins_fasta": {
+          "name": "spike_ins_fasta",
+          "rank": 44,
+          "slot_group": "read_group"
+        },
+        "target_capture_kit_catalog_number": {
+          "name": "target_capture_kit_catalog_number",
+          "rank": 45,
+          "slot_group": "read_group"
+        },
+        "target_capture_kit_name": {
+          "name": "target_capture_kit_name",
+          "rank": 46,
+          "slot_group": "read_group"
+        },
+        "target_capture_kit_target_region": {
+          "name": "target_capture_kit_target_region",
+          "rank": 47,
+          "slot_group": "read_group"
+        },
+        "target_capture_kit_vendor": {
+          "name": "target_capture_kit_vendor",
+          "rank": 48,
+          "slot_group": "read_group"
+        },
+        "target_capture_kit_version": {
+          "name": "target_capture_kit_version",
+          "rank": 49,
+          "slot_group": "read_group"
+        },
+        "target_depletion_kit_catalog_number": {
+          "name": "target_depletion_kit_catalog_number",
+          "rank": 50,
+          "slot_group": "read_group"
+        },
+        "target_depletion_kit_name": {
+          "name": "target_depletion_kit_name",
+          "rank": 51,
+          "slot_group": "read_group"
+        },
+        "target_depletion_kit_target_region": {
+          "name": "target_depletion_kit_target_region",
+          "rank": 52,
+          "slot_group": "read_group"
+        },
+        "target_depletion_kit_vendor": {
+          "name": "target_depletion_kit_vendor",
+          "rank": 53,
+          "slot_group": "read_group"
+        },
+        "target_depletion_kit_version": {
+          "name": "target_depletion_kit_version",
+          "rank": 54,
+          "slot_group": "read_group"
+        },
+        "to_trim_adapter_sequence": {
+          "name": "to_trim_adapter_sequence",
+          "rank": 55,
+          "slot_group": "read_group"
+        }
+      },
+      "attributes": {
+        "submitter_id": {
+          "name": "submitter_id",
+          "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
+          "title": "flwy cytometry ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "alias": "submitter_id",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString",
+          "required": true
+        },
+        "aliquots.submitter_id": {
+          "name": "aliquots.submitter_id",
+          "description": " ",
+          "title": "aliquots ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "aliquots.submitter_id",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "studyID": {
+          "name": "studyID",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "studyID",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing",
+            "Sequencing_data_analysis",
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "unaligned_read_file": {
+          "name": "unaligned_read_file",
+          "description": " ",
+          "title": "unaligned_read_file",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 4,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "unaligned_read_file",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "raw.data_category": {
+          "name": "raw.data_category",
+          "description": " ",
+          "title": "data_category",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 5,
+          "alias": "raw.data_category",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads",
+          "range": "raw.data_category menu"
+        },
+        "raw.data_format": {
+          "name": "raw.data_format",
+          "description": " ",
+          "title": "data_format",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 6,
+          "alias": "raw.data_format",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads",
+          "range": "raw.data_format menu"
+        },
+        "raw.data_type": {
+          "name": "raw.data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 7,
+          "alias": "raw.data_type",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads",
+          "range": "raw.data_type menu"
+        },
+        "QC_file": {
+          "name": "QC_file",
+          "description": " ",
+          "title": "QC_file",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 8,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "QC_file",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads_QC",
+          "range": "WhitespaceMinimizedString"
+        },
+        "qc.data_format": {
+          "name": "qc.data_format",
+          "description": " ",
+          "title": "data_format",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 9,
+          "alias": "qc.data_format",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads_QC",
+          "range": "qc.data_format menu"
+        },
+        "qc.data_type": {
+          "name": "qc.data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 10,
+          "alias": "qc.data_type",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads_QC",
+          "range": "qc.data_type menu"
+        },
+        "aligned_read_file": {
+          "name": "aligned_read_file",
+          "description": " ",
+          "title": "aligned_read_file",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 11,
+          "alias": "aligned_read_file",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "processed.data_format": {
+          "name": "processed.data_format",
+          "description": " ",
+          "title": "data_format",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 12,
+          "alias": "processed.data_format",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "processed.data_format menu"
+        },
+        "processed.data_type": {
+          "name": "processed.data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 13,
+          "alias": "processed.data_type",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "processed.data_type menu"
+        },
+        "workflow_type": {
+          "name": "workflow_type",
+          "description": " ",
+          "title": "workflow_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 14,
+          "alias": "workflow_type",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "workflow_type menu"
+        },
+        "workflow_link": {
+          "name": "workflow_link",
+          "description": "\tLink to Github hash for the CWL workflow used.",
+          "title": "workflow_link",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 15,
+          "alias": "workflow_link",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "workflow_version": {
+          "name": "workflow_version",
+          "description": " ",
+          "title": "workflow_version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 16,
+          "alias": "workflow_version",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reference_genome": {
+          "name": "reference_genome",
+          "description": " ",
+          "title": "reference_genome",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 17,
+          "alias": "reference_genome",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reference_build": {
+          "name": "reference_build",
+          "description": " ",
+          "title": "reference_build",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 18,
+          "alias": "reference_build",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "reference_source": {
+          "name": "reference_source",
+          "description": " ",
+          "title": "reference_source",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 19,
+          "alias": "reference_source",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "aligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
+        "file_source_repository": {
+          "name": "file_source_repository",
+          "description": " ",
+          "title": "file_source_repository",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 20,
+          "alias": "file_source_repository",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "repository",
+          "range": "WhitespaceMinimizedString"
+        },
+        "repository_accession_id": {
+          "name": "repository_accession_id",
+          "description": " ",
+          "title": "repository_accession_id",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 21,
+          "alias": "repository_accession_id",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "repository",
+          "range": "WhitespaceMinimizedString"
+        },
+        "repository_download_ftp": {
+          "name": "repository_download_ftp",
+          "description": " ",
+          "title": "repository_download_ftp",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 22,
+          "alias": "repository_download_ftp",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "repository",
+          "range": "WhitespaceMinimizedString"
+        },
+        "adapter_sequence": {
+          "name": "adapter_sequence",
+          "description": "Base sequence of the sequencing adapter.",
+          "title": "adapter_sequence",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 23,
+          "alias": "adapter_sequence",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "barcoding_applied": {
+          "name": "barcoding_applied",
+          "description": "True/False: was barcoding applied?",
+          "title": "barcoding_applied",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 24,
+          "alias": "barcoding_applied",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "boolean"
+        },
+        "base_caller_name": {
+          "name": "base_caller_name",
+          "description": "Name of the base caller.",
+          "title": "base_caller_name",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 25,
+          "alias": "base_caller_name",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "base_caller_version": {
+          "name": "base_caller_version",
+          "description": "\tVersion of the base caller.",
+          "title": "base_caller_version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 26,
+          "alias": "base_caller_version",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "flow_cell_barcode": {
+          "name": "flow_cell_barcode",
+          "description": "Flow Cell Barcode.",
+          "title": "flow_cell_barcode",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 27,
+          "alias": "flow_cell_barcode",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "spike_ins": {
+          "name": "spike_ins",
+          "description": " ",
+          "title": "spike_ins",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 28,
+          "multivalued": true,
+          "alias": "spike_ins",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "spike_ins menu",
+          "inlined_as_list": true
+        },
+        "instrument_model": {
+          "name": "instrument_model",
+          "description": " ",
+          "title": "instrument_model",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 29,
+          "alias": "instrument_model",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "instrument_model menu"
+        },
+        "is_paired_end": {
+          "name": "is_paired_end",
+          "description": "Are the reads paired end?",
+          "title": "is_paired_end",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 30,
+          "alias": "is_paired_end",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "boolean"
+        },
+        "library_preparation_kit_catalog_number": {
+          "name": "library_preparation_kit_catalog_number",
+          "description": "Catalog of Library Preparation Kit",
+          "title": "library_preparation_kit_catalog_number",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 31,
+          "alias": "library_preparation_kit_catalog_number",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "library_preparation_kit_name": {
+          "name": "library_preparation_kit_name",
+          "description": "Name of Library Preparation Kit",
+          "title": "library_preparation_kit_name",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 32,
+          "alias": "library_preparation_kit_name",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "library_preparation_kit_vendor": {
+          "name": "library_preparation_kit_vendor",
+          "description": "Vendor of Library Preparation Kit",
+          "title": "library_preparation_kit_vendor",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 33,
+          "alias": "library_preparation_kit_vendor",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "library_preparation_kit_version": {
+          "name": "library_preparation_kit_version",
+          "description": "Version of Library Preparation Kit",
+          "title": "library_preparation_kit_version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 34,
+          "alias": "library_preparation_kit_version",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "library_selection": {
+          "name": "library_selection",
+          "description": "Library Selection Method",
+          "title": "library_selection",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 35,
+          "alias": "library_selection",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "library_selection menu"
+        },
+        "library_strand": {
+          "name": "library_strand",
+          "description": "Library stranded-ness.",
+          "title": "library_strand",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 36,
+          "alias": "library_strand",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "library_strand menu"
+        },
+        "library_strategy": {
+          "name": "library_strategy",
+          "description": "Library strategy.",
+          "title": "library_strategy",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 37,
+          "alias": "library_strategy",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "library_strategy menu"
+        },
+        "platform": {
+          "name": "platform",
+          "description": "Name of the platform used to obtain data.",
+          "title": "platform",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 38,
+          "alias": "platform",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "platform menu"
+        },
+        "read_length": {
+          "name": "read_length",
+          "description": " ",
+          "title": "read_length",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 39,
+          "alias": "read_length",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequencing_center": {
+          "name": "sequencing_center",
+          "description": "Name of the center that provided the sequence files.",
+          "title": "sequencing_center",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 40,
+          "alias": "sequencing_center",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sequencing_date": {
+          "name": "sequencing_date",
+          "description": "\tA combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
+          "title": "sequencing_date",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 41,
+          "alias": "sequencing_date",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "size_selection_range": {
+          "name": "size_selection_range",
+          "description": "Range of size selection.",
+          "title": "size_selection_range",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 42,
+          "alias": "size_selection_range",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "spike_ins_concentration": {
+          "name": "spike_ins_concentration",
+          "description": "Spike in concentration.",
+          "title": "spike_ins_concentration",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 43,
+          "alias": "spike_ins_concentration",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "spike_ins_fasta": {
+          "name": "spike_ins_fasta",
+          "description": "\tName of the FASTA file that contains the spike-in sequences.",
+          "title": "spike_ins_fasta",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 44,
+          "alias": "spike_ins_fasta",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_capture_kit_catalog_number": {
+          "name": "target_capture_kit_catalog_number",
+          "description": "\tCatalog of Target Capture Kit.",
+          "title": "target_capture_kit_catalog_number",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 45,
+          "alias": "target_capture_kit_catalog_number",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_capture_kit_name": {
+          "name": "target_capture_kit_name",
+          "description": "\tName of Target Capture Kit.",
+          "title": "target_capture_kit_name",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 46,
+          "alias": "target_capture_kit_name",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_capture_kit_target_region": {
+          "name": "target_capture_kit_target_region",
+          "description": "\tTarget Capture Kit BED file.",
+          "title": "target_capture_kit_target_region",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 47,
+          "alias": "target_capture_kit_target_region",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_capture_kit_vendor": {
+          "name": "target_capture_kit_vendor",
+          "description": "Vendor of Target Capture Kit.",
+          "title": "target_capture_kit_vendor",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 48,
+          "alias": "target_capture_kit_vendor",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_capture_kit_version": {
+          "name": "target_capture_kit_version",
+          "description": "Version of Target Capture Kit.",
+          "title": "target_capture_kit_version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 49,
+          "alias": "target_capture_kit_version",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_depletion_kit_catalog_number": {
+          "name": "target_depletion_kit_catalog_number",
+          "description": " ",
+          "title": "target_depletion_kit_catalog_number",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 50,
+          "alias": "target_depletion_kit_catalog_number",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_depletion_kit_name": {
+          "name": "target_depletion_kit_name",
+          "description": " ",
+          "title": "target_depletion_kit_name",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 51,
+          "alias": "target_depletion_kit_name",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_depletion_kit_target_region": {
+          "name": "target_depletion_kit_target_region",
+          "description": " ",
+          "title": "target_depletion_kit_target_region",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 52,
+          "alias": "target_depletion_kit_target_region",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_depletion_kit_vendor": {
+          "name": "target_depletion_kit_vendor",
+          "description": " ",
+          "title": "target_depletion_kit_vendor",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 53,
+          "alias": "target_depletion_kit_vendor",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "target_depletion_kit_version": {
+          "name": "target_depletion_kit_version",
+          "description": " ",
+          "title": "target_depletion_kit_version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 54,
+          "alias": "target_depletion_kit_version",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "WhitespaceMinimizedString"
+        },
+        "to_trim_adapter_sequence": {
+          "name": "to_trim_adapter_sequence",
+          "description": "Does the user suggest adapter trimming?",
+          "title": "to_trim_adapter_sequence",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 55,
+          "alias": "to_trim_adapter_sequence",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "read_group",
+          "range": "boolean"
+        }
+      }
+    },
+    "Sequencing_data_analysis": {
+      "name": "Sequencing_data_analysis",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "analysis.submitter_id": {
+          "name": "analysis.submitter_id",
+          "rank": 1,
+          "slot_group": "Identifiers"
+        },
+        "aligned_reads.submitter_id": {
+          "name": "aligned_reads.submitter_id",
+          "rank": 2,
+          "slot_group": "Identifiers"
+        },
+        "studyID": {
+          "name": "studyID",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "analysis.workflow_type": {
+          "name": "analysis.workflow_type",
+          "rank": 4,
+          "slot_group": "data_analysis"
+        },
+        "analysis.workflow_link": {
+          "name": "analysis.workflow_link",
+          "rank": 5,
+          "slot_group": "data_analysis"
+        },
+        "analysis.workflow_version": {
+          "name": "analysis.workflow_version",
+          "rank": 6,
+          "slot_group": "data_analysis"
+        },
+        "analysis_file": {
+          "name": "analysis_file",
+          "rank": 7,
+          "slot_group": "analyzed_data"
+        },
+        "analyzed.data_category": {
+          "name": "analyzed.data_category",
+          "rank": 8,
+          "slot_group": "analyzed_data"
+        },
+        "analyzed.data_format": {
+          "name": "analyzed.data_format",
+          "rank": 9,
+          "slot_group": "analyzed_data"
+        },
+        "analyzed.data_type": {
+          "name": "analyzed.data_type",
+          "rank": 10,
+          "slot_group": "analyzed_data"
+        },
+        "analyzed.file_source_repository": {
+          "name": "analyzed.file_source_repository",
+          "rank": 11,
+          "slot_group": "repository"
+        },
+        "analyzed.repository_accession_id": {
+          "name": "analyzed.repository_accession_id",
+          "rank": 12,
+          "slot_group": "repository"
+        },
+        "analyzed.repository_download_ftp": {
+          "name": "analyzed.repository_download_ftp",
+          "rank": 13,
+          "slot_group": "repository"
+        }
+      },
+      "attributes": {
+        "analysis.submitter_id": {
+          "name": "analysis.submitter_id",
+          "description": " ",
+          "title": "analysis ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "alias": "analysis.submitter_id",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "aligned_reads.submitter_id": {
+          "name": "aligned_reads.submitter_id",
+          "description": " ",
+          "title": "aligned_reads ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "aligned_reads.submitter_id",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "Identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "studyID": {
+          "name": "studyID",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "studyID",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing",
+            "Sequencing_data_analysis",
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis.workflow_type": {
+          "name": "analysis.workflow_type",
+          "description": " ",
+          "title": "workflow_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 4,
+          "alias": "analysis.workflow_type",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis.workflow_link": {
+          "name": "analysis.workflow_link",
+          "description": " ",
+          "title": "workflow_link",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 5,
+          "alias": "analysis.workflow_link",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis.workflow_version": {
+          "name": "analysis.workflow_version",
+          "description": " ",
+          "title": "workflow_version",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 6,
+          "alias": "analysis.workflow_version",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "data_analysis",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analysis_file": {
+          "name": "analysis_file",
+          "description": " ",
+          "title": "analysis_file",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 7,
+          "slot_uri": "obo:OBI:0000021",
+          "alias": "analysis_file",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "analyzed_data",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyzed.data_category": {
+          "name": "analyzed.data_category",
+          "description": " ",
+          "title": "data_category",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 8,
+          "alias": "analyzed.data_category",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "analyzed_data",
+          "range": "analyzed.data_category menu"
+        },
+        "analyzed.data_format": {
+          "name": "analyzed.data_format",
+          "description": " ",
+          "title": "data_format",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 9,
+          "alias": "analyzed.data_format",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "analyzed_data",
+          "range": "analyzed.data_format menu"
+        },
+        "analyzed.data_type": {
+          "name": "analyzed.data_type",
+          "description": " ",
+          "title": "data_type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 10,
+          "alias": "analyzed.data_type",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "analyzed_data",
+          "range": "analyzed.data_type menu"
+        },
+        "analyzed.file_source_repository": {
+          "name": "analyzed.file_source_repository",
+          "description": " ",
+          "title": "file_source_repository",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 11,
+          "alias": "analyzed.file_source_repository",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "repository",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyzed.repository_accession_id": {
+          "name": "analyzed.repository_accession_id",
+          "description": " ",
+          "title": "repository_accession_id",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 12,
+          "alias": "analyzed.repository_accession_id",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "repository",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyzed.repository_download_ftp": {
+          "name": "analyzed.repository_download_ftp",
+          "description": " ",
+          "title": "repository_download_ftp",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 13,
+          "alias": "analyzed.repository_download_ftp",
+          "owner": "Sequencing_data_analysis",
+          "domain_of": [
+            "Sequencing_data_analysis"
+          ],
+          "slot_group": "repository",
+          "range": "WhitespaceMinimizedString"
+        }
+      }
+    },
+    "Aliquot": {
+      "name": "Aliquot",
+      "from_schema": "https://example.com/CIMR",
+      "is_a": "dh_interface",
+      "slot_usage": {
+        "aliquot.submitter_id": {
+          "name": "aliquot.submitter_id",
+          "rank": 1,
+          "slot_group": "identifiers"
+        },
+        "sample.submitter_id": {
+          "name": "sample.submitter_id",
+          "rank": 2,
+          "slot_group": "identifiers"
+        },
+        "studyID": {
+          "name": "studyID",
+          "rank": 3,
+          "slot_group": "identifiers"
+        },
+        "analyte_type": {
+          "name": "analyte_type",
+          "rank": 4,
+          "slot_group": "aliquot"
+        },
+        "analyte_protocol": {
+          "name": "analyte_protocol",
+          "rank": 5,
+          "slot_group": "aliquot"
+        },
+        "extract_preservation_method": {
+          "name": "extract_preservation_method",
+          "rank": 6,
+          "slot_group": "aliquot"
+        },
+        "a260_a280_ratio": {
+          "name": "a260_a280_ratio",
+          "rank": 7,
+          "slot_group": "aliquot"
+        },
+        "RIN": {
+          "name": "RIN",
+          "rank": 8,
+          "slot_group": "aliquot"
+        }
+      },
+      "attributes": {
+        "aliquot.submitter_id": {
+          "name": "aliquot.submitter_id",
+          "description": " ",
+          "title": "aliquot ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 1,
+          "alias": "aliquot.submitter_id",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "sample.submitter_id": {
+          "name": "sample.submitter_id",
+          "description": " ",
+          "title": "sample ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 2,
+          "alias": "sample.submitter_id",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "studyID": {
+          "name": "studyID",
+          "description": " ",
+          "title": "study ID",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 3,
+          "alias": "studyID",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Sequencing",
+            "Sequencing_data_analysis",
+            "Aliquot"
+          ],
+          "slot_group": "identifiers",
+          "range": "WhitespaceMinimizedString"
+        },
+        "analyte_type": {
+          "name": "analyte_type",
+          "description": " ",
+          "title": "Analyte type",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 4,
+          "alias": "analyte_type",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "analyte_type menu"
+        },
+        "analyte_protocol": {
+          "name": "analyte_protocol",
+          "description": " ",
+          "title": "Analyte preparation protocol",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 5,
+          "alias": "analyte_protocol",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "WhitespaceMinimizedString"
+        },
+        "extract_preservation_method": {
+          "name": "extract_preservation_method",
+          "description": "The chemical agent used for the derivatization reaction",
+          "title": "extract_preservation_method",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 6,
+          "alias": "extract_preservation_method",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "extract_preservation_method menu"
+        },
+        "a260_a280_ratio": {
+          "name": "a260_a280_ratio",
+          "description": "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.",
+          "title": "a260_a280_ratio",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 7,
+          "alias": "a260_a280_ratio",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "number",
+          "minimum_value": 0,
+          "maximum_value": 2
+        },
+        "RIN": {
+          "name": "RIN",
+          "description": "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products.",
+          "title": "RIN",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 8,
+          "alias": "RIN",
+          "owner": "Aliquot",
+          "domain_of": [
+            "Aliquot"
+          ],
+          "slot_group": "aliquot",
+          "range": "number",
+          "minimum_value": 0,
+          "maximum_value": 1
+        }
+      }
+    }
+  },
+  "source_file": "/Users/apple/ToxRSCat/templates/MINSEQE/schema.yaml",
+  "settings": {
+    "Title_Case": {
+      "setting_key": "Title_Case",
+      "setting_value": "(((?<=\\b)[^a-z\\\\W]\\\\w*?|[\\\\W])+)"
+    },
+    "UPPER_CASE": {
+      "setting_key": "UPPER_CASE",
+      "setting_value": "[A-Z\\W\\d_]*"
+    },
+    "lower_case": {
+      "setting_key": "lower_case",
+      "setting_value": "[a-z\\W\\d_]*"
+    }
+  },
+  "@type": "SchemaDefinition"
+}

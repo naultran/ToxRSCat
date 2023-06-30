@@ -1,0 +1,1217 @@
+id: https://example.com/CIMR
+name: mass_spec_metabolomics
+description: Based on CIMR
+version: 1.0.0
+imports: linkml:types
+prefixes:
+  linkml: https://w3id.org/linkml/
+  obo: http://purl.obolibrary.org/obo/
+classes:
+  dh_interface:
+    name: dh_interface
+    description: A DataHarmonizer interface
+    from_schema: https://example.com/MINSEQE
+  Sequencing:
+    name: Sequencing
+    is_a: dh_interface
+    slots:
+    - submitter_id
+    - aliquots.submitter_id
+    - studyID
+    - unaligned_read_file
+    - raw.data_category
+    - raw.data_format
+    - raw.data_type
+    - QC_file
+    - qc.data_format
+    - qc.data_type
+    - aligned_read_file
+    - processed.data_format
+    - processed.data_type
+    - workflow_type
+    - workflow_link
+    - workflow_version
+    - reference_genome
+    - reference_build
+    - reference_source
+    - file_source_repository
+    - repository_accession_id
+    - repository_download_ftp
+    - adapter_sequence
+    - barcoding_applied
+    - base_caller_name
+    - base_caller_version
+    - flow_cell_barcode
+    - spike_ins
+    - instrument_model
+    - is_paired_end
+    - library_preparation_kit_catalog_number
+    - library_preparation_kit_name
+    - library_preparation_kit_vendor
+    - library_preparation_kit_version
+    - library_selection
+    - library_strand
+    - library_strategy
+    - platform
+    - read_length
+    - sequencing_center
+    - sequencing_date
+    - size_selection_range
+    - spike_ins_concentration
+    - spike_ins_fasta
+    - target_capture_kit_catalog_number
+    - target_capture_kit_name
+    - target_capture_kit_target_region
+    - target_capture_kit_vendor
+    - target_capture_kit_version
+    - target_depletion_kit_catalog_number
+    - target_depletion_kit_name
+    - target_depletion_kit_target_region
+    - target_depletion_kit_vendor
+    - target_depletion_kit_version
+    - to_trim_adapter_sequence
+    slot_usage:
+      submitter_id:
+        rank: 1
+        slot_group: identifiers
+      aliquots.submitter_id:
+        rank: 2
+        slot_group: identifiers
+      studyID:
+        rank: 3
+        slot_group: identifiers
+      unaligned_read_file:
+        rank: 4
+        slot_group: unaligned_reads
+      raw.data_category:
+        rank: 5
+        slot_group: unaligned_reads
+      raw.data_format:
+        rank: 6
+        slot_group: unaligned_reads
+      raw.data_type:
+        rank: 7
+        slot_group: unaligned_reads
+      QC_file:
+        rank: 8
+        slot_group: unaligned_reads_QC
+      qc.data_format:
+        rank: 9
+        slot_group: unaligned_reads_QC
+      qc.data_type:
+        rank: 10
+        slot_group: unaligned_reads_QC
+      aligned_read_file:
+        rank: 11
+        slot_group: aligned_reads
+      processed.data_format:
+        rank: 12
+        slot_group: aligned_reads
+      processed.data_type:
+        rank: 13
+        slot_group: aligned_reads
+      workflow_type:
+        rank: 14
+        slot_group: aligned_reads
+      workflow_link:
+        rank: 15
+        slot_group: aligned_reads
+      workflow_version:
+        rank: 16
+        slot_group: aligned_reads
+      reference_genome:
+        rank: 17
+        slot_group: aligned_reads
+      reference_build:
+        rank: 18
+        slot_group: aligned_reads
+      reference_source:
+        rank: 19
+        slot_group: aligned_reads
+      file_source_repository:
+        rank: 20
+        slot_group: repository
+      repository_accession_id:
+        rank: 21
+        slot_group: repository
+      repository_download_ftp:
+        rank: 22
+        slot_group: repository
+      adapter_sequence:
+        rank: 23
+        slot_group: read_group
+      barcoding_applied:
+        rank: 24
+        slot_group: read_group
+      base_caller_name:
+        rank: 25
+        slot_group: read_group
+      base_caller_version:
+        rank: 26
+        slot_group: read_group
+      flow_cell_barcode:
+        rank: 27
+        slot_group: read_group
+      spike_ins:
+        rank: 28
+        slot_group: read_group
+      instrument_model:
+        rank: 29
+        slot_group: read_group
+      is_paired_end:
+        rank: 30
+        slot_group: read_group
+      library_preparation_kit_catalog_number:
+        rank: 31
+        slot_group: read_group
+      library_preparation_kit_name:
+        rank: 32
+        slot_group: read_group
+      library_preparation_kit_vendor:
+        rank: 33
+        slot_group: read_group
+      library_preparation_kit_version:
+        rank: 34
+        slot_group: read_group
+      library_selection:
+        rank: 35
+        slot_group: read_group
+      library_strand:
+        rank: 36
+        slot_group: read_group
+      library_strategy:
+        rank: 37
+        slot_group: read_group
+      platform:
+        rank: 38
+        slot_group: read_group
+      read_length:
+        rank: 39
+        slot_group: read_group
+      sequencing_center:
+        rank: 40
+        slot_group: read_group
+      sequencing_date:
+        rank: 41
+        slot_group: read_group
+      size_selection_range:
+        rank: 42
+        slot_group: read_group
+      spike_ins_concentration:
+        rank: 43
+        slot_group: read_group
+      spike_ins_fasta:
+        rank: 44
+        slot_group: read_group
+      target_capture_kit_catalog_number:
+        rank: 45
+        slot_group: read_group
+      target_capture_kit_name:
+        rank: 46
+        slot_group: read_group
+      target_capture_kit_target_region:
+        rank: 47
+        slot_group: read_group
+      target_capture_kit_vendor:
+        rank: 48
+        slot_group: read_group
+      target_capture_kit_version:
+        rank: 49
+        slot_group: read_group
+      target_depletion_kit_catalog_number:
+        rank: 50
+        slot_group: read_group
+      target_depletion_kit_name:
+        rank: 51
+        slot_group: read_group
+      target_depletion_kit_target_region:
+        rank: 52
+        slot_group: read_group
+      target_depletion_kit_vendor:
+        rank: 53
+        slot_group: read_group
+      target_depletion_kit_version:
+        rank: 54
+        slot_group: read_group
+      to_trim_adapter_sequence:
+        rank: 55
+        slot_group: read_group
+  Sequencing_data_analysis:
+    name: Sequencing_data_analysis
+    is_a: dh_interface
+    slots:
+    - analysis.submitter_id
+    - aligned_reads.submitter_id
+    - studyID
+    - analysis.workflow_type
+    - analysis.workflow_link
+    - analysis.workflow_version
+    - analysis_file
+    - analyzed.data_category
+    - analyzed.data_format
+    - analyzed.data_type
+    - analyzed.file_source_repository
+    - analyzed.repository_accession_id
+    - analyzed.repository_download_ftp
+    slot_usage:
+      analysis.submitter_id:
+        rank: 1
+        slot_group: Identifiers
+      aligned_reads.submitter_id:
+        rank: 2
+        slot_group: Identifiers
+      studyID:
+        rank: 3
+        slot_group: identifiers
+      analysis.workflow_type:
+        rank: 4
+        slot_group: data_analysis
+      analysis.workflow_link:
+        rank: 5
+        slot_group: data_analysis
+      analysis.workflow_version:
+        rank: 6
+        slot_group: data_analysis
+      analysis_file:
+        rank: 7
+        slot_group: analyzed_data
+      analyzed.data_category:
+        rank: 8
+        slot_group: analyzed_data
+      analyzed.data_format:
+        rank: 9
+        slot_group: analyzed_data
+      analyzed.data_type:
+        rank: 10
+        slot_group: analyzed_data
+      analyzed.file_source_repository:
+        rank: 11
+        slot_group: repository
+      analyzed.repository_accession_id:
+        rank: 12
+        slot_group: repository
+      analyzed.repository_download_ftp:
+        rank: 13
+        slot_group: repository
+  Aliquot:
+    name: Aliquot
+    is_a: dh_interface
+    slots:
+    - aliquot.submitter_id
+    - sample.submitter_id
+    - studyID
+    - analyte_type
+    - analyte_protocol
+    - extract_preservation_method
+    - a260_a280_ratio
+    - RIN
+    slot_usage:
+      aliquot.submitter_id:
+        rank: 1
+        slot_group: identifiers
+      sample.submitter_id:
+        rank: 2
+        slot_group: identifiers
+      studyID:
+        rank: 3
+        slot_group: identifiers
+      analyte_type:
+        rank: 4
+        slot_group: aliquot
+      analyte_protocol:
+        rank: 5
+        slot_group: aliquot
+      extract_preservation_method:
+        rank: 6
+        slot_group: aliquot
+      a260_a280_ratio:
+        rank: 7
+        slot_group: aliquot
+      RIN:
+        rank: 8
+        slot_group: aliquot
+slots:
+  aliquot.submitter_id:
+    name: aliquot.submitter_id
+    title: aliquot ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  sample.submitter_id:
+    name: sample.submitter_id
+    title: sample ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analyte_type:
+    name: analyte_type
+    title: Analyte type
+    range: analyte_type menu
+    description: ' '
+    comments: ' '
+  analyte_protocol:
+    name: analyte_protocol
+    title: Analyte preparation protocol
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  extract_preservation_method:
+    name: extract_preservation_method
+    title: extract_preservation_method
+    range: extract_preservation_method menu
+    description: The chemical agent used for the derivatization reaction
+    comments: ' '
+  a260_a280_ratio:
+    name: a260_a280_ratio
+    title: a260_a280_ratio
+    range: number
+    maximum_value: 2.0
+    minimum_value: 0.0
+    description: Numeric value that represents the sample ratio of nucleic acid absorbance
+      at 260 nm and 280 nm, used to determine a measure of DNA purity.
+    comments: ' '
+  RIN:
+    name: RIN
+    title: RIN
+    range: number
+    maximum_value: 1.0
+    minimum_value: 0.0
+    description: A numerical assessment of the integrity of RNA based on the entire
+      electrophoretic trace of the RNA sample including the presence or absence of
+      degradation products.
+    comments: ' '
+  submitter_id:
+    name: submitter_id
+    title: flwy cytometry ID
+    range: WhitespaceMinimizedString
+    description: This is a unique ID assigned by the user to represent each individual
+      record in this flow cytometry experiment.
+    required: true
+    comments: ms_S001
+  aliquots.submitter_id:
+    name: aliquots.submitter_id
+    title: aliquots ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  unaligned_read_file:
+    name: unaligned_read_file
+    title: unaligned_read_file
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:OBI:0000021
+    comments: ' '
+  raw.data_category:
+    name: raw.data_category
+    title: data_category
+    range: raw.data_category menu
+    description: ' '
+    comments: ' '
+  raw.data_format:
+    name: raw.data_format
+    title: data_format
+    range: raw.data_format menu
+    description: ' '
+    comments: ' '
+  raw.data_type:
+    name: raw.data_type
+    title: data_type
+    range: raw.data_type menu
+    description: ' '
+    comments: ' '
+  QC_file:
+    name: QC_file
+    title: QC_file
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:OBI:0000021
+    comments: ' '
+  qc.data_format:
+    name: qc.data_format
+    title: data_format
+    range: qc.data_format menu
+    description: ' '
+    comments: ' '
+  qc.data_type:
+    name: qc.data_type
+    title: data_type
+    range: qc.data_type menu
+    description: ' '
+    comments: ' '
+  aligned_read_file:
+    name: aligned_read_file
+    title: aligned_read_file
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  processed.data_format:
+    name: processed.data_format
+    title: data_format
+    range: processed.data_format menu
+    description: ' '
+    comments: ' '
+  processed.data_type:
+    name: processed.data_type
+    title: data_type
+    range: processed.data_type menu
+    description: ' '
+    comments: ' '
+  workflow_type:
+    name: workflow_type
+    title: workflow_type
+    range: workflow_type menu
+    description: ' '
+    comments: ' '
+  workflow_link:
+    name: workflow_link
+    title: workflow_link
+    range: WhitespaceMinimizedString
+    description: "\tLink to Github hash for the CWL workflow used."
+    comments: Each sample was normalized to both liver weight and 13C-,15N-labelled
+      amino acid standards
+  workflow_version:
+    name: workflow_version
+    title: workflow_version
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  reference_genome:
+    name: reference_genome
+    title: reference_genome
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  reference_build:
+    name: reference_build
+    title: reference_build
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  reference_source:
+    name: reference_source
+    title: reference_source
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  file_source_repository:
+    name: file_source_repository
+    title: file_source_repository
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  repository_accession_id:
+    name: repository_accession_id
+    title: repository_accession_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  repository_download_ftp:
+    name: repository_download_ftp
+    title: repository_download_ftp
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  adapter_sequence:
+    name: adapter_sequence
+    title: adapter_sequence
+    range: WhitespaceMinimizedString
+    description: Base sequence of the sequencing adapter.
+    comments: ' '
+  barcoding_applied:
+    name: barcoding_applied
+    title: barcoding_applied
+    range: boolean
+    description: 'True/False: was barcoding applied?'
+    comments: ' '
+  base_caller_name:
+    name: base_caller_name
+    title: base_caller_name
+    range: WhitespaceMinimizedString
+    description: Name of the base caller.
+    comments: ' '
+  base_caller_version:
+    name: base_caller_version
+    title: base_caller_version
+    range: WhitespaceMinimizedString
+    description: "\tVersion of the base caller."
+    comments: ' '
+  flow_cell_barcode:
+    name: flow_cell_barcode
+    title: flow_cell_barcode
+    range: WhitespaceMinimizedString
+    description: Flow Cell Barcode.
+    comments: ' '
+  spike_ins:
+    name: spike_ins
+    title: spike_ins
+    range: spike_ins menu
+    description: ' '
+    multivalued: true
+    inlined_as_list: true
+    comments: ' '
+  instrument_model:
+    name: instrument_model
+    title: instrument_model
+    range: instrument_model menu
+    description: ' '
+    comments: ' '
+  is_paired_end:
+    name: is_paired_end
+    title: is_paired_end
+    range: boolean
+    description: Are the reads paired end?
+    comments: ' '
+  library_preparation_kit_catalog_number:
+    name: library_preparation_kit_catalog_number
+    title: library_preparation_kit_catalog_number
+    range: WhitespaceMinimizedString
+    description: Catalog of Library Preparation Kit
+    comments: ' '
+  library_preparation_kit_name:
+    name: library_preparation_kit_name
+    title: library_preparation_kit_name
+    range: WhitespaceMinimizedString
+    description: Name of Library Preparation Kit
+    comments: ' '
+  library_preparation_kit_vendor:
+    name: library_preparation_kit_vendor
+    title: library_preparation_kit_vendor
+    range: WhitespaceMinimizedString
+    description: Vendor of Library Preparation Kit
+    comments: ' '
+  library_preparation_kit_version:
+    name: library_preparation_kit_version
+    title: library_preparation_kit_version
+    range: WhitespaceMinimizedString
+    description: Version of Library Preparation Kit
+    comments: ' '
+  library_selection:
+    name: library_selection
+    title: library_selection
+    range: library_selection menu
+    description: Library Selection Method
+    comments: ' '
+  library_strand:
+    name: library_strand
+    title: library_strand
+    range: library_strand menu
+    description: Library stranded-ness.
+    comments: ' '
+  library_strategy:
+    name: library_strategy
+    title: library_strategy
+    range: library_strategy menu
+    description: Library strategy.
+    comments: ' '
+  platform:
+    name: platform
+    title: platform
+    range: platform menu
+    description: Name of the platform used to obtain data.
+    comments: ' '
+  read_length:
+    name: read_length
+    title: read_length
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  sequencing_center:
+    name: sequencing_center
+    title: sequencing_center
+    range: WhitespaceMinimizedString
+    description: Name of the center that provided the sequence files.
+    comments: ' '
+  sequencing_date:
+    name: sequencing_date
+    title: sequencing_date
+    range: WhitespaceMinimizedString
+    description: "\tA combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]"
+    comments: ' '
+  size_selection_range:
+    name: size_selection_range
+    title: size_selection_range
+    range: WhitespaceMinimizedString
+    description: Range of size selection.
+    comments: ' '
+  spike_ins_concentration:
+    name: spike_ins_concentration
+    title: spike_ins_concentration
+    range: WhitespaceMinimizedString
+    description: Spike in concentration.
+    comments: ' '
+  spike_ins_fasta:
+    name: spike_ins_fasta
+    title: spike_ins_fasta
+    range: WhitespaceMinimizedString
+    description: "\tName of the FASTA file that contains the spike-in sequences."
+    comments: ' '
+  target_capture_kit_catalog_number:
+    name: target_capture_kit_catalog_number
+    title: target_capture_kit_catalog_number
+    range: WhitespaceMinimizedString
+    description: "\tCatalog of Target Capture Kit."
+    comments: ' '
+  target_capture_kit_name:
+    name: target_capture_kit_name
+    title: target_capture_kit_name
+    range: WhitespaceMinimizedString
+    description: "\tName of Target Capture Kit."
+    comments: ' '
+  target_capture_kit_target_region:
+    name: target_capture_kit_target_region
+    title: target_capture_kit_target_region
+    range: WhitespaceMinimizedString
+    description: "\tTarget Capture Kit BED file."
+    comments: ' '
+  target_capture_kit_vendor:
+    name: target_capture_kit_vendor
+    title: target_capture_kit_vendor
+    range: WhitespaceMinimizedString
+    description: Vendor of Target Capture Kit.
+    comments: ' '
+  target_capture_kit_version:
+    name: target_capture_kit_version
+    title: target_capture_kit_version
+    range: WhitespaceMinimizedString
+    description: Version of Target Capture Kit.
+    comments: ' '
+  target_depletion_kit_catalog_number:
+    name: target_depletion_kit_catalog_number
+    title: target_depletion_kit_catalog_number
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  target_depletion_kit_name:
+    name: target_depletion_kit_name
+    title: target_depletion_kit_name
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  target_depletion_kit_target_region:
+    name: target_depletion_kit_target_region
+    title: target_depletion_kit_target_region
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  target_depletion_kit_vendor:
+    name: target_depletion_kit_vendor
+    title: target_depletion_kit_vendor
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  target_depletion_kit_version:
+    name: target_depletion_kit_version
+    title: target_depletion_kit_version
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  to_trim_adapter_sequence:
+    name: to_trim_adapter_sequence
+    title: to_trim_adapter_sequence
+    range: boolean
+    description: Does the user suggest adapter trimming?
+    comments: ' '
+  analysis.submitter_id:
+    name: analysis.submitter_id
+    title: analysis ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  aligned_reads.submitter_id:
+    name: aligned_reads.submitter_id
+    title: aligned_reads ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analysis.workflow_type:
+    name: analysis.workflow_type
+    title: workflow_type
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analysis.workflow_link:
+    name: analysis.workflow_link
+    title: workflow_link
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analysis.workflow_version:
+    name: analysis.workflow_version
+    title: workflow_version
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analysis_file:
+    name: analysis_file
+    title: analysis_file
+    range: WhitespaceMinimizedString
+    description: ' '
+    slot_uri: obo:OBI:0000021
+    comments: ' '
+  analyzed.data_category:
+    name: analyzed.data_category
+    title: data_category
+    range: analyzed.data_category menu
+    description: ' '
+    comments: ' '
+  analyzed.data_format:
+    name: analyzed.data_format
+    title: data_format
+    range: analyzed.data_format menu
+    description: ' '
+    comments: ' '
+  analyzed.data_type:
+    name: analyzed.data_type
+    title: data_type
+    range: analyzed.data_type menu
+    description: ' '
+    comments: ' '
+  analyzed.file_source_repository:
+    name: analyzed.file_source_repository
+    title: file_source_repository
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analyzed.repository_accession_id:
+    name: analyzed.repository_accession_id
+    title: repository_accession_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analyzed.repository_download_ftp:
+    name: analyzed.repository_download_ftp
+    title: repository_download_ftp
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  studyID:
+    name: studyID
+    title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+
+enums:
+  analyte_type menu:
+    name: analyte_type menu
+    permissible_values:
+      mRNA,cDNA,DNA:
+        text: mRNA,cDNA,DNA
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  extract_preservation_method menu:
+    name: extract_preservation_method menu
+    permissible_values:
+      Room temperature:
+        text: Room temperature
+      -20C:
+        text: -20C
+      -80C:
+        text: -80C
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_category menu:
+    name: raw.data_category menu
+    permissible_values:
+      WGS:
+        text: WGS
+      WXS:
+        text: WXS
+      Low Pass WGS:
+        text: Low Pass WGS
+      Validation:
+        text: Validation
+      RNA-Seq:
+        text: RNA-Seq
+      miRNA-Seq:
+        text: miRNA-Seq
+      Total RNA-Seq:
+        text: Total RNA-Seq
+      DNA Panel:
+        text: DNA Panel
+      snRNAseq:
+        text: snRNAseq
+      scRNAseq:
+        text: scRNAseq
+      Spatial Trancriptomics:
+        text: Spatial Trancriptomics
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_format menu:
+    name: raw.data_format menu
+    permissible_values:
+      .FASTQ:
+        text: .FASTQ
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  raw.data_type menu:
+    name: raw.data_type menu
+    permissible_values:
+      Unaligned Reads:
+        text: Unaligned Reads
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  qc.data_format menu:
+    name: qc.data_format menu
+    permissible_values:
+      FASTQC:
+        text: FASTQC
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  qc.data_type menu:
+    name: qc.data_type menu
+    permissible_values:
+      Unaligned Read QC:
+        text: Unaligned Read QC
+      Aligned Read QC:
+        text: Aligned Read QC
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_format menu:
+    name: processed.data_format menu
+    permissible_values:
+      BAM:
+        text: BAM
+      BED:
+        text: BED
+      TXT:
+        text: TXT
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  processed.data_type menu:
+    name: processed.data_type menu
+    permissible_values:
+      Aligned Reads:
+        text: Aligned Reads
+      Alignment Coordinates:
+        text: Alignment Coordinates
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  workflow_type menu:
+    name: workflow_type menu
+    permissible_values:
+      STAR:
+        text: STAR
+      BWA-aln:
+        text: BWA-aln
+      BWA-mem:
+        text: BWA-mem
+      spinnaker:
+        text: spinnaker
+      Salmon:
+        text: Salmon
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  spike_ins menu:
+    name: spike_ins menu
+    permissible_values:
+      ERCC RNA Spike-In Mix (Thermo Fisher):
+        text: ERCC RNA Spike-In Mix (Thermo Fisher)
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  instrument_model menu:
+    name: instrument_model menu
+    permissible_values:
+      454 GS FLX Titanium:
+        text: 454 GS FLX Titanium
+      AB SOLiD 4:
+        text: AB SOLiD 4
+      AB SOLiD 2:
+        text: AB SOLiD 2
+      AB SOLiD 3:
+        text: AB SOLiD 3
+      Complete Genomics:
+        text: Complete Genomics
+      Illumina HiSeq X Ten:
+        text: Illumina HiSeq X Ten
+      Illumina HiSeq X Five:
+        text: Illumina HiSeq X Five
+      Illumina Genome Analyzer II:
+        text: Illumina Genome Analyzer II
+      Illumina Genome Analyzer IIx:
+        text: Illumina Genome Analyzer IIx
+      Illumina HiSeq 2000:
+        text: Illumina HiSeq 2000
+      Illumina HiSeq 2500:
+        text: Illumina HiSeq 2500
+      Illumina HiSeq 4000:
+        text: Illumina HiSeq 4000
+      Illumina MiSeq:
+        text: Illumina MiSeq
+      Illumina NextSeq 500:
+        text: Illumina NextSeq 500
+      Illumina NextSeq 550:
+        text: Illumina NextSeq 550
+      Illumina NovaSeq 6000:
+        text: Illumina NovaSeq 6000
+      Ion Torrent PGM:
+        text: Ion Torrent PGM
+      Ion Torrent Proton:
+        text: Ion Torrent Proton
+      PacBio RS:
+        text: PacBio RS
+      Ion S5 XL System, Ion 530 Chip:
+        text: Ion S5 XL System, Ion 530 Chip
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  library_selection menu:
+    name: library_selection menu
+    permissible_values:
+      Hybrid_Selection:
+        text: Hybrid_Selection
+      PCR:
+        text: PCR
+      Affinity_Enrichment:
+        text: Affinity_Enrichment
+      Poly-T_Enrichment:
+        text: Poly-T_Enrichment
+      RNA_Depletion:
+        text: RNA_Depletion
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  library_strand menu:
+    name: library_strand menu
+    permissible_values:
+      Unstranded:
+        text: Unstranded
+      First_Stranded:
+        text: First_Stranded
+      Second_Stranded:
+        text: Second_Stranded
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  library_strategy menu:
+    name: library_strategy menu
+    permissible_values:
+      WGS:
+        text: WGS
+      WXS:
+        text: WXS
+      RNA-Seq:
+        text: RNA-Seq
+      ChIP-Seq:
+        text: ChIP-Seq
+      miRNA-Seq:
+        text: miRNA-Seq
+      Bisulfite-Seq:
+        text: Bisulfite-Seq
+      Validation:
+        text: Validation
+      Amplicon:
+        text: Amplicon
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  platform menu:
+    name: platform menu
+    permissible_values:
+      Illumina:
+        text: Illumina
+      SOLiD:
+        text: SOLiD
+      LS454:
+        text: LS454
+      Ion Torrent:
+        text: Ion Torrent
+      Complete Genomics:
+        text: Complete Genomics
+      PacBio:
+        text: PacBio
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  analyzed.data_category menu:
+    name: analyzed.data_category menu
+    permissible_values:
+      DESeq2:
+        text: DESeq2
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  analyzed.data_format menu:
+    name: analyzed.data_format menu
+    permissible_values:
+      TXT:
+        text: TXT
+      RDATA:
+        text: RDATA
+      H5AD:
+        text: H5AD
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+  analyzed.data_type menu:
+    name: analyzed.data_type menu
+    permissible_values:
+      Differential expression:
+        text: Differential expression
+      Not applicable:
+        text: Not applicable
+      Missing:
+        text: Missing
+      Not collected:
+        text: Not collected
+      Not provided:
+        text: Not provided
+      Restricted access:
+        text: Restricted access
+types:
+  WhitespaceMinimizedString:
+    name: WhitespaceMinimizedString
+    typeof: string
+    description: 'A string that has all whitespace trimmed off of beginning and end,
+      and all internal whitespace segments reduced to single spaces. Whitespace includes
+      #x9 (tab), #xA (linefeed), and #xD (carriage return).'
+    base: str
+    uri: xsd:token
+  Provenance:
+    name: Provenance
+    typeof: string
+    description: A field containing a DataHarmonizer versioning marker. It is issued
+      by DataHarmonizer when validation is applied to a given row of data.
+    base: str
+    uri: xsd:token
+settings:
+  Title_Case: (((?<=\b)[^a-z\\W]\\w*?|[\\W])+)
+  UPPER_CASE: '[A-Z\W\d_]*'
+  lower_case: '[a-z\W\d_]*'
