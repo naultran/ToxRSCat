@@ -220,8 +220,14 @@
       "name": "analyte_type menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "mRNA,cDNA,DNA": {
-          "text": "mRNA,cDNA,DNA"
+        "mRNA": {
+          "text": "mRNA"
+        },
+        "cDNA": {
+          "text": "cDNA"
+        },
+        "DNA": {
+          "text": "DNA"
         },
         "Not applicable": {
           "text": "Not applicable"

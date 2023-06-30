@@ -795,8 +795,12 @@ enums:
   analyte_type menu:
     name: analyte_type menu
     permissible_values:
-      mRNA,cDNA,DNA:
-        text: mRNA,cDNA,DNA
+      mRNA:
+        text: mRNA
+      cDNA:
+        text: cDNA
+      DNA:
+        text: DNA
       Not applicable:
         text: Not applicable
       Missing:
