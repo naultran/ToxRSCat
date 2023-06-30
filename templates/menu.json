@@ -83,5 +83,22 @@
       "status": "published",
       "display": true
     }
+  },
+  "MINSEQE": {
+    "Aliquot": {
+      "name": "Aliquot",
+      "status": "published",
+      "display": true
+    },
+    "Sequencing": {
+      "name": "Sequencing",
+      "status": "published",
+      "display": true
+    },
+    "Sequencing_data_analysis": {
+      "name": "Sequencing_data_analysis",
+      "status": "published",
+      "display": true
+    }
   }
 }
