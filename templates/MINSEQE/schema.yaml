@@ -262,7 +262,7 @@ classes:
         slot_group: Identifiers
       studyID:
         rank: 3
-        slot_group: identifiers
+        slot_group: Identifiers
       analysis.workflow_type:
         rank: 4
         slot_group: data_analysis

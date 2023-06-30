@@ -2688,7 +2688,7 @@
         "studyID": {
           "name": "studyID",
           "rank": 3,
-          "slot_group": "identifiers"
+          "slot_group": "Identifiers"
         },
         "analysis.workflow_type": {
           "name": "analysis.workflow_type",
@@ -2783,7 +2783,7 @@
             "Sequencing_data_analysis",
             "Aliquot"
           ],
-          "slot_group": "identifiers",
+          "slot_group": "Identifiers",
           "range": "WhitespaceMinimizedString"
         },
         "analysis.workflow_type": {
