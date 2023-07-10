@@ -1114,36 +1114,6 @@
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
     },
-    "file_source_repository": {
-      "name": "file_source_repository",
-      "description": " ",
-      "title": "file_source_repository",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
-    "repository_accession_id": {
-      "name": "repository_accession_id",
-      "description": " ",
-      "title": "repository_accession_id",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
-    "repository_download_ftp": {
-      "name": "repository_download_ftp",
-      "description": " ",
-      "title": "repository_download_ftp",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
     "adapter_sequence": {
       "name": "adapter_sequence",
       "description": "Base sequence of the sequencing adapter.",
@@ -1568,40 +1538,50 @@
       "from_schema": "https://example.com/CIMR",
       "range": "analyzed.data_type menu"
     },
-    "analyzed.file_source_repository": {
-      "name": "analyzed.file_source_repository",
-      "description": " ",
-      "title": "file_source_repository",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
-    "analyzed.repository_accession_id": {
-      "name": "analyzed.repository_accession_id",
-      "description": " ",
-      "title": "repository_accession_id",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
-    "analyzed.repository_download_ftp": {
-      "name": "analyzed.repository_download_ftp",
-      "description": " ",
-      "title": "repository_download_ftp",
-      "comments": [
-        " "
-      ],
-      "from_schema": "https://example.com/CIMR",
-      "range": "WhitespaceMinimizedString"
-    },
     "studyID": {
       "name": "studyID",
       "description": " ",
       "title": "study ID",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "unaligned_reads.SRA_accession_id": {
+      "name": "unaligned_reads.SRA_accession_id",
+      "description": " ",
+      "title": "SRA_accession_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "QC.SRA_accession_id": {
+      "name": "QC.SRA_accession_id",
+      "description": " ",
+      "title": "SRA_accession_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "aligned_reads.SRA_accession_id": {
+      "name": "aligned_reads.SRA_accession_id",
+      "description": " ",
+      "title": "SRA_accession_id",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "WhitespaceMinimizedString"
+    },
+    "analyzed.SRA_accession_id": {
+      "name": "analyzed.SRA_accession_id",
+      "description": " ",
+      "title": "SRA_accession_id",
       "comments": [
         " "
       ],
@@ -1655,80 +1635,80 @@
           "rank": 7,
           "slot_group": "unaligned_reads"
         },
+        "unaligned_reads.SRA_accession_id": {
+          "name": "unaligned_reads.SRA_accession_id",
+          "rank": 8,
+          "slot_group": "unaligned_reads"
+        },
         "QC_file": {
           "name": "QC_file",
-          "rank": 8,
+          "rank": 9,
           "slot_group": "unaligned_reads_QC"
         },
         "qc.data_format": {
           "name": "qc.data_format",
-          "rank": 9,
+          "rank": 10,
           "slot_group": "unaligned_reads_QC"
         },
         "qc.data_type": {
           "name": "qc.data_type",
-          "rank": 10,
+          "rank": 11,
+          "slot_group": "unaligned_reads_QC"
+        },
+        "QC.SRA_accession_id": {
+          "name": "QC.SRA_accession_id",
+          "rank": 12,
           "slot_group": "unaligned_reads_QC"
         },
         "aligned_read_file": {
           "name": "aligned_read_file",
-          "rank": 11,
+          "rank": 13,
           "slot_group": "aligned_reads"
         },
         "processed.data_format": {
           "name": "processed.data_format",
-          "rank": 12,
+          "rank": 14,
           "slot_group": "aligned_reads"
         },
         "processed.data_type": {
           "name": "processed.data_type",
-          "rank": 13,
+          "rank": 15,
           "slot_group": "aligned_reads"
         },
         "workflow_type": {
           "name": "workflow_type",
-          "rank": 14,
+          "rank": 16,
           "slot_group": "aligned_reads"
         },
         "workflow_link": {
           "name": "workflow_link",
-          "rank": 15,
+          "rank": 17,
           "slot_group": "aligned_reads"
         },
         "workflow_version": {
           "name": "workflow_version",
-          "rank": 16,
+          "rank": 18,
           "slot_group": "aligned_reads"
         },
         "reference_genome": {
           "name": "reference_genome",
-          "rank": 17,
+          "rank": 19,
           "slot_group": "aligned_reads"
         },
         "reference_build": {
           "name": "reference_build",
-          "rank": 18,
+          "rank": 20,
           "slot_group": "aligned_reads"
         },
         "reference_source": {
           "name": "reference_source",
-          "rank": 19,
+          "rank": 21,
           "slot_group": "aligned_reads"
         },
-        "file_source_repository": {
-          "name": "file_source_repository",
-          "rank": 20,
-          "slot_group": "repository"
-        },
-        "repository_accession_id": {
-          "name": "repository_accession_id",
-          "rank": 21,
-          "slot_group": "repository"
-        },
-        "repository_download_ftp": {
-          "name": "repository_download_ftp",
+        "aligned_reads.SRA_accession_id": {
+          "name": "aligned_reads.SRA_accession_id",
           "rank": 22,
-          "slot_group": "repository"
+          "slot_group": "aligned_reads"
         },
         "adapter_sequence": {
           "name": "adapter_sequence",
@@ -1999,12 +1979,26 @@
           "slot_group": "unaligned_reads",
           "range": "raw.data_type menu"
         },
+        "unaligned_reads.SRA_accession_id": {
+          "name": "unaligned_reads.SRA_accession_id",
+          "description": " ",
+          "title": "SRA_accession_id",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 8,
+          "alias": "unaligned_reads.SRA_accession_id",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads",
+          "range": "WhitespaceMinimizedString"
+        },
         "QC_file": {
           "name": "QC_file",
           "description": " ",
           "title": "QC_file",
           "from_schema": "https://example.com/CIMR",
-          "rank": 8,
+          "rank": 9,
           "slot_uri": "obo:OBI:0000021",
           "alias": "QC_file",
           "owner": "Sequencing",
@@ -2019,7 +2013,7 @@
           "description": " ",
           "title": "data_format",
           "from_schema": "https://example.com/CIMR",
-          "rank": 9,
+          "rank": 10,
           "alias": "qc.data_format",
           "owner": "Sequencing",
           "domain_of": [
@@ -2033,7 +2027,7 @@
           "description": " ",
           "title": "data_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 10,
+          "rank": 11,
           "alias": "qc.data_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2042,12 +2036,26 @@
           "slot_group": "unaligned_reads_QC",
           "range": "qc.data_type menu"
         },
+        "QC.SRA_accession_id": {
+          "name": "QC.SRA_accession_id",
+          "description": " ",
+          "title": "SRA_accession_id",
+          "from_schema": "https://example.com/CIMR",
+          "rank": 12,
+          "alias": "QC.SRA_accession_id",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads_QC",
+          "range": "WhitespaceMinimizedString"
+        },
         "aligned_read_file": {
           "name": "aligned_read_file",
           "description": " ",
           "title": "aligned_read_file",
           "from_schema": "https://example.com/CIMR",
-          "rank": 11,
+          "rank": 13,
           "alias": "aligned_read_file",
           "owner": "Sequencing",
           "domain_of": [
@@ -2061,7 +2069,7 @@
           "description": " ",
           "title": "data_format",
           "from_schema": "https://example.com/CIMR",
-          "rank": 12,
+          "rank": 14,
           "alias": "processed.data_format",
           "owner": "Sequencing",
           "domain_of": [
@@ -2075,7 +2083,7 @@
           "description": " ",
           "title": "data_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 13,
+          "rank": 15,
           "alias": "processed.data_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2089,7 +2097,7 @@
           "description": " ",
           "title": "workflow_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 14,
+          "rank": 16,
           "alias": "workflow_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2103,7 +2111,7 @@
           "description": "\tLink to Github hash for the CWL workflow used.",
           "title": "workflow_link",
           "from_schema": "https://example.com/CIMR",
-          "rank": 15,
+          "rank": 17,
           "alias": "workflow_link",
           "owner": "Sequencing",
           "domain_of": [
@@ -2117,7 +2125,7 @@
           "description": " ",
           "title": "workflow_version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 16,
+          "rank": 18,
           "alias": "workflow_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2131,7 +2139,7 @@
           "description": " ",
           "title": "reference_genome",
           "from_schema": "https://example.com/CIMR",
-          "rank": 17,
+          "rank": 19,
           "alias": "reference_genome",
           "owner": "Sequencing",
           "domain_of": [
@@ -2145,7 +2153,7 @@
           "description": " ",
           "title": "reference_build",
           "from_schema": "https://example.com/CIMR",
-          "rank": 18,
+          "rank": 20,
           "alias": "reference_build",
           "owner": "Sequencing",
           "domain_of": [
@@ -2159,7 +2167,7 @@
           "description": " ",
           "title": "reference_source",
           "from_schema": "https://example.com/CIMR",
-          "rank": 19,
+          "rank": 21,
           "alias": "reference_source",
           "owner": "Sequencing",
           "domain_of": [
@@ -2168,46 +2176,18 @@
           "slot_group": "aligned_reads",
           "range": "WhitespaceMinimizedString"
         },
-        "file_source_repository": {
-          "name": "file_source_repository",
+        "aligned_reads.SRA_accession_id": {
+          "name": "aligned_reads.SRA_accession_id",
           "description": " ",
-          "title": "file_source_repository",
-          "from_schema": "https://example.com/CIMR",
-          "rank": 20,
-          "alias": "file_source_repository",
-          "owner": "Sequencing",
-          "domain_of": [
-            "Sequencing"
-          ],
-          "slot_group": "repository",
-          "range": "WhitespaceMinimizedString"
-        },
-        "repository_accession_id": {
-          "name": "repository_accession_id",
-          "description": " ",
-          "title": "repository_accession_id",
-          "from_schema": "https://example.com/CIMR",
-          "rank": 21,
-          "alias": "repository_accession_id",
-          "owner": "Sequencing",
-          "domain_of": [
-            "Sequencing"
-          ],
-          "slot_group": "repository",
-          "range": "WhitespaceMinimizedString"
-        },
-        "repository_download_ftp": {
-          "name": "repository_download_ftp",
-          "description": " ",
-          "title": "repository_download_ftp",
+          "title": "SRA_accession_id",
           "from_schema": "https://example.com/CIMR",
           "rank": 22,
-          "alias": "repository_download_ftp",
+          "alias": "aligned_reads.SRA_accession_id",
           "owner": "Sequencing",
           "domain_of": [
             "Sequencing"
           ],
-          "slot_group": "repository",
+          "slot_group": "aligned_reads",
           "range": "WhitespaceMinimizedString"
         },
         "adapter_sequence": {
@@ -2731,20 +2711,10 @@
           "rank": 10,
           "slot_group": "analyzed_data"
         },
-        "analyzed.file_source_repository": {
-          "name": "analyzed.file_source_repository",
+        "analyzed.SRA_accession_id": {
+          "name": "analyzed.SRA_accession_id",
           "rank": 11,
-          "slot_group": "repository"
-        },
-        "analyzed.repository_accession_id": {
-          "name": "analyzed.repository_accession_id",
-          "rank": 12,
-          "slot_group": "repository"
-        },
-        "analyzed.repository_download_ftp": {
-          "name": "analyzed.repository_download_ftp",
-          "rank": 13,
-          "slot_group": "repository"
+          "slot_group": "analyzed_data"
         }
       },
       "attributes": {
@@ -2891,46 +2861,18 @@
           "slot_group": "analyzed_data",
           "range": "analyzed.data_type menu"
         },
-        "analyzed.file_source_repository": {
-          "name": "analyzed.file_source_repository",
+        "analyzed.SRA_accession_id": {
+          "name": "analyzed.SRA_accession_id",
           "description": " ",
-          "title": "file_source_repository",
+          "title": "SRA_accession_id",
           "from_schema": "https://example.com/CIMR",
           "rank": 11,
-          "alias": "analyzed.file_source_repository",
+          "alias": "analyzed.SRA_accession_id",
           "owner": "Sequencing_data_analysis",
           "domain_of": [
             "Sequencing_data_analysis"
           ],
-          "slot_group": "repository",
-          "range": "WhitespaceMinimizedString"
-        },
-        "analyzed.repository_accession_id": {
-          "name": "analyzed.repository_accession_id",
-          "description": " ",
-          "title": "repository_accession_id",
-          "from_schema": "https://example.com/CIMR",
-          "rank": 12,
-          "alias": "analyzed.repository_accession_id",
-          "owner": "Sequencing_data_analysis",
-          "domain_of": [
-            "Sequencing_data_analysis"
-          ],
-          "slot_group": "repository",
-          "range": "WhitespaceMinimizedString"
-        },
-        "analyzed.repository_download_ftp": {
-          "name": "analyzed.repository_download_ftp",
-          "description": " ",
-          "title": "repository_download_ftp",
-          "from_schema": "https://example.com/CIMR",
-          "rank": 13,
-          "alias": "analyzed.repository_download_ftp",
-          "owner": "Sequencing_data_analysis",
-          "domain_of": [
-            "Sequencing_data_analysis"
-          ],
-          "slot_group": "repository",
+          "slot_group": "analyzed_data",
           "range": "WhitespaceMinimizedString"
         }
       }

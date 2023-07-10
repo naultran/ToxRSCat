@@ -22,9 +22,11 @@ classes:
     - raw.data_category
     - raw.data_format
     - raw.data_type
+    - unaligned_reads.SRA_accession_id
     - QC_file
     - qc.data_format
     - qc.data_type
+    - QC.SRA_accession_id
     - aligned_read_file
     - processed.data_format
     - processed.data_type
@@ -34,9 +36,7 @@ classes:
     - reference_genome
     - reference_build
     - reference_source
-    - file_source_repository
-    - repository_accession_id
-    - repository_download_ftp
+    - aligned_reads.SRA_accession_id
     - adapter_sequence
     - barcoding_applied
     - base_caller_name
@@ -92,51 +92,51 @@ classes:
       raw.data_type:
         rank: 7
         slot_group: unaligned_reads
-      QC_file:
+      unaligned_reads.SRA_accession_id:
         rank: 8
-        slot_group: unaligned_reads_QC
-      qc.data_format:
+        slot_group: unaligned_reads
+      QC_file:
         rank: 9
         slot_group: unaligned_reads_QC
-      qc.data_type:
+      qc.data_format:
         rank: 10
         slot_group: unaligned_reads_QC
-      aligned_read_file:
+      qc.data_type:
         rank: 11
-        slot_group: aligned_reads
-      processed.data_format:
+        slot_group: unaligned_reads_QC
+      QC.SRA_accession_id:
         rank: 12
-        slot_group: aligned_reads
-      processed.data_type:
+        slot_group: unaligned_reads_QC
+      aligned_read_file:
         rank: 13
         slot_group: aligned_reads
-      workflow_type:
+      processed.data_format:
         rank: 14
         slot_group: aligned_reads
-      workflow_link:
+      processed.data_type:
         rank: 15
         slot_group: aligned_reads
-      workflow_version:
+      workflow_type:
         rank: 16
         slot_group: aligned_reads
-      reference_genome:
+      workflow_link:
         rank: 17
         slot_group: aligned_reads
-      reference_build:
+      workflow_version:
         rank: 18
         slot_group: aligned_reads
-      reference_source:
+      reference_genome:
         rank: 19
         slot_group: aligned_reads
-      file_source_repository:
+      reference_build:
         rank: 20
-        slot_group: repository
-      repository_accession_id:
+        slot_group: aligned_reads
+      reference_source:
         rank: 21
-        slot_group: repository
-      repository_download_ftp:
+        slot_group: aligned_reads
+      aligned_reads.SRA_accession_id:
         rank: 22
-        slot_group: repository
+        slot_group: aligned_reads
       adapter_sequence:
         rank: 23
         slot_group: read_group
@@ -250,9 +250,7 @@ classes:
     - analyzed.data_category
     - analyzed.data_format
     - analyzed.data_type
-    - analyzed.file_source_repository
-    - analyzed.repository_accession_id
-    - analyzed.repository_download_ftp
+    - analyzed.SRA_accession_id
     slot_usage:
       analysis.submitter_id:
         rank: 1
@@ -284,15 +282,9 @@ classes:
       analyzed.data_type:
         rank: 10
         slot_group: analyzed_data
-      analyzed.file_source_repository:
+      analyzed.SRA_accession_id:
         rank: 11
-        slot_group: repository
-      analyzed.repository_accession_id:
-        rank: 12
-        slot_group: repository
-      analyzed.repository_download_ftp:
-        rank: 13
-        slot_group: repository
+        slot_group: analyzed_data
   Aliquot:
     name: Aliquot
     is_a: dh_interface
@@ -490,24 +482,6 @@ slots:
   reference_source:
     name: reference_source
     title: reference_source
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  file_source_repository:
-    name: file_source_repository
-    title: file_source_repository
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  repository_accession_id:
-    name: repository_accession_id
-    title: repository_accession_id
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  repository_download_ftp:
-    name: repository_download_ftp
-    title: repository_download_ftp
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -766,27 +740,33 @@ slots:
     range: analyzed.data_type menu
     description: ' '
     comments: ' '
-  analyzed.file_source_repository:
-    name: analyzed.file_source_repository
-    title: file_source_repository
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  analyzed.repository_accession_id:
-    name: analyzed.repository_accession_id
-    title: repository_accession_id
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
-  analyzed.repository_download_ftp:
-    name: analyzed.repository_download_ftp
-    title: repository_download_ftp
-    range: WhitespaceMinimizedString
-    description: ' '
-    comments: ' '
   studyID:
     name: studyID
     title: study ID
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  unaligned_reads.SRA_accession_id:
+    name: unaligned_reads.SRA_accession_id
+    title: SRA_accession_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  QC.SRA_accession_id:
+    name: QC.SRA_accession_id
+    title: SRA_accession_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  aligned_reads.SRA_accession_id:
+    name: aligned_reads.SRA_accession_id
+    title: SRA_accession_id
+    range: WhitespaceMinimizedString
+    description: ' '
+    comments: ' '
+  analyzed.SRA_accession_id:
+    name: analyzed.SRA_accession_id
+    title: SRA_accession_id
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
