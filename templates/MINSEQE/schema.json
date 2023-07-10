@@ -934,7 +934,7 @@
     "submitter_id": {
       "name": "submitter_id",
       "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-      "title": "flow cytometry ID",
+      "title": "read_groups ID",
       "comments": [
         "ms_S001"
       ],
@@ -1024,6 +1024,16 @@
       "from_schema": "https://example.com/CIMR",
       "range": "qc.data_type menu"
     },
+    "qc.data_category": {
+      "name": "qc.data_category",
+      "description": " ",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_category menu"
+    },
     "aligned_read_file": {
       "name": "aligned_read_file",
       "description": " ",
@@ -1033,6 +1043,16 @@
       ],
       "from_schema": "https://example.com/CIMR",
       "range": "WhitespaceMinimizedString"
+    },
+    "processed.data_category": {
+      "name": "processed.data_category",
+      "description": " ",
+      "title": "data_category",
+      "comments": [
+        " "
+      ],
+      "from_schema": "https://example.com/CIMR",
+      "range": "raw.data_category menu"
     },
     "processed.data_format": {
       "name": "processed.data_format",
@@ -1617,262 +1637,434 @@
         },
         "unaligned_read_file": {
           "name": "unaligned_read_file",
+          "exact_mappings": [
+            "unaligned_read:file_name"
+          ],
           "rank": 4,
           "slot_group": "unaligned_reads"
         },
         "raw.data_category": {
           "name": "raw.data_category",
+          "exact_mappings": [
+            "unaligned_read:data_category"
+          ],
           "rank": 5,
           "slot_group": "unaligned_reads"
         },
         "raw.data_format": {
           "name": "raw.data_format",
+          "exact_mappings": [
+            "unaligned_read:data_format"
+          ],
           "rank": 6,
           "slot_group": "unaligned_reads"
         },
         "raw.data_type": {
           "name": "raw.data_type",
+          "exact_mappings": [
+            "unaligned_read:data_type"
+          ],
           "rank": 7,
           "slot_group": "unaligned_reads"
         },
         "unaligned_reads.SRA_accession_id": {
           "name": "unaligned_reads.SRA_accession_id",
+          "exact_mappings": [
+            "unaligned_read:SRA_accession_id"
+          ],
           "rank": 8,
           "slot_group": "unaligned_reads"
         },
         "QC_file": {
           "name": "QC_file",
+          "exact_mappings": [
+            "unaligned_reads_qc:file_name"
+          ],
           "rank": 9,
           "slot_group": "unaligned_reads_QC"
         },
         "qc.data_format": {
           "name": "qc.data_format",
+          "exact_mappings": [
+            "unaligned_reads_qc:data_format"
+          ],
           "rank": 10,
           "slot_group": "unaligned_reads_QC"
         },
         "qc.data_type": {
           "name": "qc.data_type",
+          "exact_mappings": [
+            "unaligned_reads_qc:data_type"
+          ],
           "rank": 11,
+          "slot_group": "unaligned_reads_QC"
+        },
+        "qc.data_category": {
+          "name": "qc.data_category",
+          "exact_mappings": [
+            "unaligned_reads_qc:data_category"
+          ],
+          "rank": 12,
           "slot_group": "unaligned_reads_QC"
         },
         "QC.SRA_accession_id": {
           "name": "QC.SRA_accession_id",
-          "rank": 12,
+          "exact_mappings": [
+            "unaligned_reads_qc:SRA_accession_id"
+          ],
+          "rank": 13,
           "slot_group": "unaligned_reads_QC"
         },
         "aligned_read_file": {
           "name": "aligned_read_file",
-          "rank": 13,
+          "exact_mappings": [
+            "aligned_read:aligned_read_file"
+          ],
+          "rank": 14,
+          "slot_group": "aligned_reads"
+        },
+        "processed.data_category": {
+          "name": "processed.data_category",
+          "exact_mappings": [
+            "aligned_read:data_category"
+          ],
+          "rank": 15,
           "slot_group": "aligned_reads"
         },
         "processed.data_format": {
           "name": "processed.data_format",
-          "rank": 14,
+          "exact_mappings": [
+            "aligned_read:data_format"
+          ],
+          "rank": 16,
           "slot_group": "aligned_reads"
         },
         "processed.data_type": {
           "name": "processed.data_type",
-          "rank": 15,
+          "exact_mappings": [
+            "aligned_read:data_type"
+          ],
+          "rank": 17,
           "slot_group": "aligned_reads"
         },
         "workflow_type": {
           "name": "workflow_type",
-          "rank": 16,
+          "exact_mappings": [
+            "aligned_read:workflow_type"
+          ],
+          "rank": 18,
           "slot_group": "aligned_reads"
         },
         "workflow_link": {
           "name": "workflow_link",
-          "rank": 17,
+          "exact_mappings": [
+            "aligned_read:workflow_link"
+          ],
+          "rank": 19,
           "slot_group": "aligned_reads"
         },
         "workflow_version": {
           "name": "workflow_version",
-          "rank": 18,
+          "exact_mappings": [
+            "aligned_read:workflow_version"
+          ],
+          "rank": 20,
           "slot_group": "aligned_reads"
         },
         "reference_genome": {
           "name": "reference_genome",
-          "rank": 19,
+          "exact_mappings": [
+            "aligned_read:reference_genome"
+          ],
+          "rank": 21,
           "slot_group": "aligned_reads"
         },
         "reference_build": {
           "name": "reference_build",
-          "rank": 20,
+          "exact_mappings": [
+            "aligned_read:reference_build"
+          ],
+          "rank": 22,
           "slot_group": "aligned_reads"
         },
         "reference_source": {
           "name": "reference_source",
-          "rank": 21,
+          "exact_mappings": [
+            "aligned_read:reference_source"
+          ],
+          "rank": 23,
           "slot_group": "aligned_reads"
         },
         "aligned_reads.SRA_accession_id": {
           "name": "aligned_reads.SRA_accession_id",
-          "rank": 22,
+          "exact_mappings": [
+            "aligned_read:SRA_accession_id"
+          ],
+          "rank": 24,
           "slot_group": "aligned_reads"
         },
         "adapter_sequence": {
           "name": "adapter_sequence",
-          "rank": 23,
+          "exact_mappings": [
+            "read_group:adapter_sequence"
+          ],
+          "rank": 25,
           "slot_group": "read_group"
         },
         "barcoding_applied": {
           "name": "barcoding_applied",
-          "rank": 24,
+          "exact_mappings": [
+            "read_group:barcoding_applied"
+          ],
+          "rank": 26,
           "slot_group": "read_group"
         },
         "base_caller_name": {
           "name": "base_caller_name",
-          "rank": 25,
+          "exact_mappings": [
+            "read_group:base_caller_name"
+          ],
+          "rank": 27,
           "slot_group": "read_group"
         },
         "base_caller_version": {
           "name": "base_caller_version",
-          "rank": 26,
+          "exact_mappings": [
+            "read_group:base_caller_version"
+          ],
+          "rank": 28,
           "slot_group": "read_group"
         },
         "flow_cell_barcode": {
           "name": "flow_cell_barcode",
-          "rank": 27,
+          "exact_mappings": [
+            "read_group:flow_cell_barcode"
+          ],
+          "rank": 29,
           "slot_group": "read_group"
         },
         "spike_ins": {
           "name": "spike_ins",
-          "rank": 28,
+          "exact_mappings": [
+            "read_group:spike_ins"
+          ],
+          "rank": 30,
           "slot_group": "read_group"
         },
         "instrument_model": {
           "name": "instrument_model",
-          "rank": 29,
+          "exact_mappings": [
+            "read_group:instrument_model"
+          ],
+          "rank": 31,
           "slot_group": "read_group"
         },
         "is_paired_end": {
           "name": "is_paired_end",
-          "rank": 30,
+          "exact_mappings": [
+            "read_group:is_paired_end"
+          ],
+          "rank": 32,
           "slot_group": "read_group"
         },
         "library_preparation_kit_catalog_number": {
           "name": "library_preparation_kit_catalog_number",
-          "rank": 31,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_catalog_number"
+          ],
+          "rank": 33,
           "slot_group": "read_group"
         },
         "library_preparation_kit_name": {
           "name": "library_preparation_kit_name",
-          "rank": 32,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_name"
+          ],
+          "rank": 34,
           "slot_group": "read_group"
         },
         "library_preparation_kit_vendor": {
           "name": "library_preparation_kit_vendor",
-          "rank": 33,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_vendor"
+          ],
+          "rank": 35,
           "slot_group": "read_group"
         },
         "library_preparation_kit_version": {
           "name": "library_preparation_kit_version",
-          "rank": 34,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_version"
+          ],
+          "rank": 36,
           "slot_group": "read_group"
         },
         "library_selection": {
           "name": "library_selection",
-          "rank": 35,
+          "exact_mappings": [
+            "read_group:library_selection"
+          ],
+          "rank": 37,
           "slot_group": "read_group"
         },
         "library_strand": {
           "name": "library_strand",
-          "rank": 36,
+          "exact_mappings": [
+            "read_group:library_strand"
+          ],
+          "rank": 38,
           "slot_group": "read_group"
         },
         "library_strategy": {
           "name": "library_strategy",
-          "rank": 37,
+          "exact_mappings": [
+            "read_group:library_strategy"
+          ],
+          "rank": 39,
           "slot_group": "read_group"
         },
         "platform": {
           "name": "platform",
-          "rank": 38,
+          "exact_mappings": [
+            "read_group:platform"
+          ],
+          "rank": 40,
           "slot_group": "read_group"
         },
         "read_length": {
           "name": "read_length",
-          "rank": 39,
+          "exact_mappings": [
+            "read_group:read_length"
+          ],
+          "rank": 41,
           "slot_group": "read_group"
         },
         "sequencing_center": {
           "name": "sequencing_center",
-          "rank": 40,
+          "exact_mappings": [
+            "read_group:sequencing_center"
+          ],
+          "rank": 42,
           "slot_group": "read_group"
         },
         "sequencing_date": {
           "name": "sequencing_date",
-          "rank": 41,
+          "exact_mappings": [
+            "read_group:sequencing_date"
+          ],
+          "rank": 43,
           "slot_group": "read_group"
         },
         "size_selection_range": {
           "name": "size_selection_range",
-          "rank": 42,
+          "exact_mappings": [
+            "read_group:size_selection_range"
+          ],
+          "rank": 44,
           "slot_group": "read_group"
         },
         "spike_ins_concentration": {
           "name": "spike_ins_concentration",
-          "rank": 43,
+          "exact_mappings": [
+            "read_group:spike_ins_concentration"
+          ],
+          "rank": 45,
           "slot_group": "read_group"
         },
         "spike_ins_fasta": {
           "name": "spike_ins_fasta",
-          "rank": 44,
+          "exact_mappings": [
+            "read_group:spike_ins_fasta"
+          ],
+          "rank": 46,
           "slot_group": "read_group"
         },
         "target_capture_kit_catalog_number": {
           "name": "target_capture_kit_catalog_number",
-          "rank": 45,
+          "exact_mappings": [
+            "read_group:target_capture_kit_catalog_number"
+          ],
+          "rank": 47,
           "slot_group": "read_group"
         },
         "target_capture_kit_name": {
           "name": "target_capture_kit_name",
-          "rank": 46,
+          "exact_mappings": [
+            "read_group:target_capture_kit_name"
+          ],
+          "rank": 48,
           "slot_group": "read_group"
         },
         "target_capture_kit_target_region": {
           "name": "target_capture_kit_target_region",
-          "rank": 47,
+          "exact_mappings": [
+            "read_group:target_capture_kit_target_region"
+          ],
+          "rank": 49,
           "slot_group": "read_group"
         },
         "target_capture_kit_vendor": {
           "name": "target_capture_kit_vendor",
-          "rank": 48,
+          "exact_mappings": [
+            "read_group:target_capture_kit_vendor"
+          ],
+          "rank": 50,
           "slot_group": "read_group"
         },
         "target_capture_kit_version": {
           "name": "target_capture_kit_version",
-          "rank": 49,
+          "exact_mappings": [
+            "read_group:target_capture_kit_version"
+          ],
+          "rank": 51,
           "slot_group": "read_group"
         },
         "target_depletion_kit_catalog_number": {
           "name": "target_depletion_kit_catalog_number",
-          "rank": 50,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_catalog_number"
+          ],
+          "rank": 52,
           "slot_group": "read_group"
         },
         "target_depletion_kit_name": {
           "name": "target_depletion_kit_name",
-          "rank": 51,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_name"
+          ],
+          "rank": 53,
           "slot_group": "read_group"
         },
         "target_depletion_kit_target_region": {
           "name": "target_depletion_kit_target_region",
-          "rank": 52,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_target_region"
+          ],
+          "rank": 54,
           "slot_group": "read_group"
         },
         "target_depletion_kit_vendor": {
           "name": "target_depletion_kit_vendor",
-          "rank": 53,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_vendor"
+          ],
+          "rank": 55,
           "slot_group": "read_group"
         },
         "target_depletion_kit_version": {
           "name": "target_depletion_kit_version",
-          "rank": 54,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_version"
+          ],
+          "rank": 56,
           "slot_group": "read_group"
         },
         "to_trim_adapter_sequence": {
           "name": "to_trim_adapter_sequence",
-          "rank": 55,
+          "exact_mappings": [
+            "read_group:to_trim_adapter_sequence"
+          ],
+          "rank": 57,
           "slot_group": "read_group"
         }
       },
@@ -1880,7 +2072,7 @@
         "submitter_id": {
           "name": "submitter_id",
           "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
-          "title": "flow cytometry ID",
+          "title": "read_groups ID",
           "from_schema": "https://example.com/CIMR",
           "rank": 1,
           "alias": "submitter_id",
@@ -1927,6 +2119,9 @@
           "description": " ",
           "title": "unaligned_read_file",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_read:file_name"
+          ],
           "rank": 4,
           "slot_uri": "obo:OBI:0000021",
           "alias": "unaligned_read_file",
@@ -1942,6 +2137,9 @@
           "description": " ",
           "title": "data_category",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_read:data_category"
+          ],
           "rank": 5,
           "alias": "raw.data_category",
           "owner": "Sequencing",
@@ -1956,6 +2154,9 @@
           "description": " ",
           "title": "data_format",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_read:data_format"
+          ],
           "rank": 6,
           "alias": "raw.data_format",
           "owner": "Sequencing",
@@ -1970,6 +2171,9 @@
           "description": " ",
           "title": "data_type",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_read:data_type"
+          ],
           "rank": 7,
           "alias": "raw.data_type",
           "owner": "Sequencing",
@@ -1984,6 +2188,9 @@
           "description": " ",
           "title": "SRA_accession_id",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_read:SRA_accession_id"
+          ],
           "rank": 8,
           "alias": "unaligned_reads.SRA_accession_id",
           "owner": "Sequencing",
@@ -1998,6 +2205,9 @@
           "description": " ",
           "title": "QC_file",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_reads_qc:file_name"
+          ],
           "rank": 9,
           "slot_uri": "obo:OBI:0000021",
           "alias": "QC_file",
@@ -2013,6 +2223,9 @@
           "description": " ",
           "title": "data_format",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_reads_qc:data_format"
+          ],
           "rank": 10,
           "alias": "qc.data_format",
           "owner": "Sequencing",
@@ -2027,6 +2240,9 @@
           "description": " ",
           "title": "data_type",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_reads_qc:data_type"
+          ],
           "rank": 11,
           "alias": "qc.data_type",
           "owner": "Sequencing",
@@ -2036,12 +2252,32 @@
           "slot_group": "unaligned_reads_QC",
           "range": "qc.data_type menu"
         },
+        "qc.data_category": {
+          "name": "qc.data_category",
+          "description": " ",
+          "title": "data_category",
+          "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "unaligned_reads_qc:data_category"
+          ],
+          "rank": 12,
+          "alias": "qc.data_category",
+          "owner": "Sequencing",
+          "domain_of": [
+            "Sequencing"
+          ],
+          "slot_group": "unaligned_reads_QC",
+          "range": "raw.data_category menu"
+        },
         "QC.SRA_accession_id": {
           "name": "QC.SRA_accession_id",
           "description": " ",
           "title": "SRA_accession_id",
           "from_schema": "https://example.com/CIMR",
-          "rank": 12,
+          "exact_mappings": [
+            "unaligned_reads_qc:SRA_accession_id"
+          ],
+          "rank": 13,
           "alias": "QC.SRA_accession_id",
           "owner": "Sequencing",
           "domain_of": [
@@ -2055,7 +2291,10 @@
           "description": " ",
           "title": "aligned_read_file",
           "from_schema": "https://example.com/CIMR",
-          "rank": 13,
+          "exact_mappings": [
+            "aligned_read:aligned_read_file"
+          ],
+          "rank": 14,
           "alias": "aligned_read_file",
           "owner": "Sequencing",
           "domain_of": [
@@ -2069,7 +2308,10 @@
           "description": " ",
           "title": "data_format",
           "from_schema": "https://example.com/CIMR",
-          "rank": 14,
+          "exact_mappings": [
+            "aligned_read:data_format"
+          ],
+          "rank": 16,
           "alias": "processed.data_format",
           "owner": "Sequencing",
           "domain_of": [
@@ -2083,7 +2325,10 @@
           "description": " ",
           "title": "data_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 15,
+          "exact_mappings": [
+            "aligned_read:data_type"
+          ],
+          "rank": 17,
           "alias": "processed.data_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2097,7 +2342,10 @@
           "description": " ",
           "title": "workflow_type",
           "from_schema": "https://example.com/CIMR",
-          "rank": 16,
+          "exact_mappings": [
+            "aligned_read:workflow_type"
+          ],
+          "rank": 18,
           "alias": "workflow_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2111,7 +2359,10 @@
           "description": "\tLink to Github hash for the CWL workflow used.",
           "title": "workflow_link",
           "from_schema": "https://example.com/CIMR",
-          "rank": 17,
+          "exact_mappings": [
+            "aligned_read:workflow_link"
+          ],
+          "rank": 19,
           "alias": "workflow_link",
           "owner": "Sequencing",
           "domain_of": [
@@ -2125,7 +2376,10 @@
           "description": " ",
           "title": "workflow_version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 18,
+          "exact_mappings": [
+            "aligned_read:workflow_version"
+          ],
+          "rank": 20,
           "alias": "workflow_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2139,7 +2393,10 @@
           "description": " ",
           "title": "reference_genome",
           "from_schema": "https://example.com/CIMR",
-          "rank": 19,
+          "exact_mappings": [
+            "aligned_read:reference_genome"
+          ],
+          "rank": 21,
           "alias": "reference_genome",
           "owner": "Sequencing",
           "domain_of": [
@@ -2153,7 +2410,10 @@
           "description": " ",
           "title": "reference_build",
           "from_schema": "https://example.com/CIMR",
-          "rank": 20,
+          "exact_mappings": [
+            "aligned_read:reference_build"
+          ],
+          "rank": 22,
           "alias": "reference_build",
           "owner": "Sequencing",
           "domain_of": [
@@ -2167,7 +2427,10 @@
           "description": " ",
           "title": "reference_source",
           "from_schema": "https://example.com/CIMR",
-          "rank": 21,
+          "exact_mappings": [
+            "aligned_read:reference_source"
+          ],
+          "rank": 23,
           "alias": "reference_source",
           "owner": "Sequencing",
           "domain_of": [
@@ -2181,7 +2444,10 @@
           "description": " ",
           "title": "SRA_accession_id",
           "from_schema": "https://example.com/CIMR",
-          "rank": 22,
+          "exact_mappings": [
+            "aligned_read:SRA_accession_id"
+          ],
+          "rank": 24,
           "alias": "aligned_reads.SRA_accession_id",
           "owner": "Sequencing",
           "domain_of": [
@@ -2195,7 +2461,10 @@
           "description": "Base sequence of the sequencing adapter.",
           "title": "adapter_sequence",
           "from_schema": "https://example.com/CIMR",
-          "rank": 23,
+          "exact_mappings": [
+            "read_group:adapter_sequence"
+          ],
+          "rank": 25,
           "alias": "adapter_sequence",
           "owner": "Sequencing",
           "domain_of": [
@@ -2209,7 +2478,10 @@
           "description": "true/false: was barcoding applied?",
           "title": "barcoding_applied",
           "from_schema": "https://example.com/CIMR",
-          "rank": 24,
+          "exact_mappings": [
+            "read_group:barcoding_applied"
+          ],
+          "rank": 26,
           "alias": "barcoding_applied",
           "owner": "Sequencing",
           "domain_of": [
@@ -2223,7 +2495,10 @@
           "description": "Name of the base caller.",
           "title": "base_caller_name",
           "from_schema": "https://example.com/CIMR",
-          "rank": 25,
+          "exact_mappings": [
+            "read_group:base_caller_name"
+          ],
+          "rank": 27,
           "alias": "base_caller_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2237,7 +2512,10 @@
           "description": "\tVersion of the base caller.",
           "title": "base_caller_version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 26,
+          "exact_mappings": [
+            "read_group:base_caller_version"
+          ],
+          "rank": 28,
           "alias": "base_caller_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2251,7 +2529,10 @@
           "description": "Flow Cell Barcode.",
           "title": "flow_cell_barcode",
           "from_schema": "https://example.com/CIMR",
-          "rank": 27,
+          "exact_mappings": [
+            "read_group:flow_cell_barcode"
+          ],
+          "rank": 29,
           "alias": "flow_cell_barcode",
           "owner": "Sequencing",
           "domain_of": [
@@ -2265,7 +2546,10 @@
           "description": " ",
           "title": "spike_ins",
           "from_schema": "https://example.com/CIMR",
-          "rank": 28,
+          "exact_mappings": [
+            "read_group:spike_ins"
+          ],
+          "rank": 30,
           "multivalued": true,
           "alias": "spike_ins",
           "owner": "Sequencing",
@@ -2281,7 +2565,10 @@
           "description": " ",
           "title": "instrument_model",
           "from_schema": "https://example.com/CIMR",
-          "rank": 29,
+          "exact_mappings": [
+            "read_group:instrument_model"
+          ],
+          "rank": 31,
           "alias": "instrument_model",
           "owner": "Sequencing",
           "domain_of": [
@@ -2295,7 +2582,10 @@
           "description": "Are the reads paired end?",
           "title": "is_paired_end",
           "from_schema": "https://example.com/CIMR",
-          "rank": 30,
+          "exact_mappings": [
+            "read_group:is_paired_end"
+          ],
+          "rank": 32,
           "alias": "is_paired_end",
           "owner": "Sequencing",
           "domain_of": [
@@ -2309,7 +2599,10 @@
           "description": "Catalog of Library Preparation Kit",
           "title": "library_preparation_kit_catalog_number",
           "from_schema": "https://example.com/CIMR",
-          "rank": 31,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_catalog_number"
+          ],
+          "rank": 33,
           "alias": "library_preparation_kit_catalog_number",
           "owner": "Sequencing",
           "domain_of": [
@@ -2323,7 +2616,10 @@
           "description": "Name of Library Preparation Kit",
           "title": "library_preparation_kit_name",
           "from_schema": "https://example.com/CIMR",
-          "rank": 32,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_name"
+          ],
+          "rank": 34,
           "alias": "library_preparation_kit_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2337,7 +2633,10 @@
           "description": "Vendor of Library Preparation Kit",
           "title": "library_preparation_kit_vendor",
           "from_schema": "https://example.com/CIMR",
-          "rank": 33,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_vendor"
+          ],
+          "rank": 35,
           "alias": "library_preparation_kit_vendor",
           "owner": "Sequencing",
           "domain_of": [
@@ -2351,7 +2650,10 @@
           "description": "Version of Library Preparation Kit",
           "title": "library_preparation_kit_version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 34,
+          "exact_mappings": [
+            "read_group:library_preparation_kit_version"
+          ],
+          "rank": 36,
           "alias": "library_preparation_kit_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2365,7 +2667,10 @@
           "description": "Library Selection Method",
           "title": "library_selection",
           "from_schema": "https://example.com/CIMR",
-          "rank": 35,
+          "exact_mappings": [
+            "read_group:library_selection"
+          ],
+          "rank": 37,
           "alias": "library_selection",
           "owner": "Sequencing",
           "domain_of": [
@@ -2379,7 +2684,10 @@
           "description": "Library stranded-ness.",
           "title": "library_strand",
           "from_schema": "https://example.com/CIMR",
-          "rank": 36,
+          "exact_mappings": [
+            "read_group:library_strand"
+          ],
+          "rank": 38,
           "alias": "library_strand",
           "owner": "Sequencing",
           "domain_of": [
@@ -2393,7 +2701,10 @@
           "description": "Library strategy.",
           "title": "library_strategy",
           "from_schema": "https://example.com/CIMR",
-          "rank": 37,
+          "exact_mappings": [
+            "read_group:library_strategy"
+          ],
+          "rank": 39,
           "alias": "library_strategy",
           "owner": "Sequencing",
           "domain_of": [
@@ -2407,7 +2718,10 @@
           "description": "Name of the platform used to obtain data.",
           "title": "platform",
           "from_schema": "https://example.com/CIMR",
-          "rank": 38,
+          "exact_mappings": [
+            "read_group:platform"
+          ],
+          "rank": 40,
           "alias": "platform",
           "owner": "Sequencing",
           "domain_of": [
@@ -2421,7 +2735,10 @@
           "description": " ",
           "title": "read_length",
           "from_schema": "https://example.com/CIMR",
-          "rank": 39,
+          "exact_mappings": [
+            "read_group:read_length"
+          ],
+          "rank": 41,
           "alias": "read_length",
           "owner": "Sequencing",
           "domain_of": [
@@ -2435,7 +2752,10 @@
           "description": "Name of the center that provided the sequence files.",
           "title": "sequencing_center",
           "from_schema": "https://example.com/CIMR",
-          "rank": 40,
+          "exact_mappings": [
+            "read_group:sequencing_center"
+          ],
+          "rank": 42,
           "alias": "sequencing_center",
           "owner": "Sequencing",
           "domain_of": [
@@ -2449,7 +2769,10 @@
           "description": "\tA combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
           "title": "sequencing_date",
           "from_schema": "https://example.com/CIMR",
-          "rank": 41,
+          "exact_mappings": [
+            "read_group:sequencing_date"
+          ],
+          "rank": 43,
           "alias": "sequencing_date",
           "owner": "Sequencing",
           "domain_of": [
@@ -2463,7 +2786,10 @@
           "description": "Range of size selection.",
           "title": "size_selection_range",
           "from_schema": "https://example.com/CIMR",
-          "rank": 42,
+          "exact_mappings": [
+            "read_group:size_selection_range"
+          ],
+          "rank": 44,
           "alias": "size_selection_range",
           "owner": "Sequencing",
           "domain_of": [
@@ -2477,7 +2803,10 @@
           "description": "Spike in concentration.",
           "title": "spike_ins_concentration",
           "from_schema": "https://example.com/CIMR",
-          "rank": 43,
+          "exact_mappings": [
+            "read_group:spike_ins_concentration"
+          ],
+          "rank": 45,
           "alias": "spike_ins_concentration",
           "owner": "Sequencing",
           "domain_of": [
@@ -2491,7 +2820,10 @@
           "description": "\tName of the FASTA file that contains the spike-in sequences.",
           "title": "spike_ins_fasta",
           "from_schema": "https://example.com/CIMR",
-          "rank": 44,
+          "exact_mappings": [
+            "read_group:spike_ins_fasta"
+          ],
+          "rank": 46,
           "alias": "spike_ins_fasta",
           "owner": "Sequencing",
           "domain_of": [
@@ -2505,7 +2837,10 @@
           "description": "\tCatalog of Target Capture Kit.",
           "title": "target_capture_kit_catalog_number",
           "from_schema": "https://example.com/CIMR",
-          "rank": 45,
+          "exact_mappings": [
+            "read_group:target_capture_kit_catalog_number"
+          ],
+          "rank": 47,
           "alias": "target_capture_kit_catalog_number",
           "owner": "Sequencing",
           "domain_of": [
@@ -2519,7 +2854,10 @@
           "description": "\tName of Target Capture Kit.",
           "title": "target_capture_kit_name",
           "from_schema": "https://example.com/CIMR",
-          "rank": 46,
+          "exact_mappings": [
+            "read_group:target_capture_kit_name"
+          ],
+          "rank": 48,
           "alias": "target_capture_kit_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2533,7 +2871,10 @@
           "description": "\tTarget Capture Kit BED file.",
           "title": "target_capture_kit_target_region",
           "from_schema": "https://example.com/CIMR",
-          "rank": 47,
+          "exact_mappings": [
+            "read_group:target_capture_kit_target_region"
+          ],
+          "rank": 49,
           "alias": "target_capture_kit_target_region",
           "owner": "Sequencing",
           "domain_of": [
@@ -2547,7 +2888,10 @@
           "description": "Vendor of Target Capture Kit.",
           "title": "target_capture_kit_vendor",
           "from_schema": "https://example.com/CIMR",
-          "rank": 48,
+          "exact_mappings": [
+            "read_group:target_capture_kit_vendor"
+          ],
+          "rank": 50,
           "alias": "target_capture_kit_vendor",
           "owner": "Sequencing",
           "domain_of": [
@@ -2561,7 +2905,10 @@
           "description": "Version of Target Capture Kit.",
           "title": "target_capture_kit_version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 49,
+          "exact_mappings": [
+            "read_group:target_capture_kit_version"
+          ],
+          "rank": 51,
           "alias": "target_capture_kit_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2575,7 +2922,10 @@
           "description": " ",
           "title": "target_depletion_kit_catalog_number",
           "from_schema": "https://example.com/CIMR",
-          "rank": 50,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_catalog_number"
+          ],
+          "rank": 52,
           "alias": "target_depletion_kit_catalog_number",
           "owner": "Sequencing",
           "domain_of": [
@@ -2589,7 +2939,10 @@
           "description": " ",
           "title": "target_depletion_kit_name",
           "from_schema": "https://example.com/CIMR",
-          "rank": 51,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_name"
+          ],
+          "rank": 53,
           "alias": "target_depletion_kit_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2603,7 +2956,10 @@
           "description": " ",
           "title": "target_depletion_kit_target_region",
           "from_schema": "https://example.com/CIMR",
-          "rank": 52,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_target_region"
+          ],
+          "rank": 54,
           "alias": "target_depletion_kit_target_region",
           "owner": "Sequencing",
           "domain_of": [
@@ -2617,7 +2973,10 @@
           "description": " ",
           "title": "target_depletion_kit_vendor",
           "from_schema": "https://example.com/CIMR",
-          "rank": 53,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_vendor"
+          ],
+          "rank": 55,
           "alias": "target_depletion_kit_vendor",
           "owner": "Sequencing",
           "domain_of": [
@@ -2631,7 +2990,10 @@
           "description": " ",
           "title": "target_depletion_kit_version",
           "from_schema": "https://example.com/CIMR",
-          "rank": 54,
+          "exact_mappings": [
+            "read_group:target_depletion_kit_version"
+          ],
+          "rank": 56,
           "alias": "target_depletion_kit_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2645,7 +3007,10 @@
           "description": "Does the user suggest adapter trimming?",
           "title": "to_trim_adapter_sequence",
           "from_schema": "https://example.com/CIMR",
-          "rank": 55,
+          "exact_mappings": [
+            "read_group:to_trim_adapter_sequence"
+          ],
+          "rank": 57,
           "alias": "to_trim_adapter_sequence",
           "owner": "Sequencing",
           "domain_of": [
@@ -2678,41 +3043,65 @@
         },
         "analysis.workflow_type": {
           "name": "analysis.workflow_type",
+          "exact_mappings": [
+            "alignment_workflow:workflow_type"
+          ],
           "rank": 4,
           "slot_group": "data_analysis"
         },
         "analysis.workflow_link": {
           "name": "analysis.workflow_link",
+          "exact_mappings": [
+            "alignment_workflow:workflow_link"
+          ],
           "rank": 5,
           "slot_group": "data_analysis"
         },
         "analysis.workflow_version": {
           "name": "analysis.workflow_version",
+          "exact_mappings": [
+            "alignment_workflow:workflow_version"
+          ],
           "rank": 6,
           "slot_group": "data_analysis"
         },
         "analysis_file": {
           "name": "analysis_file",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:file_name"
+          ],
           "rank": 7,
           "slot_group": "analyzed_data"
         },
         "analyzed.data_category": {
           "name": "analyzed.data_category",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:data_category"
+          ],
           "rank": 8,
           "slot_group": "analyzed_data"
         },
         "analyzed.data_format": {
           "name": "analyzed.data_format",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:data_format"
+          ],
           "rank": 9,
           "slot_group": "analyzed_data"
         },
         "analyzed.data_type": {
           "name": "analyzed.data_type",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:data_type"
+          ],
           "rank": 10,
           "slot_group": "analyzed_data"
         },
         "analyzed.SRA_accession_id": {
           "name": "analyzed.SRA_accession_id",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:SRA_accession_id"
+          ],
           "rank": 11,
           "slot_group": "analyzed_data"
         }
@@ -2767,6 +3156,9 @@
           "description": " ",
           "title": "workflow_type",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "alignment_workflow:workflow_type"
+          ],
           "rank": 4,
           "alias": "analysis.workflow_type",
           "owner": "Sequencing_data_analysis",
@@ -2781,6 +3173,9 @@
           "description": " ",
           "title": "workflow_link",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "alignment_workflow:workflow_link"
+          ],
           "rank": 5,
           "alias": "analysis.workflow_link",
           "owner": "Sequencing_data_analysis",
@@ -2795,6 +3190,9 @@
           "description": " ",
           "title": "workflow_version",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "alignment_workflow:workflow_version"
+          ],
           "rank": 6,
           "alias": "analysis.workflow_version",
           "owner": "Sequencing_data_analysis",
@@ -2809,6 +3207,9 @@
           "description": " ",
           "title": "analysis_file",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:file_name"
+          ],
           "rank": 7,
           "slot_uri": "obo:OBI:0000021",
           "alias": "analysis_file",
@@ -2824,6 +3225,9 @@
           "description": " ",
           "title": "data_category",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:data_category"
+          ],
           "rank": 8,
           "alias": "analyzed.data_category",
           "owner": "Sequencing_data_analysis",
@@ -2838,6 +3242,9 @@
           "description": " ",
           "title": "data_format",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:data_format"
+          ],
           "rank": 9,
           "alias": "analyzed.data_format",
           "owner": "Sequencing_data_analysis",
@@ -2852,6 +3259,9 @@
           "description": " ",
           "title": "data_type",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:data_type"
+          ],
           "rank": 10,
           "alias": "analyzed.data_type",
           "owner": "Sequencing_data_analysis",
@@ -2866,6 +3276,9 @@
           "description": " ",
           "title": "SRA_accession_id",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aligned_reads_analyzed_data:SRA_accession_id"
+          ],
           "rank": 11,
           "alias": "analyzed.SRA_accession_id",
           "owner": "Sequencing_data_analysis",
@@ -2899,26 +3312,41 @@
         },
         "analyte_type": {
           "name": "analyte_type",
+          "exact_mappings": [
+            "aliquot:analyte_type"
+          ],
           "rank": 4,
           "slot_group": "aliquot"
         },
         "analyte_protocol": {
           "name": "analyte_protocol",
+          "exact_mappings": [
+            "aliquot:analyte_protocol"
+          ],
           "rank": 5,
           "slot_group": "aliquot"
         },
         "extract_preservation_method": {
           "name": "extract_preservation_method",
+          "exact_mappings": [
+            "aliquot:extract_preservation_method"
+          ],
           "rank": 6,
           "slot_group": "aliquot"
         },
         "a260_a280_ratio": {
           "name": "a260_a280_ratio",
+          "exact_mappings": [
+            "aliquot:a260_a280_ratio"
+          ],
           "rank": 7,
           "slot_group": "aliquot"
         },
         "RIN": {
           "name": "RIN",
+          "exact_mappings": [
+            "aliquot:RIN"
+          ],
           "rank": 8,
           "slot_group": "aliquot"
         }
@@ -2973,6 +3401,9 @@
           "description": " ",
           "title": "Analyte type",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:analyte_type"
+          ],
           "rank": 4,
           "alias": "analyte_type",
           "owner": "Aliquot",
@@ -2987,6 +3418,9 @@
           "description": " ",
           "title": "Analyte preparation protocol",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:analyte_protocol"
+          ],
           "rank": 5,
           "alias": "analyte_protocol",
           "owner": "Aliquot",
@@ -3001,6 +3435,9 @@
           "description": "The chemical agent used for the derivatization reaction",
           "title": "extract_preservation_method",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:extract_preservation_method"
+          ],
           "rank": 6,
           "alias": "extract_preservation_method",
           "owner": "Aliquot",
@@ -3015,6 +3452,9 @@
           "description": "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.",
           "title": "a260_a280_ratio",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:a260_a280_ratio"
+          ],
           "rank": 7,
           "alias": "a260_a280_ratio",
           "owner": "Aliquot",
@@ -3031,6 +3471,9 @@
           "description": "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products.",
           "title": "RIN",
           "from_schema": "https://example.com/CIMR",
+          "exact_mappings": [
+            "aliquot:RIN"
+          ],
           "rank": 8,
           "alias": "RIN",
           "owner": "Aliquot",

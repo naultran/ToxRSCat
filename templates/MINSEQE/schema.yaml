@@ -26,6 +26,7 @@ classes:
     - QC_file
     - qc.data_format
     - qc.data_type
+    - qc.data_category
     - QC.SRA_accession_id
     - aligned_read_file
     - processed.data_format
@@ -83,159 +84,273 @@ classes:
       unaligned_read_file:
         rank: 4
         slot_group: unaligned_reads
+        exact_mappings:
+        - unaligned_read:file_name
       raw.data_category:
         rank: 5
         slot_group: unaligned_reads
+        exact_mappings:
+        - unaligned_read:data_category
       raw.data_format:
         rank: 6
         slot_group: unaligned_reads
+        exact_mappings:
+        - unaligned_read:data_format
       raw.data_type:
         rank: 7
         slot_group: unaligned_reads
+        exact_mappings:
+        - unaligned_read:data_type
       unaligned_reads.SRA_accession_id:
         rank: 8
         slot_group: unaligned_reads
+        exact_mappings:
+        - unaligned_read:SRA_accession_id
       QC_file:
         rank: 9
         slot_group: unaligned_reads_QC
+        exact_mappings:
+        - unaligned_reads_qc:file_name
       qc.data_format:
         rank: 10
         slot_group: unaligned_reads_QC
+        exact_mappings:
+        - unaligned_reads_qc:data_format
       qc.data_type:
         rank: 11
         slot_group: unaligned_reads_QC
-      QC.SRA_accession_id:
+        exact_mappings:
+        - unaligned_reads_qc:data_type
+      qc.data_category:
         rank: 12
         slot_group: unaligned_reads_QC
-      aligned_read_file:
+        exact_mappings:
+        - unaligned_reads_qc:data_category
+      QC.SRA_accession_id:
         rank: 13
-        slot_group: aligned_reads
-      processed.data_format:
+        slot_group: unaligned_reads_QC
+        exact_mappings:
+        - unaligned_reads_qc:SRA_accession_id
+      aligned_read_file:
         rank: 14
         slot_group: aligned_reads
-      processed.data_type:
+        exact_mappings:
+        - aligned_read:aligned_read_file
+      processed.data_category:
         rank: 15
         slot_group: aligned_reads
-      workflow_type:
+        exact_mappings:
+        - aligned_read:data_category
+      processed.data_format:
         rank: 16
         slot_group: aligned_reads
-      workflow_link:
+        exact_mappings:
+        - aligned_read:data_format
+      processed.data_type:
         rank: 17
         slot_group: aligned_reads
-      workflow_version:
+        exact_mappings:
+        - aligned_read:data_type
+      workflow_type:
         rank: 18
         slot_group: aligned_reads
-      reference_genome:
+        exact_mappings:
+        - aligned_read:workflow_type
+      workflow_link:
         rank: 19
         slot_group: aligned_reads
-      reference_build:
+        exact_mappings:
+        - aligned_read:workflow_link
+      workflow_version:
         rank: 20
         slot_group: aligned_reads
-      reference_source:
+        exact_mappings:
+        - aligned_read:workflow_version
+      reference_genome:
         rank: 21
         slot_group: aligned_reads
-      aligned_reads.SRA_accession_id:
+        exact_mappings:
+        - aligned_read:reference_genome
+      reference_build:
         rank: 22
         slot_group: aligned_reads
-      adapter_sequence:
+        exact_mappings:
+        - aligned_read:reference_build
+      reference_source:
         rank: 23
-        slot_group: read_group
-      barcoding_applied:
+        slot_group: aligned_reads
+        exact_mappings:
+        - aligned_read:reference_source
+      aligned_reads.SRA_accession_id:
         rank: 24
-        slot_group: read_group
-      base_caller_name:
+        slot_group: aligned_reads
+        exact_mappings:
+        - aligned_read:SRA_accession_id
+      adapter_sequence:
         rank: 25
         slot_group: read_group
-      base_caller_version:
+        exact_mappings:
+        - read_group:adapter_sequence
+      barcoding_applied:
         rank: 26
         slot_group: read_group
-      flow_cell_barcode:
+        exact_mappings:
+        - read_group:barcoding_applied
+      base_caller_name:
         rank: 27
         slot_group: read_group
-      spike_ins:
+        exact_mappings:
+        - read_group:base_caller_name
+      base_caller_version:
         rank: 28
         slot_group: read_group
-      instrument_model:
+        exact_mappings:
+        - read_group:base_caller_version
+      flow_cell_barcode:
         rank: 29
         slot_group: read_group
-      is_paired_end:
+        exact_mappings:
+        - read_group:flow_cell_barcode
+      spike_ins:
         rank: 30
         slot_group: read_group
-      library_preparation_kit_catalog_number:
+        exact_mappings:
+        - read_group:spike_ins
+      instrument_model:
         rank: 31
         slot_group: read_group
-      library_preparation_kit_name:
+        exact_mappings:
+        - read_group:instrument_model
+      is_paired_end:
         rank: 32
         slot_group: read_group
-      library_preparation_kit_vendor:
+        exact_mappings:
+        - read_group:is_paired_end
+      library_preparation_kit_catalog_number:
         rank: 33
         slot_group: read_group
-      library_preparation_kit_version:
+        exact_mappings:
+        - read_group:library_preparation_kit_catalog_number
+      library_preparation_kit_name:
         rank: 34
         slot_group: read_group
-      library_selection:
+        exact_mappings:
+        - read_group:library_preparation_kit_name
+      library_preparation_kit_vendor:
         rank: 35
         slot_group: read_group
-      library_strand:
+        exact_mappings:
+        - read_group:library_preparation_kit_vendor
+      library_preparation_kit_version:
         rank: 36
         slot_group: read_group
-      library_strategy:
+        exact_mappings:
+        - read_group:library_preparation_kit_version
+      library_selection:
         rank: 37
         slot_group: read_group
-      platform:
+        exact_mappings:
+        - read_group:library_selection
+      library_strand:
         rank: 38
         slot_group: read_group
-      read_length:
+        exact_mappings:
+        - read_group:library_strand
+      library_strategy:
         rank: 39
         slot_group: read_group
-      sequencing_center:
+        exact_mappings:
+        - read_group:library_strategy
+      platform:
         rank: 40
         slot_group: read_group
-      sequencing_date:
+        exact_mappings:
+        - read_group:platform
+      read_length:
         rank: 41
         slot_group: read_group
-      size_selection_range:
+        exact_mappings:
+        - read_group:read_length
+      sequencing_center:
         rank: 42
         slot_group: read_group
-      spike_ins_concentration:
+        exact_mappings:
+        - read_group:sequencing_center
+      sequencing_date:
         rank: 43
         slot_group: read_group
-      spike_ins_fasta:
+        exact_mappings:
+        - read_group:sequencing_date
+      size_selection_range:
         rank: 44
         slot_group: read_group
-      target_capture_kit_catalog_number:
+        exact_mappings:
+        - read_group:size_selection_range
+      spike_ins_concentration:
         rank: 45
         slot_group: read_group
-      target_capture_kit_name:
+        exact_mappings:
+        - read_group:spike_ins_concentration
+      spike_ins_fasta:
         rank: 46
         slot_group: read_group
-      target_capture_kit_target_region:
+        exact_mappings:
+        - read_group:spike_ins_fasta
+      target_capture_kit_catalog_number:
         rank: 47
         slot_group: read_group
-      target_capture_kit_vendor:
+        exact_mappings:
+        - read_group:target_capture_kit_catalog_number
+      target_capture_kit_name:
         rank: 48
         slot_group: read_group
-      target_capture_kit_version:
+        exact_mappings:
+        - read_group:target_capture_kit_name
+      target_capture_kit_target_region:
         rank: 49
         slot_group: read_group
-      target_depletion_kit_catalog_number:
+        exact_mappings:
+        - read_group:target_capture_kit_target_region
+      target_capture_kit_vendor:
         rank: 50
         slot_group: read_group
-      target_depletion_kit_name:
+        exact_mappings:
+        - read_group:target_capture_kit_vendor
+      target_capture_kit_version:
         rank: 51
         slot_group: read_group
-      target_depletion_kit_target_region:
+        exact_mappings:
+        - read_group:target_capture_kit_version
+      target_depletion_kit_catalog_number:
         rank: 52
         slot_group: read_group
-      target_depletion_kit_vendor:
+        exact_mappings:
+        - read_group:target_depletion_kit_catalog_number
+      target_depletion_kit_name:
         rank: 53
         slot_group: read_group
-      target_depletion_kit_version:
+        exact_mappings:
+        - read_group:target_depletion_kit_name
+      target_depletion_kit_target_region:
         rank: 54
         slot_group: read_group
-      to_trim_adapter_sequence:
+        exact_mappings:
+        - read_group:target_depletion_kit_target_region
+      target_depletion_kit_vendor:
         rank: 55
         slot_group: read_group
+        exact_mappings:
+        - read_group:target_depletion_kit_vendor
+      target_depletion_kit_version:
+        rank: 56
+        slot_group: read_group
+        exact_mappings:
+        - read_group:target_depletion_kit_version
+      to_trim_adapter_sequence:
+        rank: 57
+        slot_group: read_group
+        exact_mappings:
+        - read_group:to_trim_adapter_sequence
   Sequencing_data_analysis:
     name: Sequencing_data_analysis
     is_a: dh_interface
@@ -264,27 +379,43 @@ classes:
       analysis.workflow_type:
         rank: 4
         slot_group: data_analysis
+        exact_mappings:
+        - alignment_workflow:workflow_type
       analysis.workflow_link:
         rank: 5
         slot_group: data_analysis
+        exact_mappings:
+        - alignment_workflow:workflow_link
       analysis.workflow_version:
         rank: 6
         slot_group: data_analysis
+        exact_mappings:
+        - alignment_workflow:workflow_version
       analysis_file:
         rank: 7
         slot_group: analyzed_data
+        exact_mappings:
+        - aligned_reads_analyzed_data:file_name
       analyzed.data_category:
         rank: 8
         slot_group: analyzed_data
+        exact_mappings:
+        - aligned_reads_analyzed_data:data_category
       analyzed.data_format:
         rank: 9
         slot_group: analyzed_data
+        exact_mappings:
+        - aligned_reads_analyzed_data:data_format
       analyzed.data_type:
         rank: 10
         slot_group: analyzed_data
+        exact_mappings:
+        - aligned_reads_analyzed_data:data_type
       analyzed.SRA_accession_id:
         rank: 11
         slot_group: analyzed_data
+        exact_mappings:
+        - aligned_reads_analyzed_data:SRA_accession_id
   Aliquot:
     name: Aliquot
     is_a: dh_interface
@@ -310,18 +441,28 @@ classes:
       analyte_type:
         rank: 4
         slot_group: aliquot
+        exact_mappings:
+        - aliquot:analyte_type
       analyte_protocol:
         rank: 5
         slot_group: aliquot
+        exact_mappings:
+        - aliquot:analyte_protocol
       extract_preservation_method:
         rank: 6
         slot_group: aliquot
+        exact_mappings:
+        - aliquot:extract_preservation_method
       a260_a280_ratio:
         rank: 7
         slot_group: aliquot
+        exact_mappings:
+        - aliquot:a260_a280_ratio
       RIN:
         rank: 8
         slot_group: aliquot
+        exact_mappings:
+        - aliquot:RIN
 slots:
   aliquot.submitter_id:
     name: aliquot.submitter_id
@@ -374,7 +515,7 @@ slots:
     comments: ' '
   submitter_id:
     name: submitter_id
-    title: flow cytometry ID
+    title: read_groups ID
     range: WhitespaceMinimizedString
     description: This is a unique ID assigned by the user to represent each individual
       record in this flow cytometry experiment.
@@ -430,12 +571,25 @@ slots:
     range: qc.data_type menu
     description: ' '
     comments: ' '
+  qc.data_category:
+    name: qc.data_category
+    title: data_category
+    range: raw.data_category menu
+    description: ' '
+    comments: ' '
   aligned_read_file:
     name: aligned_read_file
     title: aligned_read_file
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
+  processed.data_category:
+    name: processed.data_category
+    title: data_category
+    range: raw.data_category menu
+    description: ' '
+    comments: ' '
+
   processed.data_format:
     name: processed.data_format
     title: data_format
