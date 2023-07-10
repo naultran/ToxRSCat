@@ -4440,8 +4440,8 @@
           "rank": 3,
           "slot_group": "Contact"
         },
-        "irst_name": {
-          "name": "irst_name",
+        "first_name": {
+          "name": "first_name",
           "exact_mappings": [
             "contact:contact_name.First"
           ],
@@ -4663,15 +4663,17 @@
           "name": "first_name",
           "description": "The first name of the person acting as a channel for communication between groups or on behalf of a group.",
           "title": "first name",
-          "comments": [
-            "Rance"
-          ],
           "from_schema": "https://example.com/MIACA",
+          "exact_mappings": [
+            "contact:contact_name.First"
+          ],
+          "rank": 4,
           "alias": "first_name",
           "owner": "Study",
           "domain_of": [
             "Study"
           ],
+          "slot_group": "Contact",
           "range": "WhitespaceMinimizedString",
           "required": true
         },

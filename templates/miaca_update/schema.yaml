@@ -497,7 +497,7 @@ classes:
         exact_mappings:
           study:study_description
 
-      irst_name: 
+      first_name: 
         rank: 4
         slot_group: Contact
         exact_mappings:

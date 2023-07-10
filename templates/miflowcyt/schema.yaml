@@ -49,7 +49,7 @@ classes:
     - flow_cytometry_protocol
     - flow_cytometry_protocol_DOI
     - qualityControlMeasures
-    - instrument.submitter_id
+    - flow_cytometer_settings.submitter_id
     - staining_protocol
     - staining_protocol_DOI
     - characteristicsBeingMeasured
@@ -199,7 +199,7 @@ classes:
         slot_group: flow_cytometry
         exact_mappings:
         - flow_cytometry_assay:quality_control_measures
-      instrument.submitter_id:
+      flow_cytometer_settings.submitter_id:
         rank: 29
         slot_group: flow_cytometry
 
@@ -266,11 +266,11 @@ classes:
         - flow_analysis_data:provenance
         - flow_data:provenance
         - flow_analysis:provenance
-  Instrument:
-    name: Instrument
+  flow_cytometer_settings:
+    name: flow_cytometer_settings
     is_a: dh_interface
     slots:
-    - submitter_id.instrument
+    - submitter_id.flow_cytometer_settings
     - instrument.study_id
     - flowCellType
     - other_flow_cell
@@ -296,30 +296,30 @@ classes:
     - other_optical_filter
     - instrument_template_provenance
     slot_usage:
-      submitter_id.instrument:
+      submitter_id.flow_cytometer_settings:
         rank: 1
         slot_group: identifiers
-      instrument.study_id:
+      flow_cytometer_settings.study_id:
         rank: 2
         slot_group: identifiers
       flowCellType:
         rank: 3
-        slot_group: Instrument
+        slot_group: instrument
       other_flow_cell:
         rank: 4
-        slot_group: Instrument
+        slot_group: instrument
       manufacturer:
         rank: 5
-        slot_group: Instrument
+        slot_group: instrument
       model:
         rank: 6
-        slot_group: Instrument
+        slot_group: instrument
       configurationAndSettings:
         rank: 7
-        slot_group: Instrument
+        slot_group: instrument
       other_instrument:
         rank: 8
-        slot_group: Instrument
+        slot_group: instrument
       type:
         rank: 9
         slot_group: light_source_instrument
@@ -626,9 +626,9 @@ slots:
     multivalued: true
     slot_uri: obo:MSIO_0000085
     comments: Live/Dead staining;unstained controls
-  instrument.submitter_id:
-    name: instrument.submitter_id
-    title: instrument ID
+  flow_cytometer_settings.submitter_id:
+    name: flow_cytometer_settings.submitter_id
+    title: flow_cytometer_settings ID
     range: WhitespaceMinimizedString
     description: ' '
     required: true
@@ -743,9 +743,9 @@ slots:
     range: Provenance
     description: ' '
     comments: ' '
-  submitter_id.instrument:
-    name: submitter_id.instrument
-    title: submitter_id
+  submitter_id.flow_cytometer_settings:
+    name: submitter_id.flow_cytometer_settings
+    title: flow_cytometer_settings ID
     range: WhitespaceMinimizedString
     description: ' '
     comments: ' '
@@ -1008,8 +1008,10 @@ enums:
   raw.data_format menu:
     name: raw.data_format menu
     permissible_values:
-      FCS:
-        text: FCS
+      FCS mixed:
+        text: FCS mixed
+      FCS unmixed:
+        text: FCS unmixed
       Not applicable:
         text: Not applicable
       Missing:
@@ -1057,12 +1059,12 @@ enums:
     permissible_values:
       wsp:
         text: wsp
-      txt:
-        text: txt
-      csv:
-        text: csv
-      xlsx:
-        text: xlsx
+      .txt:
+        text: .txt
+      .csv:
+        text: .csv
+      .xlsx:
+        text: .xlsx
       Not applicable:
         text: Not applicable
       Missing:

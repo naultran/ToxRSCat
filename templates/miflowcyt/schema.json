@@ -248,8 +248,11 @@
       "name": "raw.data_format menu",
       "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
-        "FCS": {
-          "text": "FCS"
+        "FCS mixed": {
+          "text": "FCS mixed"
+        },
+        "FCS unmixed": {
+          "text": "FCS unmixed"
         },
         "Not applicable": {
           "text": "Not applicable"
@@ -326,14 +329,14 @@
         "wsp": {
           "text": "wsp"
         },
-        "txt": {
-          "text": "txt"
+        ".txt": {
+          "text": ".txt"
         },
-        "csv": {
-          "text": "csv"
+        ".csv": {
+          "text": ".csv"
         },
-        "xlsx": {
-          "text": "xlsx"
+        ".xlsx": {
+          "text": ".xlsx"
         },
         "Not applicable": {
           "text": "Not applicable"
@@ -1020,10 +1023,10 @@
       "required": true,
       "recommended": true
     },
-    "instrument.submitter_id": {
-      "name": "instrument.submitter_id",
+    "flow_cytometer_settings.submitter_id": {
+      "name": "flow_cytometer_settings.submitter_id",
       "description": " ",
-      "title": "instrument ID",
+      "title": "flow_cytometer_settings ID",
       "comments": [
         " "
       ],
@@ -1165,10 +1168,10 @@
       "from_schema": "https://example.com/MIFlowCyt",
       "range": "Provenance"
     },
-    "submitter_id.instrument": {
-      "name": "submitter_id.instrument",
+    "submitter_id.flow_cytometer_settings": {
+      "name": "submitter_id.flow_cytometer_settings",
       "description": " ",
-      "title": "submitter_id",
+      "title": "flow_cytometer_settings ID",
       "comments": [
         " "
       ],
@@ -1726,8 +1729,8 @@
           "rank": 28,
           "slot_group": "flow_cytometry"
         },
-        "instrument.submitter_id": {
-          "name": "instrument.submitter_id",
+        "flow_cytometer_settings.submitter_id": {
+          "name": "flow_cytometer_settings.submitter_id",
           "rank": 29,
           "slot_group": "flow_cytometry"
         },
@@ -2311,13 +2314,13 @@
           "required": true,
           "recommended": true
         },
-        "instrument.submitter_id": {
-          "name": "instrument.submitter_id",
+        "flow_cytometer_settings.submitter_id": {
+          "name": "flow_cytometer_settings.submitter_id",
           "description": " ",
-          "title": "instrument ID",
+          "title": "flow_cytometer_settings ID",
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 29,
-          "alias": "instrument.submitter_id",
+          "alias": "flow_cytometer_settings.submitter_id",
           "owner": "Flow cytometry experiment",
           "domain_of": [
             "Flow cytometry experiment"
@@ -2549,50 +2552,50 @@
         }
       }
     },
-    "Instrument": {
-      "name": "Instrument",
+    "flow_cytometer_settings": {
+      "name": "flow_cytometer_settings",
       "from_schema": "https://example.com/MIFlowCyt",
       "is_a": "dh_interface",
       "slot_usage": {
-        "submitter_id.instrument": {
-          "name": "submitter_id.instrument",
+        "submitter_id.flow_cytometer_settings": {
+          "name": "submitter_id.flow_cytometer_settings",
           "rank": 1,
           "slot_group": "identifiers"
         },
-        "instrument.study_id": {
-          "name": "instrument.study_id",
+        "flow_cytometer_settings.study_id": {
+          "name": "flow_cytometer_settings.study_id",
           "rank": 2,
           "slot_group": "identifiers"
         },
         "flowCellType": {
           "name": "flowCellType",
           "rank": 3,
-          "slot_group": "Instrument"
+          "slot_group": "instrument"
         },
         "other_flow_cell": {
           "name": "other_flow_cell",
           "rank": 4,
-          "slot_group": "Instrument"
+          "slot_group": "instrument"
         },
         "manufacturer": {
           "name": "manufacturer",
           "rank": 5,
-          "slot_group": "Instrument"
+          "slot_group": "instrument"
         },
         "model": {
           "name": "model",
           "rank": 6,
-          "slot_group": "Instrument"
+          "slot_group": "instrument"
         },
         "configurationAndSettings": {
           "name": "configurationAndSettings",
           "rank": 7,
-          "slot_group": "Instrument"
+          "slot_group": "instrument"
         },
         "other_instrument": {
           "name": "other_instrument",
           "rank": 8,
-          "slot_group": "Instrument"
+          "slot_group": "instrument"
         },
         "type": {
           "name": "type",
@@ -2681,16 +2684,16 @@
         }
       },
       "attributes": {
-        "submitter_id.instrument": {
-          "name": "submitter_id.instrument",
+        "submitter_id.flow_cytometer_settings": {
+          "name": "submitter_id.flow_cytometer_settings",
           "description": " ",
-          "title": "submitter_id",
+          "title": "flow_cytometer_settings ID",
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 1,
-          "alias": "submitter_id.instrument",
-          "owner": "Instrument",
+          "alias": "submitter_id.flow_cytometer_settings",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "identifiers",
           "range": "WhitespaceMinimizedString"
@@ -2699,14 +2702,15 @@
           "name": "instrument.study_id",
           "description": " ",
           "title": "study ID",
-          "from_schema": "https://example.com/MIFlowCyt",
-          "rank": 2,
-          "alias": "instrument.study_id",
-          "owner": "Instrument",
-          "domain_of": [
-            "Instrument"
+          "comments": [
+            " "
           ],
-          "slot_group": "identifiers",
+          "from_schema": "https://example.com/MIFlowCyt",
+          "alias": "instrument.study_id",
+          "owner": "flow_cytometer_settings",
+          "domain_of": [
+            "flow_cytometer_settings"
+          ],
           "range": "WhitespaceMinimizedString"
         },
         "flowCellType": {
@@ -2717,11 +2721,11 @@
           "rank": 3,
           "slot_uri": "obo:OBI_0400043 ",
           "alias": "flowCellType",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
-          "slot_group": "Instrument",
+          "slot_group": "instrument",
           "range": "flowCellType menu"
         },
         "other_flow_cell": {
@@ -2732,11 +2736,11 @@
           "rank": 4,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_flow_cell",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
-          "slot_group": "Instrument",
+          "slot_group": "instrument",
           "range": "WhitespaceMinimizedString"
         },
         "manufacturer": {
@@ -2747,11 +2751,11 @@
           "rank": 5,
           "slot_uri": "obo:OBI_0000835",
           "alias": "manufacturer",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
-          "slot_group": "Instrument",
+          "slot_group": "instrument",
           "range": "manufacturer menu"
         },
         "model": {
@@ -2762,11 +2766,11 @@
           "rank": 6,
           "slot_uri": "obo:MS_1000031",
           "alias": "model",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
-          "slot_group": "Instrument",
+          "slot_group": "instrument",
           "range": "model menu"
         },
         "configurationAndSettings": {
@@ -2777,11 +2781,11 @@
           "rank": 7,
           "slot_uri": "obo:MS_1000740",
           "alias": "configurationAndSettings",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
-          "slot_group": "Instrument",
+          "slot_group": "instrument",
           "range": "configurationAndSettings menu"
         },
         "other_instrument": {
@@ -2792,11 +2796,11 @@
           "rank": 8,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_instrument",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
-          "slot_group": "Instrument",
+          "slot_group": "instrument",
           "range": "WhitespaceMinimizedString"
         },
         "type": {
@@ -2807,9 +2811,9 @@
           "rank": 9,
           "slot_uri": "bao:BAO_0150029",
           "alias": "type",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "light_source_instrument",
           "range": "type menu"
@@ -2822,9 +2826,9 @@
           "rank": 10,
           "slot_uri": "bao:BAO_0000566",
           "alias": "excitatoryWavelength",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "light_source_instrument",
           "range": "WhitespaceMinimizedString"
@@ -2837,9 +2841,9 @@
           "rank": 11,
           "slot_uri": "bao:BAO_0000566",
           "alias": "powerAtExcitatoryWavelength",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "light_source_instrument",
           "range": "WhitespaceMinimizedString"
@@ -2852,9 +2856,9 @@
           "rank": 12,
           "slot_uri": "obo:OMIT_0009913",
           "alias": "polarization",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "light_source_instrument",
           "range": "WhitespaceMinimizedString"
@@ -2867,9 +2871,9 @@
           "rank": 13,
           "slot_uri": "obo:NCIT_C70569",
           "alias": "beam",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "light_source_instrument",
           "range": "WhitespaceMinimizedString"
@@ -2882,9 +2886,9 @@
           "rank": 14,
           "slot_uri": "obo:NCIT_C17649",
           "alias": "other_light_source_instrument",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "light_source_instrument",
           "range": "WhitespaceMinimizedString"
@@ -2896,9 +2900,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 15,
           "alias": "name",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_detector",
           "range": "WhitespaceMinimizedString"
@@ -2911,9 +2915,9 @@
           "rank": 16,
           "slot_uri": "obo:FBbi_00000269 ",
           "alias": "type_optical_detector",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_detector",
           "range": "type_optical_detector menu"
@@ -2925,9 +2929,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 17,
           "alias": "voltage",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_detector",
           "range": "float",
@@ -2940,9 +2944,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 18,
           "alias": "amplificationType",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_detector",
           "range": "amplificationType menu"
@@ -2954,9 +2958,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 19,
           "alias": "amplificationFactor",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_detector",
           "range": "float"
@@ -2968,9 +2972,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 20,
           "alias": "other_optical_detector",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_detector",
           "range": "WhitespaceMinimizedString"
@@ -2982,9 +2986,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 21,
           "alias": "type_optical_filter",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_filter",
           "range": "type_optical_filter menu"
@@ -2996,9 +3000,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 22,
           "alias": "transmittedWavelengths",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_filter",
           "range": "WhitespaceMinimizedString"
@@ -3010,9 +3014,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 23,
           "alias": "installationDate",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_filter",
           "range": "date"
@@ -3024,9 +3028,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 24,
           "alias": "other_optical_filter",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "optical_filter",
           "range": "WhitespaceMinimizedString"
@@ -3038,9 +3042,9 @@
           "from_schema": "https://example.com/MIFlowCyt",
           "rank": 25,
           "alias": "instrument_template_provenance",
-          "owner": "Instrument",
+          "owner": "flow_cytometer_settings",
           "domain_of": [
-            "Instrument"
+            "flow_cytometer_settings"
           ],
           "slot_group": "provenance",
           "range": "Provenance"

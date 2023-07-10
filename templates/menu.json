@@ -39,8 +39,8 @@
       "status": "published",
       "display": true
     },
-    "Instrument": {
-      "name": "Instrument",
+    "flow_cytometer_settings": {
+      "name": "flow_cytometer_settings",
       "status": "published",
       "display": true
     }
