@@ -1156,7 +1156,7 @@
     },
     "barcoding_applied": {
       "name": "barcoding_applied",
-      "description": "True/False: was barcoding applied?",
+      "description": "true/false: was barcoding applied?",
       "title": "barcoding_applied",
       "comments": [
         " "
@@ -2226,7 +2226,7 @@
         },
         "barcoding_applied": {
           "name": "barcoding_applied",
-          "description": "True/False: was barcoding applied?",
+          "description": "true/false: was barcoding applied?",
           "title": "barcoding_applied",
           "from_schema": "https://example.com/CIMR",
           "rank": 24,

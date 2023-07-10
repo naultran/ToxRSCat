@@ -521,7 +521,7 @@ slots:
     name: barcoding_applied
     title: barcoding_applied
     range: boolean
-    description: 'True/False: was barcoding applied?'
+    description: 'true/false: was barcoding applied?'
     comments: ' '
   base_caller_name:
     name: base_caller_name
