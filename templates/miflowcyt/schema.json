@@ -224,6 +224,12 @@
       "name": "raw.data_type menu",
       "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "FCS mixed": {
+          "text": "FCS mixed"
+        },
+        "FCS unmixed": {
+          "text": "FCS unmixed"
+        },
         "flow cytometry": {
           "text": "flow cytometry"
         },
@@ -296,12 +302,6 @@
       "name": "processed.data_type menu",
       "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
-        "FCS mixed": {
-          "text": "FCS mixed"
-        },
-        "FCS unmixed": {
-          "text": "FCS unmixed"
-        },
         "workspace": {
           "text": "workspace"
         },
