@@ -406,16 +406,16 @@ enums:
   data_format menu:
     name: data_format menu
     permissible_values:
-      zip:
-        text: zip
-      gzip:
-        text: gzip
-      png:
-        text: png
-      tif:
-        text: tif
-      tiff:
-        text: tiff
+      .zip:
+        text: .zip
+      .gzip:
+        text: .gzip
+      .png:
+        text: .png
+      .tif:
+        text: .tif
+      .tiff:
+        text: .tiff
       Not applicable:
         text: Not applicable
       Missing:

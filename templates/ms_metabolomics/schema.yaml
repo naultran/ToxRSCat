@@ -997,8 +997,8 @@ enums:
   data_format menu:
     name: data_format menu
     permissible_values:
-      .RAW:
-        text: .RAW
+      .raw:
+        text: .raw
       .txt:
         text: .txt
       .csv:

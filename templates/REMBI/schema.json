@@ -244,20 +244,20 @@
       "name": "data_format menu",
       "from_schema": "https://example.com/REMBI",
       "permissible_values": {
-        "zip": {
-          "text": "zip"
+        ".zip": {
+          "text": ".zip"
         },
-        "gzip": {
-          "text": "gzip"
+        ".gzip": {
+          "text": ".gzip"
         },
-        "png": {
-          "text": "png"
+        ".png": {
+          "text": ".png"
         },
-        "tif": {
-          "text": "tif"
+        ".tif": {
+          "text": ".tif"
         },
-        "tiff": {
-          "text": "tiff"
+        ".tiff": {
+          "text": ".tiff"
         },
         "Not applicable": {
           "text": "Not applicable"

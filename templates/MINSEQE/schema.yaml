@@ -1002,8 +1002,10 @@ enums:
   raw.data_format menu:
     name: raw.data_format menu
     permissible_values:
-      .FASTQ:
-        text: .FASTQ
+      .fastq:
+        text: .fastq
+      .fq:
+        text: .fq
       Not applicable:
         text: Not applicable
       Missing:
@@ -1032,8 +1034,10 @@ enums:
   qc.data_format menu:
     name: qc.data_format menu
     permissible_values:
-      FASTQC:
-        text: FASTQC
+      .fastq:
+        text: .fastq
+      .fq:
+        text: .fq
       Not applicable:
         text: Not applicable
       Missing:
@@ -1064,12 +1068,12 @@ enums:
   processed.data_format menu:
     name: processed.data_format menu
     permissible_values:
-      BAM:
-        text: BAM
-      BED:
-        text: BED
-      TXT:
-        text: TXT
+      .bam:
+        text: .bam
+      .bed:
+        text: .bed
+      .txt:
+        text: .txt
       Not applicable:
         text: Not applicable
       Missing:
@@ -1302,12 +1306,12 @@ enums:
   analyzed.data_format menu:
     name: analyzed.data_format menu
     permissible_values:
-      TXT:
-        text: TXT
-      RDATA:
-        text: RDATA
-      H5AD:
-        text: H5AD
+      .txt:
+        text: .txt
+      .Rdata:
+        text: .Rdata
+      .h5ad:
+        text: .h5ad
       Not applicable:
         text: Not applicable
       Missing:

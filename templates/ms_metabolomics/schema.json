@@ -415,8 +415,8 @@
       "name": "data_format menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        ".RAW": {
-          "text": ".RAW"
+        ".raw": {
+          "text": ".raw"
         },
         ".txt": {
           "text": ".txt"

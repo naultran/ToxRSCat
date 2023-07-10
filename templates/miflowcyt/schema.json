@@ -248,11 +248,8 @@
       "name": "raw.data_format menu",
       "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
-        "FCS mixed": {
-          "text": "FCS mixed"
-        },
-        "FCS unmixed": {
-          "text": "FCS unmixed"
+        ".fcs": {
+          "text": ".fcs"
         },
         "Not applicable": {
           "text": "Not applicable"
@@ -299,6 +296,12 @@
       "name": "processed.data_type menu",
       "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
+        "FCS mixed": {
+          "text": "FCS mixed"
+        },
+        "FCS unmixed": {
+          "text": "FCS unmixed"
+        },
         "workspace": {
           "text": "workspace"
         },
@@ -326,8 +329,8 @@
       "name": "processed.data_format menu",
       "from_schema": "https://example.com/MIFlowCyt",
       "permissible_values": {
-        "wsp": {
-          "text": "wsp"
+        ".wsp": {
+          "text": ".wsp"
         },
         ".txt": {
           "text": ".txt"

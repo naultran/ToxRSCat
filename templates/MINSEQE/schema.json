@@ -334,8 +334,11 @@
       "name": "raw.data_format menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        ".FASTQ": {
-          "text": ".FASTQ"
+        ".fastq": {
+          "text": ".fastq"
+        },
+        ".fq": {
+          "text": ".fq"
         },
         "Not applicable": {
           "text": "Not applicable"
@@ -382,8 +385,11 @@
       "name": "qc.data_format menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "FASTQC": {
-          "text": "FASTQC"
+        ".fastq": {
+          "text": ".fastq"
+        },
+        ".fq": {
+          "text": ".fq"
         },
         "Not applicable": {
           "text": "Not applicable"
@@ -433,14 +439,14 @@
       "name": "processed.data_format menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "BAM": {
-          "text": "BAM"
+        ".bam": {
+          "text": ".bam"
         },
-        "BED": {
-          "text": "BED"
+        ".bed": {
+          "text": ".bed"
         },
-        "TXT": {
-          "text": "TXT"
+        ".txt": {
+          "text": ".txt"
         },
         "Not applicable": {
           "text": "Not applicable"
@@ -805,14 +811,14 @@
       "name": "analyzed.data_format menu",
       "from_schema": "https://example.com/CIMR",
       "permissible_values": {
-        "TXT": {
-          "text": "TXT"
+        ".txt": {
+          "text": ".txt"
         },
-        "RDATA": {
-          "text": "RDATA"
+        ".Rdata": {
+          "text": ".Rdata"
         },
-        "H5AD": {
-          "text": "H5AD"
+        ".h5ad": {
+          "text": ".h5ad"
         },
         "Not applicable": {
           "text": "Not applicable"
