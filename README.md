@@ -13,6 +13,7 @@
 	a. Creating and revising metadata models <br>
 5. [Using ToxRSCat (web)](#skip-to-the-real-thing)<br>
 6. [Using ToxRSCat (local)](#local-dh)
+7. [Deploying Your Own DataHarmonizer](#deploy-dh)
 
  <a id="overview"></a>
 ## Overview to ToxRSCat
@@ -71,3 +72,21 @@ _Instructions here - just like excel!_
 <a id="#local-dh"></a>
 ## Using ToxRSCat (local version)
 _Not currently developed - see DataHarmonizer for instructions._
+
+<a id="#deploy-dh"></a>
+## Deploying Your Own DataHarmonizer
+
+* Pull official [DataHarmonizer repository](https://github.com/cidgoh/DataHarmonizer)
+* Create your own `templates` folder(the strucutre is the same as [this one](https://github.com/naultran/ToxRSCat/tree/main/templates))([instructions for schema.yaml, schema.json, export.js](https://github.com/naultran/ToxRSCat/blob/main/templates/README.md))
+* delete or rename the original `templates` folder in `DataHarmonizer`
+* create a symbolic link between your `templates` and `DataHarmonizer`
+```shell
+cd /path/to/DataHarmonizer
+ln -s /path/to/templates/
+```
+* use `pm2` command to keep the app running and renewing.
+```shell
+sudo npm install -g pm2
+pm2 start "yarn dev" --name <your-app-name >
+```
+
