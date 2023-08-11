@@ -72,7 +72,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["studyID", "submitter_id"]],
-                        ["aliquots.submitter_id", ["studyID", "aliquots.submitter_id"]]
+                        ["aliquots.submitter_id", ["studyID", "aliquots.submitter_id"]],
                         ["adapter_sequence", []],
                         ["barcoding_applied", []],
                         ["base_caller_name", []],
@@ -115,14 +115,14 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["studyID", "unaligned_read_file"]],
-                        ["read_groups.submitter_id", ["studyID", "submitter_id"]]
+                        ["read_groups.submitter_id", ["studyID", "submitter_id"]],
                         ["file_name", []],
                         ["data_category", []],
                         ["data_format", []],
                         ["data_type", []],
                         ["file_size", []],
-						["md5sum", []],
-						["object_id", []],
+			["md5sum", []],
+			["object_id", []],
                         ["SRA_accession_id", []],
                     ]),
                     uid: "submitter_id",
@@ -133,15 +133,15 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["studyID", "QC_file"]],
-                        ["read_groups.submitter_id", ["studyID", "submitter_id"]]
-                        ["unaligned_reads.submitter_id", ["studyID", "unaligned_read_file"]]
+                        ["read_groups.submitter_id", ["studyID", "submitter_id"]],
+                        ["unaligned_reads.submitter_id", ["studyID", "unaligned_read_file"]],
                         ["file_name", []],
                         ["data_category", []],
                         ["data_format", []],
                         ["data_type", []],
                         ["file_size", []],
-						["md5sum", []],
-						["object_id", []],
+			["md5sum", []],
+			["object_id", []],
                         ["SRA_accession_id", []],
                     ]),
                     uid: "submitter_id",
@@ -152,14 +152,14 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["studyID", "aligned_read_file"]],
-                        ["read_groups.submitter_id", ["studyID", "submitter_id"]]
+                        ["read_groups.submitter_id", ["studyID", "submitter_id"]],
                         ["file_name", []],
                         ["data_category", []],
                         ["data_format", []],
                         ["data_type", []],
                         ["file_size", []],
-						["md5sum", []],
-						["object_id", []],
+			["md5sum", []],
+			["object_id", []],
                         ["SRA_accession_id", []],
                         ["workflow_type", []],
                         ["workflow_link", []],
@@ -216,7 +216,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["studyID", "analysis.submitter_id"]],
-                        ["aligned_reads.submitter_id", ["studyID", "aligned_reads.submitter_id"]]
+                        ["aligned_reads.submitter_id", ["studyID", "aligned_reads.submitter_id"]],
                         ["workflow_type", []],
                         ["workflow_link", []],
                         ["workflow_version", []],
@@ -229,7 +229,7 @@ export default {
                     exportHeaders: new Map([
                         ["type", []],
                         ["submitter_id", ["studyID", "analysis_file"]],
-                        ["alignment_workflows.submitter_id", ["studyID", "analysis.submitter_id"]]
+                        ["alignment_workflows.submitter_id", ["studyID", "analysis.submitter_id"]],
                         ["file_name", []],
                         ["data_category", []],
                         ["data_format", []],
