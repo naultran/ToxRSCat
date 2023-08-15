@@ -1,6 +1,8 @@
-id: https://example.com/CIMR
-name: mass_spec_metabolomics
-description: Based on CIMR
+id: https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE
+name: MINSEQE
+description: The Minimum Information about a high-throughput nucleotide SEQuencing Experiment (MINSEQE)
+  was developed by the Functional Genomics Data Society for the nambiguous interpretation and facilitate 
+  reproduction of the results of the experiment.
 version: 1.0.0
 imports: linkml:types
 prefixes:
@@ -27,7 +29,6 @@ classes:
     - qc.data_format
     - qc.data_type
     - qc.data_category
-    - QC.SRA_accession_id
     - aligned_read_file
     - processed.data_format
     - processed.data_type
@@ -126,228 +127,223 @@ classes:
         slot_group: unaligned_reads_QC
         exact_mappings:
         - unaligned_reads_qc:data_category
-      QC.SRA_accession_id:
-        rank: 13
-        slot_group: unaligned_reads_QC
-        exact_mappings:
-        - unaligned_reads_qc:SRA_accession_id
       aligned_read_file:
-        rank: 14
+        rank: 13
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:aligned_read_file
       processed.data_category:
-        rank: 15
+        rank: 14
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:data_category
       processed.data_format:
-        rank: 16
+        rank: 15
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:data_format
       processed.data_type:
-        rank: 17
+        rank: 16
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:data_type
       workflow_type:
-        rank: 18
+        rank: 17
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:workflow_type
       workflow_link:
-        rank: 19
+        rank: 18
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:workflow_link
       workflow_version:
-        rank: 20
+        rank: 19
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:workflow_version
       reference_genome:
-        rank: 21
+        rank: 20
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:reference_genome
       reference_build:
-        rank: 22
+        rank: 21
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:reference_build
       reference_source:
-        rank: 23
+        rank: 22
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:reference_source
       aligned_reads.SRA_accession_id:
-        rank: 24
+        rank: 23
         slot_group: aligned_reads
         exact_mappings:
         - aligned_read:SRA_accession_id
       adapter_sequence:
-        rank: 25
+        rank: 24
         slot_group: read_group
         exact_mappings:
         - read_group:adapter_sequence
       barcoding_applied:
-        rank: 26
+        rank: 25
         slot_group: read_group
         exact_mappings:
         - read_group:barcoding_applied
       base_caller_name:
-        rank: 27
+        rank: 26
         slot_group: read_group
         exact_mappings:
         - read_group:base_caller_name
       base_caller_version:
-        rank: 28
+        rank: 27
         slot_group: read_group
         exact_mappings:
         - read_group:base_caller_version
       flow_cell_barcode:
-        rank: 29
+        rank: 28
         slot_group: read_group
         exact_mappings:
         - read_group:flow_cell_barcode
       spike_ins:
-        rank: 30
+        rank: 29
         slot_group: read_group
         exact_mappings:
         - read_group:spike_ins
       instrument_model:
-        rank: 31
+        rank: 30
         slot_group: read_group
         exact_mappings:
         - read_group:instrument_model
       is_paired_end:
-        rank: 32
+        rank: 31
         slot_group: read_group
         exact_mappings:
         - read_group:is_paired_end
       library_preparation_kit_catalog_number:
-        rank: 33
+        rank: 32
         slot_group: read_group
         exact_mappings:
         - read_group:library_preparation_kit_catalog_number
       library_preparation_kit_name:
-        rank: 34
+        rank: 33
         slot_group: read_group
         exact_mappings:
         - read_group:library_preparation_kit_name
       library_preparation_kit_vendor:
-        rank: 35
+        rank: 34
         slot_group: read_group
         exact_mappings:
         - read_group:library_preparation_kit_vendor
       library_preparation_kit_version:
-        rank: 36
+        rank: 35
         slot_group: read_group
         exact_mappings:
         - read_group:library_preparation_kit_version
       library_selection:
-        rank: 37
+        rank: 36
         slot_group: read_group
         exact_mappings:
         - read_group:library_selection
       library_strand:
-        rank: 38
+        rank: 37
         slot_group: read_group
         exact_mappings:
         - read_group:library_strand
       library_strategy:
-        rank: 39
+        rank: 38
         slot_group: read_group
         exact_mappings:
         - read_group:library_strategy
       platform:
-        rank: 40
+        rank: 39
         slot_group: read_group
         exact_mappings:
         - read_group:platform
       read_length:
-        rank: 41
+        rank: 40
         slot_group: read_group
         exact_mappings:
         - read_group:read_length
       sequencing_center:
-        rank: 42
+        rank: 41
         slot_group: read_group
         exact_mappings:
         - read_group:sequencing_center
       sequencing_date:
-        rank: 43
+        rank: 42
         slot_group: read_group
         exact_mappings:
         - read_group:sequencing_date
       size_selection_range:
-        rank: 44
+        rank: 43
         slot_group: read_group
         exact_mappings:
         - read_group:size_selection_range
       spike_ins_concentration:
-        rank: 45
+        rank: 44
         slot_group: read_group
         exact_mappings:
         - read_group:spike_ins_concentration
       spike_ins_fasta:
-        rank: 46
+        rank: 45
         slot_group: read_group
         exact_mappings:
         - read_group:spike_ins_fasta
       target_capture_kit_catalog_number:
-        rank: 47
+        rank: 46
         slot_group: read_group
         exact_mappings:
         - read_group:target_capture_kit_catalog_number
       target_capture_kit_name:
-        rank: 48
+        rank: 47
         slot_group: read_group
         exact_mappings:
         - read_group:target_capture_kit_name
       target_capture_kit_target_region:
-        rank: 49
+        rank: 48
         slot_group: read_group
         exact_mappings:
         - read_group:target_capture_kit_target_region
       target_capture_kit_vendor:
-        rank: 50
+        rank: 49
         slot_group: read_group
         exact_mappings:
         - read_group:target_capture_kit_vendor
       target_capture_kit_version:
-        rank: 51
+        rank: 50
         slot_group: read_group
         exact_mappings:
         - read_group:target_capture_kit_version
       target_depletion_kit_catalog_number:
-        rank: 52
+        rank: 51
         slot_group: read_group
         exact_mappings:
         - read_group:target_depletion_kit_catalog_number
       target_depletion_kit_name:
-        rank: 53
+        rank: 52
         slot_group: read_group
         exact_mappings:
         - read_group:target_depletion_kit_name
       target_depletion_kit_target_region:
-        rank: 54
+        rank: 53
         slot_group: read_group
         exact_mappings:
         - read_group:target_depletion_kit_target_region
       target_depletion_kit_vendor:
-        rank: 55
+        rank: 54
         slot_group: read_group
         exact_mappings:
         - read_group:target_depletion_kit_vendor
       target_depletion_kit_version:
-        rank: 56
+        rank: 55
         slot_group: read_group
         exact_mappings:
         - read_group:target_depletion_kit_version
       to_trim_adapter_sequence:
-        rank: 57
+        rank: 56
         slot_group: read_group
         exact_mappings:
         - read_group:to_trim_adapter_sequence

@@ -1,7 +1,7 @@
 {
-  "name": "mass_spec_metabolomics",
-  "description": "Based on CIMR",
-  "id": "https://example.com/CIMR",
+  "name": "MINSEQE",
+  "description": "The Minimum Information about a high-throughput nucleotide SEQuencing Experiment (MINSEQE) was developed by the Functional Genomics Data Society for the nambiguous interpretation and facilitate reproduction of the results of the experiment.",
+  "id": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
   "version": "1.0.0",
   "prefixes": {
     "linkml": {
@@ -25,12 +25,12 @@
       "prefix_reference": "http://schema.org/"
     }
   },
-  "default_prefix": "https://example.com/CIMR/",
+  "default_prefix": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE/",
   "types": {
     "WhitespaceMinimizedString": {
       "name": "WhitespaceMinimizedString",
       "description": "A string that has all whitespace trimmed off of beginning and end, and all internal whitespace segments reduced to single spaces. Whitespace includes #x9 (tab), #xA (linefeed), and #xD (carriage return).",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -38,7 +38,7 @@
     "Provenance": {
       "name": "Provenance",
       "description": "A field containing a DataHarmonizer versioning marker. It is issued by DataHarmonizer when validation is applied to a given row of data.",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "typeof": "string",
       "base": "str",
       "uri": "xsd:token"
@@ -46,7 +46,7 @@
     "string": {
       "name": "string",
       "description": "A character string",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:Text"
       ],
@@ -56,7 +56,7 @@
     "integer": {
       "name": "integer",
       "description": "An integer",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:Integer"
       ],
@@ -66,7 +66,7 @@
     "boolean": {
       "name": "boolean",
       "description": "A binary (true or false) value",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:Boolean"
       ],
@@ -77,7 +77,7 @@
     "float": {
       "name": "float",
       "description": "A real number that conforms to the xsd:float specification",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:Float"
       ],
@@ -87,7 +87,7 @@
     "double": {
       "name": "double",
       "description": "A real number that conforms to the xsd:double specification",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "close_mappings": [
         "schema:Float"
       ],
@@ -97,7 +97,7 @@
     "decimal": {
       "name": "decimal",
       "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "broad_mappings": [
         "schema:Number"
       ],
@@ -110,7 +110,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners do not work with straight date or time"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:Time"
       ],
@@ -124,7 +124,7 @@
       "notes": [
         "URI is dateTime because OWL reasoners don't work with straight date or time"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:Date"
       ],
@@ -135,7 +135,7 @@
     "datetime": {
       "name": "datetime",
       "description": "The combination of a date and time",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "exact_mappings": [
         "schema:DateTime"
       ],
@@ -146,7 +146,7 @@
     "date_or_datetime": {
       "name": "date_or_datetime",
       "description": "Either a date or a datetime",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "base": "str",
       "uri": "linkml:DateOrDatetime",
       "repr": "str"
@@ -154,7 +154,7 @@
     "uriorcurie": {
       "name": "uriorcurie",
       "description": "a URI or a CURIE",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "base": "URIorCURIE",
       "uri": "xsd:anyURI",
       "repr": "str"
@@ -167,7 +167,7 @@
         "in RDF serializations this MUST be expanded to a URI",
         "in non-RDF serializations MAY be serialized as the compact representation"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "base": "Curie",
       "uri": "xsd:string",
       "repr": "str"
@@ -179,7 +179,7 @@
       "comments": [
         "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "close_mappings": [
         "schema:URL"
       ],
@@ -190,7 +190,7 @@
     "ncname": {
       "name": "ncname",
       "description": "Prefix part of CURIE",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "base": "NCName",
       "uri": "xsd:string",
       "repr": "str"
@@ -201,7 +201,7 @@
       "comments": [
         "Used for inheritence and type checking"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "base": "ElementIdentifier",
       "uri": "shex:iri",
       "repr": "str"
@@ -209,7 +209,7 @@
     "nodeidentifier": {
       "name": "nodeidentifier",
       "description": "A URI, CURIE or BNODE that represents a node in a model.",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "base": "NodeIdentifier",
       "uri": "shex:nonLiteral",
       "repr": "str"
@@ -218,7 +218,7 @@
   "enums": {
     "analyte_type menu": {
       "name": "analyte_type menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "mRNA": {
           "text": "mRNA"
@@ -248,7 +248,7 @@
     },
     "extract_preservation_method menu": {
       "name": "extract_preservation_method menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Room temperature": {
           "text": "Room temperature"
@@ -278,7 +278,7 @@
     },
     "raw.data_category menu": {
       "name": "raw.data_category menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "WGS": {
           "text": "WGS"
@@ -332,7 +332,7 @@
     },
     "raw.data_format menu": {
       "name": "raw.data_format menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         ".fastq": {
           "text": ".fastq"
@@ -359,7 +359,7 @@
     },
     "raw.data_type menu": {
       "name": "raw.data_type menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Unaligned Reads": {
           "text": "Unaligned Reads"
@@ -383,7 +383,7 @@
     },
     "qc.data_format menu": {
       "name": "qc.data_format menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         ".fastq": {
           "text": ".fastq"
@@ -410,7 +410,7 @@
     },
     "qc.data_type menu": {
       "name": "qc.data_type menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Unaligned Read QC": {
           "text": "Unaligned Read QC"
@@ -437,7 +437,7 @@
     },
     "processed.data_format menu": {
       "name": "processed.data_format menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         ".bam": {
           "text": ".bam"
@@ -467,7 +467,7 @@
     },
     "processed.data_type menu": {
       "name": "processed.data_type menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Aligned Reads": {
           "text": "Aligned Reads"
@@ -494,7 +494,7 @@
     },
     "workflow_type menu": {
       "name": "workflow_type menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "STAR": {
           "text": "STAR"
@@ -530,7 +530,7 @@
     },
     "spike_ins menu": {
       "name": "spike_ins menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "ERCC RNA Spike-In Mix (Thermo Fisher)": {
           "text": "ERCC RNA Spike-In Mix (Thermo Fisher)"
@@ -554,7 +554,7 @@
     },
     "instrument_model menu": {
       "name": "instrument_model menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "454 GS FLX Titanium": {
           "text": "454 GS FLX Titanium"
@@ -635,7 +635,7 @@
     },
     "library_selection menu": {
       "name": "library_selection menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Hybrid_Selection": {
           "text": "Hybrid_Selection"
@@ -671,7 +671,7 @@
     },
     "library_strand menu": {
       "name": "library_strand menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Unstranded": {
           "text": "Unstranded"
@@ -701,7 +701,7 @@
     },
     "library_strategy menu": {
       "name": "library_strategy menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "WGS": {
           "text": "WGS"
@@ -746,7 +746,7 @@
     },
     "platform menu": {
       "name": "platform menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Illumina": {
           "text": "Illumina"
@@ -785,7 +785,7 @@
     },
     "analyzed.data_category menu": {
       "name": "analyzed.data_category menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "DESeq2": {
           "text": "DESeq2"
@@ -809,7 +809,7 @@
     },
     "analyzed.data_format menu": {
       "name": "analyzed.data_format menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         ".txt": {
           "text": ".txt"
@@ -839,7 +839,7 @@
     },
     "analyzed.data_type menu": {
       "name": "analyzed.data_type menu",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "permissible_values": {
         "Differential expression": {
           "text": "Differential expression"
@@ -870,7 +870,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "sample.submitter_id": {
@@ -880,7 +880,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "analyte_type": {
@@ -890,7 +890,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "analyte_type menu"
     },
     "analyte_protocol": {
@@ -900,7 +900,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "extract_preservation_method": {
@@ -910,7 +910,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "extract_preservation_method menu"
     },
     "a260_a280_ratio": {
@@ -920,7 +920,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "number",
       "minimum_value": 0,
       "maximum_value": 2
@@ -932,7 +932,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "number",
       "minimum_value": 0,
       "maximum_value": 1
@@ -944,7 +944,7 @@
       "comments": [
         "ms_S001"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString",
       "required": true
     },
@@ -955,7 +955,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "unaligned_read_file": {
@@ -965,7 +965,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "slot_uri": "obo:OBI:0000021",
       "range": "WhitespaceMinimizedString"
     },
@@ -976,7 +976,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "raw.data_category menu"
     },
     "raw.data_format": {
@@ -986,7 +986,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "raw.data_format menu"
     },
     "raw.data_type": {
@@ -996,7 +996,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "raw.data_type menu"
     },
     "QC_file": {
@@ -1006,7 +1006,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "slot_uri": "obo:OBI:0000021",
       "range": "WhitespaceMinimizedString"
     },
@@ -1017,7 +1017,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "qc.data_format menu"
     },
     "qc.data_type": {
@@ -1027,7 +1027,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "qc.data_type menu"
     },
     "qc.data_category": {
@@ -1037,7 +1037,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "raw.data_category menu"
     },
     "aligned_read_file": {
@@ -1047,7 +1047,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "processed.data_category": {
@@ -1057,7 +1057,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "raw.data_category menu"
     },
     "processed.data_format": {
@@ -1067,7 +1067,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "processed.data_format menu"
     },
     "processed.data_type": {
@@ -1077,7 +1077,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "processed.data_type menu"
     },
     "workflow_type": {
@@ -1087,7 +1087,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "workflow_type menu"
     },
     "workflow_link": {
@@ -1097,7 +1097,7 @@
       "comments": [
         "Each sample was normalized to both liver weight and 13C-,15N-labelled amino acid standards"
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "workflow_version": {
@@ -1107,7 +1107,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "reference_genome": {
@@ -1117,7 +1117,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "reference_build": {
@@ -1127,7 +1127,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "reference_source": {
@@ -1137,7 +1137,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "adapter_sequence": {
@@ -1147,7 +1147,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "barcoding_applied": {
@@ -1157,7 +1157,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "boolean"
     },
     "base_caller_name": {
@@ -1167,7 +1167,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "base_caller_version": {
@@ -1177,7 +1177,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "flow_cell_barcode": {
@@ -1187,7 +1187,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "spike_ins": {
@@ -1197,7 +1197,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "multivalued": true,
       "range": "spike_ins menu",
       "inlined": true,
@@ -1210,7 +1210,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "instrument_model menu"
     },
     "is_paired_end": {
@@ -1220,7 +1220,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "boolean"
     },
     "library_preparation_kit_catalog_number": {
@@ -1230,7 +1230,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "library_preparation_kit_name": {
@@ -1240,7 +1240,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "library_preparation_kit_vendor": {
@@ -1250,7 +1250,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "library_preparation_kit_version": {
@@ -1260,7 +1260,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "library_selection": {
@@ -1270,7 +1270,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "library_selection menu"
     },
     "library_strand": {
@@ -1280,7 +1280,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "library_strand menu"
     },
     "library_strategy": {
@@ -1290,7 +1290,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "library_strategy menu"
     },
     "platform": {
@@ -1300,7 +1300,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "platform menu"
     },
     "read_length": {
@@ -1310,7 +1310,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "sequencing_center": {
@@ -1320,7 +1320,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "sequencing_date": {
@@ -1330,7 +1330,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "size_selection_range": {
@@ -1340,7 +1340,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "spike_ins_concentration": {
@@ -1350,7 +1350,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "spike_ins_fasta": {
@@ -1360,7 +1360,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_capture_kit_catalog_number": {
@@ -1370,7 +1370,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_capture_kit_name": {
@@ -1380,7 +1380,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_capture_kit_target_region": {
@@ -1390,7 +1390,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_capture_kit_vendor": {
@@ -1400,7 +1400,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_capture_kit_version": {
@@ -1410,7 +1410,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_depletion_kit_catalog_number": {
@@ -1420,7 +1420,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_depletion_kit_name": {
@@ -1430,7 +1430,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_depletion_kit_target_region": {
@@ -1440,7 +1440,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_depletion_kit_vendor": {
@@ -1450,7 +1450,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "target_depletion_kit_version": {
@@ -1460,7 +1460,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "to_trim_adapter_sequence": {
@@ -1470,7 +1470,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "boolean"
     },
     "analysis.submitter_id": {
@@ -1480,7 +1480,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "aligned_reads.submitter_id": {
@@ -1490,7 +1490,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "analysis.workflow_type": {
@@ -1500,7 +1500,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "analysis.workflow_link": {
@@ -1510,7 +1510,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "analysis.workflow_version": {
@@ -1520,7 +1520,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "analysis_file": {
@@ -1530,7 +1530,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "slot_uri": "obo:OBI:0000021",
       "range": "WhitespaceMinimizedString"
     },
@@ -1541,7 +1541,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "analyzed.data_category menu"
     },
     "analyzed.data_format": {
@@ -1551,7 +1551,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "analyzed.data_format menu"
     },
     "analyzed.data_type": {
@@ -1561,7 +1561,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "analyzed.data_type menu"
     },
     "studyID": {
@@ -1571,7 +1571,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "unaligned_reads.SRA_accession_id": {
@@ -1581,7 +1581,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "QC.SRA_accession_id": {
@@ -1591,7 +1591,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "aligned_reads.SRA_accession_id": {
@@ -1601,7 +1601,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     },
     "analyzed.SRA_accession_id": {
@@ -1611,7 +1611,7 @@
       "comments": [
         " "
       ],
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "range": "WhitespaceMinimizedString"
     }
   },
@@ -1619,11 +1619,11 @@
     "dh_interface": {
       "name": "dh_interface",
       "description": "A DataHarmonizer interface",
-      "from_schema": "https://example.com/CIMR"
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE"
     },
     "Sequencing": {
       "name": "Sequencing",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "is_a": "dh_interface",
       "slot_usage": {
         "submitter_id": {
@@ -1713,20 +1713,12 @@
           "rank": 12,
           "slot_group": "unaligned_reads_QC"
         },
-        "QC.SRA_accession_id": {
-          "name": "QC.SRA_accession_id",
-          "exact_mappings": [
-            "unaligned_reads_qc:SRA_accession_id"
-          ],
-          "rank": 13,
-          "slot_group": "unaligned_reads_QC"
-        },
         "aligned_read_file": {
           "name": "aligned_read_file",
           "exact_mappings": [
             "aligned_read:aligned_read_file"
           ],
-          "rank": 14,
+          "rank": 13,
           "slot_group": "aligned_reads"
         },
         "processed.data_category": {
@@ -1734,7 +1726,7 @@
           "exact_mappings": [
             "aligned_read:data_category"
           ],
-          "rank": 15,
+          "rank": 14,
           "slot_group": "aligned_reads"
         },
         "processed.data_format": {
@@ -1742,7 +1734,7 @@
           "exact_mappings": [
             "aligned_read:data_format"
           ],
-          "rank": 16,
+          "rank": 15,
           "slot_group": "aligned_reads"
         },
         "processed.data_type": {
@@ -1750,7 +1742,7 @@
           "exact_mappings": [
             "aligned_read:data_type"
           ],
-          "rank": 17,
+          "rank": 16,
           "slot_group": "aligned_reads"
         },
         "workflow_type": {
@@ -1758,7 +1750,7 @@
           "exact_mappings": [
             "aligned_read:workflow_type"
           ],
-          "rank": 18,
+          "rank": 17,
           "slot_group": "aligned_reads"
         },
         "workflow_link": {
@@ -1766,7 +1758,7 @@
           "exact_mappings": [
             "aligned_read:workflow_link"
           ],
-          "rank": 19,
+          "rank": 18,
           "slot_group": "aligned_reads"
         },
         "workflow_version": {
@@ -1774,7 +1766,7 @@
           "exact_mappings": [
             "aligned_read:workflow_version"
           ],
-          "rank": 20,
+          "rank": 19,
           "slot_group": "aligned_reads"
         },
         "reference_genome": {
@@ -1782,7 +1774,7 @@
           "exact_mappings": [
             "aligned_read:reference_genome"
           ],
-          "rank": 21,
+          "rank": 20,
           "slot_group": "aligned_reads"
         },
         "reference_build": {
@@ -1790,7 +1782,7 @@
           "exact_mappings": [
             "aligned_read:reference_build"
           ],
-          "rank": 22,
+          "rank": 21,
           "slot_group": "aligned_reads"
         },
         "reference_source": {
@@ -1798,7 +1790,7 @@
           "exact_mappings": [
             "aligned_read:reference_source"
           ],
-          "rank": 23,
+          "rank": 22,
           "slot_group": "aligned_reads"
         },
         "aligned_reads.SRA_accession_id": {
@@ -1806,7 +1798,7 @@
           "exact_mappings": [
             "aligned_read:SRA_accession_id"
           ],
-          "rank": 24,
+          "rank": 23,
           "slot_group": "aligned_reads"
         },
         "adapter_sequence": {
@@ -1814,7 +1806,7 @@
           "exact_mappings": [
             "read_group:adapter_sequence"
           ],
-          "rank": 25,
+          "rank": 24,
           "slot_group": "read_group"
         },
         "barcoding_applied": {
@@ -1822,7 +1814,7 @@
           "exact_mappings": [
             "read_group:barcoding_applied"
           ],
-          "rank": 26,
+          "rank": 25,
           "slot_group": "read_group"
         },
         "base_caller_name": {
@@ -1830,7 +1822,7 @@
           "exact_mappings": [
             "read_group:base_caller_name"
           ],
-          "rank": 27,
+          "rank": 26,
           "slot_group": "read_group"
         },
         "base_caller_version": {
@@ -1838,7 +1830,7 @@
           "exact_mappings": [
             "read_group:base_caller_version"
           ],
-          "rank": 28,
+          "rank": 27,
           "slot_group": "read_group"
         },
         "flow_cell_barcode": {
@@ -1846,7 +1838,7 @@
           "exact_mappings": [
             "read_group:flow_cell_barcode"
           ],
-          "rank": 29,
+          "rank": 28,
           "slot_group": "read_group"
         },
         "spike_ins": {
@@ -1854,7 +1846,7 @@
           "exact_mappings": [
             "read_group:spike_ins"
           ],
-          "rank": 30,
+          "rank": 29,
           "slot_group": "read_group"
         },
         "instrument_model": {
@@ -1862,7 +1854,7 @@
           "exact_mappings": [
             "read_group:instrument_model"
           ],
-          "rank": 31,
+          "rank": 30,
           "slot_group": "read_group"
         },
         "is_paired_end": {
@@ -1870,7 +1862,7 @@
           "exact_mappings": [
             "read_group:is_paired_end"
           ],
-          "rank": 32,
+          "rank": 31,
           "slot_group": "read_group"
         },
         "library_preparation_kit_catalog_number": {
@@ -1878,7 +1870,7 @@
           "exact_mappings": [
             "read_group:library_preparation_kit_catalog_number"
           ],
-          "rank": 33,
+          "rank": 32,
           "slot_group": "read_group"
         },
         "library_preparation_kit_name": {
@@ -1886,7 +1878,7 @@
           "exact_mappings": [
             "read_group:library_preparation_kit_name"
           ],
-          "rank": 34,
+          "rank": 33,
           "slot_group": "read_group"
         },
         "library_preparation_kit_vendor": {
@@ -1894,7 +1886,7 @@
           "exact_mappings": [
             "read_group:library_preparation_kit_vendor"
           ],
-          "rank": 35,
+          "rank": 34,
           "slot_group": "read_group"
         },
         "library_preparation_kit_version": {
@@ -1902,7 +1894,7 @@
           "exact_mappings": [
             "read_group:library_preparation_kit_version"
           ],
-          "rank": 36,
+          "rank": 35,
           "slot_group": "read_group"
         },
         "library_selection": {
@@ -1910,7 +1902,7 @@
           "exact_mappings": [
             "read_group:library_selection"
           ],
-          "rank": 37,
+          "rank": 36,
           "slot_group": "read_group"
         },
         "library_strand": {
@@ -1918,7 +1910,7 @@
           "exact_mappings": [
             "read_group:library_strand"
           ],
-          "rank": 38,
+          "rank": 37,
           "slot_group": "read_group"
         },
         "library_strategy": {
@@ -1926,7 +1918,7 @@
           "exact_mappings": [
             "read_group:library_strategy"
           ],
-          "rank": 39,
+          "rank": 38,
           "slot_group": "read_group"
         },
         "platform": {
@@ -1934,7 +1926,7 @@
           "exact_mappings": [
             "read_group:platform"
           ],
-          "rank": 40,
+          "rank": 39,
           "slot_group": "read_group"
         },
         "read_length": {
@@ -1942,7 +1934,7 @@
           "exact_mappings": [
             "read_group:read_length"
           ],
-          "rank": 41,
+          "rank": 40,
           "slot_group": "read_group"
         },
         "sequencing_center": {
@@ -1950,7 +1942,7 @@
           "exact_mappings": [
             "read_group:sequencing_center"
           ],
-          "rank": 42,
+          "rank": 41,
           "slot_group": "read_group"
         },
         "sequencing_date": {
@@ -1958,7 +1950,7 @@
           "exact_mappings": [
             "read_group:sequencing_date"
           ],
-          "rank": 43,
+          "rank": 42,
           "slot_group": "read_group"
         },
         "size_selection_range": {
@@ -1966,7 +1958,7 @@
           "exact_mappings": [
             "read_group:size_selection_range"
           ],
-          "rank": 44,
+          "rank": 43,
           "slot_group": "read_group"
         },
         "spike_ins_concentration": {
@@ -1974,7 +1966,7 @@
           "exact_mappings": [
             "read_group:spike_ins_concentration"
           ],
-          "rank": 45,
+          "rank": 44,
           "slot_group": "read_group"
         },
         "spike_ins_fasta": {
@@ -1982,7 +1974,7 @@
           "exact_mappings": [
             "read_group:spike_ins_fasta"
           ],
-          "rank": 46,
+          "rank": 45,
           "slot_group": "read_group"
         },
         "target_capture_kit_catalog_number": {
@@ -1990,7 +1982,7 @@
           "exact_mappings": [
             "read_group:target_capture_kit_catalog_number"
           ],
-          "rank": 47,
+          "rank": 46,
           "slot_group": "read_group"
         },
         "target_capture_kit_name": {
@@ -1998,7 +1990,7 @@
           "exact_mappings": [
             "read_group:target_capture_kit_name"
           ],
-          "rank": 48,
+          "rank": 47,
           "slot_group": "read_group"
         },
         "target_capture_kit_target_region": {
@@ -2006,7 +1998,7 @@
           "exact_mappings": [
             "read_group:target_capture_kit_target_region"
           ],
-          "rank": 49,
+          "rank": 48,
           "slot_group": "read_group"
         },
         "target_capture_kit_vendor": {
@@ -2014,7 +2006,7 @@
           "exact_mappings": [
             "read_group:target_capture_kit_vendor"
           ],
-          "rank": 50,
+          "rank": 49,
           "slot_group": "read_group"
         },
         "target_capture_kit_version": {
@@ -2022,7 +2014,7 @@
           "exact_mappings": [
             "read_group:target_capture_kit_version"
           ],
-          "rank": 51,
+          "rank": 50,
           "slot_group": "read_group"
         },
         "target_depletion_kit_catalog_number": {
@@ -2030,7 +2022,7 @@
           "exact_mappings": [
             "read_group:target_depletion_kit_catalog_number"
           ],
-          "rank": 52,
+          "rank": 51,
           "slot_group": "read_group"
         },
         "target_depletion_kit_name": {
@@ -2038,7 +2030,7 @@
           "exact_mappings": [
             "read_group:target_depletion_kit_name"
           ],
-          "rank": 53,
+          "rank": 52,
           "slot_group": "read_group"
         },
         "target_depletion_kit_target_region": {
@@ -2046,7 +2038,7 @@
           "exact_mappings": [
             "read_group:target_depletion_kit_target_region"
           ],
-          "rank": 54,
+          "rank": 53,
           "slot_group": "read_group"
         },
         "target_depletion_kit_vendor": {
@@ -2054,7 +2046,7 @@
           "exact_mappings": [
             "read_group:target_depletion_kit_vendor"
           ],
-          "rank": 55,
+          "rank": 54,
           "slot_group": "read_group"
         },
         "target_depletion_kit_version": {
@@ -2062,7 +2054,7 @@
           "exact_mappings": [
             "read_group:target_depletion_kit_version"
           ],
-          "rank": 56,
+          "rank": 55,
           "slot_group": "read_group"
         },
         "to_trim_adapter_sequence": {
@@ -2070,7 +2062,7 @@
           "exact_mappings": [
             "read_group:to_trim_adapter_sequence"
           ],
-          "rank": 57,
+          "rank": 56,
           "slot_group": "read_group"
         }
       },
@@ -2079,7 +2071,7 @@
           "name": "submitter_id",
           "description": "This is a unique ID assigned by the user to represent each individual record in this flow cytometry experiment.",
           "title": "read_groups ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 1,
           "alias": "submitter_id",
           "owner": "Sequencing",
@@ -2094,7 +2086,7 @@
           "name": "aliquots.submitter_id",
           "description": " ",
           "title": "aliquots ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 2,
           "alias": "aliquots.submitter_id",
           "owner": "Sequencing",
@@ -2108,7 +2100,7 @@
           "name": "studyID",
           "description": " ",
           "title": "study ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 3,
           "alias": "studyID",
           "owner": "Sequencing",
@@ -2124,7 +2116,7 @@
           "name": "unaligned_read_file",
           "description": " ",
           "title": "unaligned_read_file",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_read:file_name"
           ],
@@ -2142,7 +2134,7 @@
           "name": "raw.data_category",
           "description": " ",
           "title": "data_category",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_read:data_category"
           ],
@@ -2159,7 +2151,7 @@
           "name": "raw.data_format",
           "description": " ",
           "title": "data_format",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_read:data_format"
           ],
@@ -2176,7 +2168,7 @@
           "name": "raw.data_type",
           "description": " ",
           "title": "data_type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_read:data_type"
           ],
@@ -2193,7 +2185,7 @@
           "name": "unaligned_reads.SRA_accession_id",
           "description": " ",
           "title": "SRA_accession_id",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_read:SRA_accession_id"
           ],
@@ -2210,7 +2202,7 @@
           "name": "QC_file",
           "description": " ",
           "title": "QC_file",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_reads_qc:file_name"
           ],
@@ -2228,7 +2220,7 @@
           "name": "qc.data_format",
           "description": " ",
           "title": "data_format",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_reads_qc:data_format"
           ],
@@ -2245,7 +2237,7 @@
           "name": "qc.data_type",
           "description": " ",
           "title": "data_type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_reads_qc:data_type"
           ],
@@ -2262,7 +2254,7 @@
           "name": "qc.data_category",
           "description": " ",
           "title": "data_category",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "unaligned_reads_qc:data_category"
           ],
@@ -2275,32 +2267,15 @@
           "slot_group": "unaligned_reads_QC",
           "range": "raw.data_category menu"
         },
-        "QC.SRA_accession_id": {
-          "name": "QC.SRA_accession_id",
-          "description": " ",
-          "title": "SRA_accession_id",
-          "from_schema": "https://example.com/CIMR",
-          "exact_mappings": [
-            "unaligned_reads_qc:SRA_accession_id"
-          ],
-          "rank": 13,
-          "alias": "QC.SRA_accession_id",
-          "owner": "Sequencing",
-          "domain_of": [
-            "Sequencing"
-          ],
-          "slot_group": "unaligned_reads_QC",
-          "range": "WhitespaceMinimizedString"
-        },
         "aligned_read_file": {
           "name": "aligned_read_file",
           "description": " ",
           "title": "aligned_read_file",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:aligned_read_file"
           ],
-          "rank": 14,
+          "rank": 13,
           "alias": "aligned_read_file",
           "owner": "Sequencing",
           "domain_of": [
@@ -2313,11 +2288,11 @@
           "name": "processed.data_format",
           "description": " ",
           "title": "data_format",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:data_format"
           ],
-          "rank": 16,
+          "rank": 15,
           "alias": "processed.data_format",
           "owner": "Sequencing",
           "domain_of": [
@@ -2330,11 +2305,11 @@
           "name": "processed.data_type",
           "description": " ",
           "title": "data_type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:data_type"
           ],
-          "rank": 17,
+          "rank": 16,
           "alias": "processed.data_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2347,11 +2322,11 @@
           "name": "workflow_type",
           "description": " ",
           "title": "workflow_type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:workflow_type"
           ],
-          "rank": 18,
+          "rank": 17,
           "alias": "workflow_type",
           "owner": "Sequencing",
           "domain_of": [
@@ -2364,11 +2339,11 @@
           "name": "workflow_link",
           "description": "\tLink to Github hash for the CWL workflow used.",
           "title": "workflow_link",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:workflow_link"
           ],
-          "rank": 19,
+          "rank": 18,
           "alias": "workflow_link",
           "owner": "Sequencing",
           "domain_of": [
@@ -2381,11 +2356,11 @@
           "name": "workflow_version",
           "description": " ",
           "title": "workflow_version",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:workflow_version"
           ],
-          "rank": 20,
+          "rank": 19,
           "alias": "workflow_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2398,11 +2373,11 @@
           "name": "reference_genome",
           "description": " ",
           "title": "reference_genome",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:reference_genome"
           ],
-          "rank": 21,
+          "rank": 20,
           "alias": "reference_genome",
           "owner": "Sequencing",
           "domain_of": [
@@ -2415,11 +2390,11 @@
           "name": "reference_build",
           "description": " ",
           "title": "reference_build",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:reference_build"
           ],
-          "rank": 22,
+          "rank": 21,
           "alias": "reference_build",
           "owner": "Sequencing",
           "domain_of": [
@@ -2432,11 +2407,11 @@
           "name": "reference_source",
           "description": " ",
           "title": "reference_source",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:reference_source"
           ],
-          "rank": 23,
+          "rank": 22,
           "alias": "reference_source",
           "owner": "Sequencing",
           "domain_of": [
@@ -2449,11 +2424,11 @@
           "name": "aligned_reads.SRA_accession_id",
           "description": " ",
           "title": "SRA_accession_id",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_read:SRA_accession_id"
           ],
-          "rank": 24,
+          "rank": 23,
           "alias": "aligned_reads.SRA_accession_id",
           "owner": "Sequencing",
           "domain_of": [
@@ -2466,11 +2441,11 @@
           "name": "adapter_sequence",
           "description": "Base sequence of the sequencing adapter.",
           "title": "adapter_sequence",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:adapter_sequence"
           ],
-          "rank": 25,
+          "rank": 24,
           "alias": "adapter_sequence",
           "owner": "Sequencing",
           "domain_of": [
@@ -2483,11 +2458,11 @@
           "name": "barcoding_applied",
           "description": "true/false: was barcoding applied?",
           "title": "barcoding_applied",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:barcoding_applied"
           ],
-          "rank": 26,
+          "rank": 25,
           "alias": "barcoding_applied",
           "owner": "Sequencing",
           "domain_of": [
@@ -2500,11 +2475,11 @@
           "name": "base_caller_name",
           "description": "Name of the base caller.",
           "title": "base_caller_name",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:base_caller_name"
           ],
-          "rank": 27,
+          "rank": 26,
           "alias": "base_caller_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2517,11 +2492,11 @@
           "name": "base_caller_version",
           "description": "\tVersion of the base caller.",
           "title": "base_caller_version",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:base_caller_version"
           ],
-          "rank": 28,
+          "rank": 27,
           "alias": "base_caller_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2534,11 +2509,11 @@
           "name": "flow_cell_barcode",
           "description": "Flow Cell Barcode.",
           "title": "flow_cell_barcode",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:flow_cell_barcode"
           ],
-          "rank": 29,
+          "rank": 28,
           "alias": "flow_cell_barcode",
           "owner": "Sequencing",
           "domain_of": [
@@ -2551,11 +2526,11 @@
           "name": "spike_ins",
           "description": " ",
           "title": "spike_ins",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:spike_ins"
           ],
-          "rank": 30,
+          "rank": 29,
           "multivalued": true,
           "alias": "spike_ins",
           "owner": "Sequencing",
@@ -2570,11 +2545,11 @@
           "name": "instrument_model",
           "description": " ",
           "title": "instrument_model",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:instrument_model"
           ],
-          "rank": 31,
+          "rank": 30,
           "alias": "instrument_model",
           "owner": "Sequencing",
           "domain_of": [
@@ -2587,11 +2562,11 @@
           "name": "is_paired_end",
           "description": "Are the reads paired end?",
           "title": "is_paired_end",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:is_paired_end"
           ],
-          "rank": 32,
+          "rank": 31,
           "alias": "is_paired_end",
           "owner": "Sequencing",
           "domain_of": [
@@ -2604,11 +2579,11 @@
           "name": "library_preparation_kit_catalog_number",
           "description": "Catalog of Library Preparation Kit",
           "title": "library_preparation_kit_catalog_number",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_preparation_kit_catalog_number"
           ],
-          "rank": 33,
+          "rank": 32,
           "alias": "library_preparation_kit_catalog_number",
           "owner": "Sequencing",
           "domain_of": [
@@ -2621,11 +2596,11 @@
           "name": "library_preparation_kit_name",
           "description": "Name of Library Preparation Kit",
           "title": "library_preparation_kit_name",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_preparation_kit_name"
           ],
-          "rank": 34,
+          "rank": 33,
           "alias": "library_preparation_kit_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2638,11 +2613,11 @@
           "name": "library_preparation_kit_vendor",
           "description": "Vendor of Library Preparation Kit",
           "title": "library_preparation_kit_vendor",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_preparation_kit_vendor"
           ],
-          "rank": 35,
+          "rank": 34,
           "alias": "library_preparation_kit_vendor",
           "owner": "Sequencing",
           "domain_of": [
@@ -2655,11 +2630,11 @@
           "name": "library_preparation_kit_version",
           "description": "Version of Library Preparation Kit",
           "title": "library_preparation_kit_version",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_preparation_kit_version"
           ],
-          "rank": 36,
+          "rank": 35,
           "alias": "library_preparation_kit_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2672,11 +2647,11 @@
           "name": "library_selection",
           "description": "Library Selection Method",
           "title": "library_selection",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_selection"
           ],
-          "rank": 37,
+          "rank": 36,
           "alias": "library_selection",
           "owner": "Sequencing",
           "domain_of": [
@@ -2689,11 +2664,11 @@
           "name": "library_strand",
           "description": "Library stranded-ness.",
           "title": "library_strand",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_strand"
           ],
-          "rank": 38,
+          "rank": 37,
           "alias": "library_strand",
           "owner": "Sequencing",
           "domain_of": [
@@ -2706,11 +2681,11 @@
           "name": "library_strategy",
           "description": "Library strategy.",
           "title": "library_strategy",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:library_strategy"
           ],
-          "rank": 39,
+          "rank": 38,
           "alias": "library_strategy",
           "owner": "Sequencing",
           "domain_of": [
@@ -2723,11 +2698,11 @@
           "name": "platform",
           "description": "Name of the platform used to obtain data.",
           "title": "platform",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:platform"
           ],
-          "rank": 40,
+          "rank": 39,
           "alias": "platform",
           "owner": "Sequencing",
           "domain_of": [
@@ -2740,11 +2715,11 @@
           "name": "read_length",
           "description": " ",
           "title": "read_length",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:read_length"
           ],
-          "rank": 41,
+          "rank": 40,
           "alias": "read_length",
           "owner": "Sequencing",
           "domain_of": [
@@ -2757,11 +2732,11 @@
           "name": "sequencing_center",
           "description": "Name of the center that provided the sequence files.",
           "title": "sequencing_center",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:sequencing_center"
           ],
-          "rank": 42,
+          "rank": 41,
           "alias": "sequencing_center",
           "owner": "Sequencing",
           "domain_of": [
@@ -2774,11 +2749,11 @@
           "name": "sequencing_date",
           "description": "\tA combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm]",
           "title": "sequencing_date",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:sequencing_date"
           ],
-          "rank": 43,
+          "rank": 42,
           "alias": "sequencing_date",
           "owner": "Sequencing",
           "domain_of": [
@@ -2791,11 +2766,11 @@
           "name": "size_selection_range",
           "description": "Range of size selection.",
           "title": "size_selection_range",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:size_selection_range"
           ],
-          "rank": 44,
+          "rank": 43,
           "alias": "size_selection_range",
           "owner": "Sequencing",
           "domain_of": [
@@ -2808,11 +2783,11 @@
           "name": "spike_ins_concentration",
           "description": "Spike in concentration.",
           "title": "spike_ins_concentration",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:spike_ins_concentration"
           ],
-          "rank": 45,
+          "rank": 44,
           "alias": "spike_ins_concentration",
           "owner": "Sequencing",
           "domain_of": [
@@ -2825,11 +2800,11 @@
           "name": "spike_ins_fasta",
           "description": "\tName of the FASTA file that contains the spike-in sequences.",
           "title": "spike_ins_fasta",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:spike_ins_fasta"
           ],
-          "rank": 46,
+          "rank": 45,
           "alias": "spike_ins_fasta",
           "owner": "Sequencing",
           "domain_of": [
@@ -2842,11 +2817,11 @@
           "name": "target_capture_kit_catalog_number",
           "description": "\tCatalog of Target Capture Kit.",
           "title": "target_capture_kit_catalog_number",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_capture_kit_catalog_number"
           ],
-          "rank": 47,
+          "rank": 46,
           "alias": "target_capture_kit_catalog_number",
           "owner": "Sequencing",
           "domain_of": [
@@ -2859,11 +2834,11 @@
           "name": "target_capture_kit_name",
           "description": "\tName of Target Capture Kit.",
           "title": "target_capture_kit_name",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_capture_kit_name"
           ],
-          "rank": 48,
+          "rank": 47,
           "alias": "target_capture_kit_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2876,11 +2851,11 @@
           "name": "target_capture_kit_target_region",
           "description": "\tTarget Capture Kit BED file.",
           "title": "target_capture_kit_target_region",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_capture_kit_target_region"
           ],
-          "rank": 49,
+          "rank": 48,
           "alias": "target_capture_kit_target_region",
           "owner": "Sequencing",
           "domain_of": [
@@ -2893,11 +2868,11 @@
           "name": "target_capture_kit_vendor",
           "description": "Vendor of Target Capture Kit.",
           "title": "target_capture_kit_vendor",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_capture_kit_vendor"
           ],
-          "rank": 50,
+          "rank": 49,
           "alias": "target_capture_kit_vendor",
           "owner": "Sequencing",
           "domain_of": [
@@ -2910,11 +2885,11 @@
           "name": "target_capture_kit_version",
           "description": "Version of Target Capture Kit.",
           "title": "target_capture_kit_version",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_capture_kit_version"
           ],
-          "rank": 51,
+          "rank": 50,
           "alias": "target_capture_kit_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -2927,11 +2902,11 @@
           "name": "target_depletion_kit_catalog_number",
           "description": " ",
           "title": "target_depletion_kit_catalog_number",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_depletion_kit_catalog_number"
           ],
-          "rank": 52,
+          "rank": 51,
           "alias": "target_depletion_kit_catalog_number",
           "owner": "Sequencing",
           "domain_of": [
@@ -2944,11 +2919,11 @@
           "name": "target_depletion_kit_name",
           "description": " ",
           "title": "target_depletion_kit_name",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_depletion_kit_name"
           ],
-          "rank": 53,
+          "rank": 52,
           "alias": "target_depletion_kit_name",
           "owner": "Sequencing",
           "domain_of": [
@@ -2961,11 +2936,11 @@
           "name": "target_depletion_kit_target_region",
           "description": " ",
           "title": "target_depletion_kit_target_region",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_depletion_kit_target_region"
           ],
-          "rank": 54,
+          "rank": 53,
           "alias": "target_depletion_kit_target_region",
           "owner": "Sequencing",
           "domain_of": [
@@ -2978,11 +2953,11 @@
           "name": "target_depletion_kit_vendor",
           "description": " ",
           "title": "target_depletion_kit_vendor",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_depletion_kit_vendor"
           ],
-          "rank": 55,
+          "rank": 54,
           "alias": "target_depletion_kit_vendor",
           "owner": "Sequencing",
           "domain_of": [
@@ -2995,11 +2970,11 @@
           "name": "target_depletion_kit_version",
           "description": " ",
           "title": "target_depletion_kit_version",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:target_depletion_kit_version"
           ],
-          "rank": 56,
+          "rank": 55,
           "alias": "target_depletion_kit_version",
           "owner": "Sequencing",
           "domain_of": [
@@ -3012,11 +2987,11 @@
           "name": "to_trim_adapter_sequence",
           "description": "Does the user suggest adapter trimming?",
           "title": "to_trim_adapter_sequence",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "read_group:to_trim_adapter_sequence"
           ],
-          "rank": 57,
+          "rank": 56,
           "alias": "to_trim_adapter_sequence",
           "owner": "Sequencing",
           "domain_of": [
@@ -3029,7 +3004,7 @@
     },
     "Sequencing_data_analysis": {
       "name": "Sequencing_data_analysis",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "is_a": "dh_interface",
       "slot_usage": {
         "analysis.submitter_id": {
@@ -3117,7 +3092,7 @@
           "name": "analysis.submitter_id",
           "description": " ",
           "title": "analysis ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 1,
           "alias": "analysis.submitter_id",
           "owner": "Sequencing_data_analysis",
@@ -3131,7 +3106,7 @@
           "name": "aligned_reads.submitter_id",
           "description": " ",
           "title": "aligned_reads ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 2,
           "alias": "aligned_reads.submitter_id",
           "owner": "Sequencing_data_analysis",
@@ -3145,7 +3120,7 @@
           "name": "studyID",
           "description": " ",
           "title": "study ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 3,
           "alias": "studyID",
           "owner": "Sequencing_data_analysis",
@@ -3161,7 +3136,7 @@
           "name": "analysis.workflow_type",
           "description": " ",
           "title": "workflow_type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "alignment_workflow:workflow_type"
           ],
@@ -3178,7 +3153,7 @@
           "name": "analysis.workflow_link",
           "description": " ",
           "title": "workflow_link",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "alignment_workflow:workflow_link"
           ],
@@ -3195,7 +3170,7 @@
           "name": "analysis.workflow_version",
           "description": " ",
           "title": "workflow_version",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "alignment_workflow:workflow_version"
           ],
@@ -3212,7 +3187,7 @@
           "name": "analysis_file",
           "description": " ",
           "title": "analysis_file",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_reads_analyzed_data:file_name"
           ],
@@ -3230,7 +3205,7 @@
           "name": "analyzed.data_category",
           "description": " ",
           "title": "data_category",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_reads_analyzed_data:data_category"
           ],
@@ -3247,7 +3222,7 @@
           "name": "analyzed.data_format",
           "description": " ",
           "title": "data_format",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_reads_analyzed_data:data_format"
           ],
@@ -3264,7 +3239,7 @@
           "name": "analyzed.data_type",
           "description": " ",
           "title": "data_type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_reads_analyzed_data:data_type"
           ],
@@ -3281,7 +3256,7 @@
           "name": "analyzed.SRA_accession_id",
           "description": " ",
           "title": "SRA_accession_id",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aligned_reads_analyzed_data:SRA_accession_id"
           ],
@@ -3298,7 +3273,7 @@
     },
     "Aliquot": {
       "name": "Aliquot",
-      "from_schema": "https://example.com/CIMR",
+      "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
       "is_a": "dh_interface",
       "slot_usage": {
         "aliquot.submitter_id": {
@@ -3362,7 +3337,7 @@
           "name": "aliquot.submitter_id",
           "description": " ",
           "title": "aliquot ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 1,
           "alias": "aliquot.submitter_id",
           "owner": "Aliquot",
@@ -3376,7 +3351,7 @@
           "name": "sample.submitter_id",
           "description": " ",
           "title": "sample ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 2,
           "alias": "sample.submitter_id",
           "owner": "Aliquot",
@@ -3390,7 +3365,7 @@
           "name": "studyID",
           "description": " ",
           "title": "study ID",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "rank": 3,
           "alias": "studyID",
           "owner": "Aliquot",
@@ -3406,7 +3381,7 @@
           "name": "analyte_type",
           "description": " ",
           "title": "Analyte type",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aliquot:analyte_type"
           ],
@@ -3423,7 +3398,7 @@
           "name": "analyte_protocol",
           "description": " ",
           "title": "Analyte preparation protocol",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aliquot:analyte_protocol"
           ],
@@ -3440,7 +3415,7 @@
           "name": "extract_preservation_method",
           "description": "The chemical agent used for the derivatization reaction",
           "title": "extract_preservation_method",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aliquot:extract_preservation_method"
           ],
@@ -3457,7 +3432,7 @@
           "name": "a260_a280_ratio",
           "description": "Numeric value that represents the sample ratio of nucleic acid absorbance at 260 nm and 280 nm, used to determine a measure of DNA purity.",
           "title": "a260_a280_ratio",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aliquot:a260_a280_ratio"
           ],
@@ -3476,7 +3451,7 @@
           "name": "RIN",
           "description": "A numerical assessment of the integrity of RNA based on the entire electrophoretic trace of the RNA sample including the presence or absence of degradation products.",
           "title": "RIN",
-          "from_schema": "https://example.com/CIMR",
+          "from_schema": "https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE",
           "exact_mappings": [
             "aliquot:RIN"
           ],
@@ -3494,7 +3469,7 @@
       }
     }
   },
-  "source_file": "/Users/apple/ToxRSCat/templates/MINSEQE/schema.yaml",
+  "source_file": "schema.yaml",
   "settings": {
     "Title_Case": {
       "setting_key": "Title_Case",
