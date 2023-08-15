@@ -971,12 +971,12 @@ enums:
         text: Low Pass WGS
       Validation:
         text: Validation
-      RNA-Seq:
-        text: RNA-Seq
-      miRNA-Seq:
-        text: miRNA-Seq
-      Total RNA-Seq:
-        text: Total RNA-Seq
+      RNA-seq:
+        text: RNA-seq
+      miRNA-seq:
+        text: miRNA-seq
+      Total RNA-seq:
+        text: Total RNA-seq
       DNA Panel:
         text: DNA Panel
       snRNAseq:
@@ -1237,14 +1237,14 @@ enums:
         text: WGS
       WXS:
         text: WXS
-      RNA-Seq:
-        text: RNA-Seq
-      ChIP-Seq:
-        text: ChIP-Seq
-      miRNA-Seq:
-        text: miRNA-Seq
-      Bisulfite-Seq:
-        text: Bisulfite-Seq
+      RNA-seq:
+        text: RNA-seq
+      ChIP-seq:
+        text: ChIP-seq
+      miRNA-seq:
+        text: miRNA-seq
+      Bisulfite-seq:
+        text: Bisulfite-seq
       Validation:
         text: Validation
       Amplicon:
