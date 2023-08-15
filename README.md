@@ -4,7 +4,7 @@
 
 ----
 ### Table of Contents
-1. [Skip to Data Collection!](#skip-to-the-real-thing)
+1. [Skip to Data Collection!](#skip-to-the-real-thing)<br>
 	a. [Follow with scribe](google.com) 
 2. [Overview of ToxRSCat](#overview)<br>
 	a. Dependencies<br>
@@ -58,7 +58,8 @@ __Assays__
 
 - [Histology imaging](https://github.com/naultran/ToxRSCat/tree/main/templates/REMBI#readme) (REMBI: Recommended Metadata for Biological Imaging)
 - [Flow Cytometry](https://github.com/naultran/ToxRSCat/tree/main/templates/miflowcyt#readme) (MIFlowCyt: Minimum Information about Flow Cytometry Experiments)
-- [Mass Spec Metabolomics](https://github.com/naultran/ToxRSCat/tree/main/templates/ms_metabolomics#readme) (CIMR: Core Information for Metabolomics Reporting) 
+- [Mass Spec Metabolomics](https://github.com/naultran/ToxRSCat/tree/main/templates/ms_metabolomics#readme) (CIMR: Core Information for Metabolomics Reporting)
+- [Sequencing reads](https://github.com/naultran/ToxRSCat/tree/main/templates/MINSEQE#readme) (MINSEQE: Minimum Information about a Sequencing Experiment)
 
 #### 3. Collecting (meta)data
 _Instructions here - just like excel!_
