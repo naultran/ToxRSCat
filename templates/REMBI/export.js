@@ -19,6 +19,8 @@ export default {
 						["data_category", []],
 						["data_format", []],
 						["data_type", []],
+						["md5sum", []],
+						["object_id", []],
 						["file_source_repository", []],
 						["repository_accession_id", []],
 						["repository_download_ftp", []],
